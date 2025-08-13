@@ -31,7 +31,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
      */
     private Integer duration;
     /**
-     * @return Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+     * @return Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
      * 
      */
     private String frequency;
@@ -90,7 +90,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
         return this.duration;
     }
     /**
-     * @return Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+     * @return Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
      * 
      */
     public String frequency() {

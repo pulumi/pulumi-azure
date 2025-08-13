@@ -83,7 +83,7 @@ public final class RoleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -161,7 +161,7 @@ public final class RoleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -239,7 +239,7 @@ public final class RoleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -317,7 +317,7 @@ public final class RoleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -395,7 +395,7 @@ public final class RoleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -473,7 +473,7 @@ public final class RoleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
@@ -551,7 +551,7 @@ public final class RoleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      * @deprecated
      * azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition

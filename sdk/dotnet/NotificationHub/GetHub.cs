@@ -43,7 +43,7 @@ namespace Pulumi.Azure.NotificationHub
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NotificationHubs`: 2023-09-01
+        /// * `Microsoft.NotificationHubs` - 2023-09-01
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.NotificationHub
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NotificationHubs`: 2023-09-01
+        /// * `Microsoft.NotificationHubs` - 2023-09-01
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.NotificationHub
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NotificationHubs`: 2023-09-01
+        /// * `Microsoft.NotificationHubs` - 2023-09-01
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHubResult>("azure:notificationhub/getHub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());

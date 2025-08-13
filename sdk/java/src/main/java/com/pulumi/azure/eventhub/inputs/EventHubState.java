@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub.inputs;
 
 import com.pulumi.azure.eventhub.inputs.EventHubCaptureDescriptionArgs;
+import com.pulumi.azure.eventhub.inputs.EventHubRetentionDescriptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -159,6 +160,21 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `retention_description` block as defined below.
+     * 
+     */
+    @Import(name="retentionDescription")
+    private @Nullable Output<EventHubRetentionDescriptionArgs> retentionDescription;
+
+    /**
+     * @return A `retention_description` block as defined below.
+     * 
+     */
+    public Optional<Output<EventHubRetentionDescriptionArgs>> retentionDescription() {
+        return Optional.ofNullable(this.retentionDescription);
+    }
+
+    /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
      * 
      */
@@ -184,6 +200,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         this.partitionCount = $.partitionCount;
         this.partitionIds = $.partitionIds;
         this.resourceGroupName = $.resourceGroupName;
+        this.retentionDescription = $.retentionDescription;
         this.status = $.status;
     }
 
@@ -401,6 +418,27 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* `resource_group_name` has been deprecated in favour of `namespace_id` and will be removed in v5.0 of the AzureRM Provider */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param retentionDescription A `retention_description` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionDescription(@Nullable Output<EventHubRetentionDescriptionArgs> retentionDescription) {
+            $.retentionDescription = retentionDescription;
+            return this;
+        }
+
+        /**
+         * @param retentionDescription A `retention_description` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionDescription(EventHubRetentionDescriptionArgs retentionDescription) {
+            return retentionDescription(Output.of(retentionDescription));
         }
 
         /**

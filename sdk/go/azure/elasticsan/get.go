@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ElasticSan`: 2023-01-01
+// * `Microsoft.ElasticSan` - 2023-01-01
 func Get(ctx *pulumi.Context, args *GetArgs, opts ...pulumi.InvokeOption) (*GetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResult

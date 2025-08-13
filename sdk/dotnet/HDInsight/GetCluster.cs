@@ -43,7 +43,7 @@ namespace Pulumi.Azure.HDInsight
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.HDInsight`: 2021-06-01
+        /// * `Microsoft.HDInsight` - 2021-06-01
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:hdinsight/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.HDInsight
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.HDInsight`: 2021-06-01
+        /// * `Microsoft.HDInsight` - 2021-06-01
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure:hdinsight/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.HDInsight
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.HDInsight`: 2021-06-01
+        /// * `Microsoft.HDInsight` - 2021-06-01
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure:hdinsight/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

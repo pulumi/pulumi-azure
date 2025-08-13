@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Authorization`: 2022-04-01
+ * * `Microsoft.Authorization` - 2022-04-01
  */
 export function getRoleAssignments(args: GetRoleAssignmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -108,7 +108,7 @@ export interface GetRoleAssignmentsResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Authorization`: 2022-04-01
+ * * `Microsoft.Authorization` - 2022-04-01
  */
 export function getRoleAssignmentsOutput(args: GetRoleAssignmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleAssignmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

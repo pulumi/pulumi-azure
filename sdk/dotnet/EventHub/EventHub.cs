@@ -57,7 +57,7 @@ namespace Pulumi.Azure.EventHub
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.EventHub`: 2024-01-01
+    /// * `Microsoft.EventHub` - 2024-01-01
     /// 
     /// ## Import
     /// 
@@ -117,6 +117,12 @@ namespace Pulumi.Azure.EventHub
 
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A `retention_description` block as defined below.
+        /// </summary>
+        [Output("retentionDescription")]
+        public Output<Outputs.EventHubRetentionDescription> RetentionDescription { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
@@ -181,8 +187,8 @@ namespace Pulumi.Azure.EventHub
         /// 
         /// &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
         /// </summary>
-        [Input("messageRetention", required: true)]
-        public Input<int> MessageRetention { get; set; } = null!;
+        [Input("messageRetention")]
+        public Input<int>? MessageRetention { get; set; }
 
         /// <summary>
         /// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
@@ -211,6 +217,12 @@ namespace Pulumi.Azure.EventHub
 
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `retention_description` block as defined below.
+        /// </summary>
+        [Input("retentionDescription")]
+        public Input<Inputs.EventHubRetentionDescriptionArgs>? RetentionDescription { get; set; }
 
         /// <summary>
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
@@ -279,6 +291,12 @@ namespace Pulumi.Azure.EventHub
 
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `retention_description` block as defined below.
+        /// </summary>
+        [Input("retentionDescription")]
+        public Input<Inputs.EventHubRetentionDescriptionGetArgs>? RetentionDescription { get; set; }
 
         /// <summary>
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.

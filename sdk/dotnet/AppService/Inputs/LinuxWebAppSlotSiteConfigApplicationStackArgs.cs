@@ -91,7 +91,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? NodeVersion { get; set; }
 
         /// <summary>
-        /// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
+        /// The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
         /// 
         /// &gt; **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         /// </summary>

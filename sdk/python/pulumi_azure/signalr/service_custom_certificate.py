@@ -246,7 +246,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.SignalRService`: 2024-03-01
+        * `Microsoft.SignalRService` - 2024-03-01
 
         ## Import
 
@@ -350,7 +350,7 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.SignalRService`: 2024-03-01
+        * `Microsoft.SignalRService` - 2024-03-01
 
         ## Import
 

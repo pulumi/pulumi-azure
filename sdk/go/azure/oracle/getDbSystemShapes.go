@@ -30,7 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := oracle.GetDbSystemShapes(ctx, &oracle.GetDbSystemShapesArgs{
-//				Location: "West Europe",
+//				Location: "eastus",
+//				Zone:     pulumi.StringRef("2"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -47,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Oracle.Database`: 2024-06-01
+// * `Oracle.Database` - 2025-03-01
 func GetDbSystemShapes(ctx *pulumi.Context, args *GetDbSystemShapesArgs, opts ...pulumi.InvokeOption) (*GetDbSystemShapesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDbSystemShapesResult
@@ -62,6 +63,8 @@ func GetDbSystemShapes(ctx *pulumi.Context, args *GetDbSystemShapesArgs, opts ..
 type GetDbSystemShapesArgs struct {
 	// The Azure Region to query for the system shapes in.
 	Location string `pulumi:"location"`
+	// The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+	Zone *string `pulumi:"zone"`
 }
 
 // A collection of values returned by getDbSystemShapes.
@@ -69,8 +72,9 @@ type GetDbSystemShapesResult struct {
 	// A `dbSystemShapes` block as defined below.
 	DbSystemShapes []GetDbSystemShapesDbSystemShape `pulumi:"dbSystemShapes"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
-	Location string `pulumi:"location"`
+	Id       string  `pulumi:"id"`
+	Location string  `pulumi:"location"`
+	Zone     *string `pulumi:"zone"`
 }
 
 func GetDbSystemShapesOutput(ctx *pulumi.Context, args GetDbSystemShapesOutputArgs, opts ...pulumi.InvokeOption) GetDbSystemShapesResultOutput {
@@ -86,6 +90,8 @@ func GetDbSystemShapesOutput(ctx *pulumi.Context, args GetDbSystemShapesOutputAr
 type GetDbSystemShapesOutputArgs struct {
 	// The Azure Region to query for the system shapes in.
 	Location pulumi.StringInput `pulumi:"location"`
+	// The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (GetDbSystemShapesOutputArgs) ElementType() reflect.Type {
@@ -119,6 +125,10 @@ func (o GetDbSystemShapesResultOutput) Id() pulumi.StringOutput {
 
 func (o GetDbSystemShapesResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbSystemShapesResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o GetDbSystemShapesResultOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDbSystemShapesResult) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 func init() {

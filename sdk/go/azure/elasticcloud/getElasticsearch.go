@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Elastic`: 2023-06-01
+// * `Microsoft.Elastic` - 2023-06-01
 func LookupElasticsearch(ctx *pulumi.Context, args *LookupElasticsearchArgs, opts ...pulumi.InvokeOption) (*LookupElasticsearchResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupElasticsearchResult

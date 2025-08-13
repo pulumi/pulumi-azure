@@ -14,6 +14,8 @@ import (
 
 // Manages a Customer Managed Key for a PostgreSQL Server.
 //
+// > **Note:** The `postgresql.ServerKey` resource is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+//
 // ## Example Usage
 //
 // ```go
@@ -152,7 +154,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DBforPostgreSQL`: 2020-01-01
+// * `Microsoft.DBforPostgreSQL` - 2020-01-01
 //
 // ## Import
 //

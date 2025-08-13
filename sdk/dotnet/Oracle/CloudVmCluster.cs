@@ -113,6 +113,14 @@ namespace Pulumi.Azure.Oracle
     ///         Hostname = "hostname",
     ///         SubnetId = exampleSubnet.Id,
     ///         SystemVersion = "23.1.19.0.0.241015",
+    ///         FileSystemConfigurations = new[]
+    ///         {
+    ///             new Azure.Oracle.Inputs.CloudVmClusterFileSystemConfigurationArgs
+    ///             {
+    ///                 MountPoint = "/var",
+    ///                 SizeInGb = 32,
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -123,7 +131,7 @@ namespace Pulumi.Azure.Oracle
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Oracle.Database`: 2024-06-01
+    /// * `Oracle.Database` - 2025-03-01
     /// 
     /// ## Import
     /// 
@@ -201,6 +209,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
+
+        /// <summary>
+        /// A `file_system_configuration` block as defined below.
+        /// </summary>
+        [Output("fileSystemConfigurations")]
+        public Output<ImmutableArray<Outputs.CloudVmClusterFileSystemConfiguration>> FileSystemConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
@@ -296,7 +310,7 @@ namespace Pulumi.Azure.Oracle
         /// Operating system version of the Exadata image. System version must be &lt;= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
         /// </summary>
         [Output("systemVersion")]
-        public Output<string?> SystemVersion { get; private set; } = null!;
+        public Output<string> SystemVersion { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Cloud VM Cluster.
@@ -439,6 +453,18 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
+
+        [Input("fileSystemConfigurations")]
+        private InputList<Inputs.CloudVmClusterFileSystemConfigurationArgs>? _fileSystemConfigurations;
+
+        /// <summary>
+        /// A `file_system_configuration` block as defined below.
+        /// </summary>
+        public InputList<Inputs.CloudVmClusterFileSystemConfigurationArgs> FileSystemConfigurations
+        {
+            get => _fileSystemConfigurations ?? (_fileSystemConfigurations = new InputList<Inputs.CloudVmClusterFileSystemConfigurationArgs>());
+            set => _fileSystemConfigurations = value;
+        }
 
         /// <summary>
         /// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
@@ -639,6 +665,18 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
+
+        [Input("fileSystemConfigurations")]
+        private InputList<Inputs.CloudVmClusterFileSystemConfigurationGetArgs>? _fileSystemConfigurations;
+
+        /// <summary>
+        /// A `file_system_configuration` block as defined below.
+        /// </summary>
+        public InputList<Inputs.CloudVmClusterFileSystemConfigurationGetArgs> FileSystemConfigurations
+        {
+            get => _fileSystemConfigurations ?? (_fileSystemConfigurations = new InputList<Inputs.CloudVmClusterFileSystemConfigurationGetArgs>());
+            set => _fileSystemConfigurations = value;
+        }
 
         /// <summary>
         /// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.

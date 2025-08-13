@@ -2749,9 +2749,10 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			// communication
-			"azurerm_communication_service":              {Tok: azureResource(azureCommunication, "Service")},
-			"azurerm_email_communication_service":        {Tok: azureResource(azureCommunication, "EmailService")},
-			"azurerm_email_communication_service_domain": {Tok: azureResource(azureCommunication, "EmailServiceDomain")},
+			"azurerm_communication_service":                              {Tok: azureResource(azureCommunication, "Service")},
+			"azurerm_email_communication_service":                        {Tok: azureResource(azureCommunication, "EmailService")},
+			"azurerm_email_communication_service_domain":                 {Tok: azureResource(azureCommunication, "EmailServiceDomain")},
+			"azurerm_email_communication_service_domain_sender_username": {Tok: azureResource(azureCommunication, "EmailServiceDomainSenderUsername")},
 
 			// confidential ledger
 			"azurerm_confidential_ledger": {Tok: azureResource(azureConfidentialLedger, "Ledger")},
@@ -2869,7 +2870,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_windows_function_app": {Tok: azureDataSource(azureAppService, "getWindowsFunctionApp")},
 			"azurerm_windows_web_app":      {Tok: azureDataSource(azureAppService, "getWindowsWebApp")},
 
-			"azurerm_managed_api": {Tok: azureDataSource(azureConnections, "getManagedApi")},
+			"azurerm_managed_api":    {Tok: azureDataSource(azureConnections, "getManagedApi")},
+			"azurerm_api_connection": {Tok: azureDataSource(azureConnections, "getApiConnection")},
 
 			"azurerm_automation_variable_bool":     {Tok: azureDataSource(azureAutomation, "getBoolVariable")},
 			"azurerm_automation_variable_datetime": {Tok: azureDataSource(azureAutomation, "getDateTimeVariable")},

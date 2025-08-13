@@ -170,7 +170,7 @@ namespace Pulumi.Azure.ContainerService
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+    /// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
     /// 
     /// ## Import
     /// 
@@ -212,6 +212,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("dataEndpointEnabled")]
         public Output<bool?> DataEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+        /// </summary>
+        [Output("dataEndpointHostNames")]
+        public Output<ImmutableArray<string>> DataEndpointHostNames { get; private set; } = null!;
 
         /// <summary>
         /// An `encryption` block as documented below.
@@ -554,6 +560,18 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("dataEndpointEnabled")]
         public Input<bool>? DataEndpointEnabled { get; set; }
+
+        [Input("dataEndpointHostNames")]
+        private InputList<string>? _dataEndpointHostNames;
+
+        /// <summary>
+        /// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+        /// </summary>
+        public InputList<string> DataEndpointHostNames
+        {
+            get => _dataEndpointHostNames ?? (_dataEndpointHostNames = new InputList<string>());
+            set => _dataEndpointHostNames = value;
+        }
 
         /// <summary>
         /// An `encryption` block as documented below.

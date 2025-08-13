@@ -13,6 +13,184 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AutonomousDatabaseLongTermBackupSchedule struct {
+	Enabled               bool   `pulumi:"enabled"`
+	RepeatCadence         string `pulumi:"repeatCadence"`
+	RetentionPeriodInDays int    `pulumi:"retentionPeriodInDays"`
+	TimeOfBackup          string `pulumi:"timeOfBackup"`
+}
+
+// AutonomousDatabaseLongTermBackupScheduleInput is an input type that accepts AutonomousDatabaseLongTermBackupScheduleArgs and AutonomousDatabaseLongTermBackupScheduleOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseLongTermBackupScheduleInput` via:
+//
+//	AutonomousDatabaseLongTermBackupScheduleArgs{...}
+type AutonomousDatabaseLongTermBackupScheduleInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseLongTermBackupScheduleOutput() AutonomousDatabaseLongTermBackupScheduleOutput
+	ToAutonomousDatabaseLongTermBackupScheduleOutputWithContext(context.Context) AutonomousDatabaseLongTermBackupScheduleOutput
+}
+
+type AutonomousDatabaseLongTermBackupScheduleArgs struct {
+	Enabled               pulumi.BoolInput   `pulumi:"enabled"`
+	RepeatCadence         pulumi.StringInput `pulumi:"repeatCadence"`
+	RetentionPeriodInDays pulumi.IntInput    `pulumi:"retentionPeriodInDays"`
+	TimeOfBackup          pulumi.StringInput `pulumi:"timeOfBackup"`
+}
+
+func (AutonomousDatabaseLongTermBackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseLongTermBackupScheduleArgs) ToAutonomousDatabaseLongTermBackupScheduleOutput() AutonomousDatabaseLongTermBackupScheduleOutput {
+	return i.ToAutonomousDatabaseLongTermBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseLongTermBackupScheduleArgs) ToAutonomousDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseLongTermBackupScheduleOutput)
+}
+
+func (i AutonomousDatabaseLongTermBackupScheduleArgs) ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return i.ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseLongTermBackupScheduleArgs) ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseLongTermBackupScheduleOutput).ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseLongTermBackupSchedulePtrInput is an input type that accepts AutonomousDatabaseLongTermBackupScheduleArgs, AutonomousDatabaseLongTermBackupSchedulePtr and AutonomousDatabaseLongTermBackupSchedulePtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseLongTermBackupSchedulePtrInput` via:
+//
+//	        AutonomousDatabaseLongTermBackupScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseLongTermBackupSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput
+	ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput
+}
+
+type autonomousDatabaseLongTermBackupSchedulePtrType AutonomousDatabaseLongTermBackupScheduleArgs
+
+func AutonomousDatabaseLongTermBackupSchedulePtr(v *AutonomousDatabaseLongTermBackupScheduleArgs) AutonomousDatabaseLongTermBackupSchedulePtrInput {
+	return (*autonomousDatabaseLongTermBackupSchedulePtrType)(v)
+}
+
+func (*autonomousDatabaseLongTermBackupSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseLongTermBackupSchedulePtrType) ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return i.ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseLongTermBackupSchedulePtrType) ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseLongTermBackupSchedulePtrOutput)
+}
+
+type AutonomousDatabaseLongTermBackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseLongTermBackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) ToAutonomousDatabaseLongTermBackupScheduleOutput() AutonomousDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) ToAutonomousDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return o.ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseLongTermBackupSchedule) *AutonomousDatabaseLongTermBackupSchedule {
+		return &v
+	}).(AutonomousDatabaseLongTermBackupSchedulePtrOutput)
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AutonomousDatabaseLongTermBackupSchedule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) RepeatCadence() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseLongTermBackupSchedule) string { return v.RepeatCadence }).(pulumi.StringOutput)
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v AutonomousDatabaseLongTermBackupSchedule) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) TimeOfBackup() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseLongTermBackupSchedule) string { return v.TimeOfBackup }).(pulumi.StringOutput)
+}
+
+type AutonomousDatabaseLongTermBackupSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseLongTermBackupSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) Elem() AutonomousDatabaseLongTermBackupScheduleOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) AutonomousDatabaseLongTermBackupSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseLongTermBackupSchedule
+		return ret
+	}).(AutonomousDatabaseLongTermBackupScheduleOutput)
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) RepeatCadence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepeatCadence
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) TimeOfBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeOfBackup
+	}).(pulumi.StringPtrOutput)
+}
+
 type CloudVmClusterDataCollectionOptions struct {
 	// Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API. Changing this forces a new Cloud VM Cluster to be created.
 	DiagnosticsEventsEnabled *bool `pulumi:"diagnosticsEventsEnabled"`
@@ -186,6 +364,112 @@ func (o CloudVmClusterDataCollectionOptionsPtrOutput) IncidentLogsEnabled() pulu
 		}
 		return v.IncidentLogsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type CloudVmClusterFileSystemConfiguration struct {
+	// The mount path of the file system.
+	MountPoint *string `pulumi:"mountPoint"`
+	// The size of the virtual machine's file system.
+	SizeInGb *int `pulumi:"sizeInGb"`
+}
+
+// CloudVmClusterFileSystemConfigurationInput is an input type that accepts CloudVmClusterFileSystemConfigurationArgs and CloudVmClusterFileSystemConfigurationOutput values.
+// You can construct a concrete instance of `CloudVmClusterFileSystemConfigurationInput` via:
+//
+//	CloudVmClusterFileSystemConfigurationArgs{...}
+type CloudVmClusterFileSystemConfigurationInput interface {
+	pulumi.Input
+
+	ToCloudVmClusterFileSystemConfigurationOutput() CloudVmClusterFileSystemConfigurationOutput
+	ToCloudVmClusterFileSystemConfigurationOutputWithContext(context.Context) CloudVmClusterFileSystemConfigurationOutput
+}
+
+type CloudVmClusterFileSystemConfigurationArgs struct {
+	// The mount path of the file system.
+	MountPoint pulumi.StringPtrInput `pulumi:"mountPoint"`
+	// The size of the virtual machine's file system.
+	SizeInGb pulumi.IntPtrInput `pulumi:"sizeInGb"`
+}
+
+func (CloudVmClusterFileSystemConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudVmClusterFileSystemConfiguration)(nil)).Elem()
+}
+
+func (i CloudVmClusterFileSystemConfigurationArgs) ToCloudVmClusterFileSystemConfigurationOutput() CloudVmClusterFileSystemConfigurationOutput {
+	return i.ToCloudVmClusterFileSystemConfigurationOutputWithContext(context.Background())
+}
+
+func (i CloudVmClusterFileSystemConfigurationArgs) ToCloudVmClusterFileSystemConfigurationOutputWithContext(ctx context.Context) CloudVmClusterFileSystemConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudVmClusterFileSystemConfigurationOutput)
+}
+
+// CloudVmClusterFileSystemConfigurationArrayInput is an input type that accepts CloudVmClusterFileSystemConfigurationArray and CloudVmClusterFileSystemConfigurationArrayOutput values.
+// You can construct a concrete instance of `CloudVmClusterFileSystemConfigurationArrayInput` via:
+//
+//	CloudVmClusterFileSystemConfigurationArray{ CloudVmClusterFileSystemConfigurationArgs{...} }
+type CloudVmClusterFileSystemConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToCloudVmClusterFileSystemConfigurationArrayOutput() CloudVmClusterFileSystemConfigurationArrayOutput
+	ToCloudVmClusterFileSystemConfigurationArrayOutputWithContext(context.Context) CloudVmClusterFileSystemConfigurationArrayOutput
+}
+
+type CloudVmClusterFileSystemConfigurationArray []CloudVmClusterFileSystemConfigurationInput
+
+func (CloudVmClusterFileSystemConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudVmClusterFileSystemConfiguration)(nil)).Elem()
+}
+
+func (i CloudVmClusterFileSystemConfigurationArray) ToCloudVmClusterFileSystemConfigurationArrayOutput() CloudVmClusterFileSystemConfigurationArrayOutput {
+	return i.ToCloudVmClusterFileSystemConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i CloudVmClusterFileSystemConfigurationArray) ToCloudVmClusterFileSystemConfigurationArrayOutputWithContext(ctx context.Context) CloudVmClusterFileSystemConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudVmClusterFileSystemConfigurationArrayOutput)
+}
+
+type CloudVmClusterFileSystemConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CloudVmClusterFileSystemConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudVmClusterFileSystemConfiguration)(nil)).Elem()
+}
+
+func (o CloudVmClusterFileSystemConfigurationOutput) ToCloudVmClusterFileSystemConfigurationOutput() CloudVmClusterFileSystemConfigurationOutput {
+	return o
+}
+
+func (o CloudVmClusterFileSystemConfigurationOutput) ToCloudVmClusterFileSystemConfigurationOutputWithContext(ctx context.Context) CloudVmClusterFileSystemConfigurationOutput {
+	return o
+}
+
+// The mount path of the file system.
+func (o CloudVmClusterFileSystemConfigurationOutput) MountPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudVmClusterFileSystemConfiguration) *string { return v.MountPoint }).(pulumi.StringPtrOutput)
+}
+
+// The size of the virtual machine's file system.
+func (o CloudVmClusterFileSystemConfigurationOutput) SizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CloudVmClusterFileSystemConfiguration) *int { return v.SizeInGb }).(pulumi.IntPtrOutput)
+}
+
+type CloudVmClusterFileSystemConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudVmClusterFileSystemConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudVmClusterFileSystemConfiguration)(nil)).Elem()
+}
+
+func (o CloudVmClusterFileSystemConfigurationArrayOutput) ToCloudVmClusterFileSystemConfigurationArrayOutput() CloudVmClusterFileSystemConfigurationArrayOutput {
+	return o
+}
+
+func (o CloudVmClusterFileSystemConfigurationArrayOutput) ToCloudVmClusterFileSystemConfigurationArrayOutputWithContext(ctx context.Context) CloudVmClusterFileSystemConfigurationArrayOutput {
+	return o
+}
+
+func (o CloudVmClusterFileSystemConfigurationArrayOutput) Index(i pulumi.IntInput) CloudVmClusterFileSystemConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudVmClusterFileSystemConfiguration {
+		return vs[0].([]CloudVmClusterFileSystemConfiguration)[vs[1].(int)]
+	}).(CloudVmClusterFileSystemConfigurationOutput)
 }
 
 type ExadataInfrastructureMaintenanceWindow struct {
@@ -533,6 +817,130 @@ func (o GetAdbsNationalCharacterSetsCharacterSetArrayOutput) Index(i pulumi.IntI
 	}).(GetAdbsNationalCharacterSetsCharacterSetOutput)
 }
 
+type GetAutonomousDatabaseLongTermBackupSchedule struct {
+	// A boolean value that indicates if long term backup is enabled/disabled.
+	Enabled bool `pulumi:"enabled"`
+	// The frequency for automated long-term backups.
+	RepeatCadence string `pulumi:"repeatCadence"`
+	// The retention period in days for Autonomous database backup.
+	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
+	// The date and time in which the backup would be made.
+	TimeOfBackup string `pulumi:"timeOfBackup"`
+}
+
+// GetAutonomousDatabaseLongTermBackupScheduleInput is an input type that accepts GetAutonomousDatabaseLongTermBackupScheduleArgs and GetAutonomousDatabaseLongTermBackupScheduleOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseLongTermBackupScheduleInput` via:
+//
+//	GetAutonomousDatabaseLongTermBackupScheduleArgs{...}
+type GetAutonomousDatabaseLongTermBackupScheduleInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseLongTermBackupScheduleOutput() GetAutonomousDatabaseLongTermBackupScheduleOutput
+	ToGetAutonomousDatabaseLongTermBackupScheduleOutputWithContext(context.Context) GetAutonomousDatabaseLongTermBackupScheduleOutput
+}
+
+type GetAutonomousDatabaseLongTermBackupScheduleArgs struct {
+	// A boolean value that indicates if long term backup is enabled/disabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The frequency for automated long-term backups.
+	RepeatCadence pulumi.StringInput `pulumi:"repeatCadence"`
+	// The retention period in days for Autonomous database backup.
+	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
+	// The date and time in which the backup would be made.
+	TimeOfBackup pulumi.StringInput `pulumi:"timeOfBackup"`
+}
+
+func (GetAutonomousDatabaseLongTermBackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseLongTermBackupScheduleArgs) ToGetAutonomousDatabaseLongTermBackupScheduleOutput() GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return i.ToGetAutonomousDatabaseLongTermBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseLongTermBackupScheduleArgs) ToGetAutonomousDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseLongTermBackupScheduleOutput)
+}
+
+// GetAutonomousDatabaseLongTermBackupScheduleArrayInput is an input type that accepts GetAutonomousDatabaseLongTermBackupScheduleArray and GetAutonomousDatabaseLongTermBackupScheduleArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseLongTermBackupScheduleArrayInput` via:
+//
+//	GetAutonomousDatabaseLongTermBackupScheduleArray{ GetAutonomousDatabaseLongTermBackupScheduleArgs{...} }
+type GetAutonomousDatabaseLongTermBackupScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseLongTermBackupScheduleArrayOutput
+	ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutputWithContext(context.Context) GetAutonomousDatabaseLongTermBackupScheduleArrayOutput
+}
+
+type GetAutonomousDatabaseLongTermBackupScheduleArray []GetAutonomousDatabaseLongTermBackupScheduleInput
+
+func (GetAutonomousDatabaseLongTermBackupScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseLongTermBackupScheduleArray) ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseLongTermBackupScheduleArrayOutput {
+	return i.ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseLongTermBackupScheduleArray) ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseLongTermBackupScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseLongTermBackupScheduleArrayOutput)
+}
+
+type GetAutonomousDatabaseLongTermBackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseLongTermBackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) ToGetAutonomousDatabaseLongTermBackupScheduleOutput() GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) ToGetAutonomousDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+// A boolean value that indicates if long term backup is enabled/disabled.
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseLongTermBackupSchedule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The frequency for automated long-term backups.
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) RepeatCadence() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseLongTermBackupSchedule) string { return v.RepeatCadence }).(pulumi.StringOutput)
+}
+
+// The retention period in days for Autonomous database backup.
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseLongTermBackupSchedule) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+// The date and time in which the backup would be made.
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) TimeOfBackup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseLongTermBackupSchedule) string { return v.TimeOfBackup }).(pulumi.StringOutput)
+}
+
+type GetAutonomousDatabaseLongTermBackupScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseLongTermBackupScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleArrayOutput) ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseLongTermBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleArrayOutput) ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseLongTermBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseLongTermBackupSchedule {
+		return vs[0].([]GetAutonomousDatabaseLongTermBackupSchedule)[vs[1].(int)]
+	}).(GetAutonomousDatabaseLongTermBackupScheduleOutput)
+}
+
 type GetCloudVmClusterDataCollectionOption struct {
 	// Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API.
 	DiagnosticsEventsEnabled bool `pulumi:"diagnosticsEventsEnabled"`
@@ -646,6 +1054,112 @@ func (o GetCloudVmClusterDataCollectionOptionArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudVmClusterDataCollectionOption {
 		return vs[0].([]GetCloudVmClusterDataCollectionOption)[vs[1].(int)]
 	}).(GetCloudVmClusterDataCollectionOptionOutput)
+}
+
+type GetCloudVmClusterFileSystemConfiguration struct {
+	// The mount path of the file system.
+	MountPoint string `pulumi:"mountPoint"`
+	// The size of the virtual machine's file system.
+	SizeInGb int `pulumi:"sizeInGb"`
+}
+
+// GetCloudVmClusterFileSystemConfigurationInput is an input type that accepts GetCloudVmClusterFileSystemConfigurationArgs and GetCloudVmClusterFileSystemConfigurationOutput values.
+// You can construct a concrete instance of `GetCloudVmClusterFileSystemConfigurationInput` via:
+//
+//	GetCloudVmClusterFileSystemConfigurationArgs{...}
+type GetCloudVmClusterFileSystemConfigurationInput interface {
+	pulumi.Input
+
+	ToGetCloudVmClusterFileSystemConfigurationOutput() GetCloudVmClusterFileSystemConfigurationOutput
+	ToGetCloudVmClusterFileSystemConfigurationOutputWithContext(context.Context) GetCloudVmClusterFileSystemConfigurationOutput
+}
+
+type GetCloudVmClusterFileSystemConfigurationArgs struct {
+	// The mount path of the file system.
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	// The size of the virtual machine's file system.
+	SizeInGb pulumi.IntInput `pulumi:"sizeInGb"`
+}
+
+func (GetCloudVmClusterFileSystemConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudVmClusterFileSystemConfiguration)(nil)).Elem()
+}
+
+func (i GetCloudVmClusterFileSystemConfigurationArgs) ToGetCloudVmClusterFileSystemConfigurationOutput() GetCloudVmClusterFileSystemConfigurationOutput {
+	return i.ToGetCloudVmClusterFileSystemConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetCloudVmClusterFileSystemConfigurationArgs) ToGetCloudVmClusterFileSystemConfigurationOutputWithContext(ctx context.Context) GetCloudVmClusterFileSystemConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterFileSystemConfigurationOutput)
+}
+
+// GetCloudVmClusterFileSystemConfigurationArrayInput is an input type that accepts GetCloudVmClusterFileSystemConfigurationArray and GetCloudVmClusterFileSystemConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetCloudVmClusterFileSystemConfigurationArrayInput` via:
+//
+//	GetCloudVmClusterFileSystemConfigurationArray{ GetCloudVmClusterFileSystemConfigurationArgs{...} }
+type GetCloudVmClusterFileSystemConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetCloudVmClusterFileSystemConfigurationArrayOutput() GetCloudVmClusterFileSystemConfigurationArrayOutput
+	ToGetCloudVmClusterFileSystemConfigurationArrayOutputWithContext(context.Context) GetCloudVmClusterFileSystemConfigurationArrayOutput
+}
+
+type GetCloudVmClusterFileSystemConfigurationArray []GetCloudVmClusterFileSystemConfigurationInput
+
+func (GetCloudVmClusterFileSystemConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudVmClusterFileSystemConfiguration)(nil)).Elem()
+}
+
+func (i GetCloudVmClusterFileSystemConfigurationArray) ToGetCloudVmClusterFileSystemConfigurationArrayOutput() GetCloudVmClusterFileSystemConfigurationArrayOutput {
+	return i.ToGetCloudVmClusterFileSystemConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetCloudVmClusterFileSystemConfigurationArray) ToGetCloudVmClusterFileSystemConfigurationArrayOutputWithContext(ctx context.Context) GetCloudVmClusterFileSystemConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCloudVmClusterFileSystemConfigurationArrayOutput)
+}
+
+type GetCloudVmClusterFileSystemConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetCloudVmClusterFileSystemConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCloudVmClusterFileSystemConfiguration)(nil)).Elem()
+}
+
+func (o GetCloudVmClusterFileSystemConfigurationOutput) ToGetCloudVmClusterFileSystemConfigurationOutput() GetCloudVmClusterFileSystemConfigurationOutput {
+	return o
+}
+
+func (o GetCloudVmClusterFileSystemConfigurationOutput) ToGetCloudVmClusterFileSystemConfigurationOutputWithContext(ctx context.Context) GetCloudVmClusterFileSystemConfigurationOutput {
+	return o
+}
+
+// The mount path of the file system.
+func (o GetCloudVmClusterFileSystemConfigurationOutput) MountPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCloudVmClusterFileSystemConfiguration) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+// The size of the virtual machine's file system.
+func (o GetCloudVmClusterFileSystemConfigurationOutput) SizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCloudVmClusterFileSystemConfiguration) int { return v.SizeInGb }).(pulumi.IntOutput)
+}
+
+type GetCloudVmClusterFileSystemConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCloudVmClusterFileSystemConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCloudVmClusterFileSystemConfiguration)(nil)).Elem()
+}
+
+func (o GetCloudVmClusterFileSystemConfigurationArrayOutput) ToGetCloudVmClusterFileSystemConfigurationArrayOutput() GetCloudVmClusterFileSystemConfigurationArrayOutput {
+	return o
+}
+
+func (o GetCloudVmClusterFileSystemConfigurationArrayOutput) ToGetCloudVmClusterFileSystemConfigurationArrayOutputWithContext(ctx context.Context) GetCloudVmClusterFileSystemConfigurationArrayOutput {
+	return o
+}
+
+func (o GetCloudVmClusterFileSystemConfigurationArrayOutput) Index(i pulumi.IntInput) GetCloudVmClusterFileSystemConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCloudVmClusterFileSystemConfiguration {
+		return vs[0].([]GetCloudVmClusterFileSystemConfiguration)[vs[1].(int)]
+	}).(GetCloudVmClusterFileSystemConfigurationOutput)
 }
 
 type GetCloudVmClusterIormConfigCach struct {
@@ -1171,6 +1685,8 @@ type GetDbServersDbServer struct {
 	AutonomousVmClusterIds []string `pulumi:"autonomousVmClusterIds"`
 	// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
 	CompartmentId string `pulumi:"compartmentId"`
+	// The compute model of the Exadata Infrastructure.
+	ComputeModel string `pulumi:"computeModel"`
 	// The number of CPU cores enabled on the DB Server.
 	CpuCoreCount int `pulumi:"cpuCoreCount"`
 	// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Db nodes associated with the DB Server.
@@ -1221,6 +1737,8 @@ type GetDbServersDbServerArgs struct {
 	AutonomousVmClusterIds pulumi.StringArrayInput `pulumi:"autonomousVmClusterIds"`
 	// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
 	CompartmentId pulumi.StringInput `pulumi:"compartmentId"`
+	// The compute model of the Exadata Infrastructure.
+	ComputeModel pulumi.StringInput `pulumi:"computeModel"`
 	// The number of CPU cores enabled on the DB Server.
 	CpuCoreCount pulumi.IntInput `pulumi:"cpuCoreCount"`
 	// The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Db nodes associated with the DB Server.
@@ -1319,6 +1837,11 @@ func (o GetDbServersDbServerOutput) CompartmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) string { return v.CompartmentId }).(pulumi.StringOutput)
 }
 
+// The compute model of the Exadata Infrastructure.
+func (o GetDbServersDbServerOutput) ComputeModel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbServersDbServer) string { return v.ComputeModel }).(pulumi.StringOutput)
+}
+
 // The number of CPU cores enabled on the DB Server.
 func (o GetDbServersDbServerOutput) CpuCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbServersDbServer) int { return v.CpuCoreCount }).(pulumi.IntOutput)
@@ -1415,6 +1938,8 @@ func (o GetDbServersDbServerArrayOutput) Index(i pulumi.IntInput) GetDbServersDb
 }
 
 type GetDbSystemShapesDbSystemShape struct {
+	// Indicates if the shape supports database and storage server types.
+	AreServerTypesSupported bool `pulumi:"areServerTypesSupported"`
 	// The maximum number of CPU cores that can be enabled on the DB system for this shape.
 	AvailableCoreCount int `pulumi:"availableCoreCount"`
 	// The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes.
@@ -1431,8 +1956,12 @@ type GetDbSystemShapesDbSystemShape struct {
 	AvailableMemoryInGbs int `pulumi:"availableMemoryInGbs"`
 	// The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.
 	AvailableMemoryPerNodeInGbs int `pulumi:"availableMemoryPerNodeInGbs"`
+	// The compute model of the Exadata Infrastructure.
+	ComputeModel string `pulumi:"computeModel"`
 	// The discrete number by which the CPU core count for this shape can be increased or decreased.
 	CoreCountIncrement int `pulumi:"coreCountIncrement"`
+	// The display name of the shape used for the DB system.
+	DisplayName string `pulumi:"displayName"`
 	// The maximum number of compute servers available for this shape.
 	MaximumNodeCount int `pulumi:"maximumNodeCount"`
 	// The maximum number of Exadata storage servers available for the Exadata infrastructure.
@@ -1469,6 +1998,8 @@ type GetDbSystemShapesDbSystemShapeInput interface {
 }
 
 type GetDbSystemShapesDbSystemShapeArgs struct {
+	// Indicates if the shape supports database and storage server types.
+	AreServerTypesSupported pulumi.BoolInput `pulumi:"areServerTypesSupported"`
 	// The maximum number of CPU cores that can be enabled on the DB system for this shape.
 	AvailableCoreCount pulumi.IntInput `pulumi:"availableCoreCount"`
 	// The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes.
@@ -1485,8 +2016,12 @@ type GetDbSystemShapesDbSystemShapeArgs struct {
 	AvailableMemoryInGbs pulumi.IntInput `pulumi:"availableMemoryInGbs"`
 	// The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.
 	AvailableMemoryPerNodeInGbs pulumi.IntInput `pulumi:"availableMemoryPerNodeInGbs"`
+	// The compute model of the Exadata Infrastructure.
+	ComputeModel pulumi.StringInput `pulumi:"computeModel"`
 	// The discrete number by which the CPU core count for this shape can be increased or decreased.
 	CoreCountIncrement pulumi.IntInput `pulumi:"coreCountIncrement"`
+	// The display name of the shape used for the DB system.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The maximum number of compute servers available for this shape.
 	MaximumNodeCount pulumi.IntInput `pulumi:"maximumNodeCount"`
 	// The maximum number of Exadata storage servers available for the Exadata infrastructure.
@@ -1562,6 +2097,11 @@ func (o GetDbSystemShapesDbSystemShapeOutput) ToGetDbSystemShapesDbSystemShapeOu
 	return o
 }
 
+// Indicates if the shape supports database and storage server types.
+func (o GetDbSystemShapesDbSystemShapeOutput) AreServerTypesSupported() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) bool { return v.AreServerTypesSupported }).(pulumi.BoolOutput)
+}
+
 // The maximum number of CPU cores that can be enabled on the DB system for this shape.
 func (o GetDbSystemShapesDbSystemShapeOutput) AvailableCoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableCoreCount }).(pulumi.IntOutput)
@@ -1602,9 +2142,19 @@ func (o GetDbSystemShapesDbSystemShapeOutput) AvailableMemoryPerNodeInGbs() pulu
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.AvailableMemoryPerNodeInGbs }).(pulumi.IntOutput)
 }
 
+// The compute model of the Exadata Infrastructure.
+func (o GetDbSystemShapesDbSystemShapeOutput) ComputeModel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.ComputeModel }).(pulumi.StringOutput)
+}
+
 // The discrete number by which the CPU core count for this shape can be increased or decreased.
 func (o GetDbSystemShapesDbSystemShapeOutput) CoreCountIncrement() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) int { return v.CoreCountIncrement }).(pulumi.IntOutput)
+}
+
+// The display name of the shape used for the DB system.
+func (o GetDbSystemShapesDbSystemShapeOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDbSystemShapesDbSystemShape) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // The maximum number of compute servers available for this shape.
@@ -1680,6 +2230,130 @@ func (o GetDbSystemShapesDbSystemShapeArrayOutput) Index(i pulumi.IntInput) GetD
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDbSystemShapesDbSystemShape {
 		return vs[0].([]GetDbSystemShapesDbSystemShape)[vs[1].(int)]
 	}).(GetDbSystemShapesDbSystemShapeOutput)
+}
+
+type GetExadataInfrastructureDefinedFileSystemConfiguration struct {
+	// Whether the backup partition is enabled.
+	BackupPartitionEnabled bool `pulumi:"backupPartitionEnabled"`
+	// The minimum size of the file system in GB.
+	MinimumSizeInGb int `pulumi:"minimumSizeInGb"`
+	// Mount path for the file system.
+	MountPoint string `pulumi:"mountPoint"`
+	// Whether the resizable is enabled.
+	ResizableEnabled bool `pulumi:"resizableEnabled"`
+}
+
+// GetExadataInfrastructureDefinedFileSystemConfigurationInput is an input type that accepts GetExadataInfrastructureDefinedFileSystemConfigurationArgs and GetExadataInfrastructureDefinedFileSystemConfigurationOutput values.
+// You can construct a concrete instance of `GetExadataInfrastructureDefinedFileSystemConfigurationInput` via:
+//
+//	GetExadataInfrastructureDefinedFileSystemConfigurationArgs{...}
+type GetExadataInfrastructureDefinedFileSystemConfigurationInput interface {
+	pulumi.Input
+
+	ToGetExadataInfrastructureDefinedFileSystemConfigurationOutput() GetExadataInfrastructureDefinedFileSystemConfigurationOutput
+	ToGetExadataInfrastructureDefinedFileSystemConfigurationOutputWithContext(context.Context) GetExadataInfrastructureDefinedFileSystemConfigurationOutput
+}
+
+type GetExadataInfrastructureDefinedFileSystemConfigurationArgs struct {
+	// Whether the backup partition is enabled.
+	BackupPartitionEnabled pulumi.BoolInput `pulumi:"backupPartitionEnabled"`
+	// The minimum size of the file system in GB.
+	MinimumSizeInGb pulumi.IntInput `pulumi:"minimumSizeInGb"`
+	// Mount path for the file system.
+	MountPoint pulumi.StringInput `pulumi:"mountPoint"`
+	// Whether the resizable is enabled.
+	ResizableEnabled pulumi.BoolInput `pulumi:"resizableEnabled"`
+}
+
+func (GetExadataInfrastructureDefinedFileSystemConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExadataInfrastructureDefinedFileSystemConfiguration)(nil)).Elem()
+}
+
+func (i GetExadataInfrastructureDefinedFileSystemConfigurationArgs) ToGetExadataInfrastructureDefinedFileSystemConfigurationOutput() GetExadataInfrastructureDefinedFileSystemConfigurationOutput {
+	return i.ToGetExadataInfrastructureDefinedFileSystemConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetExadataInfrastructureDefinedFileSystemConfigurationArgs) ToGetExadataInfrastructureDefinedFileSystemConfigurationOutputWithContext(ctx context.Context) GetExadataInfrastructureDefinedFileSystemConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExadataInfrastructureDefinedFileSystemConfigurationOutput)
+}
+
+// GetExadataInfrastructureDefinedFileSystemConfigurationArrayInput is an input type that accepts GetExadataInfrastructureDefinedFileSystemConfigurationArray and GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetExadataInfrastructureDefinedFileSystemConfigurationArrayInput` via:
+//
+//	GetExadataInfrastructureDefinedFileSystemConfigurationArray{ GetExadataInfrastructureDefinedFileSystemConfigurationArgs{...} }
+type GetExadataInfrastructureDefinedFileSystemConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput() GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput
+	ToGetExadataInfrastructureDefinedFileSystemConfigurationArrayOutputWithContext(context.Context) GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput
+}
+
+type GetExadataInfrastructureDefinedFileSystemConfigurationArray []GetExadataInfrastructureDefinedFileSystemConfigurationInput
+
+func (GetExadataInfrastructureDefinedFileSystemConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExadataInfrastructureDefinedFileSystemConfiguration)(nil)).Elem()
+}
+
+func (i GetExadataInfrastructureDefinedFileSystemConfigurationArray) ToGetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput() GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput {
+	return i.ToGetExadataInfrastructureDefinedFileSystemConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetExadataInfrastructureDefinedFileSystemConfigurationArray) ToGetExadataInfrastructureDefinedFileSystemConfigurationArrayOutputWithContext(ctx context.Context) GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput)
+}
+
+type GetExadataInfrastructureDefinedFileSystemConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetExadataInfrastructureDefinedFileSystemConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExadataInfrastructureDefinedFileSystemConfiguration)(nil)).Elem()
+}
+
+func (o GetExadataInfrastructureDefinedFileSystemConfigurationOutput) ToGetExadataInfrastructureDefinedFileSystemConfigurationOutput() GetExadataInfrastructureDefinedFileSystemConfigurationOutput {
+	return o
+}
+
+func (o GetExadataInfrastructureDefinedFileSystemConfigurationOutput) ToGetExadataInfrastructureDefinedFileSystemConfigurationOutputWithContext(ctx context.Context) GetExadataInfrastructureDefinedFileSystemConfigurationOutput {
+	return o
+}
+
+// Whether the backup partition is enabled.
+func (o GetExadataInfrastructureDefinedFileSystemConfigurationOutput) BackupPartitionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetExadataInfrastructureDefinedFileSystemConfiguration) bool { return v.BackupPartitionEnabled }).(pulumi.BoolOutput)
+}
+
+// The minimum size of the file system in GB.
+func (o GetExadataInfrastructureDefinedFileSystemConfigurationOutput) MinimumSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetExadataInfrastructureDefinedFileSystemConfiguration) int { return v.MinimumSizeInGb }).(pulumi.IntOutput)
+}
+
+// Mount path for the file system.
+func (o GetExadataInfrastructureDefinedFileSystemConfigurationOutput) MountPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExadataInfrastructureDefinedFileSystemConfiguration) string { return v.MountPoint }).(pulumi.StringOutput)
+}
+
+// Whether the resizable is enabled.
+func (o GetExadataInfrastructureDefinedFileSystemConfigurationOutput) ResizableEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetExadataInfrastructureDefinedFileSystemConfiguration) bool { return v.ResizableEnabled }).(pulumi.BoolOutput)
+}
+
+type GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExadataInfrastructureDefinedFileSystemConfiguration)(nil)).Elem()
+}
+
+func (o GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput) ToGetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput() GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput {
+	return o
+}
+
+func (o GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput) ToGetExadataInfrastructureDefinedFileSystemConfigurationArrayOutputWithContext(ctx context.Context) GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput {
+	return o
+}
+
+func (o GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput) Index(i pulumi.IntInput) GetExadataInfrastructureDefinedFileSystemConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExadataInfrastructureDefinedFileSystemConfiguration {
+		return vs[0].([]GetExadataInfrastructureDefinedFileSystemConfiguration)[vs[1].(int)]
+	}).(GetExadataInfrastructureDefinedFileSystemConfigurationOutput)
 }
 
 type GetExadataInfrastructureEstimatedPatchingTime struct {
@@ -1984,16 +2658,24 @@ func (o GetExadataInfrastructureMaintenanceWindowArrayOutput) Index(i pulumi.Int
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseLongTermBackupScheduleInput)(nil)).Elem(), AutonomousDatabaseLongTermBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseLongTermBackupSchedulePtrInput)(nil)).Elem(), AutonomousDatabaseLongTermBackupScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterDataCollectionOptionsInput)(nil)).Elem(), CloudVmClusterDataCollectionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterDataCollectionOptionsPtrInput)(nil)).Elem(), CloudVmClusterDataCollectionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterFileSystemConfigurationInput)(nil)).Elem(), CloudVmClusterFileSystemConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterFileSystemConfigurationArrayInput)(nil)).Elem(), CloudVmClusterFileSystemConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExadataInfrastructureMaintenanceWindowInput)(nil)).Elem(), ExadataInfrastructureMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExadataInfrastructureMaintenanceWindowArrayInput)(nil)).Elem(), ExadataInfrastructureMaintenanceWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsCharacterSetsCharacterSetInput)(nil)).Elem(), GetAdbsCharacterSetsCharacterSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsCharacterSetsCharacterSetArrayInput)(nil)).Elem(), GetAdbsCharacterSetsCharacterSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSetInput)(nil)).Elem(), GetAdbsNationalCharacterSetsCharacterSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAdbsNationalCharacterSetsCharacterSetArrayInput)(nil)).Elem(), GetAdbsNationalCharacterSetsCharacterSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupScheduleInput)(nil)).Elem(), GetAutonomousDatabaseLongTermBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupScheduleArrayInput)(nil)).Elem(), GetAutonomousDatabaseLongTermBackupScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterDataCollectionOptionInput)(nil)).Elem(), GetCloudVmClusterDataCollectionOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterDataCollectionOptionArrayInput)(nil)).Elem(), GetCloudVmClusterDataCollectionOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterFileSystemConfigurationInput)(nil)).Elem(), GetCloudVmClusterFileSystemConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterFileSystemConfigurationArrayInput)(nil)).Elem(), GetCloudVmClusterFileSystemConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachArrayInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudVmClusterIormConfigCachDbPlanInput)(nil)).Elem(), GetCloudVmClusterIormConfigCachDbPlanArgs{})
@@ -2004,20 +2686,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbServersDbServerArrayInput)(nil)).Elem(), GetDbServersDbServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbSystemShapesDbSystemShapeInput)(nil)).Elem(), GetDbSystemShapesDbSystemShapeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDbSystemShapesDbSystemShapeArrayInput)(nil)).Elem(), GetDbSystemShapesDbSystemShapeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureDefinedFileSystemConfigurationInput)(nil)).Elem(), GetExadataInfrastructureDefinedFileSystemConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureDefinedFileSystemConfigurationArrayInput)(nil)).Elem(), GetExadataInfrastructureDefinedFileSystemConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureEstimatedPatchingTimeInput)(nil)).Elem(), GetExadataInfrastructureEstimatedPatchingTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureEstimatedPatchingTimeArrayInput)(nil)).Elem(), GetExadataInfrastructureEstimatedPatchingTimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureMaintenanceWindowInput)(nil)).Elem(), GetExadataInfrastructureMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExadataInfrastructureMaintenanceWindowArrayInput)(nil)).Elem(), GetExadataInfrastructureMaintenanceWindowArray{})
+	pulumi.RegisterOutputType(AutonomousDatabaseLongTermBackupScheduleOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseLongTermBackupSchedulePtrOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterDataCollectionOptionsOutput{})
 	pulumi.RegisterOutputType(CloudVmClusterDataCollectionOptionsPtrOutput{})
+	pulumi.RegisterOutputType(CloudVmClusterFileSystemConfigurationOutput{})
+	pulumi.RegisterOutputType(CloudVmClusterFileSystemConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ExadataInfrastructureMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(ExadataInfrastructureMaintenanceWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetAdbsCharacterSetsCharacterSetOutput{})
 	pulumi.RegisterOutputType(GetAdbsCharacterSetsCharacterSetArrayOutput{})
 	pulumi.RegisterOutputType(GetAdbsNationalCharacterSetsCharacterSetOutput{})
 	pulumi.RegisterOutputType(GetAdbsNationalCharacterSetsCharacterSetArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseLongTermBackupScheduleOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseLongTermBackupScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterDataCollectionOptionOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterDataCollectionOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetCloudVmClusterFileSystemConfigurationOutput{})
+	pulumi.RegisterOutputType(GetCloudVmClusterFileSystemConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudVmClusterIormConfigCachDbPlanOutput{})
@@ -2028,6 +2720,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDbServersDbServerArrayOutput{})
 	pulumi.RegisterOutputType(GetDbSystemShapesDbSystemShapeOutput{})
 	pulumi.RegisterOutputType(GetDbSystemShapesDbSystemShapeArrayOutput{})
+	pulumi.RegisterOutputType(GetExadataInfrastructureDefinedFileSystemConfigurationOutput{})
+	pulumi.RegisterOutputType(GetExadataInfrastructureDefinedFileSystemConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetExadataInfrastructureEstimatedPatchingTimeOutput{})
 	pulumi.RegisterOutputType(GetExadataInfrastructureEstimatedPatchingTimeArrayOutput{})
 	pulumi.RegisterOutputType(GetExadataInfrastructureMaintenanceWindowOutput{})

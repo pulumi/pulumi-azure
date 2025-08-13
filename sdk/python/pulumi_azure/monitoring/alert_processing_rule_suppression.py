@@ -360,7 +360,7 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.AlertsManagement`: 2021-08-08
+        * `Microsoft.AlertsManagement` - 2021-08-08
 
         ## Import
 
@@ -444,7 +444,7 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.AlertsManagement`: 2021-08-08
+        * `Microsoft.AlertsManagement` - 2021-08-08
 
         ## Import
 

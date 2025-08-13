@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Kusto
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Kusto`: 2024-04-13
+        /// * `Microsoft.Kusto` - 2024-04-13
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Kusto
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Kusto`: 2024-04-13
+        /// * `Microsoft.Kusto` - 2024-04-13
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Kusto
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Kusto`: 2024-04-13
+        /// * `Microsoft.Kusto` - 2024-04-13
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure:kusto/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

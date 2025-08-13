@@ -7,6 +7,7 @@ import com.pulumi.azure.devcenter.inputs.DevCenterIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -64,6 +65,21 @@ public final class DevCenterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+     * 
+     */
+    @Import(name="projectCatalogItemSyncEnabled")
+    private @Nullable Output<Boolean> projectCatalogItemSyncEnabled;
+
+    /**
+     * @return Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> projectCatalogItemSyncEnabled() {
+        return Optional.ofNullable(this.projectCatalogItemSyncEnabled);
+    }
+
+    /**
      * Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
      * 
      */
@@ -99,6 +115,7 @@ public final class DevCenterArgs extends com.pulumi.resources.ResourceArgs {
         this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
+        this.projectCatalogItemSyncEnabled = $.projectCatalogItemSyncEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
     }
@@ -182,6 +199,27 @@ public final class DevCenterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param projectCatalogItemSyncEnabled Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectCatalogItemSyncEnabled(@Nullable Output<Boolean> projectCatalogItemSyncEnabled) {
+            $.projectCatalogItemSyncEnabled = projectCatalogItemSyncEnabled;
+            return this;
+        }
+
+        /**
+         * @param projectCatalogItemSyncEnabled Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder projectCatalogItemSyncEnabled(Boolean projectCatalogItemSyncEnabled) {
+            return projectCatalogItemSyncEnabled(Output.of(projectCatalogItemSyncEnabled));
         }
 
         /**

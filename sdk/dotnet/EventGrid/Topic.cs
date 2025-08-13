@@ -12,7 +12,7 @@ namespace Pulumi.Azure.EventGrid
     /// <summary>
     /// Manages an EventGrid Topic
     /// 
-    /// &gt; **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+    /// &gt; **Note:** at this time EventGrid Topics are only available in a limited number of regions.
     /// 
     /// ## Example Usage
     /// 
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.EventGrid
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.EventGrid`: 2022-06-15
+    /// * `Microsoft.EventGrid` - 2022-06-15
     /// 
     /// ## Import
     /// 

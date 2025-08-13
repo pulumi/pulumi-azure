@@ -236,7 +236,7 @@ class Cluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.AVS`: 2022-05-01
+        * `Microsoft.AVS` - 2022-05-01
 
         ## Import
 
@@ -295,7 +295,7 @@ class Cluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.AVS`: 2022-05-01
+        * `Microsoft.AVS` - 2022-05-01
 
         ## Import
 

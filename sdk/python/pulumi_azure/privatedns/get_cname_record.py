@@ -156,7 +156,7 @@ def get_cname_record(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-06-01
+    * `Microsoft.Network` - 2024-06-01
 
 
     :param _builtins.str name: The name of the Private DNS CNAME Record.
@@ -203,7 +203,7 @@ def get_cname_record_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-06-01
+    * `Microsoft.Network` - 2024-06-01
 
 
     :param _builtins.str name: The name of the Private DNS CNAME Record.

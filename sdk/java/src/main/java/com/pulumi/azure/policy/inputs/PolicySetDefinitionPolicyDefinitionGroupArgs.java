@@ -17,14 +17,14 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
     public static final PolicySetDefinitionPolicyDefinitionGroupArgs Empty = new PolicySetDefinitionPolicyDefinitionGroupArgs();
 
     /**
-     * The ID of a resource that contains additional metadata about this policy definition group.
+     * The ID of a resource that contains additional metadata for this Policy Definition Group.
      * 
      */
     @Import(name="additionalMetadataResourceId")
     private @Nullable Output<String> additionalMetadataResourceId;
 
     /**
-     * @return The ID of a resource that contains additional metadata about this policy definition group.
+     * @return The ID of a resource that contains additional metadata for this Policy Definition Group.
      * 
      */
     public Optional<Output<String>> additionalMetadataResourceId() {
@@ -32,14 +32,14 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
     }
 
     /**
-     * The category of this policy definition group.
+     * The category of this Policy Definition Group.
      * 
      */
     @Import(name="category")
     private @Nullable Output<String> category;
 
     /**
-     * @return The category of this policy definition group.
+     * @return The category of this Policy Definition Group.
      * 
      */
     public Optional<Output<String>> category() {
@@ -47,14 +47,14 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
     }
 
     /**
-     * The description of this policy definition group.
+     * The description of this Policy Definition Group.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of this policy definition group.
+     * @return The description of this Policy Definition Group.
      * 
      */
     public Optional<Output<String>> description() {
@@ -62,14 +62,14 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
     }
 
     /**
-     * The display name of this policy definition group.
+     * The display name of this Policy Definition Group.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The display name of this policy definition group.
+     * @return The display name of this Policy Definition Group.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -77,14 +77,14 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
     }
 
     /**
-     * The name of this policy definition group.
+     * The name which should be used for this Policy Definition Group.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of this policy definition group.
+     * @return The name which should be used for this Policy Definition Group.
      * 
      */
     public Output<String> name() {
@@ -120,7 +120,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param additionalMetadataResourceId The ID of a resource that contains additional metadata about this policy definition group.
+         * @param additionalMetadataResourceId The ID of a resource that contains additional metadata for this Policy Definition Group.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param additionalMetadataResourceId The ID of a resource that contains additional metadata about this policy definition group.
+         * @param additionalMetadataResourceId The ID of a resource that contains additional metadata for this Policy Definition Group.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param category The category of this policy definition group.
+         * @param category The category of this Policy Definition Group.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param category The category of this policy definition group.
+         * @param category The category of this Policy Definition Group.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param description The description of this policy definition group.
+         * @param description The description of this Policy Definition Group.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param description The description of this policy definition group.
+         * @param description The description of this Policy Definition Group.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param displayName The display name of this policy definition group.
+         * @param displayName The display name of this Policy Definition Group.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param displayName The display name of this policy definition group.
+         * @param displayName The display name of this Policy Definition Group.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param name The name of this policy definition group.
+         * @param name The name which should be used for this Policy Definition Group.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class PolicySetDefinitionPolicyDefinitionGroupArgs extends com.pulu
         }
 
         /**
-         * @param name The name of this policy definition group.
+         * @param name The name which should be used for this Policy Definition Group.
          * 
          * @return builder
          * 

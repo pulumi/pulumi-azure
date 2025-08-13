@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Graph
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.GraphServices`: 2023-04-13
+    /// * `Microsoft.GraphServices` - 2023-04-13
     /// 
     /// ## Import
     /// 

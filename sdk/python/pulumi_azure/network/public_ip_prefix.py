@@ -20,6 +20,7 @@ __all__ = ['PublicIpPrefixArgs', 'PublicIpPrefix']
 class PublicIpPrefixArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
+                 custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -31,6 +32,9 @@ class PublicIpPrefixArgs:
         """
         The set of arguments for constructing a PublicIpPrefix resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+               
+               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -47,6 +51,8 @@ class PublicIpPrefixArgs:
                > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if custom_ip_prefix_id is not None:
+            pulumi.set(__self__, "custom_ip_prefix_id", custom_ip_prefix_id)
         if ip_version is not None:
             pulumi.set(__self__, "ip_version", ip_version)
         if location is not None:
@@ -75,6 +81,20 @@ class PublicIpPrefixArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customIpPrefixId")
+    def custom_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+
+        > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+        """
+        return pulumi.get(self, "custom_ip_prefix_id")
+
+    @custom_ip_prefix_id.setter
+    def custom_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipVersion")
@@ -182,6 +202,7 @@ class PublicIpPrefixArgs:
 @pulumi.input_type
 class _PublicIpPrefixState:
     def __init__(__self__, *,
+                 custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -194,6 +215,9 @@ class _PublicIpPrefixState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering PublicIpPrefix resources.
+        :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+               
+               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         :param pulumi.Input[_builtins.str] ip_prefix: The IP address prefix value that was allocated.
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -211,6 +235,8 @@ class _PublicIpPrefixState:
                
                > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
+        if custom_ip_prefix_id is not None:
+            pulumi.set(__self__, "custom_ip_prefix_id", custom_ip_prefix_id)
         if ip_prefix is not None:
             pulumi.set(__self__, "ip_prefix", ip_prefix)
         if ip_version is not None:
@@ -231,6 +257,20 @@ class _PublicIpPrefixState:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="customIpPrefixId")
+    def custom_ip_prefix_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+
+        > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+        """
+        return pulumi.get(self, "custom_ip_prefix_id")
+
+    @custom_ip_prefix_id.setter
+    def custom_ip_prefix_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_ip_prefix_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipPrefix")
@@ -365,6 +405,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -402,7 +443,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 
@@ -414,6 +455,9 @@ class PublicIpPrefix(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+               
+               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
@@ -463,7 +507,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 
@@ -488,6 +532,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -506,6 +551,7 @@ class PublicIpPrefix(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PublicIpPrefixArgs.__new__(PublicIpPrefixArgs)
 
+            __props__.__dict__["custom_ip_prefix_id"] = custom_ip_prefix_id
             __props__.__dict__["ip_version"] = ip_version
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -528,6 +574,7 @@ class PublicIpPrefix(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            custom_ip_prefix_id: Optional[pulumi.Input[_builtins.str]] = None,
             ip_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             ip_version: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
@@ -545,6 +592,9 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] custom_ip_prefix_id: The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+               
+               > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
         :param pulumi.Input[_builtins.str] ip_prefix: The IP address prefix value that was allocated.
         :param pulumi.Input[_builtins.str] ip_version: The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -566,6 +616,7 @@ class PublicIpPrefix(pulumi.CustomResource):
 
         __props__ = _PublicIpPrefixState.__new__(_PublicIpPrefixState)
 
+        __props__.__dict__["custom_ip_prefix_id"] = custom_ip_prefix_id
         __props__.__dict__["ip_prefix"] = ip_prefix
         __props__.__dict__["ip_version"] = ip_version
         __props__.__dict__["location"] = location
@@ -577,6 +628,16 @@ class PublicIpPrefix(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["zones"] = zones
         return PublicIpPrefix(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="customIpPrefixId")
+    def custom_ip_prefix_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+
+        > **Note:** When `ip_version` is set to `IPv6`, `custom_ip_prefix_id` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+        """
+        return pulumi.get(self, "custom_ip_prefix_id")
 
     @_builtins.property
     @pulumi.getter(name="ipPrefix")

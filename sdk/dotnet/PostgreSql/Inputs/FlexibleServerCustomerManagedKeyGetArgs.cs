@@ -13,7 +13,7 @@ namespace Pulumi.Azure.PostgreSql.Inputs
     public sealed class FlexibleServerCustomerManagedKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The versioned ID of the geo backup Key Vault Key.
+        /// The versioned/versionless ID of the geo backup Key Vault Key.
         /// 
         /// &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
         /// </summary>

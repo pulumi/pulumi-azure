@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.MobileNetwork`: 2022-11-01
+ * * `Microsoft.MobileNetwork` - 2022-11-01
  */
 export function getNetworkPacketCoreControlPlane(args: GetNetworkPacketCoreControlPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPacketCoreControlPlaneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -132,7 +132,7 @@ export interface GetNetworkPacketCoreControlPlaneResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.MobileNetwork`: 2022-11-01
+ * * `Microsoft.MobileNetwork` - 2022-11-01
  */
 export function getNetworkPacketCoreControlPlaneOutput(args: GetNetworkPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkPacketCoreControlPlaneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

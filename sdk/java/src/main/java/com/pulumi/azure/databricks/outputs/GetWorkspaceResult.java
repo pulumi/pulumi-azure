@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.databricks.outputs;
 
+import com.pulumi.azure.databricks.outputs.GetWorkspaceCustomParameter;
 import com.pulumi.azure.databricks.outputs.GetWorkspaceEnhancedSecurityCompliance;
 import com.pulumi.azure.databricks.outputs.GetWorkspaceManagedDiskIdentity;
 import com.pulumi.azure.databricks.outputs.GetWorkspaceStorageAccountIdentity;
@@ -16,6 +17,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetWorkspaceResult {
+    /**
+     * @return A `custom_parameters` block as documented below.
+     * *
+     * 
+     */
+    private List<GetWorkspaceCustomParameter> customParameters;
     /**
      * @return An `enhanced_security_compliance` block as documented below.
      * 
@@ -65,6 +72,14 @@ public final class GetWorkspaceResult {
     private String workspaceUrl;
 
     private GetWorkspaceResult() {}
+    /**
+     * @return A `custom_parameters` block as documented below.
+     * *
+     * 
+     */
+    public List<GetWorkspaceCustomParameter> customParameters() {
+        return this.customParameters;
+    }
     /**
      * @return An `enhanced_security_compliance` block as documented below.
      * 
@@ -144,6 +159,7 @@ public final class GetWorkspaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetWorkspaceCustomParameter> customParameters;
         private List<GetWorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliances;
         private String id;
         private String location;
@@ -158,6 +174,7 @@ public final class GetWorkspaceResult {
         public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customParameters = defaults.customParameters;
     	      this.enhancedSecurityCompliances = defaults.enhancedSecurityCompliances;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
@@ -171,6 +188,17 @@ public final class GetWorkspaceResult {
     	      this.workspaceUrl = defaults.workspaceUrl;
         }
 
+        @CustomType.Setter
+        public Builder customParameters(List<GetWorkspaceCustomParameter> customParameters) {
+            if (customParameters == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "customParameters");
+            }
+            this.customParameters = customParameters;
+            return this;
+        }
+        public Builder customParameters(GetWorkspaceCustomParameter... customParameters) {
+            return customParameters(List.of(customParameters));
+        }
         @CustomType.Setter
         public Builder enhancedSecurityCompliances(List<GetWorkspaceEnhancedSecurityCompliance> enhancedSecurityCompliances) {
             if (enhancedSecurityCompliances == null) {
@@ -268,6 +296,7 @@ public final class GetWorkspaceResult {
         }
         public GetWorkspaceResult build() {
             final var _resultValue = new GetWorkspaceResult();
+            _resultValue.customParameters = customParameters;
             _resultValue.enhancedSecurityCompliances = enhancedSecurityCompliances;
             _resultValue.id = id;
             _resultValue.location = location;

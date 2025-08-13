@@ -316,7 +316,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DeviceUpdate`: 2022-10-01
+        * `Microsoft.DeviceUpdate` - 2022-10-01
 
         ## Import
 
@@ -371,7 +371,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DeviceUpdate`: 2022-10-01
+        * `Microsoft.DeviceUpdate` - 2022-10-01
 
         ## Import
 

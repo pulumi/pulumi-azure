@@ -89,7 +89,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args) {
@@ -139,7 +139,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args) {
@@ -189,7 +189,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOptions options) {
@@ -239,7 +239,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOutputOptions options) {
@@ -289,7 +289,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args, InvokeOptions options) {
@@ -339,7 +339,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args) {
@@ -389,7 +389,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args) {
@@ -439,7 +439,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOptions options) {
@@ -489,7 +489,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOutputOptions options) {
@@ -539,7 +539,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args, InvokeOptions options) {
@@ -589,7 +589,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetCAARecordResult> getCAARecord(GetCAARecordArgs args) {
@@ -639,7 +639,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetCAARecordResult> getCAARecordPlain(GetCAARecordPlainArgs args) {
@@ -689,7 +689,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetCAARecordResult> getCAARecord(GetCAARecordArgs args, InvokeOptions options) {
@@ -739,7 +739,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetCAARecordResult> getCAARecord(GetCAARecordArgs args, InvokeOutputOptions options) {
@@ -789,7 +789,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetCAARecordResult> getCAARecordPlain(GetCAARecordPlainArgs args, InvokeOptions options) {
@@ -839,7 +839,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args) {
@@ -889,7 +889,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args) {
@@ -939,7 +939,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOptions options) {
@@ -989,7 +989,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOutputOptions options) {
@@ -1039,7 +1039,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args, InvokeOptions options) {
@@ -1089,7 +1089,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args) {
@@ -1139,7 +1139,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args) {
@@ -1189,7 +1189,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOptions options) {
@@ -1239,7 +1239,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOutputOptions options) {
@@ -1289,7 +1289,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args, InvokeOptions options) {
@@ -1339,7 +1339,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetNsRecordResult> getNsRecord(GetNsRecordArgs args) {
@@ -1389,7 +1389,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetNsRecordResult> getNsRecordPlain(GetNsRecordPlainArgs args) {
@@ -1439,7 +1439,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetNsRecordResult> getNsRecord(GetNsRecordArgs args, InvokeOptions options) {
@@ -1489,7 +1489,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetNsRecordResult> getNsRecord(GetNsRecordArgs args, InvokeOutputOptions options) {
@@ -1539,7 +1539,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetNsRecordResult> getNsRecordPlain(GetNsRecordPlainArgs args, InvokeOptions options) {
@@ -1589,7 +1589,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args) {
@@ -1639,7 +1639,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args) {
@@ -1689,7 +1689,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOptions options) {
@@ -1739,7 +1739,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOutputOptions options) {
@@ -1789,7 +1789,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args, InvokeOptions options) {
@@ -1838,7 +1838,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args) {
@@ -1887,7 +1887,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args) {
@@ -1936,7 +1936,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOptions options) {
@@ -1985,7 +1985,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOutputOptions options) {
@@ -2034,7 +2034,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args, InvokeOptions options) {
@@ -2084,7 +2084,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args) {
@@ -2134,7 +2134,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args) {
@@ -2184,7 +2184,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOptions options) {
@@ -2234,7 +2234,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOutputOptions options) {
@@ -2284,7 +2284,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args, InvokeOptions options) {
@@ -2334,7 +2334,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args) {
@@ -2384,7 +2384,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args) {
@@ -2434,7 +2434,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOptions options) {
@@ -2484,7 +2484,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOutputOptions options) {
@@ -2534,7 +2534,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args, InvokeOptions options) {
@@ -2585,7 +2585,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args) {
@@ -2636,7 +2636,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args) {
@@ -2687,7 +2687,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
@@ -2738,7 +2738,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOutputOptions options) {
@@ -2789,7 +2789,7 @@ public final class DnsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2018-05-01
+     * * `Microsoft.Network` - 2018-05-01
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args, InvokeOptions options) {

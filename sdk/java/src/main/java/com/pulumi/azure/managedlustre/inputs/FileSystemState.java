@@ -7,6 +7,7 @@ import com.pulumi.azure.managedlustre.inputs.FileSystemEncryptionKeyArgs;
 import com.pulumi.azure.managedlustre.inputs.FileSystemHsmSettingArgs;
 import com.pulumi.azure.managedlustre.inputs.FileSystemIdentityArgs;
 import com.pulumi.azure.managedlustre.inputs.FileSystemMaintenanceWindowArgs;
+import com.pulumi.azure.managedlustre.inputs.FileSystemRootSquashArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -147,6 +148,21 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `root_squash` block as defined below.
+     * 
+     */
+    @Import(name="rootSquash")
+    private @Nullable Output<FileSystemRootSquashArgs> rootSquash;
+
+    /**
+     * @return A `root_squash` block as defined below.
+     * 
+     */
+    public Optional<Output<FileSystemRootSquashArgs>> rootSquash() {
+        return Optional.ofNullable(this.rootSquash);
+    }
+
+    /**
      * The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
      * 
      */
@@ -232,6 +248,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         this.mgsAddress = $.mgsAddress;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
+        this.rootSquash = $.rootSquash;
         this.skuName = $.skuName;
         this.storageCapacityInTb = $.storageCapacityInTb;
         this.subnetId = $.subnetId;
@@ -427,6 +444,27 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param rootSquash A `root_squash` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rootSquash(@Nullable Output<FileSystemRootSquashArgs> rootSquash) {
+            $.rootSquash = rootSquash;
+            return this;
+        }
+
+        /**
+         * @param rootSquash A `root_squash` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rootSquash(FileSystemRootSquashArgs rootSquash) {
+            return rootSquash(Output.of(rootSquash));
         }
 
         /**

@@ -92,6 +92,21 @@ public final class BackupInstanceDiskArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+     * 
+     */
+    @Import(name="snapshotSubscriptionId")
+    private @Nullable Output<String> snapshotSubscriptionId;
+
+    /**
+     * @return The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+     * 
+     */
+    public Optional<Output<String>> snapshotSubscriptionId() {
+        return Optional.ofNullable(this.snapshotSubscriptionId);
+    }
+
+    /**
      * The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      * 
      */
@@ -114,6 +129,7 @@ public final class BackupInstanceDiskArgs extends com.pulumi.resources.ResourceA
         this.location = $.location;
         this.name = $.name;
         this.snapshotResourceGroupName = $.snapshotResourceGroupName;
+        this.snapshotSubscriptionId = $.snapshotSubscriptionId;
         this.vaultId = $.vaultId;
     }
 
@@ -238,6 +254,27 @@ public final class BackupInstanceDiskArgs extends com.pulumi.resources.ResourceA
          */
         public Builder snapshotResourceGroupName(String snapshotResourceGroupName) {
             return snapshotResourceGroupName(Output.of(snapshotResourceGroupName));
+        }
+
+        /**
+         * @param snapshotSubscriptionId The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotSubscriptionId(@Nullable Output<String> snapshotSubscriptionId) {
+            $.snapshotSubscriptionId = snapshotSubscriptionId;
+            return this;
+        }
+
+        /**
+         * @param snapshotSubscriptionId The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snapshotSubscriptionId(String snapshotSubscriptionId) {
+            return snapshotSubscriptionId(Output.of(snapshotSubscriptionId));
         }
 
         /**

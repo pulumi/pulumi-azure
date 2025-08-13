@@ -74,7 +74,7 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
-        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
@@ -382,7 +382,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="instanceMemoryInMb")
     def instance_memory_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+        The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
@@ -588,7 +588,7 @@ class _AppFlexConsumptionState:
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by Function App.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
-        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to.
@@ -876,7 +876,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="instanceMemoryInMb")
     def instance_memory_in_mb(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+        The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
@@ -1281,7 +1281,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Web`: 2023-12-01, 2023-01-01
+        * `Microsoft.Web` - 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -1305,7 +1305,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
-        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
@@ -1392,7 +1392,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Web`: 2023-12-01, 2023-01-01
+        * `Microsoft.Web` - 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -1587,7 +1587,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by Function App.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
-        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+        :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to.
@@ -1784,7 +1784,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="instanceMemoryInMb")
     def instance_memory_in_mb(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+        The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 

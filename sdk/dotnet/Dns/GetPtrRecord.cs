@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Dns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2018-05-01
+        /// * `Microsoft.Network` - 2018-05-01
         /// </summary>
         public static Task<GetPtrRecordResult> InvokeAsync(GetPtrRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPtrRecordResult>("azure:dns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Dns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2018-05-01
+        /// * `Microsoft.Network` - 2018-05-01
         /// </summary>
         public static Output<GetPtrRecordResult> Invoke(GetPtrRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPtrRecordResult>("azure:dns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordInvokeArgs(), options.WithDefaults());
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Dns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2018-05-01
+        /// * `Microsoft.Network` - 2018-05-01
         /// </summary>
         public static Output<GetPtrRecordResult> Invoke(GetPtrRecordInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPtrRecordResult>("azure:dns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordInvokeArgs(), options.WithDefaults());

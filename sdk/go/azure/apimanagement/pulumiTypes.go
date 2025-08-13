@@ -14827,6 +14827,162 @@ func (o ServiceVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type StandaloneGatewaySku struct {
+	// The number of deployed units of the SKU. Defaults to `1`.
+	Capacity *int `pulumi:"capacity"`
+	// The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+	Name string `pulumi:"name"`
+}
+
+// StandaloneGatewaySkuInput is an input type that accepts StandaloneGatewaySkuArgs and StandaloneGatewaySkuOutput values.
+// You can construct a concrete instance of `StandaloneGatewaySkuInput` via:
+//
+//	StandaloneGatewaySkuArgs{...}
+type StandaloneGatewaySkuInput interface {
+	pulumi.Input
+
+	ToStandaloneGatewaySkuOutput() StandaloneGatewaySkuOutput
+	ToStandaloneGatewaySkuOutputWithContext(context.Context) StandaloneGatewaySkuOutput
+}
+
+type StandaloneGatewaySkuArgs struct {
+	// The number of deployed units of the SKU. Defaults to `1`.
+	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (StandaloneGatewaySkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandaloneGatewaySku)(nil)).Elem()
+}
+
+func (i StandaloneGatewaySkuArgs) ToStandaloneGatewaySkuOutput() StandaloneGatewaySkuOutput {
+	return i.ToStandaloneGatewaySkuOutputWithContext(context.Background())
+}
+
+func (i StandaloneGatewaySkuArgs) ToStandaloneGatewaySkuOutputWithContext(ctx context.Context) StandaloneGatewaySkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandaloneGatewaySkuOutput)
+}
+
+func (i StandaloneGatewaySkuArgs) ToStandaloneGatewaySkuPtrOutput() StandaloneGatewaySkuPtrOutput {
+	return i.ToStandaloneGatewaySkuPtrOutputWithContext(context.Background())
+}
+
+func (i StandaloneGatewaySkuArgs) ToStandaloneGatewaySkuPtrOutputWithContext(ctx context.Context) StandaloneGatewaySkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandaloneGatewaySkuOutput).ToStandaloneGatewaySkuPtrOutputWithContext(ctx)
+}
+
+// StandaloneGatewaySkuPtrInput is an input type that accepts StandaloneGatewaySkuArgs, StandaloneGatewaySkuPtr and StandaloneGatewaySkuPtrOutput values.
+// You can construct a concrete instance of `StandaloneGatewaySkuPtrInput` via:
+//
+//	        StandaloneGatewaySkuArgs{...}
+//
+//	or:
+//
+//	        nil
+type StandaloneGatewaySkuPtrInput interface {
+	pulumi.Input
+
+	ToStandaloneGatewaySkuPtrOutput() StandaloneGatewaySkuPtrOutput
+	ToStandaloneGatewaySkuPtrOutputWithContext(context.Context) StandaloneGatewaySkuPtrOutput
+}
+
+type standaloneGatewaySkuPtrType StandaloneGatewaySkuArgs
+
+func StandaloneGatewaySkuPtr(v *StandaloneGatewaySkuArgs) StandaloneGatewaySkuPtrInput {
+	return (*standaloneGatewaySkuPtrType)(v)
+}
+
+func (*standaloneGatewaySkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandaloneGatewaySku)(nil)).Elem()
+}
+
+func (i *standaloneGatewaySkuPtrType) ToStandaloneGatewaySkuPtrOutput() StandaloneGatewaySkuPtrOutput {
+	return i.ToStandaloneGatewaySkuPtrOutputWithContext(context.Background())
+}
+
+func (i *standaloneGatewaySkuPtrType) ToStandaloneGatewaySkuPtrOutputWithContext(ctx context.Context) StandaloneGatewaySkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StandaloneGatewaySkuPtrOutput)
+}
+
+type StandaloneGatewaySkuOutput struct{ *pulumi.OutputState }
+
+func (StandaloneGatewaySkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StandaloneGatewaySku)(nil)).Elem()
+}
+
+func (o StandaloneGatewaySkuOutput) ToStandaloneGatewaySkuOutput() StandaloneGatewaySkuOutput {
+	return o
+}
+
+func (o StandaloneGatewaySkuOutput) ToStandaloneGatewaySkuOutputWithContext(ctx context.Context) StandaloneGatewaySkuOutput {
+	return o
+}
+
+func (o StandaloneGatewaySkuOutput) ToStandaloneGatewaySkuPtrOutput() StandaloneGatewaySkuPtrOutput {
+	return o.ToStandaloneGatewaySkuPtrOutputWithContext(context.Background())
+}
+
+func (o StandaloneGatewaySkuOutput) ToStandaloneGatewaySkuPtrOutputWithContext(ctx context.Context) StandaloneGatewaySkuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandaloneGatewaySku) *StandaloneGatewaySku {
+		return &v
+	}).(StandaloneGatewaySkuPtrOutput)
+}
+
+// The number of deployed units of the SKU. Defaults to `1`.
+func (o StandaloneGatewaySkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StandaloneGatewaySku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+func (o StandaloneGatewaySkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v StandaloneGatewaySku) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type StandaloneGatewaySkuPtrOutput struct{ *pulumi.OutputState }
+
+func (StandaloneGatewaySkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StandaloneGatewaySku)(nil)).Elem()
+}
+
+func (o StandaloneGatewaySkuPtrOutput) ToStandaloneGatewaySkuPtrOutput() StandaloneGatewaySkuPtrOutput {
+	return o
+}
+
+func (o StandaloneGatewaySkuPtrOutput) ToStandaloneGatewaySkuPtrOutputWithContext(ctx context.Context) StandaloneGatewaySkuPtrOutput {
+	return o
+}
+
+func (o StandaloneGatewaySkuPtrOutput) Elem() StandaloneGatewaySkuOutput {
+	return o.ApplyT(func(v *StandaloneGatewaySku) StandaloneGatewaySku {
+		if v != nil {
+			return *v
+		}
+		var ret StandaloneGatewaySku
+		return ret
+	}).(StandaloneGatewaySkuOutput)
+}
+
+// The number of deployed units of the SKU. Defaults to `1`.
+func (o StandaloneGatewaySkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StandaloneGatewaySku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+func (o StandaloneGatewaySkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StandaloneGatewaySku) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetApiSubscriptionKeyParameterName struct {
 	// The name of the HTTP Header which should be used for the Subscription Key.
 	Header string `pulumi:"header"`
@@ -16387,6 +16543,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTenantAccessPtrInput)(nil)).Elem(), ServiceTenantAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVirtualNetworkConfigurationInput)(nil)).Elem(), ServiceVirtualNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVirtualNetworkConfigurationPtrInput)(nil)).Elem(), ServiceVirtualNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandaloneGatewaySkuInput)(nil)).Elem(), StandaloneGatewaySkuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandaloneGatewaySkuPtrInput)(nil)).Elem(), StandaloneGatewaySkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApiSubscriptionKeyParameterNameInput)(nil)).Elem(), GetApiSubscriptionKeyParameterNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApiSubscriptionKeyParameterNameArrayInput)(nil)).Elem(), GetApiSubscriptionKeyParameterNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGatewayLocationDataInput)(nil)).Elem(), GetGatewayLocationDataArgs{})
@@ -16591,6 +16749,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceTenantAccessPtrOutput{})
 	pulumi.RegisterOutputType(ServiceVirtualNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceVirtualNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StandaloneGatewaySkuOutput{})
+	pulumi.RegisterOutputType(StandaloneGatewaySkuPtrOutput{})
 	pulumi.RegisterOutputType(GetApiSubscriptionKeyParameterNameOutput{})
 	pulumi.RegisterOutputType(GetApiSubscriptionKeyParameterNameArrayOutput{})
 	pulumi.RegisterOutputType(GetGatewayLocationDataOutput{})

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql`: 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2023-08-01-preview
         /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure:mssql/getManagedInstance:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql`: 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2023-08-01-preview
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure:mssql/getManagedInstance:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.MSSql
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Sql`: 2023-08-01-preview
+        /// * `Microsoft.Sql` - 2023-08-01-preview
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure:mssql/getManagedInstance:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());

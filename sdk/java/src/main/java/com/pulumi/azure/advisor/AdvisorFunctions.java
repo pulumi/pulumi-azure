@@ -62,7 +62,7 @@ public final class AdvisorFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Advisor`: 2023-01-01
+     * * `Microsoft.Advisor` - 2023-01-01
      * 
      */
     public static Output<GetRecommendationsResult> getRecommendations() {
@@ -115,7 +115,7 @@ public final class AdvisorFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Advisor`: 2023-01-01
+     * * `Microsoft.Advisor` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetRecommendationsResult> getRecommendationsPlain() {
@@ -168,7 +168,7 @@ public final class AdvisorFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Advisor`: 2023-01-01
+     * * `Microsoft.Advisor` - 2023-01-01
      * 
      */
     public static Output<GetRecommendationsResult> getRecommendations(GetRecommendationsArgs args) {
@@ -221,7 +221,7 @@ public final class AdvisorFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Advisor`: 2023-01-01
+     * * `Microsoft.Advisor` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetRecommendationsResult> getRecommendationsPlain(GetRecommendationsPlainArgs args) {
@@ -274,7 +274,7 @@ public final class AdvisorFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Advisor`: 2023-01-01
+     * * `Microsoft.Advisor` - 2023-01-01
      * 
      */
     public static Output<GetRecommendationsResult> getRecommendations(GetRecommendationsArgs args, InvokeOptions options) {
@@ -327,7 +327,7 @@ public final class AdvisorFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Advisor`: 2023-01-01
+     * * `Microsoft.Advisor` - 2023-01-01
      * 
      */
     public static Output<GetRecommendationsResult> getRecommendations(GetRecommendationsArgs args, InvokeOutputOptions options) {
@@ -380,7 +380,7 @@ public final class AdvisorFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Advisor`: 2023-01-01
+     * * `Microsoft.Advisor` - 2023-01-01
      * 
      */
     public static CompletableFuture<GetRecommendationsResult> getRecommendationsPlain(GetRecommendationsPlainArgs args, InvokeOptions options) {

@@ -43,7 +43,7 @@ class ManagedHardwareSecurityModuleArgs:
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
-        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_domain_key_vault_certificate_ids: A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
         :param pulumi.Input[_builtins.int] security_domain_quorum: Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10.
@@ -161,7 +161,7 @@ class ManagedHardwareSecurityModuleArgs:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        Whether traffic from public networks is permitted. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -255,7 +255,7 @@ class _ManagedHardwareSecurityModuleState:
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input['ManagedHardwareSecurityModuleNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
-        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] security_domain_encrypted_data: This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
@@ -361,7 +361,7 @@ class _ManagedHardwareSecurityModuleState:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        Whether traffic from public networks is permitted. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -532,7 +532,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.KeyVault`: 2023-07-01
+        * `Microsoft.KeyVault` - 2023-07-01
 
         ## Import
 
@@ -548,7 +548,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below.
-        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_domain_key_vault_certificate_ids: A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
@@ -598,7 +598,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.KeyVault`: 2023-07-01
+        * `Microsoft.KeyVault` - 2023-07-01
 
         ## Import
 
@@ -707,7 +707,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below.
-        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] security_domain_encrypted_data: This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
@@ -783,7 +783,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+        Whether traffic from public networks is permitted. Defaults to `true`.
         """
         return pulumi.get(self, "public_network_access_enabled")
 

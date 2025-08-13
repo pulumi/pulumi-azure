@@ -318,6 +318,13 @@ class CustomDomain(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement` - 2024-05-01
+
         ## Import
 
         API Management Custom Domains can be imported using the `resource id`, e.g.
@@ -420,6 +427,13 @@ class CustomDomain(pulumi.CustomResource):
                 "key_vault_id": example_certificate.versionless_secret_id,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement` - 2024-05-01
 
         ## Import
 

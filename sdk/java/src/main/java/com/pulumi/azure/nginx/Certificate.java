@@ -167,7 +167,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Nginx.NginxPlus`: 2024-11-01-preview
+ * * `Nginx.NginxPlus` - 2024-11-01-preview
  * 
  * ## Import
  * 

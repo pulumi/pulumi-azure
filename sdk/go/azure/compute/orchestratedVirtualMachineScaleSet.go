@@ -65,7 +65,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Compute`: 2024-11-01
+// * `Microsoft.Compute` - 2024-11-01
 //
 // ## Import
 //
@@ -117,6 +117,8 @@ type OrchestratedVirtualMachineScaleSet struct {
 	MaxBidPrice pulumi.Float64PtrOutput `pulumi:"maxBidPrice"`
 	// The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+	NetworkApiVersion pulumi.StringPtrOutput `pulumi:"networkApiVersion"`
 	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// An `osDisk` block as defined below.
@@ -258,6 +260,8 @@ type orchestratedVirtualMachineScaleSetState struct {
 	MaxBidPrice *float64 `pulumi:"maxBidPrice"`
 	// The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+	NetworkApiVersion *string `pulumi:"networkApiVersion"`
 	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces []OrchestratedVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
 	// An `osDisk` block as defined below.
@@ -357,6 +361,8 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	MaxBidPrice pulumi.Float64PtrInput
 	// The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+	NetworkApiVersion pulumi.StringPtrInput
 	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput
 	// An `osDisk` block as defined below.
@@ -460,6 +466,8 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	MaxBidPrice *float64 `pulumi:"maxBidPrice"`
 	// The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+	NetworkApiVersion *string `pulumi:"networkApiVersion"`
 	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces []OrchestratedVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
 	// An `osDisk` block as defined below.
@@ -558,6 +566,8 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	MaxBidPrice pulumi.Float64PtrInput
 	// The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+	NetworkApiVersion pulumi.StringPtrInput
 	// One or more `networkInterface` blocks as defined below.
 	NetworkInterfaces OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput
 	// An `osDisk` block as defined below.
@@ -801,6 +811,11 @@ func (o OrchestratedVirtualMachineScaleSetOutput) MaxBidPrice() pulumi.Float64Pt
 // The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set. Possible values are `2020-11-01` and `2022-11-01`. Defaults to `2020-11-01`.
+func (o OrchestratedVirtualMachineScaleSetOutput) NetworkApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.NetworkApiVersion }).(pulumi.StringPtrOutput)
 }
 
 // One or more `networkInterface` blocks as defined below.

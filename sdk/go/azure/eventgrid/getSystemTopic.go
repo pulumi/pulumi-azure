@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing EventGrid System Topic
+// Use this data source to access information about an existing Event Grid System Topic
 //
 // ## Example Usage
 //
@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.EventGrid`: 2022-06-15
+// * `Microsoft.EventGrid` - 2022-06-15
 func LookupSystemTopic(ctx *pulumi.Context, args *LookupSystemTopicArgs, opts ...pulumi.InvokeOption) (*LookupSystemTopicResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSystemTopicResult
@@ -58,9 +58,9 @@ func LookupSystemTopic(ctx *pulumi.Context, args *LookupSystemTopicArgs, opts ..
 
 // A collection of arguments for invoking getSystemTopic.
 type LookupSystemTopicArgs struct {
-	// The name of the EventGrid System Topic resource.
+	// The name of the Event Grid System Topic resource.
 	Name string `pulumi:"name"`
-	// The name of the resource group in which the EventGrid System Topic exists.
+	// The name of the resource group in which the Event Grid System Topic exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
@@ -94,9 +94,9 @@ func LookupSystemTopicOutput(ctx *pulumi.Context, args LookupSystemTopicOutputAr
 
 // A collection of arguments for invoking getSystemTopic.
 type LookupSystemTopicOutputArgs struct {
-	// The name of the EventGrid System Topic resource.
+	// The name of the Event Grid System Topic resource.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the resource group in which the EventGrid System Topic exists.
+	// The name of the resource group in which the Event Grid System Topic exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 

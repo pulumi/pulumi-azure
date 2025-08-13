@@ -40,7 +40,9 @@ namespace Pulumi.Azure.Oracle
     ///         DisplayName = "example-exadata-infra",
     ///         StorageCount = 3,
     ///         ComputeCount = 2,
-    ///         Shape = "Exadata.X9M",
+    ///         Shape = "Exadata.X11M",
+    ///         DatabaseServerType = "X11M",
+    ///         StorageServerType = "X11M-HC",
     ///     });
     /// 
     /// });
@@ -51,7 +53,7 @@ namespace Pulumi.Azure.Oracle
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Oracle.Database`: 2024-06-01
+    /// * `Oracle.Database` - 2025-03-01
     /// 
     /// ## Import
     /// 
@@ -75,6 +77,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Output("customerContacts")]
         public Output<ImmutableArray<string>> CustomerContacts { get; private set; } = null!;
+
+        /// <summary>
+        /// The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        /// </summary>
+        [Output("databaseServerType")]
+        public Output<string> DatabaseServerType { get; private set; } = null!;
 
         /// <summary>
         /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -117,6 +125,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Output("storageCount")]
         public Output<int> StorageCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        /// </summary>
+        [Output("storageServerType")]
+        public Output<string> StorageServerType { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
@@ -195,6 +209,12 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
+        /// The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        /// </summary>
+        [Input("databaseServerType")]
+        public Input<string>? DatabaseServerType { get; set; }
+
+        /// <summary>
         /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("displayName", required: true)]
@@ -241,6 +261,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("storageCount", required: true)]
         public Input<int> StorageCount { get; set; } = null!;
+
+        /// <summary>
+        /// The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        /// </summary>
+        [Input("storageServerType")]
+        public Input<string>? StorageServerType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -293,6 +319,12 @@ namespace Pulumi.Azure.Oracle
         }
 
         /// <summary>
+        /// The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        /// </summary>
+        [Input("databaseServerType")]
+        public Input<string>? DatabaseServerType { get; set; }
+
+        /// <summary>
         /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         /// </summary>
         [Input("displayName")]
@@ -339,6 +371,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("storageCount")]
         public Input<int>? StorageCount { get; set; }
+
+        /// <summary>
+        /// The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        /// </summary>
+        [Input("storageServerType")]
+        public Input<string>? StorageServerType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

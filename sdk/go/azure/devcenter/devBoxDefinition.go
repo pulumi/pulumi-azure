@@ -72,7 +72,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DevCenter`: 2025-02-01
+// * `Microsoft.DevCenter` - 2025-02-01
 //
 // ## Import
 //
@@ -86,6 +86,10 @@ type DevBoxDefinition struct {
 
 	// The ID of the associated Dev Center. Changing this forces a new resource to be created.
 	DevCenterId pulumi.StringOutput `pulumi:"devCenterId"`
+	// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+	//
+	// > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+	HibernateSupportEnabled pulumi.BoolPtrOutput `pulumi:"hibernateSupportEnabled"`
 	// The ID of the image for the Dev Center Dev Box Definition.
 	ImageReferenceId pulumi.StringOutput `pulumi:"imageReferenceId"`
 	// The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
@@ -139,6 +143,10 @@ func GetDevBoxDefinition(ctx *pulumi.Context,
 type devBoxDefinitionState struct {
 	// The ID of the associated Dev Center. Changing this forces a new resource to be created.
 	DevCenterId *string `pulumi:"devCenterId"`
+	// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+	//
+	// > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+	HibernateSupportEnabled *bool `pulumi:"hibernateSupportEnabled"`
 	// The ID of the image for the Dev Center Dev Box Definition.
 	ImageReferenceId *string `pulumi:"imageReferenceId"`
 	// The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
@@ -154,6 +162,10 @@ type devBoxDefinitionState struct {
 type DevBoxDefinitionState struct {
 	// The ID of the associated Dev Center. Changing this forces a new resource to be created.
 	DevCenterId pulumi.StringPtrInput
+	// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+	//
+	// > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+	HibernateSupportEnabled pulumi.BoolPtrInput
 	// The ID of the image for the Dev Center Dev Box Definition.
 	ImageReferenceId pulumi.StringPtrInput
 	// The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
@@ -173,6 +185,10 @@ func (DevBoxDefinitionState) ElementType() reflect.Type {
 type devBoxDefinitionArgs struct {
 	// The ID of the associated Dev Center. Changing this forces a new resource to be created.
 	DevCenterId string `pulumi:"devCenterId"`
+	// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+	//
+	// > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+	HibernateSupportEnabled *bool `pulumi:"hibernateSupportEnabled"`
 	// The ID of the image for the Dev Center Dev Box Definition.
 	ImageReferenceId string `pulumi:"imageReferenceId"`
 	// The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
@@ -189,6 +205,10 @@ type devBoxDefinitionArgs struct {
 type DevBoxDefinitionArgs struct {
 	// The ID of the associated Dev Center. Changing this forces a new resource to be created.
 	DevCenterId pulumi.StringInput
+	// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+	//
+	// > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+	HibernateSupportEnabled pulumi.BoolPtrInput
 	// The ID of the image for the Dev Center Dev Box Definition.
 	ImageReferenceId pulumi.StringInput
 	// The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
@@ -291,6 +311,13 @@ func (o DevBoxDefinitionOutput) ToDevBoxDefinitionOutputWithContext(ctx context.
 // The ID of the associated Dev Center. Changing this forces a new resource to be created.
 func (o DevBoxDefinitionOutput) DevCenterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevBoxDefinition) pulumi.StringOutput { return v.DevCenterId }).(pulumi.StringOutput)
+}
+
+// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+//
+// > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+func (o DevBoxDefinitionOutput) HibernateSupportEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DevBoxDefinition) pulumi.BoolPtrOutput { return v.HibernateSupportEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the image for the Dev Center Dev Box Definition.

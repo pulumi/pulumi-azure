@@ -173,7 +173,7 @@ class WatchlistItem(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2022-11-01
+        * `Microsoft.OperationalInsights` - 2022-11-01
 
         ## Import
 
@@ -232,7 +232,7 @@ class WatchlistItem(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2022-11-01
+        * `Microsoft.OperationalInsights` - 2022-11-01
 
         ## Import
 

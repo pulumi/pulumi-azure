@@ -214,6 +214,23 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+     * the endpoint. e.g. for Azure Container Apps.
+     * 
+     */
+    @Import(name="msiApiVersion")
+    private @Nullable Output<String> msiApiVersion;
+
+    /**
+     * @return The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+     * the endpoint. e.g. for Azure Container Apps.
+     * 
+     */
+    public Optional<Output<String>> msiApiVersion() {
+        return Optional.ofNullable(this.msiApiVersion);
+    }
+
+    /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.
      * 
@@ -488,6 +505,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.environment = $.environment;
         this.features = $.features;
         this.metadataHost = $.metadataHost;
+        this.msiApiVersion = $.msiApiVersion;
         this.msiEndpoint = $.msiEndpoint;
         this.oidcRequestToken = $.oidcRequestToken;
         this.oidcRequestUrl = $.oidcRequestUrl;
@@ -792,6 +810,29 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder metadataHost(String metadataHost) {
             return metadataHost(Output.of(metadataHost));
+        }
+
+        /**
+         * @param msiApiVersion The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+         * the endpoint. e.g. for Azure Container Apps.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder msiApiVersion(@Nullable Output<String> msiApiVersion) {
+            $.msiApiVersion = msiApiVersion;
+            return this;
+        }
+
+        /**
+         * @param msiApiVersion The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+         * the endpoint. e.g. for Azure Container Apps.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder msiApiVersion(String msiApiVersion) {
+            return msiApiVersion(Output.of(msiApiVersion));
         }
 
         /**

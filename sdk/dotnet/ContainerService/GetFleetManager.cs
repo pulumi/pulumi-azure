@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService`: 2024-04-01
+        /// * `Microsoft.ContainerService` - 2024-04-01
         /// </summary>
         public static Task<GetFleetManagerResult> InvokeAsync(GetFleetManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetManagerResult>("azure:containerservice/getFleetManager:getFleetManager", args ?? new GetFleetManagerArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService`: 2024-04-01
+        /// * `Microsoft.ContainerService` - 2024-04-01
         /// </summary>
         public static Output<GetFleetManagerResult> Invoke(GetFleetManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetManagerResult>("azure:containerservice/getFleetManager:getFleetManager", args ?? new GetFleetManagerInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService`: 2024-04-01
+        /// * `Microsoft.ContainerService` - 2024-04-01
         /// </summary>
         public static Output<GetFleetManagerResult> Invoke(GetFleetManagerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetManagerResult>("azure:containerservice/getFleetManager:getFleetManager", args ?? new GetFleetManagerInvokeArgs(), options.WithDefaults());

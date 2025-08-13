@@ -55,6 +55,7 @@ __all__ = [
     'NamespaceTopicSpacesConfigurationDynamicRoutingEnrichment',
     'NamespaceTopicSpacesConfigurationStaticRoutingEnrichment',
     'PartnerConfigurationPartnerAuthorization',
+    'PartnerNamespaceInboundIpRule',
     'SystemTopicEventSubscriptionAdvancedFilter',
     'SystemTopicEventSubscriptionAdvancedFilterBoolEqual',
     'SystemTopicEventSubscriptionAdvancedFilterIsNotNull',
@@ -93,6 +94,7 @@ __all__ = [
     'GetDomainInboundIpRuleResult',
     'GetDomainInputMappingDefaultValueResult',
     'GetDomainInputMappingFieldResult',
+    'GetPartnerNamespaceInboundIpRuleResult',
     'GetSystemTopicIdentityResult',
 ]
 
@@ -2152,6 +2154,53 @@ class PartnerConfigurationPartnerAuthorization(dict):
 
 
 @pulumi.output_type
+class PartnerNamespaceInboundIpRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipMask":
+            suggest = "ip_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnerNamespaceInboundIpRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnerNamespaceInboundIpRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnerNamespaceInboundIpRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_mask: _builtins.str,
+                 action: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str ip_mask: The IP mask (CIDR) to match on.
+        :param _builtins.str action: The action to take when the rule is matched. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @_builtins.property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> _builtins.str:
+        """
+        The IP mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[_builtins.str]:
+        """
+        The action to take when the rule is matched. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
 class SystemTopicEventSubscriptionAdvancedFilter(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3595,12 +3644,12 @@ class SystemTopicIdentity(dict):
                  principal_id: Optional[_builtins.str] = None,
                  tenant_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+        :param _builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
         :param Sequence[_builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
                
-               > **Note:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
                
-               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
         :param _builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param _builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -3616,7 +3665,7 @@ class SystemTopicIdentity(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -3626,9 +3675,9 @@ class SystemTopicIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
-        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -4132,6 +4181,35 @@ class GetDomainInputMappingFieldResult(dict):
         Specifies the topic of the EventGrid Event associated with the domain.
         """
         return pulumi.get(self, "topic")
+
+
+@pulumi.output_type
+class GetPartnerNamespaceInboundIpRuleResult(dict):
+    def __init__(__self__, *,
+                 action: _builtins.str,
+                 ip_mask: _builtins.str):
+        """
+        :param _builtins.str action: The action to take when the rule is matched.
+        :param _builtins.str ip_mask: The IP mask (CIDR) to match on.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "ip_mask", ip_mask)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> _builtins.str:
+        """
+        The action to take when the rule is matched.
+        """
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> _builtins.str:
+        """
+        The IP mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
 
 
 @pulumi.output_type

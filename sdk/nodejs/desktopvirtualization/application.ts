@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DesktopVirtualization`: 2024-04-03
+ * * `Microsoft.DesktopVirtualization` - 2024-04-03
  *
  * ## Import
  *

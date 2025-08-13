@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.PowerBIDedicated`: 2021-01-01
+ * * `Microsoft.PowerBIDedicated` - 2021-01-01
  *
  * ## Import
  *

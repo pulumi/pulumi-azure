@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2018-05-01
+ * * `Microsoft.Network` - 2018-05-01
  */
 export function getNsRecord(args: GetNsRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetNsRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -101,7 +101,7 @@ export interface GetNsRecordResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2018-05-01
+ * * `Microsoft.Network` - 2018-05-01
  */
 export function getNsRecordOutput(args: GetNsRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNsRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

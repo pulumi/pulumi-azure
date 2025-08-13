@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Insights`: 2018-04-16
+ * * `Microsoft.Insights` - 2018-04-16
  */
 export function getScheduledQueryRulesAlert(args: GetScheduledQueryRulesAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledQueryRulesAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -136,7 +136,7 @@ export interface GetScheduledQueryRulesAlertResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Insights`: 2018-04-16
+ * * `Microsoft.Insights` - 2018-04-16
  */
 export function getScheduledQueryRulesAlertOutput(args: GetScheduledQueryRulesAlertOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledQueryRulesAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

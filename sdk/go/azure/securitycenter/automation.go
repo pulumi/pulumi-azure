@@ -81,7 +81,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Actions: securitycenter.AutomationActionArray{
 //					&securitycenter.AutomationActionArgs{
-//						Type:             pulumi.String("eventhub"),
+//						Type:             pulumi.String("EventHub"),
 //						ResourceId:       exampleEventHub.ID(),
 //						ConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
 //					},
@@ -121,7 +121,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Security`: 2019-01-01-preview
+// * `Microsoft.Security` - 2019-01-01-preview
 //
 // ## Import
 //

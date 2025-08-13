@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  *
  * ## Import
  *
@@ -71,6 +71,12 @@ export class PublicIpPrefix extends pulumi.CustomResource {
         return obj['__pulumiType'] === PublicIpPrefix.__pulumiType;
     }
 
+    /**
+     * The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+     */
+    public readonly customIpPrefixId!: pulumi.Output<string | undefined>;
     /**
      * The IP address prefix value that was allocated.
      */
@@ -131,6 +137,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublicIpPrefixState | undefined;
+            resourceInputs["customIpPrefixId"] = state ? state.customIpPrefixId : undefined;
             resourceInputs["ipPrefix"] = state ? state.ipPrefix : undefined;
             resourceInputs["ipVersion"] = state ? state.ipVersion : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -146,6 +153,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["customIpPrefixId"] = args ? args.customIpPrefixId : undefined;
             resourceInputs["ipVersion"] = args ? args.ipVersion : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -166,6 +174,12 @@ export class PublicIpPrefix extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PublicIpPrefix resources.
  */
 export interface PublicIpPrefixState {
+    /**
+     * The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+     */
+    customIpPrefixId?: pulumi.Input<string>;
     /**
      * The IP address prefix value that was allocated.
      */
@@ -218,6 +232,12 @@ export interface PublicIpPrefixState {
  * The set of arguments for constructing a PublicIpPrefix resource.
  */
 export interface PublicIpPrefixArgs {
+    /**
+     * The Custom IP Prefix ID associated with the Public IP Prefix. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
+     */
+    customIpPrefixId?: pulumi.Input<string>;
     /**
      * The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
      */

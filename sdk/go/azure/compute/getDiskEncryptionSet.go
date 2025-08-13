@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Compute`: 2022-03-02
+// * `Microsoft.Compute` - 2022-03-02
 func LookupDiskEncryptionSet(ctx *pulumi.Context, args *LookupDiskEncryptionSetArgs, opts ...pulumi.InvokeOption) (*LookupDiskEncryptionSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDiskEncryptionSetResult

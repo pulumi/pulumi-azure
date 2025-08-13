@@ -172,6 +172,22 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.metadataHost);
     }
     /**
+     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+     * the endpoint. e.g. for Azure Container Apps.
+     * 
+     */
+    @Export(name="msiApiVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> msiApiVersion;
+
+    /**
+     * @return The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+     * the endpoint. e.g. for Azure Container Apps.
+     * 
+     */
+    public Output<Optional<String>> msiApiVersion() {
+        return Codegen.optional(this.msiApiVersion);
+    }
+    /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.
      * 

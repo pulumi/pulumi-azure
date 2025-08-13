@@ -58,7 +58,7 @@ namespace Pulumi.Azure.EventGrid
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.EventGrid`: 2022-06-15
+    /// * `Microsoft.EventGrid` - 2022-06-15
     /// 
     /// ## Import
     /// 
@@ -107,6 +107,9 @@ namespace Pulumi.Azure.EventGrid
         [Output("sourceArmResourceId")]
         public Output<string> SourceArmResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Event Grid System Topic.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -198,6 +201,10 @@ namespace Pulumi.Azure.EventGrid
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Event Grid System Topic.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -260,6 +267,10 @@ namespace Pulumi.Azure.EventGrid
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags which should be assigned to the Event Grid System Topic.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

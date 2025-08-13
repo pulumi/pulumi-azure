@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing PostgreSQL Azure Database Server.
  *
+ * > **Note:** The `azure.postgresql.Server` data source is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `azure.postgresql.FlexibleServer` data source instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -27,7 +29,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DBforPostgreSQL`: 2017-12-01
+ * * `Microsoft.DBforPostgreSQL` - 2017-12-01
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,6 +95,8 @@ export interface GetServerResult {
 /**
  * Use this data source to access information about an existing PostgreSQL Azure Database Server.
  *
+ * > **Note:** The `azure.postgresql.Server` data source is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `azure.postgresql.FlexibleServer` data source instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -111,7 +115,7 @@ export interface GetServerResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DBforPostgreSQL`: 2017-12-01
+ * * `Microsoft.DBforPostgreSQL` - 2017-12-01
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

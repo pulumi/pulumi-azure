@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Oracle.Outputs
     public sealed class GetDbSystemShapesDbSystemShapeResult
     {
         /// <summary>
+        /// Indicates if the shape supports database and storage server types.
+        /// </summary>
+        public readonly bool AreServerTypesSupported;
+        /// <summary>
         /// The maximum number of CPU cores that can be enabled on the DB system for this shape.
         /// </summary>
         public readonly int AvailableCoreCount;
@@ -46,9 +50,17 @@ namespace Pulumi.Azure.Oracle.Outputs
         /// </summary>
         public readonly int AvailableMemoryPerNodeInGbs;
         /// <summary>
+        /// The compute model of the Exadata Infrastructure.
+        /// </summary>
+        public readonly string ComputeModel;
+        /// <summary>
         /// The discrete number by which the CPU core count for this shape can be increased or decreased.
         /// </summary>
         public readonly int CoreCountIncrement;
+        /// <summary>
+        /// The display name of the shape used for the DB system.
+        /// </summary>
+        public readonly string DisplayName;
         /// <summary>
         /// The maximum number of compute servers available for this shape.
         /// </summary>
@@ -96,6 +108,8 @@ namespace Pulumi.Azure.Oracle.Outputs
 
         [OutputConstructor]
         private GetDbSystemShapesDbSystemShapeResult(
+            bool areServerTypesSupported,
+
             int availableCoreCount,
 
             int availableCoreCountPerNode,
@@ -112,7 +126,11 @@ namespace Pulumi.Azure.Oracle.Outputs
 
             int availableMemoryPerNodeInGbs,
 
+            string computeModel,
+
             int coreCountIncrement,
+
+            string displayName,
 
             int maximumNodeCount,
 
@@ -136,6 +154,7 @@ namespace Pulumi.Azure.Oracle.Outputs
 
             string shapeFamily)
         {
+            AreServerTypesSupported = areServerTypesSupported;
             AvailableCoreCount = availableCoreCount;
             AvailableCoreCountPerNode = availableCoreCountPerNode;
             AvailableDataStorageInTbs = availableDataStorageInTbs;
@@ -144,7 +163,9 @@ namespace Pulumi.Azure.Oracle.Outputs
             AvailableDbNodeStorageInGbs = availableDbNodeStorageInGbs;
             AvailableMemoryInGbs = availableMemoryInGbs;
             AvailableMemoryPerNodeInGbs = availableMemoryPerNodeInGbs;
+            ComputeModel = computeModel;
             CoreCountIncrement = coreCountIncrement;
+            DisplayName = displayName;
             MaximumNodeCount = maximumNodeCount;
             MaximumStorageCount = maximumStorageCount;
             MinimumCoreCount = minimumCoreCount;

@@ -168,7 +168,7 @@ def get_published_version(blueprint_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Blueprint`: 2018-11-01-preview
+    * `Microsoft.Blueprint` - 2018-11-01-preview
 
 
     :param _builtins.str blueprint_name: The name of the Blueprint Definition
@@ -219,7 +219,7 @@ def get_published_version_output(blueprint_name: Optional[pulumi.Input[_builtins
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Blueprint`: 2018-11-01-preview
+    * `Microsoft.Blueprint` - 2018-11-01-preview
 
 
     :param _builtins.str blueprint_name: The name of the Blueprint Definition

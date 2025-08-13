@@ -137,7 +137,7 @@ def get_hci_storage_path(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AzureStackHCI`: 2024-01-01
+    * `Microsoft.AzureStackHCI` - 2024-01-01
 
 
     :param _builtins.str name: The name of this Stack HCI Storage Path.
@@ -179,7 +179,7 @@ def get_hci_storage_path_output(name: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.AzureStackHCI`: 2024-01-01
+    * `Microsoft.AzureStackHCI` - 2024-01-01
 
 
     :param _builtins.str name: The name of this Stack HCI Storage Path.

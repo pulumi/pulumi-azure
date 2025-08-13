@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2022-04-01
+// * `Microsoft.Network` - 2022-04-01
 func GetTrafficManager(ctx *pulumi.Context, args *GetTrafficManagerArgs, opts ...pulumi.InvokeOption) (*GetTrafficManagerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTrafficManagerResult

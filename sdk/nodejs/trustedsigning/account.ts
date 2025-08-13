@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.CodeSigning`: 2024-09-30-preview
+ * * `Microsoft.CodeSigning` - 2024-09-30-preview
  *
  * ## Import
  *

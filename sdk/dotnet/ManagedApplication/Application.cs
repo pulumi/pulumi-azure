@@ -102,7 +102,7 @@ namespace Pulumi.Azure.ManagedApplication
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Solutions`: 2021-07-01
+    /// * `Microsoft.Solutions` - 2021-07-01
     /// 
     /// ## Import
     /// 

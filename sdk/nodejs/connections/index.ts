@@ -10,6 +10,11 @@ export type ApiConnection = import("./apiConnection").ApiConnection;
 export const ApiConnection: typeof import("./apiConnection").ApiConnection = null as any;
 utilities.lazyLoad(exports, ["ApiConnection"], () => require("./apiConnection"));
 
+export { GetApiConnectionArgs, GetApiConnectionResult, GetApiConnectionOutputArgs } from "./getApiConnection";
+export const getApiConnection: typeof import("./getApiConnection").getApiConnection = null as any;
+export const getApiConnectionOutput: typeof import("./getApiConnection").getApiConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getApiConnection","getApiConnectionOutput"], () => require("./getApiConnection"));
+
 export { GetManagedApiArgs, GetManagedApiResult, GetManagedApiOutputArgs } from "./getManagedApi";
 export const getManagedApi: typeof import("./getManagedApi").getManagedApi = null as any;
 export const getManagedApiOutput: typeof import("./getManagedApi").getManagedApiOutput = null as any;

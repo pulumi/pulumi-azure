@@ -78,6 +78,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerService` - 2025-02-01
+//
 // ## Import
 //
 // Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.

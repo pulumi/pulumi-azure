@@ -89,7 +89,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args) {
@@ -139,7 +139,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args) {
@@ -189,7 +189,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOptions options) {
@@ -239,7 +239,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkResult> getNetwork(GetNetworkArgs args, InvokeOutputOptions options) {
@@ -289,7 +289,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkResult> getNetworkPlain(GetNetworkPlainArgs args, InvokeOptions options) {
@@ -345,7 +345,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args) {
@@ -401,7 +401,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args) {
@@ -457,7 +457,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args, InvokeOptions options) {
@@ -513,7 +513,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs args, InvokeOutputOptions options) {
@@ -569,7 +569,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkAttachedDataNetworkResult> getNetworkAttachedDataNetworkPlain(GetNetworkAttachedDataNetworkPlainArgs args, InvokeOptions options) {
@@ -625,7 +625,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args) {
@@ -681,7 +681,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkDataNetworkResult> getNetworkDataNetworkPlain(GetNetworkDataNetworkPlainArgs args) {
@@ -737,7 +737,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args, InvokeOptions options) {
@@ -793,7 +793,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkDataNetworkResult> getNetworkDataNetwork(GetNetworkDataNetworkArgs args, InvokeOutputOptions options) {
@@ -849,7 +849,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkDataNetworkResult> getNetworkDataNetworkPlain(GetNetworkDataNetworkPlainArgs args, InvokeOptions options) {
@@ -899,7 +899,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args) {
@@ -949,7 +949,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args) {
@@ -999,7 +999,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args, InvokeOptions options) {
@@ -1049,7 +1049,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlane(GetNetworkPacketCoreControlPlaneArgs args, InvokeOutputOptions options) {
@@ -1099,7 +1099,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreControlPlaneResult> getNetworkPacketCoreControlPlanePlain(GetNetworkPacketCoreControlPlanePlainArgs args, InvokeOptions options) {
@@ -1155,7 +1155,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args) {
@@ -1211,7 +1211,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args) {
@@ -1267,7 +1267,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args, InvokeOptions options) {
@@ -1323,7 +1323,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs args, InvokeOutputOptions options) {
@@ -1379,7 +1379,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkPacketCoreDataPlaneResult> getNetworkPacketCoreDataPlanePlain(GetNetworkPacketCoreDataPlanePlainArgs args, InvokeOptions options) {
@@ -1436,7 +1436,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args) {
@@ -1493,7 +1493,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkServiceResult> getNetworkServicePlain(GetNetworkServicePlainArgs args) {
@@ -1550,7 +1550,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args, InvokeOptions options) {
@@ -1607,7 +1607,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkServiceResult> getNetworkService(GetNetworkServiceArgs args, InvokeOutputOptions options) {
@@ -1664,7 +1664,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkServiceResult> getNetworkServicePlain(GetNetworkServicePlainArgs args, InvokeOptions options) {
@@ -1683,7 +1683,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args) {
@@ -1702,7 +1702,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args) {
@@ -1721,7 +1721,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args, InvokeOptions options) {
@@ -1740,7 +1740,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSimResult> getNetworkSim(GetNetworkSimArgs args, InvokeOutputOptions options) {
@@ -1759,7 +1759,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimResult> getNetworkSimPlain(GetNetworkSimPlainArgs args, InvokeOptions options) {
@@ -1815,7 +1815,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args) {
@@ -1871,7 +1871,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimGroupResult> getNetworkSimGroupPlain(GetNetworkSimGroupPlainArgs args) {
@@ -1927,7 +1927,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args, InvokeOptions options) {
@@ -1983,7 +1983,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSimGroupResult> getNetworkSimGroup(GetNetworkSimGroupArgs args, InvokeOutputOptions options) {
@@ -2039,7 +2039,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimGroupResult> getNetworkSimGroupPlain(GetNetworkSimGroupPlainArgs args, InvokeOptions options) {
@@ -2095,7 +2095,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args) {
@@ -2151,7 +2151,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args) {
@@ -2207,7 +2207,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args, InvokeOptions options) {
@@ -2263,7 +2263,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSimPolicyResult> getNetworkSimPolicy(GetNetworkSimPolicyArgs args, InvokeOutputOptions options) {
@@ -2319,7 +2319,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSimPolicyResult> getNetworkSimPolicyPlain(GetNetworkSimPolicyPlainArgs args, InvokeOptions options) {
@@ -2375,7 +2375,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args) {
@@ -2431,7 +2431,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSiteResult> getNetworkSitePlain(GetNetworkSitePlainArgs args) {
@@ -2487,7 +2487,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args, InvokeOptions options) {
@@ -2543,7 +2543,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSiteResult> getNetworkSite(GetNetworkSiteArgs args, InvokeOutputOptions options) {
@@ -2599,7 +2599,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSiteResult> getNetworkSitePlain(GetNetworkSitePlainArgs args, InvokeOptions options) {
@@ -2655,7 +2655,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args) {
@@ -2711,7 +2711,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSliceResult> getNetworkSlicePlain(GetNetworkSlicePlainArgs args) {
@@ -2767,7 +2767,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args, InvokeOptions options) {
@@ -2823,7 +2823,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static Output<GetNetworkSliceResult> getNetworkSlice(GetNetworkSliceArgs args, InvokeOutputOptions options) {
@@ -2879,7 +2879,7 @@ public final class MobileFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.MobileNetwork`: 2022-11-01
+     * * `Microsoft.MobileNetwork` - 2022-11-01
      * 
      */
     public static CompletableFuture<GetNetworkSliceResult> getNetworkSlicePlain(GetNetworkSlicePlainArgs args, InvokeOptions options) {

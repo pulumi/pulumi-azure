@@ -445,7 +445,7 @@ class IotHubDps(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Devices`: 2022-02-05
+        * `Microsoft.Devices` - 2022-02-05
 
         ## Import
 
@@ -502,7 +502,7 @@ class IotHubDps(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Devices`: 2022-02-05
+        * `Microsoft.Devices` - 2022-02-05
 
         ## Import
 

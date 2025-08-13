@@ -22,6 +22,7 @@ class DevBoxDefinitionArgs:
                  dev_center_id: pulumi.Input[_builtins.str],
                  image_reference_id: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
+                 hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -30,6 +31,9 @@ class DevBoxDefinitionArgs:
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] image_reference_id: The ID of the image for the Dev Center Dev Box Definition.
         :param pulumi.Input[_builtins.str] sku_name: The name of the SKU for the Dev Center Dev Box Definition.
+        :param pulumi.Input[_builtins.bool] hibernate_support_enabled: Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+               
+               > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Dev Box Definition.
@@ -37,6 +41,8 @@ class DevBoxDefinitionArgs:
         pulumi.set(__self__, "dev_center_id", dev_center_id)
         pulumi.set(__self__, "image_reference_id", image_reference_id)
         pulumi.set(__self__, "sku_name", sku_name)
+        if hibernate_support_enabled is not None:
+            pulumi.set(__self__, "hibernate_support_enabled", hibernate_support_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -81,6 +87,20 @@ class DevBoxDefinitionArgs:
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="hibernateSupportEnabled")
+    def hibernate_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+
+        > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+        """
+        return pulumi.get(self, "hibernate_support_enabled")
+
+    @hibernate_support_enabled.setter
+    def hibernate_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "hibernate_support_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -121,6 +141,7 @@ class DevBoxDefinitionArgs:
 class _DevBoxDefinitionState:
     def __init__(__self__, *,
                  dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -129,6 +150,9 @@ class _DevBoxDefinitionState:
         """
         Input properties used for looking up and filtering DevBoxDefinition resources.
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] hibernate_support_enabled: Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+               
+               > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
         :param pulumi.Input[_builtins.str] image_reference_id: The ID of the image for the Dev Center Dev Box Definition.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
@@ -137,6 +161,8 @@ class _DevBoxDefinitionState:
         """
         if dev_center_id is not None:
             pulumi.set(__self__, "dev_center_id", dev_center_id)
+        if hibernate_support_enabled is not None:
+            pulumi.set(__self__, "hibernate_support_enabled", hibernate_support_enabled)
         if image_reference_id is not None:
             pulumi.set(__self__, "image_reference_id", image_reference_id)
         if location is not None:
@@ -159,6 +185,20 @@ class _DevBoxDefinitionState:
     @dev_center_id.setter
     def dev_center_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dev_center_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hibernateSupportEnabled")
+    def hibernate_support_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+
+        > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+        """
+        return pulumi.get(self, "hibernate_support_enabled")
+
+    @hibernate_support_enabled.setter
+    def hibernate_support_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "hibernate_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="imageReferenceId")
@@ -228,6 +268,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -266,7 +307,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DevCenter`: 2025-02-01
+        * `Microsoft.DevCenter` - 2025-02-01
 
         ## Import
 
@@ -279,6 +320,9 @@ class DevBoxDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] hibernate_support_enabled: Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+               
+               > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
         :param pulumi.Input[_builtins.str] image_reference_id: The ID of the image for the Dev Center Dev Box Definition.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
@@ -323,7 +367,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DevCenter`: 2025-02-01
+        * `Microsoft.DevCenter` - 2025-02-01
 
         ## Import
 
@@ -349,6 +393,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -366,6 +411,7 @@ class DevBoxDefinition(pulumi.CustomResource):
             if dev_center_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_id'")
             __props__.__dict__["dev_center_id"] = dev_center_id
+            __props__.__dict__["hibernate_support_enabled"] = hibernate_support_enabled
             if image_reference_id is None and not opts.urn:
                 raise TypeError("Missing required property 'image_reference_id'")
             __props__.__dict__["image_reference_id"] = image_reference_id
@@ -386,6 +432,7 @@ class DevBoxDefinition(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
+            hibernate_support_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             image_reference_id: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -399,6 +446,9 @@ class DevBoxDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dev_center_id: The ID of the associated Dev Center. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] hibernate_support_enabled: Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+               
+               > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
         :param pulumi.Input[_builtins.str] image_reference_id: The ID of the image for the Dev Center Dev Box Definition.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
@@ -410,6 +460,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         __props__ = _DevBoxDefinitionState.__new__(_DevBoxDefinitionState)
 
         __props__.__dict__["dev_center_id"] = dev_center_id
+        __props__.__dict__["hibernate_support_enabled"] = hibernate_support_enabled
         __props__.__dict__["image_reference_id"] = image_reference_id
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -424,6 +475,16 @@ class DevBoxDefinition(pulumi.CustomResource):
         The ID of the associated Dev Center. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dev_center_id")
+
+    @_builtins.property
+    @pulumi.getter(name="hibernateSupportEnabled")
+    def hibernate_support_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+
+        > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+        """
+        return pulumi.get(self, "hibernate_support_enabled")
 
     @_builtins.property
     @pulumi.getter(name="imageReferenceId")

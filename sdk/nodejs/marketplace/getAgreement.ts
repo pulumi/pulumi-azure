@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     plan: "hourly",
  * });
  * export const azurermMarketplaceAgreementId = id;
+ * export const azurermMarketplaceAgreementAccepted = accepted;
  * ```
  *
  * ## API Providers
@@ -26,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+ * * `Microsoft.MarketplaceOrdering` - 2015-06-01
  */
 export function getAgreement(args: GetAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetAgreementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,6 +61,10 @@ export interface GetAgreementArgs {
  */
 export interface GetAgreementResult {
     /**
+     * Whether the Marketplace Agreement has been accepted.
+     */
+    readonly accepted: boolean;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -84,6 +89,7 @@ export interface GetAgreementResult {
  *     plan: "hourly",
  * });
  * export const azurermMarketplaceAgreementId = id;
+ * export const azurermMarketplaceAgreementAccepted = accepted;
  * ```
  *
  * ## API Providers
@@ -91,7 +97,7 @@ export interface GetAgreementResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.MarketplaceOrdering`: 2015-06-01
+ * * `Microsoft.MarketplaceOrdering` - 2015-06-01
  */
 export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgreementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

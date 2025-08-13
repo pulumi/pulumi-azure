@@ -38,6 +38,12 @@ namespace Pulumi.Azure.NetApp
         public Output<bool?> AzureVmwareDataStoreEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// A `cool_access` block as defined below.
+        /// </summary>
+        [Output("coolAccess")]
+        public Output<Outputs.VolumeCoolAccess?> CoolAccess { get; private set; } = null!;
+
+        /// <summary>
         /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("createFromSnapshotResourceId")]
@@ -272,6 +278,12 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
 
         /// <summary>
+        /// A `cool_access` block as defined below.
+        /// </summary>
+        [Input("coolAccess")]
+        public Input<Inputs.VolumeCoolAccessArgs>? CoolAccess { get; set; }
+
+        /// <summary>
         /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("createFromSnapshotResourceId")]
@@ -478,6 +490,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Input("azureVmwareDataStoreEnabled")]
         public Input<bool>? AzureVmwareDataStoreEnabled { get; set; }
+
+        /// <summary>
+        /// A `cool_access` block as defined below.
+        /// </summary>
+        [Input("coolAccess")]
+        public Input<Inputs.VolumeCoolAccessGetArgs>? CoolAccess { get; set; }
 
         /// <summary>
         /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.

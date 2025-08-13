@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class ComputeClusterScaleSettings {
     /**
-     * @return Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Maximum node count.
      * 
      */
     private Integer maxNodeCount;
     /**
-     * @return Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Minimal node count.
      * 
      */
     private Integer minNodeCount;
     /**
-     * @return Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
      * 
      */
     private String scaleDownNodesAfterIdleDuration;
 
     private ComputeClusterScaleSettings() {}
     /**
-     * @return Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Maximum node count.
      * 
      */
     public Integer maxNodeCount() {
         return this.maxNodeCount;
     }
     /**
-     * @return Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Minimal node count.
      * 
      */
     public Integer minNodeCount() {
         return this.minNodeCount;
     }
     /**
-     * @return Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
      * 
      */
     public String scaleDownNodesAfterIdleDuration() {

@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.KeyVault`: 2023-07-01
+ * * `Microsoft.KeyVault` - 2023-07-01
  *
  * ## Import
  *
@@ -101,7 +101,7 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
      */
     public readonly networkAcls!: pulumi.Output<outputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
     /**
-     * Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether traffic from public networks is permitted. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -231,7 +231,7 @@ export interface ManagedHardwareSecurityModuleState {
      */
     networkAcls?: pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
     /**
-     * Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether traffic from public networks is permitted. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -293,7 +293,7 @@ export interface ManagedHardwareSecurityModuleArgs {
      */
     networkAcls?: pulumi.Input<inputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
     /**
-     * Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether traffic from public networks is permitted. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

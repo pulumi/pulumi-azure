@@ -270,6 +270,11 @@ export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
+export { StandaloneGatewayArgs, StandaloneGatewayState } from "./standaloneGateway";
+export type StandaloneGateway = import("./standaloneGateway").StandaloneGateway;
+export const StandaloneGateway: typeof import("./standaloneGateway").StandaloneGateway = null as any;
+utilities.lazyLoad(exports, ["StandaloneGateway"], () => require("./standaloneGateway"));
+
 export { SubscriptionArgs, SubscriptionState } from "./subscription";
 export type Subscription = import("./subscription").Subscription;
 export const Subscription: typeof import("./subscription").Subscription = null as any;
@@ -284,6 +289,11 @@ export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { WorkspaceArgs, WorkspaceState } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 
 const _module = {
@@ -378,12 +388,16 @@ const _module = {
                 return new RedisCache(name, <any>undefined, { urn })
             case "azure:apimanagement/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure:apimanagement/standaloneGateway:StandaloneGateway":
+                return new StandaloneGateway(name, <any>undefined, { urn })
             case "azure:apimanagement/subscription:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
             case "azure:apimanagement/tag:Tag":
                 return new Tag(name, <any>undefined, { urn })
             case "azure:apimanagement/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "azure:apimanagement/workspace:Workspace":
+                return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -433,6 +447,8 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/productPolicy", _m
 pulumi.runtime.registerResourceModule("azure", "apimanagement/productTag", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/redisCache", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/service", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/standaloneGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/subscription", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/tag", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/user", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/workspace", _module)

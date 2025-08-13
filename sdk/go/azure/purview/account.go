@@ -58,7 +58,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Purview`: 2021-07-01
+// * `Microsoft.Purview` - 2021-12-01
 //
 // ## Import
 //
@@ -74,6 +74,8 @@ type Account struct {
 	AtlasKafkaEndpointPrimaryConnectionString pulumi.StringOutput `pulumi:"atlasKafkaEndpointPrimaryConnectionString"`
 	// Atlas Kafka endpoint secondary connection string.
 	AtlasKafkaEndpointSecondaryConnectionString pulumi.StringOutput `pulumi:"atlasKafkaEndpointSecondaryConnectionString"`
+	// Configured in AWS to allow use of the role arn used for scanning
+	AwsExternalId pulumi.StringOutput `pulumi:"awsExternalId"`
 	// Catalog endpoint.
 	CatalogEndpoint pulumi.StringOutput `pulumi:"catalogEndpoint"`
 	// Guardian endpoint.
@@ -82,6 +84,10 @@ type Account struct {
 	Identity AccountIdentityOutput `pulumi:"identity"`
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+	//
+	// > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+	ManagedEventHubEnabled pulumi.BoolPtrOutput `pulumi:"managedEventHubEnabled"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
 	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
@@ -145,6 +151,8 @@ type accountState struct {
 	AtlasKafkaEndpointPrimaryConnectionString *string `pulumi:"atlasKafkaEndpointPrimaryConnectionString"`
 	// Atlas Kafka endpoint secondary connection string.
 	AtlasKafkaEndpointSecondaryConnectionString *string `pulumi:"atlasKafkaEndpointSecondaryConnectionString"`
+	// Configured in AWS to allow use of the role arn used for scanning
+	AwsExternalId *string `pulumi:"awsExternalId"`
 	// Catalog endpoint.
 	CatalogEndpoint *string `pulumi:"catalogEndpoint"`
 	// Guardian endpoint.
@@ -153,6 +161,10 @@ type accountState struct {
 	Identity *AccountIdentity `pulumi:"identity"`
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location *string `pulumi:"location"`
+	// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+	//
+	// > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+	ManagedEventHubEnabled *bool `pulumi:"managedEventHubEnabled"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
 	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
@@ -176,6 +188,8 @@ type AccountState struct {
 	AtlasKafkaEndpointPrimaryConnectionString pulumi.StringPtrInput
 	// Atlas Kafka endpoint secondary connection string.
 	AtlasKafkaEndpointSecondaryConnectionString pulumi.StringPtrInput
+	// Configured in AWS to allow use of the role arn used for scanning
+	AwsExternalId pulumi.StringPtrInput
 	// Catalog endpoint.
 	CatalogEndpoint pulumi.StringPtrInput
 	// Guardian endpoint.
@@ -184,6 +198,10 @@ type AccountState struct {
 	Identity AccountIdentityPtrInput
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringPtrInput
+	// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+	//
+	// > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+	ManagedEventHubEnabled pulumi.BoolPtrInput
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
 	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
@@ -211,6 +229,10 @@ type accountArgs struct {
 	Identity AccountIdentity `pulumi:"identity"`
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location *string `pulumi:"location"`
+	// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+	//
+	// > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+	ManagedEventHubEnabled *bool `pulumi:"managedEventHubEnabled"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
 	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
@@ -231,6 +253,10 @@ type AccountArgs struct {
 	Identity AccountIdentityInput
 	// The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 	Location pulumi.StringPtrInput
+	// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+	//
+	// > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+	ManagedEventHubEnabled pulumi.BoolPtrInput
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
 	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
@@ -342,6 +368,11 @@ func (o AccountOutput) AtlasKafkaEndpointSecondaryConnectionString() pulumi.Stri
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AtlasKafkaEndpointSecondaryConnectionString }).(pulumi.StringOutput)
 }
 
+// Configured in AWS to allow use of the role arn used for scanning
+func (o AccountOutput) AwsExternalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AwsExternalId }).(pulumi.StringOutput)
+}
+
 // Catalog endpoint.
 func (o AccountOutput) CatalogEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CatalogEndpoint }).(pulumi.StringOutput)
@@ -360,6 +391,13 @@ func (o AccountOutput) Identity() AccountIdentityOutput {
 // The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
 func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+//
+// > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+func (o AccountOutput) ManagedEventHubEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.ManagedEventHubEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Task<GetExadataInfrastructureResult> InvokeAsync(GetExadataInfrastructureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExadataInfrastructureResult>("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args ?? new GetExadataInfrastructureArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetExadataInfrastructureResult> Invoke(GetExadataInfrastructureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExadataInfrastructureResult>("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args ?? new GetExadataInfrastructureInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetExadataInfrastructureResult> Invoke(GetExadataInfrastructureInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExadataInfrastructureResult>("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args ?? new GetExadataInfrastructureInvokeArgs(), options.WithDefaults());
@@ -182,6 +182,10 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly int ComputeCount;
         /// <summary>
+        /// The compute model of the Exadata Infrastructure.
+        /// </summary>
+        public readonly string ComputeModel;
+        /// <summary>
         /// The total number of CPU cores allocated.
         /// </summary>
         public readonly int CpuCount;
@@ -194,6 +198,10 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly double DataStorageSizeInTbs;
         /// <summary>
+        /// The database server model type of the cloud Exadata infrastructure resource.
+        /// </summary>
+        public readonly string DatabaseServerType;
+        /// <summary>
         /// The local node storage allocated in GBs.
         /// </summary>
         public readonly int DbNodeStorageSizeInGbs;
@@ -201,6 +209,10 @@ namespace Pulumi.Azure.Oracle
         /// The software version of the database servers (dom0) in the Cloud Exadata Infrastructure.
         /// </summary>
         public readonly string DbServerVersion;
+        /// <summary>
+        /// A `defined_file_system_configuration` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetExadataInfrastructureDefinedFileSystemConfigurationResult> DefinedFileSystemConfigurations;
         /// <summary>
         /// The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
         /// </summary>
@@ -284,6 +296,10 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly int StorageCount;
         /// <summary>
+        /// The storage server model type of the cloud Exadata infrastructure resource.
+        /// </summary>
+        public readonly string StorageServerType;
+        /// <summary>
         /// The software version of the storage servers (cells) in the Cloud Exadata Infrastructure.
         /// </summary>
         public readonly string StorageServerVersion;
@@ -314,15 +330,21 @@ namespace Pulumi.Azure.Oracle
 
             int computeCount,
 
+            string computeModel,
+
             int cpuCount,
 
             ImmutableArray<string> customerContacts,
 
             double dataStorageSizeInTbs,
 
+            string databaseServerType,
+
             int dbNodeStorageSizeInGbs,
 
             string dbServerVersion,
+
+            ImmutableArray<Outputs.GetExadataInfrastructureDefinedFileSystemConfigurationResult> definedFileSystemConfigurations,
 
             string displayName,
 
@@ -368,6 +390,8 @@ namespace Pulumi.Azure.Oracle
 
             int storageCount,
 
+            string storageServerType,
+
             string storageServerVersion,
 
             ImmutableDictionary<string, string> tags,
@@ -382,11 +406,14 @@ namespace Pulumi.Azure.Oracle
             AdditionalStorageCount = additionalStorageCount;
             AvailableStorageSizeInGbs = availableStorageSizeInGbs;
             ComputeCount = computeCount;
+            ComputeModel = computeModel;
             CpuCount = cpuCount;
             CustomerContacts = customerContacts;
             DataStorageSizeInTbs = dataStorageSizeInTbs;
+            DatabaseServerType = databaseServerType;
             DbNodeStorageSizeInGbs = dbNodeStorageSizeInGbs;
             DbServerVersion = dbServerVersion;
+            DefinedFileSystemConfigurations = definedFileSystemConfigurations;
             DisplayName = displayName;
             EstimatedPatchingTimes = estimatedPatchingTimes;
             Id = id;
@@ -409,6 +436,7 @@ namespace Pulumi.Azure.Oracle
             ResourceGroupName = resourceGroupName;
             Shape = shape;
             StorageCount = storageCount;
+            StorageServerType = storageServerType;
             StorageServerVersion = storageServerVersion;
             Tags = tags;
             TimeCreated = timeCreated;

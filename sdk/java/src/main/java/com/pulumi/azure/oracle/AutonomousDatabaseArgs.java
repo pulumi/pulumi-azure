@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.oracle;
 
+import com.pulumi.azure.oracle.inputs.AutonomousDatabaseLongTermBackupScheduleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -37,6 +38,21 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+     * 
+     */
+    @Import(name="allowedIps")
+    private @Nullable Output<List<String>> allowedIps;
+
+    /**
+     * @return (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedIps() {
+        return Optional.ofNullable(this.allowedIps);
+    }
+
+    /**
      * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
      * 
      */
@@ -67,14 +83,14 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+     * Retention period, in days, for backups.
      * 
      */
     @Import(name="backupRetentionPeriodInDays", required=true)
     private Output<Integer> backupRetentionPeriodInDays;
 
     /**
-     * @return (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+     * @return Retention period, in days, for backups.
      * 
      */
     public Output<Integer> backupRetentionPeriodInDays() {
@@ -126,17 +142,9 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
         return this.computeModel;
     }
 
-    /**
-     * Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-     * 
-     */
     @Import(name="customerContacts")
     private @Nullable Output<List<String>> customerContacts;
 
-    /**
-     * @return Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-     * 
-     */
     public Optional<Output<List<String>>> customerContacts() {
         return Optional.ofNullable(this.customerContacts);
     }
@@ -239,15 +247,26 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.location);
     }
 
+    @Import(name="longTermBackupSchedule")
+    private @Nullable Output<AutonomousDatabaseLongTermBackupScheduleArgs> longTermBackupSchedule;
+
+    public Optional<Output<AutonomousDatabaseLongTermBackupScheduleArgs>> longTermBackupSchedule() {
+        return Optional.ofNullable(this.longTermBackupSchedule);
+    }
+
     /**
-     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+     * 
+     * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
      * 
      */
     @Import(name="mtlsConnectionRequired", required=true)
     private Output<Boolean> mtlsConnectionRequired;
 
     /**
-     * @return Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+     * @return Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+     * 
+     * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
      * 
      */
     public Output<Boolean> mtlsConnectionRequired() {
@@ -303,28 +322,20 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
      * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
      * 
      */
-    @Import(name="subnetId", required=true)
-    private Output<String> subnetId;
+    @Import(name="subnetId")
+    private @Nullable Output<String> subnetId;
 
     /**
      * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
      * 
      */
-    public Output<String> subnetId() {
-        return this.subnetId;
+    public Optional<Output<String>> subnetId() {
+        return Optional.ofNullable(this.subnetId);
     }
 
-    /**
-     * A mapping of tags which should be assigned to the Autonomous Database.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the Autonomous Database.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -333,21 +344,22 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
      * The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
      * 
      */
-    @Import(name="virtualNetworkId", required=true)
-    private Output<String> virtualNetworkId;
+    @Import(name="virtualNetworkId")
+    private @Nullable Output<String> virtualNetworkId;
 
     /**
      * @return The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
      * 
      */
-    public Output<String> virtualNetworkId() {
-        return this.virtualNetworkId;
+    public Optional<Output<String>> virtualNetworkId() {
+        return Optional.ofNullable(this.virtualNetworkId);
     }
 
     private AutonomousDatabaseArgs() {}
 
     private AutonomousDatabaseArgs(AutonomousDatabaseArgs $) {
         this.adminPassword = $.adminPassword;
+        this.allowedIps = $.allowedIps;
         this.autoScalingEnabled = $.autoScalingEnabled;
         this.autoScalingForStorageEnabled = $.autoScalingForStorageEnabled;
         this.backupRetentionPeriodInDays = $.backupRetentionPeriodInDays;
@@ -361,6 +373,7 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
         this.displayName = $.displayName;
         this.licenseModel = $.licenseModel;
         this.location = $.location;
+        this.longTermBackupSchedule = $.longTermBackupSchedule;
         this.mtlsConnectionRequired = $.mtlsConnectionRequired;
         this.name = $.name;
         this.nationalCharacterSet = $.nationalCharacterSet;
@@ -410,6 +423,37 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param allowedIps (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedIps(@Nullable Output<List<String>> allowedIps) {
+            $.allowedIps = allowedIps;
+            return this;
+        }
+
+        /**
+         * @param allowedIps (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedIps(List<String> allowedIps) {
+            return allowedIps(Output.of(allowedIps));
+        }
+
+        /**
+         * @param allowedIps (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedIps(String... allowedIps) {
+            return allowedIps(List.of(allowedIps));
+        }
+
+        /**
          * @param autoScalingEnabled Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
          * 
          * @return builder
@@ -452,7 +496,7 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backupRetentionPeriodInDays (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+         * @param backupRetentionPeriodInDays Retention period, in days, for backups.
          * 
          * @return builder
          * 
@@ -463,7 +507,7 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backupRetentionPeriodInDays (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+         * @param backupRetentionPeriodInDays Retention period, in days, for backups.
          * 
          * @return builder
          * 
@@ -535,33 +579,15 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
             return computeModel(Output.of(computeModel));
         }
 
-        /**
-         * @param customerContacts Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerContacts(@Nullable Output<List<String>> customerContacts) {
             $.customerContacts = customerContacts;
             return this;
         }
 
-        /**
-         * @param customerContacts Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerContacts(List<String> customerContacts) {
             return customerContacts(Output.of(customerContacts));
         }
 
-        /**
-         * @param customerContacts Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerContacts(String... customerContacts) {
             return customerContacts(List.of(customerContacts));
         }
@@ -700,8 +726,19 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
             return location(Output.of(location));
         }
 
+        public Builder longTermBackupSchedule(@Nullable Output<AutonomousDatabaseLongTermBackupScheduleArgs> longTermBackupSchedule) {
+            $.longTermBackupSchedule = longTermBackupSchedule;
+            return this;
+        }
+
+        public Builder longTermBackupSchedule(AutonomousDatabaseLongTermBackupScheduleArgs longTermBackupSchedule) {
+            return longTermBackupSchedule(Output.of(longTermBackupSchedule));
+        }
+
         /**
-         * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+         * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+         * 
+         * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
          * 
          * @return builder
          * 
@@ -712,7 +749,9 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+         * @param mtlsConnectionRequired Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+         * 
+         * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
          * 
          * @return builder
          * 
@@ -790,7 +829,7 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder subnetId(Output<String> subnetId) {
+        public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
@@ -805,23 +844,11 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
             return subnetId(Output.of(subnetId));
         }
 
-        /**
-         * @param tags A mapping of tags which should be assigned to the Autonomous Database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags which should be assigned to the Autonomous Database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -832,7 +859,7 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder virtualNetworkId(Output<String> virtualNetworkId) {
+        public Builder virtualNetworkId(@Nullable Output<String> virtualNetworkId) {
             $.virtualNetworkId = virtualNetworkId;
             return this;
         }
@@ -892,12 +919,6 @@ public final class AutonomousDatabaseArgs extends com.pulumi.resources.ResourceA
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("AutonomousDatabaseArgs", "resourceGroupName");
-            }
-            if ($.subnetId == null) {
-                throw new MissingRequiredPropertyException("AutonomousDatabaseArgs", "subnetId");
-            }
-            if ($.virtualNetworkId == null) {
-                throw new MissingRequiredPropertyException("AutonomousDatabaseArgs", "virtualNetworkId");
             }
             return $;
         }

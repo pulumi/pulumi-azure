@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Advisor`: 2023-01-01
+ * * `Microsoft.Advisor` - 2023-01-01
  */
 export function getRecommendations(args?: GetRecommendationsArgs, opts?: pulumi.InvokeOptions): Promise<GetRecommendationsResult> {
     args = args || {};
@@ -94,7 +94,7 @@ export interface GetRecommendationsResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Advisor`: 2023-01-01
+ * * `Microsoft.Advisor` - 2023-01-01
  */
 export function getRecommendationsOutput(args?: GetRecommendationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRecommendationsResult> {
     args = args || {};

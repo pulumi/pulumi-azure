@@ -150,7 +150,7 @@ def get_factory(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataFactory`: 2018-06-01
+    * `Microsoft.DataFactory` - 2018-06-01
 
 
     :param _builtins.str name: The name of this Azure Data Factory.
@@ -193,7 +193,7 @@ def get_factory_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataFactory`: 2018-06-01
+    * `Microsoft.DataFactory` - 2018-06-01
 
 
     :param _builtins.str name: The name of this Azure Data Factory.

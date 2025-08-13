@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.VideoIndexer`: 2025-04-01
+ * * `Microsoft.VideoIndexer` - 2025-04-01
  *
  * ## Import
  *
@@ -95,6 +95,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -123,6 +127,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["storage"] = state ? state.storage : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -140,6 +145,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storage"] = args ? args.storage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -165,6 +171,10 @@ export interface AccountState {
      * The name of the Video Indexer Account. Changing the name forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
      */
@@ -195,6 +205,10 @@ export interface AccountArgs {
      * The name of the Video Indexer Account. Changing the name forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
      */

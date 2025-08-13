@@ -60,7 +60,7 @@ public final class WafFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-05-01
+     * * `Microsoft.Network` - 2024-05-01
      * 
      */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args) {
@@ -111,7 +111,7 @@ public final class WafFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-05-01
+     * * `Microsoft.Network` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain(GetFirewallPolicyPlainArgs args) {
@@ -162,7 +162,7 @@ public final class WafFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-05-01
+     * * `Microsoft.Network` - 2024-05-01
      * 
      */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class WafFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-05-01
+     * * `Microsoft.Network` - 2024-05-01
      * 
      */
     public static Output<GetFirewallPolicyResult> getFirewallPolicy(GetFirewallPolicyArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class WafFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-05-01
+     * * `Microsoft.Network` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetFirewallPolicyResult> getFirewallPolicyPlain(GetFirewallPolicyPlainArgs args, InvokeOptions options) {

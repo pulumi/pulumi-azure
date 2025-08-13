@@ -93,6 +93,8 @@ __all__ = [
     'NamespaceTopicSpacesConfigurationStaticRoutingEnrichmentArgsDict',
     'PartnerConfigurationPartnerAuthorizationArgs',
     'PartnerConfigurationPartnerAuthorizationArgsDict',
+    'PartnerNamespaceInboundIpRuleArgs',
+    'PartnerNamespaceInboundIpRuleArgsDict',
     'SystemTopicEventSubscriptionAdvancedFilterArgs',
     'SystemTopicEventSubscriptionAdvancedFilterArgsDict',
     'SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs',
@@ -2969,6 +2971,57 @@ class PartnerConfigurationPartnerAuthorizationArgs:
 
 
 if not MYPY:
+    class PartnerNamespaceInboundIpRuleArgsDict(TypedDict):
+        ip_mask: pulumi.Input[_builtins.str]
+        """
+        The IP mask (CIDR) to match on.
+        """
+        action: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The action to take when the rule is matched. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+elif False:
+    PartnerNamespaceInboundIpRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PartnerNamespaceInboundIpRuleArgs:
+    def __init__(__self__, *,
+                 ip_mask: pulumi.Input[_builtins.str],
+                 action: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] ip_mask: The IP mask (CIDR) to match on.
+        :param pulumi.Input[_builtins.str] action: The action to take when the rule is matched. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @_builtins.property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IP mask (CIDR) to match on.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The action to take when the rule is matched. The only possible value is `Allow`. Defaults to `Allow`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "action", value)
+
+
+if not MYPY:
     class SystemTopicEventSubscriptionAdvancedFilterArgsDict(TypedDict):
         bool_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input['SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgsDict']]]]
         """
@@ -4975,15 +5028,15 @@ if not MYPY:
     class SystemTopicIdentityArgsDict(TypedDict):
         type: pulumi.Input[_builtins.str]
         """
-        Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
         """
         identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
-        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
         """
         principal_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -5004,12 +5057,12 @@ class SystemTopicIdentityArgs:
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+        :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
                
-               > **Note:** This is required when `type` is set to `UserAssigned`
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
                
-               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+               > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -5025,7 +5078,7 @@ class SystemTopicIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -5039,9 +5092,9 @@ class SystemTopicIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 
-        > **Note:** This is required when `type` is set to `UserAssigned`
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
-        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+        > **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
         """
         return pulumi.get(self, "identity_ids")
 

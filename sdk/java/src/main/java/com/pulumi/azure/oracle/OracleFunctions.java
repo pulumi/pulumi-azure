@@ -83,7 +83,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args) {
@@ -133,7 +133,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetAdbsCharacterSetsResult> getAdbsCharacterSetsPlain(GetAdbsCharacterSetsPlainArgs args) {
@@ -183,7 +183,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args, InvokeOptions options) {
@@ -233,7 +233,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args, InvokeOutputOptions options) {
@@ -283,7 +283,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetAdbsCharacterSetsResult> getAdbsCharacterSetsPlain(GetAdbsCharacterSetsPlainArgs args, InvokeOptions options) {
@@ -333,7 +333,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args) {
@@ -383,7 +383,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSetsPlain(GetAdbsNationalCharacterSetsPlainArgs args) {
@@ -433,7 +433,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args, InvokeOptions options) {
@@ -483,7 +483,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args, InvokeOutputOptions options) {
@@ -533,7 +533,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSetsPlain(GetAdbsNationalCharacterSetsPlainArgs args, InvokeOptions options) {
@@ -584,7 +584,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args) {
@@ -635,7 +635,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetAutonomousDatabaseResult> getAutonomousDatabasePlain(GetAutonomousDatabasePlainArgs args) {
@@ -686,7 +686,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOptions options) {
@@ -737,7 +737,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOutputOptions options) {
@@ -788,7 +788,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetAutonomousDatabaseResult> getAutonomousDatabasePlain(GetAutonomousDatabasePlainArgs args, InvokeOptions options) {
@@ -839,7 +839,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args) {
@@ -890,7 +890,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args) {
@@ -941,7 +941,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args, InvokeOptions options) {
@@ -992,7 +992,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args, InvokeOutputOptions options) {
@@ -1043,7 +1043,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args, InvokeOptions options) {
@@ -1093,7 +1093,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args) {
@@ -1143,7 +1143,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetDbNodesResult> getDbNodesPlain(GetDbNodesPlainArgs args) {
@@ -1193,7 +1193,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOptions options) {
@@ -1243,7 +1243,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOutputOptions options) {
@@ -1293,7 +1293,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetDbNodesResult> getDbNodesPlain(GetDbNodesPlainArgs args, InvokeOptions options) {
@@ -1344,7 +1344,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args) {
@@ -1395,7 +1395,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetDbServersResult> getDbServersPlain(GetDbServersPlainArgs args) {
@@ -1446,7 +1446,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOptions options) {
@@ -1497,7 +1497,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOutputOptions options) {
@@ -1548,7 +1548,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetDbServersResult> getDbServersPlain(GetDbServersPlainArgs args, InvokeOptions options) {
@@ -1585,7 +1585,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -1600,7 +1601,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args) {
@@ -1637,7 +1638,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -1652,7 +1654,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain(GetDbSystemShapesPlainArgs args) {
@@ -1689,7 +1691,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -1704,7 +1707,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args, InvokeOptions options) {
@@ -1741,7 +1744,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -1756,7 +1760,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args, InvokeOutputOptions options) {
@@ -1793,7 +1797,8 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getDbSystemShapes(GetDbSystemShapesArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -1808,7 +1813,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain(GetDbSystemShapesPlainArgs args, InvokeOptions options) {
@@ -1859,7 +1864,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args) {
@@ -1910,7 +1915,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetExadataInfrastructureResult> getExadataInfrastructurePlain(GetExadataInfrastructurePlainArgs args) {
@@ -1961,7 +1966,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args, InvokeOptions options) {
@@ -2012,7 +2017,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args, InvokeOutputOptions options) {
@@ -2063,7 +2068,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetExadataInfrastructureResult> getExadataInfrastructurePlain(GetExadataInfrastructurePlainArgs args, InvokeOptions options) {
@@ -2100,7 +2105,9 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getGiVersions(GetGiVersionsArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
+     *             .shape("Exadata.X9M")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2115,7 +2122,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args) {
@@ -2152,7 +2159,9 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getGiVersions(GetGiVersionsArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
+     *             .shape("Exadata.X9M")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2167,7 +2176,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain(GetGiVersionsPlainArgs args) {
@@ -2204,7 +2213,9 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getGiVersions(GetGiVersionsArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
+     *             .shape("Exadata.X9M")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2219,7 +2230,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOptions options) {
@@ -2256,7 +2267,9 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getGiVersions(GetGiVersionsArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
+     *             .shape("Exadata.X9M")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2271,7 +2284,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOutputOptions options) {
@@ -2308,7 +2321,9 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getGiVersions(GetGiVersionsArgs.builder()
-     *             .location("West Europe")
+     *             .location("eastus")
+     *             .zone("2")
+     *             .shape("Exadata.X9M")
      *             .build());
      * 
      *         ctx.export("example", example);
@@ -2323,7 +2338,7 @@ public final class OracleFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Oracle.Database`: 2024-06-01
+     * * `Oracle.Database` - 2025-03-01
      * 
      */
     public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain(GetGiVersionsPlainArgs args, InvokeOptions options) {

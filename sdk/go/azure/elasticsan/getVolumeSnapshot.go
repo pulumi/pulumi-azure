@@ -60,7 +60,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ElasticSan`: 2023-01-01
+// * `Microsoft.ElasticSan` - 2023-01-01
 func GetVolumeSnapshot(ctx *pulumi.Context, args *GetVolumeSnapshotArgs, opts ...pulumi.InvokeOption) (*GetVolumeSnapshotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVolumeSnapshotResult

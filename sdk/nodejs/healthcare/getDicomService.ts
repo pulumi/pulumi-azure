@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.HealthcareApis`: 2024-03-31
+ * * `Microsoft.HealthcareApis` - 2024-03-31
  */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -117,7 +117,7 @@ export interface GetDicomServiceResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.HealthcareApis`: 2024-03-31
+ * * `Microsoft.HealthcareApis` - 2024-03-31
  */
 export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDicomServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

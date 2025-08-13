@@ -50,12 +50,16 @@ public final class VirtualNetworkIpAddressPoolArgs extends com.pulumi.resources.
     /**
      * The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
      * 
+     * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
+     * 
      */
     @Import(name="numberOfIpAddresses", required=true)
     private Output<String> numberOfIpAddresses;
 
     /**
      * @return The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
+     * 
+     * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
      * 
      */
     public Output<String> numberOfIpAddresses() {
@@ -143,6 +147,8 @@ public final class VirtualNetworkIpAddressPoolArgs extends com.pulumi.resources.
         /**
          * @param numberOfIpAddresses The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
          * 
+         * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
+         * 
          * @return builder
          * 
          */
@@ -153,6 +159,8 @@ public final class VirtualNetworkIpAddressPoolArgs extends com.pulumi.resources.
 
         /**
          * @param numberOfIpAddresses The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `&#34;100&#34;`.
+         * 
+         * &gt; **Note:** `number_of_ip_addresses` cannot be decreased.
          * 
          * @return builder
          * 

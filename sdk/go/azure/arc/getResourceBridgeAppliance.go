@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ResourceConnector`: 2022-10-27
+// * `Microsoft.ResourceConnector` - 2022-10-27
 func LookupResourceBridgeAppliance(ctx *pulumi.Context, args *LookupResourceBridgeApplianceArgs, opts ...pulumi.InvokeOption) (*LookupResourceBridgeApplianceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResourceBridgeApplianceResult

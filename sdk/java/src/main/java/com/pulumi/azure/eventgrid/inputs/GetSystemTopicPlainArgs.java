@@ -14,14 +14,14 @@ public final class GetSystemTopicPlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetSystemTopicPlainArgs Empty = new GetSystemTopicPlainArgs();
 
     /**
-     * The name of the EventGrid System Topic resource.
+     * The name of the Event Grid System Topic resource.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return The name of the EventGrid System Topic resource.
+     * @return The name of the Event Grid System Topic resource.
      * 
      */
     public String name() {
@@ -29,14 +29,14 @@ public final class GetSystemTopicPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * The name of the resource group in which the EventGrid System Topic exists.
+     * The name of the resource group in which the Event Grid System Topic exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private String resourceGroupName;
 
     /**
-     * @return The name of the resource group in which the EventGrid System Topic exists.
+     * @return The name of the resource group in which the Event Grid System Topic exists.
      * 
      */
     public String resourceGroupName() {
@@ -69,7 +69,7 @@ public final class GetSystemTopicPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param name The name of the EventGrid System Topic resource.
+         * @param name The name of the Event Grid System Topic resource.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class GetSystemTopicPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which the EventGrid System Topic exists.
+         * @param resourceGroupName The name of the resource group in which the Event Grid System Topic exists.
          * 
          * @return builder
          * 

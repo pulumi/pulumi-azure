@@ -61,7 +61,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Databricks`: 2022-10-01-preview
+// * `Microsoft.Databricks` - 2022-10-01-preview
 //
 // ## Import
 //

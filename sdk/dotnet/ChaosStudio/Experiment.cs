@@ -171,7 +171,7 @@ namespace Pulumi.Azure.ChaosStudio
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Chaos`: 2023-11-01
+    /// * `Microsoft.Chaos` - 2023-11-01
     /// 
     /// ## Import
     /// 

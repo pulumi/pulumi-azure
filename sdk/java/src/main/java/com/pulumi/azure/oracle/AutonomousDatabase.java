@@ -6,6 +6,7 @@ package com.pulumi.azure.oracle;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.oracle.AutonomousDatabaseArgs;
 import com.pulumi.azure.oracle.inputs.AutonomousDatabaseState;
+import com.pulumi.azure.oracle.outputs.AutonomousDatabaseLongTermBackupSchedule;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -27,12 +28,37 @@ import javax.annotation.Nullable;
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## &gt; **Note:** `allowed_ips`  cannot be updated after provisioning the resource with an empty list (i.e., a publicly accessible Autonomous Database)
+ * 
+ *               size: the maximum number of Ips provided shouldn&#39;t exceed 1024. At this time we only support IpV4.
+ * ***
+ * 
+ * * `customer_contacts` - (Optional) Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
+ * 
+ * * `tags` - (Optional) A mapping of tags which should be assigned to the Autonomous Database.
+ * 
+ * * `long_term_backup_schedule` - (Optional) A `long_term_backup_schedule` block as defined below.
+ * 
+ * &gt; **Note:** for more information see [Create Long-Term Backups on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/backup-long-term.html#GUID-BD76E02E-AEB0-4450-A6AB-5C9EB1F4EAD0)
+ * 
+ * ***
+ * 
+ * A `long_term_backup_schedule` blocks supports the following:
+ * 
+ * * `repeat_cadence` - (Required)  Specifies the schedule for automated long-term backups. Possible values are `Weekly`, `Monthly`, `Yearly`, or `OneTime` (does not repeat) . For example, if the Backup date and Time is `Jan 24, 2025 00:09:00 UTC` and this is a Tuesday, and Weekly is selected, the long-term backup will happen every Tuesday.
+ * 
+ * * `time_of_backup` - (Required) The date and time in which the backup should be taken in ISO8601 Date Time format.
+ * 
+ * * `retention_period_in_days` - (Required) The retention period in days for the Autonomous Database Backup. Possible values range from `90` to `2558` days (7 years).
+ * 
+ * * `enabled` - (Required) A boolean value that indicates whether the long term backup schedule is enabled.
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  * 
  * ## Import
  * 
@@ -58,6 +84,20 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
      */
     public Output<String> adminPassword() {
         return this.adminPassword;
+    }
+    /**
+     * (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+     * 
+     */
+    @Export(name="allowedIps", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> allowedIps;
+
+    /**
+     * @return (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
+     * 
+     */
+    public Output<Optional<List<String>>> allowedIps() {
+        return Codegen.optional(this.allowedIps);
     }
     /**
      * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
@@ -88,14 +128,14 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
         return this.autoScalingForStorageEnabled;
     }
     /**
-     * (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+     * Retention period, in days, for backups.
      * 
      */
     @Export(name="backupRetentionPeriodInDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> backupRetentionPeriodInDays;
 
     /**
-     * @return (Updatable) Retention period, in days, for backups. Changing this forces a new Autonomous Database to be created.
+     * @return Retention period, in days, for backups.
      * 
      */
     public Output<Integer> backupRetentionPeriodInDays() {
@@ -143,17 +183,9 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
     public Output<String> computeModel() {
         return this.computeModel;
     }
-    /**
-     * Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-     * 
-     */
     @Export(name="customerContacts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> customerContacts;
 
-    /**
-     * @return Specifies a list of customer contacts as email addresses. Changing this forces a new Autonomous Database to be created.
-     * 
-     */
     public Output<List<String>> customerContacts() {
         return this.customerContacts;
     }
@@ -249,15 +281,25 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
     public Output<String> location() {
         return this.location;
     }
+    @Export(name="longTermBackupSchedule", refs={AutonomousDatabaseLongTermBackupSchedule.class}, tree="[0]")
+    private Output</* @Nullable */ AutonomousDatabaseLongTermBackupSchedule> longTermBackupSchedule;
+
+    public Output<Optional<AutonomousDatabaseLongTermBackupSchedule>> longTermBackupSchedule() {
+        return Codegen.optional(this.longTermBackupSchedule);
+    }
     /**
-     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+     * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+     * 
+     * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
      * 
      */
     @Export(name="mtlsConnectionRequired", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> mtlsConnectionRequired;
 
     /**
-     * @return Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created.
+     * @return Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
+     * 
+     * &gt; **Note:** `mtls_connection_required`  must be set to `true` for all workload types except &#39;APEX&#39; when creating a database with public access.
      * 
      */
     public Output<Boolean> mtlsConnectionRequired() {
@@ -310,26 +352,18 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
-    private Output<String> subnetId;
+    private Output</* @Nullable */ String> subnetId;
 
     /**
      * @return The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
      * 
      */
-    public Output<String> subnetId() {
-        return this.subnetId;
+    public Output<Optional<String>> subnetId() {
+        return Codegen.optional(this.subnetId);
     }
-    /**
-     * A mapping of tags which should be assigned to the Autonomous Database.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags which should be assigned to the Autonomous Database.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -338,14 +372,14 @@ public class AutonomousDatabase extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="virtualNetworkId", refs={String.class}, tree="[0]")
-    private Output<String> virtualNetworkId;
+    private Output</* @Nullable */ String> virtualNetworkId;
 
     /**
      * @return The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
      * 
      */
-    public Output<String> virtualNetworkId() {
-        return this.virtualNetworkId;
+    public Output<Optional<String>> virtualNetworkId() {
+        return Codegen.optional(this.virtualNetworkId);
     }
 
     /**

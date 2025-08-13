@@ -45,6 +45,11 @@ export type LicationLoadBalancerFrontend = import("./licationLoadBalancerFronten
 export const LicationLoadBalancerFrontend: typeof import("./licationLoadBalancerFrontend").LicationLoadBalancerFrontend = null as any;
 utilities.lazyLoad(exports, ["LicationLoadBalancerFrontend"], () => require("./licationLoadBalancerFrontend"));
 
+export { LicationLoadBalancerSecurityPolicyArgs, LicationLoadBalancerSecurityPolicyState } from "./licationLoadBalancerSecurityPolicy";
+export type LicationLoadBalancerSecurityPolicy = import("./licationLoadBalancerSecurityPolicy").LicationLoadBalancerSecurityPolicy;
+export const LicationLoadBalancerSecurityPolicy: typeof import("./licationLoadBalancerSecurityPolicy").LicationLoadBalancerSecurityPolicy = null as any;
+utilities.lazyLoad(exports, ["LicationLoadBalancerSecurityPolicy"], () => require("./licationLoadBalancerSecurityPolicy"));
+
 export { LicationLoadBalancerSubnetAssociationArgs, LicationLoadBalancerSubnetAssociationState } from "./licationLoadBalancerSubnetAssociation";
 export type LicationLoadBalancerSubnetAssociation = import("./licationLoadBalancerSubnetAssociation").LicationLoadBalancerSubnetAssociation;
 export const LicationLoadBalancerSubnetAssociation: typeof import("./licationLoadBalancerSubnetAssociation").LicationLoadBalancerSubnetAssociation = null as any;
@@ -65,6 +70,8 @@ const _module = {
                 return new LicationLoadBalancer(name, <any>undefined, { urn })
             case "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend":
                 return new LicationLoadBalancerFrontend(name, <any>undefined, { urn })
+            case "azure:appconfiguration/licationLoadBalancerSecurityPolicy:LicationLoadBalancerSecurityPolicy":
+                return new LicationLoadBalancerSecurityPolicy(name, <any>undefined, { urn })
             case "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation":
                 return new LicationLoadBalancerSubnetAssociation(name, <any>undefined, { urn })
             default:
@@ -77,4 +84,5 @@ pulumi.runtime.registerResourceModule("azure", "appconfiguration/configurationKe
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/configurationStore", _module)
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/licationLoadBalancer", _module)
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/licationLoadBalancerFrontend", _module)
+pulumi.runtime.registerResourceModule("azure", "appconfiguration/licationLoadBalancerSecurityPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/licationLoadBalancerSubnetAssociation", _module)

@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.HealthcareApis`: 2024-03-31
+ * * `Microsoft.HealthcareApis` - 2024-03-31
  * 
  * ## Import
  * 

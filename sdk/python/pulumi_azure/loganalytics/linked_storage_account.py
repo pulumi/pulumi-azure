@@ -22,18 +22,22 @@ class LinkedStorageAccountArgs:
                  data_source_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 workspace_resource_id: pulumi.Input[_builtins.str]):
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinkedStorageAccount resource.
         :param pulumi.Input[_builtins.str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_account_ids: The storage account resource ids to be linked.
-        :param pulumi.Input[_builtins.str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        :param pulumi.Input[_builtins.str] workspace_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
         pulumi.set(__self__, "data_source_type", data_source_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_account_ids", storage_account_ids)
-        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceType")
@@ -72,15 +76,24 @@ class LinkedStorageAccountArgs:
         pulumi.set(self, "storage_account_ids", value)
 
     @_builtins.property
-    @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> pulumi.Input[_builtins.str]:
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "workspace_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "workspace_resource_id")
 
     @workspace_resource_id.setter
-    def workspace_resource_id(self, value: pulumi.Input[_builtins.str]):
+    def workspace_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "workspace_resource_id", value)
 
 
@@ -90,13 +103,14 @@ class _LinkedStorageAccountState:
                  data_source_type: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedStorageAccount resources.
         :param pulumi.Input[_builtins.str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_account_ids: The storage account resource ids to be linked.
-        :param pulumi.Input[_builtins.str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        :param pulumi.Input[_builtins.str] workspace_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
         if data_source_type is not None:
             pulumi.set(__self__, "data_source_type", data_source_type)
@@ -104,6 +118,8 @@ class _LinkedStorageAccountState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if storage_account_ids is not None:
             pulumi.set(__self__, "storage_account_ids", storage_account_ids)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
         if workspace_resource_id is not None:
             pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
@@ -144,11 +160,20 @@ class _LinkedStorageAccountState:
         pulumi.set(self, "storage_account_ids", value)
 
     @_builtins.property
-    @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "workspace_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "workspace_resource_id")
 
     @workspace_resource_id.setter
@@ -165,6 +190,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  data_source_type: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -193,7 +219,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         example_linked_storage_account = azure.loganalytics.LinkedStorageAccount("example",
             data_source_type="CustomLogs",
             resource_group_name=example.name,
-            workspace_resource_id=example_analytics_workspace.id,
+            workspace_id=example_analytics_workspace.id,
             storage_account_ids=[example_account.id])
         ```
 
@@ -202,7 +228,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2020-08-01
+        * `Microsoft.OperationalInsights` - 2020-08-01
 
         ## Import
 
@@ -217,7 +243,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_account_ids: The storage account resource ids to be linked.
-        :param pulumi.Input[_builtins.str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        :param pulumi.Input[_builtins.str] workspace_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
         ...
     @overload
@@ -251,7 +277,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         example_linked_storage_account = azure.loganalytics.LinkedStorageAccount("example",
             data_source_type="CustomLogs",
             resource_group_name=example.name,
-            workspace_resource_id=example_analytics_workspace.id,
+            workspace_id=example_analytics_workspace.id,
             storage_account_ids=[example_account.id])
         ```
 
@@ -260,7 +286,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights`: 2020-08-01
+        * `Microsoft.OperationalInsights` - 2020-08-01
 
         ## Import
 
@@ -288,6 +314,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  data_source_type: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -307,8 +334,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
             if storage_account_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_ids'")
             __props__.__dict__["storage_account_ids"] = storage_account_ids
-            if workspace_resource_id is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_resource_id'")
+            __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["workspace_resource_id"] = workspace_resource_id
         super(LinkedStorageAccount, __self__).__init__(
             'azure:loganalytics/linkedStorageAccount:LinkedStorageAccount',
@@ -323,6 +349,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
             data_source_type: Optional[pulumi.Input[_builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
             workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinkedStorageAccount':
         """
         Get an existing LinkedStorageAccount resource's state with the given name, id, and optional extra
@@ -334,7 +361,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_account_ids: The storage account resource ids to be linked.
-        :param pulumi.Input[_builtins.str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        :param pulumi.Input[_builtins.str] workspace_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -343,6 +370,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         __props__.__dict__["data_source_type"] = data_source_type
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["storage_account_ids"] = storage_account_ids
+        __props__.__dict__["workspace_id"] = workspace_id
         __props__.__dict__["workspace_resource_id"] = workspace_resource_id
         return LinkedStorageAccount(resource_name, opts=opts, __props__=__props__)
 
@@ -371,10 +399,15 @@ class LinkedStorageAccount(pulumi.CustomResource):
         return pulumi.get(self, "storage_account_ids")
 
     @_builtins.property
-    @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> pulumi.Output[_builtins.str]:
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Output[_builtins.str]:
         """
         The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
+        return pulumi.get(self, "workspace_id")
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "workspace_resource_id")
 

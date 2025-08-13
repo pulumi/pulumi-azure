@@ -162,7 +162,7 @@ namespace Pulumi.Azure.Hsm
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.HardwareSecurityModules`: 2021-11-30
+    /// * `Microsoft.HardwareSecurityModules` - 2021-11-30
     /// 
     /// ## Import
     /// 

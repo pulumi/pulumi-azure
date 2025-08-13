@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Monitoring
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Insights`: 2021-05-01-preview
+        /// * `Microsoft.Insights` - 2021-05-01-preview
         /// </summary>
         public static Task<GetDiagnosticCategoriesResult> InvokeAsync(GetDiagnosticCategoriesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Monitoring
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Insights`: 2021-05-01-preview
+        /// * `Microsoft.Insights` - 2021-05-01-preview
         /// </summary>
         public static Output<GetDiagnosticCategoriesResult> Invoke(GetDiagnosticCategoriesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Monitoring
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Insights`: 2021-05-01-preview
+        /// * `Microsoft.Insights` - 2021-05-01-preview
         /// </summary>
         public static Output<GetDiagnosticCategoriesResult> Invoke(GetDiagnosticCategoriesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticCategoriesResult>("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", args ?? new GetDiagnosticCategoriesInvokeArgs(), options.WithDefaults());

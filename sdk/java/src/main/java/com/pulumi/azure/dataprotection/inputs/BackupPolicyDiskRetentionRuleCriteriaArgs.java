@@ -16,14 +16,14 @@ public final class BackupPolicyDiskRetentionRuleCriteriaArgs extends com.pulumi.
     public static final BackupPolicyDiskRetentionRuleCriteriaArgs Empty = new BackupPolicyDiskRetentionRuleCriteriaArgs();
 
     /**
-     * Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+     * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
     @Import(name="absoluteCriteria")
     private @Nullable Output<String> absoluteCriteria;
 
     /**
-     * @return Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+     * @return Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
     public Optional<Output<String>> absoluteCriteria() {
@@ -55,7 +55,7 @@ public final class BackupPolicyDiskRetentionRuleCriteriaArgs extends com.pulumi.
         }
 
         /**
-         * @param absoluteCriteria Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+         * @param absoluteCriteria Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class BackupPolicyDiskRetentionRuleCriteriaArgs extends com.pulumi.
         }
 
         /**
-         * @param absoluteCriteria Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+         * @param absoluteCriteria Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
          * 
          * @return builder
          * 

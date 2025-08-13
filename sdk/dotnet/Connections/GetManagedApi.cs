@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Connections
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2016-06-01
+        /// * `Microsoft.Web` - 2016-06-01
         /// </summary>
         public static Task<GetManagedApiResult> InvokeAsync(GetManagedApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedApiResult>("azure:connections/getManagedApi:getManagedApi", args ?? new GetManagedApiArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Connections
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2016-06-01
+        /// * `Microsoft.Web` - 2016-06-01
         /// </summary>
         public static Output<GetManagedApiResult> Invoke(GetManagedApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedApiResult>("azure:connections/getManagedApi:getManagedApi", args ?? new GetManagedApiInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Connections
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2016-06-01
+        /// * `Microsoft.Web` - 2016-06-01
         /// </summary>
         public static Output<GetManagedApiResult> Invoke(GetManagedApiInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedApiResult>("azure:connections/getManagedApi:getManagedApi", args ?? new GetManagedApiInvokeArgs(), options.WithDefaults());

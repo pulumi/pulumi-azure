@@ -2540,6 +2540,181 @@ func (o EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput) Index(i p
 	}).(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput)
 }
 
+type EventHubRetentionDescription struct {
+	// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+	CleanupPolicy string `pulumi:"cleanupPolicy"`
+	// Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanupPolicy` is `Delete`.
+	RetentionTimeInHours *int `pulumi:"retentionTimeInHours"`
+	// Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanupPolicy` is `Compact`.
+	TombstoneRetentionTimeInHours *int `pulumi:"tombstoneRetentionTimeInHours"`
+}
+
+// EventHubRetentionDescriptionInput is an input type that accepts EventHubRetentionDescriptionArgs and EventHubRetentionDescriptionOutput values.
+// You can construct a concrete instance of `EventHubRetentionDescriptionInput` via:
+//
+//	EventHubRetentionDescriptionArgs{...}
+type EventHubRetentionDescriptionInput interface {
+	pulumi.Input
+
+	ToEventHubRetentionDescriptionOutput() EventHubRetentionDescriptionOutput
+	ToEventHubRetentionDescriptionOutputWithContext(context.Context) EventHubRetentionDescriptionOutput
+}
+
+type EventHubRetentionDescriptionArgs struct {
+	// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+	CleanupPolicy pulumi.StringInput `pulumi:"cleanupPolicy"`
+	// Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanupPolicy` is `Delete`.
+	RetentionTimeInHours pulumi.IntPtrInput `pulumi:"retentionTimeInHours"`
+	// Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanupPolicy` is `Compact`.
+	TombstoneRetentionTimeInHours pulumi.IntPtrInput `pulumi:"tombstoneRetentionTimeInHours"`
+}
+
+func (EventHubRetentionDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubRetentionDescription)(nil)).Elem()
+}
+
+func (i EventHubRetentionDescriptionArgs) ToEventHubRetentionDescriptionOutput() EventHubRetentionDescriptionOutput {
+	return i.ToEventHubRetentionDescriptionOutputWithContext(context.Background())
+}
+
+func (i EventHubRetentionDescriptionArgs) ToEventHubRetentionDescriptionOutputWithContext(ctx context.Context) EventHubRetentionDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubRetentionDescriptionOutput)
+}
+
+func (i EventHubRetentionDescriptionArgs) ToEventHubRetentionDescriptionPtrOutput() EventHubRetentionDescriptionPtrOutput {
+	return i.ToEventHubRetentionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i EventHubRetentionDescriptionArgs) ToEventHubRetentionDescriptionPtrOutputWithContext(ctx context.Context) EventHubRetentionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubRetentionDescriptionOutput).ToEventHubRetentionDescriptionPtrOutputWithContext(ctx)
+}
+
+// EventHubRetentionDescriptionPtrInput is an input type that accepts EventHubRetentionDescriptionArgs, EventHubRetentionDescriptionPtr and EventHubRetentionDescriptionPtrOutput values.
+// You can construct a concrete instance of `EventHubRetentionDescriptionPtrInput` via:
+//
+//	        EventHubRetentionDescriptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventHubRetentionDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToEventHubRetentionDescriptionPtrOutput() EventHubRetentionDescriptionPtrOutput
+	ToEventHubRetentionDescriptionPtrOutputWithContext(context.Context) EventHubRetentionDescriptionPtrOutput
+}
+
+type eventHubRetentionDescriptionPtrType EventHubRetentionDescriptionArgs
+
+func EventHubRetentionDescriptionPtr(v *EventHubRetentionDescriptionArgs) EventHubRetentionDescriptionPtrInput {
+	return (*eventHubRetentionDescriptionPtrType)(v)
+}
+
+func (*eventHubRetentionDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubRetentionDescription)(nil)).Elem()
+}
+
+func (i *eventHubRetentionDescriptionPtrType) ToEventHubRetentionDescriptionPtrOutput() EventHubRetentionDescriptionPtrOutput {
+	return i.ToEventHubRetentionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *eventHubRetentionDescriptionPtrType) ToEventHubRetentionDescriptionPtrOutputWithContext(ctx context.Context) EventHubRetentionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventHubRetentionDescriptionPtrOutput)
+}
+
+type EventHubRetentionDescriptionOutput struct{ *pulumi.OutputState }
+
+func (EventHubRetentionDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubRetentionDescription)(nil)).Elem()
+}
+
+func (o EventHubRetentionDescriptionOutput) ToEventHubRetentionDescriptionOutput() EventHubRetentionDescriptionOutput {
+	return o
+}
+
+func (o EventHubRetentionDescriptionOutput) ToEventHubRetentionDescriptionOutputWithContext(ctx context.Context) EventHubRetentionDescriptionOutput {
+	return o
+}
+
+func (o EventHubRetentionDescriptionOutput) ToEventHubRetentionDescriptionPtrOutput() EventHubRetentionDescriptionPtrOutput {
+	return o.ToEventHubRetentionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o EventHubRetentionDescriptionOutput) ToEventHubRetentionDescriptionPtrOutputWithContext(ctx context.Context) EventHubRetentionDescriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubRetentionDescription) *EventHubRetentionDescription {
+		return &v
+	}).(EventHubRetentionDescriptionPtrOutput)
+}
+
+// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+func (o EventHubRetentionDescriptionOutput) CleanupPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v EventHubRetentionDescription) string { return v.CleanupPolicy }).(pulumi.StringOutput)
+}
+
+// Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanupPolicy` is `Delete`.
+func (o EventHubRetentionDescriptionOutput) RetentionTimeInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventHubRetentionDescription) *int { return v.RetentionTimeInHours }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanupPolicy` is `Compact`.
+func (o EventHubRetentionDescriptionOutput) TombstoneRetentionTimeInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventHubRetentionDescription) *int { return v.TombstoneRetentionTimeInHours }).(pulumi.IntPtrOutput)
+}
+
+type EventHubRetentionDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventHubRetentionDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubRetentionDescription)(nil)).Elem()
+}
+
+func (o EventHubRetentionDescriptionPtrOutput) ToEventHubRetentionDescriptionPtrOutput() EventHubRetentionDescriptionPtrOutput {
+	return o
+}
+
+func (o EventHubRetentionDescriptionPtrOutput) ToEventHubRetentionDescriptionPtrOutputWithContext(ctx context.Context) EventHubRetentionDescriptionPtrOutput {
+	return o
+}
+
+func (o EventHubRetentionDescriptionPtrOutput) Elem() EventHubRetentionDescriptionOutput {
+	return o.ApplyT(func(v *EventHubRetentionDescription) EventHubRetentionDescription {
+		if v != nil {
+			return *v
+		}
+		var ret EventHubRetentionDescription
+		return ret
+	}).(EventHubRetentionDescriptionOutput)
+}
+
+// Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+func (o EventHubRetentionDescriptionPtrOutput) CleanupPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubRetentionDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CleanupPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanupPolicy` is `Delete`.
+func (o EventHubRetentionDescriptionPtrOutput) RetentionTimeInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventHubRetentionDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTimeInHours
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanupPolicy` is `Compact`.
+func (o EventHubRetentionDescriptionPtrOutput) TombstoneRetentionTimeInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventHubRetentionDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TombstoneRetentionTimeInHours
+	}).(pulumi.IntPtrOutput)
+}
+
 type EventSubscriptionAdvancedFilter struct {
 	// Compares a value of an event using a single boolean value.
 	BoolEquals []EventSubscriptionAdvancedFilterBoolEqual `pulumi:"boolEquals"`
@@ -7841,6 +8016,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHubNamespaceNetworkRulesetsIpRuleArrayInput)(nil)).Elem(), EventHubNamespaceNetworkRulesetsIpRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHubNamespaceNetworkRulesetsVirtualNetworkRuleInput)(nil)).Elem(), EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayInput)(nil)).Elem(), EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubRetentionDescriptionInput)(nil)).Elem(), EventHubRetentionDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventHubRetentionDescriptionPtrInput)(nil)).Elem(), EventHubRetentionDescriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionAdvancedFilterInput)(nil)).Elem(), EventSubscriptionAdvancedFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionAdvancedFilterPtrInput)(nil)).Elem(), EventSubscriptionAdvancedFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionAdvancedFilterBoolEqualInput)(nil)).Elem(), EventSubscriptionAdvancedFilterBoolEqualArgs{})
@@ -7939,6 +8116,8 @@ func init() {
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(EventHubRetentionDescriptionOutput{})
+	pulumi.RegisterOutputType(EventHubRetentionDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionAdvancedFilterBoolEqualOutput{})

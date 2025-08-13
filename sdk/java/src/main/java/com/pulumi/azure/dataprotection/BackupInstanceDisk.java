@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -116,7 +117,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DataProtection`: 2024-04-01
+ * * `Microsoft.DataProtection` - 2024-04-01
  * 
  * ## Import
  * 
@@ -198,6 +199,20 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      */
     public Output<String> snapshotResourceGroupName() {
         return this.snapshotResourceGroupName;
+    }
+    /**
+     * The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+     * 
+     */
+    @Export(name="snapshotSubscriptionId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> snapshotSubscriptionId;
+
+    /**
+     * @return The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+     * 
+     */
+    public Output<Optional<String>> snapshotSubscriptionId() {
+        return Codegen.optional(this.snapshotSubscriptionId);
     }
     /**
      * The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.

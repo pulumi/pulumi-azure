@@ -60,7 +60,7 @@ public final class AppinsightsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2020-02-02
+     * * `Microsoft.Insights` - 2020-02-02
      * 
      */
     public static Output<GetInsightsResult> getInsights(GetInsightsArgs args) {
@@ -111,7 +111,7 @@ public final class AppinsightsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2020-02-02
+     * * `Microsoft.Insights` - 2020-02-02
      * 
      */
     public static CompletableFuture<GetInsightsResult> getInsightsPlain(GetInsightsPlainArgs args) {
@@ -162,7 +162,7 @@ public final class AppinsightsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2020-02-02
+     * * `Microsoft.Insights` - 2020-02-02
      * 
      */
     public static Output<GetInsightsResult> getInsights(GetInsightsArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class AppinsightsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2020-02-02
+     * * `Microsoft.Insights` - 2020-02-02
      * 
      */
     public static Output<GetInsightsResult> getInsights(GetInsightsArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class AppinsightsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Insights`: 2020-02-02
+     * * `Microsoft.Insights` - 2020-02-02
      * 
      */
     public static CompletableFuture<GetInsightsResult> getInsightsPlain(GetInsightsPlainArgs args, InvokeOptions options) {

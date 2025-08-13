@@ -73,7 +73,7 @@ public final class SentinelFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+     * * `Microsoft.OperationalInsights` - 2023-12-01-preview
      * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args) {
@@ -131,7 +131,7 @@ public final class SentinelFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+     * * `Microsoft.OperationalInsights` - 2023-12-01-preview
      * 
      */
     public static CompletableFuture<GetAlertRuleResult> getAlertRulePlain(GetAlertRulePlainArgs args) {
@@ -189,7 +189,7 @@ public final class SentinelFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+     * * `Microsoft.OperationalInsights` - 2023-12-01-preview
      * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args, InvokeOptions options) {
@@ -247,7 +247,7 @@ public final class SentinelFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+     * * `Microsoft.OperationalInsights` - 2023-12-01-preview
      * 
      */
     public static Output<GetAlertRuleResult> getAlertRule(GetAlertRuleArgs args, InvokeOutputOptions options) {
@@ -305,7 +305,7 @@ public final class SentinelFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+     * * `Microsoft.OperationalInsights` - 2023-12-01-preview
      * 
      */
     public static CompletableFuture<GetAlertRuleResult> getAlertRulePlain(GetAlertRulePlainArgs args, InvokeOptions options) {

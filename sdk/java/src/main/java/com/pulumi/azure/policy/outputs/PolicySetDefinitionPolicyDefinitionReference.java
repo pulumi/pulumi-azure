@@ -14,54 +14,66 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicySetDefinitionPolicyDefinitionReference {
     /**
-     * @return Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+     * @return Parameter values for the references Policy Definition in JSON format.
      * 
      */
     private @Nullable String parameterValues;
     /**
-     * @return The ID of the policy definition that will be included in this policy set definition.
+     * @return The ID of the Policy Definition to include in this Policy Set Definition.
      * 
      */
     private String policyDefinitionId;
     /**
-     * @return A list of names of the policy definition groups that this policy definition reference belongs to.
+     * @return Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
      * 
      */
     private @Nullable List<String> policyGroupNames;
     /**
-     * @return A unique ID within this policy set definition for this policy definition reference.
+     * @return A unique ID within this Policy Set Definition for this Policy Definition Reference.
      * 
      */
     private @Nullable String referenceId;
+    /**
+     * @return The version of the Policy Definition to use.
+     * 
+     */
+    private @Nullable String version;
 
     private PolicySetDefinitionPolicyDefinitionReference() {}
     /**
-     * @return Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+     * @return Parameter values for the references Policy Definition in JSON format.
      * 
      */
     public Optional<String> parameterValues() {
         return Optional.ofNullable(this.parameterValues);
     }
     /**
-     * @return The ID of the policy definition that will be included in this policy set definition.
+     * @return The ID of the Policy Definition to include in this Policy Set Definition.
      * 
      */
     public String policyDefinitionId() {
         return this.policyDefinitionId;
     }
     /**
-     * @return A list of names of the policy definition groups that this policy definition reference belongs to.
+     * @return Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
      * 
      */
     public List<String> policyGroupNames() {
         return this.policyGroupNames == null ? List.of() : this.policyGroupNames;
     }
     /**
-     * @return A unique ID within this policy set definition for this policy definition reference.
+     * @return A unique ID within this Policy Set Definition for this Policy Definition Reference.
      * 
      */
     public Optional<String> referenceId() {
         return Optional.ofNullable(this.referenceId);
+    }
+    /**
+     * @return The version of the Policy Definition to use.
+     * 
+     */
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
     }
 
     public static Builder builder() {
@@ -77,6 +89,7 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
         private String policyDefinitionId;
         private @Nullable List<String> policyGroupNames;
         private @Nullable String referenceId;
+        private @Nullable String version;
         public Builder() {}
         public Builder(PolicySetDefinitionPolicyDefinitionReference defaults) {
     	      Objects.requireNonNull(defaults);
@@ -84,6 +97,7 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
     	      this.policyDefinitionId = defaults.policyDefinitionId;
     	      this.policyGroupNames = defaults.policyGroupNames;
     	      this.referenceId = defaults.referenceId;
+    	      this.version = defaults.version;
         }
 
         @CustomType.Setter
@@ -115,12 +129,19 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
             this.referenceId = referenceId;
             return this;
         }
+        @CustomType.Setter
+        public Builder version(@Nullable String version) {
+
+            this.version = version;
+            return this;
+        }
         public PolicySetDefinitionPolicyDefinitionReference build() {
             final var _resultValue = new PolicySetDefinitionPolicyDefinitionReference();
             _resultValue.parameterValues = parameterValues;
             _resultValue.policyDefinitionId = policyDefinitionId;
             _resultValue.policyGroupNames = policyGroupNames;
             _resultValue.referenceId = referenceId;
+            _resultValue.version = version;
             return _resultValue;
         }
     }

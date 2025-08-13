@@ -61,7 +61,7 @@ namespace Pulumi.Azure.PrivateDns
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network`: 2024-06-01
+    /// * `Microsoft.Network` - 2024-06-01
     /// 
     /// ## Import
     /// 
@@ -91,6 +91,12 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Output("registrationEnabled")]
         public Output<bool?> RegistrationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+        /// </summary>
+        [Output("resolutionPolicy")]
+        public Output<string> ResolutionPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
@@ -175,6 +181,12 @@ namespace Pulumi.Azure.PrivateDns
         public Input<bool>? RegistrationEnabled { get; set; }
 
         /// <summary>
+        /// Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+        /// </summary>
+        [Input("resolutionPolicy")]
+        public Input<string>? ResolutionPolicy { get; set; }
+
+        /// <summary>
         /// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -223,6 +235,12 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Input("registrationEnabled")]
         public Input<bool>? RegistrationEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+        /// </summary>
+        [Input("resolutionPolicy")]
+        public Input<string>? ResolutionPolicy { get; set; }
 
         /// <summary>
         /// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.

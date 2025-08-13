@@ -72,7 +72,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.AnalysisServices`: 2017-08-01
+// * `Microsoft.AnalysisServices` - 2017-08-01
 //
 // ## Import
 //

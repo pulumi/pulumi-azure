@@ -27,7 +27,9 @@ import * as utilities from "../utilities";
  *     displayName: "example-exadata-infra",
  *     storageCount: 3,
  *     computeCount: 2,
- *     shape: "Exadata.X9M",
+ *     shape: "Exadata.X11M",
+ *     databaseServerType: "X11M",
+ *     storageServerType: "X11M-HC",
  * });
  * ```
  *
@@ -36,7 +38,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  *
  * ## Import
  *
@@ -83,6 +85,10 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
      */
     public readonly customerContacts!: pulumi.Output<string[]>;
     /**
+     * The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     */
+    public readonly databaseServerType!: pulumi.Output<string>;
+    /**
      * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     public readonly displayName!: pulumi.Output<string>;
@@ -111,6 +117,10 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
      */
     public readonly storageCount!: pulumi.Output<number>;
     /**
+     * The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     */
+    public readonly storageServerType!: pulumi.Output<string>;
+    /**
      * A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -134,6 +144,7 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
             const state = argsOrState as ExadataInfrastructureState | undefined;
             resourceInputs["computeCount"] = state ? state.computeCount : undefined;
             resourceInputs["customerContacts"] = state ? state.customerContacts : undefined;
+            resourceInputs["databaseServerType"] = state ? state.databaseServerType : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maintenanceWindows"] = state ? state.maintenanceWindows : undefined;
@@ -141,6 +152,7 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["shape"] = state ? state.shape : undefined;
             resourceInputs["storageCount"] = state ? state.storageCount : undefined;
+            resourceInputs["storageServerType"] = state ? state.storageServerType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
@@ -165,6 +177,7 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
             }
             resourceInputs["computeCount"] = args ? args.computeCount : undefined;
             resourceInputs["customerContacts"] = args ? args.customerContacts : undefined;
+            resourceInputs["databaseServerType"] = args ? args.databaseServerType : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindows"] = args ? args.maintenanceWindows : undefined;
@@ -172,6 +185,7 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shape"] = args ? args.shape : undefined;
             resourceInputs["storageCount"] = args ? args.storageCount : undefined;
+            resourceInputs["storageServerType"] = args ? args.storageServerType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
         }
@@ -192,6 +206,10 @@ export interface ExadataInfrastructureState {
      * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     */
+    databaseServerType?: pulumi.Input<string>;
     /**
      * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
@@ -221,6 +239,10 @@ export interface ExadataInfrastructureState {
      */
     storageCount?: pulumi.Input<number>;
     /**
+     * The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     */
+    storageServerType?: pulumi.Input<string>;
+    /**
      * A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -242,6 +264,10 @@ export interface ExadataInfrastructureArgs {
      * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     customerContacts?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     */
+    databaseServerType?: pulumi.Input<string>;
     /**
      * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
@@ -270,6 +296,10 @@ export interface ExadataInfrastructureArgs {
      * The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
     storageCount: pulumi.Input<number>;
+    /**
+     * The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     */
+    storageServerType?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
      */

@@ -12,7 +12,7 @@ namespace Pulumi.Azure.EventGrid
     public static class GetSystemTopic
     {
         /// <summary>
-        /// Use this data source to access information about an existing EventGrid System Topic
+        /// Use this data source to access information about an existing Event Grid System Topic
         /// 
         /// ## Example Usage
         /// 
@@ -38,13 +38,13 @@ namespace Pulumi.Azure.EventGrid
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.EventGrid`: 2022-06-15
+        /// * `Microsoft.EventGrid` - 2022-06-15
         /// </summary>
         public static Task<GetSystemTopicResult> InvokeAsync(GetSystemTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing EventGrid System Topic
+        /// Use this data source to access information about an existing Event Grid System Topic
         /// 
         /// ## Example Usage
         /// 
@@ -70,13 +70,13 @@ namespace Pulumi.Azure.EventGrid
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.EventGrid`: 2022-06-15
+        /// * `Microsoft.EventGrid` - 2022-06-15
         /// </summary>
         public static Output<GetSystemTopicResult> Invoke(GetSystemTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing EventGrid System Topic
+        /// Use this data source to access information about an existing Event Grid System Topic
         /// 
         /// ## Example Usage
         /// 
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.EventGrid
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.EventGrid`: 2022-06-15
+        /// * `Microsoft.EventGrid` - 2022-06-15
         /// </summary>
         public static Output<GetSystemTopicResult> Invoke(GetSystemTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicResult>("azure:eventgrid/getSystemTopic:getSystemTopic", args ?? new GetSystemTopicInvokeArgs(), options.WithDefaults());
@@ -112,13 +112,13 @@ namespace Pulumi.Azure.EventGrid
     public sealed class GetSystemTopicArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the EventGrid System Topic resource.
+        /// The name of the Event Grid System Topic resource.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which the EventGrid System Topic exists.
+        /// The name of the resource group in which the Event Grid System Topic exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -132,13 +132,13 @@ namespace Pulumi.Azure.EventGrid
     public sealed class GetSystemTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the EventGrid System Topic resource.
+        /// The name of the Event Grid System Topic resource.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group in which the EventGrid System Topic exists.
+        /// The name of the resource group in which the Event Grid System Topic exists.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

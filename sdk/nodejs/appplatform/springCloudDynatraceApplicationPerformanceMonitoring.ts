@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.AppPlatform`: 2024-01-01-preview
+ * * `Microsoft.AppPlatform` - 2024-01-01-preview
  *
  * ## Import
  *

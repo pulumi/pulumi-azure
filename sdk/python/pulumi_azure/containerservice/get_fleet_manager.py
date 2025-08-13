@@ -113,7 +113,7 @@ def get_fleet_manager(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService`: 2024-04-01
+    * `Microsoft.ContainerService` - 2024-04-01
 
 
     :param _builtins.str name: The name of this Kubernetes Fleet Manager.
@@ -153,7 +153,7 @@ def get_fleet_manager_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService`: 2024-04-01
+    * `Microsoft.ContainerService` - 2024-04-01
 
 
     :param _builtins.str name: The name of this Kubernetes Fleet Manager.

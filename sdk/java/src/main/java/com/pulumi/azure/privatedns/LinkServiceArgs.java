@@ -36,6 +36,21 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The destination IP address of the Private Link Service.
+     * 
+     */
+    @Import(name="destinationIpAddress")
+    private @Nullable Output<String> destinationIpAddress;
+
+    /**
+     * @return The destination IP address of the Private Link Service.
+     * 
+     */
+    public Optional<Output<String>> destinationIpAddress() {
+        return Optional.ofNullable(this.destinationIpAddress);
+    }
+
+    /**
      * Should the Private Link Service support the Proxy Protocol?
      * 
      */
@@ -69,15 +84,15 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="loadBalancerFrontendIpConfigurationIds", required=true)
-    private Output<List<String>> loadBalancerFrontendIpConfigurationIds;
+    @Import(name="loadBalancerFrontendIpConfigurationIds")
+    private @Nullable Output<List<String>> loadBalancerFrontendIpConfigurationIds;
 
     /**
      * @return A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      * 
      */
-    public Output<List<String>> loadBalancerFrontendIpConfigurationIds() {
-        return this.loadBalancerFrontendIpConfigurationIds;
+    public Optional<Output<List<String>>> loadBalancerFrontendIpConfigurationIds() {
+        return Optional.ofNullable(this.loadBalancerFrontendIpConfigurationIds);
     }
 
     /**
@@ -178,6 +193,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     private LinkServiceArgs(LinkServiceArgs $) {
         this.autoApprovalSubscriptionIds = $.autoApprovalSubscriptionIds;
+        this.destinationIpAddress = $.destinationIpAddress;
         this.enableProxyProtocol = $.enableProxyProtocol;
         this.fqdns = $.fqdns;
         this.loadBalancerFrontendIpConfigurationIds = $.loadBalancerFrontendIpConfigurationIds;
@@ -239,6 +255,27 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param destinationIpAddress The destination IP address of the Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationIpAddress(@Nullable Output<String> destinationIpAddress) {
+            $.destinationIpAddress = destinationIpAddress;
+            return this;
+        }
+
+        /**
+         * @param destinationIpAddress The destination IP address of the Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationIpAddress(String destinationIpAddress) {
+            return destinationIpAddress(Output.of(destinationIpAddress));
+        }
+
+        /**
          * @param enableProxyProtocol Should the Private Link Service support the Proxy Protocol?
          * 
          * @return builder
@@ -296,7 +333,7 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder loadBalancerFrontendIpConfigurationIds(Output<List<String>> loadBalancerFrontendIpConfigurationIds) {
+        public Builder loadBalancerFrontendIpConfigurationIds(@Nullable Output<List<String>> loadBalancerFrontendIpConfigurationIds) {
             $.loadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
             return this;
         }
@@ -474,9 +511,6 @@ public final class LinkServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LinkServiceArgs build() {
-            if ($.loadBalancerFrontendIpConfigurationIds == null) {
-                throw new MissingRequiredPropertyException("LinkServiceArgs", "loadBalancerFrontendIpConfigurationIds");
-            }
             if ($.natIpConfigurations == null) {
                 throw new MissingRequiredPropertyException("LinkServiceArgs", "natIpConfigurations");
             }

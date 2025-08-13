@@ -50,15 +50,15 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
      * The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
      */
-    @Import(name="publicIpAddressId", required=true)
-    private Output<String> publicIpAddressId;
+    @Import(name="publicIpAddressId")
+    private @Nullable Output<String> publicIpAddressId;
 
     /**
      * @return The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
      */
-    public Output<String> publicIpAddressId() {
-        return this.publicIpAddressId;
+    public Optional<Output<String>> publicIpAddressId() {
+        return Optional.ofNullable(this.publicIpAddressId);
     }
 
     /**
@@ -151,7 +151,7 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder publicIpAddressId(Output<String> publicIpAddressId) {
+        public Builder publicIpAddressId(@Nullable Output<String> publicIpAddressId) {
             $.publicIpAddressId = publicIpAddressId;
             return this;
         }
@@ -188,9 +188,6 @@ public final class VirtualNetworkGatewayIpConfigurationArgs extends com.pulumi.r
         }
 
         public VirtualNetworkGatewayIpConfigurationArgs build() {
-            if ($.publicIpAddressId == null) {
-                throw new MissingRequiredPropertyException("VirtualNetworkGatewayIpConfigurationArgs", "publicIpAddressId");
-            }
             if ($.subnetId == null) {
                 throw new MissingRequiredPropertyException("VirtualNetworkGatewayIpConfigurationArgs", "subnetId");
             }

@@ -44,7 +44,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
      */
     private Boolean primary;
     /**
-     * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address` is documented below.
+     * @return A `public_ip_address` block as defined below.
      * 
      */
     private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
@@ -103,7 +103,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         return this.primary;
     }
     /**
-     * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address` is documented below.
+     * @return A `public_ip_address` block as defined below.
      * 
      */
     public List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses() {

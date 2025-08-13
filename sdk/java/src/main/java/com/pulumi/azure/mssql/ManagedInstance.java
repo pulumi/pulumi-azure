@@ -274,7 +274,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql`: 2023-08-01-preview
+ * * `Microsoft.Sql` - 2023-08-01-preview
  * 
  * ## Import
  * 
@@ -292,17 +292,19 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="administratorLogin", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> administratorLogin;
+    private Output<String> administratorLogin;
 
     /**
      * @return The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<String>> administratorLogin() {
-        return Codegen.optional(this.administratorLogin);
+    public Output<String> administratorLogin() {
+        return this.administratorLogin;
     }
     /**
      * The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     * 
+     * &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
      * 
      */
     @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
@@ -310,6 +312,8 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     * 
+     * &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
      * 
      */
     public Output<Optional<String>> administratorLoginPassword() {
@@ -330,14 +334,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.azureActiveDirectoryAdministrator);
     }
     /**
-     * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="collation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> collation;
 
     /**
-     * @return Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * @return Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> collation() {
@@ -460,34 +464,30 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * 
+     * `minimum_tls_version` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     @Export(name="maintenanceConfigurationName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> maintenanceConfigurationName;
 
     /**
-     * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * 
+     * `minimum_tls_version` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     public Output<Optional<String>> maintenanceConfigurationName() {
         return Codegen.optional(this.maintenanceConfigurationName);
     }
-    /**
-     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-     * 
-     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-     * 
-     */
     @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minimumTlsVersion;
 
-    /**
-     * @return The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-     * 
-     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-     * 
-     */
     public Output<Optional<String>> minimumTlsVersion() {
         return Codegen.optional(this.minimumTlsVersion);
     }
@@ -506,28 +506,28 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
+     * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      * 
      */
     @Export(name="proxyOverride", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> proxyOverride;
 
     /**
-     * @return Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
+     * @return Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      * 
      */
     public Output<Optional<String>> proxyOverride() {
         return Codegen.optional(this.proxyOverride);
     }
     /**
-     * Is the public data endpoint enabled? Default value is `false`.
+     * Is the public data endpoint enabled? Defaults to `false`.
      * 
      */
     @Export(name="publicDataEndpointEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicDataEndpointEnabled;
 
     /**
-     * @return Is the public data endpoint enabled? Default value is `false`.
+     * @return Is the public data endpoint enabled? Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> publicDataEndpointEnabled() {
@@ -562,14 +562,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.servicePrincipalType);
     }
     /**
-     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
+     * Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
-     * @return Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
+     * @return Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */
     public Output<String> skuName() {
@@ -632,14 +632,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+     * The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="timezoneId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timezoneId;
 
     /**
-     * @return The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+     * @return The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> timezoneId() {
@@ -660,14 +660,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.vcores;
     }
     /**
-     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      * 
      */
     @Export(name="zoneRedundantEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> zoneRedundantEnabled;
 
     /**
-     * @return Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * @return Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> zoneRedundantEnabled() {

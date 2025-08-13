@@ -93,7 +93,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Insights`: 2021-05-01-preview
+// * `Microsoft.Insights` - 2021-05-01-preview
 //
 // ## Import
 //

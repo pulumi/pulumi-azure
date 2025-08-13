@@ -14,15 +14,15 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type PolicySetDefinitionPolicyDefinitionGroup struct {
-	// The ID of a resource that contains additional metadata about this policy definition group.
+	// The ID of a resource that contains additional metadata for this Policy Definition Group.
 	AdditionalMetadataResourceId *string `pulumi:"additionalMetadataResourceId"`
-	// The category of this policy definition group.
+	// The category of this Policy Definition Group.
 	Category *string `pulumi:"category"`
-	// The description of this policy definition group.
+	// The description of this Policy Definition Group.
 	Description *string `pulumi:"description"`
-	// The display name of this policy definition group.
+	// The display name of this Policy Definition Group.
 	DisplayName *string `pulumi:"displayName"`
-	// The name of this policy definition group.
+	// The name which should be used for this Policy Definition Group.
 	Name string `pulumi:"name"`
 }
 
@@ -38,15 +38,15 @@ type PolicySetDefinitionPolicyDefinitionGroupInput interface {
 }
 
 type PolicySetDefinitionPolicyDefinitionGroupArgs struct {
-	// The ID of a resource that contains additional metadata about this policy definition group.
+	// The ID of a resource that contains additional metadata for this Policy Definition Group.
 	AdditionalMetadataResourceId pulumi.StringPtrInput `pulumi:"additionalMetadataResourceId"`
-	// The category of this policy definition group.
+	// The category of this Policy Definition Group.
 	Category pulumi.StringPtrInput `pulumi:"category"`
-	// The description of this policy definition group.
+	// The description of this Policy Definition Group.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The display name of this policy definition group.
+	// The display name of this Policy Definition Group.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The name of this policy definition group.
+	// The name which should be used for this Policy Definition Group.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -101,27 +101,27 @@ func (o PolicySetDefinitionPolicyDefinitionGroupOutput) ToPolicySetDefinitionPol
 	return o
 }
 
-// The ID of a resource that contains additional metadata about this policy definition group.
+// The ID of a resource that contains additional metadata for this Policy Definition Group.
 func (o PolicySetDefinitionPolicyDefinitionGroupOutput) AdditionalMetadataResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionGroup) *string { return v.AdditionalMetadataResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The category of this policy definition group.
+// The category of this Policy Definition Group.
 func (o PolicySetDefinitionPolicyDefinitionGroupOutput) Category() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionGroup) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
-// The description of this policy definition group.
+// The description of this Policy Definition Group.
 func (o PolicySetDefinitionPolicyDefinitionGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionGroup) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The display name of this policy definition group.
+// The display name of this Policy Definition Group.
 func (o PolicySetDefinitionPolicyDefinitionGroupOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionGroup) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The name of this policy definition group.
+// The name which should be used for this Policy Definition Group.
 func (o PolicySetDefinitionPolicyDefinitionGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -147,14 +147,16 @@ func (o PolicySetDefinitionPolicyDefinitionGroupArrayOutput) Index(i pulumi.IntI
 }
 
 type PolicySetDefinitionPolicyDefinitionReference struct {
-	// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+	// Parameter values for the references Policy Definition in JSON format.
 	ParameterValues *string `pulumi:"parameterValues"`
-	// The ID of the policy definition that will be included in this policy set definition.
+	// The ID of the Policy Definition to include in this Policy Set Definition.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
-	// A list of names of the policy definition groups that this policy definition reference belongs to.
+	// Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
 	PolicyGroupNames []string `pulumi:"policyGroupNames"`
-	// A unique ID within this policy set definition for this policy definition reference.
+	// A unique ID within this Policy Set Definition for this Policy Definition Reference.
 	ReferenceId *string `pulumi:"referenceId"`
+	// The version of the Policy Definition to use.
+	Version *string `pulumi:"version"`
 }
 
 // PolicySetDefinitionPolicyDefinitionReferenceInput is an input type that accepts PolicySetDefinitionPolicyDefinitionReferenceArgs and PolicySetDefinitionPolicyDefinitionReferenceOutput values.
@@ -169,14 +171,16 @@ type PolicySetDefinitionPolicyDefinitionReferenceInput interface {
 }
 
 type PolicySetDefinitionPolicyDefinitionReferenceArgs struct {
-	// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+	// Parameter values for the references Policy Definition in JSON format.
 	ParameterValues pulumi.StringPtrInput `pulumi:"parameterValues"`
-	// The ID of the policy definition that will be included in this policy set definition.
+	// The ID of the Policy Definition to include in this Policy Set Definition.
 	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
-	// A list of names of the policy definition groups that this policy definition reference belongs to.
+	// Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
 	PolicyGroupNames pulumi.StringArrayInput `pulumi:"policyGroupNames"`
-	// A unique ID within this policy set definition for this policy definition reference.
+	// A unique ID within this Policy Set Definition for this Policy Definition Reference.
 	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
+	// The version of the Policy Definition to use.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (PolicySetDefinitionPolicyDefinitionReferenceArgs) ElementType() reflect.Type {
@@ -230,24 +234,29 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ToPolicySetDefinitio
 	return o
 }
 
-// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+// Parameter values for the references Policy Definition in JSON format.
 func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ParameterValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) *string { return v.ParameterValues }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the policy definition that will be included in this policy set definition.
+// The ID of the Policy Definition to include in this Policy Set Definition.
 func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) PolicyDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) string { return v.PolicyDefinitionId }).(pulumi.StringOutput)
 }
 
-// A list of names of the policy definition groups that this policy definition reference belongs to.
+// Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
 func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) PolicyGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) []string { return v.PolicyGroupNames }).(pulumi.StringArrayOutput)
 }
 
-// A unique ID within this policy set definition for this policy definition reference.
+// A unique ID within this Policy Set Definition for this Policy Definition Reference.
 func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) *string { return v.ReferenceId }).(pulumi.StringPtrOutput)
+}
+
+// The version of the Policy Definition to use.
+func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPolicyDefinitionReference) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type PolicySetDefinitionPolicyDefinitionReferenceArrayOutput struct{ *pulumi.OutputState }

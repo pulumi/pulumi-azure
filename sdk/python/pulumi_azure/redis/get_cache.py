@@ -331,7 +331,7 @@ def get_cache(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cache`: 2024-11-01
+    * `Microsoft.Cache` - 2024-11-01
 
 
     :param _builtins.str name: The name of the Redis cache
@@ -391,7 +391,7 @@ def get_cache_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cache`: 2024-11-01
+    * `Microsoft.Cache` - 2024-11-01
 
 
     :param _builtins.str name: The name of the Redis cache

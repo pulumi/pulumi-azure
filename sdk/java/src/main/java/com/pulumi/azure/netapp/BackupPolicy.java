@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.NetApp`: 2025-01-01
+ * * `Microsoft.NetApp` - 2025-01-01
  * 
  * ## Import
  * 
@@ -149,7 +149,7 @@ public class BackupPolicy extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      * 
      * &gt; **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      * 
@@ -158,7 +158,7 @@ public class BackupPolicy extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> monthlyBackupsToKeep;
 
     /**
-     * @return Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * @return Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      * 
      * &gt; **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      * 
@@ -209,14 +209,14 @@ public class BackupPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      * 
      */
     @Export(name="weeklyBackupsToKeep", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> weeklyBackupsToKeep;
 
     /**
-     * @return Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * @return Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      * 
      */
     public Output<Optional<Integer>> weeklyBackupsToKeep() {

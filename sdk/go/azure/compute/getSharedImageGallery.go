@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Compute`: 2022-03-03
+// * `Microsoft.Compute` - 2022-03-03
 func LookupSharedImageGallery(ctx *pulumi.Context, args *LookupSharedImageGalleryArgs, opts ...pulumi.InvokeOption) (*LookupSharedImageGalleryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSharedImageGalleryResult

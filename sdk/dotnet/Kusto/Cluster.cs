@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Kusto
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Kusto`: 2024-04-13
+    /// * `Microsoft.Kusto` - 2024-04-13
     /// 
     /// ## Import
     /// 
@@ -195,11 +195,6 @@ namespace Pulumi.Azure.Kusto
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
 
-        /// <summary>
-        /// A `virtual_network_configuration` block as defined below.
-        /// 
-        /// &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
-        /// </summary>
         [Output("virtualNetworkConfiguration")]
         public Output<Outputs.ClusterVirtualNetworkConfiguration?> VirtualNetworkConfiguration { get; private set; } = null!;
 
@@ -403,11 +398,6 @@ namespace Pulumi.Azure.Kusto
             set => _trustedExternalTenants = value;
         }
 
-        /// <summary>
-        /// A `virtual_network_configuration` block as defined below.
-        /// 
-        /// &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
-        /// </summary>
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.ClusterVirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
 
@@ -591,11 +581,6 @@ namespace Pulumi.Azure.Kusto
         [Input("uri")]
         public Input<string>? Uri { get; set; }
 
-        /// <summary>
-        /// A `virtual_network_configuration` block as defined below.
-        /// 
-        /// &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
-        /// </summary>
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.ClusterVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }
 

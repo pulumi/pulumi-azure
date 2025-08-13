@@ -195,14 +195,14 @@ public class Definition extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+     * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
      * 
      */
     @Export(name="parameters", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parameters;
 
     /**
-     * @return Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
+     * @return Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> parameters() {

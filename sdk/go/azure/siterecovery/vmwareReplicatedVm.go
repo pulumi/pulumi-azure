@@ -134,9 +134,9 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.OffAzure`: 2020-01-01
+// * `Microsoft.OffAzure` - 2020-01-01
 //
-// * `Microsoft.RecoveryServices`: 2024-04-01
+// * `Microsoft.RecoveryServices` - 2024-04-01
 //
 // ## Import
 //

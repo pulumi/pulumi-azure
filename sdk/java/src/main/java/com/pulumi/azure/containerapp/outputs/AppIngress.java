@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerapp.outputs;
 
+import com.pulumi.azure.containerapp.outputs.AppIngressCors;
 import com.pulumi.azure.containerapp.outputs.AppIngressCustomDomain;
 import com.pulumi.azure.containerapp.outputs.AppIngressIpSecurityRestriction;
 import com.pulumi.azure.containerapp.outputs.AppIngressTrafficWeight;
@@ -28,6 +29,11 @@ public final class AppIngress {
      * 
      */
     private @Nullable String clientCertificateMode;
+    /**
+     * @return A `cors` block as defined below.
+     * 
+     */
+    private @Nullable AppIngressCors cors;
     /**
      * @return One or more `custom_domain` block as detailed below.
      * 
@@ -87,6 +93,13 @@ public final class AppIngress {
      */
     public Optional<String> clientCertificateMode() {
         return Optional.ofNullable(this.clientCertificateMode);
+    }
+    /**
+     * @return A `cors` block as defined below.
+     * 
+     */
+    public Optional<AppIngressCors> cors() {
+        return Optional.ofNullable(this.cors);
     }
     /**
      * @return One or more `custom_domain` block as detailed below.
@@ -160,6 +173,7 @@ public final class AppIngress {
     public static final class Builder {
         private @Nullable Boolean allowInsecureConnections;
         private @Nullable String clientCertificateMode;
+        private @Nullable AppIngressCors cors;
         private @Nullable List<AppIngressCustomDomain> customDomains;
         private @Nullable Integer exposedPort;
         private @Nullable Boolean externalEnabled;
@@ -173,6 +187,7 @@ public final class AppIngress {
     	      Objects.requireNonNull(defaults);
     	      this.allowInsecureConnections = defaults.allowInsecureConnections;
     	      this.clientCertificateMode = defaults.clientCertificateMode;
+    	      this.cors = defaults.cors;
     	      this.customDomains = defaults.customDomains;
     	      this.exposedPort = defaults.exposedPort;
     	      this.externalEnabled = defaults.externalEnabled;
@@ -193,6 +208,12 @@ public final class AppIngress {
         public Builder clientCertificateMode(@Nullable String clientCertificateMode) {
 
             this.clientCertificateMode = clientCertificateMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cors(@Nullable AppIngressCors cors) {
+
+            this.cors = cors;
             return this;
         }
         @CustomType.Setter
@@ -260,6 +281,7 @@ public final class AppIngress {
             final var _resultValue = new AppIngress();
             _resultValue.allowInsecureConnections = allowInsecureConnections;
             _resultValue.clientCertificateMode = clientCertificateMode;
+            _resultValue.cors = cors;
             _resultValue.customDomains = customDomains;
             _resultValue.exposedPort = exposedPort;
             _resultValue.externalEnabled = externalEnabled;

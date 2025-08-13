@@ -35,18 +35,22 @@ public final class JobStepArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
+     * 
+     * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
      * 
      */
-    @Import(name="jobCredentialId", required=true)
-    private Output<String> jobCredentialId;
+    @Import(name="jobCredentialId")
+    private @Nullable Output<String> jobCredentialId;
 
     /**
-     * @return The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+     * @return The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
+     * 
+     * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
      * 
      */
-    public Output<String> jobCredentialId() {
-        return this.jobCredentialId;
+    public Optional<Output<String>> jobCredentialId() {
+        return Optional.ofNullable(this.jobCredentialId);
     }
 
     /**
@@ -268,18 +272,22 @@ public final class JobStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobCredentialId The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+         * @param jobCredentialId The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
+         * 
+         * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder jobCredentialId(Output<String> jobCredentialId) {
+        public Builder jobCredentialId(@Nullable Output<String> jobCredentialId) {
             $.jobCredentialId = jobCredentialId;
             return this;
         }
 
         /**
-         * @param jobCredentialId The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+         * @param jobCredentialId The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
+         * 
+         * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -511,9 +519,6 @@ public final class JobStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobStepArgs build() {
-            if ($.jobCredentialId == null) {
-                throw new MissingRequiredPropertyException("JobStepArgs", "jobCredentialId");
-            }
             if ($.jobId == null) {
                 throw new MissingRequiredPropertyException("JobStepArgs", "jobId");
             }

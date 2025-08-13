@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Pim
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Authorization`: 2022-04-01
+        /// * `Microsoft.Authorization` - 2022-04-01
         /// </summary>
         public static Task<GetRoleAssignmentsResult> InvokeAsync(GetRoleAssignmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentsResult>("azure:pim/getRoleAssignments:getRoleAssignments", args ?? new GetRoleAssignmentsArgs(), options.WithDefaults());
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Pim
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Authorization`: 2022-04-01
+        /// * `Microsoft.Authorization` - 2022-04-01
         /// </summary>
         public static Output<GetRoleAssignmentsResult> Invoke(GetRoleAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentsResult>("azure:pim/getRoleAssignments:getRoleAssignments", args ?? new GetRoleAssignmentsInvokeArgs(), options.WithDefaults());
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Pim
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Authorization`: 2022-04-01
+        /// * `Microsoft.Authorization` - 2022-04-01
         /// </summary>
         public static Output<GetRoleAssignmentsResult> Invoke(GetRoleAssignmentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentsResult>("azure:pim/getRoleAssignments:getRoleAssignments", args ?? new GetRoleAssignmentsInvokeArgs(), options.WithDefaults());

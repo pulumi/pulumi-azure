@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-12-01
+ * * `Microsoft.Web` - 2023-12-01
  */
 export function getWindowsFunctionApp(args: GetWindowsFunctionAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsFunctionAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -238,7 +238,7 @@ export interface GetWindowsFunctionAppResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-12-01
+ * * `Microsoft.Web` - 2023-12-01
  */
 export function getWindowsFunctionAppOutput(args: GetWindowsFunctionAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWindowsFunctionAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.MachineLearningServices`: 2024-04-01
+ * * `Microsoft.MachineLearningServices` - 2025-06-01
  * 
  * ## Import
  * 

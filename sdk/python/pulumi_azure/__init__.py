@@ -815,6 +815,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/standaloneGateway",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/standaloneGateway:StandaloneGateway": "StandaloneGateway"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/subscription",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -835,6 +843,14 @@ _utilities.register(
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
    "azure:apimanagement/user:User": "User"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "apimanagement/workspace",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/workspace:Workspace": "Workspace"
   }
  },
  {
@@ -875,6 +891,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appconfiguration",
   "classes": {
    "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend": "LicationLoadBalancerFrontend"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appconfiguration/licationLoadBalancerSecurityPolicy",
+  "fqn": "pulumi_azure.appconfiguration",
+  "classes": {
+   "azure:appconfiguration/licationLoadBalancerSecurityPolicy:LicationLoadBalancerSecurityPolicy": "LicationLoadBalancerSecurityPolicy"
   }
  },
  {
@@ -2331,6 +2355,14 @@ _utilities.register(
   "fqn": "pulumi_azure.communication",
   "classes": {
    "azure:communication/emailServiceDomain:EmailServiceDomain": "EmailServiceDomain"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "communication/emailServiceDomainSenderUsername",
+  "fqn": "pulumi_azure.communication",
+  "classes": {
+   "azure:communication/emailServiceDomainSenderUsername:EmailServiceDomainSenderUsername": "EmailServiceDomainSenderUsername"
   }
  },
  {
@@ -4439,6 +4471,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "eventgrid/partnerNamespace",
+  "fqn": "pulumi_azure.eventgrid",
+  "classes": {
+   "azure:eventgrid/partnerNamespace:PartnerNamespace": "PartnerNamespace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "eventgrid/partnerRegistration",
+  "fqn": "pulumi_azure.eventgrid",
+  "classes": {
+   "azure:eventgrid/partnerRegistration:PartnerRegistration": "PartnerRegistration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "eventgrid/systemTopic",
   "fqn": "pulumi_azure.eventgrid",
   "classes": {
@@ -5727,6 +5775,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "management/groupPolicySetDefinition",
+  "fqn": "pulumi_azure.management",
+  "classes": {
+   "azure:management/groupPolicySetDefinition:GroupPolicySetDefinition": "GroupPolicySetDefinition"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "management/groupSubscriptionAssociation",
   "fqn": "pulumi_azure.management",
   "classes": {
@@ -6203,6 +6259,14 @@ _utilities.register(
   "fqn": "pulumi_azure.mssql",
   "classes": {
    "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy": "ManagedInstanceSecurityAlertPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "mssql/managedInstanceStartStopSchedule",
+  "fqn": "pulumi_azure.mssql",
+  "classes": {
+   "azure:mssql/managedInstanceStartStopSchedule:ManagedInstanceStartStopSchedule": "ManagedInstanceStartStopSchedule"
   }
  },
  {
@@ -6803,6 +6867,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace": "NetworkManagerVerifierWorkspace"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent:NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent": "NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent"
   }
  },
  {
@@ -7507,6 +7579,14 @@ _utilities.register(
   "fqn": "pulumi_azure.postgresql",
   "classes": {
    "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator": "FlexibleServerActiveDirectoryAdministrator"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "postgresql/flexibleServerBackup",
+  "fqn": "pulumi_azure.postgresql",
+  "classes": {
+   "azure:postgresql/flexibleServerBackup:FlexibleServerBackup": "FlexibleServerBackup"
   }
  },
  {

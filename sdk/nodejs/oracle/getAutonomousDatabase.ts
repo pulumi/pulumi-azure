@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -25,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getAutonomousDatabase(args: GetAutonomousDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetAutonomousDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -145,6 +147,10 @@ export interface GetAutonomousDatabaseResult {
      * The Azure Region where the Autonomous Database exists.
      */
     readonly location: string;
+    /**
+     * A `longTermBackupSchedule` block as defined below
+     */
+    readonly longTermBackupSchedules: outputs.oracle.GetAutonomousDatabaseLongTermBackupSchedule[];
     /**
      * The amount of memory (in GBs) enabled per ECPU or OCPU.
      */
@@ -302,7 +308,7 @@ export interface GetAutonomousDatabaseResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getAutonomousDatabaseOutput(args: GetAutonomousDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutonomousDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

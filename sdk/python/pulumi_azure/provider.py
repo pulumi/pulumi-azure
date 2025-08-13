@@ -34,6 +34,7 @@ class ProviderArgs:
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
                  features: Optional[pulumi.Input['ProviderFeaturesArgs']] = None,
                  metadata_host: Optional[pulumi.Input[_builtins.str]] = None,
+                 msi_api_version: Optional[pulumi.Input[_builtins.str]] = None,
                  msi_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -67,6 +68,8 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
                used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[_builtins.str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
+        :param pulumi.Input[_builtins.str] msi_api_version: The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+               the endpoint. e.g. for Azure Container Apps.
         :param pulumi.Input[_builtins.str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
                automatically.
         :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
@@ -121,6 +124,8 @@ class ProviderArgs:
             metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')
         if metadata_host is not None:
             pulumi.set(__self__, "metadata_host", metadata_host)
+        if msi_api_version is not None:
+            pulumi.set(__self__, "msi_api_version", msi_api_version)
         if msi_endpoint is not None:
             pulumi.set(__self__, "msi_endpoint", msi_endpoint)
         if oidc_request_token is not None:
@@ -325,6 +330,19 @@ class ProviderArgs:
     @metadata_host.setter
     def metadata_host(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "metadata_host", value)
+
+    @_builtins.property
+    @pulumi.getter(name="msiApiVersion")
+    def msi_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+        the endpoint. e.g. for Azure Container Apps.
+        """
+        return pulumi.get(self, "msi_api_version")
+
+    @msi_api_version.setter
+    def msi_api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "msi_api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="msiEndpoint")
@@ -545,6 +563,7 @@ class Provider(pulumi.ProviderResource):
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
                  features: Optional[pulumi.Input[Union['ProviderFeaturesArgs', 'ProviderFeaturesArgsDict']]] = None,
                  metadata_host: Optional[pulumi.Input[_builtins.str]] = None,
+                 msi_api_version: Optional[pulumi.Input[_builtins.str]] = None,
                  msi_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -585,6 +604,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
                used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[_builtins.str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
+        :param pulumi.Input[_builtins.str] msi_api_version: The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+               the endpoint. e.g. for Azure Container Apps.
         :param pulumi.Input[_builtins.str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
                automatically.
         :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
@@ -648,6 +669,7 @@ class Provider(pulumi.ProviderResource):
                  environment: Optional[pulumi.Input[_builtins.str]] = None,
                  features: Optional[pulumi.Input[Union['ProviderFeaturesArgs', 'ProviderFeaturesArgsDict']]] = None,
                  metadata_host: Optional[pulumi.Input[_builtins.str]] = None,
+                 msi_api_version: Optional[pulumi.Input[_builtins.str]] = None,
                  msi_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_token: Optional[pulumi.Input[_builtins.str]] = None,
                  oidc_request_url: Optional[pulumi.Input[_builtins.str]] = None,
@@ -691,6 +713,7 @@ class Provider(pulumi.ProviderResource):
             if metadata_host is None:
                 metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')
             __props__.__dict__["metadata_host"] = metadata_host
+            __props__.__dict__["msi_api_version"] = msi_api_version
             __props__.__dict__["msi_endpoint"] = msi_endpoint
             __props__.__dict__["oidc_request_token"] = None if oidc_request_token is None else pulumi.Output.secret(oidc_request_token)
             __props__.__dict__["oidc_request_url"] = oidc_request_url
@@ -804,6 +827,15 @@ class Provider(pulumi.ProviderResource):
         The Hostname which should be used for the Azure Metadata Service.
         """
         return pulumi.get(self, "metadata_host")
+
+    @_builtins.property
+    @pulumi.getter(name="msiApiVersion")
+    def msi_api_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+        the endpoint. e.g. for Azure Container Apps.
+        """
+        return pulumi.get(self, "msi_api_version")
 
     @_builtins.property
     @pulumi.getter(name="msiEndpoint")

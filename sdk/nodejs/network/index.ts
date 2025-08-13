@@ -165,6 +165,11 @@ export const getNetworkManagerConnectivityConfiguration: typeof import("./getNet
 export const getNetworkManagerConnectivityConfigurationOutput: typeof import("./getNetworkManagerConnectivityConfiguration").getNetworkManagerConnectivityConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkManagerConnectivityConfiguration","getNetworkManagerConnectivityConfigurationOutput"], () => require("./getNetworkManagerConnectivityConfiguration"));
 
+export { GetNetworkManagerIpamPoolArgs, GetNetworkManagerIpamPoolResult, GetNetworkManagerIpamPoolOutputArgs } from "./getNetworkManagerIpamPool";
+export const getNetworkManagerIpamPool: typeof import("./getNetworkManagerIpamPool").getNetworkManagerIpamPool = null as any;
+export const getNetworkManagerIpamPoolOutput: typeof import("./getNetworkManagerIpamPool").getNetworkManagerIpamPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkManagerIpamPool","getNetworkManagerIpamPoolOutput"], () => require("./getNetworkManagerIpamPool"));
+
 export { GetNetworkManagerNetworkGroupArgs, GetNetworkManagerNetworkGroupResult, GetNetworkManagerNetworkGroupOutputArgs } from "./getNetworkManagerNetworkGroup";
 export const getNetworkManagerNetworkGroup: typeof import("./getNetworkManagerNetworkGroup").getNetworkManagerNetworkGroup = null as any;
 export const getNetworkManagerNetworkGroupOutput: typeof import("./getNetworkManagerNetworkGroup").getNetworkManagerNetworkGroupOutput = null as any;
@@ -404,6 +409,11 @@ export { NetworkManagerVerifierWorkspaceArgs, NetworkManagerVerifierWorkspaceSta
 export type NetworkManagerVerifierWorkspace = import("./networkManagerVerifierWorkspace").NetworkManagerVerifierWorkspace;
 export const NetworkManagerVerifierWorkspace: typeof import("./networkManagerVerifierWorkspace").NetworkManagerVerifierWorkspace = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerVerifierWorkspace"], () => require("./networkManagerVerifierWorkspace"));
+
+export { NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs, NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentState } from "./networkManagerVerifierWorkspaceReachabilityAnalysisIntent";
+export type NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent = import("./networkManagerVerifierWorkspaceReachabilityAnalysisIntent").NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent;
+export const NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent: typeof import("./networkManagerVerifierWorkspaceReachabilityAnalysisIntent").NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent"], () => require("./networkManagerVerifierWorkspaceReachabilityAnalysisIntent"));
 
 export { NetworkSecurityGroupArgs, NetworkSecurityGroupState } from "./networkSecurityGroup";
 export type NetworkSecurityGroup = import("./networkSecurityGroup").NetworkSecurityGroup;
@@ -715,6 +725,8 @@ const _module = {
                 return new NetworkManagerSubscriptionConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace":
                 return new NetworkManagerVerifierWorkspace(name, <any>undefined, { urn })
+            case "azure:network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent:NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent":
+                return new NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(name, <any>undefined, { urn })
             case "azure:network/networkSecurityGroup:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
             case "azure:network/networkSecurityRule:NetworkSecurityRule":
@@ -851,6 +863,7 @@ pulumi.runtime.registerResourceModule("azure", "network/networkManagerSecurityAd
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerStaticMember", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerSubscriptionConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerVerifierWorkspace", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerVerifierWorkspaceReachabilityAnalysisIntent", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkSecurityRule", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkWatcher", _module)

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ApiManagement
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ApiManagement`: 2022-08-01
+        /// * `Microsoft.ApiManagement` - 2022-08-01
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.ApiManagement
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ApiManagement`: 2022-08-01
+        /// * `Microsoft.ApiManagement` - 2022-08-01
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.ApiManagement
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ApiManagement`: 2022-08-01
+        /// * `Microsoft.ApiManagement` - 2022-08-01
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());

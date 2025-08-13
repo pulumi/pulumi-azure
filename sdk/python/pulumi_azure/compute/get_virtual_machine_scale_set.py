@@ -141,7 +141,7 @@ def get_virtual_machine_scale_set(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
+    * `Microsoft.Compute` - 2024-11-01, 2024-03-01, 2023-09-01
 
 
     :param _builtins.str name: The name of this Virtual Machine Scale Set.
@@ -183,7 +183,7 @@ def get_virtual_machine_scale_set_output(name: Optional[pulumi.Input[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
+    * `Microsoft.Compute` - 2024-11-01, 2024-03-01, 2023-09-01
 
 
     :param _builtins.str name: The name of this Virtual Machine Scale Set.

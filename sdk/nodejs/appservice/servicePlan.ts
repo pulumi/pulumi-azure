@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-12-01
+ * * `Microsoft.Web` - 2023-12-01
  *
  * ## Import
  *
@@ -131,6 +131,8 @@ export class ServicePlan extends pulumi.CustomResource {
      * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      *
      * > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+     *
+     * > **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&pivots=free-shared-basic#availability-zone-support).
      */
     public readonly zoneBalancingEnabled!: pulumi.Output<boolean | undefined>;
 
@@ -258,6 +260,8 @@ export interface ServicePlanState {
      * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      *
      * > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+     *
+     * > **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&pivots=free-shared-basic#availability-zone-support).
      */
     zoneBalancingEnabled?: pulumi.Input<boolean>;
 }
@@ -320,6 +324,8 @@ export interface ServicePlanArgs {
      * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      *
      * > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+     *
+     * > **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&pivots=free-shared-basic#availability-zone-support).
      */
     zoneBalancingEnabled?: pulumi.Input<boolean>;
 }

@@ -121,7 +121,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+ * * `Microsoft.ContainerRegistry` - 2023-11-01-preview
  *
  * ## Import
  *
@@ -179,6 +179,10 @@ export class Registry extends pulumi.CustomResource {
      * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      */
     public readonly dataEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+     */
+    public /*out*/ readonly dataEndpointHostNames!: pulumi.Output<string[]>;
     /**
      * An `encryption` block as documented below.
      */
@@ -274,6 +278,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["adminUsername"] = state ? state.adminUsername : undefined;
             resourceInputs["anonymousPullEnabled"] = state ? state.anonymousPullEnabled : undefined;
             resourceInputs["dataEndpointEnabled"] = state ? state.dataEndpointEnabled : undefined;
+            resourceInputs["dataEndpointHostNames"] = state ? state.dataEndpointHostNames : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["exportPolicyEnabled"] = state ? state.exportPolicyEnabled : undefined;
             resourceInputs["georeplications"] = state ? state.georeplications : undefined;
@@ -320,6 +325,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
             resourceInputs["adminPassword"] = undefined /*out*/;
             resourceInputs["adminUsername"] = undefined /*out*/;
+            resourceInputs["dataEndpointHostNames"] = undefined /*out*/;
             resourceInputs["loginServer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -353,6 +359,10 @@ export interface RegistryState {
      * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      */
     dataEndpointEnabled?: pulumi.Input<boolean>;
+    /**
+     * A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+     */
+    dataEndpointHostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * An `encryption` block as documented below.
      */

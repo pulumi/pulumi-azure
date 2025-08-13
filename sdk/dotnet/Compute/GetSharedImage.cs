@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Compute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Compute`: 2022-03-03
+        /// * `Microsoft.Compute` - 2022-03-03
         /// </summary>
         public static Task<GetSharedImageResult> InvokeAsync(GetSharedImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? new GetSharedImageArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Compute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Compute`: 2022-03-03
+        /// * `Microsoft.Compute` - 2022-03-03
         /// </summary>
         public static Output<GetSharedImageResult> Invoke(GetSharedImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? new GetSharedImageInvokeArgs(), options.WithDefaults());
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Compute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Compute`: 2022-03-03
+        /// * `Microsoft.Compute` - 2022-03-03
         /// </summary>
         public static Output<GetSharedImageResult> Invoke(GetSharedImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageResult>("azure:compute/getSharedImage:getSharedImage", args ?? new GetSharedImageInvokeArgs(), options.WithDefaults());

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Task<GetNetworkConnectionResult> InvokeAsync(GetNetworkConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkConnectionResult>("azure:devcenter/getNetworkConnection:getNetworkConnection", args ?? new GetNetworkConnectionArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Output<GetNetworkConnectionResult> Invoke(GetNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkConnectionResult>("azure:devcenter/getNetworkConnection:getNetworkConnection", args ?? new GetNetworkConnectionInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DevCenter
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DevCenter`: 2025-02-01
+        /// * `Microsoft.DevCenter` - 2025-02-01
         /// </summary>
         public static Output<GetNetworkConnectionResult> Invoke(GetNetworkConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkConnectionResult>("azure:devcenter/getNetworkConnection:getNetworkConnection", args ?? new GetNetworkConnectionInvokeArgs(), options.WithDefaults());

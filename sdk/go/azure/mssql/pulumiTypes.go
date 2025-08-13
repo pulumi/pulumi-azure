@@ -1912,7 +1912,7 @@ func (o JobAgentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 
 type JobStepOutputTarget struct {
 	// The ID of the Elastic Job Credential to use when connecting to the output destination.
-	JobCredentialId string `pulumi:"jobCredentialId"`
+	JobCredentialId *string `pulumi:"jobCredentialId"`
 	// The ID of the output database.
 	MssqlDatabaseId string `pulumi:"mssqlDatabaseId"`
 	// The name of the output schema. Defaults to `dbo`.
@@ -1934,7 +1934,7 @@ type JobStepOutputTargetInput interface {
 
 type JobStepOutputTargetArgs struct {
 	// The ID of the Elastic Job Credential to use when connecting to the output destination.
-	JobCredentialId pulumi.StringInput `pulumi:"jobCredentialId"`
+	JobCredentialId pulumi.StringPtrInput `pulumi:"jobCredentialId"`
 	// The ID of the output database.
 	MssqlDatabaseId pulumi.StringInput `pulumi:"mssqlDatabaseId"`
 	// The name of the output schema. Defaults to `dbo`.
@@ -2021,8 +2021,8 @@ func (o JobStepOutputTargetOutput) ToJobStepOutputTargetPtrOutputWithContext(ctx
 }
 
 // The ID of the Elastic Job Credential to use when connecting to the output destination.
-func (o JobStepOutputTargetOutput) JobCredentialId() pulumi.StringOutput {
-	return o.ApplyT(func(v JobStepOutputTarget) string { return v.JobCredentialId }).(pulumi.StringOutput)
+func (o JobStepOutputTargetOutput) JobCredentialId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobStepOutputTarget) *string { return v.JobCredentialId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the output database.
@@ -2070,7 +2070,7 @@ func (o JobStepOutputTargetPtrOutput) JobCredentialId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.JobCredentialId
+		return v.JobCredentialId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3306,6 +3306,130 @@ func (o ManagedInstanceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedInstanceStartStopScheduleSchedule struct {
+	// Start day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+	StartDay string `pulumi:"startDay"`
+	// Start time of the schedule in 24-hour format (e.g., `08:00`).
+	StartTime string `pulumi:"startTime"`
+	// Stop day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+	StopDay string `pulumi:"stopDay"`
+	// Stop time of the schedule in 24-hour format (e.g., `17:00`).
+	StopTime string `pulumi:"stopTime"`
+}
+
+// ManagedInstanceStartStopScheduleScheduleInput is an input type that accepts ManagedInstanceStartStopScheduleScheduleArgs and ManagedInstanceStartStopScheduleScheduleOutput values.
+// You can construct a concrete instance of `ManagedInstanceStartStopScheduleScheduleInput` via:
+//
+//	ManagedInstanceStartStopScheduleScheduleArgs{...}
+type ManagedInstanceStartStopScheduleScheduleInput interface {
+	pulumi.Input
+
+	ToManagedInstanceStartStopScheduleScheduleOutput() ManagedInstanceStartStopScheduleScheduleOutput
+	ToManagedInstanceStartStopScheduleScheduleOutputWithContext(context.Context) ManagedInstanceStartStopScheduleScheduleOutput
+}
+
+type ManagedInstanceStartStopScheduleScheduleArgs struct {
+	// Start day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+	StartDay pulumi.StringInput `pulumi:"startDay"`
+	// Start time of the schedule in 24-hour format (e.g., `08:00`).
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+	// Stop day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+	StopDay pulumi.StringInput `pulumi:"stopDay"`
+	// Stop time of the schedule in 24-hour format (e.g., `17:00`).
+	StopTime pulumi.StringInput `pulumi:"stopTime"`
+}
+
+func (ManagedInstanceStartStopScheduleScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceStartStopScheduleSchedule)(nil)).Elem()
+}
+
+func (i ManagedInstanceStartStopScheduleScheduleArgs) ToManagedInstanceStartStopScheduleScheduleOutput() ManagedInstanceStartStopScheduleScheduleOutput {
+	return i.ToManagedInstanceStartStopScheduleScheduleOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceStartStopScheduleScheduleArgs) ToManagedInstanceStartStopScheduleScheduleOutputWithContext(ctx context.Context) ManagedInstanceStartStopScheduleScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceStartStopScheduleScheduleOutput)
+}
+
+// ManagedInstanceStartStopScheduleScheduleArrayInput is an input type that accepts ManagedInstanceStartStopScheduleScheduleArray and ManagedInstanceStartStopScheduleScheduleArrayOutput values.
+// You can construct a concrete instance of `ManagedInstanceStartStopScheduleScheduleArrayInput` via:
+//
+//	ManagedInstanceStartStopScheduleScheduleArray{ ManagedInstanceStartStopScheduleScheduleArgs{...} }
+type ManagedInstanceStartStopScheduleScheduleArrayInput interface {
+	pulumi.Input
+
+	ToManagedInstanceStartStopScheduleScheduleArrayOutput() ManagedInstanceStartStopScheduleScheduleArrayOutput
+	ToManagedInstanceStartStopScheduleScheduleArrayOutputWithContext(context.Context) ManagedInstanceStartStopScheduleScheduleArrayOutput
+}
+
+type ManagedInstanceStartStopScheduleScheduleArray []ManagedInstanceStartStopScheduleScheduleInput
+
+func (ManagedInstanceStartStopScheduleScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedInstanceStartStopScheduleSchedule)(nil)).Elem()
+}
+
+func (i ManagedInstanceStartStopScheduleScheduleArray) ToManagedInstanceStartStopScheduleScheduleArrayOutput() ManagedInstanceStartStopScheduleScheduleArrayOutput {
+	return i.ToManagedInstanceStartStopScheduleScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedInstanceStartStopScheduleScheduleArray) ToManagedInstanceStartStopScheduleScheduleArrayOutputWithContext(ctx context.Context) ManagedInstanceStartStopScheduleScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceStartStopScheduleScheduleArrayOutput)
+}
+
+type ManagedInstanceStartStopScheduleScheduleOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceStartStopScheduleScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedInstanceStartStopScheduleSchedule)(nil)).Elem()
+}
+
+func (o ManagedInstanceStartStopScheduleScheduleOutput) ToManagedInstanceStartStopScheduleScheduleOutput() ManagedInstanceStartStopScheduleScheduleOutput {
+	return o
+}
+
+func (o ManagedInstanceStartStopScheduleScheduleOutput) ToManagedInstanceStartStopScheduleScheduleOutputWithContext(ctx context.Context) ManagedInstanceStartStopScheduleScheduleOutput {
+	return o
+}
+
+// Start day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+func (o ManagedInstanceStartStopScheduleScheduleOutput) StartDay() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceStartStopScheduleSchedule) string { return v.StartDay }).(pulumi.StringOutput)
+}
+
+// Start time of the schedule in 24-hour format (e.g., `08:00`).
+func (o ManagedInstanceStartStopScheduleScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceStartStopScheduleSchedule) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Stop day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+func (o ManagedInstanceStartStopScheduleScheduleOutput) StopDay() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceStartStopScheduleSchedule) string { return v.StopDay }).(pulumi.StringOutput)
+}
+
+// Stop time of the schedule in 24-hour format (e.g., `17:00`).
+func (o ManagedInstanceStartStopScheduleScheduleOutput) StopTime() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedInstanceStartStopScheduleSchedule) string { return v.StopTime }).(pulumi.StringOutput)
+}
+
+type ManagedInstanceStartStopScheduleScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedInstanceStartStopScheduleScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedInstanceStartStopScheduleSchedule)(nil)).Elem()
+}
+
+func (o ManagedInstanceStartStopScheduleScheduleArrayOutput) ToManagedInstanceStartStopScheduleScheduleArrayOutput() ManagedInstanceStartStopScheduleScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedInstanceStartStopScheduleScheduleArrayOutput) ToManagedInstanceStartStopScheduleScheduleArrayOutputWithContext(ctx context.Context) ManagedInstanceStartStopScheduleScheduleArrayOutput {
+	return o
+}
+
+func (o ManagedInstanceStartStopScheduleScheduleArrayOutput) Index(i pulumi.IntInput) ManagedInstanceStartStopScheduleScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedInstanceStartStopScheduleSchedule {
+		return vs[0].([]ManagedInstanceStartStopScheduleSchedule)[vs[1].(int)]
+	}).(ManagedInstanceStartStopScheduleScheduleOutput)
 }
 
 type ManagedInstanceVulnerabilityAssessmentRecurringScans struct {
@@ -7484,6 +7608,227 @@ func (o GetElasticPoolSkusArrayOutput) Index(i pulumi.IntInput) GetElasticPoolSk
 	}).(GetElasticPoolSkusOutput)
 }
 
+type GetFailoverGroupPartnerServer struct {
+	// The ID of the partner SQL server.
+	Id string `pulumi:"id"`
+	// The location of the partner server.
+	Location string `pulumi:"location"`
+	// The replication role of the partner server.
+	Role string `pulumi:"role"`
+}
+
+// GetFailoverGroupPartnerServerInput is an input type that accepts GetFailoverGroupPartnerServerArgs and GetFailoverGroupPartnerServerOutput values.
+// You can construct a concrete instance of `GetFailoverGroupPartnerServerInput` via:
+//
+//	GetFailoverGroupPartnerServerArgs{...}
+type GetFailoverGroupPartnerServerInput interface {
+	pulumi.Input
+
+	ToGetFailoverGroupPartnerServerOutput() GetFailoverGroupPartnerServerOutput
+	ToGetFailoverGroupPartnerServerOutputWithContext(context.Context) GetFailoverGroupPartnerServerOutput
+}
+
+type GetFailoverGroupPartnerServerArgs struct {
+	// The ID of the partner SQL server.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The location of the partner server.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The replication role of the partner server.
+	Role pulumi.StringInput `pulumi:"role"`
+}
+
+func (GetFailoverGroupPartnerServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFailoverGroupPartnerServer)(nil)).Elem()
+}
+
+func (i GetFailoverGroupPartnerServerArgs) ToGetFailoverGroupPartnerServerOutput() GetFailoverGroupPartnerServerOutput {
+	return i.ToGetFailoverGroupPartnerServerOutputWithContext(context.Background())
+}
+
+func (i GetFailoverGroupPartnerServerArgs) ToGetFailoverGroupPartnerServerOutputWithContext(ctx context.Context) GetFailoverGroupPartnerServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFailoverGroupPartnerServerOutput)
+}
+
+// GetFailoverGroupPartnerServerArrayInput is an input type that accepts GetFailoverGroupPartnerServerArray and GetFailoverGroupPartnerServerArrayOutput values.
+// You can construct a concrete instance of `GetFailoverGroupPartnerServerArrayInput` via:
+//
+//	GetFailoverGroupPartnerServerArray{ GetFailoverGroupPartnerServerArgs{...} }
+type GetFailoverGroupPartnerServerArrayInput interface {
+	pulumi.Input
+
+	ToGetFailoverGroupPartnerServerArrayOutput() GetFailoverGroupPartnerServerArrayOutput
+	ToGetFailoverGroupPartnerServerArrayOutputWithContext(context.Context) GetFailoverGroupPartnerServerArrayOutput
+}
+
+type GetFailoverGroupPartnerServerArray []GetFailoverGroupPartnerServerInput
+
+func (GetFailoverGroupPartnerServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFailoverGroupPartnerServer)(nil)).Elem()
+}
+
+func (i GetFailoverGroupPartnerServerArray) ToGetFailoverGroupPartnerServerArrayOutput() GetFailoverGroupPartnerServerArrayOutput {
+	return i.ToGetFailoverGroupPartnerServerArrayOutputWithContext(context.Background())
+}
+
+func (i GetFailoverGroupPartnerServerArray) ToGetFailoverGroupPartnerServerArrayOutputWithContext(ctx context.Context) GetFailoverGroupPartnerServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFailoverGroupPartnerServerArrayOutput)
+}
+
+type GetFailoverGroupPartnerServerOutput struct{ *pulumi.OutputState }
+
+func (GetFailoverGroupPartnerServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFailoverGroupPartnerServer)(nil)).Elem()
+}
+
+func (o GetFailoverGroupPartnerServerOutput) ToGetFailoverGroupPartnerServerOutput() GetFailoverGroupPartnerServerOutput {
+	return o
+}
+
+func (o GetFailoverGroupPartnerServerOutput) ToGetFailoverGroupPartnerServerOutputWithContext(ctx context.Context) GetFailoverGroupPartnerServerOutput {
+	return o
+}
+
+// The ID of the partner SQL server.
+func (o GetFailoverGroupPartnerServerOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupPartnerServer) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The location of the partner server.
+func (o GetFailoverGroupPartnerServerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupPartnerServer) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The replication role of the partner server.
+func (o GetFailoverGroupPartnerServerOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupPartnerServer) string { return v.Role }).(pulumi.StringOutput)
+}
+
+type GetFailoverGroupPartnerServerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFailoverGroupPartnerServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFailoverGroupPartnerServer)(nil)).Elem()
+}
+
+func (o GetFailoverGroupPartnerServerArrayOutput) ToGetFailoverGroupPartnerServerArrayOutput() GetFailoverGroupPartnerServerArrayOutput {
+	return o
+}
+
+func (o GetFailoverGroupPartnerServerArrayOutput) ToGetFailoverGroupPartnerServerArrayOutputWithContext(ctx context.Context) GetFailoverGroupPartnerServerArrayOutput {
+	return o
+}
+
+func (o GetFailoverGroupPartnerServerArrayOutput) Index(i pulumi.IntInput) GetFailoverGroupPartnerServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFailoverGroupPartnerServer {
+		return vs[0].([]GetFailoverGroupPartnerServer)[vs[1].(int)]
+	}).(GetFailoverGroupPartnerServerOutput)
+}
+
+type GetFailoverGroupReadWriteEndpointFailoverPolicy struct {
+	// The grace period in minutes, before failover with data loss is attempted for the read-write endpoint.
+	GraceMinutes int `pulumi:"graceMinutes"`
+	// The failover policy of the read-write endpoint for the Failover Group.
+	Mode string `pulumi:"mode"`
+}
+
+// GetFailoverGroupReadWriteEndpointFailoverPolicyInput is an input type that accepts GetFailoverGroupReadWriteEndpointFailoverPolicyArgs and GetFailoverGroupReadWriteEndpointFailoverPolicyOutput values.
+// You can construct a concrete instance of `GetFailoverGroupReadWriteEndpointFailoverPolicyInput` via:
+//
+//	GetFailoverGroupReadWriteEndpointFailoverPolicyArgs{...}
+type GetFailoverGroupReadWriteEndpointFailoverPolicyInput interface {
+	pulumi.Input
+
+	ToGetFailoverGroupReadWriteEndpointFailoverPolicyOutput() GetFailoverGroupReadWriteEndpointFailoverPolicyOutput
+	ToGetFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(context.Context) GetFailoverGroupReadWriteEndpointFailoverPolicyOutput
+}
+
+type GetFailoverGroupReadWriteEndpointFailoverPolicyArgs struct {
+	// The grace period in minutes, before failover with data loss is attempted for the read-write endpoint.
+	GraceMinutes pulumi.IntInput `pulumi:"graceMinutes"`
+	// The failover policy of the read-write endpoint for the Failover Group.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (GetFailoverGroupReadWriteEndpointFailoverPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
+}
+
+func (i GetFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToGetFailoverGroupReadWriteEndpointFailoverPolicyOutput() GetFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return i.ToGetFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(context.Background())
+}
+
+func (i GetFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToGetFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(ctx context.Context) GetFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFailoverGroupReadWriteEndpointFailoverPolicyOutput)
+}
+
+// GetFailoverGroupReadWriteEndpointFailoverPolicyArrayInput is an input type that accepts GetFailoverGroupReadWriteEndpointFailoverPolicyArray and GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput values.
+// You can construct a concrete instance of `GetFailoverGroupReadWriteEndpointFailoverPolicyArrayInput` via:
+//
+//	GetFailoverGroupReadWriteEndpointFailoverPolicyArray{ GetFailoverGroupReadWriteEndpointFailoverPolicyArgs{...} }
+type GetFailoverGroupReadWriteEndpointFailoverPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput() GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput
+	ToGetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutputWithContext(context.Context) GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput
+}
+
+type GetFailoverGroupReadWriteEndpointFailoverPolicyArray []GetFailoverGroupReadWriteEndpointFailoverPolicyInput
+
+func (GetFailoverGroupReadWriteEndpointFailoverPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
+}
+
+func (i GetFailoverGroupReadWriteEndpointFailoverPolicyArray) ToGetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput() GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput {
+	return i.ToGetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetFailoverGroupReadWriteEndpointFailoverPolicyArray) ToGetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutputWithContext(ctx context.Context) GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput)
+}
+
+type GetFailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetFailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
+}
+
+func (o GetFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToGetFailoverGroupReadWriteEndpointFailoverPolicyOutput() GetFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return o
+}
+
+func (o GetFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToGetFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(ctx context.Context) GetFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return o
+}
+
+// The grace period in minutes, before failover with data loss is attempted for the read-write endpoint.
+func (o GetFailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetFailoverGroupReadWriteEndpointFailoverPolicy) int { return v.GraceMinutes }).(pulumi.IntOutput)
+}
+
+// The failover policy of the read-write endpoint for the Failover Group.
+func (o GetFailoverGroupReadWriteEndpointFailoverPolicyOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFailoverGroupReadWriteEndpointFailoverPolicy) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFailoverGroupReadWriteEndpointFailoverPolicy)(nil)).Elem()
+}
+
+func (o GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput) ToGetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput() GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput {
+	return o
+}
+
+func (o GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput) ToGetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutputWithContext(ctx context.Context) GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput {
+	return o
+}
+
+func (o GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput) Index(i pulumi.IntInput) GetFailoverGroupReadWriteEndpointFailoverPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFailoverGroupReadWriteEndpointFailoverPolicy {
+		return vs[0].([]GetFailoverGroupReadWriteEndpointFailoverPolicy)[vs[1].(int)]
+	}).(GetFailoverGroupReadWriteEndpointFailoverPolicyOutput)
+}
+
 type GetManagedDatabaseLongTermRetentionPolicy struct {
 	// Specifies if the backups are immutable.
 	ImmutableBackupsEnabled bool `pulumi:"immutableBackupsEnabled"`
@@ -8010,6 +8355,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrInput)(nil)).Elem(), ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceIdentityPtrInput)(nil)).Elem(), ManagedInstanceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceStartStopScheduleScheduleInput)(nil)).Elem(), ManagedInstanceStartStopScheduleScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceStartStopScheduleScheduleArrayInput)(nil)).Elem(), ManagedInstanceStartStopScheduleScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceVulnerabilityAssessmentRecurringScansInput)(nil)).Elem(), ManagedInstanceVulnerabilityAssessmentRecurringScansArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedInstanceVulnerabilityAssessmentRecurringScansPtrInput)(nil)).Elem(), ManagedInstanceVulnerabilityAssessmentRecurringScansArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAzureadAdministratorInput)(nil)).Elem(), ServerAzureadAdministratorArgs{})
@@ -8054,6 +8401,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseIdentityArrayInput)(nil)).Elem(), GetDatabaseIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusInput)(nil)).Elem(), GetElasticPoolSkusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetElasticPoolSkusArrayInput)(nil)).Elem(), GetElasticPoolSkusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFailoverGroupPartnerServerInput)(nil)).Elem(), GetFailoverGroupPartnerServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFailoverGroupPartnerServerArrayInput)(nil)).Elem(), GetFailoverGroupPartnerServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFailoverGroupReadWriteEndpointFailoverPolicyInput)(nil)).Elem(), GetFailoverGroupReadWriteEndpointFailoverPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFailoverGroupReadWriteEndpointFailoverPolicyArrayInput)(nil)).Elem(), GetFailoverGroupReadWriteEndpointFailoverPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDatabaseLongTermRetentionPolicyInput)(nil)).Elem(), GetManagedDatabaseLongTermRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDatabaseLongTermRetentionPolicyArrayInput)(nil)).Elem(), GetManagedDatabaseLongTermRetentionPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDatabasePointInTimeRestoreInput)(nil)).Elem(), GetManagedDatabasePointInTimeRestoreArgs{})
@@ -8100,6 +8451,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceStartStopScheduleScheduleOutput{})
+	pulumi.RegisterOutputType(ManagedInstanceStartStopScheduleScheduleArrayOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceVulnerabilityAssessmentRecurringScansOutput{})
 	pulumi.RegisterOutputType(ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput{})
 	pulumi.RegisterOutputType(ServerAzureadAdministratorOutput{})
@@ -8144,6 +8497,10 @@ func init() {
 	pulumi.RegisterOutputType(GetDatabaseIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusOutput{})
 	pulumi.RegisterOutputType(GetElasticPoolSkusArrayOutput{})
+	pulumi.RegisterOutputType(GetFailoverGroupPartnerServerOutput{})
+	pulumi.RegisterOutputType(GetFailoverGroupPartnerServerArrayOutput{})
+	pulumi.RegisterOutputType(GetFailoverGroupReadWriteEndpointFailoverPolicyOutput{})
+	pulumi.RegisterOutputType(GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedDatabaseLongTermRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(GetManagedDatabaseLongTermRetentionPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedDatabasePointInTimeRestoreOutput{})

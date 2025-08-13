@@ -41,7 +41,7 @@ namespace Pulumi.Azure.PrivateDns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2024-06-01
+        /// * `Microsoft.Network` - 2024-06-01
         /// </summary>
         public static Task<GetARecordResult> InvokeAsync(GetARecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetARecordResult>("azure:privatedns/getARecord:getARecord", args ?? new GetARecordArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.PrivateDns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2024-06-01
+        /// * `Microsoft.Network` - 2024-06-01
         /// </summary>
         public static Output<GetARecordResult> Invoke(GetARecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetARecordResult>("azure:privatedns/getARecord:getARecord", args ?? new GetARecordInvokeArgs(), options.WithDefaults());
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.PrivateDns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2024-06-01
+        /// * `Microsoft.Network` - 2024-06-01
         /// </summary>
         public static Output<GetARecordResult> Invoke(GetARecordInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetARecordResult>("azure:privatedns/getARecord:getARecord", args ?? new GetARecordInvokeArgs(), options.WithDefaults());

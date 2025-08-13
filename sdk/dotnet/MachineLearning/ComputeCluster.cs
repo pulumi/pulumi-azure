@@ -125,7 +125,7 @@ namespace Pulumi.Azure.MachineLearning
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.MachineLearningServices`: 2024-04-01
+    /// * `Microsoft.MachineLearningServices` - 2025-06-01
     /// 
     /// ## Import
     /// 
@@ -181,7 +181,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<bool?> NodePublicIpEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A `scale_settings` block as defined below.
         /// </summary>
         [Output("scaleSettings")]
         public Output<Outputs.ComputeClusterScaleSettings> ScaleSettings { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> SubnetResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? NodePublicIpEnabled { get; set; }
 
         /// <summary>
-        /// A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A `scale_settings` block as defined below.
         /// </summary>
         [Input("scaleSettings", required: true)]
         public Input<Inputs.ComputeClusterScaleSettingsArgs> ScaleSettings { get; set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.MachineLearning
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -409,7 +409,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<bool>? NodePublicIpEnabled { get; set; }
 
         /// <summary>
-        /// A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A `scale_settings` block as defined below.
         /// </summary>
         [Input("scaleSettings")]
         public Input<Inputs.ComputeClusterScaleSettingsGetArgs>? ScaleSettings { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.MachineLearning
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
         /// </summary>
         public InputMap<string> Tags
         {

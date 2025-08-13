@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2023-09-01
+ * * `Microsoft.Network` - 2023-09-01
  *
  * ## Import
  *

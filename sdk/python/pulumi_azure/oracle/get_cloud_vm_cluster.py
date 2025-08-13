@@ -27,7 +27,7 @@ class GetCloudVmClusterResult:
     """
     A collection of values returned by getCloudVmCluster.
     """
-    def __init__(__self__, backup_subnet_cidr=None, cloud_exadata_infrastructure_id=None, cluster_name=None, compartment_id=None, compute_nodes=None, cpu_core_count=None, data_collection_options=None, data_storage_percentage=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, db_servers=None, disk_redundancy=None, display_name=None, domain=None, gi_version=None, hostname=None, hostname_actual=None, id=None, iorm_config_caches=None, last_update_history_entry_id=None, license_model=None, lifecycle_details=None, lifecycle_state=None, listener_port=None, local_backup_enabled=None, location=None, memory_size_in_gbs=None, name=None, node_count=None, nsg_url=None, oci_url=None, ocid=None, ocpu_count=None, resource_group_name=None, scan_dns_name=None, scan_dns_record_id=None, scan_ip_ids=None, scan_listener_port_tcp=None, scan_listener_port_tcp_ssl=None, shape=None, sparse_diskgroup_enabled=None, ssh_public_keys=None, storage_size_in_gbs=None, subnet_id=None, subnet_ocid=None, system_version=None, tags=None, time_created=None, time_zone=None, vip_ods=None, virtual_network_id=None, zone_id=None):
+    def __init__(__self__, backup_subnet_cidr=None, cloud_exadata_infrastructure_id=None, cluster_name=None, compartment_id=None, compute_model=None, compute_nodes=None, cpu_core_count=None, data_collection_options=None, data_storage_percentage=None, data_storage_size_in_tbs=None, db_node_storage_size_in_gbs=None, db_servers=None, disk_redundancy=None, display_name=None, domain=None, file_system_configurations=None, gi_version=None, hostname=None, hostname_actual=None, id=None, iorm_config_caches=None, last_update_history_entry_id=None, license_model=None, lifecycle_details=None, lifecycle_state=None, listener_port=None, local_backup_enabled=None, location=None, memory_size_in_gbs=None, name=None, node_count=None, nsg_url=None, oci_url=None, ocid=None, ocpu_count=None, resource_group_name=None, scan_dns_name=None, scan_dns_record_id=None, scan_ip_ids=None, scan_listener_port_tcp=None, scan_listener_port_tcp_ssl=None, shape=None, sparse_diskgroup_enabled=None, ssh_public_keys=None, storage_size_in_gbs=None, subnet_id=None, subnet_ocid=None, system_version=None, tags=None, time_created=None, time_zone=None, vip_ods=None, virtual_network_id=None, zone_id=None):
         if backup_subnet_cidr and not isinstance(backup_subnet_cidr, str):
             raise TypeError("Expected argument 'backup_subnet_cidr' to be a str")
         pulumi.set(__self__, "backup_subnet_cidr", backup_subnet_cidr)
@@ -40,6 +40,9 @@ class GetCloudVmClusterResult:
         if compartment_id and not isinstance(compartment_id, str):
             raise TypeError("Expected argument 'compartment_id' to be a str")
         pulumi.set(__self__, "compartment_id", compartment_id)
+        if compute_model and not isinstance(compute_model, str):
+            raise TypeError("Expected argument 'compute_model' to be a str")
+        pulumi.set(__self__, "compute_model", compute_model)
         if compute_nodes and not isinstance(compute_nodes, list):
             raise TypeError("Expected argument 'compute_nodes' to be a list")
         pulumi.set(__self__, "compute_nodes", compute_nodes)
@@ -70,6 +73,9 @@ class GetCloudVmClusterResult:
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
+        if file_system_configurations and not isinstance(file_system_configurations, list):
+            raise TypeError("Expected argument 'file_system_configurations' to be a list")
+        pulumi.set(__self__, "file_system_configurations", file_system_configurations)
         if gi_version and not isinstance(gi_version, str):
             raise TypeError("Expected argument 'gi_version' to be a str")
         pulumi.set(__self__, "gi_version", gi_version)
@@ -218,6 +224,14 @@ class GetCloudVmClusterResult:
         return pulumi.get(self, "compartment_id")
 
     @_builtins.property
+    @pulumi.getter(name="computeModel")
+    def compute_model(self) -> _builtins.str:
+        """
+        The compute model of the Exadata Infrastructure.
+        """
+        return pulumi.get(self, "compute_model")
+
+    @_builtins.property
     @pulumi.getter(name="computeNodes")
     def compute_nodes(self) -> Sequence[_builtins.str]:
         """
@@ -296,6 +310,14 @@ class GetCloudVmClusterResult:
         The domain name for the Cloud VM Cluster.
         """
         return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemConfigurations")
+    def file_system_configurations(self) -> Sequence['outputs.GetCloudVmClusterFileSystemConfigurationResult']:
+        """
+        A `file_system_configuration` block as defined below.
+        """
+        return pulumi.get(self, "file_system_configurations")
 
     @_builtins.property
     @pulumi.getter(name="giVersion")
@@ -607,6 +629,7 @@ class AwaitableGetCloudVmClusterResult(GetCloudVmClusterResult):
             cloud_exadata_infrastructure_id=self.cloud_exadata_infrastructure_id,
             cluster_name=self.cluster_name,
             compartment_id=self.compartment_id,
+            compute_model=self.compute_model,
             compute_nodes=self.compute_nodes,
             cpu_core_count=self.cpu_core_count,
             data_collection_options=self.data_collection_options,
@@ -617,6 +640,7 @@ class AwaitableGetCloudVmClusterResult(GetCloudVmClusterResult):
             disk_redundancy=self.disk_redundancy,
             display_name=self.display_name,
             domain=self.domain,
+            file_system_configurations=self.file_system_configurations,
             gi_version=self.gi_version,
             hostname=self.hostname,
             hostname_actual=self.hostname_actual,
@@ -679,7 +703,7 @@ def get_cloud_vm_cluster(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str name: The name of this Cloud VM Cluster.
@@ -696,6 +720,7 @@ def get_cloud_vm_cluster(name: Optional[_builtins.str] = None,
         cloud_exadata_infrastructure_id=pulumi.get(__ret__, 'cloud_exadata_infrastructure_id'),
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
         compartment_id=pulumi.get(__ret__, 'compartment_id'),
+        compute_model=pulumi.get(__ret__, 'compute_model'),
         compute_nodes=pulumi.get(__ret__, 'compute_nodes'),
         cpu_core_count=pulumi.get(__ret__, 'cpu_core_count'),
         data_collection_options=pulumi.get(__ret__, 'data_collection_options'),
@@ -706,6 +731,7 @@ def get_cloud_vm_cluster(name: Optional[_builtins.str] = None,
         disk_redundancy=pulumi.get(__ret__, 'disk_redundancy'),
         display_name=pulumi.get(__ret__, 'display_name'),
         domain=pulumi.get(__ret__, 'domain'),
+        file_system_configurations=pulumi.get(__ret__, 'file_system_configurations'),
         gi_version=pulumi.get(__ret__, 'gi_version'),
         hostname=pulumi.get(__ret__, 'hostname'),
         hostname_actual=pulumi.get(__ret__, 'hostname_actual'),
@@ -766,7 +792,7 @@ def get_cloud_vm_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str name: The name of this Cloud VM Cluster.
@@ -782,6 +808,7 @@ def get_cloud_vm_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = No
         cloud_exadata_infrastructure_id=pulumi.get(__response__, 'cloud_exadata_infrastructure_id'),
         cluster_name=pulumi.get(__response__, 'cluster_name'),
         compartment_id=pulumi.get(__response__, 'compartment_id'),
+        compute_model=pulumi.get(__response__, 'compute_model'),
         compute_nodes=pulumi.get(__response__, 'compute_nodes'),
         cpu_core_count=pulumi.get(__response__, 'cpu_core_count'),
         data_collection_options=pulumi.get(__response__, 'data_collection_options'),
@@ -792,6 +819,7 @@ def get_cloud_vm_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = No
         disk_redundancy=pulumi.get(__response__, 'disk_redundancy'),
         display_name=pulumi.get(__response__, 'display_name'),
         domain=pulumi.get(__response__, 'domain'),
+        file_system_configurations=pulumi.get(__response__, 'file_system_configurations'),
         gi_version=pulumi.get(__response__, 'gi_version'),
         hostname=pulumi.get(__response__, 'hostname'),
         hostname_actual=pulumi.get(__response__, 'hostname_actual'),

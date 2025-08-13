@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.OperationsManagement`: 2015-11-01-preview
+ * * `Microsoft.OperationsManagement` - 2015-11-01-preview
  * 
  * ## Import
  * 

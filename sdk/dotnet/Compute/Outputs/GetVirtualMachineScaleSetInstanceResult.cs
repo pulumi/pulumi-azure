@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PrivateIpAddresses;
         /// <summary>
-        /// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        /// A `public_ip_address` block as defined below.
         /// </summary>
         public readonly string PublicIpAddress;
         /// <summary>

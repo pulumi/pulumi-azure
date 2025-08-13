@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2024-05-01
+// * `Microsoft.Network` - 2024-05-01
 func GetIpGroup(ctx *pulumi.Context, args *GetIpGroupArgs, opts ...pulumi.InvokeOption) (*GetIpGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIpGroupResult

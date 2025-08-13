@@ -101,7 +101,7 @@ def get_domain_topic(domain_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventGrid`: 2022-06-15
+    * `Microsoft.EventGrid` - 2022-06-15
 
 
     :param _builtins.str domain_name: The name of the EventGrid Domain Topic domain.
@@ -142,7 +142,7 @@ def get_domain_topic_output(domain_name: Optional[pulumi.Input[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventGrid`: 2022-06-15
+    * `Microsoft.EventGrid` - 2022-06-15
 
 
     :param _builtins.str domain_name: The name of the EventGrid Domain Topic domain.

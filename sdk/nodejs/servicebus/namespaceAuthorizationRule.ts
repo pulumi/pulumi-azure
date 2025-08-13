@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ServiceBus`: 2021-06-01-preview
+ * * `Microsoft.ServiceBus` - 2024-01-01
  *
  * ## Import
  *

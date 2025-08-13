@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an EventGrid Topic
  * 
- * &gt; **Note:** at this time EventGrid Topic&#39;s are only available in a limited number of regions.
+ * &gt; **Note:** at this time EventGrid Topics are only available in a limited number of regions.
  * 
  * ## Example Usage
  * 
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.EventGrid`: 2022-06-15
+ * * `Microsoft.EventGrid` - 2022-06-15
  * 
  * ## Import
  * 

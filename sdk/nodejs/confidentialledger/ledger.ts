@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ConfidentialLedger`: 2022-05-13
+ * * `Microsoft.ConfidentialLedger` - 2022-05-13
  *
  * ## Import
  *

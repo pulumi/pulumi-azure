@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Insights`: 2023-03-11
+ * * `Microsoft.Insights` - 2023-03-11
  */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -117,7 +117,7 @@ export interface GetDataCollectionEndpointResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Insights`: 2023-03-11
+ * * `Microsoft.Insights` - 2023-03-11
  */
 export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Cognitive
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.CognitiveServices`: 2024-10-01
+        /// * `Microsoft.CognitiveServices` - 2025-06-01
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:cognitive/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Cognitive
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.CognitiveServices`: 2024-10-01
+        /// * `Microsoft.CognitiveServices` - 2025-06-01
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:cognitive/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Cognitive
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.CognitiveServices`: 2024-10-01
+        /// * `Microsoft.CognitiveServices` - 2025-06-01
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:cognitive/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

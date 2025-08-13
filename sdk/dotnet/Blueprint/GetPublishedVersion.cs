@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Blueprint
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Blueprint`: 2018-11-01-preview
+        /// * `Microsoft.Blueprint` - 2018-11-01-preview
         /// </summary>
         public static Task<GetPublishedVersionResult> InvokeAsync(GetPublishedVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Blueprint
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Blueprint`: 2018-11-01-preview
+        /// * `Microsoft.Blueprint` - 2018-11-01-preview
         /// </summary>
         public static Output<GetPublishedVersionResult> Invoke(GetPublishedVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Blueprint
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Blueprint`: 2018-11-01-preview
+        /// * `Microsoft.Blueprint` - 2018-11-01-preview
         /// </summary>
         public static Output<GetPublishedVersionResult> Invoke(GetPublishedVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionInvokeArgs(), options.WithDefaults());

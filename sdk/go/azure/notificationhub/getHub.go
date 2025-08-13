@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.NotificationHubs`: 2023-09-01
+// * `Microsoft.NotificationHubs` - 2023-09-01
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHubResult

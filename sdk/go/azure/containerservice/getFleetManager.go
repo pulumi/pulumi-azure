@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerService`: 2024-04-01
+// * `Microsoft.ContainerService` - 2024-04-01
 func GetFleetManager(ctx *pulumi.Context, args *GetFleetManagerArgs, opts ...pulumi.InvokeOption) (*GetFleetManagerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFleetManagerResult

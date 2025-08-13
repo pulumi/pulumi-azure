@@ -61,7 +61,7 @@ public final class ElasticcloudFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Elastic`: 2023-06-01
+     * * `Microsoft.Elastic` - 2023-06-01
      * 
      */
     public static Output<GetElasticsearchResult> getElasticsearch(GetElasticsearchArgs args) {
@@ -113,7 +113,7 @@ public final class ElasticcloudFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Elastic`: 2023-06-01
+     * * `Microsoft.Elastic` - 2023-06-01
      * 
      */
     public static CompletableFuture<GetElasticsearchResult> getElasticsearchPlain(GetElasticsearchPlainArgs args) {
@@ -165,7 +165,7 @@ public final class ElasticcloudFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Elastic`: 2023-06-01
+     * * `Microsoft.Elastic` - 2023-06-01
      * 
      */
     public static Output<GetElasticsearchResult> getElasticsearch(GetElasticsearchArgs args, InvokeOptions options) {
@@ -217,7 +217,7 @@ public final class ElasticcloudFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Elastic`: 2023-06-01
+     * * `Microsoft.Elastic` - 2023-06-01
      * 
      */
     public static Output<GetElasticsearchResult> getElasticsearch(GetElasticsearchArgs args, InvokeOutputOptions options) {
@@ -269,7 +269,7 @@ public final class ElasticcloudFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Elastic`: 2023-06-01
+     * * `Microsoft.Elastic` - 2023-06-01
      * 
      */
     public static CompletableFuture<GetElasticsearchResult> getElasticsearchPlain(GetElasticsearchPlainArgs args, InvokeOptions options) {

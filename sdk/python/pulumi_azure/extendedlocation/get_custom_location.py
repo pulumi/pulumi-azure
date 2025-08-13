@@ -174,7 +174,7 @@ def get_custom_location(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ExtendedLocation`: 2021-08-15
+    * `Microsoft.ExtendedLocation` - 2021-08-15
 
 
     :param _builtins.str name: The name of the Custom Location.
@@ -219,7 +219,7 @@ def get_custom_location_output(name: Optional[pulumi.Input[_builtins.str]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ExtendedLocation`: 2021-08-15
+    * `Microsoft.ExtendedLocation` - 2021-08-15
 
 
     :param _builtins.str name: The name of the Custom Location.

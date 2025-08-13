@@ -63,7 +63,7 @@ import (
 //				ServerId:  primary.ID(),
 //				SkuName:   pulumi.String("S1"),
 //				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-//				MaxSizeGb: pulumi.Int(200),
+//				MaxSizeGb: pulumi.Float64(200),
 //			})
 //			if err != nil {
 //				return err
@@ -102,7 +102,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Sql`: 2023-08-01-preview
+// * `Microsoft.Sql` - 2023-08-01-preview
 //
 // ## Import
 //

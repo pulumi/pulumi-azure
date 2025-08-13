@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Compute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Compute`: 2023-07-03
+        /// * `Microsoft.Compute` - 2023-07-03
         /// </summary>
         public static Task<GetSharedImageVersionsResult> InvokeAsync(GetSharedImageVersionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Compute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Compute`: 2023-07-03
+        /// * `Microsoft.Compute` - 2023-07-03
         /// </summary>
         public static Output<GetSharedImageVersionsResult> Invoke(GetSharedImageVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsInvokeArgs(), options.WithDefaults());
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Compute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Compute`: 2023-07-03
+        /// * `Microsoft.Compute` - 2023-07-03
         /// </summary>
         public static Output<GetSharedImageVersionsResult> Invoke(GetSharedImageVersionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageVersionsResult>("azure:compute/getSharedImageVersions:getSharedImageVersions", args ?? new GetSharedImageVersionsInvokeArgs(), options.WithDefaults());

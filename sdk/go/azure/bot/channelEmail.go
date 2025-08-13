@@ -73,7 +73,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.BotService`: 2022-09-15
+// * `Microsoft.BotService` - 2022-09-15
 //
 // ## Import
 //

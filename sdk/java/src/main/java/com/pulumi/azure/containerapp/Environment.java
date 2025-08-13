@@ -6,6 +6,7 @@ package com.pulumi.azure.containerapp;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.containerapp.EnvironmentArgs;
 import com.pulumi.azure.containerapp.inputs.EnvironmentState;
+import com.pulumi.azure.containerapp.outputs.EnvironmentIdentity;
 import com.pulumi.azure.containerapp.outputs.EnvironmentWorkloadProfile;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -82,9 +83,9 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.App`: 2025-01-01
+ * * `Microsoft.App` - 2025-01-01
  * 
- * * `Microsoft.OperationalInsights`: 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2020-08-01
  * 
  * ## Import
  * 
@@ -152,6 +153,20 @@ public class Environment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> dockerBridgeCidr() {
         return this.dockerBridgeCidr;
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={EnvironmentIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ EnvironmentIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<EnvironmentIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.

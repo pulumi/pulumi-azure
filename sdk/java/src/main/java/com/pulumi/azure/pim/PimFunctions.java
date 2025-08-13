@@ -69,7 +69,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-04-01
+     * * `Microsoft.Authorization` - 2022-04-01
      * 
      */
     public static Output<GetRoleAssignmentsResult> getRoleAssignments(GetRoleAssignmentsArgs args) {
@@ -126,7 +126,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-04-01
+     * * `Microsoft.Authorization` - 2022-04-01
      * 
      */
     public static CompletableFuture<GetRoleAssignmentsResult> getRoleAssignmentsPlain(GetRoleAssignmentsPlainArgs args) {
@@ -183,7 +183,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-04-01
+     * * `Microsoft.Authorization` - 2022-04-01
      * 
      */
     public static Output<GetRoleAssignmentsResult> getRoleAssignments(GetRoleAssignmentsArgs args, InvokeOptions options) {
@@ -240,7 +240,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-04-01
+     * * `Microsoft.Authorization` - 2022-04-01
      * 
      */
     public static Output<GetRoleAssignmentsResult> getRoleAssignments(GetRoleAssignmentsArgs args, InvokeOutputOptions options) {
@@ -297,7 +297,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-04-01
+     * * `Microsoft.Authorization` - 2022-04-01
      * 
      */
     public static CompletableFuture<GetRoleAssignmentsResult> getRoleAssignmentsPlain(GetRoleAssignmentsPlainArgs args, InvokeOptions options) {
@@ -411,7 +411,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2020-10-01
+     * * `Microsoft.Authorization` - 2020-10-01
      * 
      */
     public static Output<GetRoleManagementPolicyResult> getRoleManagementPolicy(GetRoleManagementPolicyArgs args) {
@@ -525,7 +525,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2020-10-01
+     * * `Microsoft.Authorization` - 2020-10-01
      * 
      */
     public static CompletableFuture<GetRoleManagementPolicyResult> getRoleManagementPolicyPlain(GetRoleManagementPolicyPlainArgs args) {
@@ -639,7 +639,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2020-10-01
+     * * `Microsoft.Authorization` - 2020-10-01
      * 
      */
     public static Output<GetRoleManagementPolicyResult> getRoleManagementPolicy(GetRoleManagementPolicyArgs args, InvokeOptions options) {
@@ -753,7 +753,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2020-10-01
+     * * `Microsoft.Authorization` - 2020-10-01
      * 
      */
     public static Output<GetRoleManagementPolicyResult> getRoleManagementPolicy(GetRoleManagementPolicyArgs args, InvokeOutputOptions options) {
@@ -867,7 +867,7 @@ public final class PimFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2020-10-01
+     * * `Microsoft.Authorization` - 2020-10-01
      * 
      */
     public static CompletableFuture<GetRoleManagementPolicyResult> getRoleManagementPolicyPlain(GetRoleManagementPolicyPlainArgs args, InvokeOptions options) {

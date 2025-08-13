@@ -143,7 +143,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.MachineLearningServices`: 2024-04-01
+// * `Microsoft.MachineLearningServices` - 2025-06-01
 //
 // ## Import
 //
@@ -169,7 +169,7 @@ type ComputeCluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled pulumi.BoolPtrOutput `pulumi:"nodePublicIpEnabled"`
-	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A `scaleSettings` block as defined below.
 	ScaleSettings ComputeClusterScaleSettingsOutput `pulumi:"scaleSettings"`
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh ComputeClusterSshPtrOutput `pulumi:"ssh"`
@@ -177,7 +177,7 @@ type ComputeCluster struct {
 	SshPublicAccessEnabled pulumi.BoolPtrOutput `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId pulumi.StringOutput `pulumi:"subnetResourceId"`
-	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority pulumi.StringOutput `pulumi:"vmPriority"`
@@ -241,7 +241,7 @@ type computeClusterState struct {
 	Name *string `pulumi:"name"`
 	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
-	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A `scaleSettings` block as defined below.
 	ScaleSettings *ComputeClusterScaleSettings `pulumi:"scaleSettings"`
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh *ComputeClusterSsh `pulumi:"ssh"`
@@ -249,7 +249,7 @@ type computeClusterState struct {
 	SshPublicAccessEnabled *bool `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
-	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority *string `pulumi:"vmPriority"`
@@ -272,7 +272,7 @@ type ComputeClusterState struct {
 	Name pulumi.StringPtrInput
 	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled pulumi.BoolPtrInput
-	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A `scaleSettings` block as defined below.
 	ScaleSettings ComputeClusterScaleSettingsPtrInput
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh ComputeClusterSshPtrInput
@@ -280,7 +280,7 @@ type ComputeClusterState struct {
 	SshPublicAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
 	Tags pulumi.StringMapInput
 	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority pulumi.StringPtrInput
@@ -307,7 +307,7 @@ type computeClusterArgs struct {
 	Name *string `pulumi:"name"`
 	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
-	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A `scaleSettings` block as defined below.
 	ScaleSettings ComputeClusterScaleSettings `pulumi:"scaleSettings"`
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh *ComputeClusterSsh `pulumi:"ssh"`
@@ -315,7 +315,7 @@ type computeClusterArgs struct {
 	SshPublicAccessEnabled *bool `pulumi:"sshPublicAccessEnabled"`
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
-	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority string `pulumi:"vmPriority"`
@@ -339,7 +339,7 @@ type ComputeClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	NodePublicIpEnabled pulumi.BoolPtrInput
-	// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A `scaleSettings` block as defined below.
 	ScaleSettings ComputeClusterScaleSettingsInput
 	// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Ssh ComputeClusterSshPtrInput
@@ -347,7 +347,7 @@ type ComputeClusterArgs struct {
 	SshPublicAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
 	SubnetResourceId pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
 	Tags pulumi.StringMapInput
 	// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
 	VmPriority pulumi.StringInput
@@ -477,7 +477,7 @@ func (o ComputeClusterOutput) NodePublicIpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComputeCluster) pulumi.BoolPtrOutput { return v.NodePublicIpEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+// A `scaleSettings` block as defined below.
 func (o ComputeClusterOutput) ScaleSettings() ComputeClusterScaleSettingsOutput {
 	return o.ApplyT(func(v *ComputeCluster) ComputeClusterScaleSettingsOutput { return v.ScaleSettings }).(ComputeClusterScaleSettingsOutput)
 }
@@ -497,7 +497,7 @@ func (o ComputeClusterOutput) SubnetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeCluster) pulumi.StringOutput { return v.SubnetResourceId }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+// A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
 func (o ComputeClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ComputeCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

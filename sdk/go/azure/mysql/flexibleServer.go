@@ -117,7 +117,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DBforMySQL`: 2023-12-30
+// * `Microsoft.DBforMySQL` - 2023-12-30
 //
 // ## Import
 //
@@ -144,6 +144,8 @@ type FlexibleServer struct {
 	// > **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
 	// > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+	//
+	// > **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below.
 	//
@@ -196,7 +198,7 @@ type FlexibleServer struct {
 	Storage FlexibleServerStorageOutput `pulumi:"storage"`
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
 	Version pulumi.StringOutput `pulumi:"version"`
 	Zone    pulumi.StringOutput `pulumi:"zone"`
 }
@@ -256,6 +258,8 @@ type flexibleServerState struct {
 	// > **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
 	// > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+	//
+	// > **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below.
 	//
@@ -308,7 +312,7 @@ type flexibleServerState struct {
 	Storage *FlexibleServerStorage `pulumi:"storage"`
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
 	Version *string `pulumi:"version"`
 	Zone    *string `pulumi:"zone"`
 }
@@ -329,6 +333,8 @@ type FlexibleServerState struct {
 	// > **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
 	// > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+	//
+	// > **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below.
 	//
@@ -381,7 +387,7 @@ type FlexibleServerState struct {
 	Storage FlexibleServerStoragePtrInput
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
 	Version pulumi.StringPtrInput
 	Zone    pulumi.StringPtrInput
 }
@@ -406,6 +412,8 @@ type flexibleServerArgs struct {
 	// > **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
 	// > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+	//
+	// > **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
 	CreateMode *string `pulumi:"createMode"`
 	// A `customerManagedKey` block as defined below.
 	//
@@ -453,7 +461,7 @@ type flexibleServerArgs struct {
 	Storage *FlexibleServerStorage `pulumi:"storage"`
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
 	Version *string `pulumi:"version"`
 	Zone    *string `pulumi:"zone"`
 }
@@ -475,6 +483,8 @@ type FlexibleServerArgs struct {
 	// > **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 	//
 	// > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+	//
+	// > **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
 	CreateMode pulumi.StringPtrInput
 	// A `customerManagedKey` block as defined below.
 	//
@@ -522,7 +532,7 @@ type FlexibleServerArgs struct {
 	Storage FlexibleServerStoragePtrInput
 	// A mapping of tags which should be assigned to the MySQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
+	// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
 	Version pulumi.StringPtrInput
 	Zone    pulumi.StringPtrInput
 }
@@ -641,6 +651,8 @@ func (o FlexibleServerOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 // > **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
 //
 // > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+//
+// > **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
 func (o FlexibleServerOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
@@ -756,7 +768,7 @@ func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
+// The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
 func (o FlexibleServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

@@ -27,8 +27,8 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// The ID of the public IP address to associate with the Virtual Network Gateway.
         /// </summary>
-        [Input("publicIpAddressId", required: true)]
-        public Input<string> PublicIpAddressId { get; set; } = null!;
+        [Input("publicIpAddressId")]
+        public Input<string>? PublicIpAddressId { get; set; }
 
         /// <summary>
         /// The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.

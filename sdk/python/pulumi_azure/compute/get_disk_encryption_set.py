@@ -150,7 +150,7 @@ def get_disk_encryption_set(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2022-03-02
+    * `Microsoft.Compute` - 2022-03-02
 
 
     :param _builtins.str name: The name of the existing Disk Encryption Set.
@@ -193,7 +193,7 @@ def get_disk_encryption_set_output(name: Optional[pulumi.Input[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2022-03-02
+    * `Microsoft.Compute` - 2022-03-02
 
 
     :param _builtins.str name: The name of the existing Disk Encryption Set.

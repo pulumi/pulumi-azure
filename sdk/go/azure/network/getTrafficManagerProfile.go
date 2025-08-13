@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2022-04-01
+// * `Microsoft.Network` - 2022-04-01
 func LookupTrafficManagerProfile(ctx *pulumi.Context, args *LookupTrafficManagerProfileArgs, opts ...pulumi.InvokeOption) (*LookupTrafficManagerProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTrafficManagerProfileResult

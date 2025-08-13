@@ -69,7 +69,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.EventHub`: 2024-01-01
+// * `Microsoft.EventHub` - 2024-01-01
 //
 // ## Import
 //
@@ -103,6 +103,8 @@ type EventHub struct {
 	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
 	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `retentionDescription` block as defined below.
+	RetentionDescription EventHubRetentionDescriptionOutput `pulumi:"retentionDescription"`
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
@@ -114,9 +116,6 @@ func NewEventHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.MessageRetention == nil {
-		return nil, errors.New("invalid value for required argument 'MessageRetention'")
-	}
 	if args.PartitionCount == nil {
 		return nil, errors.New("invalid value for required argument 'PartitionCount'")
 	}
@@ -165,6 +164,8 @@ type eventHubState struct {
 	PartitionIds []string `pulumi:"partitionIds"`
 	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `retentionDescription` block as defined below.
+	RetentionDescription *EventHubRetentionDescription `pulumi:"retentionDescription"`
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
 }
@@ -192,6 +193,8 @@ type EventHubState struct {
 	PartitionIds pulumi.StringArrayInput
 	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	ResourceGroupName pulumi.StringPtrInput
+	// A `retentionDescription` block as defined below.
+	RetentionDescription EventHubRetentionDescriptionPtrInput
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
 }
@@ -206,7 +209,7 @@ type eventHubArgs struct {
 	// Specifies the number of days to retain the events for this Event Hub.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
-	MessageRetention int `pulumi:"messageRetention"`
+	MessageRetention *int `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
@@ -221,6 +224,8 @@ type eventHubArgs struct {
 	PartitionCount int `pulumi:"partitionCount"`
 	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `retentionDescription` block as defined below.
+	RetentionDescription *EventHubRetentionDescription `pulumi:"retentionDescription"`
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
 }
@@ -232,7 +237,7 @@ type EventHubArgs struct {
 	// Specifies the number of days to retain the events for this Event Hub.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
-	MessageRetention pulumi.IntInput
+	MessageRetention pulumi.IntPtrInput
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
@@ -247,6 +252,8 @@ type EventHubArgs struct {
 	PartitionCount pulumi.IntInput
 	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 	ResourceGroupName pulumi.StringPtrInput
+	// A `retentionDescription` block as defined below.
+	RetentionDescription EventHubRetentionDescriptionPtrInput
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
 }
@@ -382,6 +389,11 @@ func (o EventHubOutput) PartitionIds() pulumi.StringArrayOutput {
 // Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
 func (o EventHubOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `retentionDescription` block as defined below.
+func (o EventHubOutput) RetentionDescription() EventHubRetentionDescriptionOutput {
+	return o.ApplyT(func(v *EventHub) EventHubRetentionDescriptionOutput { return v.RetentionDescription }).(EventHubRetentionDescriptionOutput)
 }
 
 // Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.

@@ -243,7 +243,7 @@ class EndpointServicebus(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DigitalTwins`: 2023-01-31
+        * `Microsoft.DigitalTwins` - 2023-01-31
 
         ## Import
 
@@ -309,7 +309,7 @@ class EndpointServicebus(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DigitalTwins`: 2023-01-31
+        * `Microsoft.DigitalTwins` - 2023-01-31
 
         ## Import
 

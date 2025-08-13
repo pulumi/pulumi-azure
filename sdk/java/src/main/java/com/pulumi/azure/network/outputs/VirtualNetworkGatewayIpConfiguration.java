@@ -26,7 +26,7 @@ public final class VirtualNetworkGatewayIpConfiguration {
      * @return The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
      */
-    private String publicIpAddressId;
+    private @Nullable String publicIpAddressId;
     /**
      * @return The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
      * 
@@ -52,8 +52,8 @@ public final class VirtualNetworkGatewayIpConfiguration {
      * @return The ID of the public IP address to associate with the Virtual Network Gateway.
      * 
      */
-    public String publicIpAddressId() {
-        return this.publicIpAddressId;
+    public Optional<String> publicIpAddressId() {
+        return Optional.ofNullable(this.publicIpAddressId);
     }
     /**
      * @return The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
@@ -74,7 +74,7 @@ public final class VirtualNetworkGatewayIpConfiguration {
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String privateIpAddressAllocation;
-        private String publicIpAddressId;
+        private @Nullable String publicIpAddressId;
         private String subnetId;
         public Builder() {}
         public Builder(VirtualNetworkGatewayIpConfiguration defaults) {
@@ -98,10 +98,8 @@ public final class VirtualNetworkGatewayIpConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder publicIpAddressId(String publicIpAddressId) {
-            if (publicIpAddressId == null) {
-              throw new MissingRequiredPropertyException("VirtualNetworkGatewayIpConfiguration", "publicIpAddressId");
-            }
+        public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
+
             this.publicIpAddressId = publicIpAddressId;
             return this;
         }

@@ -24,14 +24,21 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
      */
     private @Nullable KubernetesClusterNodePoolLinuxOsConfigSysctlConfig sysctlConfig;
     /**
+     * @return Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+     * 
+     */
+    private @Nullable String transparentHugePage;
+    /**
      * @return specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
      * 
      */
     private @Nullable String transparentHugePageDefrag;
     /**
-     * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+     * @deprecated
+     * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
     private @Nullable String transparentHugePageEnabled;
 
     private KubernetesClusterNodePoolLinuxOsConfig() {}
@@ -50,6 +57,13 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
         return Optional.ofNullable(this.sysctlConfig);
     }
     /**
+     * @return Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+     * 
+     */
+    public Optional<String> transparentHugePage() {
+        return Optional.ofNullable(this.transparentHugePage);
+    }
+    /**
      * @return specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
      * 
      */
@@ -57,9 +71,11 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
         return Optional.ofNullable(this.transparentHugePageDefrag);
     }
     /**
-     * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+     * @deprecated
+     * this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider. */
     public Optional<String> transparentHugePageEnabled() {
         return Optional.ofNullable(this.transparentHugePageEnabled);
     }
@@ -75,6 +91,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
     public static final class Builder {
         private @Nullable Integer swapFileSizeMb;
         private @Nullable KubernetesClusterNodePoolLinuxOsConfigSysctlConfig sysctlConfig;
+        private @Nullable String transparentHugePage;
         private @Nullable String transparentHugePageDefrag;
         private @Nullable String transparentHugePageEnabled;
         public Builder() {}
@@ -82,6 +99,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
     	      Objects.requireNonNull(defaults);
     	      this.swapFileSizeMb = defaults.swapFileSizeMb;
     	      this.sysctlConfig = defaults.sysctlConfig;
+    	      this.transparentHugePage = defaults.transparentHugePage;
     	      this.transparentHugePageDefrag = defaults.transparentHugePageDefrag;
     	      this.transparentHugePageEnabled = defaults.transparentHugePageEnabled;
         }
@@ -96,6 +114,12 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
         public Builder sysctlConfig(@Nullable KubernetesClusterNodePoolLinuxOsConfigSysctlConfig sysctlConfig) {
 
             this.sysctlConfig = sysctlConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder transparentHugePage(@Nullable String transparentHugePage) {
+
+            this.transparentHugePage = transparentHugePage;
             return this;
         }
         @CustomType.Setter
@@ -114,6 +138,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
             final var _resultValue = new KubernetesClusterNodePoolLinuxOsConfig();
             _resultValue.swapFileSizeMb = swapFileSizeMb;
             _resultValue.sysctlConfig = sysctlConfig;
+            _resultValue.transparentHugePage = transparentHugePage;
             _resultValue.transparentHugePageDefrag = transparentHugePageDefrag;
             _resultValue.transparentHugePageEnabled = transparentHugePageEnabled;
             return _resultValue;

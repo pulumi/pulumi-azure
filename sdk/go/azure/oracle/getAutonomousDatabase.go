@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Oracle.Database`: 2024-06-01
+// * `Oracle.Database` - 2025-03-01
 func LookupAutonomousDatabase(ctx *pulumi.Context, args *LookupAutonomousDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupAutonomousDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAutonomousDatabaseResult
@@ -113,6 +113,8 @@ type LookupAutonomousDatabaseResult struct {
 	LocalDataGuardEnabled bool `pulumi:"localDataGuardEnabled"`
 	// The Azure Region where the Autonomous Database exists.
 	Location string `pulumi:"location"`
+	// A `longTermBackupSchedule` block as defined below
+	LongTermBackupSchedules []GetAutonomousDatabaseLongTermBackupSchedule `pulumi:"longTermBackupSchedules"`
 	// The amount of memory (in GBs) enabled per ECPU or OCPU.
 	MemoryPerOracleComputeUnitInGbs int `pulumi:"memoryPerOracleComputeUnitInGbs"`
 	// Specifies if the Autonomous Database requires mTLS connections.
@@ -333,6 +335,13 @@ func (o LookupAutonomousDatabaseResultOutput) LocalDataGuardEnabled() pulumi.Boo
 // The Azure Region where the Autonomous Database exists.
 func (o LookupAutonomousDatabaseResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAutonomousDatabaseResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// A `longTermBackupSchedule` block as defined below
+func (o LookupAutonomousDatabaseResultOutput) LongTermBackupSchedules() GetAutonomousDatabaseLongTermBackupScheduleArrayOutput {
+	return o.ApplyT(func(v LookupAutonomousDatabaseResult) []GetAutonomousDatabaseLongTermBackupSchedule {
+		return v.LongTermBackupSchedules
+	}).(GetAutonomousDatabaseLongTermBackupScheduleArrayOutput)
 }
 
 // The amount of memory (in GBs) enabled per ECPU or OCPU.

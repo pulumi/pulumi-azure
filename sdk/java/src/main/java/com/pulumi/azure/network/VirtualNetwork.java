@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  * 
  * ## Import
  * 
@@ -120,7 +120,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * The address space that is used the virtual network. You can supply more than one address space.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
      * 
      */
     @Export(name="addressSpaces", refs={List.class,String.class}, tree="[0,1]")
@@ -129,7 +129,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * @return The address space that is used the virtual network. You can supply more than one address space.
      * 
-     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+     * &gt; **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
      * 
      */
     public Output<Optional<List<String>>> addressSpaces() {

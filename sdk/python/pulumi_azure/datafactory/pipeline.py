@@ -421,7 +421,7 @@ class Pipeline(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DataFactory`: 2018-06-01
+        * `Microsoft.DataFactory` - 2018-06-01
 
         ## Import
 
@@ -503,7 +503,7 @@ class Pipeline(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DataFactory`: 2018-06-01
+        * `Microsoft.DataFactory` - 2018-06-01
 
         ## Import
 

@@ -26,10 +26,13 @@ class GetDevBoxDefinitionResult:
     """
     A collection of values returned by getDevBoxDefinition.
     """
-    def __init__(__self__, dev_center_id=None, id=None, image_reference_id=None, location=None, name=None, sku_name=None, tags=None):
+    def __init__(__self__, dev_center_id=None, hibernate_support_enabled=None, id=None, image_reference_id=None, location=None, name=None, sku_name=None, tags=None):
         if dev_center_id and not isinstance(dev_center_id, str):
             raise TypeError("Expected argument 'dev_center_id' to be a str")
         pulumi.set(__self__, "dev_center_id", dev_center_id)
+        if hibernate_support_enabled and not isinstance(hibernate_support_enabled, bool):
+            raise TypeError("Expected argument 'hibernate_support_enabled' to be a bool")
+        pulumi.set(__self__, "hibernate_support_enabled", hibernate_support_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,6 +56,14 @@ class GetDevBoxDefinitionResult:
     @pulumi.getter(name="devCenterId")
     def dev_center_id(self) -> _builtins.str:
         return pulumi.get(self, "dev_center_id")
+
+    @_builtins.property
+    @pulumi.getter(name="hibernateSupportEnabled")
+    def hibernate_support_enabled(self) -> _builtins.bool:
+        """
+        Whether Dev Boxes created with this definition are capable of hibernation.
+        """
+        return pulumi.get(self, "hibernate_support_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetDevBoxDefinitionResult(GetDevBoxDefinitionResult):
             yield self
         return GetDevBoxDefinitionResult(
             dev_center_id=self.dev_center_id,
+            hibernate_support_enabled=self.hibernate_support_enabled,
             id=self.id,
             image_reference_id=self.image_reference_id,
             location=self.location,
@@ -137,7 +149,7 @@ def get_dev_box_definition(dev_center_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevCenter`: 2025-02-01
+    * `Microsoft.DevCenter` - 2025-02-01
 
 
     :param _builtins.str dev_center_id: The ID of the associated Dev Center.
@@ -151,6 +163,7 @@ def get_dev_box_definition(dev_center_id: Optional[_builtins.str] = None,
 
     return AwaitableGetDevBoxDefinitionResult(
         dev_center_id=pulumi.get(__ret__, 'dev_center_id'),
+        hibernate_support_enabled=pulumi.get(__ret__, 'hibernate_support_enabled'),
         id=pulumi.get(__ret__, 'id'),
         image_reference_id=pulumi.get(__ret__, 'image_reference_id'),
         location=pulumi.get(__ret__, 'location'),
@@ -179,7 +192,7 @@ def get_dev_box_definition_output(dev_center_id: Optional[pulumi.Input[_builtins
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevCenter`: 2025-02-01
+    * `Microsoft.DevCenter` - 2025-02-01
 
 
     :param _builtins.str dev_center_id: The ID of the associated Dev Center.
@@ -192,6 +205,7 @@ def get_dev_box_definition_output(dev_center_id: Optional[pulumi.Input[_builtins
     __ret__ = pulumi.runtime.invoke_output('azure:devcenter/getDevBoxDefinition:getDevBoxDefinition', __args__, opts=opts, typ=GetDevBoxDefinitionResult)
     return __ret__.apply(lambda __response__: GetDevBoxDefinitionResult(
         dev_center_id=pulumi.get(__response__, 'dev_center_id'),
+        hibernate_support_enabled=pulumi.get(__response__, 'hibernate_support_enabled'),
         id=pulumi.get(__response__, 'id'),
         image_reference_id=pulumi.get(__response__, 'image_reference_id'),
         location=pulumi.get(__response__, 'location'),

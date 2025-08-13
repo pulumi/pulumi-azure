@@ -42,7 +42,7 @@ class NetworkPacketCoreControlPlaneArgs:
         The set of arguments for constructing a NetworkPacketCoreControlPlane resource.
         :param pulumi.Input['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs'] local_diagnostics_access: One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
         :param pulumi.Input[_builtins.str] control_plane_access_ipv4_address: The IPv4 address for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[_builtins.str] control_plane_access_ipv4_gateway: The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -117,7 +117,7 @@ class NetworkPacketCoreControlPlaneArgs:
     @pulumi.getter(name="siteIds")
     def site_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "site_ids")
 
@@ -328,7 +328,7 @@ class _NetworkPacketCoreControlPlaneState:
         :param pulumi.Input[_builtins.str] name: Specifies The name of the Mobile Network Packet Core Control Plane. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         :param pulumi.Input['NetworkPacketCoreControlPlanePlatformArgs'] platform: A `platform` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
         :param pulumi.Input[_builtins.str] software_version: Specifies the version of the packet core software that is deployed.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane.
@@ -517,7 +517,7 @@ class _NetworkPacketCoreControlPlaneState:
     @pulumi.getter(name="siteIds")
     def site_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "site_ids")
 
@@ -656,7 +656,7 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.MobileNetwork`: 2022-11-01
+        * `Microsoft.MobileNetwork` - 2022-11-01
 
         ## Import
 
@@ -680,7 +680,7 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies The name of the Mobile Network Packet Core Control Plane. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         :param pulumi.Input[Union['NetworkPacketCoreControlPlanePlatformArgs', 'NetworkPacketCoreControlPlanePlatformArgsDict']] platform: A `platform` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
         :param pulumi.Input[_builtins.str] software_version: Specifies the version of the packet core software that is deployed.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane.
@@ -750,7 +750,7 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.MobileNetwork`: 2022-11-01
+        * `Microsoft.MobileNetwork` - 2022-11-01
 
         ## Import
 
@@ -872,7 +872,7 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies The name of the Mobile Network Packet Core Control Plane. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         :param pulumi.Input[Union['NetworkPacketCoreControlPlanePlatformArgs', 'NetworkPacketCoreControlPlanePlatformArgsDict']] platform: A `platform` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
         :param pulumi.Input[_builtins.str] software_version: Specifies the version of the packet core software that is deployed.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane.
@@ -1001,7 +1001,7 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
     @pulumi.getter(name="siteIds")
     def site_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "site_ids")
 

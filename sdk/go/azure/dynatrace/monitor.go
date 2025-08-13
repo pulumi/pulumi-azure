@@ -24,6 +24,8 @@ import (
 type Monitor struct {
 	pulumi.CustomResourceState
 
+	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
+	EnvironmentProperties MonitorEnvironmentPropertyArrayOutput `pulumi:"environmentProperties"`
 	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
 	Identity MonitorIdentityOutput `pulumi:"identity"`
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
@@ -89,6 +91,8 @@ func GetMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
+	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
+	EnvironmentProperties []MonitorEnvironmentProperty `pulumi:"environmentProperties"`
 	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
 	Identity *MonitorIdentity `pulumi:"identity"`
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
@@ -110,6 +114,8 @@ type monitorState struct {
 }
 
 type MonitorState struct {
+	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
+	EnvironmentProperties MonitorEnvironmentPropertyArrayInput
 	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
 	Identity MonitorIdentityPtrInput
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
@@ -135,6 +141,8 @@ func (MonitorState) ElementType() reflect.Type {
 }
 
 type monitorArgs struct {
+	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
+	EnvironmentProperties []MonitorEnvironmentProperty `pulumi:"environmentProperties"`
 	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
 	Identity MonitorIdentity `pulumi:"identity"`
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
@@ -157,6 +165,8 @@ type monitorArgs struct {
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
+	// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
+	EnvironmentProperties MonitorEnvironmentPropertyArrayInput
 	// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
 	Identity MonitorIdentityInput
 	// The Azure Region where the Dynatrace monitor should exist. Changing this forces a new resource to be created.
@@ -262,6 +272,11 @@ func (o MonitorOutput) ToMonitorOutput() MonitorOutput {
 
 func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
 	return o
+}
+
+// Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
+func (o MonitorOutput) EnvironmentProperties() MonitorEnvironmentPropertyArrayOutput {
+	return o.ApplyT(func(v *Monitor) MonitorEnvironmentPropertyArrayOutput { return v.EnvironmentProperties }).(MonitorEnvironmentPropertyArrayOutput)
 }
 
 // The kind of managed identity assigned to this resource.  A `identity` block as defined below.

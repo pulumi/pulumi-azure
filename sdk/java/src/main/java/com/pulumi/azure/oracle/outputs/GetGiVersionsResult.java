@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGiVersionsResult {
@@ -17,11 +19,13 @@ public final class GetGiVersionsResult {
      */
     private String id;
     private String location;
+    private @Nullable String shape;
     /**
      * @return A list of valid GI software versions.
      * 
      */
     private List<String> versions;
+    private @Nullable String zone;
 
     private GetGiVersionsResult() {}
     /**
@@ -34,12 +38,18 @@ public final class GetGiVersionsResult {
     public String location() {
         return this.location;
     }
+    public Optional<String> shape() {
+        return Optional.ofNullable(this.shape);
+    }
     /**
      * @return A list of valid GI software versions.
      * 
      */
     public List<String> versions() {
         return this.versions;
+    }
+    public Optional<String> zone() {
+        return Optional.ofNullable(this.zone);
     }
 
     public static Builder builder() {
@@ -53,13 +63,17 @@ public final class GetGiVersionsResult {
     public static final class Builder {
         private String id;
         private String location;
+        private @Nullable String shape;
         private List<String> versions;
+        private @Nullable String zone;
         public Builder() {}
         public Builder(GetGiVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.location = defaults.location;
+    	      this.shape = defaults.shape;
     	      this.versions = defaults.versions;
+    	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
@@ -79,6 +93,12 @@ public final class GetGiVersionsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder shape(@Nullable String shape) {
+
+            this.shape = shape;
+            return this;
+        }
+        @CustomType.Setter
         public Builder versions(List<String> versions) {
             if (versions == null) {
               throw new MissingRequiredPropertyException("GetGiVersionsResult", "versions");
@@ -89,11 +109,19 @@ public final class GetGiVersionsResult {
         public Builder versions(String... versions) {
             return versions(List.of(versions));
         }
+        @CustomType.Setter
+        public Builder zone(@Nullable String zone) {
+
+            this.zone = zone;
+            return this;
+        }
         public GetGiVersionsResult build() {
             final var _resultValue = new GetGiVersionsResult();
             _resultValue.id = id;
             _resultValue.location = location;
+            _resultValue.shape = shape;
             _resultValue.versions = versions;
+            _resultValue.zone = zone;
             return _resultValue;
         }
     }

@@ -47,7 +47,7 @@ namespace Pulumi.Azure.NetworkFunction
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.NetworkFunction`: 2022-11-01
+    /// * `Microsoft.NetworkFunction` - 2022-11-01
     /// 
     /// ## Import
     /// 

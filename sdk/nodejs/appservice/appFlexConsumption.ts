@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-12-01, 2023-01-01
+ * * `Microsoft.Web` - 2023-12-01, 2023-01-01
  *
  * ## Import
  *
@@ -156,7 +156,7 @@ export class AppFlexConsumption extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appservice.AppFlexConsumptionIdentity | undefined>;
     /**
-     * The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+     * The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      */
     public readonly instanceMemoryInMb!: pulumi.Output<number | undefined>;
     /**
@@ -454,7 +454,7 @@ export interface AppFlexConsumptionState {
      */
     identity?: pulumi.Input<inputs.appservice.AppFlexConsumptionIdentity>;
     /**
-     * The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+     * The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      */
     instanceMemoryInMb?: pulumi.Input<number>;
     /**
@@ -614,7 +614,7 @@ export interface AppFlexConsumptionArgs {
      */
     identity?: pulumi.Input<inputs.appservice.AppFlexConsumptionIdentity>;
     /**
-     * The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+     * The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      */
     instanceMemoryInMb?: pulumi.Input<number>;
     /**

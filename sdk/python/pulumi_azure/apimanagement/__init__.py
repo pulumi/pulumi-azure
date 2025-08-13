@@ -59,8 +59,10 @@ from .product_policy import *
 from .product_tag import *
 from .redis_cache import *
 from .service import *
+from .standalone_gateway import *
 from .subscription import *
 from .tag import *
 from .user import *
+from .workspace import *
 from ._inputs import *
 from . import outputs

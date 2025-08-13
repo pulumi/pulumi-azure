@@ -212,7 +212,7 @@ def get_authorization_rule(eventhub_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventHub`: 2024-01-01
+    * `Microsoft.EventHub` - 2024-01-01
 
 
     :param _builtins.str eventhub_name: Specifies the name of the EventHub.
@@ -274,7 +274,7 @@ def get_authorization_rule_output(eventhub_name: Optional[pulumi.Input[_builtins
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventHub`: 2024-01-01
+    * `Microsoft.EventHub` - 2024-01-01
 
 
     :param _builtins.str eventhub_name: Specifies the name of the EventHub.

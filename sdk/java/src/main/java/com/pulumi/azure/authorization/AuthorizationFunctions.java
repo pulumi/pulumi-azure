@@ -86,7 +86,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition() {
@@ -160,7 +160,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain() {
@@ -234,7 +234,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args) {
@@ -308,7 +308,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args) {
@@ -382,7 +382,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args, InvokeOptions options) {
@@ -456,7 +456,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args, InvokeOutputOptions options) {
@@ -530,7 +530,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * * `Microsoft.Authorization` - 2022-05-01-preview
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args, InvokeOptions options) {
@@ -585,7 +585,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args) {
@@ -640,7 +640,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      */
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args) {
@@ -695,7 +695,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions options) {
@@ -750,7 +750,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOutputOptions options) {
@@ -805,7 +805,7 @@ public final class AuthorizationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      */
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args, InvokeOptions options) {

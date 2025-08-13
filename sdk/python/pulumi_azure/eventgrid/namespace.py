@@ -396,7 +396,7 @@ class Namespace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventGrid`: 2023-12-15-preview
+        * `Microsoft.EventGrid` - 2023-12-15-preview
 
         ## Import
 
@@ -451,7 +451,7 @@ class Namespace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventGrid`: 2023-12-15-preview
+        * `Microsoft.EventGrid` - 2023-12-15-preview
 
         ## Import
 

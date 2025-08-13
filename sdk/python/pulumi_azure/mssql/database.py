@@ -35,7 +35,7 @@ class DatabaseArgs:
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
                  min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  read_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -86,9 +86,9 @@ class DatabaseArgs:
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
                
                > **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
-        :param pulumi.Input[_builtins.int] max_size_gb: The max size of the database in gigabytes.
+        :param pulumi.Input[_builtins.float] max_size_gb: The max size of the database in gigabytes.
                
-               > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+               > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         :param pulumi.Input[_builtins.float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         :param pulumi.Input[_builtins.str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
@@ -99,7 +99,7 @@ class DatabaseArgs:
         :param pulumi.Input[_builtins.str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[_builtins.str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[_builtins.str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
-        :param pulumi.Input[_builtins.str] secondary_type: How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] secondary_type: How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         :param pulumi.Input['DatabaseShortTermRetentionPolicyArgs'] short_term_retention_policy: A `short_term_retention_policy` block as defined below.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
@@ -374,16 +374,16 @@ class DatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_size_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         The max size of the database in gigabytes.
 
-        > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+        > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         """
         return pulumi.get(self, "max_size_gb")
 
     @max_size_gb.setter
-    def max_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_size_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "max_size_gb", value)
 
     @_builtins.property
@@ -510,7 +510,7 @@ class DatabaseArgs:
     @pulumi.getter(name="secondaryType")
     def secondary_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secondary_type")
 
@@ -653,7 +653,7 @@ class _DatabaseState:
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
                  min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  read_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -702,9 +702,9 @@ class _DatabaseState:
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
                
                > **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
-        :param pulumi.Input[_builtins.int] max_size_gb: The max size of the database in gigabytes.
+        :param pulumi.Input[_builtins.float] max_size_gb: The max size of the database in gigabytes.
                
-               > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+               > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         :param pulumi.Input[_builtins.float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         :param pulumi.Input[_builtins.str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
@@ -715,7 +715,7 @@ class _DatabaseState:
         :param pulumi.Input[_builtins.str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[_builtins.str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[_builtins.str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
-        :param pulumi.Input[_builtins.str] secondary_type: How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] secondary_type: How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **Note:** This setting is still required for "Serverless" SKUs
@@ -980,16 +980,16 @@ class _DatabaseState:
 
     @_builtins.property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_size_gb(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         The max size of the database in gigabytes.
 
-        > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+        > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         """
         return pulumi.get(self, "max_size_gb")
 
     @max_size_gb.setter
-    def max_size_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_size_gb(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "max_size_gb", value)
 
     @_builtins.property
@@ -1116,7 +1116,7 @@ class _DatabaseState:
     @pulumi.getter(name="secondaryType")
     def secondary_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secondary_type")
 
@@ -1276,7 +1276,7 @@ class Database(pulumi.CustomResource):
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[Union['DatabaseLongTermRetentionPolicyArgs', 'DatabaseLongTermRetentionPolicyArgsDict']]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
                  min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  read_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1424,7 +1424,7 @@ class Database(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql`: 2023-08-01-preview
+        * `Microsoft.Sql` - 2023-08-01-preview
 
         ## Import
 
@@ -1461,9 +1461,9 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
                
                > **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
-        :param pulumi.Input[_builtins.int] max_size_gb: The max size of the database in gigabytes.
+        :param pulumi.Input[_builtins.float] max_size_gb: The max size of the database in gigabytes.
                
-               > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+               > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         :param pulumi.Input[_builtins.float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         :param pulumi.Input[_builtins.str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
@@ -1474,7 +1474,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[_builtins.str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[_builtins.str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
-        :param pulumi.Input[_builtins.str] secondary_type: How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] secondary_type: How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **Note:** This setting is still required for "Serverless" SKUs
@@ -1629,7 +1629,7 @@ class Database(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql`: 2023-08-01-preview
+        * `Microsoft.Sql` - 2023-08-01-preview
 
         ## Import
 
@@ -1667,7 +1667,7 @@ class Database(pulumi.CustomResource):
                  license_type: Optional[pulumi.Input[_builtins.str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[Union['DatabaseLongTermRetentionPolicyArgs', 'DatabaseLongTermRetentionPolicyArgsDict']]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
                  min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  read_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1760,7 +1760,7 @@ class Database(pulumi.CustomResource):
             license_type: Optional[pulumi.Input[_builtins.str]] = None,
             long_term_retention_policy: Optional[pulumi.Input[Union['DatabaseLongTermRetentionPolicyArgs', 'DatabaseLongTermRetentionPolicyArgsDict']]] = None,
             maintenance_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-            max_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
+            max_size_gb: Optional[pulumi.Input[_builtins.float]] = None,
             min_capacity: Optional[pulumi.Input[_builtins.float]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             read_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1814,9 +1814,9 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
                
                > **Note:** `maintenance_configuration_name` is only applicable if `elastic_pool_id` is not set.
-        :param pulumi.Input[_builtins.int] max_size_gb: The max size of the database in gigabytes.
+        :param pulumi.Input[_builtins.float] max_size_gb: The max size of the database in gigabytes.
                
-               > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+               > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         :param pulumi.Input[_builtins.float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         :param pulumi.Input[_builtins.str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
@@ -1827,7 +1827,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] restore_long_term_retention_backup_id: The ID of the long term retention backup to be restored. This property is only applicable when the `create_mode` is `RestoreLongTermRetentionBackup`.
         :param pulumi.Input[_builtins.str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases.
         :param pulumi.Input[_builtins.str] sample_name: Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`.
-        :param pulumi.Input[_builtins.str] secondary_type: How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] secondary_type: How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **Note:** This setting is still required for "Serverless" SKUs
@@ -2010,11 +2010,11 @@ class Database(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="maxSizeGb")
-    def max_size_gb(self) -> pulumi.Output[_builtins.int]:
+    def max_size_gb(self) -> pulumi.Output[_builtins.float]:
         """
         The max size of the database in gigabytes.
 
-        > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+        > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         """
         return pulumi.get(self, "max_size_gb")
 
@@ -2102,7 +2102,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="secondaryType")
     def secondary_type(self) -> pulumi.Output[_builtins.str]:
         """
-        How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "secondary_type")
 

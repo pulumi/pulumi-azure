@@ -14,6 +14,18 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class LinuxVirtualMachineScaleSetNetworkInterface
     {
         /// <summary>
+        /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+        /// 
+        /// &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// </summary>
+        public readonly string? AuxiliaryMode;
+        /// <summary>
+        /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+        /// 
+        /// &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// </summary>
+        public readonly string? AuxiliarySku;
+        /// <summary>
         /// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         /// </summary>
         public readonly ImmutableArray<string> DnsServers;
@@ -46,6 +58,10 @@ namespace Pulumi.Azure.Compute.Outputs
 
         [OutputConstructor]
         private LinuxVirtualMachineScaleSetNetworkInterface(
+            string? auxiliaryMode,
+
+            string? auxiliarySku,
+
             ImmutableArray<string> dnsServers,
 
             bool? enableAcceleratedNetworking,
@@ -60,6 +76,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             bool? primary)
         {
+            AuxiliaryMode = auxiliaryMode;
+            AuxiliarySku = auxiliarySku;
             DnsServers = dnsServers;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
             EnableIpForwarding = enableIpForwarding;

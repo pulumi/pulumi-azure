@@ -297,7 +297,7 @@ class Certificate(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Nginx.NginxPlus`: 2024-11-01-preview
+        * `Nginx.NginxPlus` - 2024-11-01-preview
 
         ## Import
 
@@ -418,7 +418,7 @@ class Certificate(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Nginx.NginxPlus`: 2024-11-01-preview
+        * `Nginx.NginxPlus` - 2024-11-01-preview
 
         ## Import
 

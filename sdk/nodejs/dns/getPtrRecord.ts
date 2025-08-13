@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2018-05-01
+ * * `Microsoft.Network` - 2018-05-01
  */
 export function getPtrRecord(args: GetPtrRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetPtrRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -101,7 +101,7 @@ export interface GetPtrRecordResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2018-05-01
+ * * `Microsoft.Network` - 2018-05-01
  */
 export function getPtrRecordOutput(args: GetPtrRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPtrRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

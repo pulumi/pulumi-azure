@@ -94,7 +94,7 @@ namespace Pulumi.Azure.DataProtection
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DataProtection`: 2024-04-01
+    /// * `Microsoft.DataProtection` - 2024-04-01
     /// 
     /// ## Import
     /// 
@@ -136,6 +136,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Output("snapshotResourceGroupName")]
         public Output<string> SnapshotResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+        /// </summary>
+        [Output("snapshotSubscriptionId")]
+        public Output<string?> SnapshotSubscriptionId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
@@ -220,6 +226,12 @@ namespace Pulumi.Azure.DataProtection
         public Input<string> SnapshotResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+        /// </summary>
+        [Input("snapshotSubscriptionId")]
+        public Input<string>? SnapshotSubscriptionId { get; set; }
+
+        /// <summary>
         /// The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
         /// </summary>
         [Input("vaultId", required: true)]
@@ -262,6 +274,12 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Input("snapshotResourceGroupName")]
         public Input<string>? SnapshotResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+        /// </summary>
+        [Input("snapshotSubscriptionId")]
+        public Input<string>? SnapshotSubscriptionId { get; set; }
 
         /// <summary>
         /// The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.

@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Dns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2018-05-01
+        /// * `Microsoft.Network` - 2018-05-01
         /// </summary>
         public static Task<GetCAARecordResult> InvokeAsync(GetCAARecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Dns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2018-05-01
+        /// * `Microsoft.Network` - 2018-05-01
         /// </summary>
         public static Output<GetCAARecordResult> Invoke(GetCAARecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordInvokeArgs(), options.WithDefaults());
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Dns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2018-05-01
+        /// * `Microsoft.Network` - 2018-05-01
         /// </summary>
         public static Output<GetCAARecordResult> Invoke(GetCAARecordInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordInvokeArgs(), options.WithDefaults());

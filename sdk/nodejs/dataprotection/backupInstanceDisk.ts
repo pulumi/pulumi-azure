@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DataProtection`: 2024-04-01
+ * * `Microsoft.DataProtection` - 2024-04-01
  *
  * ## Import
  *
@@ -125,6 +125,10 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
      */
     public readonly snapshotResourceGroupName!: pulumi.Output<string>;
     /**
+     * The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+     */
+    public readonly snapshotSubscriptionId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      */
     public readonly vaultId!: pulumi.Output<string>;
@@ -147,6 +151,7 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["snapshotResourceGroupName"] = state ? state.snapshotResourceGroupName : undefined;
+            resourceInputs["snapshotSubscriptionId"] = state ? state.snapshotSubscriptionId : undefined;
             resourceInputs["vaultId"] = state ? state.vaultId : undefined;
         } else {
             const args = argsOrState as BackupInstanceDiskArgs | undefined;
@@ -167,6 +172,7 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["snapshotResourceGroupName"] = args ? args.snapshotResourceGroupName : undefined;
+            resourceInputs["snapshotSubscriptionId"] = args ? args.snapshotSubscriptionId : undefined;
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -199,6 +205,10 @@ export interface BackupInstanceDiskState {
      */
     snapshotResourceGroupName?: pulumi.Input<string>;
     /**
+     * The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+     */
+    snapshotSubscriptionId?: pulumi.Input<string>;
+    /**
      * The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      */
     vaultId?: pulumi.Input<string>;
@@ -228,6 +238,10 @@ export interface BackupInstanceDiskArgs {
      * The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
      */
     snapshotResourceGroupName: pulumi.Input<string>;
+    /**
+     * The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
+     */
+    snapshotSubscriptionId?: pulumi.Input<string>;
     /**
      * The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      */

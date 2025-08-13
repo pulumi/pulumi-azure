@@ -28,6 +28,11 @@ public final class GetDbServersDbServer {
      */
     private String compartmentId;
     /**
+     * @return The compute model of the Exadata Infrastructure.
+     * 
+     */
+    private String computeModel;
+    /**
      * @return The number of CPU cores enabled on the DB Server.
      * 
      */
@@ -124,6 +129,13 @@ public final class GetDbServersDbServer {
      */
     public String compartmentId() {
         return this.compartmentId;
+    }
+    /**
+     * @return The compute model of the Exadata Infrastructure.
+     * 
+     */
+    public String computeModel() {
+        return this.computeModel;
     }
     /**
      * @return The number of CPU cores enabled on the DB Server.
@@ -243,6 +255,7 @@ public final class GetDbServersDbServer {
         private List<String> autonomousVirtualMachineDs;
         private List<String> autonomousVmClusterIds;
         private String compartmentId;
+        private String computeModel;
         private Integer cpuCoreCount;
         private List<String> dbNodeIds;
         private Integer dbNodeStorageSizeInGbs;
@@ -264,6 +277,7 @@ public final class GetDbServersDbServer {
     	      this.autonomousVirtualMachineDs = defaults.autonomousVirtualMachineDs;
     	      this.autonomousVmClusterIds = defaults.autonomousVmClusterIds;
     	      this.compartmentId = defaults.compartmentId;
+    	      this.computeModel = defaults.computeModel;
     	      this.cpuCoreCount = defaults.cpuCoreCount;
     	      this.dbNodeIds = defaults.dbNodeIds;
     	      this.dbNodeStorageSizeInGbs = defaults.dbNodeStorageSizeInGbs;
@@ -309,6 +323,14 @@ public final class GetDbServersDbServer {
               throw new MissingRequiredPropertyException("GetDbServersDbServer", "compartmentId");
             }
             this.compartmentId = compartmentId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder computeModel(String computeModel) {
+            if (computeModel == null) {
+              throw new MissingRequiredPropertyException("GetDbServersDbServer", "computeModel");
+            }
+            this.computeModel = computeModel;
             return this;
         }
         @CustomType.Setter
@@ -442,6 +464,7 @@ public final class GetDbServersDbServer {
             _resultValue.autonomousVirtualMachineDs = autonomousVirtualMachineDs;
             _resultValue.autonomousVmClusterIds = autonomousVmClusterIds;
             _resultValue.compartmentId = compartmentId;
+            _resultValue.computeModel = computeModel;
             _resultValue.cpuCoreCount = cpuCoreCount;
             _resultValue.dbNodeIds = dbNodeIds;
             _resultValue.dbNodeStorageSizeInGbs = dbNodeStorageSizeInGbs;

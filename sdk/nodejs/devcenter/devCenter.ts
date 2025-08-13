@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  *
  * ## Import
  *
@@ -111,6 +111,10 @@ export class DevCenter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+     */
+    public readonly projectCatalogItemSyncEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -136,6 +140,7 @@ export class DevCenter extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectCatalogItemSyncEnabled"] = state ? state.projectCatalogItemSyncEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -146,6 +151,7 @@ export class DevCenter extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectCatalogItemSyncEnabled"] = args ? args.projectCatalogItemSyncEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["devCenterUri"] = undefined /*out*/;
@@ -176,6 +182,10 @@ export interface DevCenterState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+     */
+    projectCatalogItemSyncEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -201,6 +211,10 @@ export interface DevCenterArgs {
      * Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+     */
+    projectCatalogItemSyncEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
      */

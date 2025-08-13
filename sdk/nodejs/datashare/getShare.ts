@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DataShare`: 2019-11-01
+ * * `Microsoft.DataShare` - 2019-11-01
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,7 +110,7 @@ export interface GetShareResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DataShare`: 2019-11-01
+ * * `Microsoft.DataShare` - 2019-11-01
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

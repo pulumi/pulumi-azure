@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network`: 2024-05-01
+    /// * `Microsoft.Network` - 2024-05-01
     /// 
     /// ## Import
     /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.Network
         /// The display name for the Network Manager IPAM Pool.
         /// </summary>
         [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
+        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
@@ -197,8 +197,8 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The display name for the Network Manager IPAM Pool.
         /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+        /// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
         /// </summary>
         public static Task<GetRegistryScopeMapResult> InvokeAsync(GetRegistryScopeMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryScopeMapResult>("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args ?? new GetRegistryScopeMapArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+        /// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
         /// </summary>
         public static Output<GetRegistryScopeMapResult> Invoke(GetRegistryScopeMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryScopeMapResult>("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args ?? new GetRegistryScopeMapInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+        /// * `Microsoft.ContainerRegistry` - 2023-11-01-preview
         /// </summary>
         public static Output<GetRegistryScopeMapResult> Invoke(GetRegistryScopeMapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryScopeMapResult>("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args ?? new GetRegistryScopeMapInvokeArgs(), options.WithDefaults());

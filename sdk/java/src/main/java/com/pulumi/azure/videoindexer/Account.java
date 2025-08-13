@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.VideoIndexer`: 2025-04-01
+ * * `Microsoft.VideoIndexer` - 2025-04-01
  * 
  * ## Import
  * 
@@ -137,6 +137,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     * 
+     */
+    @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> publicNetworkAccess;
+
+    /**
+     * @return The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+     * 
+     */
+    public Output<Optional<String>> publicNetworkAccess() {
+        return Codegen.optional(this.publicNetworkAccess);
     }
     /**
      * The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.

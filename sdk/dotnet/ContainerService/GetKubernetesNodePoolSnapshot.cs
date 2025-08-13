@@ -38,7 +38,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService`: 2024-09-01
+        /// * `Microsoft.ContainerService` - 2025-02-01
         /// </summary>
         public static Task<GetKubernetesNodePoolSnapshotResult> InvokeAsync(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesNodePoolSnapshotResult>("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args ?? new GetKubernetesNodePoolSnapshotArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService`: 2024-09-01
+        /// * `Microsoft.ContainerService` - 2025-02-01
         /// </summary>
         public static Output<GetKubernetesNodePoolSnapshotResult> Invoke(GetKubernetesNodePoolSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesNodePoolSnapshotResult>("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args ?? new GetKubernetesNodePoolSnapshotInvokeArgs(), options.WithDefaults());
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService`: 2024-09-01
+        /// * `Microsoft.ContainerService` - 2025-02-01
         /// </summary>
         public static Output<GetKubernetesNodePoolSnapshotResult> Invoke(GetKubernetesNodePoolSnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesNodePoolSnapshotResult>("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args ?? new GetKubernetesNodePoolSnapshotInvokeArgs(), options.WithDefaults());

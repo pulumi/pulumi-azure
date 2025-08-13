@@ -20,15 +20,15 @@ public final class JobStepOutputTargetArgs extends com.pulumi.resources.Resource
      * The ID of the Elastic Job Credential to use when connecting to the output destination.
      * 
      */
-    @Import(name="jobCredentialId", required=true)
-    private Output<String> jobCredentialId;
+    @Import(name="jobCredentialId")
+    private @Nullable Output<String> jobCredentialId;
 
     /**
      * @return The ID of the Elastic Job Credential to use when connecting to the output destination.
      * 
      */
-    public Output<String> jobCredentialId() {
-        return this.jobCredentialId;
+    public Optional<Output<String>> jobCredentialId() {
+        return Optional.ofNullable(this.jobCredentialId);
     }
 
     /**
@@ -109,7 +109,7 @@ public final class JobStepOutputTargetArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder jobCredentialId(Output<String> jobCredentialId) {
+        public Builder jobCredentialId(@Nullable Output<String> jobCredentialId) {
             $.jobCredentialId = jobCredentialId;
             return this;
         }
@@ -188,9 +188,6 @@ public final class JobStepOutputTargetArgs extends com.pulumi.resources.Resource
         }
 
         public JobStepOutputTargetArgs build() {
-            if ($.jobCredentialId == null) {
-                throw new MissingRequiredPropertyException("JobStepOutputTargetArgs", "jobCredentialId");
-            }
             if ($.mssqlDatabaseId == null) {
                 throw new MissingRequiredPropertyException("JobStepOutputTargetArgs", "mssqlDatabaseId");
             }

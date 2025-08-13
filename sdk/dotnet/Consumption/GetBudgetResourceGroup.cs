@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Consumption
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Consumption`: 2019-10-01
+        /// * `Microsoft.Consumption` - 2019-10-01
         /// </summary>
         public static Task<GetBudgetResourceGroupResult> InvokeAsync(GetBudgetResourceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Consumption
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Consumption`: 2019-10-01
+        /// * `Microsoft.Consumption` - 2019-10-01
         /// </summary>
         public static Output<GetBudgetResourceGroupResult> Invoke(GetBudgetResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Consumption
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Consumption`: 2019-10-01
+        /// * `Microsoft.Consumption` - 2019-10-01
         /// </summary>
         public static Output<GetBudgetResourceGroupResult> Invoke(GetBudgetResourceGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupInvokeArgs(), options.WithDefaults());

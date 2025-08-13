@@ -454,7 +454,7 @@ class Topic(pulumi.CustomResource):
         """
         Manages an EventGrid Topic
 
-        > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+        > **Note:** at this time EventGrid Topics are only available in a limited number of regions.
 
         ## Example Usage
 
@@ -479,7 +479,7 @@ class Topic(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventGrid`: 2022-06-15
+        * `Microsoft.EventGrid` - 2022-06-15
 
         ## Import
 
@@ -512,7 +512,7 @@ class Topic(pulumi.CustomResource):
         """
         Manages an EventGrid Topic
 
-        > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+        > **Note:** at this time EventGrid Topics are only available in a limited number of regions.
 
         ## Example Usage
 
@@ -537,7 +537,7 @@ class Topic(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventGrid`: 2022-06-15
+        * `Microsoft.EventGrid` - 2022-06-15
 
         ## Import
 

@@ -13,31 +13,31 @@ namespace Pulumi.Azure.Policy.Inputs
     public sealed class PolicySetDefinitionPolicyDefinitionGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of a resource that contains additional metadata about this policy definition group.
+        /// The ID of a resource that contains additional metadata for this Policy Definition Group.
         /// </summary>
         [Input("additionalMetadataResourceId")]
         public Input<string>? AdditionalMetadataResourceId { get; set; }
 
         /// <summary>
-        /// The category of this policy definition group.
+        /// The category of this Policy Definition Group.
         /// </summary>
         [Input("category")]
         public Input<string>? Category { get; set; }
 
         /// <summary>
-        /// The description of this policy definition group.
+        /// The description of this Policy Definition Group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The display name of this policy definition group.
+        /// The display name of this Policy Definition Group.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The name of this policy definition group.
+        /// The name which should be used for this Policy Definition Group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

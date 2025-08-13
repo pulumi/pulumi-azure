@@ -113,7 +113,7 @@ namespace Pulumi.Azure.DevCenter
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DevCenter`: 2025-02-01
+    /// * `Microsoft.DevCenter` - 2025-02-01
     /// 
     /// ## Import
     /// 
@@ -155,6 +155,14 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+        /// 
+        /// &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+        /// </summary>
+        [Output("managedVirtualNetworkRegions")]
+        public Output<string?> ManagedVirtualNetworkRegions { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
@@ -251,6 +259,14 @@ namespace Pulumi.Azure.DevCenter
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+        /// 
+        /// &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+        /// </summary>
+        [Input("managedVirtualNetworkRegions")]
+        public Input<string>? ManagedVirtualNetworkRegions { get; set; }
+
+        /// <summary>
         /// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -311,6 +327,14 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+        /// 
+        /// &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+        /// </summary>
+        [Input("managedVirtualNetworkRegions")]
+        public Input<string>? ManagedVirtualNetworkRegions { get; set; }
 
         /// <summary>
         /// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.

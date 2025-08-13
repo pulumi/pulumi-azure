@@ -78,6 +78,21 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
     }
 
     /**
+     * Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+     * 
+     */
+    @Import(name="provider")
+    private @Nullable Output<String> provider;
+
+    /**
+     * @return Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+     * 
+     */
+    public Optional<Output<String>> provider() {
+        return Optional.ofNullable(this.provider);
+    }
+
+    /**
      * Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
      * 
      */
@@ -189,6 +204,7 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
         this.httpsKeyBase64 = $.httpsKeyBase64;
         this.httpsUser = $.httpsUser;
         this.localAuthReference = $.localAuthReference;
+        this.provider = $.provider;
         this.referenceType = $.referenceType;
         this.referenceValue = $.referenceValue;
         this.sshKnownHostsBase64 = $.sshKnownHostsBase64;
@@ -298,6 +314,27 @@ public final class FluxConfigurationGitRepositoryArgs extends com.pulumi.resourc
          */
         public Builder localAuthReference(String localAuthReference) {
             return localAuthReference(Output.of(localAuthReference));
+        }
+
+        /**
+         * @param provider Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provider(@Nullable Output<String> provider) {
+            $.provider = provider;
+            return this;
+        }
+
+        /**
+         * @param provider Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provider(String provider) {
+            return provider(Output.of(provider));
         }
 
         /**

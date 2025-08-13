@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -32,6 +33,11 @@ public final class GetRegistryResult {
      * 
      */
     private Boolean dataEndpointEnabled;
+    /**
+     * @return A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+     * 
+     */
+    private List<String> dataEndpointHostNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -90,6 +96,13 @@ public final class GetRegistryResult {
         return this.dataEndpointEnabled;
     }
     /**
+     * @return A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+     * 
+     */
+    public List<String> dataEndpointHostNames() {
+        return this.dataEndpointHostNames;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -144,6 +157,7 @@ public final class GetRegistryResult {
         private String adminPassword;
         private String adminUsername;
         private Boolean dataEndpointEnabled;
+        private List<String> dataEndpointHostNames;
         private String id;
         private String location;
         private String loginServer;
@@ -158,6 +172,7 @@ public final class GetRegistryResult {
     	      this.adminPassword = defaults.adminPassword;
     	      this.adminUsername = defaults.adminUsername;
     	      this.dataEndpointEnabled = defaults.dataEndpointEnabled;
+    	      this.dataEndpointHostNames = defaults.dataEndpointHostNames;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
     	      this.loginServer = defaults.loginServer;
@@ -198,6 +213,17 @@ public final class GetRegistryResult {
             }
             this.dataEndpointEnabled = dataEndpointEnabled;
             return this;
+        }
+        @CustomType.Setter
+        public Builder dataEndpointHostNames(List<String> dataEndpointHostNames) {
+            if (dataEndpointHostNames == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "dataEndpointHostNames");
+            }
+            this.dataEndpointHostNames = dataEndpointHostNames;
+            return this;
+        }
+        public Builder dataEndpointHostNames(String... dataEndpointHostNames) {
+            return dataEndpointHostNames(List.of(dataEndpointHostNames));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -261,6 +287,7 @@ public final class GetRegistryResult {
             _resultValue.adminPassword = adminPassword;
             _resultValue.adminUsername = adminUsername;
             _resultValue.dataEndpointEnabled = dataEndpointEnabled;
+            _resultValue.dataEndpointHostNames = dataEndpointHostNames;
             _resultValue.id = id;
             _resultValue.location = location;
             _resultValue.loginServer = loginServer;

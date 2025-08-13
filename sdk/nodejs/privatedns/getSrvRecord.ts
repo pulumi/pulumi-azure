@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-06-01
+ * * `Microsoft.Network` - 2024-06-01
  */
 export function getSrvRecord(args: GetSrvRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSrvRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -103,7 +103,7 @@ export interface GetSrvRecordResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-06-01
+ * * `Microsoft.Network` - 2024-06-01
  */
 export function getSrvRecordOutput(args: GetSrvRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSrvRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

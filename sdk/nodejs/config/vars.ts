@@ -167,6 +167,18 @@ Object.defineProperty(exports, "metadataHost", {
 });
 
 /**
+ * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+ * the endpoint. e.g. for Azure Container Apps.
+ */
+export declare const msiApiVersion: string | undefined;
+Object.defineProperty(exports, "msiApiVersion", {
+    get() {
+        return __config.get("msiApiVersion");
+    },
+    enumerable: true,
+});
+
+/**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
  * automatically.
  */

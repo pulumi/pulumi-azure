@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Purview`: 2021-07-01
+ * * `Microsoft.Purview` - 2021-12-01
  *
  * ## Import
  *
@@ -81,6 +81,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly atlasKafkaEndpointSecondaryConnectionString!: pulumi.Output<string>;
     /**
+     * Configured in AWS to allow use of the role arn used for scanning
+     */
+    public /*out*/ readonly awsExternalId!: pulumi.Output<string>;
+    /**
      * Catalog endpoint.
      */
     public /*out*/ readonly catalogEndpoint!: pulumi.Output<string>;
@@ -96,6 +100,12 @@ export class Account extends pulumi.CustomResource {
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+     *
+     * > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+     */
+    public readonly managedEventHubEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      *
@@ -142,10 +152,12 @@ export class Account extends pulumi.CustomResource {
             const state = argsOrState as AccountState | undefined;
             resourceInputs["atlasKafkaEndpointPrimaryConnectionString"] = state ? state.atlasKafkaEndpointPrimaryConnectionString : undefined;
             resourceInputs["atlasKafkaEndpointSecondaryConnectionString"] = state ? state.atlasKafkaEndpointSecondaryConnectionString : undefined;
+            resourceInputs["awsExternalId"] = state ? state.awsExternalId : undefined;
             resourceInputs["catalogEndpoint"] = state ? state.catalogEndpoint : undefined;
             resourceInputs["guardianEndpoint"] = state ? state.guardianEndpoint : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedEventHubEnabled"] = state ? state.managedEventHubEnabled : undefined;
             resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
             resourceInputs["managedResources"] = state ? state.managedResources : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -163,6 +175,7 @@ export class Account extends pulumi.CustomResource {
             }
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedEventHubEnabled"] = args ? args.managedEventHubEnabled : undefined;
             resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkEnabled"] = args ? args.publicNetworkEnabled : undefined;
@@ -170,6 +183,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["atlasKafkaEndpointPrimaryConnectionString"] = undefined /*out*/;
             resourceInputs["atlasKafkaEndpointSecondaryConnectionString"] = undefined /*out*/;
+            resourceInputs["awsExternalId"] = undefined /*out*/;
             resourceInputs["catalogEndpoint"] = undefined /*out*/;
             resourceInputs["guardianEndpoint"] = undefined /*out*/;
             resourceInputs["managedResources"] = undefined /*out*/;
@@ -195,6 +209,10 @@ export interface AccountState {
      */
     atlasKafkaEndpointSecondaryConnectionString?: pulumi.Input<string>;
     /**
+     * Configured in AWS to allow use of the role arn used for scanning
+     */
+    awsExternalId?: pulumi.Input<string>;
+    /**
      * Catalog endpoint.
      */
     catalogEndpoint?: pulumi.Input<string>;
@@ -210,6 +228,12 @@ export interface AccountState {
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+     *
+     * > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+     */
+    managedEventHubEnabled?: pulumi.Input<boolean>;
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      *
@@ -254,6 +278,12 @@ export interface AccountArgs {
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+     *
+     * > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+     */
+    managedEventHubEnabled?: pulumi.Input<boolean>;
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      *

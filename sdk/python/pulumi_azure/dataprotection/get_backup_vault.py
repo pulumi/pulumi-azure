@@ -151,7 +151,7 @@ def get_backup_vault(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataProtection`: 2024-04-01
+    * `Microsoft.DataProtection` - 2024-04-01
 
 
     :param _builtins.str name: Specifies the name of the Backup Vault.
@@ -195,7 +195,7 @@ def get_backup_vault_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataProtection`: 2024-04-01
+    * `Microsoft.DataProtection` - 2024-04-01
 
 
     :param _builtins.str name: Specifies the name of the Backup Vault.

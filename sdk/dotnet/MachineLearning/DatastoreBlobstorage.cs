@@ -95,7 +95,7 @@ namespace Pulumi.Azure.MachineLearning
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.MachineLearningServices`: 2024-04-01
+    /// * `Microsoft.MachineLearningServices` - 2025-06-01
     /// 
     /// ## Import
     /// 
@@ -143,7 +143,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
         /// 
-        /// &gt; **Note:** One of `account_key` or `shared_access_signature` must be specified.
+        /// &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
         /// </summary>
         [Output("sharedAccessSignature")]
         public Output<string?> SharedAccessSignature { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
         /// 
-        /// &gt; **Note:** One of `account_key` or `shared_access_signature` must be specified.
+        /// &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
         /// </summary>
         public Input<string>? SharedAccessSignature
         {
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
         /// 
-        /// &gt; **Note:** One of `account_key` or `shared_access_signature` must be specified.
+        /// &gt; **Note:** If `service_data_auth_identity` is set to `None` or omitted, one of `account_key` or `shared_access_signature` must be specified.
         /// </summary>
         public Input<string>? SharedAccessSignature
         {

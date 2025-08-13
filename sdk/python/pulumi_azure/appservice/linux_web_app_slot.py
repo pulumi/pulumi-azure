@@ -45,6 +45,7 @@ class LinuxWebAppSlotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -72,6 +73,9 @@ class LinuxWebAppSlotArgs:
                > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
+        :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -125,6 +129,8 @@ class LinuxWebAppSlotArgs:
             pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if vnet_image_pull_enabled is not None:
+            pulumi.set(__self__, "vnet_image_pull_enabled", vnet_image_pull_enabled)
         if webdeploy_publish_basic_authentication_enabled is not None:
             pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
         if zip_deploy_file is not None:
@@ -412,6 +418,20 @@ class LinuxWebAppSlotArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="vnetImagePullEnabled")
+    def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+
+        > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        """
+        return pulumi.get(self, "vnet_image_pull_enabled")
+
+    @vnet_image_pull_enabled.setter
+    def vnet_image_pull_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "vnet_image_pull_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -477,6 +497,7 @@ class _LinuxWebAppSlotState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
@@ -514,6 +535,9 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
+        :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -589,6 +613,8 @@ class _LinuxWebAppSlotState:
             pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if vnet_image_pull_enabled is not None:
+            pulumi.set(__self__, "vnet_image_pull_enabled", vnet_image_pull_enabled)
         if webdeploy_publish_basic_authentication_enabled is not None:
             pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
         if zip_deploy_file is not None:
@@ -996,6 +1022,20 @@ class _LinuxWebAppSlotState:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="vnetImagePullEnabled")
+    def vnet_image_pull_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+
+        > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        """
+        return pulumi.get(self, "vnet_image_pull_enabled")
+
+    @vnet_image_pull_enabled.setter
+    def vnet_image_pull_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "vnet_image_pull_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
     def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -1054,6 +1094,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -1092,7 +1133,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Web`: 2023-12-01
+        * `Microsoft.Web` - 2023-12-01
 
         ## Import
 
@@ -1127,6 +1168,9 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
+        :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -1175,7 +1219,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Web`: 2023-12-01
+        * `Microsoft.Web` - 2023-12-01
 
         ## Import
 
@@ -1224,6 +1268,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -1263,6 +1308,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["vnet_image_pull_enabled"] = vnet_image_pull_enabled
             __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
             __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["app_metadata"] = None
@@ -1321,6 +1367,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_network_backup_restore_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+            vnet_image_pull_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None) -> 'LinuxWebAppSlot':
         """
@@ -1363,6 +1410,9 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotSiteCredentialArgs', 'LinuxWebAppSlotSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
+        :param pulumi.Input[_builtins.bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+               
+               > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[_builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -1408,6 +1458,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+        __props__.__dict__["vnet_image_pull_enabled"] = vnet_image_pull_enabled
         __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return LinuxWebAppSlot(resource_name, opts=opts, __props__=__props__)
@@ -1676,6 +1727,16 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="vnetImagePullEnabled")
+    def vnet_image_pull_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+
+        > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+        """
+        return pulumi.get(self, "vnet_image_pull_enabled")
 
     @_builtins.property
     @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")

@@ -581,7 +581,7 @@ if not MYPY:
     class BackupPolicyDiskRetentionRuleCriteriaArgsDict(TypedDict):
         absolute_criteria: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
         """
 elif False:
     BackupPolicyDiskRetentionRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
@@ -591,7 +591,7 @@ class BackupPolicyDiskRetentionRuleCriteriaArgs:
     def __init__(__self__, *,
                  absolute_criteria: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] absolute_criteria: Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[_builtins.str] absolute_criteria: Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
         """
         if absolute_criteria is not None:
             pulumi.set(__self__, "absolute_criteria", absolute_criteria)
@@ -600,7 +600,7 @@ class BackupPolicyDiskRetentionRuleCriteriaArgs:
     @pulumi.getter(name="absoluteCriteria")
     def absolute_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
         """
         return pulumi.get(self, "absolute_criteria")
 

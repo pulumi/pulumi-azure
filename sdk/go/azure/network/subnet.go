@@ -85,7 +85,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2024-05-01
+// * `Microsoft.Network` - 2024-05-01
 //
 // ## Import
 //
@@ -100,11 +100,17 @@ type Subnet struct {
 	// The address prefixes to use for the subnet.
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes pulumi.StringArrayOutput `pulumi:"addressPrefixes"`
 	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
 	DefaultOutboundAccessEnabled pulumi.BoolPtrOutput `pulumi:"defaultOutboundAccessEnabled"`
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayOutput `pulumi:"delegations"`
+	// An `ipAddressPool` block as defined below.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
+	IpAddressPool SubnetIpAddressPoolPtrOutput `pulumi:"ipAddressPool"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -138,9 +144,6 @@ func NewSubnet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AddressPrefixes == nil {
-		return nil, errors.New("invalid value for required argument 'AddressPrefixes'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -173,11 +176,17 @@ type subnetState struct {
 	// The address prefixes to use for the subnet.
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
 	DefaultOutboundAccessEnabled *bool `pulumi:"defaultOutboundAccessEnabled"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
+	// An `ipAddressPool` block as defined below.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
+	IpAddressPool *SubnetIpAddressPool `pulumi:"ipAddressPool"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -208,11 +217,17 @@ type SubnetState struct {
 	// The address prefixes to use for the subnet.
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes pulumi.StringArrayInput
 	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
 	DefaultOutboundAccessEnabled pulumi.BoolPtrInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
+	// An `ipAddressPool` block as defined below.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
+	IpAddressPool SubnetIpAddressPoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -247,11 +262,17 @@ type subnetArgs struct {
 	// The address prefixes to use for the subnet.
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
 	DefaultOutboundAccessEnabled *bool `pulumi:"defaultOutboundAccessEnabled"`
 	// One or more `delegation` blocks as defined below.
 	Delegations []SubnetDelegation `pulumi:"delegations"`
+	// An `ipAddressPool` block as defined below.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
+	IpAddressPool *SubnetIpAddressPool `pulumi:"ipAddressPool"`
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -283,11 +304,17 @@ type SubnetArgs struct {
 	// The address prefixes to use for the subnet.
 	//
 	// > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 	AddressPrefixes pulumi.StringArrayInput
 	// Enable default outbound access to the internet for the subnet. Defaults to `true`.
 	DefaultOutboundAccessEnabled pulumi.BoolPtrInput
 	// One or more `delegation` blocks as defined below.
 	Delegations SubnetDelegationArrayInput
+	// An `ipAddressPool` block as defined below.
+	//
+	// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
+	IpAddressPool SubnetIpAddressPoolPtrInput
 	// The name of the subnet. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
@@ -404,6 +431,8 @@ func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutpu
 // The address prefixes to use for the subnet.
 //
 // > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+//
+// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
 func (o SubnetOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringArrayOutput { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -416,6 +445,13 @@ func (o SubnetOutput) DefaultOutboundAccessEnabled() pulumi.BoolPtrOutput {
 // One or more `delegation` blocks as defined below.
 func (o SubnetOutput) Delegations() SubnetDelegationArrayOutput {
 	return o.ApplyT(func(v *Subnet) SubnetDelegationArrayOutput { return v.Delegations }).(SubnetDelegationArrayOutput)
+}
+
+// An `ipAddressPool` block as defined below.
+//
+// > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
+func (o SubnetOutput) IpAddressPool() SubnetIpAddressPoolPtrOutput {
+	return o.ApplyT(func(v *Subnet) SubnetIpAddressPoolPtrOutput { return v.IpAddressPool }).(SubnetIpAddressPoolPtrOutput)
 }
 
 // The name of the subnet. Changing this forces a new resource to be created.

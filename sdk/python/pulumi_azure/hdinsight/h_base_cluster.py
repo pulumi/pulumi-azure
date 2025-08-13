@@ -800,7 +800,7 @@ class HBaseCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.HDInsight`: 2021-06-01
+        * `Microsoft.HDInsight` - 2021-06-01
 
         ## Import
 
@@ -906,7 +906,7 @@ class HBaseCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.HDInsight`: 2021-06-01
+        * `Microsoft.HDInsight` - 2021-06-01
 
         ## Import
 

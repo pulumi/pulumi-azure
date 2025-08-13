@@ -78,7 +78,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args) {
@@ -144,7 +144,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args) {
@@ -210,7 +210,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args, InvokeOptions options) {
@@ -276,7 +276,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static Output<GetPrivateLinkResourceResult> getPrivateLinkResource(GetPrivateLinkResourceArgs args, InvokeOutputOptions options) {
@@ -342,7 +342,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetPrivateLinkResourceResult> getPrivateLinkResourcePlain(GetPrivateLinkResourcePlainArgs args, InvokeOptions options) {
@@ -392,7 +392,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -442,7 +442,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -492,7 +492,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -542,7 +542,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
@@ -592,7 +592,7 @@ public final class WebpubsubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.SignalRService`: 2024-03-01
+     * * `Microsoft.SignalRService` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

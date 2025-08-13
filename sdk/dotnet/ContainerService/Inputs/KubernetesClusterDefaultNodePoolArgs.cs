@@ -29,7 +29,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? CapacityReservationGroupId { get; set; }
 
         /// <summary>
-        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
+        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         /// </summary>
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing EventGrid System Topic
+ * Use this data source to access information about an existing Event Grid System Topic
  *
  * ## Example Usage
  *
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.EventGrid`: 2022-06-15
+ * * `Microsoft.EventGrid` - 2022-06-15
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,11 +41,11 @@ export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetSystemTopicArgs {
     /**
-     * The name of the EventGrid System Topic resource.
+     * The name of the Event Grid System Topic resource.
      */
     name: string;
     /**
-     * The name of the resource group in which the EventGrid System Topic exists.
+     * The name of the resource group in which the Event Grid System Topic exists.
      */
     resourceGroupName: string;
 }
@@ -83,7 +83,7 @@ export interface GetSystemTopicResult {
     readonly topicType: string;
 }
 /**
- * Use this data source to access information about an existing EventGrid System Topic
+ * Use this data source to access information about an existing Event Grid System Topic
  *
  * ## Example Usage
  *
@@ -102,7 +102,7 @@ export interface GetSystemTopicResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.EventGrid`: 2022-06-15
+ * * `Microsoft.EventGrid` - 2022-06-15
  */
 export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -117,11 +117,11 @@ export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulu
  */
 export interface GetSystemTopicOutputArgs {
     /**
-     * The name of the EventGrid System Topic resource.
+     * The name of the Event Grid System Topic resource.
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the EventGrid System Topic exists.
+     * The name of the resource group in which the Event Grid System Topic exists.
      */
     resourceGroupName: pulumi.Input<string>;
 }

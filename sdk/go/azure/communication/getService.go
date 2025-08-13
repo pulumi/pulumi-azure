@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Communication`: 2023-03-31
+// * `Microsoft.Communication` - 2023-03-31
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceResult
@@ -71,11 +71,13 @@ type LookupServiceArgs struct {
 type LookupServiceResult struct {
 	// The location where the Communication service stores its data at rest.
 	DataLocation string `pulumi:"dataLocation"`
-	// The hostname of the Communication Service
+	// The hostname of the Communication Service.
 	Hostname string `pulumi:"hostname"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The immutable resource id of the Communication Service.
+	ImmutableResourceId string `pulumi:"immutableResourceId"`
+	Name                string `pulumi:"name"`
 	// The primary connection string of the Communication Service.
 	PrimaryConnectionString string `pulumi:"primaryConnectionString"`
 	// The primary key of the Communication Service.
@@ -132,7 +134,7 @@ func (o LookupServiceResultOutput) DataLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.DataLocation }).(pulumi.StringOutput)
 }
 
-// The hostname of the Communication Service
+// The hostname of the Communication Service.
 func (o LookupServiceResultOutput) Hostname() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Hostname }).(pulumi.StringOutput)
 }
@@ -140,6 +142,11 @@ func (o LookupServiceResultOutput) Hostname() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The immutable resource id of the Communication Service.
+func (o LookupServiceResultOutput) ImmutableResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.ImmutableResourceId }).(pulumi.StringOutput)
 }
 
 func (o LookupServiceResultOutput) Name() pulumi.StringOutput {

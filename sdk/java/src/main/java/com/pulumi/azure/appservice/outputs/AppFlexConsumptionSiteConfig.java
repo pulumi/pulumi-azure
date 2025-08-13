@@ -161,10 +161,15 @@ public final class AppFlexConsumptionSiteConfig {
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
-     * @return Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+     * @return Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
      * 
      */
     private @Nullable Boolean use32BitWorker;
+    /**
+     * @return Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean vnetRouteAllEnabled;
     /**
      * @return Should Web Sockets be enabled. Defaults to `false`.
      * 
@@ -376,11 +381,18 @@ public final class AppFlexConsumptionSiteConfig {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
     /**
-     * @return Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+     * @return Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
      * 
      */
     public Optional<Boolean> use32BitWorker() {
         return Optional.ofNullable(this.use32BitWorker);
+    }
+    /**
+     * @return Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> vnetRouteAllEnabled() {
+        return Optional.ofNullable(this.vnetRouteAllEnabled);
     }
     /**
      * @return Should Web Sockets be enabled. Defaults to `false`.
@@ -435,6 +447,7 @@ public final class AppFlexConsumptionSiteConfig {
         private @Nullable String scmType;
         private @Nullable Boolean scmUseMainIpRestriction;
         private @Nullable Boolean use32BitWorker;
+        private @Nullable Boolean vnetRouteAllEnabled;
         private @Nullable Boolean websocketsEnabled;
         private @Nullable Integer workerCount;
         public Builder() {}
@@ -469,6 +482,7 @@ public final class AppFlexConsumptionSiteConfig {
     	      this.scmType = defaults.scmType;
     	      this.scmUseMainIpRestriction = defaults.scmUseMainIpRestriction;
     	      this.use32BitWorker = defaults.use32BitWorker;
+    	      this.vnetRouteAllEnabled = defaults.vnetRouteAllEnabled;
     	      this.websocketsEnabled = defaults.websocketsEnabled;
     	      this.workerCount = defaults.workerCount;
         }
@@ -657,6 +671,12 @@ public final class AppFlexConsumptionSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder vnetRouteAllEnabled(@Nullable Boolean vnetRouteAllEnabled) {
+
+            this.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
 
             this.websocketsEnabled = websocketsEnabled;
@@ -699,6 +719,7 @@ public final class AppFlexConsumptionSiteConfig {
             _resultValue.scmType = scmType;
             _resultValue.scmUseMainIpRestriction = scmUseMainIpRestriction;
             _resultValue.use32BitWorker = use32BitWorker;
+            _resultValue.vnetRouteAllEnabled = vnetRouteAllEnabled;
             _resultValue.websocketsEnabled = websocketsEnabled;
             _resultValue.workerCount = workerCount;
             return _resultValue;

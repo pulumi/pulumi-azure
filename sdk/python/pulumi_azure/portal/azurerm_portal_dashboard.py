@@ -136,7 +136,7 @@ def azurerm_portal_dashboard(dashboard_properties: Optional[_builtins.str] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Portal`: 2019-01-01-preview
+    * `Microsoft.Portal` - 2019-01-01-preview
 
 
     :param _builtins.str dashboard_properties: JSON data representing dashboard body.
@@ -184,7 +184,7 @@ def azurerm_portal_dashboard_output(dashboard_properties: Optional[pulumi.Input[
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Portal`: 2019-01-01-preview
+    * `Microsoft.Portal` - 2019-01-01-preview
 
 
     :param _builtins.str dashboard_properties: JSON data representing dashboard body.

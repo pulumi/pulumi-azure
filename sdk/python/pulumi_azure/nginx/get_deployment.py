@@ -305,7 +305,7 @@ def get_deployment(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Nginx.NginxPlus`: 2024-11-01-preview
+    * `Nginx.NginxPlus` - 2024-11-01-preview
 
 
     :param _builtins.str name: The name of this NGINX Deployment.
@@ -361,7 +361,7 @@ def get_deployment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Nginx.NginxPlus`: 2024-11-01-preview
+    * `Nginx.NginxPlus` - 2024-11-01-preview
 
 
     :param _builtins.str name: The name of this NGINX Deployment.

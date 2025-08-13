@@ -168,7 +168,7 @@ def get_confidential_ledger(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ConfidentialLedger`: 2022-05-13
+    * `Microsoft.ConfidentialLedger` - 2022-05-13
 
 
     :param _builtins.str name: Specifies the name of this Confidential Ledger.
@@ -213,7 +213,7 @@ def get_confidential_ledger_output(name: Optional[pulumi.Input[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ConfidentialLedger`: 2022-05-13
+    * `Microsoft.ConfidentialLedger` - 2022-05-13
 
 
     :param _builtins.str name: Specifies the name of this Confidential Ledger.

@@ -242,7 +242,7 @@ class Healthbot(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.HealthBot`: 2022-08-08
+        * `Microsoft.HealthBot` - 2022-08-08
 
         ## Import
 
@@ -290,7 +290,7 @@ class Healthbot(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.HealthBot`: 2022-08-08
+        * `Microsoft.HealthBot` - 2022-08-08
 
         ## Import
 

@@ -56,6 +56,10 @@ export class LinkService extends pulumi.CustomResource {
      */
     public readonly autoApprovalSubscriptionIds!: pulumi.Output<string[] | undefined>;
     /**
+     * The destination IP address of the Private Link Service.
+     */
+    public readonly destinationIpAddress!: pulumi.Output<string | undefined>;
+    /**
      * Should the Private Link Service support the Proxy Protocol?
      */
     public readonly enableProxyProtocol!: pulumi.Output<boolean | undefined>;
@@ -66,7 +70,7 @@ export class LinkService extends pulumi.CustomResource {
     /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      */
-    public readonly loadBalancerFrontendIpConfigurationIds!: pulumi.Output<string[]>;
+    public readonly loadBalancerFrontendIpConfigurationIds!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -109,6 +113,7 @@ export class LinkService extends pulumi.CustomResource {
             const state = argsOrState as LinkServiceState | undefined;
             resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["autoApprovalSubscriptionIds"] = state ? state.autoApprovalSubscriptionIds : undefined;
+            resourceInputs["destinationIpAddress"] = state ? state.destinationIpAddress : undefined;
             resourceInputs["enableProxyProtocol"] = state ? state.enableProxyProtocol : undefined;
             resourceInputs["fqdns"] = state ? state.fqdns : undefined;
             resourceInputs["loadBalancerFrontendIpConfigurationIds"] = state ? state.loadBalancerFrontendIpConfigurationIds : undefined;
@@ -120,9 +125,6 @@ export class LinkService extends pulumi.CustomResource {
             resourceInputs["visibilitySubscriptionIds"] = state ? state.visibilitySubscriptionIds : undefined;
         } else {
             const args = argsOrState as LinkServiceArgs | undefined;
-            if ((!args || args.loadBalancerFrontendIpConfigurationIds === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'loadBalancerFrontendIpConfigurationIds'");
-            }
             if ((!args || args.natIpConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'natIpConfigurations'");
             }
@@ -130,6 +132,7 @@ export class LinkService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["autoApprovalSubscriptionIds"] = args ? args.autoApprovalSubscriptionIds : undefined;
+            resourceInputs["destinationIpAddress"] = args ? args.destinationIpAddress : undefined;
             resourceInputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
             resourceInputs["fqdns"] = args ? args.fqdns : undefined;
             resourceInputs["loadBalancerFrontendIpConfigurationIds"] = args ? args.loadBalancerFrontendIpConfigurationIds : undefined;
@@ -158,6 +161,10 @@ export interface LinkServiceState {
      * A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
      */
     autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The destination IP address of the Private Link Service.
+     */
+    destinationIpAddress?: pulumi.Input<string>;
     /**
      * Should the Private Link Service support the Proxy Protocol?
      */
@@ -207,6 +214,10 @@ export interface LinkServiceArgs {
      */
     autoApprovalSubscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The destination IP address of the Private Link Service.
+     */
+    destinationIpAddress?: pulumi.Input<string>;
+    /**
      * Should the Private Link Service support the Proxy Protocol?
      */
     enableProxyProtocol?: pulumi.Input<boolean>;
@@ -217,7 +228,7 @@ export interface LinkServiceArgs {
     /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      */
-    loadBalancerFrontendIpConfigurationIds: pulumi.Input<pulumi.Input<string>[]>;
+    loadBalancerFrontendIpConfigurationIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ContainerApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.App`: 2025-01-01
+        /// * `Microsoft.App` - 2025-01-01
         /// </summary>
         public static Task<GetEnvironmentCertificateResult> InvokeAsync(GetEnvironmentCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentCertificateResult>("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args ?? new GetEnvironmentCertificateArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.ContainerApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.App`: 2025-01-01
+        /// * `Microsoft.App` - 2025-01-01
         /// </summary>
         public static Output<GetEnvironmentCertificateResult> Invoke(GetEnvironmentCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentCertificateResult>("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args ?? new GetEnvironmentCertificateInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.ContainerApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.App`: 2025-01-01
+        /// * `Microsoft.App` - 2025-01-01
         /// </summary>
         public static Output<GetEnvironmentCertificateResult> Invoke(GetEnvironmentCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentCertificateResult>("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args ?? new GetEnvironmentCertificateInvokeArgs(), options.WithDefaults());

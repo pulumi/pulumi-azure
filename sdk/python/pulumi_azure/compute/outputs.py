@@ -2241,6 +2241,10 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
         suggest = None
         if key == "ipConfigurations":
             suggest = "ip_configurations"
+        elif key == "auxiliaryMode":
+            suggest = "auxiliary_mode"
+        elif key == "auxiliarySku":
+            suggest = "auxiliary_sku"
         elif key == "dnsServers":
             suggest = "dns_servers"
         elif key == "enableAcceleratedNetworking":
@@ -2264,6 +2268,8 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
     def __init__(__self__, *,
                  ip_configurations: Sequence['outputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
                  name: _builtins.str,
+                 auxiliary_mode: Optional[_builtins.str] = None,
+                 auxiliary_sku: Optional[_builtins.str] = None,
                  dns_servers: Optional[Sequence[_builtins.str]] = None,
                  enable_accelerated_networking: Optional[_builtins.bool] = None,
                  enable_ip_forwarding: Optional[_builtins.bool] = None,
@@ -2272,6 +2278,12 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
         """
         :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param _builtins.str name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
+        :param _builtins.str auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+               
+               > **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param _builtins.str auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+               
+               > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         :param Sequence[_builtins.str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param _builtins.bool enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
         :param _builtins.bool enable_ip_forwarding: Does this Network Interface support IP Forwarding? Defaults to `false`.
@@ -2282,6 +2294,10 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
+        if auxiliary_mode is not None:
+            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if auxiliary_sku is not None:
+            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if enable_accelerated_networking is not None:
@@ -2308,6 +2324,26 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
         The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> Optional[_builtins.str]:
+        """
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+
+        > **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> Optional[_builtins.str]:
+        """
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+
+        > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_sku")
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
@@ -4091,6 +4127,10 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
         suggest = None
         if key == "ipConfigurations":
             suggest = "ip_configurations"
+        elif key == "auxiliaryMode":
+            suggest = "auxiliary_mode"
+        elif key == "auxiliarySku":
+            suggest = "auxiliary_sku"
         elif key == "dnsServers":
             suggest = "dns_servers"
         elif key == "enableAcceleratedNetworking":
@@ -4114,6 +4154,8 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
     def __init__(__self__, *,
                  ip_configurations: Sequence['outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
                  name: _builtins.str,
+                 auxiliary_mode: Optional[_builtins.str] = None,
+                 auxiliary_sku: Optional[_builtins.str] = None,
                  dns_servers: Optional[Sequence[_builtins.str]] = None,
                  enable_accelerated_networking: Optional[_builtins.bool] = None,
                  enable_ip_forwarding: Optional[_builtins.bool] = None,
@@ -4122,6 +4164,12 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
         """
         :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param _builtins.str name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
+        :param _builtins.str auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+               
+               > **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param _builtins.str auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+               
+               > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         :param Sequence[_builtins.str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param _builtins.bool enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
         :param _builtins.bool enable_ip_forwarding: Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
@@ -4132,6 +4180,10 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
+        if auxiliary_mode is not None:
+            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if auxiliary_sku is not None:
+            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if enable_accelerated_networking is not None:
@@ -4158,6 +4210,26 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
         The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> Optional[_builtins.str]:
+        """
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+
+        > **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> Optional[_builtins.str]:
+        """
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+
+        > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_sku")
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
@@ -10077,7 +10149,9 @@ class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
                  placement: Optional[_builtins.str] = None):
         """
         :param _builtins.str option: Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
-        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        :param _builtins.str placement: Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+               
+               > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
         """
         pulumi.set(__self__, "option", option)
         if placement is not None:
@@ -10095,7 +10169,9 @@ class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
     @pulumi.getter
     def placement(self) -> Optional[_builtins.str]:
         """
-        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+        Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+
+        > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `source_image_reference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
         """
         return pulumi.get(self, "placement")
 
@@ -10938,6 +11014,10 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
         suggest = None
         if key == "ipConfigurations":
             suggest = "ip_configurations"
+        elif key == "auxiliaryMode":
+            suggest = "auxiliary_mode"
+        elif key == "auxiliarySku":
+            suggest = "auxiliary_sku"
         elif key == "dnsServers":
             suggest = "dns_servers"
         elif key == "enableAcceleratedNetworking":
@@ -10961,6 +11041,8 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
     def __init__(__self__, *,
                  ip_configurations: Sequence['outputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration'],
                  name: _builtins.str,
+                 auxiliary_mode: Optional[_builtins.str] = None,
+                 auxiliary_sku: Optional[_builtins.str] = None,
                  dns_servers: Optional[Sequence[_builtins.str]] = None,
                  enable_accelerated_networking: Optional[_builtins.bool] = None,
                  enable_ip_forwarding: Optional[_builtins.bool] = None,
@@ -10969,6 +11051,12 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
         """
         :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param _builtins.str name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
+        :param _builtins.str auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+               
+               > **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        :param _builtins.str auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+               
+               > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         :param Sequence[_builtins.str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param _builtins.bool enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
         :param _builtins.bool enable_ip_forwarding: Does this Network Interface support IP Forwarding? Defaults to `false`.
@@ -10979,6 +11067,10 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
+        if auxiliary_mode is not None:
+            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if auxiliary_sku is not None:
+            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
         if enable_accelerated_networking is not None:
@@ -11005,6 +11097,26 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
         The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> Optional[_builtins.str]:
+        """
+        Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+
+        > **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> Optional[_builtins.str]:
+        """
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+
+        > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        """
+        return pulumi.get(self, "auxiliary_sku")
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
@@ -13588,7 +13700,7 @@ class GetVirtualMachineScaleSetInstanceResult(dict):
         :param _builtins.str power_state: The power state of the virtual machine.
         :param _builtins.str private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
         :param Sequence[_builtins.str] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
-        :param _builtins.str public_ip_address: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        :param _builtins.str public_ip_address: A `public_ip_address` block as defined below.
         :param Sequence[_builtins.str] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
         :param _builtins.str virtual_machine_id: The unique ID of the virtual machine.
         :param _builtins.str zone: The zones of the virtual machine.
@@ -13665,7 +13777,7 @@ class GetVirtualMachineScaleSetInstanceResult(dict):
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> _builtins.str:
         """
-        The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        A `public_ip_address` block as defined below.
         """
         return pulumi.get(self, "public_ip_address")
 
@@ -13697,6 +13809,8 @@ class GetVirtualMachineScaleSetInstanceResult(dict):
 @pulumi.output_type
 class GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
     def __init__(__self__, *,
+                 auxiliary_mode: _builtins.str,
+                 auxiliary_sku: _builtins.str,
                  dns_servers: Sequence[_builtins.str],
                  enable_accelerated_networking: _builtins.bool,
                  enable_ip_forwarding: _builtins.bool,
@@ -13705,14 +13819,18 @@ class GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
                  network_security_group_id: _builtins.str,
                  primary: _builtins.bool):
         """
+        :param _builtins.str auxiliary_mode: The auxiliary mode for the network interface.
+        :param _builtins.str auxiliary_sku: The auxiliary SKU for the network interface.
         :param Sequence[_builtins.str] dns_servers: An array of the DNS servers in use.
-        :param _builtins.bool enable_accelerated_networking: Whether to enable accelerated networking or not.
+        :param _builtins.bool enable_accelerated_networking: Whether accelerated networking is enabled.
         :param _builtins.bool enable_ip_forwarding: Whether IP forwarding is enabled on this NIC.
-        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: An `ip_configuration` block as documented below.
+        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: An `ip_configuration` block as defined below.
         :param _builtins.str name: The name of this Virtual Machine Scale Set.
         :param _builtins.str network_security_group_id: The identifier for the network security group.
         :param _builtins.bool primary: If this ip_configuration is the primary one.
         """
+        pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         pulumi.set(__self__, "dns_servers", dns_servers)
         pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
@@ -13720,6 +13838,22 @@ class GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "network_security_group_id", network_security_group_id)
         pulumi.set(__self__, "primary", primary)
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> _builtins.str:
+        """
+        The auxiliary mode for the network interface.
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="auxiliarySku")
+    def auxiliary_sku(self) -> _builtins.str:
+        """
+        The auxiliary SKU for the network interface.
+        """
+        return pulumi.get(self, "auxiliary_sku")
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
@@ -13733,7 +13867,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> _builtins.bool:
         """
-        Whether to enable accelerated networking or not.
+        Whether accelerated networking is enabled.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 
@@ -13749,7 +13883,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult']:
         """
-        An `ip_configuration` block as documented below.
+        An `ip_configuration` block as defined below.
         """
         return pulumi.get(self, "ip_configurations")
 
@@ -13797,7 +13931,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
         :param Sequence[_builtins.str] load_balancer_inbound_nat_rules_ids: An array of references to inbound NAT pools for load balancers.
         :param _builtins.str name: The name of this Virtual Machine Scale Set.
         :param _builtins.bool primary: If this ip_configuration is the primary one.
-        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
         :param _builtins.str subnet_id: The identifier of the subnet.
         :param _builtins.str version: The Internet Protocol Version of the public IP address.
         """
@@ -13863,7 +13997,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
     @pulumi.getter(name="publicIpAddresses")
     def public_ip_addresses(self) -> Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult']:
         """
-        The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        A `public_ip_address` block as defined below.
         """
         return pulumi.get(self, "public_ip_addresses")
 

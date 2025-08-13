@@ -5,7 +5,6 @@ package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.azure.logicapps.outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicy;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +16,7 @@ public final class WorkflowAccessControlTrigger {
      * @return A list of the allowed caller IP address ranges.
      * 
      */
-    private List<String> allowedCallerIpAddressRanges;
+    private @Nullable List<String> allowedCallerIpAddressRanges;
     /**
      * @return A `open_authentication_policy` block as defined below.
      * 
@@ -30,7 +29,7 @@ public final class WorkflowAccessControlTrigger {
      * 
      */
     public List<String> allowedCallerIpAddressRanges() {
-        return this.allowedCallerIpAddressRanges;
+        return this.allowedCallerIpAddressRanges == null ? List.of() : this.allowedCallerIpAddressRanges;
     }
     /**
      * @return A `open_authentication_policy` block as defined below.
@@ -49,7 +48,7 @@ public final class WorkflowAccessControlTrigger {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> allowedCallerIpAddressRanges;
+        private @Nullable List<String> allowedCallerIpAddressRanges;
         private @Nullable List<WorkflowAccessControlTriggerOpenAuthenticationPolicy> openAuthenticationPolicies;
         public Builder() {}
         public Builder(WorkflowAccessControlTrigger defaults) {
@@ -59,10 +58,8 @@ public final class WorkflowAccessControlTrigger {
         }
 
         @CustomType.Setter
-        public Builder allowedCallerIpAddressRanges(List<String> allowedCallerIpAddressRanges) {
-            if (allowedCallerIpAddressRanges == null) {
-              throw new MissingRequiredPropertyException("WorkflowAccessControlTrigger", "allowedCallerIpAddressRanges");
-            }
+        public Builder allowedCallerIpAddressRanges(@Nullable List<String> allowedCallerIpAddressRanges) {
+
             this.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
             return this;
         }

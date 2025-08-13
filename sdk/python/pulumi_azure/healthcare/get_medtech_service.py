@@ -150,7 +150,7 @@ def get_medtech_service(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.HealthcareApis`: 2022-12-01
+    * `Microsoft.HealthcareApis` - 2022-12-01
 
 
     :param _builtins.str name: The name of the Healthcare Med Tech Service.
@@ -193,7 +193,7 @@ def get_medtech_service_output(name: Optional[pulumi.Input[_builtins.str]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.HealthcareApis`: 2022-12-01
+    * `Microsoft.HealthcareApis` - 2022-12-01
 
 
     :param _builtins.str name: The name of the Healthcare Med Tech Service.

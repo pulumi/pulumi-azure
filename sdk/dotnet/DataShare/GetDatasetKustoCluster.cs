@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DataShare
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DataShare`: 2019-11-01
+        /// * `Microsoft.DataShare` - 2019-11-01
         /// </summary>
         public static Task<GetDatasetKustoClusterResult> InvokeAsync(GetDatasetKustoClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetKustoClusterResult>("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args ?? new GetDatasetKustoClusterArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.DataShare
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DataShare`: 2019-11-01
+        /// * `Microsoft.DataShare` - 2019-11-01
         /// </summary>
         public static Output<GetDatasetKustoClusterResult> Invoke(GetDatasetKustoClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetKustoClusterResult>("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args ?? new GetDatasetKustoClusterInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DataShare
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DataShare`: 2019-11-01
+        /// * `Microsoft.DataShare` - 2019-11-01
         /// </summary>
         public static Output<GetDatasetKustoClusterResult> Invoke(GetDatasetKustoClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetKustoClusterResult>("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args ?? new GetDatasetKustoClusterInvokeArgs(), options.WithDefaults());

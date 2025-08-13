@@ -30,6 +30,20 @@ import * as utilities from "../utilities";
  *             columnName: "Cost",
  *         }],
  *     },
+ *     pivots: [
+ *         {
+ *             type: "Dimension",
+ *             name: "ServiceName",
+ *         },
+ *         {
+ *             type: "Dimension",
+ *             name: "ResourceLocation",
+ *         },
+ *         {
+ *             type: "Dimension",
+ *             name: "ResourceGroupName",
+ *         },
+ *     ],
  * });
  * ```
  *
@@ -38,7 +52,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.CostManagement`: 2023-08-01
+ * * `Microsoft.CostManagement` - 2023-08-01
  *
  * ## Import
  *

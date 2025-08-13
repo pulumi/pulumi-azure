@@ -14,12 +14,22 @@ import java.util.Objects;
 @CustomType
 public final class GetVirtualMachineScaleSetNetworkInterface {
     /**
+     * @return The auxiliary mode for the network interface.
+     * 
+     */
+    private String auxiliaryMode;
+    /**
+     * @return The auxiliary SKU for the network interface.
+     * 
+     */
+    private String auxiliarySku;
+    /**
      * @return An array of the DNS servers in use.
      * 
      */
     private List<String> dnsServers;
     /**
-     * @return Whether to enable accelerated networking or not.
+     * @return Whether accelerated networking is enabled.
      * 
      */
     private Boolean enableAcceleratedNetworking;
@@ -29,7 +39,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
      */
     private Boolean enableIpForwarding;
     /**
-     * @return An `ip_configuration` block as documented below.
+     * @return An `ip_configuration` block as defined below.
      * 
      */
     private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
@@ -51,6 +61,20 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
 
     private GetVirtualMachineScaleSetNetworkInterface() {}
     /**
+     * @return The auxiliary mode for the network interface.
+     * 
+     */
+    public String auxiliaryMode() {
+        return this.auxiliaryMode;
+    }
+    /**
+     * @return The auxiliary SKU for the network interface.
+     * 
+     */
+    public String auxiliarySku() {
+        return this.auxiliarySku;
+    }
+    /**
      * @return An array of the DNS servers in use.
      * 
      */
@@ -58,7 +82,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         return this.dnsServers;
     }
     /**
-     * @return Whether to enable accelerated networking or not.
+     * @return Whether accelerated networking is enabled.
      * 
      */
     public Boolean enableAcceleratedNetworking() {
@@ -72,7 +96,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         return this.enableIpForwarding;
     }
     /**
-     * @return An `ip_configuration` block as documented below.
+     * @return An `ip_configuration` block as defined below.
      * 
      */
     public List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations() {
@@ -109,6 +133,8 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String auxiliaryMode;
+        private String auxiliarySku;
         private List<String> dnsServers;
         private Boolean enableAcceleratedNetworking;
         private Boolean enableIpForwarding;
@@ -119,6 +145,8 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         public Builder() {}
         public Builder(GetVirtualMachineScaleSetNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.auxiliaryMode = defaults.auxiliaryMode;
+    	      this.auxiliarySku = defaults.auxiliarySku;
     	      this.dnsServers = defaults.dnsServers;
     	      this.enableAcceleratedNetworking = defaults.enableAcceleratedNetworking;
     	      this.enableIpForwarding = defaults.enableIpForwarding;
@@ -128,6 +156,22 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
     	      this.primary = defaults.primary;
         }
 
+        @CustomType.Setter
+        public Builder auxiliaryMode(String auxiliaryMode) {
+            if (auxiliaryMode == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "auxiliaryMode");
+            }
+            this.auxiliaryMode = auxiliaryMode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder auxiliarySku(String auxiliarySku) {
+            if (auxiliarySku == null) {
+              throw new MissingRequiredPropertyException("GetVirtualMachineScaleSetNetworkInterface", "auxiliarySku");
+            }
+            this.auxiliarySku = auxiliarySku;
+            return this;
+        }
         @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
             if (dnsServers == null) {
@@ -192,6 +236,8 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         }
         public GetVirtualMachineScaleSetNetworkInterface build() {
             final var _resultValue = new GetVirtualMachineScaleSetNetworkInterface();
+            _resultValue.auxiliaryMode = auxiliaryMode;
+            _resultValue.auxiliarySku = auxiliarySku;
             _resultValue.dnsServers = dnsServers;
             _resultValue.enableAcceleratedNetworking = enableAcceleratedNetworking;
             _resultValue.enableIpForwarding = enableIpForwarding;

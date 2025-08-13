@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Policy.Inputs
     public sealed class PolicySetDefinitionPolicyDefinitionReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+        /// Parameter values for the references Policy Definition in JSON format.
         /// </summary>
         [Input("parameterValues")]
         public Input<string>? ParameterValues { get; set; }
 
         /// <summary>
-        /// The ID of the policy definition that will be included in this policy set definition.
+        /// The ID of the Policy Definition to include in this Policy Set Definition.
         /// </summary>
         [Input("policyDefinitionId", required: true)]
         public Input<string> PolicyDefinitionId { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Policy.Inputs
         private InputList<string>? _policyGroupNames;
 
         /// <summary>
-        /// A list of names of the policy definition groups that this policy definition reference belongs to.
+        /// Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
         /// </summary>
         public InputList<string> PolicyGroupNames
         {
@@ -37,10 +37,16 @@ namespace Pulumi.Azure.Policy.Inputs
         }
 
         /// <summary>
-        /// A unique ID within this policy set definition for this policy definition reference.
+        /// A unique ID within this Policy Set Definition for this Policy Definition Reference.
         /// </summary>
         [Input("referenceId")]
         public Input<string>? ReferenceId { get; set; }
+
+        /// <summary>
+        /// The version of the Policy Definition to use.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public PolicySetDefinitionPolicyDefinitionReferenceGetArgs()
         {

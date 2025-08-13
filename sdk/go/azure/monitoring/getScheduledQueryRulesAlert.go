@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Insights`: 2018-04-16
+// * `Microsoft.Insights` - 2018-04-16
 func LookupScheduledQueryRulesAlert(ctx *pulumi.Context, args *LookupScheduledQueryRulesAlertArgs, opts ...pulumi.InvokeOption) (*LookupScheduledQueryRulesAlertResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupScheduledQueryRulesAlertResult

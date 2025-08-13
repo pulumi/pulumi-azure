@@ -124,7 +124,7 @@ def get_dedicated_host(dedicated_host_group_name: Optional[_builtins.str] = None
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str dedicated_host_group_name: Specifies the name of the Dedicated Host Group the Dedicated Host is located in.
@@ -169,7 +169,7 @@ def get_dedicated_host_output(dedicated_host_group_name: Optional[pulumi.Input[_
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2024-03-01
+    * `Microsoft.Compute` - 2024-03-01
 
 
     :param _builtins.str dedicated_host_group_name: Specifies the name of the Dedicated Host Group the Dedicated Host is located in.

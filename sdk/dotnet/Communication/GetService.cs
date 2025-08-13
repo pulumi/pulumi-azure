@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Communication
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Communication`: 2023-03-31
+        /// * `Microsoft.Communication` - 2023-03-31
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:communication/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Communication
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Communication`: 2023-03-31
+        /// * `Microsoft.Communication` - 2023-03-31
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:communication/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Communication
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Communication`: 2023-03-31
+        /// * `Microsoft.Communication` - 2023-03-31
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:communication/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -174,13 +174,17 @@ namespace Pulumi.Azure.Communication
         /// </summary>
         public readonly string DataLocation;
         /// <summary>
-        /// The hostname of the Communication Service
+        /// The hostname of the Communication Service.
         /// </summary>
         public readonly string Hostname;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The immutable resource id of the Communication Service.
+        /// </summary>
+        public readonly string ImmutableResourceId;
         public readonly string Name;
         /// <summary>
         /// The primary connection string of the Communication Service.
@@ -212,6 +216,8 @@ namespace Pulumi.Azure.Communication
 
             string id,
 
+            string immutableResourceId,
+
             string name,
 
             string primaryConnectionString,
@@ -229,6 +235,7 @@ namespace Pulumi.Azure.Communication
             DataLocation = dataLocation;
             Hostname = hostname;
             Id = id;
+            ImmutableResourceId = immutableResourceId;
             Name = name;
             PrimaryConnectionString = primaryConnectionString;
             PrimaryKey = primaryKey;

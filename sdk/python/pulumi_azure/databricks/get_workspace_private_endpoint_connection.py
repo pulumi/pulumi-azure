@@ -108,7 +108,7 @@ def get_workspace_private_endpoint_connection(private_endpoint_id: Optional[_bui
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Databricks`: 2024-05-01
+    * `Microsoft.Databricks` - 2024-05-01
 
 
     :param _builtins.str private_endpoint_id: The resource ID of the Private Endpoint.
@@ -147,7 +147,7 @@ def get_workspace_private_endpoint_connection_output(private_endpoint_id: Option
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Databricks`: 2024-05-01
+    * `Microsoft.Databricks` - 2024-05-01
 
 
     :param _builtins.str private_endpoint_id: The resource ID of the Private Endpoint.

@@ -468,7 +468,7 @@ class Schedule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Automation`: 2023-11-01
+        * `Microsoft.Automation` - 2023-11-01
 
         ## Import
 
@@ -533,7 +533,7 @@ class Schedule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Automation`: 2023-11-01
+        * `Microsoft.Automation` - 2023-11-01
 
         ## Import
 

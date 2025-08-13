@@ -183,7 +183,7 @@ def get_storage_container(metadata: Optional[Mapping[str, _builtins.str]] = None
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage`: 2023-05-01
+    * `Microsoft.Storage` - 2023-05-01
 
 
     :param Mapping[str, _builtins.str] metadata: A mapping of MetaData for this Container.
@@ -238,7 +238,7 @@ def get_storage_container_output(metadata: Optional[pulumi.Input[Optional[Mappin
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage`: 2023-05-01
+    * `Microsoft.Storage` - 2023-05-01
 
 
     :param Mapping[str, _builtins.str] metadata: A mapping of MetaData for this Container.

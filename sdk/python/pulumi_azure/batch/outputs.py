@@ -1949,7 +1949,7 @@ class PoolStartTask(dict):
         :param Mapping[str, _builtins.str] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
         :param Sequence['PoolStartTaskContainerArgs'] containers: A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         :param Sequence['PoolStartTaskResourceFileArgs'] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
-        :param _builtins.int task_retry_maximum: The number of retry count.
+        :param _builtins.int task_retry_maximum: The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         :param _builtins.bool wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
         pulumi.set(__self__, "command_line", command_line)
@@ -2009,7 +2009,7 @@ class PoolStartTask(dict):
     @pulumi.getter(name="taskRetryMaximum")
     def task_retry_maximum(self) -> Optional[_builtins.int]:
         """
-        The number of retry count.
+        The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         return pulumi.get(self, "task_retry_maximum")
 

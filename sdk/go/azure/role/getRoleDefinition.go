@@ -71,7 +71,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Authorization`: 2022-05-01-preview
+// * `Microsoft.Authorization` - 2022-05-01-preview
 //
 // Deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
 func GetRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*GetRoleDefinitionResult, error) {

@@ -143,7 +143,7 @@ def get_share(account_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataShare`: 2019-11-01
+    * `Microsoft.DataShare` - 2019-11-01
 
 
     :param _builtins.str account_id: The ID of the Data Share account in which the Data Share is created.
@@ -187,7 +187,7 @@ def get_share_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataShare`: 2019-11-01
+    * `Microsoft.DataShare` - 2019-11-01
 
 
     :param _builtins.str account_id: The ID of the Data Share account in which the Data Share is created.

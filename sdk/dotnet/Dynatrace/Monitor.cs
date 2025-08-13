@@ -24,6 +24,12 @@ namespace Pulumi.Azure.Dynatrace
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+        /// </summary>
+        [Output("environmentProperties")]
+        public Output<ImmutableArray<Outputs.MonitorEnvironmentProperty>> EnvironmentProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -123,6 +129,18 @@ namespace Pulumi.Azure.Dynatrace
 
     public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
+        [Input("environmentProperties")]
+        private InputList<Inputs.MonitorEnvironmentPropertyArgs>? _environmentProperties;
+
+        /// <summary>
+        /// Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+        /// </summary>
+        public InputList<Inputs.MonitorEnvironmentPropertyArgs> EnvironmentProperties
+        {
+            get => _environmentProperties ?? (_environmentProperties = new InputList<Inputs.MonitorEnvironmentPropertyArgs>());
+            set => _environmentProperties = value;
+        }
+
         /// <summary>
         /// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
         /// </summary>
@@ -191,6 +209,18 @@ namespace Pulumi.Azure.Dynatrace
 
     public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
+        [Input("environmentProperties")]
+        private InputList<Inputs.MonitorEnvironmentPropertyGetArgs>? _environmentProperties;
+
+        /// <summary>
+        /// Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+        /// </summary>
+        public InputList<Inputs.MonitorEnvironmentPropertyGetArgs> EnvironmentProperties
+        {
+            get => _environmentProperties ?? (_environmentProperties = new InputList<Inputs.MonitorEnvironmentPropertyGetArgs>());
+            set => _environmentProperties = value;
+        }
+
         /// <summary>
         /// The kind of managed identity assigned to this resource.  A `identity` block as defined below.
         /// </summary>

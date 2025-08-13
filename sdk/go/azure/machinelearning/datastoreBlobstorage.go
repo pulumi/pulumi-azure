@@ -116,7 +116,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.MachineLearningServices`: 2024-04-01
+// * `Microsoft.MachineLearningServices` - 2025-06-01
 //
 // ## Import
 //
@@ -142,7 +142,7 @@ type DatastoreBlobstorage struct {
 	ServiceDataAuthIdentity pulumi.StringPtrOutput `pulumi:"serviceDataAuthIdentity"`
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
 	//
-	// > **Note:** One of `accountKey` or `sharedAccessSignature` must be specified.
+	// > **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature pulumi.StringPtrOutput `pulumi:"sharedAccessSignature"`
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId pulumi.StringOutput `pulumi:"storageContainerId"`
@@ -213,7 +213,7 @@ type datastoreBlobstorageState struct {
 	ServiceDataAuthIdentity *string `pulumi:"serviceDataAuthIdentity"`
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
 	//
-	// > **Note:** One of `accountKey` or `sharedAccessSignature` must be specified.
+	// > **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature *string `pulumi:"sharedAccessSignature"`
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId *string `pulumi:"storageContainerId"`
@@ -238,7 +238,7 @@ type DatastoreBlobstorageState struct {
 	ServiceDataAuthIdentity pulumi.StringPtrInput
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
 	//
-	// > **Note:** One of `accountKey` or `sharedAccessSignature` must be specified.
+	// > **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature pulumi.StringPtrInput
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId pulumi.StringPtrInput
@@ -267,7 +267,7 @@ type datastoreBlobstorageArgs struct {
 	ServiceDataAuthIdentity *string `pulumi:"serviceDataAuthIdentity"`
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
 	//
-	// > **Note:** One of `accountKey` or `sharedAccessSignature` must be specified.
+	// > **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature *string `pulumi:"sharedAccessSignature"`
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId string `pulumi:"storageContainerId"`
@@ -293,7 +293,7 @@ type DatastoreBlobstorageArgs struct {
 	ServiceDataAuthIdentity pulumi.StringPtrInput
 	// The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
 	//
-	// > **Note:** One of `accountKey` or `sharedAccessSignature` must be specified.
+	// > **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
 	SharedAccessSignature pulumi.StringPtrInput
 	// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
 	StorageContainerId pulumi.StringInput
@@ -419,7 +419,7 @@ func (o DatastoreBlobstorageOutput) ServiceDataAuthIdentity() pulumi.StringPtrOu
 
 // The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
 //
-// > **Note:** One of `accountKey` or `sharedAccessSignature` must be specified.
+// > **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
 func (o DatastoreBlobstorageOutput) SharedAccessSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreBlobstorage) pulumi.StringPtrOutput { return v.SharedAccessSignature }).(pulumi.StringPtrOutput)
 }

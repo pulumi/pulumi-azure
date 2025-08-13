@@ -1722,7 +1722,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Resources`: 2022-02-01
+     * * `Microsoft.Resources` - 2022-02-01
      * 
      */
     public static Output<GetTemplateSpecVersionResult> getTemplateSpecVersion(GetTemplateSpecVersionArgs args) {
@@ -1774,7 +1774,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Resources`: 2022-02-01
+     * * `Microsoft.Resources` - 2022-02-01
      * 
      */
     public static CompletableFuture<GetTemplateSpecVersionResult> getTemplateSpecVersionPlain(GetTemplateSpecVersionPlainArgs args) {
@@ -1826,7 +1826,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Resources`: 2022-02-01
+     * * `Microsoft.Resources` - 2022-02-01
      * 
      */
     public static Output<GetTemplateSpecVersionResult> getTemplateSpecVersion(GetTemplateSpecVersionArgs args, InvokeOptions options) {
@@ -1878,7 +1878,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Resources`: 2022-02-01
+     * * `Microsoft.Resources` - 2022-02-01
      * 
      */
     public static Output<GetTemplateSpecVersionResult> getTemplateSpecVersion(GetTemplateSpecVersionArgs args, InvokeOutputOptions options) {
@@ -1930,7 +1930,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Resources`: 2022-02-01
+     * * `Microsoft.Resources` - 2022-02-01
      * 
      */
     public static CompletableFuture<GetTemplateSpecVersionResult> getTemplateSpecVersionPlain(GetTemplateSpecVersionPlainArgs args, InvokeOptions options) {
@@ -2020,7 +2020,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -2079,7 +2079,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -2138,7 +2138,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -2197,7 +2197,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity
@@ -2256,7 +2256,7 @@ public final class CoreFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * * `Microsoft.ManagedIdentity` - 2023-01-31
      * 
      * @deprecated
      * azure.core.getUserAssignedIdentity has been deprecated in favor of azure.authorization.getUserAssignedIdentity

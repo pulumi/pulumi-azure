@@ -256,7 +256,7 @@ def get_api(api_management_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2022-08-01
 
 
     :param _builtins.str api_management_name: The name of the API Management Service in which the API Management API exists.
@@ -316,7 +316,7 @@ def get_api_output(api_management_name: Optional[pulumi.Input[_builtins.str]] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2022-08-01
 
 
     :param _builtins.str api_management_name: The name of the API Management Service in which the API Management API exists.

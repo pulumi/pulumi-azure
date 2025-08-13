@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Databricks`: 2024-05-01
+ * * `Microsoft.Databricks` - 2024-05-01
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,6 +60,11 @@ export interface GetWorkspaceArgs {
  * A collection of values returned by getWorkspace.
  */
 export interface GetWorkspaceResult {
+    /**
+     * A `customParameters` block as documented below.
+     * *
+     */
+    readonly customParameters: outputs.databricks.GetWorkspaceCustomParameter[];
     /**
      * An `enhancedSecurityCompliance` block as documented below.
      */
@@ -120,7 +125,7 @@ export interface GetWorkspaceResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Databricks`: 2024-05-01
+ * * `Microsoft.Databricks` - 2024-05-01
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

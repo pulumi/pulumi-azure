@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  */
 export function getAttachedNetwork(args: GetAttachedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,7 +85,7 @@ export interface GetAttachedNetworkResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  */
 export function getAttachedNetworkOutput(args: GetAttachedNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttachedNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

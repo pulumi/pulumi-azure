@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Arc
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ResourceConnector`: 2022-10-27
+        /// * `Microsoft.ResourceConnector` - 2022-10-27
         /// </summary>
         public static Task<GetResourceBridgeApplianceResult> InvokeAsync(GetResourceBridgeApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceBridgeApplianceResult>("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args ?? new GetResourceBridgeApplianceArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Arc
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ResourceConnector`: 2022-10-27
+        /// * `Microsoft.ResourceConnector` - 2022-10-27
         /// </summary>
         public static Output<GetResourceBridgeApplianceResult> Invoke(GetResourceBridgeApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceBridgeApplianceResult>("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args ?? new GetResourceBridgeApplianceInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Arc
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ResourceConnector`: 2022-10-27
+        /// * `Microsoft.ResourceConnector` - 2022-10-27
         /// </summary>
         public static Output<GetResourceBridgeApplianceResult> Invoke(GetResourceBridgeApplianceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceBridgeApplianceResult>("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", args ?? new GetResourceBridgeApplianceInvokeArgs(), options.WithDefaults());

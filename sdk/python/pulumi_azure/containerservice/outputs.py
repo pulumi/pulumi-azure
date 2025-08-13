@@ -928,6 +928,7 @@ class FluxConfigurationGitRepository(dict):
                  https_key_base64: Optional[_builtins.str] = None,
                  https_user: Optional[_builtins.str] = None,
                  local_auth_reference: Optional[_builtins.str] = None,
+                 provider: Optional[_builtins.str] = None,
                  ssh_known_hosts_base64: Optional[_builtins.str] = None,
                  ssh_private_key_base64: Optional[_builtins.str] = None,
                  sync_interval_in_seconds: Optional[_builtins.int] = None,
@@ -940,6 +941,7 @@ class FluxConfigurationGitRepository(dict):
         :param _builtins.str https_key_base64: Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
         :param _builtins.str https_user: Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
         :param _builtins.str local_auth_reference: Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+        :param _builtins.str provider: Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
         :param _builtins.str ssh_known_hosts_base64: Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
         :param _builtins.str ssh_private_key_base64: Specifies the Base64-encoded SSH private key in PEM format.
         :param _builtins.int sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
@@ -956,6 +958,8 @@ class FluxConfigurationGitRepository(dict):
             pulumi.set(__self__, "https_user", https_user)
         if local_auth_reference is not None:
             pulumi.set(__self__, "local_auth_reference", local_auth_reference)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
         if ssh_known_hosts_base64 is not None:
             pulumi.set(__self__, "ssh_known_hosts_base64", ssh_known_hosts_base64)
         if ssh_private_key_base64 is not None:
@@ -1020,6 +1024,14 @@ class FluxConfigurationGitRepository(dict):
         Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
         """
         return pulumi.get(self, "local_auth_reference")
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> Optional[_builtins.str]:
+        """
+        Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+        """
+        return pulumi.get(self, "provider")
 
     @_builtins.property
     @pulumi.getter(name="sshKnownHostsBase64")
@@ -3129,7 +3141,7 @@ class KubernetesClusterAutoScalerProfile(dict):
         :param _builtins.str scale_down_utilization_threshold: Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
         :param _builtins.str scan_interval: How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
         :param _builtins.bool skip_nodes_with_local_storage: If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-        :param _builtins.bool skip_nodes_with_system_pods: If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+        :param _builtins.bool skip_nodes_with_system_pods: If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
@@ -3328,7 +3340,7 @@ class KubernetesClusterAutoScalerProfile(dict):
     @pulumi.getter(name="skipNodesWithSystemPods")
     def skip_nodes_with_system_pods(self) -> Optional[_builtins.bool]:
         """
-        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
         """
         return pulumi.get(self, "skip_nodes_with_system_pods")
 
@@ -3558,7 +3570,7 @@ class KubernetesClusterDefaultNodePool(dict):
                
                > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
         :param _builtins.str capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        :param _builtins.bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
+        :param _builtins.bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         :param _builtins.str gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param _builtins.bool host_encryption_enabled: Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
                
@@ -3705,7 +3717,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="fipsEnabled")
     def fips_enabled(self) -> Optional[_builtins.bool]:
         """
-        Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
+        Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         """
         return pulumi.get(self, "fips_enabled")
 
@@ -4140,6 +4152,8 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
             suggest = "swap_file_size_mb"
         elif key == "sysctlConfig":
             suggest = "sysctl_config"
+        elif key == "transparentHugePage":
+            suggest = "transparent_huge_page"
         elif key == "transparentHugePageDefrag":
             suggest = "transparent_huge_page_defrag"
         elif key == "transparentHugePageEnabled":
@@ -4159,18 +4173,21 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
     def __init__(__self__, *,
                  swap_file_size_mb: Optional[_builtins.int] = None,
                  sysctl_config: Optional['outputs.KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig'] = None,
+                 transparent_huge_page: Optional[_builtins.str] = None,
                  transparent_huge_page_defrag: Optional[_builtins.str] = None,
                  transparent_huge_page_enabled: Optional[_builtins.str] = None):
         """
         :param _builtins.int swap_file_size_mb: Specifies the size of the swap file on each node in MB.
         :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs' sysctl_config: A `sysctl_config` block as defined below.
+        :param _builtins.str transparent_huge_page: Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
         :param _builtins.str transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
-        :param _builtins.str transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
         """
         if swap_file_size_mb is not None:
             pulumi.set(__self__, "swap_file_size_mb", swap_file_size_mb)
         if sysctl_config is not None:
             pulumi.set(__self__, "sysctl_config", sysctl_config)
+        if transparent_huge_page is not None:
+            pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
         if transparent_huge_page_enabled is not None:
@@ -4193,6 +4210,14 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
         return pulumi.get(self, "sysctl_config")
 
     @_builtins.property
+    @pulumi.getter(name="transparentHugePage")
+    def transparent_huge_page(self) -> Optional[_builtins.str]:
+        """
+        Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+        """
+        return pulumi.get(self, "transparent_huge_page")
+
+    @_builtins.property
     @pulumi.getter(name="transparentHugePageDefrag")
     def transparent_huge_page_defrag(self) -> Optional[_builtins.str]:
         """
@@ -4202,10 +4227,8 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
 
     @_builtins.property
     @pulumi.getter(name="transparentHugePageEnabled")
+    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
     def transparent_huge_page_enabled(self) -> Optional[_builtins.str]:
-        """
-        Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
-        """
         return pulumi.get(self, "transparent_huge_page_enabled")
 
 
@@ -4795,7 +4818,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
                
                > **Note:** If a percentage is provided, the number of surge nodes is calculated from the `node_count` value on the current cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
         :param _builtins.int drain_timeout_in_minutes: The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors pod disruption budgets for upgrades. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
-        :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+        :param _builtins.int node_soak_duration_in_minutes: The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
         """
         pulumi.set(__self__, "max_surge", max_surge)
         if drain_timeout_in_minutes is not None:
@@ -4825,7 +4848,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
     @pulumi.getter(name="nodeSoakDurationInMinutes")
     def node_soak_duration_in_minutes(self) -> Optional[_builtins.int]:
         """
-        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+        The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
         """
         return pulumi.get(self, "node_soak_duration_in_minutes")
 
@@ -5957,7 +5980,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
                  week_index: Optional[_builtins.str] = None):
         """
         :param _builtins.int duration: The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
-        :param _builtins.str frequency: Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+        :param _builtins.str frequency: Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param _builtins.int interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
         :param _builtins.int day_of_month: The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
         :param _builtins.str day_of_week: The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
@@ -5998,7 +6021,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
     @pulumi.getter
     def frequency(self) -> _builtins.str:
         """
-        Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+        Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         """
         return pulumi.get(self, "frequency")
 
@@ -7053,6 +7076,8 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
             suggest = "swap_file_size_mb"
         elif key == "sysctlConfig":
             suggest = "sysctl_config"
+        elif key == "transparentHugePage":
+            suggest = "transparent_huge_page"
         elif key == "transparentHugePageDefrag":
             suggest = "transparent_huge_page_defrag"
         elif key == "transparentHugePageEnabled":
@@ -7072,18 +7097,21 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
     def __init__(__self__, *,
                  swap_file_size_mb: Optional[_builtins.int] = None,
                  sysctl_config: Optional['outputs.KubernetesClusterNodePoolLinuxOsConfigSysctlConfig'] = None,
+                 transparent_huge_page: Optional[_builtins.str] = None,
                  transparent_huge_page_defrag: Optional[_builtins.str] = None,
                  transparent_huge_page_enabled: Optional[_builtins.str] = None):
         """
         :param _builtins.int swap_file_size_mb: Specifies the size of swap file on each node in MB.
         :param 'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs' sysctl_config: A `sysctl_config` block as defined below.
+        :param _builtins.str transparent_huge_page: Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
         :param _builtins.str transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
-        :param _builtins.str transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
         """
         if swap_file_size_mb is not None:
             pulumi.set(__self__, "swap_file_size_mb", swap_file_size_mb)
         if sysctl_config is not None:
             pulumi.set(__self__, "sysctl_config", sysctl_config)
+        if transparent_huge_page is not None:
+            pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
         if transparent_huge_page_enabled is not None:
@@ -7106,6 +7134,14 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
         return pulumi.get(self, "sysctl_config")
 
     @_builtins.property
+    @pulumi.getter(name="transparentHugePage")
+    def transparent_huge_page(self) -> Optional[_builtins.str]:
+        """
+        Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+        """
+        return pulumi.get(self, "transparent_huge_page")
+
+    @_builtins.property
     @pulumi.getter(name="transparentHugePageDefrag")
     def transparent_huge_page_defrag(self) -> Optional[_builtins.str]:
         """
@@ -7115,10 +7151,8 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
 
     @_builtins.property
     @pulumi.getter(name="transparentHugePageEnabled")
+    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
     def transparent_huge_page_enabled(self) -> Optional[_builtins.str]:
-        """
-        Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
-        """
         return pulumi.get(self, "transparent_huge_page_enabled")
 
 
@@ -8285,6 +8319,8 @@ class KubernetesClusterWebAppRouting(dict):
         suggest = None
         if key == "dnsZoneIds":
             suggest = "dns_zone_ids"
+        elif key == "defaultNginxController":
+            suggest = "default_nginx_controller"
         elif key == "webAppRoutingIdentities":
             suggest = "web_app_routing_identities"
 
@@ -8301,12 +8337,16 @@ class KubernetesClusterWebAppRouting(dict):
 
     def __init__(__self__, *,
                  dns_zone_ids: Sequence[_builtins.str],
+                 default_nginx_controller: Optional[_builtins.str] = None,
                  web_app_routing_identities: Optional[Sequence['outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity']] = None):
         """
         :param Sequence[_builtins.str] dns_zone_ids: Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
+        :param _builtins.str default_nginx_controller: Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
         :param Sequence['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs'] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "dns_zone_ids", dns_zone_ids)
+        if default_nginx_controller is not None:
+            pulumi.set(__self__, "default_nginx_controller", default_nginx_controller)
         if web_app_routing_identities is not None:
             pulumi.set(__self__, "web_app_routing_identities", web_app_routing_identities)
 
@@ -8317,6 +8357,14 @@ class KubernetesClusterWebAppRouting(dict):
         Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
         """
         return pulumi.get(self, "dns_zone_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNginxController")
+    def default_nginx_controller(self) -> Optional[_builtins.str]:
+        """
+        Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+        """
+        return pulumi.get(self, "default_nginx_controller")
 
     @_builtins.property
     @pulumi.getter(name="webAppRoutingIdentities")
@@ -8542,8 +8590,6 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
         """
         :param _builtins.bool keda_enabled: Specifies whether KEDA Autoscaler can be used for workloads.
         :param _builtins.bool vertical_pod_autoscaler_enabled: Specifies whether Vertical Pod Autoscaler should be enabled.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         """
         if keda_enabled is not None:
             pulumi.set(__self__, "keda_enabled", keda_enabled)
@@ -8563,8 +8609,6 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
     def vertical_pod_autoscaler_enabled(self) -> Optional[_builtins.bool]:
         """
         Specifies whether Vertical Pod Autoscaler should be enabled.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         """
         return pulumi.get(self, "vertical_pod_autoscaler_enabled")
 

@@ -134,7 +134,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DevCenter`: 2025-02-01
+// * `Microsoft.DevCenter` - 2025-02-01
 //
 // ## Import
 //
@@ -156,6 +156,10 @@ type ProjectPool struct {
 	LocalAdministratorEnabled pulumi.BoolOutput `pulumi:"localAdministratorEnabled"`
 	// The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+	//
+	// > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
+	ManagedVirtualNetworkRegions pulumi.StringPtrOutput `pulumi:"managedVirtualNetworkRegions"`
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
@@ -216,6 +220,10 @@ type projectPoolState struct {
 	LocalAdministratorEnabled *bool `pulumi:"localAdministratorEnabled"`
 	// The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+	//
+	// > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
+	ManagedVirtualNetworkRegions *string `pulumi:"managedVirtualNetworkRegions"`
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
@@ -235,6 +243,10 @@ type ProjectPoolState struct {
 	LocalAdministratorEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+	//
+	// > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
+	ManagedVirtualNetworkRegions pulumi.StringPtrInput
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
@@ -258,6 +270,10 @@ type projectPoolArgs struct {
 	LocalAdministratorEnabled bool `pulumi:"localAdministratorEnabled"`
 	// The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+	//
+	// > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
+	ManagedVirtualNetworkRegions *string `pulumi:"managedVirtualNetworkRegions"`
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
@@ -278,6 +294,10 @@ type ProjectPoolArgs struct {
 	LocalAdministratorEnabled pulumi.BoolInput
 	// The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+	//
+	// > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
+	ManagedVirtualNetworkRegions pulumi.StringPtrInput
 	// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
@@ -396,6 +416,13 @@ func (o ProjectPoolOutput) LocalAdministratorEnabled() pulumi.BoolOutput {
 // The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
 func (o ProjectPoolOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProjectPool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+//
+// > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
+func (o ProjectPoolOutput) ManagedVirtualNetworkRegions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectPool) pulumi.StringPtrOutput { return v.ManagedVirtualNetworkRegions }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.

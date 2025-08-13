@@ -35,6 +35,11 @@ export type FlexibleServerActiveDirectoryAdministrator = import("./flexibleServe
 export const FlexibleServerActiveDirectoryAdministrator: typeof import("./flexibleServerActiveDirectoryAdministrator").FlexibleServerActiveDirectoryAdministrator = null as any;
 utilities.lazyLoad(exports, ["FlexibleServerActiveDirectoryAdministrator"], () => require("./flexibleServerActiveDirectoryAdministrator"));
 
+export { FlexibleServerBackupArgs, FlexibleServerBackupState } from "./flexibleServerBackup";
+export type FlexibleServerBackup = import("./flexibleServerBackup").FlexibleServerBackup;
+export const FlexibleServerBackup: typeof import("./flexibleServerBackup").FlexibleServerBackup = null as any;
+utilities.lazyLoad(exports, ["FlexibleServerBackup"], () => require("./flexibleServerBackup"));
+
 export { FlexibleServerConfigurationArgs, FlexibleServerConfigurationState } from "./flexibleServerConfiguration";
 export type FlexibleServerConfiguration = import("./flexibleServerConfiguration").FlexibleServerConfiguration;
 export const FlexibleServerConfiguration: typeof import("./flexibleServerConfiguration").FlexibleServerConfiguration = null as any;
@@ -97,6 +102,8 @@ const _module = {
                 return new FlexibleServer(name, <any>undefined, { urn })
             case "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator":
                 return new FlexibleServerActiveDirectoryAdministrator(name, <any>undefined, { urn })
+            case "azure:postgresql/flexibleServerBackup:FlexibleServerBackup":
+                return new FlexibleServerBackup(name, <any>undefined, { urn })
             case "azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration":
                 return new FlexibleServerConfiguration(name, <any>undefined, { urn })
             case "azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase":
@@ -122,6 +129,7 @@ pulumi.runtime.registerResourceModule("azure", "postgresql/database", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerActiveDirectoryAdministrator", _module)
+pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerBackup", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerFirewallRule", _module)

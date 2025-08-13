@@ -875,12 +875,9 @@ func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type ClusterVirtualNetworkConfiguration struct {
-	// Data management's service public IP address resource id.
 	DataManagementPublicIpId string `pulumi:"dataManagementPublicIpId"`
-	// Engine service's public IP address resource id.
-	EnginePublicIpId string `pulumi:"enginePublicIpId"`
-	// The subnet resource id.
-	SubnetId string `pulumi:"subnetId"`
+	EnginePublicIpId         string `pulumi:"enginePublicIpId"`
+	SubnetId                 string `pulumi:"subnetId"`
 }
 
 // ClusterVirtualNetworkConfigurationInput is an input type that accepts ClusterVirtualNetworkConfigurationArgs and ClusterVirtualNetworkConfigurationOutput values.
@@ -895,12 +892,9 @@ type ClusterVirtualNetworkConfigurationInput interface {
 }
 
 type ClusterVirtualNetworkConfigurationArgs struct {
-	// Data management's service public IP address resource id.
 	DataManagementPublicIpId pulumi.StringInput `pulumi:"dataManagementPublicIpId"`
-	// Engine service's public IP address resource id.
-	EnginePublicIpId pulumi.StringInput `pulumi:"enginePublicIpId"`
-	// The subnet resource id.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	EnginePublicIpId         pulumi.StringInput `pulumi:"enginePublicIpId"`
+	SubnetId                 pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (ClusterVirtualNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -980,17 +974,14 @@ func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigu
 	}).(ClusterVirtualNetworkConfigurationPtrOutput)
 }
 
-// Data management's service public IP address resource id.
 func (o ClusterVirtualNetworkConfigurationOutput) DataManagementPublicIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) string { return v.DataManagementPublicIpId }).(pulumi.StringOutput)
 }
 
-// Engine service's public IP address resource id.
 func (o ClusterVirtualNetworkConfigurationOutput) EnginePublicIpId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) string { return v.EnginePublicIpId }).(pulumi.StringOutput)
 }
 
-// The subnet resource id.
 func (o ClusterVirtualNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -1019,7 +1010,6 @@ func (o ClusterVirtualNetworkConfigurationPtrOutput) Elem() ClusterVirtualNetwor
 	}).(ClusterVirtualNetworkConfigurationOutput)
 }
 
-// Data management's service public IP address resource id.
 func (o ClusterVirtualNetworkConfigurationPtrOutput) DataManagementPublicIpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) *string {
 		if v == nil {
@@ -1029,7 +1019,6 @@ func (o ClusterVirtualNetworkConfigurationPtrOutput) DataManagementPublicIpId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Engine service's public IP address resource id.
 func (o ClusterVirtualNetworkConfigurationPtrOutput) EnginePublicIpId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) *string {
 		if v == nil {
@@ -1039,7 +1028,6 @@ func (o ClusterVirtualNetworkConfigurationPtrOutput) EnginePublicIpId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subnet resource id.
 func (o ClusterVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) *string {
 		if v == nil {

@@ -196,7 +196,7 @@ def get_runbook(automation_account_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Automation`: 2023-11-01
+    * `Microsoft.Automation` - 2023-11-01
 
 
     :param _builtins.str automation_account_name: The name of the Automation Account the runbook belongs to.
@@ -247,7 +247,7 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[_builtins.
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Automation`: 2023-11-01
+    * `Microsoft.Automation` - 2023-11-01
 
 
     :param _builtins.str automation_account_name: The name of the Automation Account the runbook belongs to.

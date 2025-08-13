@@ -80,7 +80,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerRegistry`: 2019-06-01-preview
+// * `Microsoft.ContainerRegistry` - 2019-06-01-preview
 type RegistryTaskScheduleRunNow struct {
 	pulumi.CustomResourceState
 

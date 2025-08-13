@@ -85,7 +85,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetAuthorizationRuleResult> getAuthorizationRule(GetAuthorizationRuleArgs args) {
@@ -137,7 +137,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetAuthorizationRuleResult> getAuthorizationRulePlain(GetAuthorizationRulePlainArgs args) {
@@ -189,7 +189,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetAuthorizationRuleResult> getAuthorizationRule(GetAuthorizationRuleArgs args, InvokeOptions options) {
@@ -241,7 +241,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetAuthorizationRuleResult> getAuthorizationRule(GetAuthorizationRuleArgs args, InvokeOutputOptions options) {
@@ -293,7 +293,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetAuthorizationRuleResult> getAuthorizationRulePlain(GetAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -344,7 +344,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -395,7 +395,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -446,7 +446,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -497,7 +497,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOutputOptions options) {
@@ -548,7 +548,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -600,7 +600,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetConsumeGroupResult> getConsumeGroup(GetConsumeGroupArgs args) {
@@ -652,7 +652,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetConsumeGroupResult> getConsumeGroupPlain(GetConsumeGroupPlainArgs args) {
@@ -704,7 +704,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetConsumeGroupResult> getConsumeGroup(GetConsumeGroupArgs args, InvokeOptions options) {
@@ -756,7 +756,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetConsumeGroupResult> getConsumeGroup(GetConsumeGroupArgs args, InvokeOutputOptions options) {
@@ -808,7 +808,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetConsumeGroupResult> getConsumeGroupPlain(GetConsumeGroupPlainArgs args, InvokeOptions options) {
@@ -860,7 +860,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetEventHubResult> getEventHub(GetEventHubArgs args) {
@@ -912,7 +912,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetEventHubResult> getEventHubPlain(GetEventHubPlainArgs args) {
@@ -964,7 +964,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetEventHubResult> getEventHub(GetEventHubArgs args, InvokeOptions options) {
@@ -1016,7 +1016,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetEventHubResult> getEventHub(GetEventHubArgs args, InvokeOutputOptions options) {
@@ -1068,7 +1068,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetEventHubResult> getEventHubPlain(GetEventHubPlainArgs args, InvokeOptions options) {
@@ -1119,7 +1119,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -1174,7 +1174,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -1229,7 +1229,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -1284,7 +1284,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -1339,7 +1339,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace
@@ -1394,7 +1394,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
@@ -1445,7 +1445,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -1496,7 +1496,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
@@ -1547,7 +1547,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOutputOptions options) {
@@ -1598,7 +1598,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {
@@ -1650,7 +1650,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args) {
@@ -1702,7 +1702,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args) {
@@ -1754,7 +1754,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOptions options) {
@@ -1806,7 +1806,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOutputOptions options) {
@@ -1858,7 +1858,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventHub`: 2024-01-01
+     * * `Microsoft.EventHub` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -2354,7 +2354,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
@@ -2409,7 +2409,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
@@ -2464,7 +2464,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
@@ -2519,7 +2519,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace
@@ -2574,7 +2574,7 @@ public final class EventhubFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      * @deprecated
      * azure.eventhub.getServiceBusNamespace has been deprecated in favor of azure.servicebus.getNamespace

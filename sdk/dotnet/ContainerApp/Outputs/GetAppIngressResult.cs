@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string ClientCertificateMode;
         /// <summary>
+        /// A `cors` block as detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAppIngressCorResult> Cors;
+        /// <summary>
         /// One or more `custom_domain` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppIngressCustomDomainResult> CustomDomains;
@@ -60,6 +64,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             string clientCertificateMode,
 
+            ImmutableArray<Outputs.GetAppIngressCorResult> cors,
+
             ImmutableArray<Outputs.GetAppIngressCustomDomainResult> customDomains,
 
             int exposedPort,
@@ -78,6 +84,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         {
             AllowInsecureConnections = allowInsecureConnections;
             ClientCertificateMode = clientCertificateMode;
+            Cors = cors;
             CustomDomains = customDomains;
             ExposedPort = exposedPort;
             ExternalEnabled = externalEnabled;

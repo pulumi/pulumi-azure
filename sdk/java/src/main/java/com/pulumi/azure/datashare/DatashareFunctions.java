@@ -75,7 +75,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -126,7 +126,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -177,7 +177,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -228,7 +228,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
@@ -279,7 +279,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -330,7 +330,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args) {
@@ -381,7 +381,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetBlobStorageResult> getDatasetBlobStoragePlain(GetDatasetBlobStoragePlainArgs args) {
@@ -432,7 +432,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args, InvokeOptions options) {
@@ -483,7 +483,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetBlobStorageResult> getDatasetBlobStorage(GetDatasetBlobStorageArgs args, InvokeOutputOptions options) {
@@ -534,7 +534,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetBlobStorageResult> getDatasetBlobStoragePlain(GetDatasetBlobStoragePlainArgs args, InvokeOptions options) {
@@ -585,7 +585,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args) {
@@ -636,7 +636,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2Plain(GetDatasetDataLakeGen2PlainArgs args) {
@@ -687,7 +687,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args, InvokeOptions options) {
@@ -738,7 +738,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2(GetDatasetDataLakeGen2Args args, InvokeOutputOptions options) {
@@ -789,7 +789,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetDataLakeGen2Result> getDatasetDataLakeGen2Plain(GetDatasetDataLakeGen2PlainArgs args, InvokeOptions options) {
@@ -840,7 +840,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args) {
@@ -891,7 +891,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetKustoClusterResult> getDatasetKustoClusterPlain(GetDatasetKustoClusterPlainArgs args) {
@@ -942,7 +942,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args, InvokeOptions options) {
@@ -993,7 +993,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetKustoClusterResult> getDatasetKustoCluster(GetDatasetKustoClusterArgs args, InvokeOutputOptions options) {
@@ -1044,7 +1044,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetKustoClusterResult> getDatasetKustoClusterPlain(GetDatasetKustoClusterPlainArgs args, InvokeOptions options) {
@@ -1095,7 +1095,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args) {
@@ -1146,7 +1146,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetKustoDatabaseResult> getDatasetKustoDatabasePlain(GetDatasetKustoDatabasePlainArgs args) {
@@ -1197,7 +1197,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args, InvokeOptions options) {
@@ -1248,7 +1248,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetDatasetKustoDatabaseResult> getDatasetKustoDatabase(GetDatasetKustoDatabaseArgs args, InvokeOutputOptions options) {
@@ -1299,7 +1299,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetDatasetKustoDatabaseResult> getDatasetKustoDatabasePlain(GetDatasetKustoDatabasePlainArgs args, InvokeOptions options) {
@@ -1356,7 +1356,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args) {
@@ -1413,7 +1413,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args) {
@@ -1470,7 +1470,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOptions options) {
@@ -1527,7 +1527,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static Output<GetShareResult> getShare(GetShareArgs args, InvokeOutputOptions options) {
@@ -1584,7 +1584,7 @@ public final class DatashareFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataShare`: 2019-11-01
+     * * `Microsoft.DataShare` - 2019-11-01
      * 
      */
     public static CompletableFuture<GetShareResult> getSharePlain(GetSharePlainArgs args, InvokeOptions options) {

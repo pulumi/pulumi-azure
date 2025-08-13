@@ -13,6 +13,202 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type MonitorEnvironmentProperty struct {
+	// Information about the Dynatrace environment. An `environmentInfo` block as defined below.
+	EnvironmentInfos []MonitorEnvironmentPropertyEnvironmentInfo `pulumi:"environmentInfos"`
+}
+
+// MonitorEnvironmentPropertyInput is an input type that accepts MonitorEnvironmentPropertyArgs and MonitorEnvironmentPropertyOutput values.
+// You can construct a concrete instance of `MonitorEnvironmentPropertyInput` via:
+//
+//	MonitorEnvironmentPropertyArgs{...}
+type MonitorEnvironmentPropertyInput interface {
+	pulumi.Input
+
+	ToMonitorEnvironmentPropertyOutput() MonitorEnvironmentPropertyOutput
+	ToMonitorEnvironmentPropertyOutputWithContext(context.Context) MonitorEnvironmentPropertyOutput
+}
+
+type MonitorEnvironmentPropertyArgs struct {
+	// Information about the Dynatrace environment. An `environmentInfo` block as defined below.
+	EnvironmentInfos MonitorEnvironmentPropertyEnvironmentInfoArrayInput `pulumi:"environmentInfos"`
+}
+
+func (MonitorEnvironmentPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorEnvironmentProperty)(nil)).Elem()
+}
+
+func (i MonitorEnvironmentPropertyArgs) ToMonitorEnvironmentPropertyOutput() MonitorEnvironmentPropertyOutput {
+	return i.ToMonitorEnvironmentPropertyOutputWithContext(context.Background())
+}
+
+func (i MonitorEnvironmentPropertyArgs) ToMonitorEnvironmentPropertyOutputWithContext(ctx context.Context) MonitorEnvironmentPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorEnvironmentPropertyOutput)
+}
+
+// MonitorEnvironmentPropertyArrayInput is an input type that accepts MonitorEnvironmentPropertyArray and MonitorEnvironmentPropertyArrayOutput values.
+// You can construct a concrete instance of `MonitorEnvironmentPropertyArrayInput` via:
+//
+//	MonitorEnvironmentPropertyArray{ MonitorEnvironmentPropertyArgs{...} }
+type MonitorEnvironmentPropertyArrayInput interface {
+	pulumi.Input
+
+	ToMonitorEnvironmentPropertyArrayOutput() MonitorEnvironmentPropertyArrayOutput
+	ToMonitorEnvironmentPropertyArrayOutputWithContext(context.Context) MonitorEnvironmentPropertyArrayOutput
+}
+
+type MonitorEnvironmentPropertyArray []MonitorEnvironmentPropertyInput
+
+func (MonitorEnvironmentPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorEnvironmentProperty)(nil)).Elem()
+}
+
+func (i MonitorEnvironmentPropertyArray) ToMonitorEnvironmentPropertyArrayOutput() MonitorEnvironmentPropertyArrayOutput {
+	return i.ToMonitorEnvironmentPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorEnvironmentPropertyArray) ToMonitorEnvironmentPropertyArrayOutputWithContext(ctx context.Context) MonitorEnvironmentPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorEnvironmentPropertyArrayOutput)
+}
+
+type MonitorEnvironmentPropertyOutput struct{ *pulumi.OutputState }
+
+func (MonitorEnvironmentPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorEnvironmentProperty)(nil)).Elem()
+}
+
+func (o MonitorEnvironmentPropertyOutput) ToMonitorEnvironmentPropertyOutput() MonitorEnvironmentPropertyOutput {
+	return o
+}
+
+func (o MonitorEnvironmentPropertyOutput) ToMonitorEnvironmentPropertyOutputWithContext(ctx context.Context) MonitorEnvironmentPropertyOutput {
+	return o
+}
+
+// Information about the Dynatrace environment. An `environmentInfo` block as defined below.
+func (o MonitorEnvironmentPropertyOutput) EnvironmentInfos() MonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return o.ApplyT(func(v MonitorEnvironmentProperty) []MonitorEnvironmentPropertyEnvironmentInfo {
+		return v.EnvironmentInfos
+	}).(MonitorEnvironmentPropertyEnvironmentInfoArrayOutput)
+}
+
+type MonitorEnvironmentPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorEnvironmentPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorEnvironmentProperty)(nil)).Elem()
+}
+
+func (o MonitorEnvironmentPropertyArrayOutput) ToMonitorEnvironmentPropertyArrayOutput() MonitorEnvironmentPropertyArrayOutput {
+	return o
+}
+
+func (o MonitorEnvironmentPropertyArrayOutput) ToMonitorEnvironmentPropertyArrayOutputWithContext(ctx context.Context) MonitorEnvironmentPropertyArrayOutput {
+	return o
+}
+
+func (o MonitorEnvironmentPropertyArrayOutput) Index(i pulumi.IntInput) MonitorEnvironmentPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorEnvironmentProperty {
+		return vs[0].([]MonitorEnvironmentProperty)[vs[1].(int)]
+	}).(MonitorEnvironmentPropertyOutput)
+}
+
+type MonitorEnvironmentPropertyEnvironmentInfo struct {
+	// The ID of the Dynatrace environment to be created.
+	EnvironmentId string `pulumi:"environmentId"`
+}
+
+// MonitorEnvironmentPropertyEnvironmentInfoInput is an input type that accepts MonitorEnvironmentPropertyEnvironmentInfoArgs and MonitorEnvironmentPropertyEnvironmentInfoOutput values.
+// You can construct a concrete instance of `MonitorEnvironmentPropertyEnvironmentInfoInput` via:
+//
+//	MonitorEnvironmentPropertyEnvironmentInfoArgs{...}
+type MonitorEnvironmentPropertyEnvironmentInfoInput interface {
+	pulumi.Input
+
+	ToMonitorEnvironmentPropertyEnvironmentInfoOutput() MonitorEnvironmentPropertyEnvironmentInfoOutput
+	ToMonitorEnvironmentPropertyEnvironmentInfoOutputWithContext(context.Context) MonitorEnvironmentPropertyEnvironmentInfoOutput
+}
+
+type MonitorEnvironmentPropertyEnvironmentInfoArgs struct {
+	// The ID of the Dynatrace environment to be created.
+	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
+}
+
+func (MonitorEnvironmentPropertyEnvironmentInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorEnvironmentPropertyEnvironmentInfo)(nil)).Elem()
+}
+
+func (i MonitorEnvironmentPropertyEnvironmentInfoArgs) ToMonitorEnvironmentPropertyEnvironmentInfoOutput() MonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return i.ToMonitorEnvironmentPropertyEnvironmentInfoOutputWithContext(context.Background())
+}
+
+func (i MonitorEnvironmentPropertyEnvironmentInfoArgs) ToMonitorEnvironmentPropertyEnvironmentInfoOutputWithContext(ctx context.Context) MonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorEnvironmentPropertyEnvironmentInfoOutput)
+}
+
+// MonitorEnvironmentPropertyEnvironmentInfoArrayInput is an input type that accepts MonitorEnvironmentPropertyEnvironmentInfoArray and MonitorEnvironmentPropertyEnvironmentInfoArrayOutput values.
+// You can construct a concrete instance of `MonitorEnvironmentPropertyEnvironmentInfoArrayInput` via:
+//
+//	MonitorEnvironmentPropertyEnvironmentInfoArray{ MonitorEnvironmentPropertyEnvironmentInfoArgs{...} }
+type MonitorEnvironmentPropertyEnvironmentInfoArrayInput interface {
+	pulumi.Input
+
+	ToMonitorEnvironmentPropertyEnvironmentInfoArrayOutput() MonitorEnvironmentPropertyEnvironmentInfoArrayOutput
+	ToMonitorEnvironmentPropertyEnvironmentInfoArrayOutputWithContext(context.Context) MonitorEnvironmentPropertyEnvironmentInfoArrayOutput
+}
+
+type MonitorEnvironmentPropertyEnvironmentInfoArray []MonitorEnvironmentPropertyEnvironmentInfoInput
+
+func (MonitorEnvironmentPropertyEnvironmentInfoArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorEnvironmentPropertyEnvironmentInfo)(nil)).Elem()
+}
+
+func (i MonitorEnvironmentPropertyEnvironmentInfoArray) ToMonitorEnvironmentPropertyEnvironmentInfoArrayOutput() MonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return i.ToMonitorEnvironmentPropertyEnvironmentInfoArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorEnvironmentPropertyEnvironmentInfoArray) ToMonitorEnvironmentPropertyEnvironmentInfoArrayOutputWithContext(ctx context.Context) MonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorEnvironmentPropertyEnvironmentInfoArrayOutput)
+}
+
+type MonitorEnvironmentPropertyEnvironmentInfoOutput struct{ *pulumi.OutputState }
+
+func (MonitorEnvironmentPropertyEnvironmentInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorEnvironmentPropertyEnvironmentInfo)(nil)).Elem()
+}
+
+func (o MonitorEnvironmentPropertyEnvironmentInfoOutput) ToMonitorEnvironmentPropertyEnvironmentInfoOutput() MonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return o
+}
+
+func (o MonitorEnvironmentPropertyEnvironmentInfoOutput) ToMonitorEnvironmentPropertyEnvironmentInfoOutputWithContext(ctx context.Context) MonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return o
+}
+
+// The ID of the Dynatrace environment to be created.
+func (o MonitorEnvironmentPropertyEnvironmentInfoOutput) EnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorEnvironmentPropertyEnvironmentInfo) string { return v.EnvironmentId }).(pulumi.StringOutput)
+}
+
+type MonitorEnvironmentPropertyEnvironmentInfoArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorEnvironmentPropertyEnvironmentInfoArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorEnvironmentPropertyEnvironmentInfo)(nil)).Elem()
+}
+
+func (o MonitorEnvironmentPropertyEnvironmentInfoArrayOutput) ToMonitorEnvironmentPropertyEnvironmentInfoArrayOutput() MonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return o
+}
+
+func (o MonitorEnvironmentPropertyEnvironmentInfoArrayOutput) ToMonitorEnvironmentPropertyEnvironmentInfoArrayOutputWithContext(ctx context.Context) MonitorEnvironmentPropertyEnvironmentInfoArrayOutput {
+	return o
+}
+
+func (o MonitorEnvironmentPropertyEnvironmentInfoArrayOutput) Index(i pulumi.IntInput) MonitorEnvironmentPropertyEnvironmentInfoOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorEnvironmentPropertyEnvironmentInfo {
+		return vs[0].([]MonitorEnvironmentPropertyEnvironmentInfo)[vs[1].(int)]
+	}).(MonitorEnvironmentPropertyEnvironmentInfoOutput)
+}
+
 type MonitorIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	TenantId    *string `pulumi:"tenantId"`
@@ -1724,6 +1920,10 @@ func (o GetMonitorUserArrayOutput) Index(i pulumi.IntInput) GetMonitorUserOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorEnvironmentPropertyInput)(nil)).Elem(), MonitorEnvironmentPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorEnvironmentPropertyArrayInput)(nil)).Elem(), MonitorEnvironmentPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorEnvironmentPropertyEnvironmentInfoInput)(nil)).Elem(), MonitorEnvironmentPropertyEnvironmentInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorEnvironmentPropertyEnvironmentInfoArrayInput)(nil)).Elem(), MonitorEnvironmentPropertyEnvironmentInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityInput)(nil)).Elem(), MonitorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorIdentityPtrInput)(nil)).Elem(), MonitorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorPlanInput)(nil)).Elem(), MonitorPlanArgs{})
@@ -1748,6 +1948,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorPlanArrayInput)(nil)).Elem(), GetMonitorPlanArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorUserInput)(nil)).Elem(), GetMonitorUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMonitorUserArrayInput)(nil)).Elem(), GetMonitorUserArray{})
+	pulumi.RegisterOutputType(MonitorEnvironmentPropertyOutput{})
+	pulumi.RegisterOutputType(MonitorEnvironmentPropertyArrayOutput{})
+	pulumi.RegisterOutputType(MonitorEnvironmentPropertyEnvironmentInfoOutput{})
+	pulumi.RegisterOutputType(MonitorEnvironmentPropertyEnvironmentInfoArrayOutput{})
 	pulumi.RegisterOutputType(MonitorIdentityOutput{})
 	pulumi.RegisterOutputType(MonitorIdentityPtrOutput{})
 	pulumi.RegisterOutputType(MonitorPlanOutput{})

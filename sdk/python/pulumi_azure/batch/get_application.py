@@ -139,7 +139,7 @@ def get_application(account_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Batch`: 2024-07-01
+    * `Microsoft.Batch` - 2024-07-01
 
 
     :param _builtins.str account_name: The name of the Batch account.
@@ -185,7 +185,7 @@ def get_application_output(account_name: Optional[pulumi.Input[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Batch`: 2024-07-01
+    * `Microsoft.Batch` - 2024-07-01
 
 
     :param _builtins.str account_name: The name of the Batch account.

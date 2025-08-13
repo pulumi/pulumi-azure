@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Communication`: 2023-03-31
+ * * `Microsoft.Communication` - 2023-03-31
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,13 +60,17 @@ export interface GetServiceResult {
      */
     readonly dataLocation: string;
     /**
-     * The hostname of the Communication Service
+     * The hostname of the Communication Service.
      */
     readonly hostname: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The immutable resource id of the Communication Service.
+     */
+    readonly immutableResourceId: string;
     readonly name: string;
     /**
      * The primary connection string of the Communication Service.
@@ -111,7 +115,7 @@ export interface GetServiceResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Communication`: 2023-03-31
+ * * `Microsoft.Communication` - 2023-03-31
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

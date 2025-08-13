@@ -125,7 +125,7 @@ def get_network_ddos_protection_plan(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: The name of the Network DDoS Protection Plan.
@@ -166,7 +166,7 @@ def get_network_ddos_protection_plan_output(name: Optional[pulumi.Input[_builtin
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: The name of the Network DDoS Protection Plan.

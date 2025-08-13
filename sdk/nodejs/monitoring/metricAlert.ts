@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Insights`: 2018-03-01
+ * * `Microsoft.Insights` - 2018-03-01
  *
  * ## Import
  *

@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService`: 2024-04-01
+ * * `Microsoft.ContainerService` - 2024-04-01
  */
 export function getFleetManager(args: GetFleetManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +89,7 @@ export interface GetFleetManagerResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService`: 2024-04-01
+ * * `Microsoft.ContainerService` - 2024-04-01
  */
 export function getFleetManagerOutput(args: GetFleetManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

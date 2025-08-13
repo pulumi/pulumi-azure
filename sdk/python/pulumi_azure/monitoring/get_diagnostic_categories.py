@@ -115,7 +115,7 @@ def get_diagnostic_categories(resource_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2021-05-01-preview
+    * `Microsoft.Insights` - 2021-05-01-preview
 
 
     :param _builtins.str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.
@@ -152,7 +152,7 @@ def get_diagnostic_categories_output(resource_id: Optional[pulumi.Input[_builtin
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2021-05-01-preview
+    * `Microsoft.Insights` - 2021-05-01-preview
 
 
     :param _builtins.str resource_id: The ID of an existing Resource which Monitor Diagnostics Categories should be retrieved for.

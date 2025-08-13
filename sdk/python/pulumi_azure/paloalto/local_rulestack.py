@@ -391,7 +391,7 @@ class LocalRulestack(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+        * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
 
         ## Import
 
@@ -443,7 +443,7 @@ class LocalRulestack(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+        * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
 
         ## Import
 

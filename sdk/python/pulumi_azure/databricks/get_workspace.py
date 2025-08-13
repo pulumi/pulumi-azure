@@ -27,7 +27,10 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, enhanced_security_compliances=None, id=None, location=None, managed_disk_identities=None, name=None, resource_group_name=None, sku=None, storage_account_identities=None, tags=None, workspace_id=None, workspace_url=None):
+    def __init__(__self__, custom_parameters=None, enhanced_security_compliances=None, id=None, location=None, managed_disk_identities=None, name=None, resource_group_name=None, sku=None, storage_account_identities=None, tags=None, workspace_id=None, workspace_url=None):
+        if custom_parameters and not isinstance(custom_parameters, list):
+            raise TypeError("Expected argument 'custom_parameters' to be a list")
+        pulumi.set(__self__, "custom_parameters", custom_parameters)
         if enhanced_security_compliances and not isinstance(enhanced_security_compliances, list):
             raise TypeError("Expected argument 'enhanced_security_compliances' to be a list")
         pulumi.set(__self__, "enhanced_security_compliances", enhanced_security_compliances)
@@ -61,6 +64,15 @@ class GetWorkspaceResult:
         if workspace_url and not isinstance(workspace_url, str):
             raise TypeError("Expected argument 'workspace_url' to be a str")
         pulumi.set(__self__, "workspace_url", workspace_url)
+
+    @_builtins.property
+    @pulumi.getter(name="customParameters")
+    def custom_parameters(self) -> Sequence['outputs.GetWorkspaceCustomParameterResult']:
+        """
+        A `custom_parameters` block as documented below.
+        *
+        """
+        return pulumi.get(self, "custom_parameters")
 
     @_builtins.property
     @pulumi.getter(name="enhancedSecurityCompliances")
@@ -151,6 +163,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            custom_parameters=self.custom_parameters,
             enhanced_security_compliances=self.enhanced_security_compliances,
             id=self.id,
             location=self.location,
@@ -187,7 +200,7 @@ def get_workspace(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Databricks`: 2024-05-01
+    * `Microsoft.Databricks` - 2024-05-01
 
 
     :param _builtins.str name: The name of the Databricks Workspace.
@@ -202,6 +215,7 @@ def get_workspace(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure:databricks/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        custom_parameters=pulumi.get(__ret__, 'custom_parameters'),
         enhanced_security_compliances=pulumi.get(__ret__, 'enhanced_security_compliances'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -236,7 +250,7 @@ def get_workspace_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Databricks`: 2024-05-01
+    * `Microsoft.Databricks` - 2024-05-01
 
 
     :param _builtins.str name: The name of the Databricks Workspace.
@@ -250,6 +264,7 @@ def get_workspace_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:databricks/getWorkspace:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        custom_parameters=pulumi.get(__response__, 'custom_parameters'),
         enhanced_security_compliances=pulumi.get(__response__, 'enhanced_security_compliances'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

@@ -20,23 +20,31 @@ __all__ = ['ClusterCustomerManagedKeyArgs', 'ClusterCustomerManagedKey']
 class ClusterCustomerManagedKeyArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[_builtins.str],
-                 key_name: pulumi.Input[_builtins.str],
-                 key_vault_id: pulumi.Input[_builtins.str],
+                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterCustomerManagedKey resource.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault.
+        :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault for CMK encryption.
         :param pulumi.Input[_builtins.str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[_builtins.str] managed_hsm_key_id: The Managed HSM Key ID for CMK encryption.
+               
+               > **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
         :param pulumi.Input[_builtins.str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if user_identity is not None:
             pulumi.set(__self__, "user_identity", user_identity)
 
@@ -54,26 +62,26 @@ class ClusterCustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[_builtins.str]:
+    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of Key Vault Key.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: pulumi.Input[_builtins.str]):
+    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> pulumi.Input[_builtins.str]:
+    def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the Key Vault.
+        The ID of the Key Vault for CMK encryption.
         """
         return pulumi.get(self, "key_vault_id")
 
     @key_vault_id.setter
-    def key_vault_id(self, value: pulumi.Input[_builtins.str]):
+    def key_vault_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "key_vault_id", value)
 
     @_builtins.property
@@ -87,6 +95,20 @@ class ClusterCustomerManagedKeyArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "key_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Managed HSM Key ID for CMK encryption.
+
+        > **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentity")
@@ -108,13 +130,17 @@ class _ClusterCustomerManagedKeyState:
                  key_name: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identity: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterCustomerManagedKey resources.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault.
+        :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault for CMK encryption.
         :param pulumi.Input[_builtins.str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[_builtins.str] managed_hsm_key_id: The Managed HSM Key ID for CMK encryption.
+               
+               > **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
         :param pulumi.Input[_builtins.str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
         if cluster_id is not None:
@@ -125,6 +151,8 @@ class _ClusterCustomerManagedKeyState:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if user_identity is not None:
             pulumi.set(__self__, "user_identity", user_identity)
 
@@ -156,7 +184,7 @@ class _ClusterCustomerManagedKeyState:
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the Key Vault.
+        The ID of the Key Vault for CMK encryption.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -175,6 +203,20 @@ class _ClusterCustomerManagedKeyState:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "key_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Managed HSM Key ID for CMK encryption.
+
+        > **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userIdentity")
@@ -199,6 +241,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identity: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -282,7 +325,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Kusto`: 2024-04-13
+        * `Microsoft.Kusto` - 2024-04-13
 
         ## Import
 
@@ -296,8 +339,11 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault.
+        :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault for CMK encryption.
         :param pulumi.Input[_builtins.str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[_builtins.str] managed_hsm_key_id: The Managed HSM Key ID for CMK encryption.
+               
+               > **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
         :param pulumi.Input[_builtins.str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
         ...
@@ -387,7 +433,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Kusto`: 2024-04-13
+        * `Microsoft.Kusto` - 2024-04-13
 
         ## Import
 
@@ -416,6 +462,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[_builtins.str]] = None,
                  key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
                  key_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_identity: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -429,13 +476,10 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             if cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_id'")
             __props__.__dict__["cluster_id"] = cluster_id
-            if key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_name'")
             __props__.__dict__["key_name"] = key_name
-            if key_vault_id is None and not opts.urn:
-                raise TypeError("Missing required property 'key_vault_id'")
             __props__.__dict__["key_vault_id"] = key_vault_id
             __props__.__dict__["key_version"] = key_version
+            __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             __props__.__dict__["user_identity"] = user_identity
         super(ClusterCustomerManagedKey, __self__).__init__(
             'azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey',
@@ -451,6 +495,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             key_name: Optional[pulumi.Input[_builtins.str]] = None,
             key_vault_id: Optional[pulumi.Input[_builtins.str]] = None,
             key_version: Optional[pulumi.Input[_builtins.str]] = None,
+            managed_hsm_key_id: Optional[pulumi.Input[_builtins.str]] = None,
             user_identity: Optional[pulumi.Input[_builtins.str]] = None) -> 'ClusterCustomerManagedKey':
         """
         Get an existing ClusterCustomerManagedKey resource's state with the given name, id, and optional extra
@@ -461,8 +506,11 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_name: The name of Key Vault Key.
-        :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault.
+        :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault for CMK encryption.
         :param pulumi.Input[_builtins.str] key_version: The version of Key Vault Key.
+        :param pulumi.Input[_builtins.str] managed_hsm_key_id: The Managed HSM Key ID for CMK encryption.
+               
+               > **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
         :param pulumi.Input[_builtins.str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -473,6 +521,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_vault_id"] = key_vault_id
         __props__.__dict__["key_version"] = key_version
+        __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["user_identity"] = user_identity
         return ClusterCustomerManagedKey(resource_name, opts=opts, __props__=__props__)
 
@@ -486,7 +535,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Output[_builtins.str]:
+    def key_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The name of Key Vault Key.
         """
@@ -494,9 +543,9 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="keyVaultId")
-    def key_vault_id(self) -> pulumi.Output[_builtins.str]:
+    def key_vault_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of the Key Vault.
+        The ID of the Key Vault for CMK encryption.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -507,6 +556,16 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         The version of Key Vault Key.
         """
         return pulumi.get(self, "key_version")
+
+    @_builtins.property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Managed HSM Key ID for CMK encryption.
+
+        > **Note:** Exactly one of `managed_hsm_key_id` or `key_vault_id` must be specified.
+        """
+        return pulumi.get(self, "managed_hsm_key_id")
 
     @_builtins.property
     @pulumi.getter(name="userIdentity")

@@ -152,7 +152,7 @@ def get_volume_group(elastic_san_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ElasticSan`: 2023-01-01
+    * `Microsoft.ElasticSan` - 2023-01-01
 
 
     :param _builtins.str elastic_san_id: The Elastic SAN ID within which the Elastic SAN Volume Group exists.
@@ -197,7 +197,7 @@ def get_volume_group_output(elastic_san_id: Optional[pulumi.Input[_builtins.str]
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ElasticSan`: 2023-01-01
+    * `Microsoft.ElasticSan` - 2023-01-01
 
 
     :param _builtins.str elastic_san_id: The Elastic SAN ID within which the Elastic SAN Volume Group exists.

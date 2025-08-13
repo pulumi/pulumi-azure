@@ -5,12 +5,18 @@ package com.pulumi.azure.oracle.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetDbSystemShapesDbSystemShape {
+    /**
+     * @return Indicates if the shape supports database and storage server types.
+     * 
+     */
+    private Boolean areServerTypesSupported;
     /**
      * @return The maximum number of CPU cores that can be enabled on the DB system for this shape.
      * 
@@ -52,10 +58,20 @@ public final class GetDbSystemShapesDbSystemShape {
      */
     private Integer availableMemoryPerNodeInGbs;
     /**
+     * @return The compute model of the Exadata Infrastructure.
+     * 
+     */
+    private String computeModel;
+    /**
      * @return The discrete number by which the CPU core count for this shape can be increased or decreased.
      * 
      */
     private Integer coreCountIncrement;
+    /**
+     * @return The display name of the shape used for the DB system.
+     * 
+     */
+    private String displayName;
     /**
      * @return The maximum number of compute servers available for this shape.
      * 
@@ -114,6 +130,13 @@ public final class GetDbSystemShapesDbSystemShape {
 
     private GetDbSystemShapesDbSystemShape() {}
     /**
+     * @return Indicates if the shape supports database and storage server types.
+     * 
+     */
+    public Boolean areServerTypesSupported() {
+        return this.areServerTypesSupported;
+    }
+    /**
      * @return The maximum number of CPU cores that can be enabled on the DB system for this shape.
      * 
      */
@@ -170,11 +193,25 @@ public final class GetDbSystemShapesDbSystemShape {
         return this.availableMemoryPerNodeInGbs;
     }
     /**
+     * @return The compute model of the Exadata Infrastructure.
+     * 
+     */
+    public String computeModel() {
+        return this.computeModel;
+    }
+    /**
      * @return The discrete number by which the CPU core count for this shape can be increased or decreased.
      * 
      */
     public Integer coreCountIncrement() {
         return this.coreCountIncrement;
+    }
+    /**
+     * @return The display name of the shape used for the DB system.
+     * 
+     */
+    public String displayName() {
+        return this.displayName;
     }
     /**
      * @return The maximum number of compute servers available for this shape.
@@ -263,6 +300,7 @@ public final class GetDbSystemShapesDbSystemShape {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean areServerTypesSupported;
         private Integer availableCoreCount;
         private Integer availableCoreCountPerNode;
         private Integer availableDataStorageInTbs;
@@ -271,7 +309,9 @@ public final class GetDbSystemShapesDbSystemShape {
         private Integer availableDbNodeStorageInGbs;
         private Integer availableMemoryInGbs;
         private Integer availableMemoryPerNodeInGbs;
+        private String computeModel;
         private Integer coreCountIncrement;
+        private String displayName;
         private Integer maximumNodeCount;
         private Integer maximumStorageCount;
         private Integer minimumCoreCount;
@@ -286,6 +326,7 @@ public final class GetDbSystemShapesDbSystemShape {
         public Builder() {}
         public Builder(GetDbSystemShapesDbSystemShape defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.areServerTypesSupported = defaults.areServerTypesSupported;
     	      this.availableCoreCount = defaults.availableCoreCount;
     	      this.availableCoreCountPerNode = defaults.availableCoreCountPerNode;
     	      this.availableDataStorageInTbs = defaults.availableDataStorageInTbs;
@@ -294,7 +335,9 @@ public final class GetDbSystemShapesDbSystemShape {
     	      this.availableDbNodeStorageInGbs = defaults.availableDbNodeStorageInGbs;
     	      this.availableMemoryInGbs = defaults.availableMemoryInGbs;
     	      this.availableMemoryPerNodeInGbs = defaults.availableMemoryPerNodeInGbs;
+    	      this.computeModel = defaults.computeModel;
     	      this.coreCountIncrement = defaults.coreCountIncrement;
+    	      this.displayName = defaults.displayName;
     	      this.maximumNodeCount = defaults.maximumNodeCount;
     	      this.maximumStorageCount = defaults.maximumStorageCount;
     	      this.minimumCoreCount = defaults.minimumCoreCount;
@@ -308,6 +351,14 @@ public final class GetDbSystemShapesDbSystemShape {
     	      this.shapeFamily = defaults.shapeFamily;
         }
 
+        @CustomType.Setter
+        public Builder areServerTypesSupported(Boolean areServerTypesSupported) {
+            if (areServerTypesSupported == null) {
+              throw new MissingRequiredPropertyException("GetDbSystemShapesDbSystemShape", "areServerTypesSupported");
+            }
+            this.areServerTypesSupported = areServerTypesSupported;
+            return this;
+        }
         @CustomType.Setter
         public Builder availableCoreCount(Integer availableCoreCount) {
             if (availableCoreCount == null) {
@@ -373,11 +424,27 @@ public final class GetDbSystemShapesDbSystemShape {
             return this;
         }
         @CustomType.Setter
+        public Builder computeModel(String computeModel) {
+            if (computeModel == null) {
+              throw new MissingRequiredPropertyException("GetDbSystemShapesDbSystemShape", "computeModel");
+            }
+            this.computeModel = computeModel;
+            return this;
+        }
+        @CustomType.Setter
         public Builder coreCountIncrement(Integer coreCountIncrement) {
             if (coreCountIncrement == null) {
               throw new MissingRequiredPropertyException("GetDbSystemShapesDbSystemShape", "coreCountIncrement");
             }
             this.coreCountIncrement = coreCountIncrement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder displayName(String displayName) {
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetDbSystemShapesDbSystemShape", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
@@ -470,6 +537,7 @@ public final class GetDbSystemShapesDbSystemShape {
         }
         public GetDbSystemShapesDbSystemShape build() {
             final var _resultValue = new GetDbSystemShapesDbSystemShape();
+            _resultValue.areServerTypesSupported = areServerTypesSupported;
             _resultValue.availableCoreCount = availableCoreCount;
             _resultValue.availableCoreCountPerNode = availableCoreCountPerNode;
             _resultValue.availableDataStorageInTbs = availableDataStorageInTbs;
@@ -478,7 +546,9 @@ public final class GetDbSystemShapesDbSystemShape {
             _resultValue.availableDbNodeStorageInGbs = availableDbNodeStorageInGbs;
             _resultValue.availableMemoryInGbs = availableMemoryInGbs;
             _resultValue.availableMemoryPerNodeInGbs = availableMemoryPerNodeInGbs;
+            _resultValue.computeModel = computeModel;
             _resultValue.coreCountIncrement = coreCountIncrement;
+            _resultValue.displayName = displayName;
             _resultValue.maximumNodeCount = maximumNodeCount;
             _resultValue.maximumStorageCount = maximumStorageCount;
             _resultValue.minimumCoreCount = minimumCoreCount;

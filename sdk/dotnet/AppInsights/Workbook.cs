@@ -70,7 +70,7 @@ namespace Pulumi.Azure.AppInsights
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Insights`: 2022-04-01
+    /// * `Microsoft.Insights` - 2022-04-01
     /// 
     /// ## Import
     /// 

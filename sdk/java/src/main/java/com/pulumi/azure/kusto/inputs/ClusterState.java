@@ -347,20 +347,20 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `virtual_network_configuration` block as defined below.
-     * 
-     * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+     * @deprecated
+     * The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      * 
      */
+    @Deprecated /* The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
     @Import(name="virtualNetworkConfiguration")
     private @Nullable Output<ClusterVirtualNetworkConfigurationArgs> virtualNetworkConfiguration;
 
     /**
-     * @return A `virtual_network_configuration` block as defined below.
-     * 
-     * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+     * @deprecated
+     * The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      * 
      */
+    @Deprecated /* The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
     public Optional<Output<ClusterVirtualNetworkConfigurationArgs>> virtualNetworkConfiguration() {
         return Optional.ofNullable(this.virtualNetworkConfiguration);
     }
@@ -920,26 +920,26 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below.
-         * 
-         * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+         * 
          */
+        @Deprecated /* The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
         public Builder virtualNetworkConfiguration(@Nullable Output<ClusterVirtualNetworkConfigurationArgs> virtualNetworkConfiguration) {
             $.virtualNetworkConfiguration = virtualNetworkConfiguration;
             return this;
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below.
-         * 
-         * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
+         * 
          */
+        @Deprecated /* The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
         public Builder virtualNetworkConfiguration(ClusterVirtualNetworkConfigurationArgs virtualNetworkConfiguration) {
             return virtualNetworkConfiguration(Output.of(virtualNetworkConfiguration));
         }

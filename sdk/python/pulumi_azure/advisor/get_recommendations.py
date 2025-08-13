@@ -105,7 +105,7 @@ def get_recommendations(filter_by_categories: Optional[Sequence[_builtins.str]] 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Advisor`: 2023-01-01
+    * `Microsoft.Advisor` - 2023-01-01
 
 
     :param Sequence[_builtins.str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
@@ -147,7 +147,7 @@ def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optio
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Advisor`: 2023-01-01
+    * `Microsoft.Advisor` - 2023-01-01
 
 
     :param Sequence[_builtins.str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.

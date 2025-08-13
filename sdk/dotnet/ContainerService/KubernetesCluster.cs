@@ -62,6 +62,13 @@ namespace Pulumi.Azure.ContainerService
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ContainerService` - 2025-02-01
+    /// 
     /// ## Import
     /// 
     /// Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -130,6 +137,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("currentKubernetesVersion")]
         public Output<string> CurrentKubernetesVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+        /// </summary>
+        [Output("customCaTrustCertificatesBase64s")]
+        public Output<ImmutableArray<string>> CustomCaTrustCertificatesBase64s { get; private set; } = null!;
 
         /// <summary>
         /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
@@ -206,7 +219,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> ImageCleanerEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        /// Specifies the interval in hours when images should be cleaned up.
         /// </summary>
         [Output("imageCleanerIntervalHours")]
         public Output<int?> ImageCleanerIntervalHours { get; private set; } = null!;
@@ -663,6 +676,18 @@ namespace Pulumi.Azure.ContainerService
         [Input("costAnalysisEnabled")]
         public Input<bool>? CostAnalysisEnabled { get; set; }
 
+        [Input("customCaTrustCertificatesBase64s")]
+        private InputList<string>? _customCaTrustCertificatesBase64s;
+
+        /// <summary>
+        /// A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+        /// </summary>
+        public InputList<string> CustomCaTrustCertificatesBase64s
+        {
+            get => _customCaTrustCertificatesBase64s ?? (_customCaTrustCertificatesBase64s = new InputList<string>());
+            set => _customCaTrustCertificatesBase64s = value;
+        }
+
         /// <summary>
         /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         /// </summary>
@@ -726,7 +751,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? ImageCleanerEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        /// Specifies the interval in hours when images should be cleaned up.
         /// </summary>
         [Input("imageCleanerIntervalHours")]
         public Input<int>? ImageCleanerIntervalHours { get; set; }
@@ -1102,6 +1127,18 @@ namespace Pulumi.Azure.ContainerService
         [Input("currentKubernetesVersion")]
         public Input<string>? CurrentKubernetesVersion { get; set; }
 
+        [Input("customCaTrustCertificatesBase64s")]
+        private InputList<string>? _customCaTrustCertificatesBase64s;
+
+        /// <summary>
+        /// A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+        /// </summary>
+        public InputList<string> CustomCaTrustCertificatesBase64s
+        {
+            get => _customCaTrustCertificatesBase64s ?? (_customCaTrustCertificatesBase64s = new InputList<string>());
+            set => _customCaTrustCertificatesBase64s = value;
+        }
+
         /// <summary>
         /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         /// </summary>
@@ -1177,7 +1214,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? ImageCleanerEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+        /// Specifies the interval in hours when images should be cleaned up.
         /// </summary>
         [Input("imageCleanerIntervalHours")]
         public Input<int>? ImageCleanerIntervalHours { get; set; }

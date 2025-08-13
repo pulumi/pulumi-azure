@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2022-04-01
+ * * `Microsoft.Network` - 2022-04-01
  */
 export function getTrafficManagerProfile(args: GetTrafficManagerProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -124,7 +124,7 @@ export interface GetTrafficManagerProfileResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2022-04-01
+ * * `Microsoft.Network` - 2022-04-01
  */
 export function getTrafficManagerProfileOutput(args: GetTrafficManagerProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficManagerProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

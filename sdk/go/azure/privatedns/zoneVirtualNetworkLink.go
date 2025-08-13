@@ -75,7 +75,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2024-06-01
+// * `Microsoft.Network` - 2024-06-01
 //
 // ## Import
 //
@@ -93,6 +93,8 @@ type ZoneVirtualNetworkLink struct {
 	PrivateDnsZoneName pulumi.StringOutput `pulumi:"privateDnsZoneName"`
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled pulumi.BoolPtrOutput `pulumi:"registrationEnabled"`
+	// Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+	ResolutionPolicy pulumi.StringOutput `pulumi:"resolutionPolicy"`
 	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -146,6 +148,8 @@ type zoneVirtualNetworkLinkState struct {
 	PrivateDnsZoneName *string `pulumi:"privateDnsZoneName"`
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled *bool `pulumi:"registrationEnabled"`
+	// Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+	ResolutionPolicy *string `pulumi:"resolutionPolicy"`
 	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -161,6 +165,8 @@ type ZoneVirtualNetworkLinkState struct {
 	PrivateDnsZoneName pulumi.StringPtrInput
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled pulumi.BoolPtrInput
+	// Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+	ResolutionPolicy pulumi.StringPtrInput
 	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -180,6 +186,8 @@ type zoneVirtualNetworkLinkArgs struct {
 	PrivateDnsZoneName string `pulumi:"privateDnsZoneName"`
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled *bool `pulumi:"registrationEnabled"`
+	// Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+	ResolutionPolicy *string `pulumi:"resolutionPolicy"`
 	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -196,6 +204,8 @@ type ZoneVirtualNetworkLinkArgs struct {
 	PrivateDnsZoneName pulumi.StringInput
 	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 	RegistrationEnabled pulumi.BoolPtrInput
+	// Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+	ResolutionPolicy pulumi.StringPtrInput
 	// Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
@@ -304,6 +314,11 @@ func (o ZoneVirtualNetworkLinkOutput) PrivateDnsZoneName() pulumi.StringOutput {
 // Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
 func (o ZoneVirtualNetworkLinkOutput) RegistrationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ZoneVirtualNetworkLink) pulumi.BoolPtrOutput { return v.RegistrationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+func (o ZoneVirtualNetworkLinkOutput) ResolutionPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *ZoneVirtualNetworkLink) pulumi.StringOutput { return v.ResolutionPolicy }).(pulumi.StringOutput)
 }
 
 // Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.

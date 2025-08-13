@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Compute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Compute`: 2024-03-01
+        /// * `Microsoft.Compute` - 2024-03-01
         /// </summary>
         public static Task<GetPlatformImageResult> InvokeAsync(GetPlatformImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Compute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Compute`: 2024-03-01
+        /// * `Microsoft.Compute` - 2024-03-01
         /// </summary>
         public static Output<GetPlatformImageResult> Invoke(GetPlatformImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Compute
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Compute`: 2024-03-01
+        /// * `Microsoft.Compute` - 2024-03-01
         /// </summary>
         public static Output<GetPlatformImageResult> Invoke(GetPlatformImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageInvokeArgs(), options.WithDefaults());

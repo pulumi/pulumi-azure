@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Sql`: 2023-08-01-preview
+ * * `Microsoft.Sql` - 2023-08-01-preview
  *
  * ## Import
  *
@@ -121,9 +121,11 @@ export class JobStep extends pulumi.CustomResource {
      */
     public readonly initialRetryIntervalSeconds!: pulumi.Output<number | undefined>;
     /**
-     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+     *
+     * !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      */
-    public readonly jobCredentialId!: pulumi.Output<string>;
+    public readonly jobCredentialId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
      */
@@ -198,9 +200,6 @@ export class JobStep extends pulumi.CustomResource {
             resourceInputs["timeoutSeconds"] = state ? state.timeoutSeconds : undefined;
         } else {
             const args = argsOrState as JobStepArgs | undefined;
-            if ((!args || args.jobCredentialId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'jobCredentialId'");
-            }
             if ((!args || args.jobId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'jobId'");
             }
@@ -240,7 +239,9 @@ export interface JobStepState {
      */
     initialRetryIntervalSeconds?: pulumi.Input<number>;
     /**
-     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+     *
+     * !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      */
     jobCredentialId?: pulumi.Input<string>;
     /**
@@ -300,9 +301,11 @@ export interface JobStepArgs {
      */
     initialRetryIntervalSeconds?: pulumi.Input<number>;
     /**
-     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
+     *
+     * !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      */
-    jobCredentialId: pulumi.Input<string>;
+    jobCredentialId?: pulumi.Input<string>;
     /**
      * The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
      */

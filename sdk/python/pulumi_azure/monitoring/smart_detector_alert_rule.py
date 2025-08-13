@@ -436,7 +436,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.AlertsManagement`: 2019-06-01
+        * `Microsoft.AlertsManagement` - 2019-06-01
 
         ## Import
 
@@ -504,7 +504,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.AlertsManagement`: 2019-06-01
+        * `Microsoft.AlertsManagement` - 2019-06-01
 
         ## Import
 

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Task<GetAutonomousDatabaseResult> InvokeAsync(GetAutonomousDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutonomousDatabaseResult>("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", args ?? new GetAutonomousDatabaseArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetAutonomousDatabaseResult> Invoke(GetAutonomousDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutonomousDatabaseResult>("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", args ?? new GetAutonomousDatabaseInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetAutonomousDatabaseResult> Invoke(GetAutonomousDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutonomousDatabaseResult>("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", args ?? new GetAutonomousDatabaseInvokeArgs(), options.WithDefaults());
@@ -257,6 +257,10 @@ namespace Pulumi.Azure.Oracle
         /// The Azure Region where the Autonomous Database exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// A `long_term_backup_schedule` block as defined below
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAutonomousDatabaseLongTermBackupScheduleResult> LongTermBackupSchedules;
         /// <summary>
         /// The amount of memory (in GBs) enabled per ECPU or OCPU.
         /// </summary>
@@ -441,6 +445,8 @@ namespace Pulumi.Azure.Oracle
 
             string location,
 
+            ImmutableArray<Outputs.GetAutonomousDatabaseLongTermBackupScheduleResult> longTermBackupSchedules,
+
             int memoryPerOracleComputeUnitInGbs,
 
             bool mtlsConnectionRequired,
@@ -536,6 +542,7 @@ namespace Pulumi.Azure.Oracle
             LocalAdgAutoFailoverMaxDataLossLimit = localAdgAutoFailoverMaxDataLossLimit;
             LocalDataGuardEnabled = localDataGuardEnabled;
             Location = location;
+            LongTermBackupSchedules = longTermBackupSchedules;
             MemoryPerOracleComputeUnitInGbs = memoryPerOracleComputeUnitInGbs;
             MtlsConnectionRequired = mtlsConnectionRequired;
             Name = name;

@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Compute`: 2022-03-01
+ * * `Microsoft.Compute` - 2022-03-01
  *
  * ## Import
  *
@@ -74,12 +74,12 @@ export class Image extends pulumi.CustomResource {
 
     /**
      * One or more `dataDisk` blocks as defined below.
+     *
+     * > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
      */
     public readonly dataDisks!: pulumi.Output<outputs.compute.ImageDataDisk[] | undefined>;
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
     /**
@@ -92,6 +92,8 @@ export class Image extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.ImageOsDisk | undefined>;
     /**
@@ -108,6 +110,10 @@ export class Image extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     *
+     * > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
      */
     public readonly zoneResilient!: pulumi.Output<boolean | undefined>;
 
@@ -159,12 +165,12 @@ export class Image extends pulumi.CustomResource {
 export interface ImageState {
     /**
      * One or more `dataDisk` blocks as defined below.
+     *
+     * > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
@@ -177,6 +183,8 @@ export interface ImageState {
     name?: pulumi.Input<string>;
     /**
      * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**
@@ -193,6 +201,10 @@ export interface ImageState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     *
+     * > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
      */
     zoneResilient?: pulumi.Input<boolean>;
 }
@@ -203,12 +215,12 @@ export interface ImageState {
 export interface ImageArgs {
     /**
      * One or more `dataDisk` blocks as defined below.
+     *
+     * > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     * The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
     hyperVGeneration?: pulumi.Input<string>;
     /**
@@ -221,6 +233,8 @@ export interface ImageArgs {
     name?: pulumi.Input<string>;
     /**
      * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**
@@ -237,6 +251,10 @@ export interface ImageArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+     *
+     * > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
      */
     zoneResilient?: pulumi.Input<boolean>;
 }

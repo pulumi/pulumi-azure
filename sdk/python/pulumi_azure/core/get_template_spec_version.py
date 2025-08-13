@@ -124,7 +124,7 @@ def get_template_spec_version(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Resources`: 2022-02-01
+    * `Microsoft.Resources` - 2022-02-01
 
 
     :param _builtins.str name: The name of this Template Spec.
@@ -169,7 +169,7 @@ def get_template_spec_version_output(name: Optional[pulumi.Input[_builtins.str]]
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Resources`: 2022-02-01
+    * `Microsoft.Resources` - 2022-02-01
 
 
     :param _builtins.str name: The name of this Template Spec.

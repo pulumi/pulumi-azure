@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Consumption`: 2019-10-01
+// * `Microsoft.Consumption` - 2019-10-01
 func LookupBudgetSubscription(ctx *pulumi.Context, args *LookupBudgetSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupBudgetSubscriptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBudgetSubscriptionResult

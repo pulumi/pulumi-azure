@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Monitoring
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Insights`: 2018-04-16
+        /// * `Microsoft.Insights` - 2018-04-16
         /// </summary>
         public static Task<GetScheduledQueryRulesAlertResult> InvokeAsync(GetScheduledQueryRulesAlertArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Monitoring
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Insights`: 2018-04-16
+        /// * `Microsoft.Insights` - 2018-04-16
         /// </summary>
         public static Output<GetScheduledQueryRulesAlertResult> Invoke(GetScheduledQueryRulesAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Monitoring
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Insights`: 2018-04-16
+        /// * `Microsoft.Insights` - 2018-04-16
         /// </summary>
         public static Output<GetScheduledQueryRulesAlertResult> Invoke(GetScheduledQueryRulesAlertInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertInvokeArgs(), options.WithDefaults());

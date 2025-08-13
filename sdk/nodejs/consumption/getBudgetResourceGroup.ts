@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Consumption`: 2019-10-01
+ * * `Microsoft.Consumption` - 2019-10-01
  */
 export function getBudgetResourceGroup(args: GetBudgetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,7 +106,7 @@ export interface GetBudgetResourceGroupResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Consumption`: 2019-10-01
+ * * `Microsoft.Consumption` - 2019-10-01
  */
 export function getBudgetResourceGroupOutput(args: GetBudgetResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBudgetResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

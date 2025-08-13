@@ -664,6 +664,200 @@ func (o FileSystemMaintenanceWindowPtrOutput) TimeOfDayInUtc() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type FileSystemRootSquash struct {
+	// Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
+	Mode string `pulumi:"mode"`
+	// NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
+	NoSquashNids string `pulumi:"noSquashNids"`
+	// The GID to be used for the root squash. Defaults to `0`.
+	SquashGid *int `pulumi:"squashGid"`
+	// The UID to be used for the root squash. Defaults to `0`.
+	SquashUid *int `pulumi:"squashUid"`
+}
+
+// FileSystemRootSquashInput is an input type that accepts FileSystemRootSquashArgs and FileSystemRootSquashOutput values.
+// You can construct a concrete instance of `FileSystemRootSquashInput` via:
+//
+//	FileSystemRootSquashArgs{...}
+type FileSystemRootSquashInput interface {
+	pulumi.Input
+
+	ToFileSystemRootSquashOutput() FileSystemRootSquashOutput
+	ToFileSystemRootSquashOutputWithContext(context.Context) FileSystemRootSquashOutput
+}
+
+type FileSystemRootSquashArgs struct {
+	// Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
+	NoSquashNids pulumi.StringInput `pulumi:"noSquashNids"`
+	// The GID to be used for the root squash. Defaults to `0`.
+	SquashGid pulumi.IntPtrInput `pulumi:"squashGid"`
+	// The UID to be used for the root squash. Defaults to `0`.
+	SquashUid pulumi.IntPtrInput `pulumi:"squashUid"`
+}
+
+func (FileSystemRootSquashArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemRootSquash)(nil)).Elem()
+}
+
+func (i FileSystemRootSquashArgs) ToFileSystemRootSquashOutput() FileSystemRootSquashOutput {
+	return i.ToFileSystemRootSquashOutputWithContext(context.Background())
+}
+
+func (i FileSystemRootSquashArgs) ToFileSystemRootSquashOutputWithContext(ctx context.Context) FileSystemRootSquashOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemRootSquashOutput)
+}
+
+func (i FileSystemRootSquashArgs) ToFileSystemRootSquashPtrOutput() FileSystemRootSquashPtrOutput {
+	return i.ToFileSystemRootSquashPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemRootSquashArgs) ToFileSystemRootSquashPtrOutputWithContext(ctx context.Context) FileSystemRootSquashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemRootSquashOutput).ToFileSystemRootSquashPtrOutputWithContext(ctx)
+}
+
+// FileSystemRootSquashPtrInput is an input type that accepts FileSystemRootSquashArgs, FileSystemRootSquashPtr and FileSystemRootSquashPtrOutput values.
+// You can construct a concrete instance of `FileSystemRootSquashPtrInput` via:
+//
+//	        FileSystemRootSquashArgs{...}
+//
+//	or:
+//
+//	        nil
+type FileSystemRootSquashPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemRootSquashPtrOutput() FileSystemRootSquashPtrOutput
+	ToFileSystemRootSquashPtrOutputWithContext(context.Context) FileSystemRootSquashPtrOutput
+}
+
+type fileSystemRootSquashPtrType FileSystemRootSquashArgs
+
+func FileSystemRootSquashPtr(v *FileSystemRootSquashArgs) FileSystemRootSquashPtrInput {
+	return (*fileSystemRootSquashPtrType)(v)
+}
+
+func (*fileSystemRootSquashPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemRootSquash)(nil)).Elem()
+}
+
+func (i *fileSystemRootSquashPtrType) ToFileSystemRootSquashPtrOutput() FileSystemRootSquashPtrOutput {
+	return i.ToFileSystemRootSquashPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemRootSquashPtrType) ToFileSystemRootSquashPtrOutputWithContext(ctx context.Context) FileSystemRootSquashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemRootSquashPtrOutput)
+}
+
+type FileSystemRootSquashOutput struct{ *pulumi.OutputState }
+
+func (FileSystemRootSquashOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemRootSquash)(nil)).Elem()
+}
+
+func (o FileSystemRootSquashOutput) ToFileSystemRootSquashOutput() FileSystemRootSquashOutput {
+	return o
+}
+
+func (o FileSystemRootSquashOutput) ToFileSystemRootSquashOutputWithContext(ctx context.Context) FileSystemRootSquashOutput {
+	return o
+}
+
+func (o FileSystemRootSquashOutput) ToFileSystemRootSquashPtrOutput() FileSystemRootSquashPtrOutput {
+	return o.ToFileSystemRootSquashPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemRootSquashOutput) ToFileSystemRootSquashPtrOutputWithContext(ctx context.Context) FileSystemRootSquashPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemRootSquash) *FileSystemRootSquash {
+		return &v
+	}).(FileSystemRootSquashPtrOutput)
+}
+
+// Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
+func (o FileSystemRootSquashOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v FileSystemRootSquash) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
+func (o FileSystemRootSquashOutput) NoSquashNids() pulumi.StringOutput {
+	return o.ApplyT(func(v FileSystemRootSquash) string { return v.NoSquashNids }).(pulumi.StringOutput)
+}
+
+// The GID to be used for the root squash. Defaults to `0`.
+func (o FileSystemRootSquashOutput) SquashGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemRootSquash) *int { return v.SquashGid }).(pulumi.IntPtrOutput)
+}
+
+// The UID to be used for the root squash. Defaults to `0`.
+func (o FileSystemRootSquashOutput) SquashUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemRootSquash) *int { return v.SquashUid }).(pulumi.IntPtrOutput)
+}
+
+type FileSystemRootSquashPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemRootSquashPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemRootSquash)(nil)).Elem()
+}
+
+func (o FileSystemRootSquashPtrOutput) ToFileSystemRootSquashPtrOutput() FileSystemRootSquashPtrOutput {
+	return o
+}
+
+func (o FileSystemRootSquashPtrOutput) ToFileSystemRootSquashPtrOutputWithContext(ctx context.Context) FileSystemRootSquashPtrOutput {
+	return o
+}
+
+func (o FileSystemRootSquashPtrOutput) Elem() FileSystemRootSquashOutput {
+	return o.ApplyT(func(v *FileSystemRootSquash) FileSystemRootSquash {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemRootSquash
+		return ret
+	}).(FileSystemRootSquashOutput)
+}
+
+// Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
+func (o FileSystemRootSquashPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemRootSquash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
+func (o FileSystemRootSquashPtrOutput) NoSquashNids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemRootSquash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NoSquashNids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The GID to be used for the root squash. Defaults to `0`.
+func (o FileSystemRootSquashPtrOutput) SquashGid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemRootSquash) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SquashGid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The UID to be used for the root squash. Defaults to `0`.
+func (o FileSystemRootSquashPtrOutput) SquashUid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemRootSquash) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SquashUid
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemEncryptionKeyInput)(nil)).Elem(), FileSystemEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemEncryptionKeyPtrInput)(nil)).Elem(), FileSystemEncryptionKeyArgs{})
@@ -673,6 +867,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemIdentityPtrInput)(nil)).Elem(), FileSystemIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemMaintenanceWindowInput)(nil)).Elem(), FileSystemMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemMaintenanceWindowPtrInput)(nil)).Elem(), FileSystemMaintenanceWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemRootSquashInput)(nil)).Elem(), FileSystemRootSquashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemRootSquashPtrInput)(nil)).Elem(), FileSystemRootSquashArgs{})
 	pulumi.RegisterOutputType(FileSystemEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(FileSystemEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemHsmSettingOutput{})
@@ -681,4 +877,6 @@ func init() {
 	pulumi.RegisterOutputType(FileSystemIdentityPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(FileSystemMaintenanceWindowPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemRootSquashOutput{})
+	pulumi.RegisterOutputType(FileSystemRootSquashPtrOutput{})
 }

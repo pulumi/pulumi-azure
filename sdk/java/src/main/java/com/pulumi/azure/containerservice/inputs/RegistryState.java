@@ -99,6 +99,21 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+     * 
+     */
+    @Import(name="dataEndpointHostNames")
+    private @Nullable Output<List<String>> dataEndpointHostNames;
+
+    /**
+     * @return A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+     * 
+     */
+    public Optional<Output<List<String>>> dataEndpointHostNames() {
+        return Optional.ofNullable(this.dataEndpointHostNames);
+    }
+
+    /**
      * An `encryption` block as documented below.
      * 
      */
@@ -377,6 +392,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         this.adminUsername = $.adminUsername;
         this.anonymousPullEnabled = $.anonymousPullEnabled;
         this.dataEndpointEnabled = $.dataEndpointEnabled;
+        this.dataEndpointHostNames = $.dataEndpointHostNames;
         this.encryption = $.encryption;
         this.exportPolicyEnabled = $.exportPolicyEnabled;
         this.georeplications = $.georeplications;
@@ -517,6 +533,37 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dataEndpointEnabled(Boolean dataEndpointEnabled) {
             return dataEndpointEnabled(Output.of(dataEndpointEnabled));
+        }
+
+        /**
+         * @param dataEndpointHostNames A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataEndpointHostNames(@Nullable Output<List<String>> dataEndpointHostNames) {
+            $.dataEndpointHostNames = dataEndpointHostNames;
+            return this;
+        }
+
+        /**
+         * @param dataEndpointHostNames A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataEndpointHostNames(List<String> dataEndpointHostNames) {
+            return dataEndpointHostNames(Output.of(dataEndpointHostNames));
+        }
+
+        /**
+         * @param dataEndpointHostNames A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataEndpointHostNames(String... dataEndpointHostNames) {
+            return dataEndpointHostNames(List.of(dataEndpointHostNames));
         }
 
         /**

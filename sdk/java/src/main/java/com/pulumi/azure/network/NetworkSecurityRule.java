@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  * 
  * ## Import
  * 
@@ -130,28 +130,28 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
+     * CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
      * 
      */
     @Export(name="destinationAddressPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationAddressPrefix;
 
     /**
-     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
+     * @return CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
      * 
      */
     public Output<Optional<String>> destinationAddressPrefix() {
         return Codegen.optional(this.destinationAddressPrefix);
     }
     /**
-     * List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+     * List of destination address prefixes. Tags may not be used.
      * 
      */
     @Export(name="destinationAddressPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destinationAddressPrefixes;
 
     /**
-     * @return List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+     * @return List of destination address prefixes. Tags may not be used.
      * 
      */
     public Output<Optional<List<String>>> destinationAddressPrefixes() {
@@ -160,12 +160,16 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
     /**
      * A List of destination Application Security Group IDs
      * 
+     * &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
+     * 
      */
     @Export(name="destinationApplicationSecurityGroupIds", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationApplicationSecurityGroupIds;
 
     /**
      * @return A List of destination Application Security Group IDs
+     * 
+     * &gt; **Note:** One of `destination_address_prefix`, `destination_address_prefixes` or `destination_application_security_group_ids` must be specified.
      * 
      */
     public Output<Optional<String>> destinationApplicationSecurityGroupIds() {
@@ -284,28 +288,28 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+     * CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
      * 
      */
     @Export(name="sourceAddressPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceAddressPrefix;
 
     /**
-     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
+     * @return CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
      * 
      */
     public Output<Optional<String>> sourceAddressPrefix() {
         return Codegen.optional(this.sourceAddressPrefix);
     }
     /**
-     * List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+     * List of source address prefixes. Tags may not be used.
      * 
      */
     @Export(name="sourceAddressPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceAddressPrefixes;
 
     /**
-     * @return List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+     * @return List of source address prefixes. Tags may not be used.
      * 
      */
     public Output<Optional<List<String>>> sourceAddressPrefixes() {
@@ -314,12 +318,16 @@ public class NetworkSecurityRule extends com.pulumi.resources.CustomResource {
     /**
      * A List of source Application Security Group IDs
      * 
+     * &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
+     * 
      */
     @Export(name="sourceApplicationSecurityGroupIds", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceApplicationSecurityGroupIds;
 
     /**
      * @return A List of source Application Security Group IDs
+     * 
+     * &gt; **Note:** One of `source_address_prefix`, `source_address_prefixes` or `source_application_security_group_ids` must be specified.
      * 
      */
     public Output<Optional<String>> sourceApplicationSecurityGroupIds() {

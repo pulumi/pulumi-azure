@@ -3051,6 +3051,8 @@ class AppFlexConsumptionSiteConfig(dict):
             suggest = "scm_use_main_ip_restriction"
         elif key == "use32BitWorker":
             suggest = "use32_bit_worker"
+        elif key == "vnetRouteAllEnabled":
+            suggest = "vnet_route_all_enabled"
         elif key == "websocketsEnabled":
             suggest = "websockets_enabled"
         elif key == "workerCount":
@@ -3097,6 +3099,7 @@ class AppFlexConsumptionSiteConfig(dict):
                  scm_type: Optional[_builtins.str] = None,
                  scm_use_main_ip_restriction: Optional[_builtins.bool] = None,
                  use32_bit_worker: Optional[_builtins.bool] = None,
+                 vnet_route_all_enabled: Optional[_builtins.bool] = None,
                  websockets_enabled: Optional[_builtins.bool] = None,
                  worker_count: Optional[_builtins.int] = None):
         """
@@ -3130,7 +3133,8 @@ class AppFlexConsumptionSiteConfig(dict):
         :param _builtins.str scm_minimum_tls_version: The minimum version of TLS required for SSL requests to the SCM site. Possible values include `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param _builtins.str scm_type: The SCM Type in use by the Linux Function App.
         :param _builtins.bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
-        :param _builtins.bool use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+        :param _builtins.bool use32_bit_worker: Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
+        :param _builtins.bool vnet_route_all_enabled: Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
         :param _builtins.bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param _builtins.int worker_count: The number of Workers for this Linux Function App.
         """
@@ -3192,6 +3196,8 @@ class AppFlexConsumptionSiteConfig(dict):
             pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         if use32_bit_worker is not None:
             pulumi.set(__self__, "use32_bit_worker", use32_bit_worker)
+        if vnet_route_all_enabled is not None:
+            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
         if websockets_enabled is not None:
             pulumi.set(__self__, "websockets_enabled", websockets_enabled)
         if worker_count is not None:
@@ -3427,9 +3433,17 @@ class AppFlexConsumptionSiteConfig(dict):
     @pulumi.getter(name="use32BitWorker")
     def use32_bit_worker(self) -> Optional[_builtins.bool]:
         """
-        Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+        Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
         """
         return pulumi.get(self, "use32_bit_worker")
+
+    @_builtins.property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
 
     @_builtins.property
     @pulumi.getter(name="websocketsEnabled")
@@ -20376,7 +20390,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param _builtins.str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
-        :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
+        :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
                
                > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param _builtins.str python_version: The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
@@ -20503,7 +20517,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[_builtins.str]:
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
 
         > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
@@ -24648,7 +24662,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param _builtins.str node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts`, `20-lts` and `22-lts`. This property conflicts with `java_version`.
                
                > **Note:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
-        :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
+        :param _builtins.str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
                
                > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param _builtins.str python_version: The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
@@ -24773,7 +24787,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[_builtins.str]:
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
 
         > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """

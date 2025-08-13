@@ -249,7 +249,7 @@ def get_action_group(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2023-01-01
+    * `Microsoft.Insights` - 2023-01-01
 
 
     :param _builtins.str name: Specifies the name of the Action Group.
@@ -300,7 +300,7 @@ def get_action_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2023-01-01
+    * `Microsoft.Insights` - 2023-01-01
 
 
     :param _builtins.str name: Specifies the name of the Action Group.

@@ -95,7 +95,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2024-05-01
+// * `Microsoft.Network` - 2024-05-01
 //
 // ## Import
 //
@@ -109,7 +109,7 @@ type VirtualNetwork struct {
 
 	// The address space that is used the virtual network. You can supply more than one address space.
 	//
-	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces pulumi.StringArrayOutput `pulumi:"addressSpaces"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -184,7 +184,7 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 type virtualNetworkState struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	//
-	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -227,7 +227,7 @@ type virtualNetworkState struct {
 type VirtualNetworkState struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	//
-	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces pulumi.StringArrayInput
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -274,7 +274,7 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 type virtualNetworkArgs struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	//
-	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces []string `pulumi:"addressSpaces"`
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -316,7 +316,7 @@ type virtualNetworkArgs struct {
 type VirtualNetworkArgs struct {
 	// The address space that is used the virtual network. You can supply more than one address space.
 	//
-	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+	// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 	AddressSpaces pulumi.StringArrayInput
 	// The BGP community attribute in format `<as-number>:<community-value>`.
 	//
@@ -443,7 +443,7 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 
 // The address space that is used the virtual network. You can supply more than one address space.
 //
-// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified. If `addressSpace` is not specified but you encounter a diff, this might indicate the `addressSpace` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+// > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
 func (o VirtualNetworkOutput) AddressSpaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringArrayOutput { return v.AddressSpaces }).(pulumi.StringArrayOutput)
 }

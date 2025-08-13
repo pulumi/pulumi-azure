@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ApiManagement
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ApiManagement`: 2022-08-01
+        /// * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:apimanagement/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.ApiManagement
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ApiManagement`: 2022-08-01
+        /// * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:apimanagement/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.ApiManagement
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ApiManagement`: 2022-08-01
+        /// * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:apimanagement/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Sentinel
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.OperationalInsights`: 2023-12-01-preview
+        /// * `Microsoft.OperationalInsights` - 2023-12-01-preview
         /// </summary>
         public static Task<GetAlertRuleResult> InvokeAsync(GetAlertRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResult>("azure:sentinel/getAlertRule:getAlertRule", args ?? new GetAlertRuleArgs(), options.WithDefaults());
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Sentinel
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.OperationalInsights`: 2023-12-01-preview
+        /// * `Microsoft.OperationalInsights` - 2023-12-01-preview
         /// </summary>
         public static Output<GetAlertRuleResult> Invoke(GetAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleResult>("azure:sentinel/getAlertRule:getAlertRule", args ?? new GetAlertRuleInvokeArgs(), options.WithDefaults());
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Sentinel
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.OperationalInsights`: 2023-12-01-preview
+        /// * `Microsoft.OperationalInsights` - 2023-12-01-preview
         /// </summary>
         public static Output<GetAlertRuleResult> Invoke(GetAlertRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleResult>("azure:sentinel/getAlertRule:getAlertRule", args ?? new GetAlertRuleInvokeArgs(), options.WithDefaults());

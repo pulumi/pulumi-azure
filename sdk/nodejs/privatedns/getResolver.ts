@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2022-07-01
+ * * `Microsoft.Network` - 2022-07-01
  */
 export function getResolver(args: GetResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,7 +91,7 @@ export interface GetResolverResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2022-07-01
+ * * `Microsoft.Network` - 2022-07-01
  */
 export function getResolverOutput(args: GetResolverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

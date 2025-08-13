@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int Duration;
         /// <summary>
-        /// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+        /// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         /// </summary>
         public readonly string Frequency;
         /// <summary>

@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Devices`: 2022-02-05
+ * * `Microsoft.Devices` - 2022-02-05
  * 
  * ## Import
  * 

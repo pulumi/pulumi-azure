@@ -284,6 +284,41 @@ class EnvironmentCertificate(pulumi.CustomResource):
         """
         Manages a Container App Environment Certificate.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="acctest-01",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_environment = azure.containerapp.Environment("example",
+            name="myEnvironment",
+            location=example.location,
+            resource_group_name=example.name,
+            log_analytics_workspace_id=example_analytics_workspace.id)
+        example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
+            name="myfriendlyname",
+            container_app_environment_id=example_environment.id,
+            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_password="$3cretSqu1rreL")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App` - 2025-01-01
+
         ## Import
 
         A Container App Environment Certificate can be imported using the `resource id`, e.g.
@@ -308,6 +343,41 @@ class EnvironmentCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container App Environment Certificate.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="acctest-01",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018",
+            retention_in_days=30)
+        example_environment = azure.containerapp.Environment("example",
+            name="myEnvironment",
+            location=example.location,
+            resource_group_name=example.name,
+            log_analytics_workspace_id=example_analytics_workspace.id)
+        example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
+            name="myfriendlyname",
+            container_app_environment_id=example_environment.id,
+            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_password="$3cretSqu1rreL")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App` - 2025-01-01
 
         ## Import
 

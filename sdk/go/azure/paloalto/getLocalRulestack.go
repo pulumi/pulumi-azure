@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+// * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
 func LookupLocalRulestack(ctx *pulumi.Context, args *LookupLocalRulestackArgs, opts ...pulumi.InvokeOption) (*LookupLocalRulestackResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalRulestackResult

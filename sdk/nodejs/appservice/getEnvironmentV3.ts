@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-01-01
+ * * `Microsoft.Web` - 2023-01-01
  */
 export function getEnvironmentV3(args: GetEnvironmentV3Args, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentV3Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -148,7 +148,7 @@ export interface GetEnvironmentV3Result {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-01-01
+ * * `Microsoft.Web` - 2023-01-01
  */
 export function getEnvironmentV3Output(args: GetEnvironmentV3OutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentV3Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

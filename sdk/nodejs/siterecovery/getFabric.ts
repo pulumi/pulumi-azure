@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.RecoveryServices`: 2024-04-01
+ * * `Microsoft.RecoveryServices` - 2024-04-01
  */
 export function getFabric(args: GetFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,7 +91,7 @@ export interface GetFabricResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.RecoveryServices`: 2024-04-01
+ * * `Microsoft.RecoveryServices` - 2024-04-01
  */
 export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

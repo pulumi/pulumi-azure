@@ -447,18 +447,33 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
     }
 
     /**
-     * Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+     * Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
      * 
      */
     @Import(name="use32BitWorker")
     private @Nullable Output<Boolean> use32BitWorker;
 
     /**
-     * @return Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+     * @return Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorker() {
         return Optional.ofNullable(this.use32BitWorker);
+    }
+
+    /**
+     * Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+     * 
+     */
+    @Import(name="vnetRouteAllEnabled")
+    private @Nullable Output<Boolean> vnetRouteAllEnabled;
+
+    /**
+     * @return Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> vnetRouteAllEnabled() {
+        return Optional.ofNullable(this.vnetRouteAllEnabled);
     }
 
     /**
@@ -523,6 +538,7 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
         this.scmType = $.scmType;
         this.scmUseMainIpRestriction = $.scmUseMainIpRestriction;
         this.use32BitWorker = $.use32BitWorker;
+        this.vnetRouteAllEnabled = $.vnetRouteAllEnabled;
         this.websocketsEnabled = $.websocketsEnabled;
         this.workerCount = $.workerCount;
     }
@@ -1168,7 +1184,7 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+         * @param use32BitWorker Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1179,13 +1195,34 @@ public final class AppFlexConsumptionSiteConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+         * @param use32BitWorker Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
          * 
          * @return builder
          * 
          */
         public Builder use32BitWorker(Boolean use32BitWorker) {
             return use32BitWorker(Output.of(use32BitWorker));
+        }
+
+        /**
+         * @param vnetRouteAllEnabled Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetRouteAllEnabled(@Nullable Output<Boolean> vnetRouteAllEnabled) {
+            $.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            return this;
+        }
+
+        /**
+         * @param vnetRouteAllEnabled Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
+            return vnetRouteAllEnabled(Output.of(vnetRouteAllEnabled));
         }
 
         /**

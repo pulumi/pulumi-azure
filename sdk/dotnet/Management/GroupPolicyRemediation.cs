@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Management
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Management`: 2021-10-01
+    /// * `Microsoft.Management` - 2021-10-01
     /// 
     /// ## Import
     /// 

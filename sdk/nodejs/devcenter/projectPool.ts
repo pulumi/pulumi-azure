@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  *
  * ## Import
  *
@@ -137,6 +137,12 @@ export class ProjectPool extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+     *
+     * > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
+     */
+    public readonly managedVirtualNetworkRegions!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -167,6 +173,7 @@ export class ProjectPool extends pulumi.CustomResource {
             resourceInputs["devCenterProjectId"] = state ? state.devCenterProjectId : undefined;
             resourceInputs["localAdministratorEnabled"] = state ? state.localAdministratorEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedVirtualNetworkRegions"] = state ? state.managedVirtualNetworkRegions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["stopOnDisconnectGracePeriodMinutes"] = state ? state.stopOnDisconnectGracePeriodMinutes : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -189,6 +196,7 @@ export class ProjectPool extends pulumi.CustomResource {
             resourceInputs["devCenterProjectId"] = args ? args.devCenterProjectId : undefined;
             resourceInputs["localAdministratorEnabled"] = args ? args.localAdministratorEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedVirtualNetworkRegions"] = args ? args.managedVirtualNetworkRegions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["stopOnDisconnectGracePeriodMinutes"] = args ? args.stopOnDisconnectGracePeriodMinutes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -222,6 +230,12 @@ export interface ProjectPoolState {
      * The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+     *
+     * > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
+     */
+    managedVirtualNetworkRegions?: pulumi.Input<string>;
     /**
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
      */
@@ -260,6 +274,12 @@ export interface ProjectPoolArgs {
      * The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+     *
+     * > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
+     */
+    managedVirtualNetworkRegions?: pulumi.Input<string>;
     /**
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
      */

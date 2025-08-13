@@ -147,7 +147,7 @@ def get_txt_record(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2018-05-01
+    * `Microsoft.Network` - 2018-05-01
 
 
     :param _builtins.str name: The name of the DNS TXT Record.
@@ -192,7 +192,7 @@ def get_txt_record_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2018-05-01
+    * `Microsoft.Network` - 2018-05-01
 
 
     :param _builtins.str name: The name of the DNS TXT Record.

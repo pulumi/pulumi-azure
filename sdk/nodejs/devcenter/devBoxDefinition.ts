@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  *
  * ## Import
  *
@@ -82,6 +82,12 @@ export class DevBoxDefinition extends pulumi.CustomResource {
      */
     public readonly devCenterId!: pulumi.Output<string>;
     /**
+     * Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+     *
+     * > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+     */
+    public readonly hibernateSupportEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the image for the Dev Center Dev Box Definition.
      */
     public readonly imageReferenceId!: pulumi.Output<string>;
@@ -116,6 +122,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DevBoxDefinitionState | undefined;
             resourceInputs["devCenterId"] = state ? state.devCenterId : undefined;
+            resourceInputs["hibernateSupportEnabled"] = state ? state.hibernateSupportEnabled : undefined;
             resourceInputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -133,6 +140,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'skuName'");
             }
             resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
+            resourceInputs["hibernateSupportEnabled"] = args ? args.hibernateSupportEnabled : undefined;
             resourceInputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -152,6 +160,12 @@ export interface DevBoxDefinitionState {
      * The ID of the associated Dev Center. Changing this forces a new resource to be created.
      */
     devCenterId?: pulumi.Input<string>;
+    /**
+     * Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+     *
+     * > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+     */
+    hibernateSupportEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the image for the Dev Center Dev Box Definition.
      */
@@ -182,6 +196,12 @@ export interface DevBoxDefinitionArgs {
      * The ID of the associated Dev Center. Changing this forces a new resource to be created.
      */
     devCenterId: pulumi.Input<string>;
+    /**
+     * Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+     *
+     * > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+     */
+    hibernateSupportEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the image for the Dev Center Dev Box Definition.
      */

@@ -256,7 +256,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2022-07-01
+        * `Microsoft.Network` - 2022-07-01
 
         ## Import
 
@@ -332,7 +332,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2022-07-01
+        * `Microsoft.Network` - 2022-07-01
 
         ## Import
 

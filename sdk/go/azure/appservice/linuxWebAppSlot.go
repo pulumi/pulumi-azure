@@ -75,7 +75,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Web`: 2023-12-01
+// * `Microsoft.Web` - 2023-12-01
 //
 // ## Import
 //
@@ -154,6 +154,10 @@ type LinuxWebAppSlot struct {
 	Tags                               pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput   `pulumi:"virtualNetworkBackupRestoreEnabled"`
 	VirtualNetworkSubnetId             pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+	VnetImagePullEnabled pulumi.BoolPtrOutput `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -272,6 +276,10 @@ type linuxWebAppSlotState struct {
 	Tags                               map[string]string `pulumi:"tags"`
 	VirtualNetworkBackupRestoreEnabled *bool             `pulumi:"virtualNetworkBackupRestoreEnabled"`
 	VirtualNetworkSubnetId             *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -350,6 +358,10 @@ type LinuxWebAppSlotState struct {
 	Tags                               pulumi.StringMapInput
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
 	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -412,6 +424,10 @@ type linuxWebAppSlotArgs struct {
 	Tags                               map[string]string `pulumi:"tags"`
 	VirtualNetworkBackupRestoreEnabled *bool             `pulumi:"virtualNetworkBackupRestoreEnabled"`
 	VirtualNetworkSubnetId             *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+	VnetImagePullEnabled *bool `pulumi:"vnetImagePullEnabled"`
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -471,6 +487,10 @@ type LinuxWebAppSlotArgs struct {
 	Tags                               pulumi.StringMapInput
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
 	VirtualNetworkSubnetId             pulumi.StringPtrInput
+	// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+	//
+	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+	VnetImagePullEnabled pulumi.BoolPtrInput
 	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 	//
 	// > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
@@ -735,6 +755,13 @@ func (o LinuxWebAppSlotOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolP
 
 func (o LinuxWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
+//
+// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
+func (o LinuxWebAppSlotOutput) VnetImagePullEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.VnetImagePullEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.

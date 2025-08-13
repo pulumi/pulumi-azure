@@ -316,7 +316,7 @@ class LoadTest(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.LoadTestService`: 2022-12-01
+        * `Microsoft.LoadTestService` - 2022-12-01
 
         ## Import
 
@@ -377,7 +377,7 @@ class LoadTest(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.LoadTestService`: 2022-12-01
+        * `Microsoft.LoadTestService` - 2022-12-01
 
         ## Import
 

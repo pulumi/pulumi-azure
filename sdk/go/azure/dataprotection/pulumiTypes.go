@@ -687,7 +687,7 @@ func (o BackupPolicyDiskRetentionRuleArrayOutput) Index(i pulumi.IntInput) Backu
 }
 
 type BackupPolicyDiskRetentionRuleCriteria struct {
-	// Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
 	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
 }
 
@@ -703,7 +703,7 @@ type BackupPolicyDiskRetentionRuleCriteriaInput interface {
 }
 
 type BackupPolicyDiskRetentionRuleCriteriaArgs struct {
-	// Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
 	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
 }
 
@@ -733,7 +733,7 @@ func (o BackupPolicyDiskRetentionRuleCriteriaOutput) ToBackupPolicyDiskRetention
 	return o
 }
 
-// Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
 func (o BackupPolicyDiskRetentionRuleCriteriaOutput) AbsoluteCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPolicyDiskRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
 }

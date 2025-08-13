@@ -272,7 +272,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Maintenance`: 2023-04-01
+        * `Microsoft.Maintenance` - 2023-04-01
 
         ## Import
 
@@ -430,7 +430,7 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Maintenance`: 2023-04-01
+        * `Microsoft.Maintenance` - 2023-04-01
 
         ## Import
 

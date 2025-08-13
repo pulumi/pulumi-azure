@@ -98,7 +98,7 @@ def get_definition(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Solutions`: 2021-07-01
+    * `Microsoft.Solutions` - 2021-07-01
 
 
     :param _builtins.str name: Specifies the name of the Managed Application Definition.
@@ -137,7 +137,7 @@ def get_definition_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Solutions`: 2021-07-01
+    * `Microsoft.Solutions` - 2021-07-01
 
 
     :param _builtins.str name: Specifies the name of the Managed Application Definition.

@@ -10,41 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterVirtualNetworkConfiguration {
-    /**
-     * @return Data management&#39;s service public IP address resource id.
-     * 
-     */
     private String dataManagementPublicIpId;
-    /**
-     * @return Engine service&#39;s public IP address resource id.
-     * 
-     */
     private String enginePublicIpId;
-    /**
-     * @return The subnet resource id.
-     * 
-     */
     private String subnetId;
 
     private ClusterVirtualNetworkConfiguration() {}
-    /**
-     * @return Data management&#39;s service public IP address resource id.
-     * 
-     */
     public String dataManagementPublicIpId() {
         return this.dataManagementPublicIpId;
     }
-    /**
-     * @return Engine service&#39;s public IP address resource id.
-     * 
-     */
     public String enginePublicIpId() {
         return this.enginePublicIpId;
     }
-    /**
-     * @return The subnet resource id.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

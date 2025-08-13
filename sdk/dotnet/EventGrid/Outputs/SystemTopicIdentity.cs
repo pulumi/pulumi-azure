@@ -16,9 +16,9 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// <summary>
         /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
         /// 
-        /// &gt; **Note:** This is required when `type` is set to `UserAssigned`
+        /// &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// 
-        /// &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+        /// &gt; **Note:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Event Grid System Topic has been created.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.EventGrid.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
         /// </summary>
         public readonly string Type;
 

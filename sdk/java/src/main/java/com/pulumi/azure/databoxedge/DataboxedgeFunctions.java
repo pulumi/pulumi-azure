@@ -59,7 +59,7 @@ public final class DataboxedgeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataBoxEdge`: 2022-03-01
+     * * `Microsoft.DataBoxEdge` - 2022-03-01
      * 
      */
     public static Output<GetDeviceResult> getDevice(GetDeviceArgs args) {
@@ -109,7 +109,7 @@ public final class DataboxedgeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataBoxEdge`: 2022-03-01
+     * * `Microsoft.DataBoxEdge` - 2022-03-01
      * 
      */
     public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args) {
@@ -159,7 +159,7 @@ public final class DataboxedgeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataBoxEdge`: 2022-03-01
+     * * `Microsoft.DataBoxEdge` - 2022-03-01
      * 
      */
     public static Output<GetDeviceResult> getDevice(GetDeviceArgs args, InvokeOptions options) {
@@ -209,7 +209,7 @@ public final class DataboxedgeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataBoxEdge`: 2022-03-01
+     * * `Microsoft.DataBoxEdge` - 2022-03-01
      * 
      */
     public static Output<GetDeviceResult> getDevice(GetDeviceArgs args, InvokeOutputOptions options) {
@@ -259,7 +259,7 @@ public final class DataboxedgeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DataBoxEdge`: 2022-03-01
+     * * `Microsoft.DataBoxEdge` - 2022-03-01
      * 
      */
     public static CompletableFuture<GetDeviceResult> getDevicePlain(GetDevicePlainArgs args, InvokeOptions options) {

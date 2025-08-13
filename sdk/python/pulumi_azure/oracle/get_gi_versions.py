@@ -26,16 +26,22 @@ class GetGiVersionsResult:
     """
     A collection of values returned by getGiVersions.
     """
-    def __init__(__self__, id=None, location=None, versions=None):
+    def __init__(__self__, id=None, location=None, shape=None, versions=None, zone=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if shape and not isinstance(shape, str):
+            raise TypeError("Expected argument 'shape' to be a str")
+        pulumi.set(__self__, "shape", shape)
         if versions and not isinstance(versions, list):
             raise TypeError("Expected argument 'versions' to be a list")
         pulumi.set(__self__, "versions", versions)
+        if zone and not isinstance(zone, str):
+            raise TypeError("Expected argument 'zone' to be a str")
+        pulumi.set(__self__, "zone", zone)
 
     @_builtins.property
     @pulumi.getter
@@ -52,11 +58,21 @@ class GetGiVersionsResult:
 
     @_builtins.property
     @pulumi.getter
+    def shape(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "shape")
+
+    @_builtins.property
+    @pulumi.getter
     def versions(self) -> Sequence[_builtins.str]:
         """
         A list of valid GI software versions.
         """
         return pulumi.get(self, "versions")
+
+    @_builtins.property
+    @pulumi.getter
+    def zone(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "zone")
 
 
 class AwaitableGetGiVersionsResult(GetGiVersionsResult):
@@ -67,10 +83,14 @@ class AwaitableGetGiVersionsResult(GetGiVersionsResult):
         return GetGiVersionsResult(
             id=self.id,
             location=self.location,
-            versions=self.versions)
+            shape=self.shape,
+            versions=self.versions,
+            zone=self.zone)
 
 
 def get_gi_versions(location: Optional[_builtins.str] = None,
+                    shape: Optional[_builtins.str] = None,
+                    zone: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGiVersionsResult:
     """
     This data source provides the list of GI Versions in Oracle Cloud Infrastructure Database service.
@@ -83,7 +103,9 @@ def get_gi_versions(location: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_gi_versions(location="West Europe")
+    example = azure.oracle.get_gi_versions(location="eastus",
+        zone="2",
+        shape="Exadata.X9M")
     pulumi.export("example", example)
     ```
 
@@ -92,21 +114,29 @@ def get_gi_versions(location: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str location: The Azure Region to query for the GI Versions in.
+    :param _builtins.str shape: The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+    :param _builtins.str zone: Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
     """
     __args__ = dict()
     __args__['location'] = location
+    __args__['shape'] = shape
+    __args__['zone'] = zone
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:oracle/getGiVersions:getGiVersions', __args__, opts=opts, typ=GetGiVersionsResult).value
 
     return AwaitableGetGiVersionsResult(
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
-        versions=pulumi.get(__ret__, 'versions'))
+        shape=pulumi.get(__ret__, 'shape'),
+        versions=pulumi.get(__ret__, 'versions'),
+        zone=pulumi.get(__ret__, 'zone'))
 def get_gi_versions_output(location: Optional[pulumi.Input[_builtins.str]] = None,
+                           shape: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                           zone: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGiVersionsResult]:
     """
     This data source provides the list of GI Versions in Oracle Cloud Infrastructure Database service.
@@ -119,7 +149,9 @@ def get_gi_versions_output(location: Optional[pulumi.Input[_builtins.str]] = Non
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.oracle.get_gi_versions(location="West Europe")
+    example = azure.oracle.get_gi_versions(location="eastus",
+        zone="2",
+        shape="Exadata.X9M")
     pulumi.export("example", example)
     ```
 
@@ -128,16 +160,22 @@ def get_gi_versions_output(location: Optional[pulumi.Input[_builtins.str]] = Non
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str location: The Azure Region to query for the GI Versions in.
+    :param _builtins.str shape: The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+    :param _builtins.str zone: Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
     """
     __args__ = dict()
     __args__['location'] = location
+    __args__['shape'] = shape
+    __args__['zone'] = zone
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:oracle/getGiVersions:getGiVersions', __args__, opts=opts, typ=GetGiVersionsResult)
     return __ret__.apply(lambda __response__: GetGiVersionsResult(
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
-        versions=pulumi.get(__response__, 'versions')))
+        shape=pulumi.get(__response__, 'shape'),
+        versions=pulumi.get(__response__, 'versions'),
+        zone=pulumi.get(__response__, 'zone')))

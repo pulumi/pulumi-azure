@@ -99,7 +99,7 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+        * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +139,7 @@ class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+        * `PaloAltoNetworks.Cloudngfw` - 2022-08-29
 
         :param str resource_name: The name of the resource.
         :param LocalRulestackOutboundTrustCertificateAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -60,7 +60,7 @@ public final class MysqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforMySQL`: 2023-12-30
+     * * `Microsoft.DBforMySQL` - 2023-12-30
      * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args) {
@@ -111,7 +111,7 @@ public final class MysqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforMySQL`: 2023-12-30
+     * * `Microsoft.DBforMySQL` - 2023-12-30
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args) {
@@ -162,7 +162,7 @@ public final class MysqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforMySQL`: 2023-12-30
+     * * `Microsoft.DBforMySQL` - 2023-12-30
      * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class MysqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforMySQL`: 2023-12-30
+     * * `Microsoft.DBforMySQL` - 2023-12-30
      * 
      */
     public static Output<GetFlexibleServerResult> getFlexibleServer(GetFlexibleServerArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class MysqlFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.DBforMySQL`: 2023-12-30
+     * * `Microsoft.DBforMySQL` - 2023-12-30
      * 
      */
     public static CompletableFuture<GetFlexibleServerResult> getFlexibleServerPlain(GetFlexibleServerPlainArgs args, InvokeOptions options) {

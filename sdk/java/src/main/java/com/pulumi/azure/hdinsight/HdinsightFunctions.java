@@ -61,7 +61,7 @@ public final class HdinsightFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.HDInsight`: 2021-06-01
+     * * `Microsoft.HDInsight` - 2021-06-01
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -113,7 +113,7 @@ public final class HdinsightFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.HDInsight`: 2021-06-01
+     * * `Microsoft.HDInsight` - 2021-06-01
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -165,7 +165,7 @@ public final class HdinsightFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.HDInsight`: 2021-06-01
+     * * `Microsoft.HDInsight` - 2021-06-01
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -217,7 +217,7 @@ public final class HdinsightFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.HDInsight`: 2021-06-01
+     * * `Microsoft.HDInsight` - 2021-06-01
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOutputOptions options) {
@@ -269,7 +269,7 @@ public final class HdinsightFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.HDInsight`: 2021-06-01
+     * * `Microsoft.HDInsight` - 2021-06-01
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {

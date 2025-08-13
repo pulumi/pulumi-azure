@@ -26,7 +26,7 @@ class GetRegistryResult:
     """
     A collection of values returned by getRegistry.
     """
-    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, data_endpoint_enabled=None, id=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, data_endpoint_enabled=None, data_endpoint_host_names=None, id=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, tags=None):
         if admin_enabled and not isinstance(admin_enabled, bool):
             raise TypeError("Expected argument 'admin_enabled' to be a bool")
         pulumi.set(__self__, "admin_enabled", admin_enabled)
@@ -39,6 +39,9 @@ class GetRegistryResult:
         if data_endpoint_enabled and not isinstance(data_endpoint_enabled, bool):
             raise TypeError("Expected argument 'data_endpoint_enabled' to be a bool")
         pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
+        if data_endpoint_host_names and not isinstance(data_endpoint_host_names, list):
+            raise TypeError("Expected argument 'data_endpoint_host_names' to be a list")
+        pulumi.set(__self__, "data_endpoint_host_names", data_endpoint_host_names)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -92,6 +95,14 @@ class GetRegistryResult:
         Whether dedicated data endpoints for this Container Registry are enabled?
         """
         return pulumi.get(self, "data_endpoint_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="dataEndpointHostNames")
+    def data_endpoint_host_names(self) -> Sequence[_builtins.str]:
+        """
+        A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
+        """
+        return pulumi.get(self, "data_endpoint_host_names")
 
     @_builtins.property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             admin_password=self.admin_password,
             admin_username=self.admin_username,
             data_endpoint_enabled=self.data_endpoint_enabled,
+            data_endpoint_host_names=self.data_endpoint_host_names,
             id=self.id,
             location=self.location,
             login_server=self.login_server,
@@ -185,7 +197,7 @@ def get_registry(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+    * `Microsoft.ContainerRegistry` - 2023-11-01-preview
 
 
     :param _builtins.str name: The name of the Container Registry.
@@ -202,6 +214,7 @@ def get_registry(name: Optional[_builtins.str] = None,
         admin_password=pulumi.get(__ret__, 'admin_password'),
         admin_username=pulumi.get(__ret__, 'admin_username'),
         data_endpoint_enabled=pulumi.get(__ret__, 'data_endpoint_enabled'),
+        data_endpoint_host_names=pulumi.get(__ret__, 'data_endpoint_host_names'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         login_server=pulumi.get(__ret__, 'login_server'),
@@ -231,7 +244,7 @@ def get_registry_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+    * `Microsoft.ContainerRegistry` - 2023-11-01-preview
 
 
     :param _builtins.str name: The name of the Container Registry.
@@ -247,6 +260,7 @@ def get_registry_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         admin_password=pulumi.get(__response__, 'admin_password'),
         admin_username=pulumi.get(__response__, 'admin_username'),
         data_endpoint_enabled=pulumi.get(__response__, 'data_endpoint_enabled'),
+        data_endpoint_host_names=pulumi.get(__response__, 'data_endpoint_host_names'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         login_server=pulumi.get(__response__, 'login_server'),

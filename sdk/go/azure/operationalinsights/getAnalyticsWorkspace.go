@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.OperationalInsights`: 2020-08-01
+// * `Microsoft.OperationalInsights` - 2020-08-01
 func LookupAnalyticsWorkspace(ctx *pulumi.Context, args *LookupAnalyticsWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupAnalyticsWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAnalyticsWorkspaceResult

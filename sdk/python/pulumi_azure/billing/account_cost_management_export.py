@@ -375,7 +375,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CostManagement`: 2023-08-01
+        * `Microsoft.CostManagement` - 2023-08-01
 
         ## Import
 
@@ -447,7 +447,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CostManagement`: 2023-08-01
+        * `Microsoft.CostManagement` - 2023-08-01
 
         ## Import
 

@@ -126,7 +126,7 @@ class Setting(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Security`: 2022-05-01
+        * `Microsoft.Security` - 2022-05-01
 
         ## Import
 
@@ -170,7 +170,7 @@ class Setting(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Security`: 2022-05-01
+        * `Microsoft.Security` - 2022-05-01
 
         ## Import
 

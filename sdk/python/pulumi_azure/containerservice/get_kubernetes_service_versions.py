@@ -135,7 +135,7 @@ def get_kubernetes_service_versions(include_preview: Optional[_builtins.bool] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService`: 2019-08-01
+    * `Microsoft.ContainerService` - 2019-08-01
 
 
     :param _builtins.bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
@@ -180,7 +180,7 @@ def get_kubernetes_service_versions_output(include_preview: Optional[pulumi.Inpu
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ContainerService`: 2019-08-01
+    * `Microsoft.ContainerService` - 2019-08-01
 
 
     :param _builtins.bool include_preview: Should Preview versions of Kubernetes in AKS be included? Defaults to `true`

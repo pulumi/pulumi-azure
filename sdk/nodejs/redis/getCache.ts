@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cache`: 2024-11-01
+ * * `Microsoft.Cache` - 2024-11-01
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -157,7 +157,7 @@ export interface GetCacheResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cache`: 2024-11-01
+ * * `Microsoft.Cache` - 2024-11-01
  */
 export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCacheResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

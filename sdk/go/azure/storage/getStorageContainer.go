@@ -52,7 +52,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Storage`: 2023-05-01
+// * `Microsoft.Storage` - 2023-05-01
 func GetStorageContainer(ctx *pulumi.Context, args *GetStorageContainerArgs, opts ...pulumi.InvokeOption) (*GetStorageContainerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStorageContainerResult

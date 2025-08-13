@@ -191,7 +191,7 @@ namespace Pulumi.Azure.MSSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Sql`: 2023-08-01-preview
+    /// * `Microsoft.Sql` - 2023-08-01-preview
     /// 
     /// ## Import
     /// 
@@ -297,10 +297,10 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The max size of the database in gigabytes.
         /// 
-        /// &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+        /// &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         /// </summary>
         [Output("maxSizeGb")]
-        public Output<int> MaxSizeGb { get; private set; } = null!;
+        public Output<double> MaxSizeGb { get; private set; } = null!;
 
         /// <summary>
         /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
@@ -363,7 +363,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> SampleName { get; private set; } = null!;
 
         /// <summary>
-        /// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        /// How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("secondaryType")]
         public Output<string> SecondaryType { get; private set; } = null!;
@@ -583,10 +583,10 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The max size of the database in gigabytes.
         /// 
-        /// &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+        /// &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         /// </summary>
         [Input("maxSizeGb")]
-        public Input<int>? MaxSizeGb { get; set; }
+        public Input<double>? MaxSizeGb { get; set; }
 
         /// <summary>
         /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
@@ -649,7 +649,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SampleName { get; set; }
 
         /// <summary>
-        /// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        /// How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("secondaryType")]
         public Input<string>? SecondaryType { get; set; }
@@ -833,10 +833,10 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The max size of the database in gigabytes.
         /// 
-        /// &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+        /// &gt; **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `max_size_gb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
         /// </summary>
         [Input("maxSizeGb")]
-        public Input<int>? MaxSizeGb { get; set; }
+        public Input<double>? MaxSizeGb { get; set; }
 
         /// <summary>
         /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
@@ -899,7 +899,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SampleName { get; set; }
 
         /// <summary>
-        /// How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+        /// How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("secondaryType")]
         public Input<string>? SecondaryType { get; set; }

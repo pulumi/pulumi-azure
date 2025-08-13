@@ -2223,6 +2223,17 @@ export namespace apimanagement {
          */
         subnetId: pulumi.Input<string>;
     }
+
+    export interface StandaloneGatewaySku {
+        /**
+         * The number of deployed units of the SKU. Defaults to `1`.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+         */
+        name: pulumi.Input<string>;
+    }
 }
 
 export namespace appconfiguration {
@@ -3987,9 +3998,13 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: pulumi.Input<boolean>;
         /**
-         * Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+         * Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
          */
         use32BitWorker?: pulumi.Input<boolean>;
+        /**
+         * Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+         */
+        vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
          * Should Web Sockets be enabled. Defaults to `false`.
          */
@@ -8619,7 +8634,7 @@ export namespace appservice {
          */
         nodeVersion?: pulumi.Input<string>;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
          *
          * > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
          */
@@ -9772,7 +9787,7 @@ export namespace appservice {
          */
         nodeVersion?: pulumi.Input<string>;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2`, `8.3` and `8.4`.
          *
          * > **Note:** version `7.4` is deprecated and will be removed from the provider in a future version.
          */
@@ -17099,7 +17114,7 @@ export namespace batch {
          */
         resourceFiles?: pulumi.Input<pulumi.Input<inputs.batch.PoolStartTaskResourceFile>[]>;
         /**
-         * The number of retry count.
+         * The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
          */
         taskRetryMaximum?: pulumi.Input<number>;
         /**
@@ -19296,7 +19311,9 @@ export namespace cognitive {
 
     export interface DeploymentModel {
         /**
-         * The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
+         * The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+         *
+         * > **Note:** Possible values of `format` can be found by running the command `az cognitiveservices account list-models`. The available values may vary by region or due to quota limitations. These could include models from `AI21 Labs`, `Black Forest Labs`, `Cohere`, `Core42`, `DeepSeek`, `Meta`, `Microsoft`, `Mistral AI`, `OpenAI`, and `xAI`.
          */
         format: pulumi.Input<string>;
         /**
@@ -20012,6 +20029,18 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetNetworkInterface {
         /**
+         * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+         *
+         * > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         */
+        auxiliaryMode?: pulumi.Input<string>;
+        /**
+         * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+         *
+         * > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         */
+        auxiliarySku?: pulumi.Input<string>;
+        /**
          * A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
          */
         dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
@@ -20551,6 +20580,18 @@ export namespace compute {
     }
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterface {
+        /**
+         * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+         *
+         * > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         */
+        auxiliaryMode?: pulumi.Input<string>;
+        /**
+         * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+         *
+         * > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         */
+        auxiliarySku?: pulumi.Input<string>;
         /**
          * A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
          */
@@ -22202,7 +22243,9 @@ export namespace compute {
          */
         option: pulumi.Input<string>;
         /**
-         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
          */
         placement?: pulumi.Input<string>;
     }
@@ -22446,6 +22489,18 @@ export namespace compute {
     }
 
     export interface WindowsVirtualMachineScaleSetNetworkInterface {
+        /**
+         * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+         *
+         * > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         */
+        auxiliaryMode?: pulumi.Input<string>;
+        /**
+         * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+         *
+         * > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         */
+        auxiliarySku?: pulumi.Input<string>;
         /**
          * A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
          */
@@ -23152,6 +23207,10 @@ export namespace containerapp {
          */
         clientCertificateMode?: pulumi.Input<string>;
         /**
+         * A `cors` block as defined below.
+         */
+        cors?: pulumi.Input<inputs.containerapp.AppIngressCors>;
+        /**
          * One or more `customDomain` block as detailed below.
          */
         customDomains?: pulumi.Input<pulumi.Input<inputs.containerapp.AppIngressCustomDomain>[]>;
@@ -23187,6 +23246,33 @@ export namespace containerapp {
          * > **Note:** if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
          */
         transport?: pulumi.Input<string>;
+    }
+
+    export interface AppIngressCors {
+        /**
+         * Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+         */
+        allowCredentialsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the list of request headers that are permitted in the actual request.
+         */
+        allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+         */
+        allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the list of origins that are allowed to make cross-origin calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+         */
+        exposedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the number of seconds that the browser can cache the results of a preflight request.
+         */
+        maxAgeInSeconds?: pulumi.Input<number>;
     }
 
     export interface AppIngressCustomDomain {
@@ -23834,6 +23920,19 @@ export namespace containerapp {
          * The value for this secret.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface EnvironmentIdentity {
+        /**
+         * A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface EnvironmentWorkloadProfile {
@@ -24588,6 +24687,10 @@ export namespace containerservice {
          */
         localAuthReference?: pulumi.Input<string>;
         /**
+         * Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+         */
+        provider?: pulumi.Input<string>;
+        /**
          * Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
          */
         referenceType: pulumi.Input<string>;
@@ -25253,7 +25356,7 @@ export namespace containerservice {
          */
         skipNodesWithLocalStorage?: pulumi.Input<boolean>;
         /**
-         * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
+         * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
          */
         skipNodesWithSystemPods?: pulumi.Input<boolean>;
     }
@@ -25294,7 +25397,7 @@ export namespace containerservice {
          */
         capacityReservationGroupId?: pulumi.Input<string>;
         /**
-         * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block. Changing this forces a new resource to be created.
+         * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
          */
         fipsEnabled?: pulumi.Input<boolean>;
         /**
@@ -25487,11 +25590,15 @@ export namespace containerservice {
          */
         sysctlConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig>;
         /**
+         * Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+         */
+        transparentHugePage?: pulumi.Input<string>;
+        /**
          * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
          */
         transparentHugePageDefrag?: pulumi.Input<string>;
         /**
-         * Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+         * @deprecated this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
          */
         transparentHugePageEnabled?: pulumi.Input<string>;
     }
@@ -25657,7 +25764,7 @@ export namespace containerservice {
          */
         maxSurge: pulumi.Input<string>;
         /**
-         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`.
+         * The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to `0`. <!-- The 0 default happens in code, not in Schema -->
          */
         nodeSoakDurationInMinutes?: pulumi.Input<number>;
     }
@@ -25951,7 +26058,7 @@ export namespace containerservice {
          */
         duration: pulumi.Input<number>;
         /**
-         * Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+         * Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
          */
         frequency: pulumi.Input<string>;
         /**
@@ -26271,11 +26378,15 @@ export namespace containerservice {
          */
         sysctlConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterNodePoolLinuxOsConfigSysctlConfig>;
         /**
+         * Specifies the Transparent Huge Page configuration. Possible values are `always`, `madvise` and `never`.
+         */
+        transparentHugePage?: pulumi.Input<string>;
+        /**
          * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
          */
         transparentHugePageDefrag?: pulumi.Input<string>;
         /**
-         * Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
+         * @deprecated this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
          */
         transparentHugePageEnabled?: pulumi.Input<string>;
     }
@@ -26584,6 +26695,10 @@ export namespace containerservice {
 
     export interface KubernetesClusterWebAppRouting {
         /**
+         * Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+         */
+        defaultNginxController?: pulumi.Input<string>;
+        /**
          * Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
          */
         dnsZoneIds: pulumi.Input<pulumi.Input<string>[]>;
@@ -26647,8 +26762,6 @@ export namespace containerservice {
         kedaEnabled?: pulumi.Input<boolean>;
         /**
          * Specifies whether Vertical Pod Autoscaler should be enabled.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-VPAPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
          */
         verticalPodAutoscalerEnabled?: pulumi.Input<boolean>;
     }
@@ -30279,7 +30392,7 @@ export namespace dataprotection {
 
     export interface BackupPolicyDiskRetentionRuleCriteria {
         /**
-         * Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
          */
         absoluteCriteria?: pulumi.Input<string>;
     }
@@ -31209,6 +31322,20 @@ export namespace domainservices {
 }
 
 export namespace dynatrace {
+    export interface MonitorEnvironmentProperty {
+        /**
+         * Information about the Dynatrace environment. An `environmentInfo` block as defined below.
+         */
+        environmentInfos: pulumi.Input<pulumi.Input<inputs.dynatrace.MonitorEnvironmentPropertyEnvironmentInfo>[]>;
+    }
+
+    export interface MonitorEnvironmentPropertyEnvironmentInfo {
+        /**
+         * The ID of the Dynatrace environment to be created.
+         */
+        environmentId: pulumi.Input<string>;
+    }
+
     export interface MonitorIdentity {
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
@@ -32103,6 +32230,17 @@ export namespace eventgrid {
         partnerRegistrationId: pulumi.Input<string>;
     }
 
+    export interface PartnerNamespaceInboundIpRule {
+        /**
+         * The action to take when the rule is matched. The only possible value is `Allow`. Defaults to `Allow`.
+         */
+        action?: pulumi.Input<string>;
+        /**
+         * The IP mask (CIDR) to match on.
+         */
+        ipMask: pulumi.Input<string>;
+    }
+
     export interface SystemTopicEventSubscriptionAdvancedFilter {
         /**
          * Compares a value of an event using a single boolean value.
@@ -32537,9 +32675,9 @@ export namespace eventgrid {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
          *
-         * > **Note:** This is required when `type` is set to `UserAssigned`
+         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          *
-         * > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created. More details are available below.
+         * > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Event Grid System Topic has been created.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -32551,7 +32689,7 @@ export namespace eventgrid {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -32902,6 +33040,21 @@ export namespace eventhub {
          * The id of the subnet to match on.
          */
         subnetId: pulumi.Input<string>;
+    }
+
+    export interface EventHubRetentionDescription {
+        /**
+         * Specifies the Cleanup Policy for the EventHub. Possible values are `Delete` and `Compact`.
+         */
+        cleanupPolicy: pulumi.Input<string>;
+        /**
+         * Specifies the number of hours to retain the events for this Event Hub. The value is only used when `cleanupPolicy` is `Delete`.
+         */
+        retentionTimeInHours?: pulumi.Input<number>;
+        /**
+         * Specifies the number of hours to retain the tombstones markers of a compacted Event Hub. The value is only used when `cleanupPolicy` is `Compact`.
+         */
+        tombstoneRetentionTimeInHours?: pulumi.Input<number>;
     }
 
     export interface EventSubscriptionAdvancedFilter {
@@ -38140,17 +38293,8 @@ export namespace kusto {
     }
 
     export interface ClusterVirtualNetworkConfiguration {
-        /**
-         * Data management's service public IP address resource id.
-         */
         dataManagementPublicIpId: pulumi.Input<string>;
-        /**
-         * Engine service's public IP address resource id.
-         */
         enginePublicIpId: pulumi.Input<string>;
-        /**
-         * The subnet resource id.
-         */
         subnetId: pulumi.Input<string>;
     }
 
@@ -39275,7 +39419,7 @@ export namespace logicapps {
         /**
          * A list of the allowed caller IP address ranges.
          */
-        allowedCallerIpAddressRanges: pulumi.Input<pulumi.Input<string>[]>;
+        allowedCallerIpAddressRanges?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A `openAuthenticationPolicy` block as defined below.
          */
@@ -39357,15 +39501,15 @@ export namespace machinelearning {
 
     export interface ComputeClusterScaleSettings {
         /**
-         * Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * Maximum node count.
          */
         maxNodeCount: pulumi.Input<number>;
         /**
-         * Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * Minimal node count.
          */
         minNodeCount: pulumi.Input<number>;
         /**
-         * Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
          */
         scaleDownNodesAfterIdleDuration: pulumi.Input<string>;
     }
@@ -39772,6 +39916,25 @@ export namespace managedlustre {
          */
         timeOfDayInUtc: pulumi.Input<string>;
     }
+
+    export interface FileSystemRootSquash {
+        /**
+         * Squash mode of the AML file system. Possible values are `RootOnly`, and `All`.
+         */
+        mode: pulumi.Input<string>;
+        /**
+         * NID IP Address list(s) to be added to the TrustedSystems, separated by semicolons.
+         */
+        noSquashNids: pulumi.Input<string>;
+        /**
+         * The GID to be used for the root squash. Defaults to `0`.
+         */
+        squashGid?: pulumi.Input<number>;
+        /**
+         * The UID to be used for the root squash. Defaults to `0`.
+         */
+        squashUid?: pulumi.Input<number>;
+    }
 }
 
 export namespace management {
@@ -39845,6 +40008,52 @@ export namespace management {
          */
         kind: pulumi.Input<string>;
         notIns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GroupPolicySetDefinitionPolicyDefinitionGroup {
+        /**
+         * The ID of a resource that contains additional metadata for this Policy Definition Group.
+         */
+        additionalMetadataResourceId?: pulumi.Input<string>;
+        /**
+         * The category of this Policy Definition Group.
+         */
+        category?: pulumi.Input<string>;
+        /**
+         * The description of this Policy Definition Group.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The display name of this Policy Definition Group.
+         */
+        displayName?: pulumi.Input<string>;
+        /**
+         * The name which should be used for this Policy Definition Group.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface GroupPolicySetDefinitionPolicyDefinitionReference {
+        /**
+         * Parameter values for the references Policy Definition in JSON format.
+         */
+        parameterValues?: pulumi.Input<string>;
+        /**
+         * The ID of the Policy Definition to include in this Policy Set Definition.
+         */
+        policyDefinitionId: pulumi.Input<string>;
+        /**
+         * Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+         */
+        policyGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A unique ID within this Policy Set Definition for this Policy Definition Reference.
+         */
+        referenceId?: pulumi.Input<string>;
+        /**
+         * The version of the Policy Definition to use.
+         */
+        version?: pulumi.Input<string>;
     }
 }
 
@@ -42386,7 +42595,7 @@ export namespace mssql {
         /**
          * The ID of the Elastic Job Credential to use when connecting to the output destination.
          */
-        jobCredentialId: pulumi.Input<string>;
+        jobCredentialId?: pulumi.Input<string>;
         /**
          * The ID of the output database.
          */
@@ -42529,6 +42738,25 @@ export namespace mssql {
          * Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface ManagedInstanceStartStopScheduleSchedule {
+        /**
+         * Start day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+         */
+        startDay: pulumi.Input<string>;
+        /**
+         * Start time of the schedule in 24-hour format (e.g., `08:00`).
+         */
+        startTime: pulumi.Input<string>;
+        /**
+         * Stop day of the schedule. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+         */
+        stopDay: pulumi.Input<string>;
+        /**
+         * Stop time of the schedule in 24-hour format (e.g., `17:00`).
+         */
+        stopTime: pulumi.Input<string>;
     }
 
     export interface ManagedInstanceVulnerabilityAssessmentRecurringScans {
@@ -43184,6 +43412,21 @@ export namespace netapp {
         snapshotsToKeep: pulumi.Input<number>;
     }
 
+    export interface VolumeCoolAccess {
+        /**
+         * The coolness period in days for the volume. Possible vales are between `2` and `183`.
+         */
+        coolnessPeriodInDays: pulumi.Input<number>;
+        /**
+         * The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
+         */
+        retrievalPolicy: pulumi.Input<string>;
+        /**
+         * The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
+         */
+        tieringPolicy: pulumi.Input<string>;
+    }
+
     export interface VolumeDataProtectionBackupPolicy {
         /**
          * Resource ID of the backup policy to apply to the volume.
@@ -43265,7 +43508,11 @@ export namespace netapp {
          */
         kerberos5pReadWriteEnabled?: pulumi.Input<boolean>;
         /**
-         * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
+         * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
+         */
+        protocol?: pulumi.Input<string>;
+        /**
+         * @deprecated this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
          */
         protocolsEnabled?: pulumi.Input<string>;
         /**
@@ -44235,7 +44482,7 @@ export namespace network {
         /**
          * The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
          *
-         * > **Note:** To implement certificate rotation, `versionlessSecretId` should be used, although `secretId` is also supported.
+         * > **Note:** To implement certificate rotation, the `azure.keyvault.Secret` attribute `versionlessId` should be used, although `id` is also supported.
          *
          * > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
          *
@@ -45589,6 +45836,29 @@ export namespace network {
         subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic {
+        /**
+         * Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+         */
+        destinationIps: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+         */
+        destinationPorts: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+         */
+        protocols: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+         */
+        sourceIps: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+         */
+        sourcePorts: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface NetworkSecurityGroupSecurityRule {
         /**
          * Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
@@ -45907,6 +46177,23 @@ export namespace network {
          * The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
          */
         name: pulumi.Input<string>;
+    }
+
+    export interface SubnetIpAddressPool {
+        /**
+         * The list of IP address prefixes allocated to the subnet.
+         */
+        allocatedIpAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the Network Manager IP Address Management (IPAM) Pool.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
+         *
+         * > **Note:** `numberOfIpAddresses` cannot be decreased.
+         */
+        numberOfIpAddresses: pulumi.Input<string>;
     }
 
     export interface SubnetServiceEndpointStoragePolicyDefinition {
@@ -46292,7 +46579,7 @@ export namespace network {
         /**
          * The ID of the public IP address to associate with the Virtual Network Gateway.
          */
-        publicIpAddressId: pulumi.Input<string>;
+        publicIpAddressId?: pulumi.Input<string>;
         /**
          * The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
          */
@@ -46515,6 +46802,8 @@ export namespace network {
         id: pulumi.Input<string>;
         /**
          * The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+         *
+         * > **Note:** `numberOfIpAddresses` cannot be decreased.
          */
         numberOfIpAddresses: pulumi.Input<string>;
     }
@@ -46739,6 +47028,10 @@ export namespace network {
          * One or more `customBgpAddress` blocks as defined below.
          */
         customBgpAddresses?: pulumi.Input<pulumi.Input<inputs.network.VpnGatewayConnectionVpnLinkCustomBgpAddress>[]>;
+        /**
+         * The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+         */
+        dpdTimeoutSeconds?: pulumi.Input<number>;
         /**
          * A list of the egress NAT Rule Ids.
          */
@@ -47381,6 +47674,13 @@ export namespace operationalinsights {
 }
 
 export namespace oracle {
+    export interface AutonomousDatabaseLongTermBackupSchedule {
+        enabled: pulumi.Input<boolean>;
+        repeatCadence: pulumi.Input<string>;
+        retentionPeriodInDays: pulumi.Input<number>;
+        timeOfBackup: pulumi.Input<string>;
+    }
+
     export interface CloudVmClusterDataCollectionOptions {
         /**
          * Indicates whether diagnostic collection is enabled for the VM Cluster/Cloud VM Cluster/VMBM DBCS. Enabling diagnostic collection allows you to receive Events service notifications for guest VM issues. Diagnostic collection also allows Oracle to provide enhanced service and proactive support for your Exadata system. You can enable diagnostic collection during VM Cluster/Cloud VM Cluster provisioning. You can also disable or enable it at any time using the `UpdateVmCluster` or `updateCloudVmCluster` API. Changing this forces a new Cloud VM Cluster to be created.
@@ -47394,6 +47694,17 @@ export namespace oracle {
          * Indicates whether incident logs and trace collection are enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling incident logs collection allows Oracle to receive Events service notifications for guest VM issues, collect incident logs and traces, and use them to diagnose issues and resolve them. Optionally enable incident logs collection while provisioning a system. You can also disable or enable incident logs collection anytime using the `UpdateVmCluster`, `updateCloudVmCluster` or `updateDbsystem` API. Changing this forces a new Cloud VM Cluster to be created.
          */
         incidentLogsEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface CloudVmClusterFileSystemConfiguration {
+        /**
+         * The mount path of the file system.
+         */
+        mountPoint?: pulumi.Input<string>;
+        /**
+         * The size of the virtual machine's file system.
+         */
+        sizeInGb?: pulumi.Input<number>;
     }
 
     export interface ExadataInfrastructureMaintenanceWindow {
@@ -48339,44 +48650,48 @@ export namespace pim {
 export namespace policy {
     export interface PolicySetDefinitionPolicyDefinitionGroup {
         /**
-         * The ID of a resource that contains additional metadata about this policy definition group.
+         * The ID of a resource that contains additional metadata for this Policy Definition Group.
          */
         additionalMetadataResourceId?: pulumi.Input<string>;
         /**
-         * The category of this policy definition group.
+         * The category of this Policy Definition Group.
          */
         category?: pulumi.Input<string>;
         /**
-         * The description of this policy definition group.
+         * The description of this Policy Definition Group.
          */
         description?: pulumi.Input<string>;
         /**
-         * The display name of this policy definition group.
+         * The display name of this Policy Definition Group.
          */
         displayName?: pulumi.Input<string>;
         /**
-         * The name of this policy definition group.
+         * The name which should be used for this Policy Definition Group.
          */
         name: pulumi.Input<string>;
     }
 
     export interface PolicySetDefinitionPolicyDefinitionReference {
         /**
-         * Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+         * Parameter values for the references Policy Definition in JSON format.
          */
         parameterValues?: pulumi.Input<string>;
         /**
-         * The ID of the policy definition that will be included in this policy set definition.
+         * The ID of the Policy Definition to include in this Policy Set Definition.
          */
         policyDefinitionId: pulumi.Input<string>;
         /**
-         * A list of names of the policy definition groups that this policy definition reference belongs to.
+         * Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
          */
         policyGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A unique ID within this policy set definition for this policy definition reference.
+         * A unique ID within this Policy Set Definition for this Policy Definition Reference.
          */
         referenceId?: pulumi.Input<string>;
+        /**
+         * The version of the Policy Definition to use.
+         */
+        version?: pulumi.Input<string>;
     }
 
     export interface VirtualMachineConfigurationAssignmentConfiguration {
@@ -48438,7 +48753,7 @@ export namespace postgresql {
 
     export interface FlexibleServerCustomerManagedKey {
         /**
-         * The versioned ID of the geo backup Key Vault Key.
+         * The versioned/versionless ID of the geo backup Key Vault Key.
          *
          * > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
          */
@@ -49267,7 +49582,9 @@ export namespace securitycenter {
 
     export interface AutomationAction {
         /**
-         * (Optional, but required when `type` is `eventhub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+         * A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+         *
+         * > **Note:** `connectionString` is required when `type` is `EventHub`.
          */
         connectionString?: pulumi.Input<string>;
         /**
@@ -49275,13 +49592,15 @@ export namespace securitycenter {
          */
         resourceId: pulumi.Input<string>;
         /**
-         * (Optional, but required when `type` is `logicapp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+         * The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+         *
+         * > **Note:** `triggerUrl` is required when `type` is `LogicApp`.
          */
         triggerUrl?: pulumi.Input<string>;
         /**
-         * Type of Azure resource to send data to. Must be set to one of: `logicapp`, `eventhub` or `loganalytics`.
+         * Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
          */
-        type: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     export interface AutomationSource {
@@ -50778,11 +51097,11 @@ export namespace siterecovery {
          */
         targetDiskEncryptionSetId?: pulumi.Input<string>;
         /**
-         * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         * What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         targetDiskType: pulumi.Input<string>;
         /**
-         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+         * What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         targetReplicaDiskType: pulumi.Input<string>;
         /**

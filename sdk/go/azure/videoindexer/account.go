@@ -72,7 +72,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.VideoIndexer`: 2025-04-01
+// * `Microsoft.VideoIndexer` - 2025-04-01
 //
 // ## Import
 //
@@ -90,6 +90,8 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Video Indexer Account. Changing the name forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `storage` block as defined below.
@@ -143,6 +145,8 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// The name of the Video Indexer Account. Changing the name forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `storage` block as defined below.
@@ -158,6 +162,8 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// The name of the Video Indexer Account. Changing the name forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `storage` block as defined below.
@@ -177,6 +183,8 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Video Indexer Account. Changing the name forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `storage` block as defined below.
@@ -193,6 +201,8 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Video Indexer Account. Changing the name forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `storage` block as defined below.
@@ -301,6 +311,11 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 // The name of the Video Indexer Account. Changing the name forces a new resource to be created.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
+func (o AccountOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.

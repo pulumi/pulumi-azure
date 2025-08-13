@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlexibleServerCustomerManagedKey {
     /**
-     * @return The versioned ID of the geo backup Key Vault Key.
+     * @return The versioned/versionless ID of the geo backup Key Vault Key.
      * 
      * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
      * 
@@ -41,7 +41,7 @@ public final class FlexibleServerCustomerManagedKey {
 
     private FlexibleServerCustomerManagedKey() {}
     /**
-     * @return The versioned ID of the geo backup Key Vault Key.
+     * @return The versioned/versionless ID of the geo backup Key Vault Key.
      * 
      * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
      * 

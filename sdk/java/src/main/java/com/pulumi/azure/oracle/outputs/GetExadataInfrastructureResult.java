@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.oracle.outputs;
 
+import com.pulumi.azure.oracle.outputs.GetExadataInfrastructureDefinedFileSystemConfiguration;
 import com.pulumi.azure.oracle.outputs.GetExadataInfrastructureEstimatedPatchingTime;
 import com.pulumi.azure.oracle.outputs.GetExadataInfrastructureMaintenanceWindow;
 import com.pulumi.core.annotations.CustomType;
@@ -37,6 +38,11 @@ public final class GetExadataInfrastructureResult {
      */
     private Integer computeCount;
     /**
+     * @return The compute model of the Exadata Infrastructure.
+     * 
+     */
+    private String computeModel;
+    /**
      * @return The total number of CPU cores allocated.
      * 
      */
@@ -52,6 +58,11 @@ public final class GetExadataInfrastructureResult {
      */
     private Double dataStorageSizeInTbs;
     /**
+     * @return The database server model type of the cloud Exadata infrastructure resource.
+     * 
+     */
+    private String databaseServerType;
+    /**
      * @return The local node storage allocated in GBs.
      * 
      */
@@ -61,6 +72,11 @@ public final class GetExadataInfrastructureResult {
      * 
      */
     private String dbServerVersion;
+    /**
+     * @return A `defined_file_system_configuration` block as defined below.
+     * 
+     */
+    private List<GetExadataInfrastructureDefinedFileSystemConfiguration> definedFileSystemConfigurations;
     /**
      * @return The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
      * 
@@ -164,6 +180,11 @@ public final class GetExadataInfrastructureResult {
      */
     private Integer storageCount;
     /**
+     * @return The storage server model type of the cloud Exadata infrastructure resource.
+     * 
+     */
+    private String storageServerType;
+    /**
      * @return The software version of the storage servers (cells) in the Cloud Exadata Infrastructure.
      * 
      */
@@ -219,6 +240,13 @@ public final class GetExadataInfrastructureResult {
         return this.computeCount;
     }
     /**
+     * @return The compute model of the Exadata Infrastructure.
+     * 
+     */
+    public String computeModel() {
+        return this.computeModel;
+    }
+    /**
      * @return The total number of CPU cores allocated.
      * 
      */
@@ -240,6 +268,13 @@ public final class GetExadataInfrastructureResult {
         return this.dataStorageSizeInTbs;
     }
     /**
+     * @return The database server model type of the cloud Exadata infrastructure resource.
+     * 
+     */
+    public String databaseServerType() {
+        return this.databaseServerType;
+    }
+    /**
      * @return The local node storage allocated in GBs.
      * 
      */
@@ -252,6 +287,13 @@ public final class GetExadataInfrastructureResult {
      */
     public String dbServerVersion() {
         return this.dbServerVersion;
+    }
+    /**
+     * @return A `defined_file_system_configuration` block as defined below.
+     * 
+     */
+    public List<GetExadataInfrastructureDefinedFileSystemConfiguration> definedFileSystemConfigurations() {
+        return this.definedFileSystemConfigurations;
     }
     /**
      * @return The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique.
@@ -400,6 +442,13 @@ public final class GetExadataInfrastructureResult {
         return this.storageCount;
     }
     /**
+     * @return The storage server model type of the cloud Exadata infrastructure resource.
+     * 
+     */
+    public String storageServerType() {
+        return this.storageServerType;
+    }
+    /**
      * @return The software version of the storage servers (cells) in the Cloud Exadata Infrastructure.
      * 
      */
@@ -448,11 +497,14 @@ public final class GetExadataInfrastructureResult {
         private Integer additionalStorageCount;
         private Integer availableStorageSizeInGbs;
         private Integer computeCount;
+        private String computeModel;
         private Integer cpuCount;
         private List<String> customerContacts;
         private Double dataStorageSizeInTbs;
+        private String databaseServerType;
         private Integer dbNodeStorageSizeInGbs;
         private String dbServerVersion;
+        private List<GetExadataInfrastructureDefinedFileSystemConfiguration> definedFileSystemConfigurations;
         private String displayName;
         private List<GetExadataInfrastructureEstimatedPatchingTime> estimatedPatchingTimes;
         private String id;
@@ -475,6 +527,7 @@ public final class GetExadataInfrastructureResult {
         private String resourceGroupName;
         private String shape;
         private Integer storageCount;
+        private String storageServerType;
         private String storageServerVersion;
         private Map<String,String> tags;
         private String timeCreated;
@@ -487,11 +540,14 @@ public final class GetExadataInfrastructureResult {
     	      this.additionalStorageCount = defaults.additionalStorageCount;
     	      this.availableStorageSizeInGbs = defaults.availableStorageSizeInGbs;
     	      this.computeCount = defaults.computeCount;
+    	      this.computeModel = defaults.computeModel;
     	      this.cpuCount = defaults.cpuCount;
     	      this.customerContacts = defaults.customerContacts;
     	      this.dataStorageSizeInTbs = defaults.dataStorageSizeInTbs;
+    	      this.databaseServerType = defaults.databaseServerType;
     	      this.dbNodeStorageSizeInGbs = defaults.dbNodeStorageSizeInGbs;
     	      this.dbServerVersion = defaults.dbServerVersion;
+    	      this.definedFileSystemConfigurations = defaults.definedFileSystemConfigurations;
     	      this.displayName = defaults.displayName;
     	      this.estimatedPatchingTimes = defaults.estimatedPatchingTimes;
     	      this.id = defaults.id;
@@ -514,6 +570,7 @@ public final class GetExadataInfrastructureResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.shape = defaults.shape;
     	      this.storageCount = defaults.storageCount;
+    	      this.storageServerType = defaults.storageServerType;
     	      this.storageServerVersion = defaults.storageServerVersion;
     	      this.tags = defaults.tags;
     	      this.timeCreated = defaults.timeCreated;
@@ -554,6 +611,14 @@ public final class GetExadataInfrastructureResult {
             return this;
         }
         @CustomType.Setter
+        public Builder computeModel(String computeModel) {
+            if (computeModel == null) {
+              throw new MissingRequiredPropertyException("GetExadataInfrastructureResult", "computeModel");
+            }
+            this.computeModel = computeModel;
+            return this;
+        }
+        @CustomType.Setter
         public Builder cpuCount(Integer cpuCount) {
             if (cpuCount == null) {
               throw new MissingRequiredPropertyException("GetExadataInfrastructureResult", "cpuCount");
@@ -581,6 +646,14 @@ public final class GetExadataInfrastructureResult {
             return this;
         }
         @CustomType.Setter
+        public Builder databaseServerType(String databaseServerType) {
+            if (databaseServerType == null) {
+              throw new MissingRequiredPropertyException("GetExadataInfrastructureResult", "databaseServerType");
+            }
+            this.databaseServerType = databaseServerType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder dbNodeStorageSizeInGbs(Integer dbNodeStorageSizeInGbs) {
             if (dbNodeStorageSizeInGbs == null) {
               throw new MissingRequiredPropertyException("GetExadataInfrastructureResult", "dbNodeStorageSizeInGbs");
@@ -595,6 +668,17 @@ public final class GetExadataInfrastructureResult {
             }
             this.dbServerVersion = dbServerVersion;
             return this;
+        }
+        @CustomType.Setter
+        public Builder definedFileSystemConfigurations(List<GetExadataInfrastructureDefinedFileSystemConfiguration> definedFileSystemConfigurations) {
+            if (definedFileSystemConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetExadataInfrastructureResult", "definedFileSystemConfigurations");
+            }
+            this.definedFileSystemConfigurations = definedFileSystemConfigurations;
+            return this;
+        }
+        public Builder definedFileSystemConfigurations(GetExadataInfrastructureDefinedFileSystemConfiguration... definedFileSystemConfigurations) {
+            return definedFileSystemConfigurations(List.of(definedFileSystemConfigurations));
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
@@ -779,6 +863,14 @@ public final class GetExadataInfrastructureResult {
             return this;
         }
         @CustomType.Setter
+        public Builder storageServerType(String storageServerType) {
+            if (storageServerType == null) {
+              throw new MissingRequiredPropertyException("GetExadataInfrastructureResult", "storageServerType");
+            }
+            this.storageServerType = storageServerType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageServerVersion(String storageServerVersion) {
             if (storageServerVersion == null) {
               throw new MissingRequiredPropertyException("GetExadataInfrastructureResult", "storageServerVersion");
@@ -827,11 +919,14 @@ public final class GetExadataInfrastructureResult {
             _resultValue.additionalStorageCount = additionalStorageCount;
             _resultValue.availableStorageSizeInGbs = availableStorageSizeInGbs;
             _resultValue.computeCount = computeCount;
+            _resultValue.computeModel = computeModel;
             _resultValue.cpuCount = cpuCount;
             _resultValue.customerContacts = customerContacts;
             _resultValue.dataStorageSizeInTbs = dataStorageSizeInTbs;
+            _resultValue.databaseServerType = databaseServerType;
             _resultValue.dbNodeStorageSizeInGbs = dbNodeStorageSizeInGbs;
             _resultValue.dbServerVersion = dbServerVersion;
+            _resultValue.definedFileSystemConfigurations = definedFileSystemConfigurations;
             _resultValue.displayName = displayName;
             _resultValue.estimatedPatchingTimes = estimatedPatchingTimes;
             _resultValue.id = id;
@@ -854,6 +949,7 @@ public final class GetExadataInfrastructureResult {
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.shape = shape;
             _resultValue.storageCount = storageCount;
+            _resultValue.storageServerType = storageServerType;
             _resultValue.storageServerVersion = storageServerVersion;
             _resultValue.tags = tags;
             _resultValue.timeCreated = timeCreated;

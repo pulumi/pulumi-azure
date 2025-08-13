@@ -347,7 +347,7 @@ class OutputSynapse(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+        * `Microsoft.StreamAnalytics` - 2021-10-01-preview
 
         ## Import
 
@@ -425,7 +425,7 @@ class OutputSynapse(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+        * `Microsoft.StreamAnalytics` - 2021-10-01-preview
 
         ## Import
 

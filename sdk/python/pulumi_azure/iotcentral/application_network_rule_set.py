@@ -213,7 +213,7 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.IoTCentral`: 2021-11-01-preview
+        * `Microsoft.IoTCentral` - 2021-11-01-preview
 
         ## Import
 
@@ -277,7 +277,7 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.IoTCentral`: 2021-11-01-preview
+        * `Microsoft.IoTCentral` - 2021-11-01-preview
 
         ## Import
 

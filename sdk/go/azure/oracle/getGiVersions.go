@@ -30,7 +30,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := oracle.GetGiVersions(ctx, &oracle.GetGiVersionsArgs{
-//				Location: "West Europe",
+//				Location: "eastus",
+//				Zone:     pulumi.StringRef("2"),
+//				Shape:    pulumi.StringRef("Exadata.X9M"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -47,7 +49,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Oracle.Database`: 2024-06-01
+// * `Oracle.Database` - 2025-03-01
 func GetGiVersions(ctx *pulumi.Context, args *GetGiVersionsArgs, opts ...pulumi.InvokeOption) (*GetGiVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGiVersionsResult
@@ -62,15 +64,21 @@ func GetGiVersions(ctx *pulumi.Context, args *GetGiVersionsArgs, opts ...pulumi.
 type GetGiVersionsArgs struct {
 	// The Azure Region to query for the GI Versions in.
 	Location string `pulumi:"location"`
+	// The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+	Shape *string `pulumi:"shape"`
+	// Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
+	Zone *string `pulumi:"zone"`
 }
 
 // A collection of values returned by getGiVersions.
 type GetGiVersionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
-	Location string `pulumi:"location"`
+	Id       string  `pulumi:"id"`
+	Location string  `pulumi:"location"`
+	Shape    *string `pulumi:"shape"`
 	// A list of valid GI software versions.
 	Versions []string `pulumi:"versions"`
+	Zone     *string  `pulumi:"zone"`
 }
 
 func GetGiVersionsOutput(ctx *pulumi.Context, args GetGiVersionsOutputArgs, opts ...pulumi.InvokeOption) GetGiVersionsResultOutput {
@@ -86,6 +94,10 @@ func GetGiVersionsOutput(ctx *pulumi.Context, args GetGiVersionsOutputArgs, opts
 type GetGiVersionsOutputArgs struct {
 	// The Azure Region to query for the GI Versions in.
 	Location pulumi.StringInput `pulumi:"location"`
+	// The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+	Shape pulumi.StringPtrInput `pulumi:"shape"`
+	// Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
+	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
 func (GetGiVersionsOutputArgs) ElementType() reflect.Type {
@@ -116,9 +128,17 @@ func (o GetGiVersionsResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGiVersionsResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
+func (o GetGiVersionsResultOutput) Shape() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGiVersionsResult) *string { return v.Shape }).(pulumi.StringPtrOutput)
+}
+
 // A list of valid GI software versions.
 func (o GetGiVersionsResultOutput) Versions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetGiVersionsResult) []string { return v.Versions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetGiVersionsResultOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGiVersionsResult) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
 
 func init() {

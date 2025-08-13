@@ -40,7 +40,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.RecoveryServices`: 2024-04-01
+        /// * `Microsoft.RecoveryServices` - 2024-04-01
         /// </summary>
         public static Task<GetProtectionContainerResult> InvokeAsync(GetProtectionContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithDefaults());
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.RecoveryServices`: 2024-04-01
+        /// * `Microsoft.RecoveryServices` - 2024-04-01
         /// </summary>
         public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.RecoveryServices`: 2024-04-01
+        /// * `Microsoft.RecoveryServices` - 2024-04-01
         /// </summary>
         public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-06-01
+ * * `Microsoft.Network` - 2024-06-01
  */
 export function getZoneVirtualNetworkLink(args: GetZoneVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,6 +69,10 @@ export interface GetZoneVirtualNetworkLinkResult {
      * Whether the auto-registration of virtual machine records in the virtual network in the Private DNS zone is enabled or not.
      */
     readonly registrationEnabled: boolean;
+    /**
+     * The resolution policy of the Private DNS Zone Virtual Network Link.
+     */
+    readonly resolutionPolicy: string;
     readonly resourceGroupName: string;
     /**
      * A mapping of tags to assign to the resource.
@@ -101,7 +105,7 @@ export interface GetZoneVirtualNetworkLinkResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-06-01
+ * * `Microsoft.Network` - 2024-06-01
  */
 export function getZoneVirtualNetworkLinkOutput(args: GetZoneVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetZoneVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

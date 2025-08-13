@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Databricks`: 2024-05-01
+// * `Microsoft.Databricks` - 2024-05-01
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkspaceResult
@@ -69,6 +69,9 @@ type LookupWorkspaceArgs struct {
 
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
+	// A `customParameters` block as documented below.
+	// *
+	CustomParameters []GetWorkspaceCustomParameter `pulumi:"customParameters"`
 	// An `enhancedSecurityCompliance` block as documented below.
 	EnhancedSecurityCompliances []GetWorkspaceEnhancedSecurityCompliance `pulumi:"enhancedSecurityCompliances"`
 	// The provider-assigned unique ID for this managed resource.
@@ -127,6 +130,12 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorks
 
 func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
 	return o
+}
+
+// A `customParameters` block as documented below.
+// *
+func (o LookupWorkspaceResultOutput) CustomParameters() GetWorkspaceCustomParameterArrayOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) []GetWorkspaceCustomParameter { return v.CustomParameters }).(GetWorkspaceCustomParameterArrayOutput)
 }
 
 // An `enhancedSecurityCompliance` block as documented below.

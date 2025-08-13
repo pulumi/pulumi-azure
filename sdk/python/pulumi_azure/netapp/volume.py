@@ -29,6 +29,7 @@ class VolumeArgs:
                  subnet_id: pulumi.Input[_builtins.str],
                  volume_path: pulumi.Input[_builtins.str],
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cool_access: Optional[pulumi.Input['VolumeCoolAccessArgs']] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  data_protection_backup_policy: Optional[pulumi.Input['VolumeDataProtectionBackupPolicyArgs']] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
@@ -60,6 +61,7 @@ class VolumeArgs:
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input['VolumeCoolAccessArgs'] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionBackupPolicyArgs'] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
@@ -97,6 +99,8 @@ class VolumeArgs:
         pulumi.set(__self__, "volume_path", volume_path)
         if azure_vmware_data_store_enabled is not None:
             pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
+        if cool_access is not None:
+            pulumi.set(__self__, "cool_access", cool_access)
         if create_from_snapshot_resource_id is not None:
             pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
         if data_protection_backup_policy is not None:
@@ -234,6 +238,18 @@ class VolumeArgs:
     @azure_vmware_data_store_enabled.setter
     def azure_vmware_data_store_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "azure_vmware_data_store_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="coolAccess")
+    def cool_access(self) -> Optional[pulumi.Input['VolumeCoolAccessArgs']]:
+        """
+        A `cool_access` block as defined below.
+        """
+        return pulumi.get(self, "cool_access")
+
+    @cool_access.setter
+    def cool_access(self, value: Optional[pulumi.Input['VolumeCoolAccessArgs']]):
+        pulumi.set(self, "cool_access", value)
 
     @_builtins.property
     @pulumi.getter(name="createFromSnapshotResourceId")
@@ -510,6 +526,7 @@ class _VolumeState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cool_access: Optional[pulumi.Input['VolumeCoolAccessArgs']] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  data_protection_backup_policy: Optional[pulumi.Input['VolumeDataProtectionBackupPolicyArgs']] = None,
                  data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
@@ -543,6 +560,7 @@ class _VolumeState:
         Input properties used for looking up and filtering Volume resources.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input['VolumeCoolAccessArgs'] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeDataProtectionBackupPolicyArgs'] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input['VolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
@@ -581,6 +599,8 @@ class _VolumeState:
             pulumi.set(__self__, "account_name", account_name)
         if azure_vmware_data_store_enabled is not None:
             pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
+        if cool_access is not None:
+            pulumi.set(__self__, "cool_access", cool_access)
         if create_from_snapshot_resource_id is not None:
             pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
         if data_protection_backup_policy is not None:
@@ -663,6 +683,18 @@ class _VolumeState:
     @azure_vmware_data_store_enabled.setter
     def azure_vmware_data_store_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "azure_vmware_data_store_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="coolAccess")
+    def cool_access(self) -> Optional[pulumi.Input['VolumeCoolAccessArgs']]:
+        """
+        A `cool_access` block as defined below.
+        """
+        return pulumi.get(self, "cool_access")
+
+    @cool_access.setter
+    def cool_access(self, value: Optional[pulumi.Input['VolumeCoolAccessArgs']]):
+        pulumi.set(self, "cool_access", value)
 
     @_builtins.property
     @pulumi.getter(name="createFromSnapshotResourceId")
@@ -1023,6 +1055,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cool_access: Optional[pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  data_protection_backup_policy: Optional[pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']]] = None,
                  data_protection_replication: Optional[pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
@@ -1069,6 +1102,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
@@ -1138,6 +1172,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  azure_vmware_data_store_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cool_access: Optional[pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']]] = None,
                  create_from_snapshot_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  data_protection_backup_policy: Optional[pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']]] = None,
                  data_protection_replication: Optional[pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
@@ -1179,6 +1214,7 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["azure_vmware_data_store_enabled"] = azure_vmware_data_store_enabled
+            __props__.__dict__["cool_access"] = cool_access
             __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
             __props__.__dict__["data_protection_backup_policy"] = data_protection_backup_policy
             __props__.__dict__["data_protection_replication"] = data_protection_replication
@@ -1232,6 +1268,7 @@ class Volume(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[_builtins.str]] = None,
             azure_vmware_data_store_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+            cool_access: Optional[pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']]] = None,
             create_from_snapshot_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
             data_protection_backup_policy: Optional[pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']]] = None,
             data_protection_replication: Optional[pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
@@ -1270,6 +1307,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
         :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
@@ -1310,6 +1348,7 @@ class Volume(pulumi.CustomResource):
 
         __props__.__dict__["account_name"] = account_name
         __props__.__dict__["azure_vmware_data_store_enabled"] = azure_vmware_data_store_enabled
+        __props__.__dict__["cool_access"] = cool_access
         __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
         __props__.__dict__["data_protection_backup_policy"] = data_protection_backup_policy
         __props__.__dict__["data_protection_replication"] = data_protection_replication
@@ -1356,6 +1395,14 @@ class Volume(pulumi.CustomResource):
         Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "azure_vmware_data_store_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="coolAccess")
+    def cool_access(self) -> pulumi.Output[Optional['outputs.VolumeCoolAccess']]:
+        """
+        A `cool_access` block as defined below.
+        """
+        return pulumi.get(self, "cool_access")
 
     @_builtins.property
     @pulumi.getter(name="createFromSnapshotResourceId")

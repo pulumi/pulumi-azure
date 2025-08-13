@@ -56,7 +56,7 @@ namespace Pulumi.Azure.DevCenter
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DevCenter`: 2025-02-01
+    /// * `Microsoft.DevCenter` - 2025-02-01
     /// 
     /// ## Import
     /// 
@@ -74,6 +74,14 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         [Output("devCenterId")]
         public Output<string> DevCenterId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+        /// </summary>
+        [Output("hibernateSupportEnabled")]
+        public Output<bool?> HibernateSupportEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the image for the Dev Center Dev Box Definition.
@@ -158,6 +166,14 @@ namespace Pulumi.Azure.DevCenter
         public Input<string> DevCenterId { get; set; } = null!;
 
         /// <summary>
+        /// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+        /// </summary>
+        [Input("hibernateSupportEnabled")]
+        public Input<bool>? HibernateSupportEnabled { get; set; }
+
+        /// <summary>
         /// The ID of the image for the Dev Center Dev Box Definition.
         /// </summary>
         [Input("imageReferenceId", required: true)]
@@ -206,6 +222,14 @@ namespace Pulumi.Azure.DevCenter
         /// </summary>
         [Input("devCenterId")]
         public Input<string>? DevCenterId { get; set; }
+
+        /// <summary>
+        /// Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
+        /// </summary>
+        [Input("hibernateSupportEnabled")]
+        public Input<bool>? HibernateSupportEnabled { get; set; }
 
         /// <summary>
         /// The ID of the image for the Dev Center Dev Box Definition.

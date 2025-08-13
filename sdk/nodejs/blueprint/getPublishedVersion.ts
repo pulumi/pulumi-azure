@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Blueprint`: 2018-11-01-preview
+ * * `Microsoft.Blueprint` - 2018-11-01-preview
  */
 export function getPublishedVersion(args: GetPublishedVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPublishedVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -111,7 +111,7 @@ export interface GetPublishedVersionResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Blueprint`: 2018-11-01-preview
+ * * `Microsoft.Blueprint` - 2018-11-01-preview
  */
 export function getPublishedVersionOutput(args: GetPublishedVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublishedVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

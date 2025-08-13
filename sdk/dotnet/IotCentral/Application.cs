@@ -51,7 +51,7 @@ namespace Pulumi.Azure.IotCentral
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.IoTCentral`: 2021-11-01-preview
+    /// * `Microsoft.IoTCentral` - 2021-11-01-preview
     /// 
     /// ## Import
     /// 

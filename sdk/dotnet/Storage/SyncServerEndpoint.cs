@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Storage
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.StorageSync`: 2020-03-01
+    /// * `Microsoft.StorageSync` - 2020-03-01
     /// 
     /// ## Import
     /// 

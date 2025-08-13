@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Authorization`: 2020-10-01
+ * * `Microsoft.Authorization` - 2020-10-01
  */
 export function getRoleManagementPolicy(args: GetRoleManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleManagementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -161,7 +161,7 @@ export interface GetRoleManagementPolicyResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Authorization`: 2020-10-01
+ * * `Microsoft.Authorization` - 2020-10-01
  */
 export function getRoleManagementPolicyOutput(args: GetRoleManagementPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleManagementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

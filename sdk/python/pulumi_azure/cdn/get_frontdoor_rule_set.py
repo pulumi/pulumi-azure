@@ -111,7 +111,7 @@ def get_frontdoor_rule_set(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn`: 2024-02-01
+    * `Microsoft.Cdn` - 2024-02-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Rule Set to retrieve.
@@ -154,7 +154,7 @@ def get_frontdoor_rule_set_output(name: Optional[pulumi.Input[_builtins.str]] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn`: 2024-02-01
+    * `Microsoft.Cdn` - 2024-02-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Rule Set to retrieve.

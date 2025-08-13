@@ -104,7 +104,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args) {
@@ -154,7 +154,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args) {
@@ -204,7 +204,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOptions options) {
@@ -254,7 +254,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOutputOptions options) {
@@ -304,7 +304,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args, InvokeOptions options) {
@@ -354,7 +354,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args) {
@@ -404,7 +404,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args) {
@@ -454,7 +454,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOptions options) {
@@ -504,7 +504,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOutputOptions options) {
@@ -554,7 +554,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args, InvokeOptions options) {
@@ -604,7 +604,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args) {
@@ -654,7 +654,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args) {
@@ -704,7 +704,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOptions options) {
@@ -754,7 +754,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOutputOptions options) {
@@ -804,7 +804,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args, InvokeOptions options) {
@@ -1074,7 +1074,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args) {
@@ -1124,7 +1124,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args) {
@@ -1174,7 +1174,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOptions options) {
@@ -1224,7 +1224,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOutputOptions options) {
@@ -1274,7 +1274,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args, InvokeOptions options) {
@@ -1324,7 +1324,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args) {
@@ -1374,7 +1374,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args) {
@@ -1424,7 +1424,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOptions options) {
@@ -1474,7 +1474,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOutputOptions options) {
@@ -1524,7 +1524,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args, InvokeOptions options) {
@@ -1574,7 +1574,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverResult> getResolver(GetResolverArgs args) {
@@ -1624,7 +1624,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverResult> getResolverPlain(GetResolverPlainArgs args) {
@@ -1674,7 +1674,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverResult> getResolver(GetResolverArgs args, InvokeOptions options) {
@@ -1724,7 +1724,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverResult> getResolver(GetResolverArgs args, InvokeOutputOptions options) {
@@ -1774,7 +1774,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverResult> getResolverPlain(GetResolverPlainArgs args, InvokeOptions options) {
@@ -1824,7 +1824,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs args) {
@@ -1874,7 +1874,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRulesetPlain(GetResolverDnsForwardingRulesetPlainArgs args) {
@@ -1924,7 +1924,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs args, InvokeOptions options) {
@@ -1974,7 +1974,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRuleset(GetResolverDnsForwardingRulesetArgs args, InvokeOutputOptions options) {
@@ -2024,7 +2024,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverDnsForwardingRulesetResult> getResolverDnsForwardingRulesetPlain(GetResolverDnsForwardingRulesetPlainArgs args, InvokeOptions options) {
@@ -2074,7 +2074,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverForwardingRuleResult> getResolverForwardingRule(GetResolverForwardingRuleArgs args) {
@@ -2124,7 +2124,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverForwardingRuleResult> getResolverForwardingRulePlain(GetResolverForwardingRulePlainArgs args) {
@@ -2174,7 +2174,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverForwardingRuleResult> getResolverForwardingRule(GetResolverForwardingRuleArgs args, InvokeOptions options) {
@@ -2224,7 +2224,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverForwardingRuleResult> getResolverForwardingRule(GetResolverForwardingRuleArgs args, InvokeOutputOptions options) {
@@ -2274,7 +2274,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverForwardingRuleResult> getResolverForwardingRulePlain(GetResolverForwardingRulePlainArgs args, InvokeOptions options) {
@@ -2324,7 +2324,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverInboundEndpointResult> getResolverInboundEndpoint(GetResolverInboundEndpointArgs args) {
@@ -2374,7 +2374,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverInboundEndpointResult> getResolverInboundEndpointPlain(GetResolverInboundEndpointPlainArgs args) {
@@ -2424,7 +2424,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverInboundEndpointResult> getResolverInboundEndpoint(GetResolverInboundEndpointArgs args, InvokeOptions options) {
@@ -2474,7 +2474,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverInboundEndpointResult> getResolverInboundEndpoint(GetResolverInboundEndpointArgs args, InvokeOutputOptions options) {
@@ -2524,7 +2524,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverInboundEndpointResult> getResolverInboundEndpointPlain(GetResolverInboundEndpointPlainArgs args, InvokeOptions options) {
@@ -2574,7 +2574,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverOutboundEndpointResult> getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs args) {
@@ -2624,7 +2624,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverOutboundEndpointResult> getResolverOutboundEndpointPlain(GetResolverOutboundEndpointPlainArgs args) {
@@ -2674,7 +2674,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverOutboundEndpointResult> getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs args, InvokeOptions options) {
@@ -2724,7 +2724,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverOutboundEndpointResult> getResolverOutboundEndpoint(GetResolverOutboundEndpointArgs args, InvokeOutputOptions options) {
@@ -2774,7 +2774,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverOutboundEndpointResult> getResolverOutboundEndpointPlain(GetResolverOutboundEndpointPlainArgs args, InvokeOptions options) {
@@ -2824,7 +2824,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs args) {
@@ -2874,7 +2874,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLinkPlain(GetResolverVirtualNetworkLinkPlainArgs args) {
@@ -2924,7 +2924,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs args, InvokeOptions options) {
@@ -2974,7 +2974,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static Output<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs args, InvokeOutputOptions options) {
@@ -3024,7 +3024,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2022-07-01
+     * * `Microsoft.Network` - 2022-07-01
      * 
      */
     public static CompletableFuture<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLinkPlain(GetResolverVirtualNetworkLinkPlainArgs args, InvokeOptions options) {
@@ -3073,7 +3073,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args) {
@@ -3122,7 +3122,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args) {
@@ -3171,7 +3171,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOptions options) {
@@ -3220,7 +3220,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOutputOptions options) {
@@ -3269,7 +3269,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args, InvokeOptions options) {
@@ -3319,7 +3319,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args) {
@@ -3369,7 +3369,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args) {
@@ -3419,7 +3419,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOptions options) {
@@ -3469,7 +3469,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOutputOptions options) {
@@ -3519,7 +3519,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args, InvokeOptions options) {
@@ -3569,7 +3569,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args) {
@@ -3619,7 +3619,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args) {
@@ -3669,7 +3669,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOptions options) {
@@ -3719,7 +3719,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOutputOptions options) {
@@ -3769,7 +3769,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args, InvokeOptions options) {
@@ -3821,7 +3821,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args) {
@@ -3873,7 +3873,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLinkPlain(GetZoneVirtualNetworkLinkPlainArgs args) {
@@ -3925,7 +3925,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args, InvokeOptions options) {
@@ -3977,7 +3977,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args, InvokeOutputOptions options) {
@@ -4029,7 +4029,7 @@ public final class PrivatednsFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-06-01
+     * * `Microsoft.Network` - 2024-06-01
      * 
      */
     public static CompletableFuture<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLinkPlain(GetZoneVirtualNetworkLinkPlainArgs args, InvokeOptions options) {

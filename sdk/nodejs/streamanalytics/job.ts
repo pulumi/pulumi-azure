@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.StreamAnalytics`: 2021-10-01-preview, 2020-03-01
+ * * `Microsoft.StreamAnalytics` - 2021-10-01-preview, 2020-03-01
  *
  * ## Import
  *

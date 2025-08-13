@@ -81,7 +81,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
@@ -132,7 +132,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -183,7 +183,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
@@ -234,7 +234,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOutputOptions options) {
@@ -285,7 +285,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {
@@ -336,7 +336,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args) {
@@ -387,7 +387,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args) {
@@ -438,7 +438,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOptions options) {
@@ -489,7 +489,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRule(GetNamespaceAuthorizationRuleArgs args, InvokeOutputOptions options) {
@@ -540,7 +540,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceAuthorizationRuleResult> getNamespaceAuthorizationRulePlain(GetNamespaceAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -591,7 +591,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs args) {
@@ -642,7 +642,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfigPlain(GetNamespaceDisasterRecoveryConfigPlainArgs args) {
@@ -693,7 +693,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs args, InvokeOptions options) {
@@ -744,7 +744,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfig(GetNamespaceDisasterRecoveryConfigArgs args, InvokeOutputOptions options) {
@@ -795,7 +795,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetNamespaceDisasterRecoveryConfigResult> getNamespaceDisasterRecoveryConfigPlain(GetNamespaceDisasterRecoveryConfigPlainArgs args, InvokeOptions options) {
@@ -846,7 +846,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args) {
@@ -897,7 +897,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args) {
@@ -948,7 +948,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOptions options) {
@@ -999,7 +999,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOutputOptions options) {
@@ -1050,7 +1050,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args, InvokeOptions options) {
@@ -1103,7 +1103,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetQueueAuthorizationRuleResult> getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs args) {
@@ -1156,7 +1156,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetQueueAuthorizationRuleResult> getQueueAuthorizationRulePlain(GetQueueAuthorizationRulePlainArgs args) {
@@ -1209,7 +1209,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetQueueAuthorizationRuleResult> getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs args, InvokeOptions options) {
@@ -1262,7 +1262,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetQueueAuthorizationRuleResult> getQueueAuthorizationRule(GetQueueAuthorizationRuleArgs args, InvokeOutputOptions options) {
@@ -1315,7 +1315,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetQueueAuthorizationRuleResult> getQueueAuthorizationRulePlain(GetQueueAuthorizationRulePlainArgs args, InvokeOptions options) {
@@ -1366,7 +1366,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args) {
@@ -1417,7 +1417,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args) {
@@ -1468,7 +1468,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOptions options) {
@@ -1519,7 +1519,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetSubscriptionResult> getSubscription(GetSubscriptionArgs args, InvokeOutputOptions options) {
@@ -1570,7 +1570,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetSubscriptionResult> getSubscriptionPlain(GetSubscriptionPlainArgs args, InvokeOptions options) {
@@ -1621,7 +1621,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args) {
@@ -1672,7 +1672,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args) {
@@ -1723,7 +1723,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOptions options) {
@@ -1774,7 +1774,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOutputOptions options) {
@@ -1825,7 +1825,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args, InvokeOptions options) {
@@ -1878,7 +1878,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetTopicAuthorizationRuleResult> getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs args) {
@@ -1931,7 +1931,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetTopicAuthorizationRuleResult> getTopicAuthorizationRulePlain(GetTopicAuthorizationRulePlainArgs args) {
@@ -1984,7 +1984,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetTopicAuthorizationRuleResult> getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs args, InvokeOptions options) {
@@ -2037,7 +2037,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static Output<GetTopicAuthorizationRuleResult> getTopicAuthorizationRule(GetTopicAuthorizationRuleArgs args, InvokeOutputOptions options) {
@@ -2090,7 +2090,7 @@ public final class ServicebusFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ServiceBus`: 2021-06-01-preview
+     * * `Microsoft.ServiceBus` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetTopicAuthorizationRuleResult> getTopicAuthorizationRulePlain(GetTopicAuthorizationRulePlainArgs args, InvokeOptions options) {

@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  *
  * ## Import
  *
@@ -80,6 +80,10 @@ export class VirtualHub extends pulumi.CustomResource {
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
      */
     public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+     */
+    public readonly branchToBranchTrafficEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the default Route Table in the Virtual Hub.
      */
@@ -143,6 +147,7 @@ export class VirtualHub extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VirtualHubState | undefined;
             resourceInputs["addressPrefix"] = state ? state.addressPrefix : undefined;
+            resourceInputs["branchToBranchTrafficEnabled"] = state ? state.branchToBranchTrafficEnabled : undefined;
             resourceInputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
             resourceInputs["hubRoutingPreference"] = state ? state.hubRoutingPreference : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -161,6 +166,7 @@ export class VirtualHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            resourceInputs["branchToBranchTrafficEnabled"] = args ? args.branchToBranchTrafficEnabled : undefined;
             resourceInputs["hubRoutingPreference"] = args ? args.hubRoutingPreference : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -187,6 +193,10 @@ export interface VirtualHubState {
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
      */
     addressPrefix?: pulumi.Input<string>;
+    /**
+     * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+     */
+    branchToBranchTrafficEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the default Route Table in the Virtual Hub.
      */
@@ -245,6 +255,10 @@ export interface VirtualHubArgs {
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
      */
     addressPrefix?: pulumi.Input<string>;
+    /**
+     * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+     */
+    branchToBranchTrafficEnabled?: pulumi.Input<boolean>;
     /**
      * The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
      */

@@ -185,7 +185,7 @@ def get_insights(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2020-02-02
+    * `Microsoft.Insights` - 2020-02-02
 
 
     :param _builtins.str name: Specifies the name of the Application Insights component.
@@ -231,7 +231,7 @@ def get_insights_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2020-02-02
+    * `Microsoft.Insights` - 2020-02-02
 
 
     :param _builtins.str name: Specifies the name of the Application Insights component.

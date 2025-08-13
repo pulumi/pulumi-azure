@@ -197,6 +197,8 @@ __all__ = [
     'NetworkManagerCrossTenantScopeArgsDict',
     'NetworkManagerScopeArgs',
     'NetworkManagerScopeArgsDict',
+    'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs',
+    'NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict',
     'NetworkSecurityGroupSecurityRuleArgs',
     'NetworkSecurityGroupSecurityRuleArgsDict',
     'NetworkWatcherFlowLogRetentionPolicyArgs',
@@ -233,6 +235,8 @@ __all__ = [
     'SubnetDelegationArgsDict',
     'SubnetDelegationServiceDelegationArgs',
     'SubnetDelegationServiceDelegationArgsDict',
+    'SubnetIpAddressPoolArgs',
+    'SubnetIpAddressPoolArgsDict',
     'SubnetServiceEndpointStoragePolicyDefinitionArgs',
     'SubnetServiceEndpointStoragePolicyDefinitionArgsDict',
     'TrafficManagerAzureEndpointCustomHeaderArgs',
@@ -3524,7 +3528,7 @@ if not MYPY:
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 
-        > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+        > **Note:** To implement certificate rotation, the `keyvault.Secret` attribute `versionless_id` should be used, although `id` is also supported.
 
         > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
@@ -3558,7 +3562,7 @@ class ApplicationGatewaySslCertificateArgs:
         :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
         :param pulumi.Input[_builtins.str] key_vault_secret_id: The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
                
-               > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+               > **Note:** To implement certificate rotation, the `keyvault.Secret` attribute `versionless_id` should be used, although `id` is also supported.
                
                > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
                
@@ -3622,7 +3626,7 @@ class ApplicationGatewaySslCertificateArgs:
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 
-        > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+        > **Note:** To implement certificate rotation, the `keyvault.Secret` attribute `versionless_id` should be used, although `id` is also supported.
 
         > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
@@ -10165,6 +10169,113 @@ class NetworkManagerScopeArgs:
 
 
 if not MYPY:
+    class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict(TypedDict):
+        destination_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        source_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        source_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+elif False:
+    NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs:
+    def __init__(__self__, *,
+                 destination_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 destination_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 source_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 source_ports: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_ips: Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_ports: Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ips: Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ports: Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        pulumi.set(__self__, "destination_ips", destination_ips)
+        pulumi.set(__self__, "destination_ports", destination_ports)
+        pulumi.set(__self__, "protocols", protocols)
+        pulumi.set(__self__, "source_ips", source_ips)
+        pulumi.set(__self__, "source_ports", source_ports)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationIps")
+    def destination_ips(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        return pulumi.get(self, "destination_ips")
+
+    @destination_ips.setter
+    def destination_ips(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "destination_ips", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies a list of ports or ranges of the destination you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @destination_ports.setter
+    def destination_ports(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "destination_ports", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies a list of network protocols. Possible values are `Any`, `TCP`, `UDP` and `ICMP`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "protocols", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIps")
+    def source_ips(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies a list of IPv4 or IPv6 addresses or ranges using CIDR notation of the source you want to verify. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        return pulumi.get(self, "source_ips")
+
+    @source_ips.setter
+    def source_ips(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "source_ips", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies a list of ports or ranges of the source you want to verify. To specify any port, use `["*"]`. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @source_ports.setter
+    def source_ports(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "source_ports", value)
+
+
+if not MYPY:
     class NetworkSecurityGroupSecurityRuleArgsDict(TypedDict):
         access: pulumi.Input[_builtins.str]
         """
@@ -11668,6 +11779,82 @@ class SubnetDelegationServiceDelegationArgs:
     @actions.setter
     def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
+
+
+if not MYPY:
+    class SubnetIpAddressPoolArgsDict(TypedDict):
+        id: pulumi.Input[_builtins.str]
+        """
+        The ID of the Network Manager IP Address Management (IPAM) Pool.
+        """
+        number_of_ip_addresses: pulumi.Input[_builtins.str]
+        """
+        The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
+
+        > **Note:** `number_of_ip_addresses` cannot be decreased.
+        """
+        allocated_ip_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        The list of IP address prefixes allocated to the subnet.
+        """
+elif False:
+    SubnetIpAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SubnetIpAddressPoolArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 number_of_ip_addresses: pulumi.Input[_builtins.str],
+                 allocated_ip_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] id: The ID of the Network Manager IP Address Management (IPAM) Pool.
+        :param pulumi.Input[_builtins.str] number_of_ip_addresses: The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
+               
+               > **Note:** `number_of_ip_addresses` cannot be decreased.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allocated_ip_address_prefixes: The list of IP address prefixes allocated to the subnet.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "number_of_ip_addresses", number_of_ip_addresses)
+        if allocated_ip_address_prefixes is not None:
+            pulumi.set(__self__, "allocated_ip_address_prefixes", allocated_ip_address_prefixes)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Network Manager IP Address Management (IPAM) Pool.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfIpAddresses")
+    def number_of_ip_addresses(self) -> pulumi.Input[_builtins.str]:
+        """
+        The number of IP addresses to allocated to the subnet. The value must be a string that represents a positive number, e.g., `"100"`.
+
+        > **Note:** `number_of_ip_addresses` cannot be decreased.
+        """
+        return pulumi.get(self, "number_of_ip_addresses")
+
+    @number_of_ip_addresses.setter
+    def number_of_ip_addresses(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "number_of_ip_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allocatedIpAddressPrefixes")
+    def allocated_ip_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of IP address prefixes allocated to the subnet.
+        """
+        return pulumi.get(self, "allocated_ip_address_prefixes")
+
+    @allocated_ip_address_prefixes.setter
+    def allocated_ip_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allocated_ip_address_prefixes", value)
 
 
 if not MYPY:
@@ -13403,10 +13590,6 @@ class VirtualNetworkGatewayCustomRouteArgs:
 
 if not MYPY:
     class VirtualNetworkGatewayIpConfigurationArgsDict(TypedDict):
-        public_ip_address_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the public IP address to associate with the Virtual Network Gateway.
-        """
         subnet_id: pulumi.Input[_builtins.str]
         """
         The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
@@ -13419,40 +13602,33 @@ if not MYPY:
         """
         Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
         """
+        public_ip_address_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the public IP address to associate with the Virtual Network Gateway.
+        """
 elif False:
     VirtualNetworkGatewayIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkGatewayIpConfigurationArgs:
     def __init__(__self__, *,
-                 public_ip_address_id: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_ip_address_allocation: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_ip_address_allocation: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_ip_address_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the public IP address to associate with the Virtual Network Gateway.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the gateway subnet of a virtual network in which the virtual network gateway will be created. It is mandatory that the associated subnet is named `GatewaySubnet`. Therefore, each virtual network can contain at most a single Virtual Network Gateway.
         :param pulumi.Input[_builtins.str] name: A user-defined name of the IP configuration. Defaults to `vnetGatewayConfig`.
         :param pulumi.Input[_builtins.str] private_ip_address_allocation: Defines how the private IP address of the gateways virtual interface is assigned. The only valid value is `Dynamic` for Virtual Network Gateway (`Static` is not supported by the service yet). Defaults to `Dynamic`.
+        :param pulumi.Input[_builtins.str] public_ip_address_id: The ID of the public IP address to associate with the Virtual Network Gateway.
         """
-        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if private_ip_address_allocation is not None:
             pulumi.set(__self__, "private_ip_address_allocation", private_ip_address_allocation)
-
-    @_builtins.property
-    @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the public IP address to associate with the Virtual Network Gateway.
-        """
-        return pulumi.get(self, "public_ip_address_id")
-
-    @public_ip_address_id.setter
-    def public_ip_address_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "public_ip_address_id", value)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
@@ -13489,6 +13665,18 @@ class VirtualNetworkGatewayIpConfigurationArgs:
     @private_ip_address_allocation.setter
     def private_ip_address_allocation(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "private_ip_address_allocation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the public IP address to associate with the Virtual Network Gateway.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @public_ip_address_id.setter
+    def public_ip_address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "public_ip_address_id", value)
 
 
 if not MYPY:
@@ -14455,6 +14643,8 @@ if not MYPY:
         number_of_ip_addresses: pulumi.Input[_builtins.str]
         """
         The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+
+        > **Note:** `number_of_ip_addresses` cannot be decreased.
         """
         allocated_ip_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
@@ -14472,6 +14662,8 @@ class VirtualNetworkIpAddressPoolArgs:
         """
         :param pulumi.Input[_builtins.str] id: The ID of the Network Manager IP Address Management (IPAM) Pool.
         :param pulumi.Input[_builtins.str] number_of_ip_addresses: The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+               
+               > **Note:** `number_of_ip_addresses` cannot be decreased.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allocated_ip_address_prefixes: The list of IP address prefixes allocated to the Virtual Network.
         """
         pulumi.set(__self__, "id", id)
@@ -14496,6 +14688,8 @@ class VirtualNetworkIpAddressPoolArgs:
     def number_of_ip_addresses(self) -> pulumi.Input[_builtins.str]:
         """
         The number of IP addresses to allocated to the Virtual Network. The value must be a string that represents a positive number, e.g., `"100"`.
+
+        > **Note:** `number_of_ip_addresses` cannot be decreased.
         """
         return pulumi.get(self, "number_of_ip_addresses")
 
@@ -15489,6 +15683,10 @@ if not MYPY:
         """
         One or more `custom_bgp_address` blocks as defined below.
         """
+        dpd_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+        """
         egress_nat_rule_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         A list of the egress NAT Rule Ids.
@@ -15537,6 +15735,7 @@ class VpnGatewayConnectionVpnLinkArgs:
                  bgp_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  connection_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_bgp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]] = None,
+                 dpd_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]] = None,
@@ -15553,6 +15752,7 @@ class VpnGatewayConnectionVpnLinkArgs:
         :param pulumi.Input[_builtins.bool] bgp_enabled: Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[_builtins.str] connection_mode: The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]] custom_bgp_addresses: One or more `custom_bgp_address` blocks as defined below.
+        :param pulumi.Input[_builtins.int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] egress_nat_rule_ids: A list of the egress NAT Rule Ids.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ingress_nat_rule_ids: A list of the ingress NAT Rule Ids.
         :param pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]] ipsec_policies: One or more `ipsec_policy` blocks as defined above.
@@ -15573,6 +15773,8 @@ class VpnGatewayConnectionVpnLinkArgs:
             pulumi.set(__self__, "connection_mode", connection_mode)
         if custom_bgp_addresses is not None:
             pulumi.set(__self__, "custom_bgp_addresses", custom_bgp_addresses)
+        if dpd_timeout_seconds is not None:
+            pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
         if egress_nat_rule_ids is not None:
             pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
         if ingress_nat_rule_ids is not None:
@@ -15663,6 +15865,18 @@ class VpnGatewayConnectionVpnLinkArgs:
     @custom_bgp_addresses.setter
     def custom_bgp_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]):
         pulumi.set(self, "custom_bgp_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dpdTimeoutSeconds")
+    def dpd_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The dead peer detection timeout of this connection in seconds. Possible values are between `9` and `3600`.
+        """
+        return pulumi.get(self, "dpd_timeout_seconds")
+
+    @dpd_timeout_seconds.setter
+    def dpd_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "dpd_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="egressNatRuleIds")

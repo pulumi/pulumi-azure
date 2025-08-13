@@ -175,7 +175,7 @@ def get_virtual_network_peering(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: The name of this virtual network peering.
@@ -222,7 +222,7 @@ def get_virtual_network_peering_output(name: Optional[pulumi.Input[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: The name of this virtual network peering.

@@ -46,6 +46,8 @@ type CloudVmCluster struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
 	Domain pulumi.StringOutput `pulumi:"domain"`
+	// A `fileSystemConfiguration` block as defined below.
+	FileSystemConfigurations CloudVmClusterFileSystemConfigurationArrayOutput `pulumi:"fileSystemConfigurations"`
 	// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
 	GiVersion pulumi.StringOutput `pulumi:"giVersion"`
 	// The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
@@ -77,7 +79,7 @@ type CloudVmCluster struct {
 	// The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
-	SystemVersion pulumi.StringPtrOutput `pulumi:"systemVersion"`
+	SystemVersion pulumi.StringOutput `pulumi:"systemVersion"`
 	// A mapping of tags which should be assigned to the Cloud VM Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
@@ -173,6 +175,8 @@ type cloudVmClusterState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
 	Domain *string `pulumi:"domain"`
+	// A `fileSystemConfiguration` block as defined below.
+	FileSystemConfigurations []CloudVmClusterFileSystemConfiguration `pulumi:"fileSystemConfigurations"`
 	// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
 	GiVersion *string `pulumi:"giVersion"`
 	// The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
@@ -238,6 +242,8 @@ type CloudVmClusterState struct {
 	DisplayName pulumi.StringPtrInput
 	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
 	Domain pulumi.StringPtrInput
+	// A `fileSystemConfiguration` block as defined below.
+	FileSystemConfigurations CloudVmClusterFileSystemConfigurationArrayInput
 	// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
 	GiVersion pulumi.StringPtrInput
 	// The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
@@ -307,6 +313,8 @@ type cloudVmClusterArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
 	Domain *string `pulumi:"domain"`
+	// A `fileSystemConfiguration` block as defined below.
+	FileSystemConfigurations []CloudVmClusterFileSystemConfiguration `pulumi:"fileSystemConfigurations"`
 	// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
 	GiVersion string `pulumi:"giVersion"`
 	// The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
@@ -369,6 +377,8 @@ type CloudVmClusterArgs struct {
 	DisplayName pulumi.StringInput
 	// The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
 	Domain pulumi.StringPtrInput
+	// A `fileSystemConfiguration` block as defined below.
+	FileSystemConfigurations CloudVmClusterFileSystemConfigurationArrayInput
 	// A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
 	GiVersion pulumi.StringInput
 	// The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
@@ -549,6 +559,13 @@ func (o CloudVmClusterOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
+// A `fileSystemConfiguration` block as defined below.
+func (o CloudVmClusterOutput) FileSystemConfigurations() CloudVmClusterFileSystemConfigurationArrayOutput {
+	return o.ApplyT(func(v *CloudVmCluster) CloudVmClusterFileSystemConfigurationArrayOutput {
+		return v.FileSystemConfigurations
+	}).(CloudVmClusterFileSystemConfigurationArrayOutput)
+}
+
 // A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
 func (o CloudVmClusterOutput) GiVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.GiVersion }).(pulumi.StringOutput)
@@ -625,8 +642,8 @@ func (o CloudVmClusterOutput) SubnetId() pulumi.StringOutput {
 }
 
 // Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
-func (o CloudVmClusterOutput) SystemVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringPtrOutput { return v.SystemVersion }).(pulumi.StringPtrOutput)
+func (o CloudVmClusterOutput) SystemVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.SystemVersion }).(pulumi.StringOutput)
 }
 
 // A mapping of tags which should be assigned to the Cloud VM Cluster.

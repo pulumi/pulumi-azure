@@ -52,7 +52,7 @@ namespace Pulumi.Azure.WebPubSub
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.SignalRService`: 2024-03-01
+        /// * `Microsoft.SignalRService` - 2024-03-01
         /// </summary>
         public static Task<GetPrivateLinkResourceResult> InvokeAsync(GetPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceArgs(), options.WithDefaults());
@@ -98,7 +98,7 @@ namespace Pulumi.Azure.WebPubSub
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.SignalRService`: 2024-03-01
+        /// * `Microsoft.SignalRService` - 2024-03-01
         /// </summary>
         public static Output<GetPrivateLinkResourceResult> Invoke(GetPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceInvokeArgs(), options.WithDefaults());
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.WebPubSub
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.SignalRService`: 2024-03-01
+        /// * `Microsoft.SignalRService` - 2024-03-01
         /// </summary>
         public static Output<GetPrivateLinkResourceResult> Invoke(GetPrivateLinkResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceInvokeArgs(), options.WithDefaults());

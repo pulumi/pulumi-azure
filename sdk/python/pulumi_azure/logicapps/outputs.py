@@ -1695,19 +1695,20 @@ class WorkflowAccessControlTrigger(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_caller_ip_address_ranges: Sequence[_builtins.str],
+                 allowed_caller_ip_address_ranges: Optional[Sequence[_builtins.str]] = None,
                  open_authentication_policies: Optional[Sequence['outputs.WorkflowAccessControlTriggerOpenAuthenticationPolicy']] = None):
         """
         :param Sequence[_builtins.str] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
         :param Sequence['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs'] open_authentication_policies: A `open_authentication_policy` block as defined below.
         """
-        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+        if allowed_caller_ip_address_ranges is not None:
+            pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
         if open_authentication_policies is not None:
             pulumi.set(__self__, "open_authentication_policies", open_authentication_policies)
 
     @_builtins.property
     @pulumi.getter(name="allowedCallerIpAddressRanges")
-    def allowed_caller_ip_address_ranges(self) -> Sequence[_builtins.str]:
+    def allowed_caller_ip_address_ranges(self) -> Optional[Sequence[_builtins.str]]:
         """
         A list of the allowed caller IP address ranges.
         """

@@ -125,7 +125,7 @@ if not MYPY:
         """
         geo_backup_key_vault_key_id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The versioned ID of the geo backup Key Vault Key.
+        The versioned/versionless ID of the geo backup Key Vault Key.
 
         > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
         """
@@ -153,7 +153,7 @@ class FlexibleServerCustomerManagedKeyArgs:
                  primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key_vault_key_id: The versioned/versionless ID of the Key Vault Key.
-        :param pulumi.Input[_builtins.str] geo_backup_key_vault_key_id: The versioned ID of the geo backup Key Vault Key.
+        :param pulumi.Input[_builtins.str] geo_backup_key_vault_key_id: The versioned/versionless ID of the geo backup Key Vault Key.
                
                > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
         :param pulumi.Input[_builtins.str] geo_backup_user_assigned_identity_id: The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
@@ -187,7 +187,7 @@ class FlexibleServerCustomerManagedKeyArgs:
     @pulumi.getter(name="geoBackupKeyVaultKeyId")
     def geo_backup_key_vault_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The versioned ID of the geo backup Key Vault Key.
+        The versioned/versionless ID of the geo backup Key Vault Key.
 
         > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
         """

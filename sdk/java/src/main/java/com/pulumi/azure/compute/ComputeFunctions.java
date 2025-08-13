@@ -117,7 +117,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args) {
@@ -168,7 +168,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetAvailabilitySetResult> getAvailabilitySetPlain(GetAvailabilitySetPlainArgs args) {
@@ -219,7 +219,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args, InvokeOptions options) {
@@ -270,7 +270,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetAvailabilitySetResult> getAvailabilitySet(GetAvailabilitySetArgs args, InvokeOutputOptions options) {
@@ -321,7 +321,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetAvailabilitySetResult> getAvailabilitySetPlain(GetAvailabilitySetPlainArgs args, InvokeOptions options) {
@@ -372,7 +372,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-01-01
+     * * `Microsoft.Network` - 2024-01-01
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args) {
@@ -423,7 +423,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-01-01
+     * * `Microsoft.Network` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args) {
@@ -474,7 +474,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-01-01
+     * * `Microsoft.Network` - 2024-01-01
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args, InvokeOptions options) {
@@ -525,7 +525,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-01-01
+     * * `Microsoft.Network` - 2024-01-01
      * 
      */
     public static Output<GetBastionHostResult> getBastionHost(GetBastionHostArgs args, InvokeOutputOptions options) {
@@ -576,7 +576,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network`: 2024-01-01
+     * * `Microsoft.Network` - 2024-01-01
      * 
      */
     public static CompletableFuture<GetBastionHostResult> getBastionHostPlain(GetBastionHostPlainArgs args, InvokeOptions options) {
@@ -627,7 +627,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ConfidentialLedger`: 2022-05-13
+     * * `Microsoft.ConfidentialLedger` - 2022-05-13
      * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args) {
@@ -678,7 +678,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ConfidentialLedger`: 2022-05-13
+     * * `Microsoft.ConfidentialLedger` - 2022-05-13
      * 
      */
     public static CompletableFuture<GetConfidentialLedgerResult> getConfidentialLedgerPlain(GetConfidentialLedgerPlainArgs args) {
@@ -729,7 +729,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ConfidentialLedger`: 2022-05-13
+     * * `Microsoft.ConfidentialLedger` - 2022-05-13
      * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args, InvokeOptions options) {
@@ -780,7 +780,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ConfidentialLedger`: 2022-05-13
+     * * `Microsoft.ConfidentialLedger` - 2022-05-13
      * 
      */
     public static Output<GetConfidentialLedgerResult> getConfidentialLedger(GetConfidentialLedgerArgs args, InvokeOutputOptions options) {
@@ -831,7 +831,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ConfidentialLedger`: 2022-05-13
+     * * `Microsoft.ConfidentialLedger` - 2022-05-13
      * 
      */
     public static CompletableFuture<GetConfidentialLedgerResult> getConfidentialLedgerPlain(GetConfidentialLedgerPlainArgs args, InvokeOptions options) {
@@ -883,7 +883,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args) {
@@ -935,7 +935,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args) {
@@ -987,7 +987,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args, InvokeOptions options) {
@@ -1039,7 +1039,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetDedicatedHostResult> getDedicatedHost(GetDedicatedHostArgs args, InvokeOutputOptions options) {
@@ -1091,7 +1091,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetDedicatedHostResult> getDedicatedHostPlain(GetDedicatedHostPlainArgs args, InvokeOptions options) {
@@ -1142,7 +1142,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args) {
@@ -1193,7 +1193,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetDedicatedHostGroupResult> getDedicatedHostGroupPlain(GetDedicatedHostGroupPlainArgs args) {
@@ -1244,7 +1244,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args, InvokeOptions options) {
@@ -1295,7 +1295,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetDedicatedHostGroupResult> getDedicatedHostGroup(GetDedicatedHostGroupArgs args, InvokeOutputOptions options) {
@@ -1346,7 +1346,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetDedicatedHostGroupResult> getDedicatedHostGroupPlain(GetDedicatedHostGroupPlainArgs args, InvokeOptions options) {
@@ -1397,7 +1397,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args) {
@@ -1448,7 +1448,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static CompletableFuture<GetDiskAccessResult> getDiskAccessPlain(GetDiskAccessPlainArgs args) {
@@ -1499,7 +1499,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args, InvokeOptions options) {
@@ -1550,7 +1550,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static Output<GetDiskAccessResult> getDiskAccess(GetDiskAccessArgs args, InvokeOutputOptions options) {
@@ -1601,7 +1601,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static CompletableFuture<GetDiskAccessResult> getDiskAccessPlain(GetDiskAccessPlainArgs args, InvokeOptions options) {
@@ -1652,7 +1652,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args) {
@@ -1703,7 +1703,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args) {
@@ -1754,7 +1754,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args, InvokeOptions options) {
@@ -1805,7 +1805,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static Output<GetDiskEncryptionSetResult> getDiskEncryptionSet(GetDiskEncryptionSetArgs args, InvokeOutputOptions options) {
@@ -1856,7 +1856,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static CompletableFuture<GetDiskEncryptionSetResult> getDiskEncryptionSetPlain(GetDiskEncryptionSetPlainArgs args, InvokeOptions options) {
@@ -1907,7 +1907,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
@@ -1958,7 +1958,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -2009,7 +2009,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
@@ -2060,7 +2060,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOutputOptions options) {
@@ -2111,7 +2111,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
@@ -2160,7 +2160,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args) {
@@ -2209,7 +2209,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args) {
@@ -2258,7 +2258,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOptions options) {
@@ -2307,7 +2307,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static Output<GetImagesResult> getImages(GetImagesArgs args, InvokeOutputOptions options) {
@@ -2356,7 +2356,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-01
+     * * `Microsoft.Compute` - 2022-03-01
      * 
      */
     public static CompletableFuture<GetImagesResult> getImagesPlain(GetImagesPlainArgs args, InvokeOptions options) {
@@ -2407,7 +2407,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-04-02
+     * * `Microsoft.Compute` - 2023-04-02
      * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args) {
@@ -2458,7 +2458,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-04-02
+     * * `Microsoft.Compute` - 2023-04-02
      * 
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args) {
@@ -2509,7 +2509,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-04-02
+     * * `Microsoft.Compute` - 2023-04-02
      * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args, InvokeOptions options) {
@@ -2560,7 +2560,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-04-02
+     * * `Microsoft.Compute` - 2023-04-02
      * 
      */
     public static Output<GetManagedDiskResult> getManagedDisk(GetManagedDiskArgs args, InvokeOutputOptions options) {
@@ -2611,7 +2611,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-04-02
+     * * `Microsoft.Compute` - 2023-04-02
      * 
      */
     public static CompletableFuture<GetManagedDiskResult> getManagedDiskPlain(GetManagedDiskPlainArgs args, InvokeOptions options) {
@@ -2662,7 +2662,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01
+     * * `Microsoft.Compute` - 2024-11-01
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args) {
@@ -2713,7 +2713,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01
+     * * `Microsoft.Compute` - 2024-11-01
      * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args) {
@@ -2764,7 +2764,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01
+     * * `Microsoft.Compute` - 2024-11-01
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOptions options) {
@@ -2815,7 +2815,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01
+     * * `Microsoft.Compute` - 2024-11-01
      * 
      */
     public static Output<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSet(GetOrchestratedVirtualMachineScaleSetArgs args, InvokeOutputOptions options) {
@@ -2866,7 +2866,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01
+     * * `Microsoft.Compute` - 2024-11-01
      * 
      */
     public static CompletableFuture<GetOrchestratedVirtualMachineScaleSetResult> getOrchestratedVirtualMachineScaleSetPlain(GetOrchestratedVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {
@@ -2919,7 +2919,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args) {
@@ -2972,7 +2972,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetPlatformImageResult> getPlatformImagePlain(GetPlatformImagePlainArgs args) {
@@ -3025,7 +3025,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args, InvokeOptions options) {
@@ -3078,7 +3078,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetPlatformImageResult> getPlatformImage(GetPlatformImageArgs args, InvokeOutputOptions options) {
@@ -3131,7 +3131,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetPlatformImageResult> getPlatformImagePlain(GetPlatformImagePlainArgs args, InvokeOptions options) {
@@ -3182,7 +3182,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args) {
@@ -3233,7 +3233,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static CompletableFuture<GetSharedImageResult> getSharedImagePlain(GetSharedImagePlainArgs args) {
@@ -3284,7 +3284,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args, InvokeOptions options) {
@@ -3335,7 +3335,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static Output<GetSharedImageResult> getSharedImage(GetSharedImageArgs args, InvokeOutputOptions options) {
@@ -3386,7 +3386,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static CompletableFuture<GetSharedImageResult> getSharedImagePlain(GetSharedImagePlainArgs args, InvokeOptions options) {
@@ -3436,7 +3436,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args) {
@@ -3486,7 +3486,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static CompletableFuture<GetSharedImageGalleryResult> getSharedImageGalleryPlain(GetSharedImageGalleryPlainArgs args) {
@@ -3536,7 +3536,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args, InvokeOptions options) {
@@ -3586,7 +3586,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static Output<GetSharedImageGalleryResult> getSharedImageGallery(GetSharedImageGalleryArgs args, InvokeOutputOptions options) {
@@ -3636,7 +3636,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-03
+     * * `Microsoft.Compute` - 2022-03-03
      * 
      */
     public static CompletableFuture<GetSharedImageGalleryResult> getSharedImageGalleryPlain(GetSharedImageGalleryPlainArgs args, InvokeOptions options) {
@@ -3688,7 +3688,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args) {
@@ -3740,7 +3740,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static CompletableFuture<GetSharedImageVersionResult> getSharedImageVersionPlain(GetSharedImageVersionPlainArgs args) {
@@ -3792,7 +3792,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args, InvokeOptions options) {
@@ -3844,7 +3844,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static Output<GetSharedImageVersionResult> getSharedImageVersion(GetSharedImageVersionArgs args, InvokeOutputOptions options) {
@@ -3896,7 +3896,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static CompletableFuture<GetSharedImageVersionResult> getSharedImageVersionPlain(GetSharedImageVersionPlainArgs args, InvokeOptions options) {
@@ -3947,7 +3947,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args) {
@@ -3998,7 +3998,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static CompletableFuture<GetSharedImageVersionsResult> getSharedImageVersionsPlain(GetSharedImageVersionsPlainArgs args) {
@@ -4049,7 +4049,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args, InvokeOptions options) {
@@ -4100,7 +4100,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static Output<GetSharedImageVersionsResult> getSharedImageVersions(GetSharedImageVersionsArgs args, InvokeOutputOptions options) {
@@ -4151,7 +4151,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2023-07-03
+     * * `Microsoft.Compute` - 2023-07-03
      * 
      */
     public static CompletableFuture<GetSharedImageVersionsResult> getSharedImageVersionsPlain(GetSharedImageVersionsPlainArgs args, InvokeOptions options) {
@@ -4201,7 +4201,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
@@ -4251,7 +4251,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
@@ -4301,7 +4301,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
@@ -4351,7 +4351,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOutputOptions options) {
@@ -4401,7 +4401,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2022-03-02
+     * * `Microsoft.Compute` - 2022-03-02
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
@@ -4452,7 +4452,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args) {
@@ -4503,7 +4503,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetSshPublicKeyResult> getSshPublicKeyPlain(GetSshPublicKeyPlainArgs args) {
@@ -4554,7 +4554,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args, InvokeOptions options) {
@@ -4605,7 +4605,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetSshPublicKeyResult> getSshPublicKey(GetSshPublicKeyArgs args, InvokeOutputOptions options) {
@@ -4656,7 +4656,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetSshPublicKeyResult> getSshPublicKeyPlain(GetSshPublicKeyPlainArgs args, InvokeOptions options) {
@@ -4707,7 +4707,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args) {
@@ -4758,7 +4758,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetVirtualMachineResult> getVirtualMachinePlain(GetVirtualMachinePlainArgs args) {
@@ -4809,7 +4809,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args, InvokeOptions options) {
@@ -4860,7 +4860,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static Output<GetVirtualMachineResult> getVirtualMachine(GetVirtualMachineArgs args, InvokeOutputOptions options) {
@@ -4911,7 +4911,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-03-01
+     * * `Microsoft.Compute` - 2024-03-01
      * 
      */
     public static CompletableFuture<GetVirtualMachineResult> getVirtualMachinePlain(GetVirtualMachinePlainArgs args, InvokeOptions options) {
@@ -4962,7 +4962,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute` - 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args) {
@@ -5013,7 +5013,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute` - 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args) {
@@ -5064,7 +5064,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute` - 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args, InvokeOptions options) {
@@ -5115,7 +5115,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute` - 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static Output<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSet(GetVirtualMachineScaleSetArgs args, InvokeOutputOptions options) {
@@ -5166,7 +5166,7 @@ public final class ComputeFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Compute`: 2024-11-01, 2024-03-01, 2023-09-01
+     * * `Microsoft.Compute` - 2024-11-01, 2024-03-01, 2023-09-01
      * 
      */
     public static CompletableFuture<GetVirtualMachineScaleSetResult> getVirtualMachineScaleSetPlain(GetVirtualMachineScaleSetPlainArgs args, InvokeOptions options) {

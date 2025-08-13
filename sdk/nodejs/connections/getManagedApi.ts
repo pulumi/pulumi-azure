@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2016-06-01
+ * * `Microsoft.Web` - 2016-06-01
  */
 export function getManagedApi(args: GetManagedApiArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,7 +82,7 @@ export interface GetManagedApiResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2016-06-01
+ * * `Microsoft.Web` - 2016-06-01
  */
 export function getManagedApiOutput(args: GetManagedApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

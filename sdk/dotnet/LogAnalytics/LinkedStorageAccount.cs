@@ -49,7 +49,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///     {
     ///         DataSourceType = "CustomLogs",
     ///         ResourceGroupName = example.Name,
-    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         StorageAccountIds = new[]
     ///         {
     ///             exampleAccount.Id,
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.OperationalInsights`: 2020-08-01
+    /// * `Microsoft.OperationalInsights` - 2020-08-01
     /// 
     /// ## Import
     /// 
@@ -98,6 +98,9 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         /// </summary>
+        [Output("workspaceId")]
+        public Output<string> WorkspaceId { get; private set; } = null!;
+
         [Output("workspaceResourceId")]
         public Output<string> WorkspaceResourceId { get; private set; } = null!;
 
@@ -174,8 +177,11 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         /// </summary>
-        [Input("workspaceResourceId", required: true)]
-        public Input<string> WorkspaceResourceId { get; set; } = null!;
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
+
+        [Input("workspaceResourceId")]
+        public Input<string>? WorkspaceResourceId { get; set; }
 
         public LinkedStorageAccountArgs()
         {
@@ -212,6 +218,9 @@ namespace Pulumi.Azure.LogAnalytics
         /// <summary>
         /// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         /// </summary>
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
+
         [Input("workspaceResourceId")]
         public Input<string>? WorkspaceResourceId { get; set; }
 

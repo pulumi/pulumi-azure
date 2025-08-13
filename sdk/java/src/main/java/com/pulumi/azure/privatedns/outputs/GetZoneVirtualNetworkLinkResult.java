@@ -24,6 +24,11 @@ public final class GetZoneVirtualNetworkLinkResult {
      * 
      */
     private Boolean registrationEnabled;
+    /**
+     * @return The resolution policy of the Private DNS Zone Virtual Network Link.
+     * 
+     */
+    private String resolutionPolicy;
     private String resourceGroupName;
     /**
      * @return A mapping of tags to assign to the resource.
@@ -57,6 +62,13 @@ public final class GetZoneVirtualNetworkLinkResult {
     public Boolean registrationEnabled() {
         return this.registrationEnabled;
     }
+    /**
+     * @return The resolution policy of the Private DNS Zone Virtual Network Link.
+     * 
+     */
+    public String resolutionPolicy() {
+        return this.resolutionPolicy;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -88,6 +100,7 @@ public final class GetZoneVirtualNetworkLinkResult {
         private String name;
         private String privateDnsZoneName;
         private Boolean registrationEnabled;
+        private String resolutionPolicy;
         private String resourceGroupName;
         private Map<String,String> tags;
         private String virtualNetworkId;
@@ -98,6 +111,7 @@ public final class GetZoneVirtualNetworkLinkResult {
     	      this.name = defaults.name;
     	      this.privateDnsZoneName = defaults.privateDnsZoneName;
     	      this.registrationEnabled = defaults.registrationEnabled;
+    	      this.resolutionPolicy = defaults.resolutionPolicy;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.tags = defaults.tags;
     	      this.virtualNetworkId = defaults.virtualNetworkId;
@@ -136,6 +150,14 @@ public final class GetZoneVirtualNetworkLinkResult {
             return this;
         }
         @CustomType.Setter
+        public Builder resolutionPolicy(String resolutionPolicy) {
+            if (resolutionPolicy == null) {
+              throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkResult", "resolutionPolicy");
+            }
+            this.resolutionPolicy = resolutionPolicy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetZoneVirtualNetworkLinkResult", "resourceGroupName");
@@ -165,6 +187,7 @@ public final class GetZoneVirtualNetworkLinkResult {
             _resultValue.name = name;
             _resultValue.privateDnsZoneName = privateDnsZoneName;
             _resultValue.registrationEnabled = registrationEnabled;
+            _resultValue.resolutionPolicy = resolutionPolicy;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.tags = tags;
             _resultValue.virtualNetworkId = virtualNetworkId;

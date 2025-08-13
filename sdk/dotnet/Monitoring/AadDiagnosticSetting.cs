@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Monitoring
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.AADIAM`: 2017-04-01
+    /// * `Microsoft.AADIAM` - 2017-04-01
     /// 
     /// ## Import
     /// 

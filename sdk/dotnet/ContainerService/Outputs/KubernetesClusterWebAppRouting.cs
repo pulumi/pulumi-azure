@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterWebAppRouting
     {
         /// <summary>
+        /// Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. It defaults to `AnnotationControlled`.
+        /// </summary>
+        public readonly string? DefaultNginxController;
+        /// <summary>
         /// Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
         /// </summary>
         public readonly ImmutableArray<string> DnsZoneIds;
@@ -24,10 +28,13 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private KubernetesClusterWebAppRouting(
+            string? defaultNginxController,
+
             ImmutableArray<string> dnsZoneIds,
 
             ImmutableArray<Outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity> webAppRoutingIdentities)
         {
+            DefaultNginxController = defaultNginxController;
             DnsZoneIds = dnsZoneIds;
             WebAppRoutingIdentities = webAppRoutingIdentities;
         }

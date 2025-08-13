@@ -91,7 +91,7 @@ def get_adbs_character_sets(location: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str location: The Azure Region to query for the character sets in.
@@ -125,7 +125,7 @@ def get_adbs_character_sets_output(location: Optional[pulumi.Input[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Oracle.Database`: 2024-06-01
+    * `Oracle.Database` - 2025-03-01
 
 
     :param _builtins.str location: The Azure Region to query for the character sets in.

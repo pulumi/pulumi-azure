@@ -6,6 +6,7 @@ package com.pulumi.azure.netapp;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.netapp.VolumeArgs;
 import com.pulumi.azure.netapp.inputs.VolumeState;
+import com.pulumi.azure.netapp.outputs.VolumeCoolAccess;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionBackupPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionReplication;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionSnapshotPolicy;
@@ -66,6 +67,20 @@ public class Volume extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> azureVmwareDataStoreEnabled() {
         return Codegen.optional(this.azureVmwareDataStoreEnabled);
+    }
+    /**
+     * A `cool_access` block as defined below.
+     * 
+     */
+    @Export(name="coolAccess", refs={VolumeCoolAccess.class}, tree="[0]")
+    private Output</* @Nullable */ VolumeCoolAccess> coolAccess;
+
+    /**
+     * @return A `cool_access` block as defined below.
+     * 
+     */
+    public Output<Optional<VolumeCoolAccess>> coolAccess() {
+        return Codegen.optional(this.coolAccess);
     }
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.

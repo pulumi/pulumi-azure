@@ -297,7 +297,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.SqlVirtualMachine`: 2023-10-01
+        * `Microsoft.SqlVirtualMachine` - 2023-10-01
 
         ## Import
 
@@ -352,7 +352,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.SqlVirtualMachine`: 2023-10-01
+        * `Microsoft.SqlVirtualMachine` - 2023-10-01
 
         ## Import
 

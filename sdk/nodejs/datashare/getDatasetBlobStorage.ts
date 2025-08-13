@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DataShare`: 2019-11-01
+ * * `Microsoft.DataShare` - 2019-11-01
  */
 export function getDatasetBlobStorage(args: GetDatasetBlobStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetBlobStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,7 +106,7 @@ export interface GetDatasetBlobStorageResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.DataShare`: 2019-11-01
+ * * `Microsoft.DataShare` - 2019-11-01
  */
 export function getDatasetBlobStorageOutput(args: GetDatasetBlobStorageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetBlobStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

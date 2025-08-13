@@ -142,7 +142,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Sql`: 2023-08-01-preview
+ * * `Microsoft.Sql` - 2023-08-01-preview
  *
  * ## Import
  *
@@ -247,7 +247,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The max size of the database in gigabytes.
      *
-     * > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+     * > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
      */
     public readonly maxSizeGb!: pulumi.Output<number>;
     /**
@@ -291,7 +291,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly sampleName!: pulumi.Output<string>;
     /**
-     * How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     * How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
      */
     public readonly secondaryType!: pulumi.Output<string>;
     /**
@@ -514,7 +514,7 @@ export interface DatabaseState {
     /**
      * The max size of the database in gigabytes.
      *
-     * > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+     * > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
      */
     maxSizeGb?: pulumi.Input<number>;
     /**
@@ -558,7 +558,7 @@ export interface DatabaseState {
      */
     sampleName?: pulumi.Input<string>;
     /**
-     * How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     * How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
      */
     secondaryType?: pulumi.Input<string>;
     /**
@@ -686,7 +686,7 @@ export interface DatabaseArgs {
     /**
      * The max size of the database in gigabytes.
      *
-     * > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
+     * > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database). The value of `maxSizeGb` accepts `0.1`, `0.5` and positive integers greater than or equal to 1. `0.1` means `100MB`, and `0.5` means `500MB`.
      */
     maxSizeGb?: pulumi.Input<number>;
     /**
@@ -730,7 +730,7 @@ export interface DatabaseArgs {
      */
     sampleName?: pulumi.Input<string>;
     /**
-     * How do you want your replica to be made? Valid values include `Geo` and `Named`. Defaults to `Geo`. Changing this forces a new resource to be created.
+     * How do you want your replica to be made? Valid values include `Geo`, `Named` and `Standby`. Defaults to `Geo`. Changing this forces a new resource to be created.
      */
     secondaryType?: pulumi.Input<string>;
     /**

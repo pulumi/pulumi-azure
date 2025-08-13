@@ -291,7 +291,7 @@ def get_environment_v3(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Web`: 2023-01-01
+    * `Microsoft.Web` - 2023-01-01
 
 
     :param _builtins.str name: The name of this v3 App Service Environment.
@@ -346,7 +346,7 @@ def get_environment_v3_output(name: Optional[pulumi.Input[_builtins.str]] = None
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Web`: 2023-01-01
+    * `Microsoft.Web` - 2023-01-01
 
 
     :param _builtins.str name: The name of this v3 App Service Environment.

@@ -148,7 +148,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2024-05-01
+// * `Microsoft.Network` - 2024-05-01
 func GetPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs, opts ...pulumi.InvokeOption) (*GetPublicIPResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPublicIPResult

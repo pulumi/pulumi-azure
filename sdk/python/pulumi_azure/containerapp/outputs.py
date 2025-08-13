@@ -19,6 +19,7 @@ __all__ = [
     'AppDapr',
     'AppIdentity',
     'AppIngress',
+    'AppIngressCors',
     'AppIngressCustomDomain',
     'AppIngressIpSecurityRestriction',
     'AppIngressTrafficWeight',
@@ -48,6 +49,7 @@ __all__ = [
     'AppTemplateVolume',
     'EnvironmentDaprComponentMetadata',
     'EnvironmentDaprComponentSecret',
+    'EnvironmentIdentity',
     'EnvironmentWorkloadProfile',
     'JobEventTriggerConfig',
     'JobEventTriggerConfigScale',
@@ -75,6 +77,7 @@ __all__ = [
     'GetAppDaprResult',
     'GetAppIdentityResult',
     'GetAppIngressResult',
+    'GetAppIngressCorResult',
     'GetAppIngressCustomDomainResult',
     'GetAppIngressIpSecurityRestrictionResult',
     'GetAppIngressTrafficWeightResult',
@@ -272,6 +275,7 @@ class AppIngress(dict):
                  traffic_weights: Sequence['outputs.AppIngressTrafficWeight'],
                  allow_insecure_connections: Optional[_builtins.bool] = None,
                  client_certificate_mode: Optional[_builtins.str] = None,
+                 cors: Optional['outputs.AppIngressCors'] = None,
                  custom_domains: Optional[Sequence['outputs.AppIngressCustomDomain']] = None,
                  exposed_port: Optional[_builtins.int] = None,
                  external_enabled: Optional[_builtins.bool] = None,
@@ -283,6 +287,7 @@ class AppIngress(dict):
         :param Sequence['AppIngressTrafficWeightArgs'] traffic_weights: One or more `traffic_weight` blocks as detailed below.
         :param _builtins.bool allow_insecure_connections: Should this ingress allow insecure connections?
         :param _builtins.str client_certificate_mode: The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+        :param 'AppIngressCorsArgs' cors: A `cors` block as defined below.
         :param Sequence['AppIngressCustomDomainArgs'] custom_domains: One or more `custom_domain` block as detailed below.
         :param _builtins.int exposed_port: The exposed port on the container for the Ingress traffic.
                
@@ -300,6 +305,8 @@ class AppIngress(dict):
             pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
         if client_certificate_mode is not None:
             pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
         if custom_domains is not None:
             pulumi.set(__self__, "custom_domains", custom_domains)
         if exposed_port is not None:
@@ -344,6 +351,14 @@ class AppIngress(dict):
         The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
         """
         return pulumi.get(self, "client_certificate_mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def cors(self) -> Optional['outputs.AppIngressCors']:
+        """
+        A `cors` block as defined below.
+        """
+        return pulumi.get(self, "cors")
 
     @_builtins.property
     @pulumi.getter(name="customDomains")
@@ -396,6 +411,111 @@ class AppIngress(dict):
         > **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
         """
         return pulumi.get(self, "transport")
+
+
+@pulumi.output_type
+class AppIngressCors(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "allowCredentialsEnabled":
+            suggest = "allow_credentials_enabled"
+        elif key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "exposedHeaders":
+            suggest = "exposed_headers"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppIngressCors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppIngressCors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppIngressCors.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_origins: Sequence[_builtins.str],
+                 allow_credentials_enabled: Optional[_builtins.bool] = None,
+                 allowed_headers: Optional[Sequence[_builtins.str]] = None,
+                 allowed_methods: Optional[Sequence[_builtins.str]] = None,
+                 exposed_headers: Optional[Sequence[_builtins.str]] = None,
+                 max_age_in_seconds: Optional[_builtins.int] = None):
+        """
+        :param Sequence[_builtins.str] allowed_origins: Specifies the list of origins that are allowed to make cross-origin calls.
+        :param _builtins.bool allow_credentials_enabled: Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+        :param Sequence[_builtins.str] allowed_headers: Specifies the list of request headers that are permitted in the actual request.
+        :param Sequence[_builtins.str] allowed_methods: Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+        :param Sequence[_builtins.str] exposed_headers: Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+        :param _builtins.int max_age_in_seconds: Specifies the number of seconds that the browser can cache the results of a preflight request.
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allow_credentials_enabled is not None:
+            pulumi.set(__self__, "allow_credentials_enabled", allow_credentials_enabled)
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if exposed_headers is not None:
+            pulumi.set(__self__, "exposed_headers", exposed_headers)
+        if max_age_in_seconds is not None:
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[_builtins.str]:
+        """
+        Specifies the list of origins that are allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @_builtins.property
+    @pulumi.getter(name="allowCredentialsEnabled")
+    def allow_credentials_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_credentials_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the list of request headers that are permitted in the actual request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Specifies the number of seconds that the browser can cache the results of a preflight request.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
 
 
 @pulumi.output_type
@@ -2703,6 +2823,73 @@ class EnvironmentDaprComponentSecret(dict):
 
 
 @pulumi.output_type
+class EnvironmentIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityIds":
+            suggest = "identity_ids"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EnvironmentIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EnvironmentIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EnvironmentIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 identity_ids: Optional[Sequence[_builtins.str]] = None,
+                 principal_id: Optional[_builtins.str] = None,
+                 tenant_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str type: The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+        :param Sequence[_builtins.str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "principal_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class EnvironmentWorkloadProfile(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4690,6 +4877,7 @@ class GetAppIngressResult(dict):
     def __init__(__self__, *,
                  allow_insecure_connections: _builtins.bool,
                  client_certificate_mode: _builtins.str,
+                 cors: Sequence['outputs.GetAppIngressCorResult'],
                  custom_domains: Sequence['outputs.GetAppIngressCustomDomainResult'],
                  exposed_port: _builtins.int,
                  external_enabled: _builtins.bool,
@@ -4701,6 +4889,7 @@ class GetAppIngressResult(dict):
         """
         :param _builtins.bool allow_insecure_connections: Should this ingress allow insecure connections?
         :param _builtins.str client_certificate_mode: The client certificate mode for the Ingress.
+        :param Sequence['GetAppIngressCorArgs'] cors: A `cors` block as detailed below.
         :param Sequence['GetAppIngressCustomDomainArgs'] custom_domains: One or more `custom_domain` block as detailed below.
         :param _builtins.int exposed_port: The exposed port on the container for the Ingress traffic.
         :param _builtins.bool external_enabled: Is this an external Ingress.
@@ -4712,6 +4901,7 @@ class GetAppIngressResult(dict):
         """
         pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
         pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
+        pulumi.set(__self__, "cors", cors)
         pulumi.set(__self__, "custom_domains", custom_domains)
         pulumi.set(__self__, "exposed_port", exposed_port)
         pulumi.set(__self__, "external_enabled", external_enabled)
@@ -4736,6 +4926,14 @@ class GetAppIngressResult(dict):
         The client certificate mode for the Ingress.
         """
         return pulumi.get(self, "client_certificate_mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def cors(self) -> Sequence['outputs.GetAppIngressCorResult']:
+        """
+        A `cors` block as detailed below.
+        """
+        return pulumi.get(self, "cors")
 
     @_builtins.property
     @pulumi.getter(name="customDomains")
@@ -4800,6 +4998,79 @@ class GetAppIngressResult(dict):
         The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
         return pulumi.get(self, "transport")
+
+
+@pulumi.output_type
+class GetAppIngressCorResult(dict):
+    def __init__(__self__, *,
+                 allow_credentials_enabled: _builtins.bool,
+                 allowed_headers: Sequence[_builtins.str],
+                 allowed_methods: Sequence[_builtins.str],
+                 allowed_origins: Sequence[_builtins.str],
+                 exposed_headers: Sequence[_builtins.str],
+                 max_age_in_seconds: _builtins.int):
+        """
+        :param _builtins.bool allow_credentials_enabled: Whether user credentials are allowed in the cross-origin request.
+        :param Sequence[_builtins.str] allowed_headers: The list of request headers that are permitted in the actual request.
+        :param Sequence[_builtins.str] allowed_methods: The list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+        :param Sequence[_builtins.str] allowed_origins: The list of origins that are allowed to make cross-origin calls.
+        :param Sequence[_builtins.str] exposed_headers: The list of headers exposed to the browser in the response to a cross-origin request.
+        :param _builtins.int max_age_in_seconds: The number of seconds that the browser can cache the results of a preflight request.
+        """
+        pulumi.set(__self__, "allow_credentials_enabled", allow_credentials_enabled)
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "exposed_headers", exposed_headers)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="allowCredentialsEnabled")
+    def allow_credentials_enabled(self) -> _builtins.bool:
+        """
+        Whether user credentials are allowed in the cross-origin request.
+        """
+        return pulumi.get(self, "allow_credentials_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Sequence[_builtins.str]:
+        """
+        The list of request headers that are permitted in the actual request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[_builtins.str]:
+        """
+        The list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[_builtins.str]:
+        """
+        The list of origins that are allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @_builtins.property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Sequence[_builtins.str]:
+        """
+        The list of headers exposed to the browser in the response to a cross-origin request.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> _builtins.int:
+        """
+        The number of seconds that the browser can cache the results of a preflight request.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
 
 
 @pulumi.output_type
@@ -5850,7 +6121,6 @@ class GetAppTemplateContainerVolumeMountResult(dict):
         :param _builtins.str name: The name of the Container App.
         :param _builtins.str path: The path in the container at which to mount this volume.
         :param _builtins.str sub_path: The sub path of the volume to be mounted in the container.
-               ---
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
@@ -5877,7 +6147,6 @@ class GetAppTemplateContainerVolumeMountResult(dict):
     def sub_path(self) -> _builtins.str:
         """
         The sub path of the volume to be mounted in the container.
-        ---
         """
         return pulumi.get(self, "sub_path")
 
@@ -6159,7 +6428,6 @@ class GetAppTemplateInitContainerVolumeMountResult(dict):
         :param _builtins.str name: The name of the Container App.
         :param _builtins.str path: The path in the container at which to mount this volume.
         :param _builtins.str sub_path: The sub path of the volume to be mounted in the container.
-               ---
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
@@ -6186,7 +6454,6 @@ class GetAppTemplateInitContainerVolumeMountResult(dict):
     def sub_path(self) -> _builtins.str:
         """
         The sub path of the volume to be mounted in the container.
-        ---
         """
         return pulumi.get(self, "sub_path")
 

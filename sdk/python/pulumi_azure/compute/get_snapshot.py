@@ -185,7 +185,7 @@ def get_snapshot(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2022-03-02
+    * `Microsoft.Compute` - 2022-03-02
 
 
     :param _builtins.str name: Specifies the name of the Snapshot.
@@ -231,7 +231,7 @@ def get_snapshot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute`: 2022-03-02
+    * `Microsoft.Compute` - 2022-03-02
 
 
     :param _builtins.str name: Specifies the name of the Snapshot.

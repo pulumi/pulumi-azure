@@ -120,7 +120,7 @@ def get_service_endpoint_connections(resource_group_name: Optional[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str resource_group_name: The name of the resource group in which the private link service resides.
@@ -161,7 +161,7 @@ def get_service_endpoint_connections_output(resource_group_name: Optional[pulumi
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str resource_group_name: The name of the resource group in which the private link service resides.

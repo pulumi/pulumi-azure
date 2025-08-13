@@ -47,7 +47,7 @@ class GroupPolicyAssignmentArgs:
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Policy.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Cannot exceed 24 characters in length. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideArgs']]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
@@ -183,7 +183,7 @@ class GroupPolicyAssignmentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
+        The name which should be used for this Policy Assignment. Cannot exceed 24 characters in length. Changing this forces a new Policy Assignment to be created.
         """
         return pulumi.get(self, "name")
 
@@ -280,7 +280,7 @@ class _GroupPolicyAssignmentState:
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Policy.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Cannot exceed 24 characters in length. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentNonComplianceMessageArgs']]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideArgs']]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
@@ -407,7 +407,7 @@ class _GroupPolicyAssignmentState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
+        The name which should be used for this Policy Assignment. Cannot exceed 24 characters in length. Changing this forces a new Policy Assignment to be created.
         """
         return pulumi.get(self, "name")
 
@@ -548,7 +548,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Authorization`: 2022-06-01
+        * `Microsoft.Authorization` - 2022-06-01
 
         ## Import
 
@@ -569,7 +569,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Policy.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Cannot exceed 24 characters in length. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicyAssignmentNonComplianceMessageArgs', 'GroupPolicyAssignmentNonComplianceMessageArgsDict']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicyAssignmentOverrideArgs', 'GroupPolicyAssignmentOverrideArgsDict']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
@@ -622,7 +622,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Authorization`: 2022-06-01
+        * `Microsoft.Authorization` - 2022-06-01
 
         ## Import
 
@@ -728,7 +728,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the Management Group. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Policy.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Cannot exceed 24 characters in length. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicyAssignmentNonComplianceMessageArgs', 'GroupPolicyAssignmentNonComplianceMessageArgsDict']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicyAssignmentOverrideArgs', 'GroupPolicyAssignmentOverrideArgsDict']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
@@ -818,7 +818,7 @@ class GroupPolicyAssignment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name which should be used for this Policy Assignment. Possible values must be between 3 and 24 characters in length. Changing this forces a new Policy Assignment to be created.
+        The name which should be used for this Policy Assignment. Cannot exceed 24 characters in length. Changing this forces a new Policy Assignment to be created.
         """
         return pulumi.get(self, "name")
 

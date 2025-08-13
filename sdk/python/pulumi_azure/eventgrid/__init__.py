@@ -11,10 +11,14 @@ from .domain_topic import *
 from .event_subscription import *
 from .get_domain import *
 from .get_domain_topic import *
+from .get_partner_namespace import *
+from .get_partner_registration import *
 from .get_system_topic import *
 from .get_topic import *
 from .namespace import *
 from .partner_configuration import *
+from .partner_namespace import *
+from .partner_registration import *
 from .system_topic import *
 from .system_topic_event_subscription import *
 from .topic import *

@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.HybridCompute`: 2022-11-10
+// * `Microsoft.HybridCompute` - 2022-11-10
 func Get(ctx *pulumi.Context, args *GetArgs, opts ...pulumi.InvokeOption) (*GetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResult

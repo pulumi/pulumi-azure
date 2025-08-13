@@ -12,6 +12,22 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
+        /// 
+        /// &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// </summary>
+        [Input("auxiliaryMode")]
+        public Input<string>? AuxiliaryMode { get; set; }
+
+        /// <summary>
+        /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+        /// 
+        /// &gt; **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// </summary>
+        [Input("auxiliarySku")]
+        public Input<string>? AuxiliarySku { get; set; }
+
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
 

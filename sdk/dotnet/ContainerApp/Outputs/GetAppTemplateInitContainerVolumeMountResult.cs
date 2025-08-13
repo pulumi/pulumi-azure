@@ -23,7 +23,6 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         public readonly string Path;
         /// <summary>
         /// The sub path of the volume to be mounted in the container.
-        /// ---
         /// </summary>
         public readonly string SubPath;
 

@@ -40,7 +40,7 @@ public final class PoolStartTask {
      */
     private @Nullable List<PoolStartTaskResourceFile> resourceFiles;
     /**
-     * @return The number of retry count.
+     * @return The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
      * 
      */
     private @Nullable Integer taskRetryMaximum;
@@ -85,7 +85,7 @@ public final class PoolStartTask {
         return this.resourceFiles == null ? List.of() : this.resourceFiles;
     }
     /**
-     * @return The number of retry count.
+     * @return The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
      * 
      */
     public Optional<Integer> taskRetryMaximum() {

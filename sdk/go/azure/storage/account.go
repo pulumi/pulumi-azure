@@ -137,7 +137,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Storage`: 2023-05-01
+// * `Microsoft.Storage` - 2023-05-01
 //
 // ## Import
 //
@@ -295,6 +295,8 @@ type Account struct {
 	PrimaryWebMicrosoftEndpoint pulumi.StringOutput `pulumi:"primaryWebMicrosoftEndpoint"`
 	// The microsoft routing hostname with port if applicable for web storage in the primary location.
 	PrimaryWebMicrosoftHost pulumi.StringOutput `pulumi:"primaryWebMicrosoftHost"`
+	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+	ProvisionedBillingModelVersion pulumi.StringPtrOutput `pulumi:"provisionedBillingModelVersion"`
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -602,6 +604,8 @@ type accountState struct {
 	PrimaryWebMicrosoftEndpoint *string `pulumi:"primaryWebMicrosoftEndpoint"`
 	// The microsoft routing hostname with port if applicable for web storage in the primary location.
 	PrimaryWebMicrosoftHost *string `pulumi:"primaryWebMicrosoftHost"`
+	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+	ProvisionedBillingModelVersion *string `pulumi:"provisionedBillingModelVersion"`
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -862,6 +866,8 @@ type AccountState struct {
 	PrimaryWebMicrosoftEndpoint pulumi.StringPtrInput
 	// The microsoft routing hostname with port if applicable for web storage in the primary location.
 	PrimaryWebMicrosoftHost pulumi.StringPtrInput
+	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+	ProvisionedBillingModelVersion pulumi.StringPtrInput
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -1054,6 +1060,8 @@ type accountArgs struct {
 	//
 	// > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
 	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
+	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+	ProvisionedBillingModelVersion *string `pulumi:"provisionedBillingModelVersion"`
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -1171,6 +1179,8 @@ type AccountArgs struct {
 	//
 	// > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
 	Nfsv3Enabled pulumi.BoolPtrInput
+	// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+	ProvisionedBillingModelVersion pulumi.StringPtrInput
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
@@ -1629,6 +1639,11 @@ func (o AccountOutput) PrimaryWebMicrosoftEndpoint() pulumi.StringOutput {
 // The microsoft routing hostname with port if applicable for web storage in the primary location.
 func (o AccountOutput) PrimaryWebMicrosoftHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryWebMicrosoftHost }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
+func (o AccountOutput) ProvisionedBillingModelVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.ProvisionedBillingModelVersion }).(pulumi.StringPtrOutput)
 }
 
 // Whether the public network access is enabled? Defaults to `true`.

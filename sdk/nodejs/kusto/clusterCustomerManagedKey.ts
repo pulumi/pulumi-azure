@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Kusto`: 2024-04-13
+ * * `Microsoft.Kusto` - 2024-04-13
  *
  * ## Import
  *
@@ -138,15 +138,21 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
     /**
      * The name of Key Vault Key.
      */
-    public readonly keyName!: pulumi.Output<string>;
+    public readonly keyName!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Key Vault.
+     * The ID of the Key Vault for CMK encryption.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    public readonly keyVaultId!: pulumi.Output<string | undefined>;
     /**
      * The version of Key Vault Key.
      */
     public readonly keyVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The Managed HSM Key ID for CMK encryption.
+     *
+     * > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
+     */
+    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
      */
@@ -169,22 +175,18 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["keyName"] = state ? state.keyName : undefined;
             resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             resourceInputs["keyVersion"] = state ? state.keyVersion : undefined;
+            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
             resourceInputs["userIdentity"] = state ? state.userIdentity : undefined;
         } else {
             const args = argsOrState as ClusterCustomerManagedKeyArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.keyName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyName'");
-            }
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyVaultId'");
-            }
             resourceInputs["clusterId"] = args ? args.clusterId : undefined;
             resourceInputs["keyName"] = args ? args.keyName : undefined;
             resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             resourceInputs["keyVersion"] = args ? args.keyVersion : undefined;
+            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
             resourceInputs["userIdentity"] = args ? args.userIdentity : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -205,13 +207,19 @@ export interface ClusterCustomerManagedKeyState {
      */
     keyName?: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault.
+     * The ID of the Key Vault for CMK encryption.
      */
     keyVaultId?: pulumi.Input<string>;
     /**
      * The version of Key Vault Key.
      */
     keyVersion?: pulumi.Input<string>;
+    /**
+     * The Managed HSM Key ID for CMK encryption.
+     *
+     * > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
+     */
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
      */
@@ -229,15 +237,21 @@ export interface ClusterCustomerManagedKeyArgs {
     /**
      * The name of Key Vault Key.
      */
-    keyName: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault.
+     * The ID of the Key Vault for CMK encryption.
      */
-    keyVaultId: pulumi.Input<string>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * The version of Key Vault Key.
      */
     keyVersion?: pulumi.Input<string>;
+    /**
+     * The Managed HSM Key ID for CMK encryption.
+     *
+     * > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
+     */
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
      */

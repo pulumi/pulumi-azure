@@ -157,8 +157,8 @@ class ReplicatedVMManagedDisk(dict):
         """
         :param _builtins.str disk_id: Id of disk that should be replicated. Changing this forces a new resource to be created.
         :param _builtins.str staging_storage_account_id: Storage account that should be used for caching. Changing this forces a new resource to be created.
-        :param _builtins.str target_disk_type: What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
-        :param _builtins.str target_replica_disk_type: What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+        :param _builtins.str target_disk_type: What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        :param _builtins.str target_replica_disk_type: What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param _builtins.str target_resource_group_id: Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
         :param 'ReplicatedVMManagedDiskTargetDiskEncryptionArgs' target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param _builtins.str target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
@@ -195,7 +195,7 @@ class ReplicatedVMManagedDisk(dict):
     @pulumi.getter(name="targetDiskType")
     def target_disk_type(self) -> _builtins.str:
         """
-        What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+        What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_disk_type")
 
@@ -203,7 +203,7 @@ class ReplicatedVMManagedDisk(dict):
     @pulumi.getter(name="targetReplicaDiskType")
     def target_replica_disk_type(self) -> _builtins.str:
         """
-        What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+        What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_replica_disk_type")
 

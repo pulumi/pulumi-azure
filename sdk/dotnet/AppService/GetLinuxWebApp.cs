@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-12-01
+        /// * `Microsoft.Web` - 2023-12-01
         /// </summary>
         public static Task<GetLinuxWebAppResult> InvokeAsync(GetLinuxWebAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinuxWebAppResult>("azure:appservice/getLinuxWebApp:getLinuxWebApp", args ?? new GetLinuxWebAppArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-12-01
+        /// * `Microsoft.Web` - 2023-12-01
         /// </summary>
         public static Output<GetLinuxWebAppResult> Invoke(GetLinuxWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinuxWebAppResult>("azure:appservice/getLinuxWebApp:getLinuxWebApp", args ?? new GetLinuxWebAppInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.AppService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Web`: 2023-12-01
+        /// * `Microsoft.Web` - 2023-12-01
         /// </summary>
         public static Output<GetLinuxWebAppResult> Invoke(GetLinuxWebAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinuxWebAppResult>("azure:appservice/getLinuxWebApp:getLinuxWebApp", args ?? new GetLinuxWebAppInvokeArgs(), options.WithDefaults());

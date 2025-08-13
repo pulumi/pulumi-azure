@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2022-04-01
+// * `Microsoft.Network` - 2022-04-01
 //
 // Deprecated: azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
 func GetGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs, opts ...pulumi.InvokeOption) (*GetGeographicalLocationResult, error) {

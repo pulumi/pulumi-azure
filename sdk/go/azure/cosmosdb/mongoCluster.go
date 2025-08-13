@@ -117,7 +117,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DocumentDB`: 2024-07-01
+// * `Microsoft.DocumentDB` - 2024-07-01
 //
 // ## Import
 //
@@ -161,7 +161,7 @@ type MongoCluster struct {
 	StorageSizeInGb pulumi.IntPtrOutput `pulumi:"storageSizeInGb"`
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
@@ -238,7 +238,7 @@ type mongoClusterState struct {
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags map[string]string `pulumi:"tags"`
-	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
 	Version *string `pulumi:"version"`
 }
 
@@ -275,7 +275,7 @@ type MongoClusterState struct {
 	StorageSizeInGb pulumi.IntPtrInput
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapInput
-	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
 	Version pulumi.StringPtrInput
 }
 
@@ -314,7 +314,7 @@ type mongoClusterArgs struct {
 	StorageSizeInGb *int `pulumi:"storageSizeInGb"`
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags map[string]string `pulumi:"tags"`
-	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
 	Version *string `pulumi:"version"`
 }
 
@@ -350,7 +350,7 @@ type MongoClusterArgs struct {
 	StorageSizeInGb pulumi.IntPtrInput
 	// A mapping of tags to assign to the MongoDB Cluster.
 	Tags pulumi.StringMapInput
-	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+	// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
 	Version pulumi.StringPtrInput
 }
 
@@ -521,7 +521,7 @@ func (o MongoClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
 func (o MongoClusterOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }

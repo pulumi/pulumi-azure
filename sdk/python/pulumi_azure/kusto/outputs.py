@@ -345,11 +345,6 @@ class ClusterVirtualNetworkConfiguration(dict):
                  data_management_public_ip_id: _builtins.str,
                  engine_public_ip_id: _builtins.str,
                  subnet_id: _builtins.str):
-        """
-        :param _builtins.str data_management_public_ip_id: Data management's service public IP address resource id.
-        :param _builtins.str engine_public_ip_id: Engine service's public IP address resource id.
-        :param _builtins.str subnet_id: The subnet resource id.
-        """
         pulumi.set(__self__, "data_management_public_ip_id", data_management_public_ip_id)
         pulumi.set(__self__, "engine_public_ip_id", engine_public_ip_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -357,25 +352,16 @@ class ClusterVirtualNetworkConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="dataManagementPublicIpId")
     def data_management_public_ip_id(self) -> _builtins.str:
-        """
-        Data management's service public IP address resource id.
-        """
         return pulumi.get(self, "data_management_public_ip_id")
 
     @_builtins.property
     @pulumi.getter(name="enginePublicIpId")
     def engine_public_ip_id(self) -> _builtins.str:
-        """
-        Engine service's public IP address resource id.
-        """
         return pulumi.get(self, "engine_public_ip_id")
 
     @_builtins.property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> _builtins.str:
-        """
-        The subnet resource id.
-        """
         return pulumi.get(self, "subnet_id")
 
 

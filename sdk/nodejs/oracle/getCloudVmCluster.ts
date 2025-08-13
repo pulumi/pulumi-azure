@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getCloudVmCluster(args: GetCloudVmClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudVmClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,6 +72,10 @@ export interface GetCloudVmClusterResult {
      */
     readonly compartmentId: string;
     /**
+     * The compute model of the Exadata Infrastructure.
+     */
+    readonly computeModel: string;
+    /**
      * A `computeNodes` block as defined below.
      */
     readonly computeNodes: string[];
@@ -111,6 +115,10 @@ export interface GetCloudVmClusterResult {
      * The domain name for the Cloud VM Cluster.
      */
     readonly domain: string;
+    /**
+     * A `fileSystemConfiguration` block as defined below.
+     */
+    readonly fileSystemConfigurations: outputs.oracle.GetCloudVmClusterFileSystemConfiguration[];
     /**
      * A valid Oracle Grid Infrastructure (GI) software version.
      */
@@ -280,7 +288,7 @@ export interface GetCloudVmClusterResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getCloudVmClusterOutput(args: GetCloudVmClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudVmClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

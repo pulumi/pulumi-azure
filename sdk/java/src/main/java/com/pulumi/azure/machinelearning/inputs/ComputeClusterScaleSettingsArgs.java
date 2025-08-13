@@ -16,14 +16,14 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
     public static final ComputeClusterScaleSettingsArgs Empty = new ComputeClusterScaleSettingsArgs();
 
     /**
-     * Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * Maximum node count.
      * 
      */
     @Import(name="maxNodeCount", required=true)
     private Output<Integer> maxNodeCount;
 
     /**
-     * @return Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Maximum node count.
      * 
      */
     public Output<Integer> maxNodeCount() {
@@ -31,14 +31,14 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
     }
 
     /**
-     * Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * Minimal node count.
      * 
      */
     @Import(name="minNodeCount", required=true)
     private Output<Integer> minNodeCount;
 
     /**
-     * @return Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Minimal node count.
      * 
      */
     public Output<Integer> minNodeCount() {
@@ -46,14 +46,14 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
     }
 
     /**
-     * Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
      * 
      */
     @Import(name="scaleDownNodesAfterIdleDuration", required=true)
     private Output<String> scaleDownNodesAfterIdleDuration;
 
     /**
-     * @return Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
      * 
      */
     public Output<String> scaleDownNodesAfterIdleDuration() {
@@ -87,7 +87,7 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param maxNodeCount Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param maxNodeCount Maximum node count.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param maxNodeCount Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param maxNodeCount Maximum node count.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param minNodeCount Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param minNodeCount Minimal node count.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param minNodeCount Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param minNodeCount Minimal node count.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scaleDownNodesAfterIdleDuration Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param scaleDownNodesAfterIdleDuration Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ComputeClusterScaleSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scaleDownNodesAfterIdleDuration Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param scaleDownNodesAfterIdleDuration Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration.
          * 
          * @return builder
          * 

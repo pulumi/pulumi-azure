@@ -40,7 +40,7 @@ namespace Pulumi.Azure.PrivateDns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2024-06-01
+        /// * `Microsoft.Network` - 2024-06-01
         /// </summary>
         public static Task<GetSoaRecordResult> InvokeAsync(GetSoaRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSoaRecordResult>("azure:privatedns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordArgs(), options.WithDefaults());
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.PrivateDns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2024-06-01
+        /// * `Microsoft.Network` - 2024-06-01
         /// </summary>
         public static Output<GetSoaRecordResult> Invoke(GetSoaRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoaRecordResult>("azure:privatedns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordInvokeArgs(), options.WithDefaults());
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.PrivateDns
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network`: 2024-06-01
+        /// * `Microsoft.Network` - 2024-06-01
         /// </summary>
         public static Output<GetSoaRecordResult> Invoke(GetSoaRecordInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoaRecordResult>("azure:privatedns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordInvokeArgs(), options.WithDefaults());

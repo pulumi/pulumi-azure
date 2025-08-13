@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.dynatrace;
 
+import com.pulumi.azure.dynatrace.inputs.MonitorEnvironmentPropertyArgs;
 import com.pulumi.azure.dynatrace.inputs.MonitorIdentityArgs;
 import com.pulumi.azure.dynatrace.inputs.MonitorPlanArgs;
 import com.pulumi.azure.dynatrace.inputs.MonitorUserArgs;
@@ -11,6 +12,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,6 +22,21 @@ import javax.annotation.Nullable;
 public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MonitorArgs Empty = new MonitorArgs();
+
+    /**
+     * Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+     * 
+     */
+    @Import(name="environmentProperties")
+    private @Nullable Output<List<MonitorEnvironmentPropertyArgs>> environmentProperties;
+
+    /**
+     * @return Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+     * 
+     */
+    public Optional<Output<List<MonitorEnvironmentPropertyArgs>>> environmentProperties() {
+        return Optional.ofNullable(this.environmentProperties);
+    }
 
     /**
      * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
@@ -159,6 +176,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     private MonitorArgs() {}
 
     private MonitorArgs(MonitorArgs $) {
+        this.environmentProperties = $.environmentProperties;
         this.identity = $.identity;
         this.location = $.location;
         this.marketplaceSubscription = $.marketplaceSubscription;
@@ -186,6 +204,37 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(MonitorArgs defaults) {
             $ = new MonitorArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param environmentProperties Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentProperties(@Nullable Output<List<MonitorEnvironmentPropertyArgs>> environmentProperties) {
+            $.environmentProperties = environmentProperties;
+            return this;
+        }
+
+        /**
+         * @param environmentProperties Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentProperties(List<MonitorEnvironmentPropertyArgs> environmentProperties) {
+            return environmentProperties(Output.of(environmentProperties));
+        }
+
+        /**
+         * @param environmentProperties Properties of the Dynatrace environment. An `environment_properties` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environmentProperties(MonitorEnvironmentPropertyArgs... environmentProperties) {
+            return environmentProperties(List.of(environmentProperties));
         }
 
         /**

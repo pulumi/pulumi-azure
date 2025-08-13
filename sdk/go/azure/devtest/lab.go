@@ -58,7 +58,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DevTestLab`: 2018-09-15
+// * `Microsoft.DevTestLab` - 2018-09-15
 //
 // ## Import
 //

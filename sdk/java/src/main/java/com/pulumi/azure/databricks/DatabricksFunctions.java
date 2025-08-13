@@ -66,7 +66,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2022-10-01-preview
+     * * `Microsoft.Databricks` - 2022-10-01-preview
      * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args) {
@@ -117,7 +117,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2022-10-01-preview
+     * * `Microsoft.Databricks` - 2022-10-01-preview
      * 
      */
     public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args) {
@@ -168,7 +168,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2022-10-01-preview
+     * * `Microsoft.Databricks` - 2022-10-01-preview
      * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args, InvokeOptions options) {
@@ -219,7 +219,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2022-10-01-preview
+     * * `Microsoft.Databricks` - 2022-10-01-preview
      * 
      */
     public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args, InvokeOutputOptions options) {
@@ -270,7 +270,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2022-10-01-preview
+     * * `Microsoft.Databricks` - 2022-10-01-preview
      * 
      */
     public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args, InvokeOptions options) {
@@ -321,7 +321,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -372,7 +372,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -423,7 +423,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -474,7 +474,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOutputOptions options) {
@@ -525,7 +525,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {
@@ -576,7 +576,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args) {
@@ -627,7 +627,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnectionPlain(GetWorkspacePrivateEndpointConnectionPlainArgs args) {
@@ -678,7 +678,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args, InvokeOptions options) {
@@ -729,7 +729,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static Output<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs args, InvokeOutputOptions options) {
@@ -780,7 +780,7 @@ public final class DatabricksFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Databricks`: 2024-05-01
+     * * `Microsoft.Databricks` - 2024-05-01
      * 
      */
     public static CompletableFuture<GetWorkspacePrivateEndpointConnectionResult> getWorkspacePrivateEndpointConnectionPlain(GetWorkspacePrivateEndpointConnectionPlainArgs args, InvokeOptions options) {

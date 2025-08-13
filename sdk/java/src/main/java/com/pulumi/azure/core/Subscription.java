@@ -185,6 +185,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Resources` - 2023-07-01
+ * 
  * ## Import
  * 
  * Subscriptions can be imported using the `resource id`, e.g.
@@ -192,8 +199,6 @@ import javax.annotation.Nullable;
  * ```sh
  * $ pulumi import azure:core/subscription:Subscription example &#34;/providers/Microsoft.Subscription/aliases/subscription1&#34;
  * ```
- * 
- * In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
  * 
  */
 @ResourceType(type="azure:core/subscription:Subscription")

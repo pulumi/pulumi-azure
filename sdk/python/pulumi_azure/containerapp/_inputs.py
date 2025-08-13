@@ -21,6 +21,8 @@ __all__ = [
     'AppIdentityArgsDict',
     'AppIngressArgs',
     'AppIngressArgsDict',
+    'AppIngressCorsArgs',
+    'AppIngressCorsArgsDict',
     'AppIngressCustomDomainArgs',
     'AppIngressCustomDomainArgsDict',
     'AppIngressIpSecurityRestrictionArgs',
@@ -79,6 +81,8 @@ __all__ = [
     'EnvironmentDaprComponentMetadataArgsDict',
     'EnvironmentDaprComponentSecretArgs',
     'EnvironmentDaprComponentSecretArgsDict',
+    'EnvironmentIdentityArgs',
+    'EnvironmentIdentityArgsDict',
     'EnvironmentWorkloadProfileArgs',
     'EnvironmentWorkloadProfileArgsDict',
     'JobEventTriggerConfigArgs',
@@ -297,6 +301,10 @@ if not MYPY:
         """
         The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
         """
+        cors: NotRequired[pulumi.Input['AppIngressCorsArgsDict']]
+        """
+        A `cors` block as defined below.
+        """
         custom_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppIngressCustomDomainArgsDict']]]]
         """
         One or more `custom_domain` block as detailed below.
@@ -335,6 +343,7 @@ class AppIngressArgs:
                  traffic_weights: pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgs']]],
                  allow_insecure_connections: Optional[pulumi.Input[_builtins.bool]] = None,
                  client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors: Optional[pulumi.Input['AppIngressCorsArgs']] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['AppIngressCustomDomainArgs']]]] = None,
                  exposed_port: Optional[pulumi.Input[_builtins.int]] = None,
                  external_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -346,6 +355,7 @@ class AppIngressArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppIngressTrafficWeightArgs']]] traffic_weights: One or more `traffic_weight` blocks as detailed below.
         :param pulumi.Input[_builtins.bool] allow_insecure_connections: Should this ingress allow insecure connections?
         :param pulumi.Input[_builtins.str] client_certificate_mode: The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
+        :param pulumi.Input['AppIngressCorsArgs'] cors: A `cors` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppIngressCustomDomainArgs']]] custom_domains: One or more `custom_domain` block as detailed below.
         :param pulumi.Input[_builtins.int] exposed_port: The exposed port on the container for the Ingress traffic.
                
@@ -363,6 +373,8 @@ class AppIngressArgs:
             pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
         if client_certificate_mode is not None:
             pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
+        if cors is not None:
+            pulumi.set(__self__, "cors", cors)
         if custom_domains is not None:
             pulumi.set(__self__, "custom_domains", custom_domains)
         if exposed_port is not None:
@@ -423,6 +435,18 @@ class AppIngressArgs:
     @client_certificate_mode.setter
     def client_certificate_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_certificate_mode", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def cors(self) -> Optional[pulumi.Input['AppIngressCorsArgs']]:
+        """
+        A `cors` block as defined below.
+        """
+        return pulumi.get(self, "cors")
+
+    @cors.setter
+    def cors(self, value: Optional[pulumi.Input['AppIngressCorsArgs']]):
+        pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomains")
@@ -499,6 +523,137 @@ class AppIngressArgs:
     @transport.setter
     def transport(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "transport", value)
+
+
+if not MYPY:
+    class AppIngressCorsArgsDict(TypedDict):
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Specifies the list of origins that are allowed to make cross-origin calls.
+        """
+        allow_credentials_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+        """
+        allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies the list of request headers that are permitted in the actual request.
+        """
+        allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+        """
+        exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+        """
+        max_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Specifies the number of seconds that the browser can cache the results of a preflight request.
+        """
+elif False:
+    AppIngressCorsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppIngressCorsArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 allow_credentials_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exposed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_origins: Specifies the list of origins that are allowed to make cross-origin calls.
+        :param pulumi.Input[_builtins.bool] allow_credentials_enabled: Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_headers: Specifies the list of request headers that are permitted in the actual request.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_methods: Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exposed_headers: Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+        :param pulumi.Input[_builtins.int] max_age_in_seconds: Specifies the number of seconds that the browser can cache the results of a preflight request.
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allow_credentials_enabled is not None:
+            pulumi.set(__self__, "allow_credentials_enabled", allow_credentials_enabled)
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if exposed_headers is not None:
+            pulumi.set(__self__, "exposed_headers", exposed_headers)
+        if max_age_in_seconds is not None:
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specifies the list of origins that are allowed to make cross-origin calls.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowCredentialsEnabled")
+    def allow_credentials_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether user credentials are allowed in the cross-origin request is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_credentials_enabled")
+
+    @allow_credentials_enabled.setter
+    def allow_credentials_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "allow_credentials_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the list of request headers that are permitted in the actual request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @allowed_headers.setter
+    def allowed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the list of HTTP methods are allowed when accessing the resource in a cross-origin request.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the list of headers exposed to the browser in the response to a cross-origin request.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @exposed_headers.setter
+    def exposed_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "exposed_headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Specifies the number of seconds that the browser can cache the results of a preflight request.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+    @max_age_in_seconds.setter
+    def max_age_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_age_in_seconds", value)
 
 
 if not MYPY:
@@ -3532,6 +3687,83 @@ class EnvironmentDaprComponentSecretArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class EnvironmentIdentityArgsDict(TypedDict):
+        type: pulumi.Input[_builtins.str]
+        """
+        The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[_builtins.str]]
+        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    EnvironmentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EnvironmentIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 if not MYPY:

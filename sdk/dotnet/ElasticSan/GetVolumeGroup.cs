@@ -48,7 +48,7 @@ namespace Pulumi.Azure.ElasticSan
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ElasticSan`: 2023-01-01
+        /// * `Microsoft.ElasticSan` - 2023-01-01
         /// </summary>
         public static Task<GetVolumeGroupResult> InvokeAsync(GetVolumeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupResult>("azure:elasticsan/getVolumeGroup:getVolumeGroup", args ?? new GetVolumeGroupArgs(), options.WithDefaults());
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.ElasticSan
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ElasticSan`: 2023-01-01
+        /// * `Microsoft.ElasticSan` - 2023-01-01
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure:elasticsan/getVolumeGroup:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.ElasticSan
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ElasticSan`: 2023-01-01
+        /// * `Microsoft.ElasticSan` - 2023-01-01
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure:elasticsan/getVolumeGroup:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());

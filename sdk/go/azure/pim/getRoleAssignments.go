@@ -52,7 +52,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Authorization`: 2022-04-01
+// * `Microsoft.Authorization` - 2022-04-01
 func GetRoleAssignments(ctx *pulumi.Context, args *GetRoleAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetRoleAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRoleAssignmentsResult

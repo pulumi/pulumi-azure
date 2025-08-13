@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  * 
  * ## Import
  * 
@@ -136,14 +136,14 @@ public class NetworkManagerIpamPool extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
-    private Output<String> displayName;
+    private Output</* @Nullable */ String> displayName;
 
     /**
      * @return The display name for the Network Manager IPAM Pool.
      * 
      */
-    public Output<String> displayName() {
-        return this.displayName;
+    public Output<Optional<String>> displayName() {
+        return Codegen.optional(this.displayName);
     }
     /**
      * The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.

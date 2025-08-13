@@ -34,6 +34,7 @@ namespace Pulumi.Azure.Marketplace
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["azurermMarketplaceAgreementId"] = id,
+        ///         ["azurermMarketplaceAgreementAccepted"] = accepted,
         ///     };
         /// });
         /// ```
@@ -43,7 +44,7 @@ namespace Pulumi.Azure.Marketplace
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MarketplaceOrdering`: 2015-06-01
+        /// * `Microsoft.MarketplaceOrdering` - 2015-06-01
         /// </summary>
         public static Task<GetAgreementResult> InvokeAsync(GetAgreementArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgreementResult>("azure:marketplace/getAgreement:getAgreement", args ?? new GetAgreementArgs(), options.WithDefaults());
@@ -71,6 +72,7 @@ namespace Pulumi.Azure.Marketplace
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["azurermMarketplaceAgreementId"] = id,
+        ///         ["azurermMarketplaceAgreementAccepted"] = accepted,
         ///     };
         /// });
         /// ```
@@ -80,7 +82,7 @@ namespace Pulumi.Azure.Marketplace
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MarketplaceOrdering`: 2015-06-01
+        /// * `Microsoft.MarketplaceOrdering` - 2015-06-01
         /// </summary>
         public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure:marketplace/getAgreement:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());
@@ -108,6 +110,7 @@ namespace Pulumi.Azure.Marketplace
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["azurermMarketplaceAgreementId"] = id,
+        ///         ["azurermMarketplaceAgreementAccepted"] = accepted,
         ///     };
         /// });
         /// ```
@@ -117,7 +120,7 @@ namespace Pulumi.Azure.Marketplace
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MarketplaceOrdering`: 2015-06-01
+        /// * `Microsoft.MarketplaceOrdering` - 2015-06-01
         /// </summary>
         public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure:marketplace/getAgreement:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());
@@ -181,6 +184,10 @@ namespace Pulumi.Azure.Marketplace
     public sealed class GetAgreementResult
     {
         /// <summary>
+        /// Whether the Marketplace Agreement has been accepted.
+        /// </summary>
+        public readonly bool Accepted;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -192,6 +199,8 @@ namespace Pulumi.Azure.Marketplace
 
         [OutputConstructor]
         private GetAgreementResult(
+            bool accepted,
+
             string id,
 
             string licenseTextLink,
@@ -204,6 +213,7 @@ namespace Pulumi.Azure.Marketplace
 
             string publisher)
         {
+            Accepted = accepted;
             Id = id;
             LicenseTextLink = licenseTextLink;
             Offer = offer;

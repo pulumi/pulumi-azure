@@ -7,6 +7,47 @@ import * as utilities from "../utilities";
 /**
  * Manages a Container App Environment Certificate.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "acctest-01",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     sku: "PerGB2018",
+ *     retentionInDays: 30,
+ * });
+ * const exampleEnvironment = new azure.containerapp.Environment("example", {
+ *     name: "myEnvironment",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ * });
+ * const exampleEnvironmentCertificate = new azure.containerapp.EnvironmentCertificate("example", {
+ *     name: "myfriendlyname",
+ *     containerAppEnvironmentId: exampleEnvironment.id,
+ *     certificateBlobBase64: std.filebase64({
+ *         input: "path/to/certificate_file.pfx",
+ *     }).then(invoke => invoke.result),
+ *     certificatePassword: "$3cretSqu1rreL",
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.App` - 2025-01-01
+ *
  * ## Import
  *
  * A Container App Environment Certificate can be imported using the `resource id`, e.g.

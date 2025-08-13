@@ -39,12 +39,16 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      * 
+     * &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
+     * 
      */
     @Import(name="administratorLoginPassword")
     private @Nullable Output<String> administratorLoginPassword;
 
     /**
      * @return The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     * 
+     * &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
      * 
      */
     public Optional<Output<String>> administratorLoginPassword() {
@@ -67,14 +71,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="collation")
     private @Nullable Output<String> collation;
 
     /**
-     * @return Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * @return Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> collation() {
@@ -176,35 +180,31 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * 
+     * `minimum_tls_version` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     @Import(name="maintenanceConfigurationName")
     private @Nullable Output<String> maintenanceConfigurationName;
 
     /**
-     * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+     * 
+     * `minimum_tls_version` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * 
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     public Optional<Output<String>> maintenanceConfigurationName() {
         return Optional.ofNullable(this.maintenanceConfigurationName);
     }
 
-    /**
-     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-     * 
-     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-     * 
-     */
     @Import(name="minimumTlsVersion")
     private @Nullable Output<String> minimumTlsVersion;
 
-    /**
-     * @return The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-     * 
-     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-     * 
-     */
     public Optional<Output<String>> minimumTlsVersion() {
         return Optional.ofNullable(this.minimumTlsVersion);
     }
@@ -225,14 +225,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
+     * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      * 
      */
     @Import(name="proxyOverride")
     private @Nullable Output<String> proxyOverride;
 
     /**
-     * @return Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
+     * @return Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      * 
      */
     public Optional<Output<String>> proxyOverride() {
@@ -240,14 +240,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Is the public data endpoint enabled? Default value is `false`.
+     * Is the public data endpoint enabled? Defaults to `false`.
      * 
      */
     @Import(name="publicDataEndpointEnabled")
     private @Nullable Output<Boolean> publicDataEndpointEnabled;
 
     /**
-     * @return Is the public data endpoint enabled? Default value is `false`.
+     * @return Is the public data endpoint enabled? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> publicDataEndpointEnabled() {
@@ -285,14 +285,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
+     * Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */
     @Import(name="skuName", required=true)
     private Output<String> skuName;
 
     /**
-     * @return Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
+     * @return Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      * 
      */
     public Output<String> skuName() {
@@ -360,14 +360,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+     * The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="timezoneId")
     private @Nullable Output<String> timezoneId;
 
     /**
-     * @return The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+     * @return The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> timezoneId() {
@@ -390,14 +390,14 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      * 
      */
     @Import(name="zoneRedundantEnabled")
     private @Nullable Output<Boolean> zoneRedundantEnabled;
 
     /**
-     * @return Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * @return Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> zoneRedundantEnabled() {
@@ -476,6 +476,8 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param administratorLoginPassword The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
          * 
+         * &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
+         * 
          * @return builder
          * 
          */
@@ -486,6 +488,8 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param administratorLoginPassword The password associated with the `administrator_login` user. Needs to comply with Azure&#39;s [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+         * 
+         * &gt; **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
          * 
          * @return builder
          * 
@@ -516,7 +520,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param collation Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+         * @param collation Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -527,7 +531,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param collation Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+         * @param collation Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -667,7 +671,11 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+         * 
+         * `minimum_tls_version` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+         * 
+         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
          * @return builder
          * 
@@ -678,7 +686,11 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
+         * 
+         * `minimum_tls_version` - (Optional) The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+         * 
+         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
          * @return builder
          * 
@@ -687,27 +699,11 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
             return maintenanceConfigurationName(Output.of(maintenanceConfigurationName));
         }
 
-        /**
-         * @param minimumTlsVersion The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-         * 
-         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
             $.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
 
-        /**
-         * @param minimumTlsVersion The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-         * 
-         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             return minimumTlsVersion(Output.of(minimumTlsVersion));
         }
@@ -734,7 +730,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param proxyOverride Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
+         * @param proxyOverride Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
          * 
          * @return builder
          * 
@@ -745,7 +741,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param proxyOverride Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
+         * @param proxyOverride Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
          * 
          * @return builder
          * 
@@ -755,7 +751,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicDataEndpointEnabled Is the public data endpoint enabled? Default value is `false`.
+         * @param publicDataEndpointEnabled Is the public data endpoint enabled? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -766,7 +762,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param publicDataEndpointEnabled Is the public data endpoint enabled? Default value is `false`.
+         * @param publicDataEndpointEnabled Is the public data endpoint enabled? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -818,7 +814,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
+         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
          * 
          * @return builder
          * 
@@ -829,7 +825,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
+         * @param skuName Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
          * 
          * @return builder
          * 
@@ -923,7 +919,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param timezoneId The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+         * @param timezoneId The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -934,7 +930,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param timezoneId The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
+         * @param timezoneId The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -965,7 +961,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param zoneRedundantEnabled Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+         * @param zoneRedundantEnabled Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -976,7 +972,7 @@ public final class ManagedInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param zoneRedundantEnabled Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
+         * @param zoneRedundantEnabled Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
          * 
          * @return builder
          * 

@@ -552,6 +552,13 @@ def get_kubernetes_cluster(name: Optional[_builtins.str] = None,
         resource_group_name="my-example-resource-group")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService` - 2025-02-01
+
 
     :param _builtins.str name: The name of the managed Kubernetes Cluster.
     :param _builtins.str resource_group_name: The name of the Resource Group in which the managed Kubernetes Cluster exists.
@@ -620,6 +627,13 @@ def get_kubernetes_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = 
     example = azure.containerservice.get_kubernetes_cluster(name="myakscluster",
         resource_group_name="my-example-resource-group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService` - 2025-02-01
 
 
     :param _builtins.str name: The name of the managed Kubernetes Cluster.

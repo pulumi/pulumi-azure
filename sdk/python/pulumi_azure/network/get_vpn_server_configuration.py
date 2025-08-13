@@ -201,7 +201,7 @@ def get_vpn_server_configuration(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: The Name of the VPN Server Configuration.
@@ -248,7 +248,7 @@ def get_vpn_server_configuration_output(name: Optional[pulumi.Input[_builtins.st
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: The Name of the VPN Server Configuration.

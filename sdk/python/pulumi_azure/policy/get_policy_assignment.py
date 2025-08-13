@@ -210,7 +210,7 @@ def get_policy_assignment(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Authorization`: 2022-06-01
+    * `Microsoft.Authorization` - 2022-06-01
 
 
     :param _builtins.str name: The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.
@@ -258,7 +258,7 @@ def get_policy_assignment_output(name: Optional[pulumi.Input[_builtins.str]] = N
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Authorization`: 2022-06-01
+    * `Microsoft.Authorization` - 2022-06-01
 
 
     :param _builtins.str name: The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.

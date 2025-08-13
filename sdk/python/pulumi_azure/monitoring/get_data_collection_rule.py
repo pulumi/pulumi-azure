@@ -222,7 +222,7 @@ def get_data_collection_rule(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2023-03-11
+    * `Microsoft.Insights` - 2023-03-11
 
 
     :param _builtins.str name: Specifies the name of the Data Collection Rule.
@@ -271,7 +271,7 @@ def get_data_collection_rule_output(name: Optional[pulumi.Input[_builtins.str]] 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Insights`: 2023-03-11
+    * `Microsoft.Insights` - 2023-03-11
 
 
     :param _builtins.str name: Specifies the name of the Data Collection Rule.

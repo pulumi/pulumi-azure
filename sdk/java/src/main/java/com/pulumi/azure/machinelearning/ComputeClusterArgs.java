@@ -127,14 +127,14 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A `scale_settings` block as defined below.
      * 
      */
     @Import(name="scaleSettings", required=true)
     private Output<ComputeClusterScaleSettingsArgs> scaleSettings;
 
     /**
-     * @return A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return A `scale_settings` block as defined below.
      * 
      */
     public Output<ComputeClusterScaleSettingsArgs> scaleSettings() {
@@ -187,14 +187,14 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -416,7 +416,7 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scaleSettings A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param scaleSettings A `scale_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scaleSettings A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param scaleSettings A `scale_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param tags A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class ComputeClusterArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param tags A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
          * 
          * @return builder
          * 

@@ -14,6 +14,8 @@ import (
 
 // Sets a PostgreSQL Configuration value on a PostgreSQL Server.
 //
+// > **Note:** The `postgresql.Configuration` resource is deprecated and will be removed in v5.0 of the AzureRM Provider. Azure Database for PostgreSQL Single Server and its sub resources have been retired as of 2025-03-28, please use the `postgresql.FlexibleServerConfiguration` resource instead. For more information, see https://techcommunity.microsoft.com/blog/adforpostgresql/retiring-azure-database-for-postgresql-single-server-in-2025/3783783.
+//
 // ## Disclaimers
 //
 // > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
@@ -77,7 +79,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DBforPostgreSQL`: 2017-12-01
+// * `Microsoft.DBforPostgreSQL` - 2017-12-01
 //
 // ## Import
 //

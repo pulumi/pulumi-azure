@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDbSystemShapesResult {
@@ -23,6 +25,7 @@ public final class GetDbSystemShapesResult {
      */
     private String id;
     private String location;
+    private @Nullable String zone;
 
     private GetDbSystemShapesResult() {}
     /**
@@ -42,6 +45,9 @@ public final class GetDbSystemShapesResult {
     public String location() {
         return this.location;
     }
+    public Optional<String> zone() {
+        return Optional.ofNullable(this.zone);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -55,12 +61,14 @@ public final class GetDbSystemShapesResult {
         private List<GetDbSystemShapesDbSystemShape> dbSystemShapes;
         private String id;
         private String location;
+        private @Nullable String zone;
         public Builder() {}
         public Builder(GetDbSystemShapesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dbSystemShapes = defaults.dbSystemShapes;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
+    	      this.zone = defaults.zone;
         }
 
         @CustomType.Setter
@@ -90,11 +98,18 @@ public final class GetDbSystemShapesResult {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
+        public Builder zone(@Nullable String zone) {
+
+            this.zone = zone;
+            return this;
+        }
         public GetDbSystemShapesResult build() {
             final var _resultValue = new GetDbSystemShapesResult();
             _resultValue.dbSystemShapes = dbSystemShapes;
             _resultValue.id = id;
             _resultValue.location = location;
+            _resultValue.zone = zone;
             return _resultValue;
         }
     }

@@ -238,7 +238,7 @@ class RestorePoint(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2024-03-01
+        * `Microsoft.Compute` - 2024-03-01
 
         ## Import
 
@@ -329,7 +329,7 @@ class RestorePoint(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2024-03-01
+        * `Microsoft.Compute` - 2024-03-01
 
         ## Import
 

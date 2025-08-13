@@ -7,4 +7,5 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .api_connection import *
+from .get_api_connection import *
 from .get_managed_api import *

@@ -20,14 +20,14 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     public static final PolicySetDefinitionArgs Empty = new PolicySetDefinitionArgs();
 
     /**
-     * The description of the policy set definition.
+     * The description of this Policy Set Definition.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the policy set definition.
+     * @return The description of this Policy Set Definition.
      * 
      */
     public Optional<Output<String>> description() {
@@ -35,14 +35,14 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The display name of the policy set definition.
+     * The display name of this Policy Set Definition.
      * 
      */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
     /**
-     * @return The display name of the policy set definition.
+     * @return The display name of this Policy Set Definition.
      * 
      */
     public Output<String> displayName() {
@@ -50,29 +50,33 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     * @deprecated
+     * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
     @Import(name="managementGroupId")
     private @Nullable Output<String> managementGroupId;
 
     /**
-     * @return The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
+     * @deprecated
+     * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
     public Optional<Output<String>> managementGroupId() {
         return Optional.ofNullable(this.managementGroupId);
     }
 
     /**
-     * The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+     * The metadata for the Policy Set Definition in JSON format.
      * 
      */
     @Import(name="metadata")
     private @Nullable Output<String> metadata;
 
     /**
-     * @return The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+     * @return The metadata for the Policy Set Definition in JSON format.
      * 
      */
     public Optional<Output<String>> metadata() {
@@ -80,14 +84,14 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the policy set definition. Changing this forces a new resource to be created.
+     * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the policy set definition. Changing this forces a new resource to be created.
+     * @return The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -95,14 +99,14 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+     * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<String> parameters;
 
     /**
-     * @return Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+     * @return The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> parameters() {
@@ -140,14 +144,14 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+     * The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      * 
      */
     @Import(name="policyType", required=true)
     private Output<String> policyType;
 
     /**
-     * @return The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+     * @return The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      * 
      */
     public Output<String> policyType() {
@@ -187,7 +191,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description The description of the policy set definition.
+         * @param description The description of this Policy Set Definition.
          * 
          * @return builder
          * 
@@ -198,7 +202,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description The description of the policy set definition.
+         * @param description The description of this Policy Set Definition.
          * 
          * @return builder
          * 
@@ -208,7 +212,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param displayName The display name of the policy set definition.
+         * @param displayName The display name of this Policy Set Definition.
          * 
          * @return builder
          * 
@@ -219,7 +223,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param displayName The display name of the policy set definition.
+         * @param displayName The display name of this Policy Set Definition.
          * 
          * @return builder
          * 
@@ -229,28 +233,32 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param managementGroupId The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managementGroupId(@Nullable Output<String> managementGroupId) {
             $.managementGroupId = managementGroupId;
             return this;
         }
 
         /**
-         * @param managementGroupId The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `management_group_id` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
         public Builder managementGroupId(String managementGroupId) {
             return managementGroupId(Output.of(managementGroupId));
         }
 
         /**
-         * @param metadata The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+         * @param metadata The metadata for the Policy Set Definition in JSON format.
          * 
          * @return builder
          * 
@@ -261,7 +269,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param metadata The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
+         * @param metadata The metadata for the Policy Set Definition in JSON format.
          * 
          * @return builder
          * 
@@ -271,7 +279,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the policy set definition. Changing this forces a new resource to be created.
+         * @param name The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
          * 
          * @return builder
          * 
@@ -282,7 +290,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the policy set definition. Changing this forces a new resource to be created.
+         * @param name The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
          * 
          * @return builder
          * 
@@ -292,7 +300,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param parameters Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+         * @param parameters The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -303,7 +311,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param parameters Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
+         * @param parameters The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -375,7 +383,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyType The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+         * @param policyType The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
          * 
          * @return builder
          * 
@@ -386,7 +394,7 @@ public final class PolicySetDefinitionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyType The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
+         * @param policyType The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
          * 
          * @return builder
          * 

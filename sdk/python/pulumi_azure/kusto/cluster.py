@@ -67,9 +67,6 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
                > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
-        :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
-               
-               > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -108,6 +105,9 @@ class ClusterArgs:
             pulumi.set(__self__, "tags", tags)
         if trusted_external_tenants is not None:
             pulumi.set(__self__, "trusted_external_tenants", trusted_external_tenants)
+        if virtual_network_configuration is not None:
+            warnings.warn("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""", DeprecationWarning)
+            pulumi.log.warn("""virtual_network_configuration is deprecated: The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
         if virtual_network_configuration is not None:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
@@ -347,12 +347,8 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkConfiguration")
+    @_utilities.deprecated("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
     def virtual_network_configuration(self) -> Optional[pulumi.Input['ClusterVirtualNetworkConfigurationArgs']]:
-        """
-        A `virtual_network_configuration` block as defined below.
-
-        > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
-        """
         return pulumi.get(self, "virtual_network_configuration")
 
     @virtual_network_configuration.setter
@@ -425,9 +421,6 @@ class _ClusterState:
                
                > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input[_builtins.str] uri: The FQDN of the Azure Kusto Cluster.
-        :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
-               
-               > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
         if allowed_fqdns is not None:
@@ -472,6 +465,9 @@ class _ClusterState:
             pulumi.set(__self__, "trusted_external_tenants", trusted_external_tenants)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
+        if virtual_network_configuration is not None:
+            warnings.warn("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""", DeprecationWarning)
+            pulumi.log.warn("""virtual_network_configuration is deprecated: The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
         if virtual_network_configuration is not None:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
@@ -735,12 +731,8 @@ class _ClusterState:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkConfiguration")
+    @_utilities.deprecated("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
     def virtual_network_configuration(self) -> Optional[pulumi.Input['ClusterVirtualNetworkConfigurationArgs']]:
-        """
-        A `virtual_network_configuration` block as defined below.
-
-        > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
-        """
         return pulumi.get(self, "virtual_network_configuration")
 
     @virtual_network_configuration.setter
@@ -818,7 +810,7 @@ class Cluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Kusto`: 2024-04-13
+        * `Microsoft.Kusto` - 2024-04-13
 
         ## Import
 
@@ -853,9 +845,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
                > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
-        :param pulumi.Input[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
-               
-               > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
         ...
@@ -894,7 +883,7 @@ class Cluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Kusto`: 2024-04-13
+        * `Microsoft.Kusto` - 2024-04-13
 
         ## Import
 
@@ -1041,9 +1030,6 @@ class Cluster(pulumi.CustomResource):
                
                > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input[_builtins.str] uri: The FQDN of the Azure Kusto Cluster.
-        :param pulumi.Input[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
-               
-               > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1249,12 +1235,8 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkConfiguration")
+    @_utilities.deprecated("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
     def virtual_network_configuration(self) -> pulumi.Output[Optional['outputs.ClusterVirtualNetworkConfiguration']]:
-        """
-        A `virtual_network_configuration` block as defined below.
-
-        > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
-        """
         return pulumi.get(self, "virtual_network_configuration")
 
     @_builtins.property

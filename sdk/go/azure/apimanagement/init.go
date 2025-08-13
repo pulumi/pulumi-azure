@@ -109,12 +109,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RedisCache{}
 	case "azure:apimanagement/service:Service":
 		r = &Service{}
+	case "azure:apimanagement/standaloneGateway:StandaloneGateway":
+		r = &StandaloneGateway{}
 	case "azure:apimanagement/subscription:Subscription":
 		r = &Subscription{}
 	case "azure:apimanagement/tag:Tag":
 		r = &Tag{}
 	case "azure:apimanagement/user:User":
 		r = &User{}
+	case "azure:apimanagement/workspace:Workspace":
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -350,6 +354,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"apimanagement/standaloneGateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"apimanagement/subscription",
 		&module{version},
 	)
@@ -361,6 +370,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/workspace",
 		&module{version},
 	)
 }

@@ -51,6 +51,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configured in AWS to allow use of the role arn used for scanning
+     * 
+     */
+    @Import(name="awsExternalId")
+    private @Nullable Output<String> awsExternalId;
+
+    /**
+     * @return Configured in AWS to allow use of the role arn used for scanning
+     * 
+     */
+    public Optional<Output<String>> awsExternalId() {
+        return Optional.ofNullable(this.awsExternalId);
+    }
+
+    /**
      * Catalog endpoint.
      * 
      */
@@ -108,6 +123,25 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+     * 
+     * &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+     * 
+     */
+    @Import(name="managedEventHubEnabled")
+    private @Nullable Output<Boolean> managedEventHubEnabled;
+
+    /**
+     * @return Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+     * 
+     * &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+     * 
+     */
+    public Optional<Output<Boolean>> managedEventHubEnabled() {
+        return Optional.ofNullable(this.managedEventHubEnabled);
     }
 
     /**
@@ -224,10 +258,12 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private AccountState(AccountState $) {
         this.atlasKafkaEndpointPrimaryConnectionString = $.atlasKafkaEndpointPrimaryConnectionString;
         this.atlasKafkaEndpointSecondaryConnectionString = $.atlasKafkaEndpointSecondaryConnectionString;
+        this.awsExternalId = $.awsExternalId;
         this.catalogEndpoint = $.catalogEndpoint;
         this.guardianEndpoint = $.guardianEndpoint;
         this.identity = $.identity;
         this.location = $.location;
+        this.managedEventHubEnabled = $.managedEventHubEnabled;
         this.managedResourceGroupName = $.managedResourceGroupName;
         this.managedResources = $.managedResources;
         this.name = $.name;
@@ -295,6 +331,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder atlasKafkaEndpointSecondaryConnectionString(String atlasKafkaEndpointSecondaryConnectionString) {
             return atlasKafkaEndpointSecondaryConnectionString(Output.of(atlasKafkaEndpointSecondaryConnectionString));
+        }
+
+        /**
+         * @param awsExternalId Configured in AWS to allow use of the role arn used for scanning
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsExternalId(@Nullable Output<String> awsExternalId) {
+            $.awsExternalId = awsExternalId;
+            return this;
+        }
+
+        /**
+         * @param awsExternalId Configured in AWS to allow use of the role arn used for scanning
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsExternalId(String awsExternalId) {
+            return awsExternalId(Output.of(awsExternalId));
         }
 
         /**
@@ -379,6 +436,31 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param managedEventHubEnabled Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+         * 
+         * &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedEventHubEnabled(@Nullable Output<Boolean> managedEventHubEnabled) {
+            $.managedEventHubEnabled = managedEventHubEnabled;
+            return this;
+        }
+
+        /**
+         * @param managedEventHubEnabled Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+         * 
+         * &gt; **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedEventHubEnabled(Boolean managedEventHubEnabled) {
+            return managedEventHubEnabled(Output.of(managedEventHubEnabled));
         }
 
         /**

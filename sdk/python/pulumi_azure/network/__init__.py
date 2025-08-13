@@ -38,6 +38,7 @@ from .get_network_ddos_protection_plan import *
 from .get_network_interface import *
 from .get_network_manager import *
 from .get_network_manager_connectivity_configuration import *
+from .get_network_manager_ipam_pool import *
 from .get_network_manager_network_group import *
 from .get_network_security_group import *
 from .get_network_watcher import *
@@ -86,6 +87,7 @@ from .network_manager_security_admin_configuration import *
 from .network_manager_static_member import *
 from .network_manager_subscription_connection import *
 from .network_manager_verifier_workspace import *
+from .network_manager_verifier_workspace_reachability_analysis_intent import *
 from .network_security_group import *
 from .network_security_rule import *
 from .network_watcher import *

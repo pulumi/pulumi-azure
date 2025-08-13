@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Bot
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.HealthBot`: 2022-08-08
+    /// * `Microsoft.HealthBot` - 2022-08-08
     /// 
     /// ## Import
     /// 

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+        /// * `Microsoft.StreamAnalytics` - 2021-10-01-preview
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+        /// * `Microsoft.StreamAnalytics` - 2021-10-01-preview
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+        /// * `Microsoft.StreamAnalytics` - 2021-10-01-preview
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());

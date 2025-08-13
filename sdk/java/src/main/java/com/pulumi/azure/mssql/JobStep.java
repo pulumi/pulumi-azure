@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql`: 2023-08-01-preview
+ * * `Microsoft.Sql` - 2023-08-01-preview
  * 
  * ## Import
  * 
@@ -164,18 +164,22 @@ public class JobStep extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.initialRetryIntervalSeconds);
     }
     /**
-     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+     * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
+     * 
+     * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
      * 
      */
     @Export(name="jobCredentialId", refs={String.class}, tree="[0]")
-    private Output<String> jobCredentialId;
+    private Output</* @Nullable */ String> jobCredentialId;
 
     /**
-     * @return The ID of the Elastic Job Credential to use when executing this Elastic Job Step.
+     * @return The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent&#39;s managed identity (user-assigned).
+     * 
+     * !&gt; **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
      * 
      */
-    public Output<String> jobCredentialId() {
-        return this.jobCredentialId;
+    public Output<Optional<String>> jobCredentialId() {
+        return Codegen.optional(this.jobCredentialId);
     }
     /**
      * The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.

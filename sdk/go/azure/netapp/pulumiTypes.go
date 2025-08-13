@@ -1310,6 +1310,181 @@ func (o SnapshotPolicyWeeklySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+type VolumeCoolAccess struct {
+	// The coolness period in days for the volume. Possible vales are between `2` and `183`.
+	CoolnessPeriodInDays int `pulumi:"coolnessPeriodInDays"`
+	// The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
+	RetrievalPolicy string `pulumi:"retrievalPolicy"`
+	// The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
+	TieringPolicy string `pulumi:"tieringPolicy"`
+}
+
+// VolumeCoolAccessInput is an input type that accepts VolumeCoolAccessArgs and VolumeCoolAccessOutput values.
+// You can construct a concrete instance of `VolumeCoolAccessInput` via:
+//
+//	VolumeCoolAccessArgs{...}
+type VolumeCoolAccessInput interface {
+	pulumi.Input
+
+	ToVolumeCoolAccessOutput() VolumeCoolAccessOutput
+	ToVolumeCoolAccessOutputWithContext(context.Context) VolumeCoolAccessOutput
+}
+
+type VolumeCoolAccessArgs struct {
+	// The coolness period in days for the volume. Possible vales are between `2` and `183`.
+	CoolnessPeriodInDays pulumi.IntInput `pulumi:"coolnessPeriodInDays"`
+	// The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
+	RetrievalPolicy pulumi.StringInput `pulumi:"retrievalPolicy"`
+	// The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
+	TieringPolicy pulumi.StringInput `pulumi:"tieringPolicy"`
+}
+
+func (VolumeCoolAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeCoolAccess)(nil)).Elem()
+}
+
+func (i VolumeCoolAccessArgs) ToVolumeCoolAccessOutput() VolumeCoolAccessOutput {
+	return i.ToVolumeCoolAccessOutputWithContext(context.Background())
+}
+
+func (i VolumeCoolAccessArgs) ToVolumeCoolAccessOutputWithContext(ctx context.Context) VolumeCoolAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCoolAccessOutput)
+}
+
+func (i VolumeCoolAccessArgs) ToVolumeCoolAccessPtrOutput() VolumeCoolAccessPtrOutput {
+	return i.ToVolumeCoolAccessPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeCoolAccessArgs) ToVolumeCoolAccessPtrOutputWithContext(ctx context.Context) VolumeCoolAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCoolAccessOutput).ToVolumeCoolAccessPtrOutputWithContext(ctx)
+}
+
+// VolumeCoolAccessPtrInput is an input type that accepts VolumeCoolAccessArgs, VolumeCoolAccessPtr and VolumeCoolAccessPtrOutput values.
+// You can construct a concrete instance of `VolumeCoolAccessPtrInput` via:
+//
+//	        VolumeCoolAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeCoolAccessPtrInput interface {
+	pulumi.Input
+
+	ToVolumeCoolAccessPtrOutput() VolumeCoolAccessPtrOutput
+	ToVolumeCoolAccessPtrOutputWithContext(context.Context) VolumeCoolAccessPtrOutput
+}
+
+type volumeCoolAccessPtrType VolumeCoolAccessArgs
+
+func VolumeCoolAccessPtr(v *VolumeCoolAccessArgs) VolumeCoolAccessPtrInput {
+	return (*volumeCoolAccessPtrType)(v)
+}
+
+func (*volumeCoolAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeCoolAccess)(nil)).Elem()
+}
+
+func (i *volumeCoolAccessPtrType) ToVolumeCoolAccessPtrOutput() VolumeCoolAccessPtrOutput {
+	return i.ToVolumeCoolAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeCoolAccessPtrType) ToVolumeCoolAccessPtrOutputWithContext(ctx context.Context) VolumeCoolAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeCoolAccessPtrOutput)
+}
+
+type VolumeCoolAccessOutput struct{ *pulumi.OutputState }
+
+func (VolumeCoolAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeCoolAccess)(nil)).Elem()
+}
+
+func (o VolumeCoolAccessOutput) ToVolumeCoolAccessOutput() VolumeCoolAccessOutput {
+	return o
+}
+
+func (o VolumeCoolAccessOutput) ToVolumeCoolAccessOutputWithContext(ctx context.Context) VolumeCoolAccessOutput {
+	return o
+}
+
+func (o VolumeCoolAccessOutput) ToVolumeCoolAccessPtrOutput() VolumeCoolAccessPtrOutput {
+	return o.ToVolumeCoolAccessPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeCoolAccessOutput) ToVolumeCoolAccessPtrOutputWithContext(ctx context.Context) VolumeCoolAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeCoolAccess) *VolumeCoolAccess {
+		return &v
+	}).(VolumeCoolAccessPtrOutput)
+}
+
+// The coolness period in days for the volume. Possible vales are between `2` and `183`.
+func (o VolumeCoolAccessOutput) CoolnessPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeCoolAccess) int { return v.CoolnessPeriodInDays }).(pulumi.IntOutput)
+}
+
+// The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
+func (o VolumeCoolAccessOutput) RetrievalPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeCoolAccess) string { return v.RetrievalPolicy }).(pulumi.StringOutput)
+}
+
+// The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
+func (o VolumeCoolAccessOutput) TieringPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeCoolAccess) string { return v.TieringPolicy }).(pulumi.StringOutput)
+}
+
+type VolumeCoolAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeCoolAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeCoolAccess)(nil)).Elem()
+}
+
+func (o VolumeCoolAccessPtrOutput) ToVolumeCoolAccessPtrOutput() VolumeCoolAccessPtrOutput {
+	return o
+}
+
+func (o VolumeCoolAccessPtrOutput) ToVolumeCoolAccessPtrOutputWithContext(ctx context.Context) VolumeCoolAccessPtrOutput {
+	return o
+}
+
+func (o VolumeCoolAccessPtrOutput) Elem() VolumeCoolAccessOutput {
+	return o.ApplyT(func(v *VolumeCoolAccess) VolumeCoolAccess {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeCoolAccess
+		return ret
+	}).(VolumeCoolAccessOutput)
+}
+
+// The coolness period in days for the volume. Possible vales are between `2` and `183`.
+func (o VolumeCoolAccessPtrOutput) CoolnessPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeCoolAccess) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CoolnessPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The cool access retrieval policy for the volume. Possible values are `Default`, `Never` and `OnRead`.
+func (o VolumeCoolAccessPtrOutput) RetrievalPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeCoolAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RetrievalPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The cool access tiering policy for the volume. Possible values are `Auto` and `SnapshotOnly`.
+func (o VolumeCoolAccessPtrOutput) TieringPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeCoolAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TieringPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 type VolumeDataProtectionBackupPolicy struct {
 	// Resource ID of the backup policy to apply to the volume.
 	BackupPolicyId string `pulumi:"backupPolicyId"`
@@ -1871,7 +2046,9 @@ type VolumeExportPolicyRule struct {
 	Kerberos5pReadOnlyEnabled *bool `pulumi:"kerberos5pReadOnlyEnabled"`
 	// Is Kerberos 5p read/write permitted to this volume?
 	Kerberos5pReadWriteEnabled *bool `pulumi:"kerberos5pReadWriteEnabled"`
-	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
+	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
+	Protocol *string `pulumi:"protocol"`
+	// Deprecated: this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
 	ProtocolsEnabled *string `pulumi:"protocolsEnabled"`
 	// Is root access permitted to this volume?
 	RootAccessEnabled *bool `pulumi:"rootAccessEnabled"`
@@ -1909,7 +2086,9 @@ type VolumeExportPolicyRuleArgs struct {
 	Kerberos5pReadOnlyEnabled pulumi.BoolPtrInput `pulumi:"kerberos5pReadOnlyEnabled"`
 	// Is Kerberos 5p read/write permitted to this volume?
 	Kerberos5pReadWriteEnabled pulumi.BoolPtrInput `pulumi:"kerberos5pReadWriteEnabled"`
-	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
+	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Deprecated: this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
 	ProtocolsEnabled pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
 	// Is root access permitted to this volume?
 	RootAccessEnabled pulumi.BoolPtrInput `pulumi:"rootAccessEnabled"`
@@ -2007,7 +2186,12 @@ func (o VolumeExportPolicyRuleOutput) Kerberos5pReadWriteEnabled() pulumi.BoolPt
 	return o.ApplyT(func(v VolumeExportPolicyRule) *bool { return v.Kerberos5pReadWriteEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
+// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
+func (o VolumeExportPolicyRuleOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeExportPolicyRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
 func (o VolumeExportPolicyRuleOutput) ProtocolsEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeExportPolicyRule) *string { return v.ProtocolsEnabled }).(pulumi.StringPtrOutput)
 }
@@ -5744,6 +5928,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyMonthlySchedulePtrInput)(nil)).Elem(), SnapshotPolicyMonthlyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyWeeklyScheduleInput)(nil)).Elem(), SnapshotPolicyWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyWeeklySchedulePtrInput)(nil)).Elem(), SnapshotPolicyWeeklyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCoolAccessInput)(nil)).Elem(), VolumeCoolAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCoolAccessPtrInput)(nil)).Elem(), VolumeCoolAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionBackupPolicyInput)(nil)).Elem(), VolumeDataProtectionBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionBackupPolicyPtrInput)(nil)).Elem(), VolumeDataProtectionBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionReplicationInput)(nil)).Elem(), VolumeDataProtectionReplicationArgs{})
@@ -5810,6 +5996,8 @@ func init() {
 	pulumi.RegisterOutputType(SnapshotPolicyMonthlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyWeeklyScheduleOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyWeeklySchedulePtrOutput{})
+	pulumi.RegisterOutputType(VolumeCoolAccessOutput{})
+	pulumi.RegisterOutputType(VolumeCoolAccessPtrOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionBackupPolicyOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionBackupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionReplicationOutput{})

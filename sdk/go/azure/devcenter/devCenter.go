@@ -78,7 +78,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.DevCenter`: 2025-02-01
+// * `Microsoft.DevCenter` - 2025-02-01
 //
 // ## Import
 //
@@ -104,6 +104,8 @@ type DevCenter struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+	ProjectCatalogItemSyncEnabled pulumi.BoolPtrOutput `pulumi:"projectCatalogItemSyncEnabled"`
 	// Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Dev Center.
@@ -151,6 +153,8 @@ type devCenterState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
 	Name *string `pulumi:"name"`
+	// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+	ProjectCatalogItemSyncEnabled *bool `pulumi:"projectCatalogItemSyncEnabled"`
 	// Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Dev Center.
@@ -166,6 +170,8 @@ type DevCenterState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
 	Name pulumi.StringPtrInput
+	// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+	ProjectCatalogItemSyncEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Dev Center.
@@ -183,6 +189,8 @@ type devCenterArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
 	Name *string `pulumi:"name"`
+	// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+	ProjectCatalogItemSyncEnabled *bool `pulumi:"projectCatalogItemSyncEnabled"`
 	// Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags which should be assigned to the Dev Center.
@@ -197,6 +205,8 @@ type DevCenterArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
 	Name pulumi.StringPtrInput
+	// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+	ProjectCatalogItemSyncEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Dev Center.
@@ -308,6 +318,11 @@ func (o DevCenterOutput) Location() pulumi.StringOutput {
 // Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
 func (o DevCenterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevCenter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+func (o DevCenterOutput) ProjectCatalogItemSyncEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DevCenter) pulumi.BoolPtrOutput { return v.ProjectCatalogItemSyncEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.

@@ -17,7 +17,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     public static final FlexibleServerCustomerManagedKeyArgs Empty = new FlexibleServerCustomerManagedKeyArgs();
 
     /**
-     * The versioned ID of the geo backup Key Vault Key.
+     * The versioned/versionless ID of the geo backup Key Vault Key.
      * 
      * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
      * 
@@ -26,7 +26,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     private @Nullable Output<String> geoBackupKeyVaultKeyId;
 
     /**
-     * @return The versioned ID of the geo backup Key Vault Key.
+     * @return The versioned/versionless ID of the geo backup Key Vault Key.
      * 
      * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
      * 
@@ -116,7 +116,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param geoBackupKeyVaultKeyId The versioned ID of the geo backup Key Vault Key.
+         * @param geoBackupKeyVaultKeyId The versioned/versionless ID of the geo backup Key Vault Key.
          * 
          * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
          * 
@@ -129,7 +129,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param geoBackupKeyVaultKeyId The versioned ID of the geo backup Key Vault Key.
+         * @param geoBackupKeyVaultKeyId The versioned/versionless ID of the geo backup Key Vault Key.
          * 
          * &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
          * 

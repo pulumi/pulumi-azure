@@ -60,7 +60,7 @@ public final class ManagedapplicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Solutions`: 2021-07-01
+     * * `Microsoft.Solutions` - 2021-07-01
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args) {
@@ -111,7 +111,7 @@ public final class ManagedapplicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Solutions`: 2021-07-01
+     * * `Microsoft.Solutions` - 2021-07-01
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args) {
@@ -162,7 +162,7 @@ public final class ManagedapplicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Solutions`: 2021-07-01
+     * * `Microsoft.Solutions` - 2021-07-01
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args, InvokeOptions options) {
@@ -213,7 +213,7 @@ public final class ManagedapplicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Solutions`: 2021-07-01
+     * * `Microsoft.Solutions` - 2021-07-01
      * 
      */
     public static Output<GetDefinitionResult> getDefinition(GetDefinitionArgs args, InvokeOutputOptions options) {
@@ -264,7 +264,7 @@ public final class ManagedapplicationFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Solutions`: 2021-07-01
+     * * `Microsoft.Solutions` - 2021-07-01
      * 
      */
     public static CompletableFuture<GetDefinitionResult> getDefinitionPlain(GetDefinitionPlainArgs args, InvokeOptions options) {

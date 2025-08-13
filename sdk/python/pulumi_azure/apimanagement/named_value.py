@@ -337,6 +337,13 @@ class NamedValue(pulumi.CustomResource):
             value="Example Value")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement` - 2022-08-01
+
         ## Import
 
         API Management Properties can be imported using the `resource id`, e.g.
@@ -390,6 +397,13 @@ class NamedValue(pulumi.CustomResource):
             display_name="ExampleProperty",
             value="Example Value")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement` - 2022-08-01
 
         ## Import
 

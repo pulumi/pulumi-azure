@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Pim
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Authorization`: 2020-10-01
+        /// * `Microsoft.Authorization` - 2020-10-01
         /// </summary>
         public static Task<GetRoleManagementPolicyResult> InvokeAsync(GetRoleManagementPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyResult>("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyArgs(), options.WithDefaults());
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Pim
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Authorization`: 2020-10-01
+        /// * `Microsoft.Authorization` - 2020-10-01
         /// </summary>
         public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.Pim
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Authorization`: 2020-10-01
+        /// * `Microsoft.Authorization` - 2020-10-01
         /// </summary>
         public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());

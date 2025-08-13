@@ -580,7 +580,7 @@ class Workflow(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Logic`: 2019-05-01
+        * `Microsoft.Logic` - 2019-05-01
 
         ## Import
 
@@ -637,7 +637,7 @@ class Workflow(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Logic`: 2019-05-01
+        * `Microsoft.Logic` - 2019-05-01
 
         ## Import
 

@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Compute
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.StandbyPool`: 2025-03-01
+    /// * `Microsoft.StandbyPool` - 2025-03-01
     /// 
     /// ## Import
     /// 

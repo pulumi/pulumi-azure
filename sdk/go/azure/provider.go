@@ -42,6 +42,9 @@ type Provider struct {
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost pulumi.StringPtrOutput `pulumi:"metadataHost"`
+	// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+	// the endpoint. e.g. for Azure Container Apps.
+	MsiApiVersion pulumi.StringPtrOutput `pulumi:"msiApiVersion"`
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint pulumi.StringPtrOutput `pulumi:"msiEndpoint"`
@@ -190,6 +193,9 @@ type providerArgs struct {
 	Features    *ProviderFeatures `pulumi:"features"`
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost *string `pulumi:"metadataHost"`
+	// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+	// the endpoint. e.g. for Azure Container Apps.
+	MsiApiVersion *string `pulumi:"msiApiVersion"`
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint *string `pulumi:"msiEndpoint"`
@@ -262,6 +268,9 @@ type ProviderArgs struct {
 	Features    ProviderFeaturesPtrInput
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost pulumi.StringPtrInput
+	// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+	// the endpoint. e.g. for Azure Container Apps.
+	MsiApiVersion pulumi.StringPtrInput
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
 	// automatically.
 	MsiEndpoint pulumi.StringPtrInput
@@ -415,6 +424,12 @@ func (o ProviderOutput) Environment() pulumi.StringPtrOutput {
 // The Hostname which should be used for the Azure Metadata Service.
 func (o ProviderOutput) MetadataHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.MetadataHost }).(pulumi.StringPtrOutput)
+}
+
+// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+// the endpoint. e.g. for Azure Container Apps.
+func (o ProviderOutput) MsiApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.MsiApiVersion }).(pulumi.StringPtrOutput)
 }
 
 // The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected

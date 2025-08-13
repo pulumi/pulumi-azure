@@ -2207,7 +2207,7 @@ class WorkflowAccessControlContentArgs:
 
 if not MYPY:
     class WorkflowAccessControlTriggerArgsDict(TypedDict):
-        allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        allowed_caller_ip_address_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         A list of the allowed caller IP address ranges.
         """
@@ -2221,26 +2221,27 @@ elif False:
 @pulumi.input_type
 class WorkflowAccessControlTriggerArgs:
     def __init__(__self__, *,
-                 allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 allowed_caller_ip_address_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  open_authentication_policies: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]] open_authentication_policies: A `open_authentication_policy` block as defined below.
         """
-        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+        if allowed_caller_ip_address_ranges is not None:
+            pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
         if open_authentication_policies is not None:
             pulumi.set(__self__, "open_authentication_policies", open_authentication_policies)
 
     @_builtins.property
     @pulumi.getter(name="allowedCallerIpAddressRanges")
-    def allowed_caller_ip_address_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+    def allowed_caller_ip_address_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the allowed caller IP address ranges.
         """
         return pulumi.get(self, "allowed_caller_ip_address_ranges")
 
     @allowed_caller_ip_address_ranges.setter
-    def allowed_caller_ip_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+    def allowed_caller_ip_address_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_caller_ip_address_ranges", value)
 
     @_builtins.property

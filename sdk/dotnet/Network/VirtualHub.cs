@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Network
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network`: 2024-05-01
+    /// * `Microsoft.Network` - 2024-05-01
     /// 
     /// ## Import
     /// 
@@ -70,6 +70,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("addressPrefix")]
         public Output<string?> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+        /// </summary>
+        [Output("branchToBranchTrafficEnabled")]
+        public Output<bool?> BranchToBranchTrafficEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the default Route Table in the Virtual Hub.
@@ -196,6 +202,12 @@ namespace Pulumi.Azure.Network
         public Input<string>? AddressPrefix { get; set; }
 
         /// <summary>
+        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+        /// </summary>
+        [Input("branchToBranchTrafficEnabled")]
+        public Input<bool>? BranchToBranchTrafficEnabled { get; set; }
+
+        /// <summary>
         /// The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
         /// </summary>
         [Input("hubRoutingPreference")]
@@ -274,6 +286,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("addressPrefix")]
         public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
+        /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
+        /// </summary>
+        [Input("branchToBranchTrafficEnabled")]
+        public Input<bool>? BranchToBranchTrafficEnabled { get; set; }
 
         /// <summary>
         /// The ID of the default Route Table in the Virtual Hub.

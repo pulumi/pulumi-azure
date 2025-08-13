@@ -10,6 +10,7 @@ import com.pulumi.azure.managedlustre.outputs.FileSystemEncryptionKey;
 import com.pulumi.azure.managedlustre.outputs.FileSystemHsmSetting;
 import com.pulumi.azure.managedlustre.outputs.FileSystemIdentity;
 import com.pulumi.azure.managedlustre.outputs.FileSystemMaintenanceWindow;
+import com.pulumi.azure.managedlustre.outputs.FileSystemRootSquash;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -34,7 +35,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.StorageCache`: 2024-07-01
+ * * `Microsoft.StorageCache` - 2024-07-01
  * 
  * ## Import
  * 
@@ -162,6 +163,20 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A `root_squash` block as defined below.
+     * 
+     */
+    @Export(name="rootSquash", refs={FileSystemRootSquash.class}, tree="[0]")
+    private Output</* @Nullable */ FileSystemRootSquash> rootSquash;
+
+    /**
+     * @return A `root_squash` block as defined below.
+     * 
+     */
+    public Output<Optional<FileSystemRootSquash>> rootSquash() {
+        return Codegen.optional(this.rootSquash);
     }
     /**
      * The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.

@@ -4,6 +4,7 @@
 package com.pulumi.azure.eventhub;
 
 import com.pulumi.azure.eventhub.inputs.EventHubCaptureDescriptionArgs;
+import com.pulumi.azure.eventhub.inputs.EventHubRetentionDescriptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -39,8 +40,8 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
      * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      * 
      */
-    @Import(name="messageRetention", required=true)
-    private Output<Integer> messageRetention;
+    @Import(name="messageRetention")
+    private @Nullable Output<Integer> messageRetention;
 
     /**
      * @return Specifies the number of days to retain the events for this Event Hub.
@@ -48,8 +49,8 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
      * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      * 
      */
-    public Output<Integer> messageRetention() {
-        return this.messageRetention;
+    public Optional<Output<Integer>> messageRetention() {
+        return Optional.ofNullable(this.messageRetention);
     }
 
     /**
@@ -144,6 +145,21 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `retention_description` block as defined below.
+     * 
+     */
+    @Import(name="retentionDescription")
+    private @Nullable Output<EventHubRetentionDescriptionArgs> retentionDescription;
+
+    /**
+     * @return A `retention_description` block as defined below.
+     * 
+     */
+    public Optional<Output<EventHubRetentionDescriptionArgs>> retentionDescription() {
+        return Optional.ofNullable(this.retentionDescription);
+    }
+
+    /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
      * 
      */
@@ -168,6 +184,7 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
         this.namespaceName = $.namespaceName;
         this.partitionCount = $.partitionCount;
         this.resourceGroupName = $.resourceGroupName;
+        this.retentionDescription = $.retentionDescription;
         this.status = $.status;
     }
 
@@ -218,7 +235,7 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder messageRetention(Output<Integer> messageRetention) {
+        public Builder messageRetention(@Nullable Output<Integer> messageRetention) {
             $.messageRetention = messageRetention;
             return this;
         }
@@ -357,6 +374,27 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param retentionDescription A `retention_description` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionDescription(@Nullable Output<EventHubRetentionDescriptionArgs> retentionDescription) {
+            $.retentionDescription = retentionDescription;
+            return this;
+        }
+
+        /**
+         * @param retentionDescription A `retention_description` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder retentionDescription(EventHubRetentionDescriptionArgs retentionDescription) {
+            return retentionDescription(Output.of(retentionDescription));
+        }
+
+        /**
          * @param status Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
          * 
          * @return builder
@@ -378,9 +416,6 @@ public final class EventHubArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventHubArgs build() {
-            if ($.messageRetention == null) {
-                throw new MissingRequiredPropertyException("EventHubArgs", "messageRetention");
-            }
             if ($.partitionCount == null) {
                 throw new MissingRequiredPropertyException("EventHubArgs", "partitionCount");
             }

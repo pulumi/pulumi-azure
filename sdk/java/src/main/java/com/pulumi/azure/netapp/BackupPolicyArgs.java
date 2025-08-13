@@ -80,7 +80,7 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      * 
      * &gt; **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      * 
@@ -89,7 +89,7 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> monthlyBackupsToKeep;
 
     /**
-     * @return Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * @return Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      * 
      * &gt; **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      * 
@@ -144,14 +144,14 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      * 
      */
     @Import(name="weeklyBackupsToKeep")
     private @Nullable Output<Integer> weeklyBackupsToKeep;
 
     /**
-     * @return Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * @return Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      * 
      */
     public Optional<Output<Integer>> weeklyBackupsToKeep() {
@@ -275,7 +275,7 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monthlyBackupsToKeep Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+         * @param monthlyBackupsToKeep Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
          * 
          * &gt; **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
          * 
@@ -288,7 +288,7 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monthlyBackupsToKeep Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+         * @param monthlyBackupsToKeep Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
          * 
          * &gt; **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
          * 
@@ -363,7 +363,7 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weeklyBackupsToKeep Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+         * @param weeklyBackupsToKeep Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class BackupPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weeklyBackupsToKeep Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+         * @param weeklyBackupsToKeep Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
          * 
          * @return builder
          * 

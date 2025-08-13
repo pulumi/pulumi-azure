@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Devices`: 2022-02-05
+ * * `Microsoft.Devices` - 2022-02-05
  */
 export function getDpsSharedAccessPolicy(args: GetDpsSharedAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDpsSharedAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -103,7 +103,7 @@ export interface GetDpsSharedAccessPolicyResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Devices`: 2022-02-05
+ * * `Microsoft.Devices` - 2022-02-05
  */
 export function getDpsSharedAccessPolicyOutput(args: GetDpsSharedAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDpsSharedAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

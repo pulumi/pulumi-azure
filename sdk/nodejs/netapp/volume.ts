@@ -56,6 +56,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly azureVmwareDataStoreEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * A `coolAccess` block as defined below.
+     */
+    public readonly coolAccess!: pulumi.Output<outputs.netapp.VolumeCoolAccess | undefined>;
+    /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      */
     public readonly createFromSnapshotResourceId!: pulumi.Output<string | undefined>;
@@ -189,6 +193,7 @@ export class Volume extends pulumi.CustomResource {
             const state = argsOrState as VolumeState | undefined;
             resourceInputs["accountName"] = state ? state.accountName : undefined;
             resourceInputs["azureVmwareDataStoreEnabled"] = state ? state.azureVmwareDataStoreEnabled : undefined;
+            resourceInputs["coolAccess"] = state ? state.coolAccess : undefined;
             resourceInputs["createFromSnapshotResourceId"] = state ? state.createFromSnapshotResourceId : undefined;
             resourceInputs["dataProtectionBackupPolicy"] = state ? state.dataProtectionBackupPolicy : undefined;
             resourceInputs["dataProtectionReplication"] = state ? state.dataProtectionReplication : undefined;
@@ -243,6 +248,7 @@ export class Volume extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["azureVmwareDataStoreEnabled"] = args ? args.azureVmwareDataStoreEnabled : undefined;
+            resourceInputs["coolAccess"] = args ? args.coolAccess : undefined;
             resourceInputs["createFromSnapshotResourceId"] = args ? args.createFromSnapshotResourceId : undefined;
             resourceInputs["dataProtectionBackupPolicy"] = args ? args.dataProtectionBackupPolicy : undefined;
             resourceInputs["dataProtectionReplication"] = args ? args.dataProtectionReplication : undefined;
@@ -290,6 +296,10 @@ export interface VolumeState {
      * Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
      */
     azureVmwareDataStoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `coolAccess` block as defined below.
+     */
+    coolAccess?: pulumi.Input<inputs.netapp.VolumeCoolAccess>;
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      */
@@ -422,6 +432,10 @@ export interface VolumeArgs {
      * Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
      */
     azureVmwareDataStoreEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `coolAccess` block as defined below.
+     */
+    coolAccess?: pulumi.Input<inputs.netapp.VolumeCoolAccess>;
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      */

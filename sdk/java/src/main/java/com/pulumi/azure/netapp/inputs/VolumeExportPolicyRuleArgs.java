@@ -125,16 +125,35 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+     * A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
      * 
      */
+    @Import(name="protocol")
+    private @Nullable Output<String> protocol;
+
+    /**
+     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+     * 
+     */
+    public Optional<Output<String>> protocol() {
+        return Optional.ofNullable(this.protocol);
+    }
+
+    /**
+     * @deprecated
+     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
     @Import(name="protocolsEnabled")
     private @Nullable Output<String> protocolsEnabled;
 
     /**
-     * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+     * @deprecated
+     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
      * 
      */
+    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
     public Optional<Output<String>> protocolsEnabled() {
         return Optional.ofNullable(this.protocolsEnabled);
     }
@@ -209,6 +228,7 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
         this.kerberos5iReadWriteEnabled = $.kerberos5iReadWriteEnabled;
         this.kerberos5pReadOnlyEnabled = $.kerberos5pReadOnlyEnabled;
         this.kerberos5pReadWriteEnabled = $.kerberos5pReadWriteEnabled;
+        this.protocol = $.protocol;
         this.protocolsEnabled = $.protocolsEnabled;
         this.rootAccessEnabled = $.rootAccessEnabled;
         this.ruleIndex = $.ruleIndex;
@@ -392,22 +412,47 @@ public final class VolumeExportPolicyRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param protocolsEnabled A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+         * @param protocol A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
          * 
          * @return builder
          * 
          */
+        public Builder protocol(@Nullable Output<String> protocol) {
+            $.protocol = protocol;
+            return this;
+        }
+
+        /**
+         * @param protocol A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder protocol(String protocol) {
+            return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
+         * 
+         */
+        @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
         public Builder protocolsEnabled(@Nullable Output<String> protocolsEnabled) {
             $.protocolsEnabled = protocolsEnabled;
             return this;
         }
 
         /**
-         * @param protocolsEnabled A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
+         * 
          */
+        @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
         public Builder protocolsEnabled(String protocolsEnabled) {
             return protocolsEnabled(Output.of(protocolsEnabled));
         }

@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Storage
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Storage`: 2023-05-01
+        /// * `Microsoft.Storage` - 2023-05-01
         /// </summary>
         public static Task<GetEncryptionScopeResult> InvokeAsync(GetEncryptionScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionScopeResult>("azure:storage/getEncryptionScope:getEncryptionScope", args ?? new GetEncryptionScopeArgs(), options.WithDefaults());
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Storage
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Storage`: 2023-05-01
+        /// * `Microsoft.Storage` - 2023-05-01
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure:storage/getEncryptionScope:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Storage
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Storage`: 2023-05-01
+        /// * `Microsoft.Storage` - 2023-05-01
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure:storage/getEncryptionScope:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());

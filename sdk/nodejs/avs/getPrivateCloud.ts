@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.AVS`: 2022-05-01
+ * * `Microsoft.AVS` - 2022-05-01
  */
 export function getPrivateCloud(args: GetPrivateCloudArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateCloudResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -147,7 +147,7 @@ export interface GetPrivateCloudResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.AVS`: 2022-05-01
+ * * `Microsoft.AVS` - 2022-05-01
  */
 export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateCloudResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

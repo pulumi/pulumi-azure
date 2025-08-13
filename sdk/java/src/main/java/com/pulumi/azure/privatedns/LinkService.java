@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  * 
  * ## Import
  * 
@@ -75,6 +75,20 @@ public class LinkService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.autoApprovalSubscriptionIds);
     }
     /**
+     * The destination IP address of the Private Link Service.
+     * 
+     */
+    @Export(name="destinationIpAddress", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> destinationIpAddress;
+
+    /**
+     * @return The destination IP address of the Private Link Service.
+     * 
+     */
+    public Output<Optional<String>> destinationIpAddress() {
+        return Codegen.optional(this.destinationIpAddress);
+    }
+    /**
      * Should the Private Link Service support the Proxy Protocol?
      * 
      */
@@ -107,14 +121,14 @@ public class LinkService extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="loadBalancerFrontendIpConfigurationIds", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> loadBalancerFrontendIpConfigurationIds;
+    private Output</* @Nullable */ List<String>> loadBalancerFrontendIpConfigurationIds;
 
     /**
      * @return A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      * 
      */
-    public Output<List<String>> loadBalancerFrontendIpConfigurationIds() {
-        return this.loadBalancerFrontendIpConfigurationIds;
+    public Output<Optional<List<String>>> loadBalancerFrontendIpConfigurationIds() {
+        return Codegen.optional(this.loadBalancerFrontendIpConfigurationIds);
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

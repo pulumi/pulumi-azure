@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -90,7 +91,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  * 
  * ## Import
  * 
@@ -164,6 +165,20 @@ public class DevCenter extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+     * 
+     */
+    @Export(name="projectCatalogItemSyncEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> projectCatalogItemSyncEnabled;
+
+    /**
+     * @return Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> projectCatalogItemSyncEnabled() {
+        return Codegen.optional(this.projectCatalogItemSyncEnabled);
     }
     /**
      * Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.

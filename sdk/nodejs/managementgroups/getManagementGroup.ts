@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  * });
  * export const displayName = example.then(example => example.displayName);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Management` - 2020-05-01
  */
 /** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
 export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
@@ -95,6 +102,13 @@ export interface GetManagementGroupResult {
  * });
  * export const displayName = example.then(example => example.displayName);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Management` - 2020-05-01
  */
 /** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
 export function getManagementGroupOutput(args?: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementGroupResult> {

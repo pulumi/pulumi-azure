@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.DBforMySQL`: 2023-12-30
+ * * `Microsoft.DBforMySQL` - 2023-12-30
  *
  * ## Import
  *
@@ -131,6 +131,8 @@ export class FlexibleServer extends pulumi.CustomResource {
      * > **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
      *
      * > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+     *
+     * > **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -223,7 +225,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
+     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
      */
     public readonly version!: pulumi.Output<string>;
     public readonly zone!: pulumi.Output<string>;
@@ -336,6 +338,8 @@ export interface FlexibleServerState {
      * > **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
      *
      * > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+     *
+     * > **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -428,7 +432,7 @@ export interface FlexibleServerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
+     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
      */
     version?: pulumi.Input<string>;
     zone?: pulumi.Input<string>;
@@ -462,6 +466,8 @@ export interface FlexibleServerArgs {
      * > **Note:** Creating a `GeoRestore` server requires the source server with `geoRedundantBackupEnabled` enabled.
      *
      * > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
+     *
+     * > **Note:** When importing a MySQL Flexible Server, `createMode` is not returned by the api so you will see a diff if `createMode` is specified in your config. To prevent recreation, use the `ignoreChanges` lifecycle meta-argument.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -545,7 +551,7 @@ export interface FlexibleServerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
+     * The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`.
      */
     version?: pulumi.Input<string>;
     zone?: pulumi.Input<string>;

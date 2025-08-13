@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DevCenter`: 2025-02-01
+ * * `Microsoft.DevCenter` - 2025-02-01
  * 
  * ## Import
  * 
@@ -222,6 +222,24 @@ public class ProjectPool extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+     * 
+     * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+     * 
+     */
+    @Export(name="managedVirtualNetworkRegions", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> managedVirtualNetworkRegions;
+
+    /**
+     * @return A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
+     * 
+     * &gt; **Note:** Currently only one region can be specified for `managed_virtual_network_regions`.
+     * 
+     */
+    public Output<Optional<String>> managedVirtualNetworkRegions() {
+        return Codegen.optional(this.managedVirtualNetworkRegions);
     }
     /**
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.

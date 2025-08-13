@@ -23,6 +23,7 @@ class EnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['EnvironmentIdentityArgs']] = None,
                  infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -38,6 +39,7 @@ class EnvironmentArgs:
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
+        :param pulumi.Input['EnvironmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
@@ -65,6 +67,8 @@ class EnvironmentArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dapr_application_insights_connection_string is not None:
             pulumi.set(__self__, "dapr_application_insights_connection_string", dapr_application_insights_connection_string)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if infrastructure_resource_group_name is not None:
             pulumi.set(__self__, "infrastructure_resource_group_name", infrastructure_resource_group_name)
         if infrastructure_subnet_id is not None:
@@ -111,6 +115,18 @@ class EnvironmentArgs:
     @dapr_application_insights_connection_string.setter
     def dapr_application_insights_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dapr_application_insights_connection_string", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EnvironmentIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EnvironmentIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureResourceGroupName")
@@ -264,6 +280,7 @@ class _EnvironmentState:
                  dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
                  default_domain: Optional[pulumi.Input[_builtins.str]] = None,
                  docker_bridge_cidr: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['EnvironmentIdentityArgs']] = None,
                  infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -285,6 +302,7 @@ class _EnvironmentState:
         :param pulumi.Input[_builtins.str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[_builtins.str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
+        :param pulumi.Input['EnvironmentIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
@@ -321,6 +339,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "default_domain", default_domain)
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if infrastructure_resource_group_name is not None:
             pulumi.set(__self__, "infrastructure_resource_group_name", infrastructure_resource_group_name)
         if infrastructure_subnet_id is not None:
@@ -399,6 +419,18 @@ class _EnvironmentState:
     @docker_bridge_cidr.setter
     def docker_bridge_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "docker_bridge_cidr", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EnvironmentIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EnvironmentIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureResourceGroupName")
@@ -600,6 +632,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
                  infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -644,9 +677,9 @@ class Environment(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.App`: 2025-01-01
+        * `Microsoft.App` - 2025-01-01
 
-        * `Microsoft.OperationalInsights`: 2020-08-01
+        * `Microsoft.OperationalInsights` - 2020-08-01
 
         ## Import
 
@@ -659,6 +692,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
@@ -721,9 +755,9 @@ class Environment(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.App`: 2025-01-01
+        * `Microsoft.App` - 2025-01-01
 
-        * `Microsoft.OperationalInsights`: 2020-08-01
+        * `Microsoft.OperationalInsights` - 2020-08-01
 
         ## Import
 
@@ -749,6 +783,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
                  infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -771,6 +806,7 @@ class Environment(pulumi.CustomResource):
             __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
             __props__.__dict__["dapr_application_insights_connection_string"] = None if dapr_application_insights_connection_string is None else pulumi.Output.secret(dapr_application_insights_connection_string)
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["infrastructure_resource_group_name"] = infrastructure_resource_group_name
             __props__.__dict__["infrastructure_subnet_id"] = infrastructure_subnet_id
             __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
@@ -807,6 +843,7 @@ class Environment(pulumi.CustomResource):
             dapr_application_insights_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
             default_domain: Optional[pulumi.Input[_builtins.str]] = None,
             docker_bridge_cidr: Optional[pulumi.Input[_builtins.str]] = None,
+            identity: Optional[pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
             infrastructure_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             infrastructure_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
             internal_load_balancer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -833,6 +870,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[_builtins.str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
+        :param pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
@@ -869,6 +907,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["dapr_application_insights_connection_string"] = dapr_application_insights_connection_string
         __props__.__dict__["default_domain"] = default_domain
         __props__.__dict__["docker_bridge_cidr"] = docker_bridge_cidr
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["infrastructure_resource_group_name"] = infrastructure_resource_group_name
         __props__.__dict__["infrastructure_subnet_id"] = infrastructure_subnet_id
         __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
@@ -917,6 +956,14 @@ class Environment(pulumi.CustomResource):
         The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
         """
         return pulumi.get(self, "docker_bridge_cidr")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.EnvironmentIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @_builtins.property
     @pulumi.getter(name="infrastructureResourceGroupName")

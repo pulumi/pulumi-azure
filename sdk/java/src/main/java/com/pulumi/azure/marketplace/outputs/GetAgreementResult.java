@@ -5,11 +5,17 @@ package com.pulumi.azure.marketplace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetAgreementResult {
+    /**
+     * @return Whether the Marketplace Agreement has been accepted.
+     * 
+     */
+    private Boolean accepted;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -22,6 +28,13 @@ public final class GetAgreementResult {
     private String publisher;
 
     private GetAgreementResult() {}
+    /**
+     * @return Whether the Marketplace Agreement has been accepted.
+     * 
+     */
+    public Boolean accepted() {
+        return this.accepted;
+    }
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -54,6 +67,7 @@ public final class GetAgreementResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean accepted;
         private String id;
         private String licenseTextLink;
         private String offer;
@@ -63,6 +77,7 @@ public final class GetAgreementResult {
         public Builder() {}
         public Builder(GetAgreementResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accepted = defaults.accepted;
     	      this.id = defaults.id;
     	      this.licenseTextLink = defaults.licenseTextLink;
     	      this.offer = defaults.offer;
@@ -71,6 +86,14 @@ public final class GetAgreementResult {
     	      this.publisher = defaults.publisher;
         }
 
+        @CustomType.Setter
+        public Builder accepted(Boolean accepted) {
+            if (accepted == null) {
+              throw new MissingRequiredPropertyException("GetAgreementResult", "accepted");
+            }
+            this.accepted = accepted;
+            return this;
+        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -121,6 +144,7 @@ public final class GetAgreementResult {
         }
         public GetAgreementResult build() {
             final var _resultValue = new GetAgreementResult();
+            _resultValue.accepted = accepted;
             _resultValue.id = id;
             _resultValue.licenseTextLink = licenseTextLink;
             _resultValue.offer = offer;

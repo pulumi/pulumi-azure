@@ -19,7 +19,8 @@ import * as utilities from "../utilities";
  *
  * export = async () => {
  *     const example = await azure.oracle.getDbSystemShapes({
- *         location: "West Europe",
+ *         location: "eastus",
+ *         zone: "2",
  *     });
  *     return {
  *         example: example,
@@ -32,12 +33,13 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getDbSystemShapes(args: GetDbSystemShapesArgs, opts?: pulumi.InvokeOptions): Promise<GetDbSystemShapesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:oracle/getDbSystemShapes:getDbSystemShapes", {
         "location": args.location,
+        "zone": args.zone,
     }, opts);
 }
 
@@ -49,6 +51,10 @@ export interface GetDbSystemShapesArgs {
      * The Azure Region to query for the system shapes in.
      */
     location: string;
+    /**
+     * The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+     */
+    zone?: string;
 }
 
 /**
@@ -64,6 +70,7 @@ export interface GetDbSystemShapesResult {
      */
     readonly id: string;
     readonly location: string;
+    readonly zone?: string;
 }
 /**
  * This data source provides the list of DB System Shapes in Oracle Cloud Infrastructure Database service.
@@ -78,7 +85,8 @@ export interface GetDbSystemShapesResult {
  *
  * export = async () => {
  *     const example = await azure.oracle.getDbSystemShapes({
- *         location: "West Europe",
+ *         location: "eastus",
+ *         zone: "2",
  *     });
  *     return {
  *         example: example,
@@ -91,12 +99,13 @@ export interface GetDbSystemShapesResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  */
 export function getDbSystemShapesOutput(args: GetDbSystemShapesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbSystemShapesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:oracle/getDbSystemShapes:getDbSystemShapes", {
         "location": args.location,
+        "zone": args.zone,
     }, opts);
 }
 
@@ -108,4 +117,8 @@ export interface GetDbSystemShapesOutputArgs {
      * The Azure Region to query for the system shapes in.
      */
     location: pulumi.Input<string>;
+    /**
+     * The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+     */
+    zone?: pulumi.Input<string>;
 }

@@ -143,7 +143,7 @@ def get_cluster(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Kusto`: 2024-04-13
+    * `Microsoft.Kusto` - 2024-04-13
 
 
     :param _builtins.str name: Specifies the name of the Kusto Cluster.
@@ -185,7 +185,7 @@ def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Kusto`: 2024-04-13
+    * `Microsoft.Kusto` - 2024-04-13
 
 
     :param _builtins.str name: Specifies the name of the Kusto Cluster.

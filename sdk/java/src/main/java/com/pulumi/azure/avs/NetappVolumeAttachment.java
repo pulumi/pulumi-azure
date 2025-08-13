@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * &gt; **Note:** For Azure Azure VMware Solution Private Cloud, normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+ * &gt; **Note:** For Azure VMware Solution Private Cloud, normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -218,7 +218,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.AVS`: 2022-05-01
+ * * `Microsoft.AVS` - 2022-05-01
  * 
  * ## Import
  * 

@@ -303,6 +303,13 @@ class RoleDefinition(pulumi.CustomResource):
             assignable_scopes=[example.id])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization` - 2022-05-01-preview
+
         ## Import
 
         Role Definitions can be imported using the `resource id`, e.g.
@@ -368,6 +375,13 @@ class RoleDefinition(pulumi.CustomResource):
             }],
             assignable_scopes=[example.id])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization` - 2022-05-01-preview
 
         ## Import
 

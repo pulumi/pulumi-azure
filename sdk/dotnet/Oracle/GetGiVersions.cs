@@ -28,7 +28,9 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetGiVersions.Invoke(new()
         ///     {
-        ///         Location = "West Europe",
+        ///         Location = "eastus",
+        ///         Zone = "2",
+        ///         Shape = "Exadata.X9M",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -43,7 +45,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Task<GetGiVersionsResult> InvokeAsync(GetGiVersionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGiVersionsResult>("azure:oracle/getGiVersions:getGiVersions", args ?? new GetGiVersionsArgs(), options.WithDefaults());
@@ -65,7 +67,9 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetGiVersions.Invoke(new()
         ///     {
-        ///         Location = "West Europe",
+        ///         Location = "eastus",
+        ///         Zone = "2",
+        ///         Shape = "Exadata.X9M",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -80,7 +84,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetGiVersionsResult> Invoke(GetGiVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGiVersionsResult>("azure:oracle/getGiVersions:getGiVersions", args ?? new GetGiVersionsInvokeArgs(), options.WithDefaults());
@@ -102,7 +106,9 @@ namespace Pulumi.Azure.Oracle
         /// {
         ///     var example = Azure.Oracle.GetGiVersions.Invoke(new()
         ///     {
-        ///         Location = "West Europe",
+        ///         Location = "eastus",
+        ///         Zone = "2",
+        ///         Shape = "Exadata.X9M",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -117,7 +123,7 @@ namespace Pulumi.Azure.Oracle
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Oracle.Database`: 2024-06-01
+        /// * `Oracle.Database` - 2025-03-01
         /// </summary>
         public static Output<GetGiVersionsResult> Invoke(GetGiVersionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGiVersionsResult>("azure:oracle/getGiVersions:getGiVersions", args ?? new GetGiVersionsInvokeArgs(), options.WithDefaults());
@@ -132,6 +138,18 @@ namespace Pulumi.Azure.Oracle
         [Input("location", required: true)]
         public string Location { get; set; } = null!;
 
+        /// <summary>
+        /// The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+        /// </summary>
+        [Input("shape")]
+        public string? Shape { get; set; }
+
+        /// <summary>
+        /// Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
+        /// </summary>
+        [Input("zone")]
+        public string? Zone { get; set; }
+
         public GetGiVersionsArgs()
         {
         }
@@ -145,6 +163,18 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The model name of the Cloud Exadata Infrastructure resource. Possible values are `ExaDbXS`, `Exadata.X9M`, and `Exadata.X11M`. This is used to filter out the available GI versions compatible with the given model.
+        /// </summary>
+        [Input("shape")]
+        public Input<string>? Shape { get; set; }
+
+        /// <summary>
+        /// Indicates the Azure zone for the Cloud Exadata Infrastructure, used to filter the available GI versions within a given zone.
+        /// </summary>
+        [Input("zone")]
+        public Input<string>? Zone { get; set; }
 
         public GetGiVersionsInvokeArgs()
         {
@@ -161,10 +191,12 @@ namespace Pulumi.Azure.Oracle
         /// </summary>
         public readonly string Id;
         public readonly string Location;
+        public readonly string? Shape;
         /// <summary>
         /// A list of valid GI software versions.
         /// </summary>
         public readonly ImmutableArray<string> Versions;
+        public readonly string? Zone;
 
         [OutputConstructor]
         private GetGiVersionsResult(
@@ -172,11 +204,17 @@ namespace Pulumi.Azure.Oracle
 
             string location,
 
-            ImmutableArray<string> versions)
+            string? shape,
+
+            ImmutableArray<string> versions,
+
+            string? zone)
         {
             Id = id;
             Location = location;
+            Shape = shape;
             Versions = versions;
+            Zone = zone;
         }
     }
 }

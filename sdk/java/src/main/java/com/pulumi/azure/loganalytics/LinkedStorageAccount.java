@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *         var exampleLinkedStorageAccount = new LinkedStorageAccount("exampleLinkedStorageAccount", LinkedStorageAccountArgs.builder()
  *             .dataSourceType("CustomLogs")
  *             .resourceGroupName(example.name())
- *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .storageAccountIds(exampleAccount.id())
  *             .build());
  * 
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.OperationalInsights`: 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2020-08-01
  * 
  * ## Import
  * 
@@ -145,13 +145,19 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
-    @Export(name="workspaceResourceId", refs={String.class}, tree="[0]")
-    private Output<String> workspaceResourceId;
+    @Export(name="workspaceId", refs={String.class}, tree="[0]")
+    private Output<String> workspaceId;
 
     /**
      * @return The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
+    public Output<String> workspaceId() {
+        return this.workspaceId;
+    }
+    @Export(name="workspaceResourceId", refs={String.class}, tree="[0]")
+    private Output<String> workspaceResourceId;
+
     public Output<String> workspaceResourceId() {
         return this.workspaceResourceId;
     }

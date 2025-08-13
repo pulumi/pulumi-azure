@@ -16,6 +16,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'MonitorEnvironmentProperty',
+    'MonitorEnvironmentPropertyEnvironmentInfo',
     'MonitorIdentity',
     'MonitorPlan',
     'MonitorUser',
@@ -29,6 +31,76 @@ __all__ = [
     'GetMonitorPlanResult',
     'GetMonitorUserResult',
 ]
+
+@pulumi.output_type
+class MonitorEnvironmentProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentInfos":
+            suggest = "environment_infos"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorEnvironmentProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorEnvironmentProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorEnvironmentProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_infos: Sequence['outputs.MonitorEnvironmentPropertyEnvironmentInfo']):
+        """
+        :param Sequence['MonitorEnvironmentPropertyEnvironmentInfoArgs'] environment_infos: Information about the Dynatrace environment. An `environment_info` block as defined below.
+        """
+        pulumi.set(__self__, "environment_infos", environment_infos)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentInfos")
+    def environment_infos(self) -> Sequence['outputs.MonitorEnvironmentPropertyEnvironmentInfo']:
+        """
+        Information about the Dynatrace environment. An `environment_info` block as defined below.
+        """
+        return pulumi.get(self, "environment_infos")
+
+
+@pulumi.output_type
+class MonitorEnvironmentPropertyEnvironmentInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentId":
+            suggest = "environment_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorEnvironmentPropertyEnvironmentInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorEnvironmentPropertyEnvironmentInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorEnvironmentPropertyEnvironmentInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_id: _builtins.str):
+        """
+        :param _builtins.str environment_id: The ID of the Dynatrace environment to be created.
+        """
+        pulumi.set(__self__, "environment_id", environment_id)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> _builtins.str:
+        """
+        The ID of the Dynatrace environment to be created.
+        """
+        return pulumi.get(self, "environment_id")
+
 
 @pulumi.output_type
 class MonitorIdentity(dict):

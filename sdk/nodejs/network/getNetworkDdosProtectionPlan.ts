@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  */
 export function getNetworkDdosProtectionPlan(args: GetNetworkDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkDdosProtectionPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +93,7 @@ export interface GetNetworkDdosProtectionPlanResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  */
 export function getNetworkDdosProtectionPlanOutput(args: GetNetworkDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkDdosProtectionPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

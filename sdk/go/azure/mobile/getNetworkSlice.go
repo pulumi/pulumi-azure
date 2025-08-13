@@ -52,7 +52,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.MobileNetwork`: 2022-11-01
+// * `Microsoft.MobileNetwork` - 2022-11-01
 func LookupNetworkSlice(ctx *pulumi.Context, args *LookupNetworkSliceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSliceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNetworkSliceResult

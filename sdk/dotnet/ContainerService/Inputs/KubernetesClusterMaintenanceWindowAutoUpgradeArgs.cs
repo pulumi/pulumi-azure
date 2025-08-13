@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<int> Duration { get; set; } = null!;
 
         /// <summary>
-        /// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
+        /// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;

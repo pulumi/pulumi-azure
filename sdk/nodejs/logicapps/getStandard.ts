@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-12-01
+ * * `Microsoft.Web` - 2023-12-01
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -199,7 +199,7 @@ export interface GetStandardResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Web`: 2023-12-01
+ * * `Microsoft.Web` - 2023-12-01
  */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

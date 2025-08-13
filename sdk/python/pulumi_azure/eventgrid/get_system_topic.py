@@ -141,7 +141,7 @@ def get_system_topic(name: Optional[_builtins.str] = None,
                      resource_group_name: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemTopicResult:
     """
-    Use this data source to access information about an existing EventGrid System Topic
+    Use this data source to access information about an existing Event Grid System Topic
 
     ## Example Usage
 
@@ -158,11 +158,11 @@ def get_system_topic(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventGrid`: 2022-06-15
+    * `Microsoft.EventGrid` - 2022-06-15
 
 
-    :param _builtins.str name: The name of the EventGrid System Topic resource.
-    :param _builtins.str resource_group_name: The name of the resource group in which the EventGrid System Topic exists.
+    :param _builtins.str name: The name of the Event Grid System Topic resource.
+    :param _builtins.str resource_group_name: The name of the resource group in which the Event Grid System Topic exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -184,7 +184,7 @@ def get_system_topic_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemTopicResult]:
     """
-    Use this data source to access information about an existing EventGrid System Topic
+    Use this data source to access information about an existing Event Grid System Topic
 
     ## Example Usage
 
@@ -201,11 +201,11 @@ def get_system_topic_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventGrid`: 2022-06-15
+    * `Microsoft.EventGrid` - 2022-06-15
 
 
-    :param _builtins.str name: The name of the EventGrid System Topic resource.
-    :param _builtins.str resource_group_name: The name of the resource group in which the EventGrid System Topic exists.
+    :param _builtins.str name: The name of the Event Grid System Topic resource.
+    :param _builtins.str resource_group_name: The name of the resource group in which the Event Grid System Topic exists.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -4104,7 +4104,7 @@ type PoolStartTask struct {
 	Containers []PoolStartTaskContainer `pulumi:"containers"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
 	ResourceFiles []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
-	// The number of retry count.
+	// The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 	TaskRetryMaximum *int `pulumi:"taskRetryMaximum"`
 	// A `userIdentity` block that describes the user identity under which the start task runs as defined below.
 	UserIdentity PoolStartTaskUserIdentity `pulumi:"userIdentity"`
@@ -4132,7 +4132,7 @@ type PoolStartTaskArgs struct {
 	Containers PoolStartTaskContainerArrayInput `pulumi:"containers"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
 	ResourceFiles PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
-	// The number of retry count.
+	// The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 	TaskRetryMaximum pulumi.IntPtrInput `pulumi:"taskRetryMaximum"`
 	// A `userIdentity` block that describes the user identity under which the start task runs as defined below.
 	UserIdentity PoolStartTaskUserIdentityInput `pulumi:"userIdentity"`
@@ -4237,7 +4237,7 @@ func (o PoolStartTaskOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutpu
 	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
 }
 
-// The number of retry count.
+// The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 func (o PoolStartTaskOutput) TaskRetryMaximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PoolStartTask) *int { return v.TaskRetryMaximum }).(pulumi.IntPtrOutput)
 }
@@ -4316,7 +4316,7 @@ func (o PoolStartTaskPtrOutput) ResourceFiles() PoolStartTaskResourceFileArrayOu
 	}).(PoolStartTaskResourceFileArrayOutput)
 }
 
-// The number of retry count.
+// The number of retry count. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 func (o PoolStartTaskPtrOutput) TaskRetryMaximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PoolStartTask) *int {
 		if v == nil {

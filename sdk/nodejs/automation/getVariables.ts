@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Automation`: 2023-11-01
+ * * `Microsoft.Automation` - 2023-11-01
  */
 export function getVariables(args: GetVariablesArgs, opts?: pulumi.InvokeOptions): Promise<GetVariablesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -108,7 +108,7 @@ export interface GetVariablesResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Automation`: 2023-11-01
+ * * `Microsoft.Automation` - 2023-11-01
  */
 export function getVariablesOutput(args: GetVariablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariablesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

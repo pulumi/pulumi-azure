@@ -45,6 +45,20 @@ import (
 //						},
 //					},
 //				},
+//				Pivots: core.SubscriptionCostManagementViewPivotArray{
+//					&core.SubscriptionCostManagementViewPivotArgs{
+//						Type: pulumi.String("Dimension"),
+//						Name: pulumi.String("ServiceName"),
+//					},
+//					&core.SubscriptionCostManagementViewPivotArgs{
+//						Type: pulumi.String("Dimension"),
+//						Name: pulumi.String("ResourceLocation"),
+//					},
+//					&core.SubscriptionCostManagementViewPivotArgs{
+//						Type: pulumi.String("Dimension"),
+//						Name: pulumi.String("ResourceGroupName"),
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -60,7 +74,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.CostManagement`: 2023-08-01
+// * `Microsoft.CostManagement` - 2023-08-01
 //
 // ## Import
 //

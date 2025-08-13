@@ -319,7 +319,7 @@ def get_service(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
 
 
     :param _builtins.str name: The name of the API Management service.
@@ -379,7 +379,7 @@ def get_service_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2024-05-01, 2022-08-01
 
 
     :param _builtins.str name: The name of the API Management service.

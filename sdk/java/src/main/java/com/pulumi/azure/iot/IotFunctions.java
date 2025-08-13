@@ -68,7 +68,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static Output<GetDpsResult> getDps(GetDpsArgs args) {
@@ -118,7 +118,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static CompletableFuture<GetDpsResult> getDpsPlain(GetDpsPlainArgs args) {
@@ -168,7 +168,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static Output<GetDpsResult> getDps(GetDpsArgs args, InvokeOptions options) {
@@ -218,7 +218,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static Output<GetDpsResult> getDps(GetDpsArgs args, InvokeOutputOptions options) {
@@ -268,7 +268,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static CompletableFuture<GetDpsResult> getDpsPlain(GetDpsPlainArgs args, InvokeOptions options) {
@@ -319,7 +319,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static Output<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args) {
@@ -370,7 +370,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static CompletableFuture<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicyPlain(GetDpsSharedAccessPolicyPlainArgs args) {
@@ -421,7 +421,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static Output<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args, InvokeOptions options) {
@@ -472,7 +472,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static Output<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs args, InvokeOutputOptions options) {
@@ -523,7 +523,7 @@ public final class IotFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Devices`: 2022-02-05
+     * * `Microsoft.Devices` - 2022-02-05
      * 
      */
     public static CompletableFuture<GetDpsSharedAccessPolicyResult> getDpsSharedAccessPolicyPlain(GetDpsSharedAccessPolicyPlainArgs args, InvokeOptions options) {

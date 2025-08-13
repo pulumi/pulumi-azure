@@ -620,6 +620,13 @@ class Account(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch` - 2024-07-01
+
         ## Import
 
         Batch Account can be imported using the `resource id`, e.g.
@@ -690,6 +697,13 @@ class Account(pulumi.CustomResource):
                 "env": "test",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch` - 2024-07-01
 
         ## Import
 

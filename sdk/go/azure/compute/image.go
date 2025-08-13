@@ -57,7 +57,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Compute`: 2022-03-01
+// * `Microsoft.Compute` - 2022-03-01
 //
 // ## Import
 //
@@ -70,16 +70,18 @@ type Image struct {
 	pulumi.CustomResourceState
 
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks ImageDataDiskArrayOutput `pulumi:"dataDisks"`
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	// > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
+	DataDisks ImageDataDiskArrayOutput `pulumi:"dataDisks"`
+	// The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
 	OsDisk ImageOsDiskPtrOutput `pulumi:"osDisk"`
 	// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -88,6 +90,10 @@ type Image struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	//
+	// > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
 	ZoneResilient pulumi.BoolPtrOutput `pulumi:"zoneResilient"`
 }
 
@@ -125,16 +131,18 @@ func GetImage(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Image resources.
 type imageState struct {
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	// > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
+	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
+	// The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
 	OsDisk *ImageOsDisk `pulumi:"osDisk"`
 	// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -143,21 +151,27 @@ type imageState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	//
+	// > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
 	ZoneResilient *bool `pulumi:"zoneResilient"`
 }
 
 type ImageState struct {
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks ImageDataDiskArrayInput
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	// > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
+	DataDisks ImageDataDiskArrayInput
+	// The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
 	OsDisk ImageOsDiskPtrInput
 	// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -166,6 +180,10 @@ type ImageState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	//
+	// > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
 	ZoneResilient pulumi.BoolPtrInput
 }
 
@@ -175,16 +193,18 @@ func (ImageState) ElementType() reflect.Type {
 
 type imageArgs struct {
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	// > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
+	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
+	// The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
 	OsDisk *ImageOsDisk `pulumi:"osDisk"`
 	// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -193,22 +213,28 @@ type imageArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	//
+	// > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
 	ZoneResilient *bool `pulumi:"zoneResilient"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
 	// One or more `dataDisk` blocks as defined below.
-	DataDisks ImageDataDiskArrayInput
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	// > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
+	DataDisks ImageDataDiskArrayInput
+	// The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	HyperVGeneration pulumi.StringPtrInput
 	// Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
 	OsDisk ImageOsDiskPtrInput
 	// The name of the resource group in which to create the image. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -217,6 +243,10 @@ type ImageArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+	//
+	// > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
 	ZoneResilient pulumi.BoolPtrInput
 }
 
@@ -308,13 +338,13 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 }
 
 // One or more `dataDisk` blocks as defined below.
+//
+// > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
 func (o ImageOutput) DataDisks() ImageDataDiskArrayOutput {
 	return o.ApplyT(func(v *Image) ImageDataDiskArrayOutput { return v.DataDisks }).(ImageDataDiskArrayOutput)
 }
 
-// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
-//
-// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+// The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 func (o ImageOutput) HyperVGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
 }
@@ -330,6 +360,8 @@ func (o ImageOutput) Name() pulumi.StringOutput {
 }
 
 // One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
 func (o ImageOutput) OsDisk() ImageOsDiskPtrOutput {
 	return o.ApplyT(func(v *Image) ImageOsDiskPtrOutput { return v.OsDisk }).(ImageOsDiskPtrOutput)
 }
@@ -350,6 +382,10 @@ func (o ImageOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
+//
+// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
+//
+// > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
 func (o ImageOutput) ZoneResilient() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.BoolPtrOutput { return v.ZoneResilient }).(pulumi.BoolPtrOutput)
 }

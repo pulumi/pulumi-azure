@@ -39,6 +39,7 @@ class CloudVmClusterArgs:
                  data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]] = None,
                  local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  memory_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
@@ -70,6 +71,7 @@ class CloudVmClusterArgs:
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]] file_system_configurations: A `file_system_configuration` block as defined below.
         :param pulumi.Input[_builtins.bool] local_backup_enabled: If true, database backup on local Exadata storage is configured for the Cloud VM Cluster. If `false`, database backup on local Exadata storage is not available in the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cloud VM Cluster should exist. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.int] memory_size_in_gbs: The memory to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
@@ -107,6 +109,8 @@ class CloudVmClusterArgs:
             pulumi.set(__self__, "db_node_storage_size_in_gbs", db_node_storage_size_in_gbs)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if file_system_configurations is not None:
+            pulumi.set(__self__, "file_system_configurations", file_system_configurations)
         if local_backup_enabled is not None:
             pulumi.set(__self__, "local_backup_enabled", local_backup_enabled)
         if location is not None:
@@ -347,6 +351,18 @@ class CloudVmClusterArgs:
         pulumi.set(self, "domain", value)
 
     @_builtins.property
+    @pulumi.getter(name="fileSystemConfigurations")
+    def file_system_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]:
+        """
+        A `file_system_configuration` block as defined below.
+        """
+        return pulumi.get(self, "file_system_configurations")
+
+    @file_system_configurations.setter
+    def file_system_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]):
+        pulumi.set(self, "file_system_configurations", value)
+
+    @_builtins.property
     @pulumi.getter(name="localBackupEnabled")
     def local_backup_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -493,6 +509,7 @@ class _CloudVmClusterState:
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]] = None,
                  gi_version: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname_actual: Optional[pulumi.Input[_builtins.str]] = None,
@@ -526,6 +543,7 @@ class _CloudVmClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         :param pulumi.Input[_builtins.str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]] file_system_configurations: A `file_system_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] gi_version: A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] hostname_actual: The hostname for the Cloud VM Cluster with suffix.
@@ -569,6 +587,8 @@ class _CloudVmClusterState:
             pulumi.set(__self__, "display_name", display_name)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if file_system_configurations is not None:
+            pulumi.set(__self__, "file_system_configurations", file_system_configurations)
         if gi_version is not None:
             pulumi.set(__self__, "gi_version", gi_version)
         if hostname is not None:
@@ -741,6 +761,18 @@ class _CloudVmClusterState:
     @domain.setter
     def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemConfigurations")
+    def file_system_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]:
+        """
+        A `file_system_configuration` block as defined below.
+        """
+        return pulumi.get(self, "file_system_configurations")
+
+    @file_system_configurations.setter
+    def file_system_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudVmClusterFileSystemConfigurationArgs']]]]):
+        pulumi.set(self, "file_system_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="giVersion")
@@ -1000,6 +1032,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
                  gi_version: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname: Optional[pulumi.Input[_builtins.str]] = None,
                  license_model: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1077,7 +1110,11 @@ class CloudVmCluster(pulumi.CustomResource):
             cpu_core_count=2,
             hostname="hostname",
             subnet_id=example_subnet.id,
-            system_version="23.1.19.0.0.241015")
+            system_version="23.1.19.0.0.241015",
+            file_system_configurations=[{
+                "mount_point": "/var",
+                "size_in_gb": 32,
+            }])
         ```
 
         ## API Providers
@@ -1085,7 +1122,7 @@ class CloudVmCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Oracle.Database`: 2024-06-01
+        * `Oracle.Database` - 2025-03-01
 
         ## Import
 
@@ -1108,6 +1145,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         :param pulumi.Input[_builtins.str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]] file_system_configurations: A `file_system_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] gi_version: A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
@@ -1191,7 +1229,11 @@ class CloudVmCluster(pulumi.CustomResource):
             cpu_core_count=2,
             hostname="hostname",
             subnet_id=example_subnet.id,
-            system_version="23.1.19.0.0.241015")
+            system_version="23.1.19.0.0.241015",
+            file_system_configurations=[{
+                "mount_point": "/var",
+                "size_in_gb": 32,
+            }])
         ```
 
         ## API Providers
@@ -1199,7 +1241,7 @@ class CloudVmCluster(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Oracle.Database`: 2024-06-01
+        * `Oracle.Database` - 2025-03-01
 
         ## Import
 
@@ -1235,6 +1277,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
                  gi_version: Optional[pulumi.Input[_builtins.str]] = None,
                  hostname: Optional[pulumi.Input[_builtins.str]] = None,
                  license_model: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1281,6 +1324,7 @@ class CloudVmCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["domain"] = domain
+            __props__.__dict__["file_system_configurations"] = file_system_configurations
             if gi_version is None and not opts.urn:
                 raise TypeError("Missing required property 'gi_version'")
             __props__.__dict__["gi_version"] = gi_version
@@ -1336,6 +1380,7 @@ class CloudVmCluster(pulumi.CustomResource):
             db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
             domain: Optional[pulumi.Input[_builtins.str]] = None,
+            file_system_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
             gi_version: Optional[pulumi.Input[_builtins.str]] = None,
             hostname: Optional[pulumi.Input[_builtins.str]] = None,
             hostname_actual: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1374,6 +1419,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         :param pulumi.Input[_builtins.str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]] file_system_configurations: A `file_system_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] gi_version: A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] hostname_actual: The hostname for the Cloud VM Cluster with suffix.
@@ -1410,6 +1456,7 @@ class CloudVmCluster(pulumi.CustomResource):
         __props__.__dict__["db_servers"] = db_servers
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["domain"] = domain
+        __props__.__dict__["file_system_configurations"] = file_system_configurations
         __props__.__dict__["gi_version"] = gi_version
         __props__.__dict__["hostname"] = hostname
         __props__.__dict__["hostname_actual"] = hostname_actual
@@ -1519,6 +1566,14 @@ class CloudVmCluster(pulumi.CustomResource):
         The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemConfigurations")
+    def file_system_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.CloudVmClusterFileSystemConfiguration']]]:
+        """
+        A `file_system_configuration` block as defined below.
+        """
+        return pulumi.get(self, "file_system_configurations")
 
     @_builtins.property
     @pulumi.getter(name="giVersion")
@@ -1642,7 +1697,7 @@ class CloudVmCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="systemVersion")
-    def system_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def system_version(self) -> pulumi.Output[_builtins.str]:
         """
         Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
         """

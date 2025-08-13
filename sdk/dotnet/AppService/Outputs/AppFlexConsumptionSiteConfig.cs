@@ -128,9 +128,13 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
-        /// Should the Linux Web App use a 32-bit worker. Defaults to `false`.
+        /// Should the Linux Web App  Linux Function App use a 32-bit worker. Defaults to `false`.
         /// </summary>
         public readonly bool? Use32BitWorker;
+        /// <summary>
+        /// Should the Linux Function App route all traffic through the virtual network. Defaults to `false`.
+        /// </summary>
+        public readonly bool? VnetRouteAllEnabled;
         /// <summary>
         /// Should Web Sockets be enabled. Defaults to `false`.
         /// </summary>
@@ -200,6 +204,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             bool? use32BitWorker,
 
+            bool? vnetRouteAllEnabled,
+
             bool? websocketsEnabled,
 
             int? workerCount)
@@ -233,6 +239,7 @@ namespace Pulumi.Azure.AppService.Outputs
             ScmType = scmType;
             ScmUseMainIpRestriction = scmUseMainIpRestriction;
             Use32BitWorker = use32BitWorker;
+            VnetRouteAllEnabled = vnetRouteAllEnabled;
             WebsocketsEnabled = websocketsEnabled;
             WorkerCount = workerCount;
         }

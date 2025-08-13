@@ -59,7 +59,7 @@ public final class SystemcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ScVmm`: 2023-10-07
+     * * `Microsoft.ScVmm` - 2023-10-07
      * 
      */
     public static Output<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs args) {
@@ -109,7 +109,7 @@ public final class SystemcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ScVmm`: 2023-10-07
+     * * `Microsoft.ScVmm` - 2023-10-07
      * 
      */
     public static CompletableFuture<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItemsPlain(GetVirtualMachineManagerInventoryItemsPlainArgs args) {
@@ -159,7 +159,7 @@ public final class SystemcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ScVmm`: 2023-10-07
+     * * `Microsoft.ScVmm` - 2023-10-07
      * 
      */
     public static Output<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs args, InvokeOptions options) {
@@ -209,7 +209,7 @@ public final class SystemcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ScVmm`: 2023-10-07
+     * * `Microsoft.ScVmm` - 2023-10-07
      * 
      */
     public static Output<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs args, InvokeOutputOptions options) {
@@ -259,7 +259,7 @@ public final class SystemcenterFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.ScVmm`: 2023-10-07
+     * * `Microsoft.ScVmm` - 2023-10-07
      * 
      */
     public static CompletableFuture<GetVirtualMachineManagerInventoryItemsResult> getVirtualMachineManagerInventoryItemsPlain(GetVirtualMachineManagerInventoryItemsPlainArgs args, InvokeOptions options) {

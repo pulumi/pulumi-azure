@@ -138,7 +138,7 @@ def get(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevCenter`: 2025-02-01
+    * `Microsoft.DevCenter` - 2025-02-01
 
 
     :param _builtins.str name: The name of this Dev Center.
@@ -180,7 +180,7 @@ def get_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevCenter`: 2025-02-01
+    * `Microsoft.DevCenter` - 2025-02-01
 
 
     :param _builtins.str name: The name of this Dev Center.

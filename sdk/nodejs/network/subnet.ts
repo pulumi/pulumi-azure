@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-05-01
+ * * `Microsoft.Network` - 2024-05-01
  *
  * ## Import
  *
@@ -94,8 +94,10 @@ export class Subnet extends pulumi.CustomResource {
      * The address prefixes to use for the subnet.
      *
      * > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+     *
+     * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      */
-    public readonly addressPrefixes!: pulumi.Output<string[]>;
+    public readonly addressPrefixes!: pulumi.Output<string[] | undefined>;
     /**
      * Enable default outbound access to the internet for the subnet. Defaults to `true`.
      */
@@ -104,6 +106,12 @@ export class Subnet extends pulumi.CustomResource {
      * One or more `delegation` blocks as defined below.
      */
     public readonly delegations!: pulumi.Output<outputs.network.SubnetDelegation[] | undefined>;
+    /**
+     * An `ipAddressPool` block as defined below.
+     *
+     * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
+     */
+    public readonly ipAddressPool!: pulumi.Output<outputs.network.SubnetIpAddressPool | undefined>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
@@ -159,6 +167,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["addressPrefixes"] = state ? state.addressPrefixes : undefined;
             resourceInputs["defaultOutboundAccessEnabled"] = state ? state.defaultOutboundAccessEnabled : undefined;
             resourceInputs["delegations"] = state ? state.delegations : undefined;
+            resourceInputs["ipAddressPool"] = state ? state.ipAddressPool : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateEndpointNetworkPolicies"] = state ? state.privateEndpointNetworkPolicies : undefined;
             resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = state ? state.privateLinkServiceNetworkPoliciesEnabled : undefined;
@@ -168,9 +177,6 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
-            if ((!args || args.addressPrefixes === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'addressPrefixes'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -180,6 +186,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
             resourceInputs["defaultOutboundAccessEnabled"] = args ? args.defaultOutboundAccessEnabled : undefined;
             resourceInputs["delegations"] = args ? args.delegations : undefined;
+            resourceInputs["ipAddressPool"] = args ? args.ipAddressPool : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateEndpointNetworkPolicies"] = args ? args.privateEndpointNetworkPolicies : undefined;
             resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = args ? args.privateLinkServiceNetworkPoliciesEnabled : undefined;
@@ -201,6 +208,8 @@ export interface SubnetState {
      * The address prefixes to use for the subnet.
      *
      * > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+     *
+     * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      */
     addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -211,6 +220,12 @@ export interface SubnetState {
      * One or more `delegation` blocks as defined below.
      */
     delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
+    /**
+     * An `ipAddressPool` block as defined below.
+     *
+     * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
+     */
+    ipAddressPool?: pulumi.Input<inputs.network.SubnetIpAddressPool>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
@@ -259,8 +274,10 @@ export interface SubnetArgs {
      * The address prefixes to use for the subnet.
      *
      * > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
+     *
+     * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      */
-    addressPrefixes: pulumi.Input<pulumi.Input<string>[]>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enable default outbound access to the internet for the subnet. Defaults to `true`.
      */
@@ -269,6 +286,12 @@ export interface SubnetArgs {
      * One or more `delegation` blocks as defined below.
      */
     delegations?: pulumi.Input<pulumi.Input<inputs.network.SubnetDelegation>[]>;
+    /**
+     * An `ipAddressPool` block as defined below.
+     *
+     * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
+     */
+    ipAddressPool?: pulumi.Input<inputs.network.SubnetIpAddressPool>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */

@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network`: 2024-06-01
+ * * `Microsoft.Network` - 2024-06-01
  *
  * ## Import
  *
@@ -91,6 +91,10 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
      */
     public readonly registrationEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+     */
+    public readonly resolutionPolicy!: pulumi.Output<string>;
+    /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -119,6 +123,7 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateDnsZoneName"] = state ? state.privateDnsZoneName : undefined;
             resourceInputs["registrationEnabled"] = state ? state.registrationEnabled : undefined;
+            resourceInputs["resolutionPolicy"] = state ? state.resolutionPolicy : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
@@ -136,6 +141,7 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateDnsZoneName"] = args ? args.privateDnsZoneName : undefined;
             resourceInputs["registrationEnabled"] = args ? args.registrationEnabled : undefined;
+            resourceInputs["resolutionPolicy"] = args ? args.resolutionPolicy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
@@ -161,6 +167,10 @@ export interface ZoneVirtualNetworkLinkState {
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
     registrationEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+     */
+    resolutionPolicy?: pulumi.Input<string>;
     /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
@@ -191,6 +201,10 @@ export interface ZoneVirtualNetworkLinkArgs {
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
     registrationEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+     */
+    resolutionPolicy?: pulumi.Input<string>;
     /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */

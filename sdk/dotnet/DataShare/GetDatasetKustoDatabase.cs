@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DataShare
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DataShare`: 2019-11-01
+        /// * `Microsoft.DataShare` - 2019-11-01
         /// </summary>
         public static Task<GetDatasetKustoDatabaseResult> InvokeAsync(GetDatasetKustoDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetKustoDatabaseResult>("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args ?? new GetDatasetKustoDatabaseArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.DataShare
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DataShare`: 2019-11-01
+        /// * `Microsoft.DataShare` - 2019-11-01
         /// </summary>
         public static Output<GetDatasetKustoDatabaseResult> Invoke(GetDatasetKustoDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetKustoDatabaseResult>("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args ?? new GetDatasetKustoDatabaseInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.DataShare
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.DataShare`: 2019-11-01
+        /// * `Microsoft.DataShare` - 2019-11-01
         /// </summary>
         public static Output<GetDatasetKustoDatabaseResult> Invoke(GetDatasetKustoDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetKustoDatabaseResult>("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args ?? new GetDatasetKustoDatabaseInvokeArgs(), options.WithDefaults());

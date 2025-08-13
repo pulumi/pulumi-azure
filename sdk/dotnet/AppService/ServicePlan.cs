@@ -45,7 +45,7 @@ namespace Pulumi.Azure.AppService
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Web`: 2023-12-01
+    /// * `Microsoft.Web` - 2023-12-01
     /// 
     /// ## Import
     /// 
@@ -146,6 +146,8 @@ namespace Pulumi.Azure.AppService
         /// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+        /// 
+        /// &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
         /// </summary>
         [Output("zoneBalancingEnabled")]
         public Output<bool?> ZoneBalancingEnabled { get; private set; } = null!;
@@ -278,6 +280,8 @@ namespace Pulumi.Azure.AppService
         /// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+        /// 
+        /// &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }
@@ -384,6 +388,8 @@ namespace Pulumi.Azure.AppService
         /// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
+        /// 
+        /// &gt; **Note:** `zone_balancing_enabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `worker_count` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&amp;pivots=free-shared-basic#availability-zone-support).
         /// </summary>
         [Input("zoneBalancingEnabled")]
         public Input<bool>? ZoneBalancingEnabled { get; set; }

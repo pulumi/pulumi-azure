@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Mobile
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.MobileNetwork`: 2022-11-01
+    /// * `Microsoft.MobileNetwork` - 2022-11-01
     /// 
     /// ## Import
     /// 
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Mobile
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        /// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         /// </summary>
         [Output("siteIds")]
         public Output<ImmutableArray<string>> SiteIds { get; private set; } = null!;
@@ -331,7 +331,7 @@ namespace Pulumi.Azure.Mobile
         private InputList<string>? _siteIds;
 
         /// <summary>
-        /// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        /// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> SiteIds
         {
@@ -453,7 +453,7 @@ namespace Pulumi.Azure.Mobile
         private InputList<string>? _siteIds;
 
         /// <summary>
-        /// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
+        /// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> SiteIds
         {

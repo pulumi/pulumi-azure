@@ -36,6 +36,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("azurermMarketplaceAgreementId", id)
+//			ctx.Export("azurermMarketplaceAgreementAccepted", accepted)
 //			return nil
 //		})
 //	}
@@ -47,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.MarketplaceOrdering`: 2015-06-01
+// * `Microsoft.MarketplaceOrdering` - 2015-06-01
 func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pulumi.InvokeOption) (*LookupAgreementResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAgreementResult
@@ -70,6 +71,8 @@ type LookupAgreementArgs struct {
 
 // A collection of values returned by getAgreement.
 type LookupAgreementResult struct {
+	// Whether the Marketplace Agreement has been accepted.
+	Accepted bool `pulumi:"accepted"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	LicenseTextLink   string `pulumi:"licenseTextLink"`
@@ -115,6 +118,11 @@ func (o LookupAgreementResultOutput) ToLookupAgreementResultOutput() LookupAgree
 
 func (o LookupAgreementResultOutput) ToLookupAgreementResultOutputWithContext(ctx context.Context) LookupAgreementResultOutput {
 	return o
+}
+
+// Whether the Marketplace Agreement has been accepted.
+func (o LookupAgreementResultOutput) Accepted() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAgreementResult) bool { return v.Accepted }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

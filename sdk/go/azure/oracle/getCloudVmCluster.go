@@ -46,7 +46,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Oracle.Database`: 2024-06-01
+// * `Oracle.Database` - 2025-03-01
 func LookupCloudVmCluster(ctx *pulumi.Context, args *LookupCloudVmClusterArgs, opts ...pulumi.InvokeOption) (*LookupCloudVmClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCloudVmClusterResult
@@ -75,6 +75,8 @@ type LookupCloudVmClusterResult struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The OCID of the compartment.
 	CompartmentId string `pulumi:"compartmentId"`
+	// The compute model of the Exadata Infrastructure.
+	ComputeModel string `pulumi:"computeModel"`
 	// A `computeNodes` block as defined below.
 	ComputeNodes []string `pulumi:"computeNodes"`
 	// The number of CPU cores enabled on the Cloud VM Cluster.
@@ -95,6 +97,8 @@ type LookupCloudVmClusterResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// The domain name for the Cloud VM Cluster.
 	Domain string `pulumi:"domain"`
+	// A `fileSystemConfiguration` block as defined below.
+	FileSystemConfigurations []GetCloudVmClusterFileSystemConfiguration `pulumi:"fileSystemConfigurations"`
 	// A valid Oracle Grid Infrastructure (GI) software version.
 	GiVersion string `pulumi:"giVersion"`
 	// The hostname for the Cloud VM Cluster without suffix.
@@ -228,6 +232,11 @@ func (o LookupCloudVmClusterResultOutput) CompartmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.CompartmentId }).(pulumi.StringOutput)
 }
 
+// The compute model of the Exadata Infrastructure.
+func (o LookupCloudVmClusterResultOutput) ComputeModel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.ComputeModel }).(pulumi.StringOutput)
+}
+
 // A `computeNodes` block as defined below.
 func (o LookupCloudVmClusterResultOutput) ComputeNodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) []string { return v.ComputeNodes }).(pulumi.StringArrayOutput)
@@ -278,6 +287,13 @@ func (o LookupCloudVmClusterResultOutput) DisplayName() pulumi.StringOutput {
 // The domain name for the Cloud VM Cluster.
 func (o LookupCloudVmClusterResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// A `fileSystemConfiguration` block as defined below.
+func (o LookupCloudVmClusterResultOutput) FileSystemConfigurations() GetCloudVmClusterFileSystemConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupCloudVmClusterResult) []GetCloudVmClusterFileSystemConfiguration {
+		return v.FileSystemConfigurations
+	}).(GetCloudVmClusterFileSystemConfigurationArrayOutput)
 }
 
 // A valid Oracle Grid Infrastructure (GI) software version.

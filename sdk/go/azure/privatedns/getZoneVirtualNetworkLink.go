@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2024-06-01
+// * `Microsoft.Network` - 2024-06-01
 func LookupZoneVirtualNetworkLink(ctx *pulumi.Context, args *LookupZoneVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupZoneVirtualNetworkLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupZoneVirtualNetworkLinkResult
@@ -75,8 +75,10 @@ type LookupZoneVirtualNetworkLinkResult struct {
 	Name               string `pulumi:"name"`
 	PrivateDnsZoneName string `pulumi:"privateDnsZoneName"`
 	// Whether the auto-registration of virtual machine records in the virtual network in the Private DNS zone is enabled or not.
-	RegistrationEnabled bool   `pulumi:"registrationEnabled"`
-	ResourceGroupName   string `pulumi:"resourceGroupName"`
+	RegistrationEnabled bool `pulumi:"registrationEnabled"`
+	// The resolution policy of the Private DNS Zone Virtual Network Link.
+	ResolutionPolicy  string `pulumi:"resolutionPolicy"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the Virtual Network that is linked to the DNS Zone.
@@ -137,6 +139,11 @@ func (o LookupZoneVirtualNetworkLinkResultOutput) PrivateDnsZoneName() pulumi.St
 // Whether the auto-registration of virtual machine records in the virtual network in the Private DNS zone is enabled or not.
 func (o LookupZoneVirtualNetworkLinkResultOutput) RegistrationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupZoneVirtualNetworkLinkResult) bool { return v.RegistrationEnabled }).(pulumi.BoolOutput)
+}
+
+// The resolution policy of the Private DNS Zone Virtual Network Link.
+func (o LookupZoneVirtualNetworkLinkResultOutput) ResolutionPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneVirtualNetworkLinkResult) string { return v.ResolutionPolicy }).(pulumi.StringOutput)
 }
 
 func (o LookupZoneVirtualNetworkLinkResultOutput) ResourceGroupName() pulumi.StringOutput {

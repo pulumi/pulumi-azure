@@ -226,7 +226,7 @@ class MongoRoleDefinition(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB`: 2022-11-15
+        * `Microsoft.DocumentDB` - 2022-11-15
 
         ## Import
 
@@ -298,7 +298,7 @@ class MongoRoleDefinition(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.DocumentDB`: 2022-11-15
+        * `Microsoft.DocumentDB` - 2022-11-15
 
         ## Import
 

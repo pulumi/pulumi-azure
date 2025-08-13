@@ -259,7 +259,7 @@ def get_virtual_network_gateway(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: Specifies the name of the Virtual Network Gateway.
@@ -311,7 +311,7 @@ def get_virtual_network_gateway_output(name: Optional[pulumi.Input[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network`: 2024-05-01
+    * `Microsoft.Network` - 2024-05-01
 
 
     :param _builtins.str name: Specifies the name of the Virtual Network Gateway.

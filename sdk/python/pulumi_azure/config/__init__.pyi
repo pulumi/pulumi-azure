@@ -82,6 +82,12 @@ metadataHost: Optional[str]
 The Hostname which should be used for the Azure Metadata Service.
 """
 
+msiApiVersion: Optional[str]
+"""
+The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+the endpoint. e.g. for Azure Container Apps.
+"""
+
 msiEndpoint: Optional[str]
 """
 The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected

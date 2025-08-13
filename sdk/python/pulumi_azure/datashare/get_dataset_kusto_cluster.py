@@ -125,7 +125,7 @@ def get_dataset_kusto_cluster(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataShare`: 2019-11-01
+    * `Microsoft.DataShare` - 2019-11-01
 
 
     :param _builtins.str name: The name of this Data Share Kusto Cluster Dataset.
@@ -166,7 +166,7 @@ def get_dataset_kusto_cluster_output(name: Optional[pulumi.Input[_builtins.str]]
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DataShare`: 2019-11-01
+    * `Microsoft.DataShare` - 2019-11-01
 
 
     :param _builtins.str name: The name of this Data Share Kusto Cluster Dataset.

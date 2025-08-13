@@ -46,6 +46,10 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     /**
+     * Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
+     */
+    public readonly environmentProperties!: pulumi.Output<outputs.dynatrace.MonitorEnvironmentProperty[] | undefined>;
+    /**
      * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.dynatrace.MonitorIdentity>;
@@ -95,6 +99,7 @@ export class Monitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
+            resourceInputs["environmentProperties"] = state ? state.environmentProperties : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["marketplaceSubscription"] = state ? state.marketplaceSubscription : undefined;
@@ -121,6 +126,7 @@ export class Monitor extends pulumi.CustomResource {
             if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
+            resourceInputs["environmentProperties"] = args ? args.environmentProperties : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["marketplaceSubscription"] = args ? args.marketplaceSubscription : undefined;
@@ -140,6 +146,10 @@ export class Monitor extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Monitor resources.
  */
 export interface MonitorState {
+    /**
+     * Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
+     */
+    environmentProperties?: pulumi.Input<pulumi.Input<inputs.dynatrace.MonitorEnvironmentProperty>[]>;
     /**
      * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
      */
@@ -182,6 +192,10 @@ export interface MonitorState {
  * The set of arguments for constructing a Monitor resource.
  */
 export interface MonitorArgs {
+    /**
+     * Properties of the Dynatrace environment. An `environmentProperties` block as defined below.
+     */
+    environmentProperties?: pulumi.Input<pulumi.Input<inputs.dynatrace.MonitorEnvironmentProperty>[]>;
     /**
      * The kind of managed identity assigned to this resource.  A `identity` block as defined below.
      */

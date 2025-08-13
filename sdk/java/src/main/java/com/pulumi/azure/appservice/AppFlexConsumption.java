@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Web`: 2023-12-01, 2023-01-01
+ * * `Microsoft.Web` - 2023-12-01, 2023-01-01
  * 
  * ## Import
  * 
@@ -334,14 +334,14 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+     * The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      * 
      */
     @Export(name="instanceMemoryInMb", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instanceMemoryInMb;
 
     /**
-     * @return The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
+     * @return The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      * 
      */
     public Output<Optional<Integer>> instanceMemoryInMb() {

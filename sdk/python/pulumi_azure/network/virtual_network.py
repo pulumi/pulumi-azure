@@ -40,7 +40,7 @@ class VirtualNetworkArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
-               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -108,7 +108,7 @@ class VirtualNetworkArgs:
         """
         The address space that is used the virtual network. You can supply more than one address space.
 
-        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         """
         return pulumi.get(self, "address_spaces")
 
@@ -291,7 +291,7 @@ class _VirtualNetworkState:
         Input properties used for looking up and filtering VirtualNetwork resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
-               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -352,7 +352,7 @@ class _VirtualNetworkState:
         """
         The address space that is used the virtual network. You can supply more than one address space.
 
-        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         """
         return pulumi.get(self, "address_spaces")
 
@@ -611,7 +611,7 @@ class VirtualNetwork(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 
@@ -625,7 +625,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
-               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -707,7 +707,7 @@ class VirtualNetwork(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 
@@ -806,7 +806,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_spaces: The address space that is used the virtual network. You can supply more than one address space.
                
-               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+               > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
@@ -857,7 +857,7 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         The address space that is used the virtual network. You can supply more than one address space.
 
-        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified. If `address_space` is not specified but you encounter a diff, this might indicate the `address_space` is allocated from the IP Address Pool. If this is the case, you may need to add this to ignore_changes.
+        > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         """
         return pulumi.get(self, "address_spaces")
 

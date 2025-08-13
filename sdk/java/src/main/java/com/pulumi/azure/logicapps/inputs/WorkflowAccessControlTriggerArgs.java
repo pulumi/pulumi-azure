@@ -6,7 +6,6 @@ package com.pulumi.azure.logicapps.inputs;
 import com.pulumi.azure.logicapps.inputs.WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -22,15 +21,15 @@ public final class WorkflowAccessControlTriggerArgs extends com.pulumi.resources
      * A list of the allowed caller IP address ranges.
      * 
      */
-    @Import(name="allowedCallerIpAddressRanges", required=true)
-    private Output<List<String>> allowedCallerIpAddressRanges;
+    @Import(name="allowedCallerIpAddressRanges")
+    private @Nullable Output<List<String>> allowedCallerIpAddressRanges;
 
     /**
      * @return A list of the allowed caller IP address ranges.
      * 
      */
-    public Output<List<String>> allowedCallerIpAddressRanges() {
-        return this.allowedCallerIpAddressRanges;
+    public Optional<Output<List<String>>> allowedCallerIpAddressRanges() {
+        return Optional.ofNullable(this.allowedCallerIpAddressRanges);
     }
 
     /**
@@ -79,7 +78,7 @@ public final class WorkflowAccessControlTriggerArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder allowedCallerIpAddressRanges(Output<List<String>> allowedCallerIpAddressRanges) {
+        public Builder allowedCallerIpAddressRanges(@Nullable Output<List<String>> allowedCallerIpAddressRanges) {
             $.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
             return this;
         }
@@ -136,9 +135,6 @@ public final class WorkflowAccessControlTriggerArgs extends com.pulumi.resources
         }
 
         public WorkflowAccessControlTriggerArgs build() {
-            if ($.allowedCallerIpAddressRanges == null) {
-                throw new MissingRequiredPropertyException("WorkflowAccessControlTriggerArgs", "allowedCallerIpAddressRanges");
-            }
             return $;
         }
     }

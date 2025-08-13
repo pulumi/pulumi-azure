@@ -137,7 +137,7 @@ def get_virtual_network(lab_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevTestLab`: 2018-09-15
+    * `Microsoft.DevTestLab` - 2018-09-15
 
 
     :param _builtins.str lab_name: Specifies the name of the Dev Test Lab.
@@ -183,7 +183,7 @@ def get_virtual_network_output(lab_name: Optional[pulumi.Input[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.DevTestLab`: 2018-09-15
+    * `Microsoft.DevTestLab` - 2018-09-15
 
 
     :param _builtins.str lab_name: Specifies the name of the Dev Test Lab.

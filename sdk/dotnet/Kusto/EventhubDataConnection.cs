@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Kusto
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Kusto`: 2024-04-13
+    /// * `Microsoft.Kusto` - 2024-04-13
     /// 
     /// ## Import
     /// 

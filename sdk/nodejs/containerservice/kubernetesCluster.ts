@@ -44,6 +44,13 @@ import * as utilities from "../utilities";
  * export const kubeConfig = exampleKubernetesCluster.kubeConfigRaw;
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerService` - 2025-02-01
+ *
  * ## Import
  *
  * Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
@@ -121,6 +128,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly currentKubernetesVersion!: pulumi.Output<string>;
     /**
+     * A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+     */
+    public readonly customCaTrustCertificatesBase64s!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
      */
     public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
@@ -173,7 +184,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly imageCleanerEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+     * Specifies the interval in hours when images should be cleaned up.
      */
     public readonly imageCleanerIntervalHours!: pulumi.Output<number | undefined>;
     /**
@@ -437,6 +448,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["confidentialComputing"] = state ? state.confidentialComputing : undefined;
             resourceInputs["costAnalysisEnabled"] = state ? state.costAnalysisEnabled : undefined;
             resourceInputs["currentKubernetesVersion"] = state ? state.currentKubernetesVersion : undefined;
+            resourceInputs["customCaTrustCertificatesBase64s"] = state ? state.customCaTrustCertificatesBase64s : undefined;
             resourceInputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
@@ -510,6 +522,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["azurePolicyEnabled"] = args ? args.azurePolicyEnabled : undefined;
             resourceInputs["confidentialComputing"] = args ? args.confidentialComputing : undefined;
             resourceInputs["costAnalysisEnabled"] = args ? args.costAnalysisEnabled : undefined;
+            resourceInputs["customCaTrustCertificatesBase64s"] = args ? args.customCaTrustCertificatesBase64s : undefined;
             resourceInputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
             resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
@@ -621,6 +634,10 @@ export interface KubernetesClusterState {
      */
     currentKubernetesVersion?: pulumi.Input<string>;
     /**
+     * A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+     */
+    customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
      */
     defaultNodePool?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
@@ -673,7 +690,7 @@ export interface KubernetesClusterState {
      */
     imageCleanerEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+     * Specifies the interval in hours when images should be cleaned up.
      */
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**
@@ -957,6 +974,10 @@ export interface KubernetesClusterArgs {
      */
     costAnalysisEnabled?: pulumi.Input<boolean>;
     /**
+     * A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+     */
+    customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
      */
     defaultNodePool: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePool>;
@@ -1001,7 +1022,7 @@ export interface KubernetesClusterArgs {
      */
     imageCleanerEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+     * Specifies the interval in hours when images should be cleaned up.
      */
     imageCleanerIntervalHours?: pulumi.Input<number>;
     /**

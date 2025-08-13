@@ -182,7 +182,7 @@ def get_analytics_workspace(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.OperationalInsights`: 2020-08-01
+    * `Microsoft.OperationalInsights` - 2020-08-01
 
 
     :param _builtins.str name: Specifies the name of the Log Analytics Workspace.
@@ -228,7 +228,7 @@ def get_analytics_workspace_output(name: Optional[pulumi.Input[_builtins.str]] =
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.OperationalInsights`: 2020-08-01
+    * `Microsoft.OperationalInsights` - 2020-08-01
 
 
     :param _builtins.str name: Specifies the name of the Log Analytics Workspace.

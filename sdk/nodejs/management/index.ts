@@ -35,6 +35,11 @@ export type GroupPolicyRemediation = import("./groupPolicyRemediation").GroupPol
 export const GroupPolicyRemediation: typeof import("./groupPolicyRemediation").GroupPolicyRemediation = null as any;
 utilities.lazyLoad(exports, ["GroupPolicyRemediation"], () => require("./groupPolicyRemediation"));
 
+export { GroupPolicySetDefinitionArgs, GroupPolicySetDefinitionState } from "./groupPolicySetDefinition";
+export type GroupPolicySetDefinition = import("./groupPolicySetDefinition").GroupPolicySetDefinition;
+export const GroupPolicySetDefinition: typeof import("./groupPolicySetDefinition").GroupPolicySetDefinition = null as any;
+utilities.lazyLoad(exports, ["GroupPolicySetDefinition"], () => require("./groupPolicySetDefinition"));
+
 export { GroupSubscriptionAssociationArgs, GroupSubscriptionAssociationState } from "./groupSubscriptionAssociation";
 export type GroupSubscriptionAssociation = import("./groupSubscriptionAssociation").GroupSubscriptionAssociation;
 export const GroupSubscriptionAssociation: typeof import("./groupSubscriptionAssociation").GroupSubscriptionAssociation = null as any;
@@ -73,6 +78,8 @@ const _module = {
                 return new GroupPolicyExemption(name, <any>undefined, { urn })
             case "azure:management/groupPolicyRemediation:GroupPolicyRemediation":
                 return new GroupPolicyRemediation(name, <any>undefined, { urn })
+            case "azure:management/groupPolicySetDefinition:GroupPolicySetDefinition":
+                return new GroupPolicySetDefinition(name, <any>undefined, { urn })
             case "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation":
                 return new GroupSubscriptionAssociation(name, <any>undefined, { urn })
             case "azure:management/groupTemplateDeployment:GroupTemplateDeployment":
@@ -92,6 +99,7 @@ pulumi.runtime.registerResourceModule("azure", "management/group", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupPolicyAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupPolicyExemption", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupPolicyRemediation", _module)
+pulumi.runtime.registerResourceModule("azure", "management/groupPolicySetDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupSubscriptionAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "management/groupTemplateDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "management/lock", _module)

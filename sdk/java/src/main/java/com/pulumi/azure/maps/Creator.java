@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Maps`: 2023-06-01
+ * * `Microsoft.Maps` - 2023-06-01
  * 
  * ## Import
  * 

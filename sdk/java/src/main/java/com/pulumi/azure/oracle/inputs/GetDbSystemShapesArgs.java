@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDbSystemShapesArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,10 +31,26 @@ public final class GetDbSystemShapesArgs extends com.pulumi.resources.InvokeArgs
         return this.location;
     }
 
+    /**
+     * The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+     * 
+     */
+    @Import(name="zone")
+    private @Nullable Output<String> zone;
+
+    /**
+     * @return The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+     * 
+     */
+    public Optional<Output<String>> zone() {
+        return Optional.ofNullable(this.zone);
+    }
+
     private GetDbSystemShapesArgs() {}
 
     private GetDbSystemShapesArgs(GetDbSystemShapesArgs $) {
         this.location = $.location;
+        this.zone = $.zone;
     }
 
     public static Builder builder() {
@@ -72,6 +90,27 @@ public final class GetDbSystemShapesArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param zone The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(@Nullable Output<String> zone) {
+            $.zone = zone;
+            return this;
+        }
+
+        /**
+         * @param zone The Cloud Exadata Infrastructure Azure zone, used to filter out the available DB System Shapes in the specific zone.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zone(String zone) {
+            return zone(Output.of(zone));
         }
 
         public GetDbSystemShapesArgs build() {

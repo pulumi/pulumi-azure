@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerapp.inputs;
 
+import com.pulumi.azure.containerapp.inputs.EnvironmentIdentityArgs;
 import com.pulumi.azure.containerapp.inputs.EnvironmentWorkloadProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -77,6 +78,21 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> dockerBridgeCidr() {
         return Optional.ofNullable(this.dockerBridgeCidr);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<EnvironmentIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<EnvironmentIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -335,6 +351,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         this.daprApplicationInsightsConnectionString = $.daprApplicationInsightsConnectionString;
         this.defaultDomain = $.defaultDomain;
         this.dockerBridgeCidr = $.dockerBridgeCidr;
+        this.identity = $.identity;
         this.infrastructureResourceGroupName = $.infrastructureResourceGroupName;
         this.infrastructureSubnetId = $.infrastructureSubnetId;
         this.internalLoadBalancerEnabled = $.internalLoadBalancerEnabled;
@@ -452,6 +469,27 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dockerBridgeCidr(String dockerBridgeCidr) {
             return dockerBridgeCidr(Output.of(dockerBridgeCidr));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<EnvironmentIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(EnvironmentIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

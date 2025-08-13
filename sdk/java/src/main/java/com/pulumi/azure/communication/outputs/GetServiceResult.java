@@ -17,7 +17,7 @@ public final class GetServiceResult {
      */
     private String dataLocation;
     /**
-     * @return The hostname of the Communication Service
+     * @return The hostname of the Communication Service.
      * 
      */
     private String hostname;
@@ -26,6 +26,11 @@ public final class GetServiceResult {
      * 
      */
     private String id;
+    /**
+     * @return The immutable resource id of the Communication Service.
+     * 
+     */
+    private String immutableResourceId;
     private String name;
     /**
      * @return The primary connection string of the Communication Service.
@@ -63,7 +68,7 @@ public final class GetServiceResult {
         return this.dataLocation;
     }
     /**
-     * @return The hostname of the Communication Service
+     * @return The hostname of the Communication Service.
      * 
      */
     public String hostname() {
@@ -75,6 +80,13 @@ public final class GetServiceResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The immutable resource id of the Communication Service.
+     * 
+     */
+    public String immutableResourceId() {
+        return this.immutableResourceId;
     }
     public String name() {
         return this.name;
@@ -130,6 +142,7 @@ public final class GetServiceResult {
         private String dataLocation;
         private String hostname;
         private String id;
+        private String immutableResourceId;
         private String name;
         private String primaryConnectionString;
         private String primaryKey;
@@ -143,6 +156,7 @@ public final class GetServiceResult {
     	      this.dataLocation = defaults.dataLocation;
     	      this.hostname = defaults.hostname;
     	      this.id = defaults.id;
+    	      this.immutableResourceId = defaults.immutableResourceId;
     	      this.name = defaults.name;
     	      this.primaryConnectionString = defaults.primaryConnectionString;
     	      this.primaryKey = defaults.primaryKey;
@@ -174,6 +188,14 @@ public final class GetServiceResult {
               throw new MissingRequiredPropertyException("GetServiceResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder immutableResourceId(String immutableResourceId) {
+            if (immutableResourceId == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "immutableResourceId");
+            }
+            this.immutableResourceId = immutableResourceId;
             return this;
         }
         @CustomType.Setter
@@ -237,6 +259,7 @@ public final class GetServiceResult {
             _resultValue.dataLocation = dataLocation;
             _resultValue.hostname = hostname;
             _resultValue.id = id;
+            _resultValue.immutableResourceId = immutableResourceId;
             _resultValue.name = name;
             _resultValue.primaryConnectionString = primaryConnectionString;
             _resultValue.primaryKey = primaryKey;

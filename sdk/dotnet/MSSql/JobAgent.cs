@@ -61,7 +61,7 @@ namespace Pulumi.Azure.MSSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Sql`: 2023-08-01-preview
+    /// * `Microsoft.Sql` - 2023-08-01-preview
     /// 
     /// ## Import
     /// 

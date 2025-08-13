@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.MachineLearningServices`: 2024-04-01
+ * * `Microsoft.MachineLearningServices` - 2025-06-01
  *
  * ## Import
  *
@@ -157,7 +157,7 @@ export class ComputeCluster extends pulumi.CustomResource {
      */
     public readonly nodePublicIpEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A `scaleSettings` block as defined below.
      */
     public readonly scaleSettings!: pulumi.Output<outputs.machinelearning.ComputeClusterScaleSettings>;
     /**
@@ -173,7 +173,7 @@ export class ComputeCluster extends pulumi.CustomResource {
      */
     public readonly subnetResourceId!: pulumi.Output<string>;
     /**
-     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -279,7 +279,7 @@ export interface ComputeClusterState {
      */
     nodePublicIpEnabled?: pulumi.Input<boolean>;
     /**
-     * A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A `scaleSettings` block as defined below.
      */
     scaleSettings?: pulumi.Input<inputs.machinelearning.ComputeClusterScaleSettings>;
     /**
@@ -295,7 +295,7 @@ export interface ComputeClusterState {
      */
     subnetResourceId?: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -341,7 +341,7 @@ export interface ComputeClusterArgs {
      */
     nodePublicIpEnabled?: pulumi.Input<boolean>;
     /**
-     * A `scaleSettings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A `scaleSettings` block as defined below.
      */
     scaleSettings: pulumi.Input<inputs.machinelearning.ComputeClusterScaleSettings>;
     /**
@@ -357,7 +357,7 @@ export interface ComputeClusterArgs {
      */
     subnetResourceId?: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

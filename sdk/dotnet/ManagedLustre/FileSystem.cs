@@ -74,6 +74,12 @@ namespace Pulumi.Azure.ManagedLustre
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// A `root_squash` block as defined below.
+        /// </summary>
+        [Output("rootSquash")]
+        public Output<Outputs.FileSystemRootSquash?> RootSquash { get; private set; } = null!;
+
+        /// <summary>
         /// The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
@@ -194,6 +200,12 @@ namespace Pulumi.Azure.ManagedLustre
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A `root_squash` block as defined below.
+        /// </summary>
+        [Input("rootSquash")]
+        public Input<Inputs.FileSystemRootSquashArgs>? RootSquash { get; set; }
+
+        /// <summary>
         /// The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName", required: true)]
@@ -292,6 +304,12 @@ namespace Pulumi.Azure.ManagedLustre
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `root_squash` block as defined below.
+        /// </summary>
+        [Input("rootSquash")]
+        public Input<Inputs.FileSystemRootSquashGetArgs>? RootSquash { get; set; }
 
         /// <summary>
         /// The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.

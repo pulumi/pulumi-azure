@@ -51,6 +51,21 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * 
+     */
+    @Import(name="databaseServerType")
+    private @Nullable Output<String> databaseServerType;
+
+    /**
+     * @return The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * 
+     */
+    public Optional<Output<String>> databaseServerType() {
+        return Optional.ofNullable(this.databaseServerType);
+    }
+
+    /**
      * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
@@ -156,6 +171,21 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * 
+     */
+    @Import(name="storageServerType")
+    private @Nullable Output<String> storageServerType;
+
+    /**
+     * @return The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * 
+     */
+    public Optional<Output<String>> storageServerType() {
+        return Optional.ofNullable(this.storageServerType);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
      * 
      */
@@ -190,6 +220,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
     private ExadataInfrastructureArgs(ExadataInfrastructureArgs $) {
         this.computeCount = $.computeCount;
         this.customerContacts = $.customerContacts;
+        this.databaseServerType = $.databaseServerType;
         this.displayName = $.displayName;
         this.location = $.location;
         this.maintenanceWindows = $.maintenanceWindows;
@@ -197,6 +228,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
         this.resourceGroupName = $.resourceGroupName;
         this.shape = $.shape;
         this.storageCount = $.storageCount;
+        this.storageServerType = $.storageServerType;
         this.tags = $.tags;
         this.zones = $.zones;
     }
@@ -269,6 +301,27 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
          */
         public Builder customerContacts(String... customerContacts) {
             return customerContacts(List.of(customerContacts));
+        }
+
+        /**
+         * @param databaseServerType The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseServerType(@Nullable Output<String> databaseServerType) {
+            $.databaseServerType = databaseServerType;
+            return this;
+        }
+
+        /**
+         * @param databaseServerType The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder databaseServerType(String databaseServerType) {
+            return databaseServerType(Output.of(databaseServerType));
         }
 
         /**
@@ -426,6 +479,27 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
          */
         public Builder storageCount(Integer storageCount) {
             return storageCount(Output.of(storageCount));
+        }
+
+        /**
+         * @param storageServerType The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageServerType(@Nullable Output<String> storageServerType) {
+            $.storageServerType = storageServerType;
+            return this;
+        }
+
+        /**
+         * @param storageServerType The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageServerType(String storageServerType) {
+            return storageServerType(Output.of(storageServerType));
         }
 
         /**

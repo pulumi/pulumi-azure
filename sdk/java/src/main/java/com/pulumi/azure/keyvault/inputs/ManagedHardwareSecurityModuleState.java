@@ -96,14 +96,14 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
     }
 
     /**
-     * Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+     * Whether traffic from public networks is permitted. Defaults to `true`.
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+     * @return Whether traffic from public networks is permitted. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -399,7 +399,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class ManagedHardwareSecurityModuleState extends com.pulumi.resourc
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created.
+         * @param publicNetworkAccessEnabled Whether traffic from public networks is permitted. Defaults to `true`.
          * 
          * @return builder
          * 

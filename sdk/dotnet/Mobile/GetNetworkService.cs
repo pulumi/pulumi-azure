@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Task<GetNetworkServiceResult> InvokeAsync(GetNetworkServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkServiceResult>("azure:mobile/getNetworkService:getNetworkService", args ?? new GetNetworkServiceArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkServiceResult> Invoke(GetNetworkServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceResult>("azure:mobile/getNetworkService:getNetworkService", args ?? new GetNetworkServiceInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkServiceResult> Invoke(GetNetworkServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceResult>("azure:mobile/getNetworkService:getNetworkService", args ?? new GetNetworkServiceInvokeArgs(), options.WithDefaults());

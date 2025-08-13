@@ -325,7 +325,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 
@@ -438,7 +438,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network`: 2024-05-01
+        * `Microsoft.Network` - 2024-05-01
 
         ## Import
 

@@ -223,9 +223,9 @@ type ReplicatedVMManagedDisk struct {
 	//
 	// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
 	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
-	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	TargetDiskType string `pulumi:"targetDiskType"`
-	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	TargetReplicaDiskType string `pulumi:"targetReplicaDiskType"`
 	// Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
 	TargetResourceGroupId string `pulumi:"targetResourceGroupId"`
@@ -253,9 +253,9 @@ type ReplicatedVMManagedDiskArgs struct {
 	//
 	// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
 	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
-	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
-	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+	// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 	TargetReplicaDiskType pulumi.StringInput `pulumi:"targetReplicaDiskType"`
 	// Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
 	TargetResourceGroupId pulumi.StringInput `pulumi:"targetResourceGroupId"`
@@ -336,12 +336,12 @@ func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.String
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
-// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskOutput) TargetDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.TargetDiskType }).(pulumi.StringOutput)
 }
 
-// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
+// What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskOutput) TargetReplicaDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.TargetReplicaDiskType }).(pulumi.StringOutput)
 }

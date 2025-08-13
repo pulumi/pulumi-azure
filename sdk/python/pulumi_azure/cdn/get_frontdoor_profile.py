@@ -148,7 +148,7 @@ def get_frontdoor_profile(identity: Optional[Union['GetFrontdoorProfileIdentityA
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn`: 2024-02-01
+    * `Microsoft.Cdn` - 2024-02-01
 
 
     :param Union['GetFrontdoorProfileIdentityArgs', 'GetFrontdoorProfileIdentityArgsDict'] identity: An `identity` block as defined below.
@@ -193,7 +193,7 @@ def get_frontdoor_profile_output(identity: Optional[pulumi.Input[Optional[Union[
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn`: 2024-02-01
+    * `Microsoft.Cdn` - 2024-02-01
 
 
     :param Union['GetFrontdoorProfileIdentityArgs', 'GetFrontdoorProfileIdentityArgsDict'] identity: An `identity` block as defined below.

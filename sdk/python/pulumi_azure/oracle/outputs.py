@@ -16,19 +16,78 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AutonomousDatabaseLongTermBackupSchedule',
     'CloudVmClusterDataCollectionOptions',
+    'CloudVmClusterFileSystemConfiguration',
     'ExadataInfrastructureMaintenanceWindow',
     'GetAdbsCharacterSetsCharacterSetResult',
     'GetAdbsNationalCharacterSetsCharacterSetResult',
+    'GetAutonomousDatabaseLongTermBackupScheduleResult',
     'GetCloudVmClusterDataCollectionOptionResult',
+    'GetCloudVmClusterFileSystemConfigurationResult',
     'GetCloudVmClusterIormConfigCachResult',
     'GetCloudVmClusterIormConfigCachDbPlanResult',
     'GetDbNodesDbNodeResult',
     'GetDbServersDbServerResult',
     'GetDbSystemShapesDbSystemShapeResult',
+    'GetExadataInfrastructureDefinedFileSystemConfigurationResult',
     'GetExadataInfrastructureEstimatedPatchingTimeResult',
     'GetExadataInfrastructureMaintenanceWindowResult',
 ]
+
+@pulumi.output_type
+class AutonomousDatabaseLongTermBackupSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repeatCadence":
+            suggest = "repeat_cadence"
+        elif key == "retentionPeriodInDays":
+            suggest = "retention_period_in_days"
+        elif key == "timeOfBackup":
+            suggest = "time_of_backup"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseLongTermBackupSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseLongTermBackupSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseLongTermBackupSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 repeat_cadence: _builtins.str,
+                 retention_period_in_days: _builtins.int,
+                 time_of_backup: _builtins.str):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "repeat_cadence", repeat_cadence)
+        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        pulumi.set(__self__, "time_of_backup", time_of_backup)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="repeatCadence")
+    def repeat_cadence(self) -> _builtins.str:
+        return pulumi.get(self, "repeat_cadence")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> _builtins.int:
+        return pulumi.get(self, "retention_period_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="timeOfBackup")
+    def time_of_backup(self) -> _builtins.str:
+        return pulumi.get(self, "time_of_backup")
+
 
 @pulumi.output_type
 class CloudVmClusterDataCollectionOptions(dict):
@@ -92,6 +151,56 @@ class CloudVmClusterDataCollectionOptions(dict):
         Indicates whether incident logs and trace collection are enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling incident logs collection allows Oracle to receive Events service notifications for guest VM issues, collect incident logs and traces, and use them to diagnose issues and resolve them. Optionally enable incident logs collection while provisioning a system. You can also disable or enable incident logs collection anytime using the `UpdateVmCluster`, `updateCloudVmCluster` or `updateDbsystem` API. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "incident_logs_enabled")
+
+
+@pulumi.output_type
+class CloudVmClusterFileSystemConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPoint":
+            suggest = "mount_point"
+        elif key == "sizeInGb":
+            suggest = "size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudVmClusterFileSystemConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudVmClusterFileSystemConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudVmClusterFileSystemConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_point: Optional[_builtins.str] = None,
+                 size_in_gb: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str mount_point: The mount path of the file system.
+        :param _builtins.int size_in_gb: The size of the virtual machine's file system.
+        """
+        if mount_point is not None:
+            pulumi.set(__self__, "mount_point", mount_point)
+        if size_in_gb is not None:
+            pulumi.set(__self__, "size_in_gb", size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> Optional[_builtins.str]:
+        """
+        The mount path of the file system.
+        """
+        return pulumi.get(self, "mount_point")
+
+    @_builtins.property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        The size of the virtual machine's file system.
+        """
+        return pulumi.get(self, "size_in_gb")
 
 
 @pulumi.output_type
@@ -247,6 +356,57 @@ class GetAdbsNationalCharacterSetsCharacterSetResult(dict):
 
 
 @pulumi.output_type
+class GetAutonomousDatabaseLongTermBackupScheduleResult(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 repeat_cadence: _builtins.str,
+                 retention_period_in_days: _builtins.int,
+                 time_of_backup: _builtins.str):
+        """
+        :param _builtins.bool enabled: A boolean value that indicates if long term backup is enabled/disabled.
+        :param _builtins.str repeat_cadence: The frequency for automated long-term backups.
+        :param _builtins.int retention_period_in_days: The retention period in days for Autonomous database backup.
+        :param _builtins.str time_of_backup: The date and time in which the backup would be made.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "repeat_cadence", repeat_cadence)
+        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        pulumi.set(__self__, "time_of_backup", time_of_backup)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        A boolean value that indicates if long term backup is enabled/disabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="repeatCadence")
+    def repeat_cadence(self) -> _builtins.str:
+        """
+        The frequency for automated long-term backups.
+        """
+        return pulumi.get(self, "repeat_cadence")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> _builtins.int:
+        """
+        The retention period in days for Autonomous database backup.
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="timeOfBackup")
+    def time_of_backup(self) -> _builtins.str:
+        """
+        The date and time in which the backup would be made.
+        """
+        return pulumi.get(self, "time_of_backup")
+
+
+@pulumi.output_type
 class GetCloudVmClusterDataCollectionOptionResult(dict):
     def __init__(__self__, *,
                  diagnostics_events_enabled: _builtins.bool,
@@ -284,6 +444,35 @@ class GetCloudVmClusterDataCollectionOptionResult(dict):
         Indicates whether incident logs and trace collection are enabled for the VM Cluster / Cloud VM Cluster / VMBM DBCS. Enabling incident logs collection allows Oracle to receive Events service notifications for guest VM issues, collect incident logs and traces, and use them to diagnose issues and resolve them. Optionally enable incident logs collection while provisioning a system. You can also disable or enable incident logs collection anytime using the `UpdateVmCluster`, `updateCloudVmCluster` or `updateDbsystem` API.
         """
         return pulumi.get(self, "incident_logs_enabled")
+
+
+@pulumi.output_type
+class GetCloudVmClusterFileSystemConfigurationResult(dict):
+    def __init__(__self__, *,
+                 mount_point: _builtins.str,
+                 size_in_gb: _builtins.int):
+        """
+        :param _builtins.str mount_point: The mount path of the file system.
+        :param _builtins.int size_in_gb: The size of the virtual machine's file system.
+        """
+        pulumi.set(__self__, "mount_point", mount_point)
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> _builtins.str:
+        """
+        The mount path of the file system.
+        """
+        return pulumi.get(self, "mount_point")
+
+    @_builtins.property
+    @pulumi.getter(name="sizeInGb")
+    def size_in_gb(self) -> _builtins.int:
+        """
+        The size of the virtual machine's file system.
+        """
+        return pulumi.get(self, "size_in_gb")
 
 
 @pulumi.output_type
@@ -620,6 +809,7 @@ class GetDbServersDbServerResult(dict):
                  autonomous_virtual_machine_ds: Sequence[_builtins.str],
                  autonomous_vm_cluster_ids: Sequence[_builtins.str],
                  compartment_id: _builtins.str,
+                 compute_model: _builtins.str,
                  cpu_core_count: _builtins.int,
                  db_node_ids: Sequence[_builtins.str],
                  db_node_storage_size_in_gbs: _builtins.int,
@@ -639,6 +829,7 @@ class GetDbServersDbServerResult(dict):
         :param Sequence[_builtins.str] autonomous_virtual_machine_ds: The list of [OCIDs](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Virtual Machines associated with the DB Server.
         :param Sequence[_builtins.str] autonomous_vm_cluster_ids: The list of [OCIDs](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous VM Clusters associated with the DB Server.
         :param _builtins.str compartment_id: The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+        :param _builtins.str compute_model: The compute model of the Exadata Infrastructure.
         :param _builtins.int cpu_core_count: The number of CPU cores enabled on the DB Server.
         :param Sequence[_builtins.str] db_node_ids: The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the Db nodes associated with the DB Server.
         :param _builtins.int db_node_storage_size_in_gbs: The allocated local node storage in GBs on the DB Server.
@@ -658,6 +849,7 @@ class GetDbServersDbServerResult(dict):
         pulumi.set(__self__, "autonomous_virtual_machine_ds", autonomous_virtual_machine_ds)
         pulumi.set(__self__, "autonomous_vm_cluster_ids", autonomous_vm_cluster_ids)
         pulumi.set(__self__, "compartment_id", compartment_id)
+        pulumi.set(__self__, "compute_model", compute_model)
         pulumi.set(__self__, "cpu_core_count", cpu_core_count)
         pulumi.set(__self__, "db_node_ids", db_node_ids)
         pulumi.set(__self__, "db_node_storage_size_in_gbs", db_node_storage_size_in_gbs)
@@ -697,6 +889,14 @@ class GetDbServersDbServerResult(dict):
         The [OCID](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
         """
         return pulumi.get(self, "compartment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="computeModel")
+    def compute_model(self) -> _builtins.str:
+        """
+        The compute model of the Exadata Infrastructure.
+        """
+        return pulumi.get(self, "compute_model")
 
     @_builtins.property
     @pulumi.getter(name="cpuCoreCount")
@@ -822,6 +1022,7 @@ class GetDbServersDbServerResult(dict):
 @pulumi.output_type
 class GetDbSystemShapesDbSystemShapeResult(dict):
     def __init__(__self__, *,
+                 are_server_types_supported: _builtins.bool,
                  available_core_count: _builtins.int,
                  available_core_count_per_node: _builtins.int,
                  available_data_storage_in_tbs: _builtins.int,
@@ -830,7 +1031,9 @@ class GetDbSystemShapesDbSystemShapeResult(dict):
                  available_db_node_storage_in_gbs: _builtins.int,
                  available_memory_in_gbs: _builtins.int,
                  available_memory_per_node_in_gbs: _builtins.int,
+                 compute_model: _builtins.str,
                  core_count_increment: _builtins.int,
+                 display_name: _builtins.str,
                  maximum_node_count: _builtins.int,
                  maximum_storage_count: _builtins.int,
                  minimum_core_count: _builtins.int,
@@ -843,6 +1046,7 @@ class GetDbSystemShapesDbSystemShapeResult(dict):
                  runtime_minimum_core_count: _builtins.int,
                  shape_family: _builtins.str):
         """
+        :param _builtins.bool are_server_types_supported: Indicates if the shape supports database and storage server types.
         :param _builtins.int available_core_count: The maximum number of CPU cores that can be enabled on the DB system for this shape.
         :param _builtins.int available_core_count_per_node: The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes.
         :param _builtins.int available_data_storage_in_tbs: The maximum data storage that can be enabled for this shape.
@@ -851,7 +1055,9 @@ class GetDbSystemShapesDbSystemShapeResult(dict):
         :param _builtins.int available_db_node_storage_in_gbs: The maximum DB Node storage that can be enabled for this shape.
         :param _builtins.int available_memory_in_gbs: The maximum memory that can be enabled for this shape.
         :param _builtins.int available_memory_per_node_in_gbs: The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.
+        :param _builtins.str compute_model: The compute model of the Exadata Infrastructure.
         :param _builtins.int core_count_increment: The discrete number by which the CPU core count for this shape can be increased or decreased.
+        :param _builtins.str display_name: The display name of the shape used for the DB system.
         :param _builtins.int maximum_node_count: The maximum number of compute servers available for this shape.
         :param _builtins.int maximum_storage_count: The maximum number of Exadata storage servers available for the Exadata infrastructure.
         :param _builtins.int minimum_core_count: The minimum number of CPU cores that can be enabled on the DB system for this shape.
@@ -864,6 +1070,7 @@ class GetDbSystemShapesDbSystemShapeResult(dict):
         :param _builtins.int runtime_minimum_core_count: The runtime minimum number of compute servers available for this shape.
         :param _builtins.str shape_family: The family of the shape used for the DB system.
         """
+        pulumi.set(__self__, "are_server_types_supported", are_server_types_supported)
         pulumi.set(__self__, "available_core_count", available_core_count)
         pulumi.set(__self__, "available_core_count_per_node", available_core_count_per_node)
         pulumi.set(__self__, "available_data_storage_in_tbs", available_data_storage_in_tbs)
@@ -872,7 +1079,9 @@ class GetDbSystemShapesDbSystemShapeResult(dict):
         pulumi.set(__self__, "available_db_node_storage_in_gbs", available_db_node_storage_in_gbs)
         pulumi.set(__self__, "available_memory_in_gbs", available_memory_in_gbs)
         pulumi.set(__self__, "available_memory_per_node_in_gbs", available_memory_per_node_in_gbs)
+        pulumi.set(__self__, "compute_model", compute_model)
         pulumi.set(__self__, "core_count_increment", core_count_increment)
+        pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "maximum_node_count", maximum_node_count)
         pulumi.set(__self__, "maximum_storage_count", maximum_storage_count)
         pulumi.set(__self__, "minimum_core_count", minimum_core_count)
@@ -884,6 +1093,14 @@ class GetDbSystemShapesDbSystemShapeResult(dict):
         pulumi.set(__self__, "minimum_storage_count", minimum_storage_count)
         pulumi.set(__self__, "runtime_minimum_core_count", runtime_minimum_core_count)
         pulumi.set(__self__, "shape_family", shape_family)
+
+    @_builtins.property
+    @pulumi.getter(name="areServerTypesSupported")
+    def are_server_types_supported(self) -> _builtins.bool:
+        """
+        Indicates if the shape supports database and storage server types.
+        """
+        return pulumi.get(self, "are_server_types_supported")
 
     @_builtins.property
     @pulumi.getter(name="availableCoreCount")
@@ -950,12 +1167,28 @@ class GetDbSystemShapesDbSystemShapeResult(dict):
         return pulumi.get(self, "available_memory_per_node_in_gbs")
 
     @_builtins.property
+    @pulumi.getter(name="computeModel")
+    def compute_model(self) -> _builtins.str:
+        """
+        The compute model of the Exadata Infrastructure.
+        """
+        return pulumi.get(self, "compute_model")
+
+    @_builtins.property
     @pulumi.getter(name="coreCountIncrement")
     def core_count_increment(self) -> _builtins.int:
         """
         The discrete number by which the CPU core count for this shape can be increased or decreased.
         """
         return pulumi.get(self, "core_count_increment")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> _builtins.str:
+        """
+        The display name of the shape used for the DB system.
+        """
+        return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="maximumNodeCount")
@@ -1044,6 +1277,57 @@ class GetDbSystemShapesDbSystemShapeResult(dict):
         The family of the shape used for the DB system.
         """
         return pulumi.get(self, "shape_family")
+
+
+@pulumi.output_type
+class GetExadataInfrastructureDefinedFileSystemConfigurationResult(dict):
+    def __init__(__self__, *,
+                 backup_partition_enabled: _builtins.bool,
+                 minimum_size_in_gb: _builtins.int,
+                 mount_point: _builtins.str,
+                 resizable_enabled: _builtins.bool):
+        """
+        :param _builtins.bool backup_partition_enabled: Whether the backup partition is enabled.
+        :param _builtins.int minimum_size_in_gb: The minimum size of the file system in GB.
+        :param _builtins.str mount_point: Mount path for the file system.
+        :param _builtins.bool resizable_enabled: Whether the resizable is enabled.
+        """
+        pulumi.set(__self__, "backup_partition_enabled", backup_partition_enabled)
+        pulumi.set(__self__, "minimum_size_in_gb", minimum_size_in_gb)
+        pulumi.set(__self__, "mount_point", mount_point)
+        pulumi.set(__self__, "resizable_enabled", resizable_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="backupPartitionEnabled")
+    def backup_partition_enabled(self) -> _builtins.bool:
+        """
+        Whether the backup partition is enabled.
+        """
+        return pulumi.get(self, "backup_partition_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumSizeInGb")
+    def minimum_size_in_gb(self) -> _builtins.int:
+        """
+        The minimum size of the file system in GB.
+        """
+        return pulumi.get(self, "minimum_size_in_gb")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPoint")
+    def mount_point(self) -> _builtins.str:
+        """
+        Mount path for the file system.
+        """
+        return pulumi.get(self, "mount_point")
+
+    @_builtins.property
+    @pulumi.getter(name="resizableEnabled")
+    def resizable_enabled(self) -> _builtins.bool:
+        """
+        Whether the resizable is enabled.
+        """
+        return pulumi.get(self, "resizable_enabled")
 
 
 @pulumi.output_type

@@ -186,7 +186,7 @@ def get_configuration(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Maintenance`: 2023-04-01
+    * `Microsoft.Maintenance` - 2023-04-01
 
 
     :param _builtins.str name: Specifies the name of the Maintenance Configuration.
@@ -232,7 +232,7 @@ def get_configuration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Maintenance`: 2023-04-01
+    * `Microsoft.Maintenance` - 2023-04-01
 
 
     :param _builtins.str name: Specifies the name of the Maintenance Configuration.

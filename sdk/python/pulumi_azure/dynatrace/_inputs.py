@@ -15,6 +15,10 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'MonitorEnvironmentPropertyArgs',
+    'MonitorEnvironmentPropertyArgsDict',
+    'MonitorEnvironmentPropertyEnvironmentInfoArgs',
+    'MonitorEnvironmentPropertyEnvironmentInfoArgsDict',
     'MonitorIdentityArgs',
     'MonitorIdentityArgsDict',
     'MonitorPlanArgs',
@@ -32,6 +36,68 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class MonitorEnvironmentPropertyArgsDict(TypedDict):
+        environment_infos: pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyEnvironmentInfoArgsDict']]]
+        """
+        Information about the Dynatrace environment. An `environment_info` block as defined below.
+        """
+elif False:
+    MonitorEnvironmentPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MonitorEnvironmentPropertyArgs:
+    def __init__(__self__, *,
+                 environment_infos: pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyEnvironmentInfoArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyEnvironmentInfoArgs']]] environment_infos: Information about the Dynatrace environment. An `environment_info` block as defined below.
+        """
+        pulumi.set(__self__, "environment_infos", environment_infos)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentInfos")
+    def environment_infos(self) -> pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyEnvironmentInfoArgs']]]:
+        """
+        Information about the Dynatrace environment. An `environment_info` block as defined below.
+        """
+        return pulumi.get(self, "environment_infos")
+
+    @environment_infos.setter
+    def environment_infos(self, value: pulumi.Input[Sequence[pulumi.Input['MonitorEnvironmentPropertyEnvironmentInfoArgs']]]):
+        pulumi.set(self, "environment_infos", value)
+
+
+if not MYPY:
+    class MonitorEnvironmentPropertyEnvironmentInfoArgsDict(TypedDict):
+        environment_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the Dynatrace environment to be created.
+        """
+elif False:
+    MonitorEnvironmentPropertyEnvironmentInfoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MonitorEnvironmentPropertyEnvironmentInfoArgs:
+    def __init__(__self__, *,
+                 environment_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] environment_id: The ID of the Dynatrace environment to be created.
+        """
+        pulumi.set(__self__, "environment_id", environment_id)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Dynatrace environment to be created.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "environment_id", value)
+
 
 if not MYPY:
     class MonitorIdentityArgsDict(TypedDict):

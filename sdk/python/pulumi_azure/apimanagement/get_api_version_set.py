@@ -157,7 +157,7 @@ def get_api_version_set(api_management_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2022-08-01
 
 
     :param _builtins.str api_management_name: The name of the API Management Service where the API Version Set exists.
@@ -205,7 +205,7 @@ def get_api_version_set_output(api_management_name: Optional[pulumi.Input[_built
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.ApiManagement`: 2022-08-01
+    * `Microsoft.ApiManagement` - 2022-08-01
 
 
     :param _builtins.str api_management_name: The name of the API Management Service where the API Version Set exists.

@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Cache`: 2024-11-01
+// * `Microsoft.Cache` - 2024-11-01
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCacheResult

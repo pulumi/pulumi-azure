@@ -1165,6 +1165,184 @@ func (o GetAccessConnectorIdentityArrayOutput) Index(i pulumi.IntInput) GetAcces
 	}).(GetAccessConnectorIdentityOutput)
 }
 
+type GetWorkspaceCustomParameter struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace.
+	MachineLearningWorkspaceId string `pulumi:"machineLearningWorkspaceId"`
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network).
+	NatGatewayName string `pulumi:"natGatewayName"`
+	// Are public IP Addresses not allowed?
+	NoPublicIp bool `pulumi:"noPublicIp"`
+	// The name of the Private Subnet within the Virtual Network.
+	PrivateSubnetName string `pulumi:"privateSubnetName"`
+	// Name of the Public IP for No Public IP workspace with managed virtual network.
+	PublicIpName string `pulumi:"publicIpName"`
+	// The name of the Public Subnet within the Virtual Network.
+	PublicSubnetName string `pulumi:"publicSubnetName"`
+	// Default Databricks File Storage account name.
+	StorageAccountName string `pulumi:"storageAccountName"`
+	// Storage account SKU name.
+	StorageAccountSkuName string `pulumi:"storageAccountSkuName"`
+	// The ID of a Virtual Network where this Databricks Cluster should be created.
+	VirtualNetworkId string `pulumi:"virtualNetworkId"`
+	// Address prefix for Managed virtual network.
+	VnetAddressPrefix string `pulumi:"vnetAddressPrefix"`
+}
+
+// GetWorkspaceCustomParameterInput is an input type that accepts GetWorkspaceCustomParameterArgs and GetWorkspaceCustomParameterOutput values.
+// You can construct a concrete instance of `GetWorkspaceCustomParameterInput` via:
+//
+//	GetWorkspaceCustomParameterArgs{...}
+type GetWorkspaceCustomParameterInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceCustomParameterOutput() GetWorkspaceCustomParameterOutput
+	ToGetWorkspaceCustomParameterOutputWithContext(context.Context) GetWorkspaceCustomParameterOutput
+}
+
+type GetWorkspaceCustomParameterArgs struct {
+	// The ID of a Azure Machine Learning workspace to link with Databricks workspace.
+	MachineLearningWorkspaceId pulumi.StringInput `pulumi:"machineLearningWorkspaceId"`
+	// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network).
+	NatGatewayName pulumi.StringInput `pulumi:"natGatewayName"`
+	// Are public IP Addresses not allowed?
+	NoPublicIp pulumi.BoolInput `pulumi:"noPublicIp"`
+	// The name of the Private Subnet within the Virtual Network.
+	PrivateSubnetName pulumi.StringInput `pulumi:"privateSubnetName"`
+	// Name of the Public IP for No Public IP workspace with managed virtual network.
+	PublicIpName pulumi.StringInput `pulumi:"publicIpName"`
+	// The name of the Public Subnet within the Virtual Network.
+	PublicSubnetName pulumi.StringInput `pulumi:"publicSubnetName"`
+	// Default Databricks File Storage account name.
+	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	// Storage account SKU name.
+	StorageAccountSkuName pulumi.StringInput `pulumi:"storageAccountSkuName"`
+	// The ID of a Virtual Network where this Databricks Cluster should be created.
+	VirtualNetworkId pulumi.StringInput `pulumi:"virtualNetworkId"`
+	// Address prefix for Managed virtual network.
+	VnetAddressPrefix pulumi.StringInput `pulumi:"vnetAddressPrefix"`
+}
+
+func (GetWorkspaceCustomParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceCustomParameter)(nil)).Elem()
+}
+
+func (i GetWorkspaceCustomParameterArgs) ToGetWorkspaceCustomParameterOutput() GetWorkspaceCustomParameterOutput {
+	return i.ToGetWorkspaceCustomParameterOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceCustomParameterArgs) ToGetWorkspaceCustomParameterOutputWithContext(ctx context.Context) GetWorkspaceCustomParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceCustomParameterOutput)
+}
+
+// GetWorkspaceCustomParameterArrayInput is an input type that accepts GetWorkspaceCustomParameterArray and GetWorkspaceCustomParameterArrayOutput values.
+// You can construct a concrete instance of `GetWorkspaceCustomParameterArrayInput` via:
+//
+//	GetWorkspaceCustomParameterArray{ GetWorkspaceCustomParameterArgs{...} }
+type GetWorkspaceCustomParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetWorkspaceCustomParameterArrayOutput() GetWorkspaceCustomParameterArrayOutput
+	ToGetWorkspaceCustomParameterArrayOutputWithContext(context.Context) GetWorkspaceCustomParameterArrayOutput
+}
+
+type GetWorkspaceCustomParameterArray []GetWorkspaceCustomParameterInput
+
+func (GetWorkspaceCustomParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceCustomParameter)(nil)).Elem()
+}
+
+func (i GetWorkspaceCustomParameterArray) ToGetWorkspaceCustomParameterArrayOutput() GetWorkspaceCustomParameterArrayOutput {
+	return i.ToGetWorkspaceCustomParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetWorkspaceCustomParameterArray) ToGetWorkspaceCustomParameterArrayOutputWithContext(ctx context.Context) GetWorkspaceCustomParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceCustomParameterArrayOutput)
+}
+
+type GetWorkspaceCustomParameterOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceCustomParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWorkspaceCustomParameter)(nil)).Elem()
+}
+
+func (o GetWorkspaceCustomParameterOutput) ToGetWorkspaceCustomParameterOutput() GetWorkspaceCustomParameterOutput {
+	return o
+}
+
+func (o GetWorkspaceCustomParameterOutput) ToGetWorkspaceCustomParameterOutputWithContext(ctx context.Context) GetWorkspaceCustomParameterOutput {
+	return o
+}
+
+// The ID of a Azure Machine Learning workspace to link with Databricks workspace.
+func (o GetWorkspaceCustomParameterOutput) MachineLearningWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) string { return v.MachineLearningWorkspaceId }).(pulumi.StringOutput)
+}
+
+// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network).
+func (o GetWorkspaceCustomParameterOutput) NatGatewayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) string { return v.NatGatewayName }).(pulumi.StringOutput)
+}
+
+// Are public IP Addresses not allowed?
+func (o GetWorkspaceCustomParameterOutput) NoPublicIp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) bool { return v.NoPublicIp }).(pulumi.BoolOutput)
+}
+
+// The name of the Private Subnet within the Virtual Network.
+func (o GetWorkspaceCustomParameterOutput) PrivateSubnetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) string { return v.PrivateSubnetName }).(pulumi.StringOutput)
+}
+
+// Name of the Public IP for No Public IP workspace with managed virtual network.
+func (o GetWorkspaceCustomParameterOutput) PublicIpName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) string { return v.PublicIpName }).(pulumi.StringOutput)
+}
+
+// The name of the Public Subnet within the Virtual Network.
+func (o GetWorkspaceCustomParameterOutput) PublicSubnetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) string { return v.PublicSubnetName }).(pulumi.StringOutput)
+}
+
+// Default Databricks File Storage account name.
+func (o GetWorkspaceCustomParameterOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) string { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Storage account SKU name.
+func (o GetWorkspaceCustomParameterOutput) StorageAccountSkuName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) string { return v.StorageAccountSkuName }).(pulumi.StringOutput)
+}
+
+// The ID of a Virtual Network where this Databricks Cluster should be created.
+func (o GetWorkspaceCustomParameterOutput) VirtualNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) string { return v.VirtualNetworkId }).(pulumi.StringOutput)
+}
+
+// Address prefix for Managed virtual network.
+func (o GetWorkspaceCustomParameterOutput) VnetAddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWorkspaceCustomParameter) string { return v.VnetAddressPrefix }).(pulumi.StringOutput)
+}
+
+type GetWorkspaceCustomParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWorkspaceCustomParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWorkspaceCustomParameter)(nil)).Elem()
+}
+
+func (o GetWorkspaceCustomParameterArrayOutput) ToGetWorkspaceCustomParameterArrayOutput() GetWorkspaceCustomParameterArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceCustomParameterArrayOutput) ToGetWorkspaceCustomParameterArrayOutputWithContext(ctx context.Context) GetWorkspaceCustomParameterArrayOutput {
+	return o
+}
+
+func (o GetWorkspaceCustomParameterArrayOutput) Index(i pulumi.IntInput) GetWorkspaceCustomParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWorkspaceCustomParameter {
+		return vs[0].([]GetWorkspaceCustomParameter)[vs[1].(int)]
+	}).(GetWorkspaceCustomParameterOutput)
+}
+
 type GetWorkspaceEnhancedSecurityCompliance struct {
 	// Whether automatic cluster updates for this workspace is enabled.
 	AutomaticClusterUpdateEnabled bool `pulumi:"automaticClusterUpdateEnabled"`
@@ -1665,6 +1843,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityArrayInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessConnectorIdentityInput)(nil)).Elem(), GetAccessConnectorIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessConnectorIdentityArrayInput)(nil)).Elem(), GetAccessConnectorIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceCustomParameterInput)(nil)).Elem(), GetWorkspaceCustomParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceCustomParameterArrayInput)(nil)).Elem(), GetWorkspaceCustomParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceEnhancedSecurityComplianceInput)(nil)).Elem(), GetWorkspaceEnhancedSecurityComplianceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceEnhancedSecurityComplianceArrayInput)(nil)).Elem(), GetWorkspaceEnhancedSecurityComplianceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceManagedDiskIdentityInput)(nil)).Elem(), GetWorkspaceManagedDiskIdentityArgs{})
@@ -1685,6 +1865,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessConnectorIdentityOutput{})
 	pulumi.RegisterOutputType(GetAccessConnectorIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceCustomParameterOutput{})
+	pulumi.RegisterOutputType(GetWorkspaceCustomParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceEnhancedSecurityComplianceOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceEnhancedSecurityComplianceArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceManagedDiskIdentityOutput{})

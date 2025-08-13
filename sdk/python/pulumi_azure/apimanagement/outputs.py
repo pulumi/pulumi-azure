@@ -107,6 +107,7 @@ __all__ = [
     'ServiceSignUpTermsOfService',
     'ServiceTenantAccess',
     'ServiceVirtualNetworkConfiguration',
+    'StandaloneGatewaySku',
     'GetApiSubscriptionKeyParameterNameResult',
     'GetGatewayLocationDataResult',
     'GetServiceAdditionalLocationResult',
@@ -7164,6 +7165,36 @@ class ServiceVirtualNetworkConfiguration(dict):
         The id of the subnet that will be used for the API Management.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class StandaloneGatewaySku(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 capacity: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str name: The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+        :param _builtins.int capacity: The number of deployed units of the SKU. Defaults to `1`.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the SKU. The only possible value is `WorkspaceGatewayPremium`.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> Optional[_builtins.int]:
+        """
+        The number of deployed units of the SKU. Defaults to `1`.
+        """
+        return pulumi.get(self, "capacity")
 
 
 @pulumi.output_type

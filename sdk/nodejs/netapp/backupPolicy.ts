@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp`: 2025-01-01
+ * * `Microsoft.NetApp` - 2025-01-01
  *
  * ## Import
  *
@@ -91,7 +91,7 @@ export class BackupPolicy extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      *
      * > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      */
@@ -109,7 +109,7 @@ export class BackupPolicy extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      */
     public readonly weeklyBackupsToKeep!: pulumi.Output<number | undefined>;
 
@@ -179,7 +179,7 @@ export interface BackupPolicyState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      *
      * > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      */
@@ -197,7 +197,7 @@ export interface BackupPolicyState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      */
     weeklyBackupsToKeep?: pulumi.Input<number>;
 }
@@ -223,7 +223,7 @@ export interface BackupPolicyArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      *
      * > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      */
@@ -241,7 +241,7 @@ export interface BackupPolicyArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
+     * Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      */
     weeklyBackupsToKeep?: pulumi.Input<number>;
 }

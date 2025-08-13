@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Iot
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DeviceUpdate`: 2022-10-01
+    /// * `Microsoft.DeviceUpdate` - 2022-10-01
     /// 
     /// ## Import
     /// 

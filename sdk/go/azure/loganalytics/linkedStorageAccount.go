@@ -58,9 +58,9 @@ import (
 //				return err
 //			}
 //			_, err = loganalytics.NewLinkedStorageAccount(ctx, "example", &loganalytics.LinkedStorageAccountArgs{
-//				DataSourceType:      pulumi.String("CustomLogs"),
-//				ResourceGroupName:   example.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				DataSourceType:    pulumi.String("CustomLogs"),
+//				ResourceGroupName: example.Name,
+//				WorkspaceId:       exampleAnalyticsWorkspace.ID(),
 //				StorageAccountIds: pulumi.StringArray{
 //					exampleAccount.ID(),
 //				},
@@ -79,7 +79,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.OperationalInsights`: 2020-08-01
+// * `Microsoft.OperationalInsights` - 2020-08-01
 //
 // ## Import
 //
@@ -98,6 +98,7 @@ type LinkedStorageAccount struct {
 	// The storage account resource ids to be linked.
 	StorageAccountIds pulumi.StringArrayOutput `pulumi:"storageAccountIds"`
 	// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+	WorkspaceId         pulumi.StringOutput `pulumi:"workspaceId"`
 	WorkspaceResourceId pulumi.StringOutput `pulumi:"workspaceResourceId"`
 }
 
@@ -116,9 +117,6 @@ func NewLinkedStorageAccount(ctx *pulumi.Context,
 	}
 	if args.StorageAccountIds == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountIds'")
-	}
-	if args.WorkspaceResourceId == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceResourceId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkedStorageAccount
@@ -150,6 +148,7 @@ type linkedStorageAccountState struct {
 	// The storage account resource ids to be linked.
 	StorageAccountIds []string `pulumi:"storageAccountIds"`
 	// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+	WorkspaceId         *string `pulumi:"workspaceId"`
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
@@ -161,6 +160,7 @@ type LinkedStorageAccountState struct {
 	// The storage account resource ids to be linked.
 	StorageAccountIds pulumi.StringArrayInput
 	// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+	WorkspaceId         pulumi.StringPtrInput
 	WorkspaceResourceId pulumi.StringPtrInput
 }
 
@@ -176,7 +176,8 @@ type linkedStorageAccountArgs struct {
 	// The storage account resource ids to be linked.
 	StorageAccountIds []string `pulumi:"storageAccountIds"`
 	// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
-	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+	WorkspaceId         *string `pulumi:"workspaceId"`
+	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
 // The set of arguments for constructing a LinkedStorageAccount resource.
@@ -188,7 +189,8 @@ type LinkedStorageAccountArgs struct {
 	// The storage account resource ids to be linked.
 	StorageAccountIds pulumi.StringArrayInput
 	// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
-	WorkspaceResourceId pulumi.StringInput
+	WorkspaceId         pulumi.StringPtrInput
+	WorkspaceResourceId pulumi.StringPtrInput
 }
 
 func (LinkedStorageAccountArgs) ElementType() reflect.Type {
@@ -294,6 +296,10 @@ func (o LinkedStorageAccountOutput) StorageAccountIds() pulumi.StringArrayOutput
 }
 
 // The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
+func (o LinkedStorageAccountOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedStorageAccount) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func (o LinkedStorageAccountOutput) WorkspaceResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedStorageAccount) pulumi.StringOutput { return v.WorkspaceResourceId }).(pulumi.StringOutput)
 }

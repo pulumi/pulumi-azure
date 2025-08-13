@@ -80,7 +80,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network`: 2024-05-01
+// * `Microsoft.Network` - 2024-05-01
 //
 // ## Import
 //
@@ -97,7 +97,7 @@ type NetworkManagerIpamPool struct {
 	// The description of the Network Manager IPAM Pool.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name for the Network Manager IPAM Pool.
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Network Manager IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
@@ -119,9 +119,6 @@ func NewNetworkManagerIpamPool(ctx *pulumi.Context,
 
 	if args.AddressPrefixes == nil {
 		return nil, errors.New("invalid value for required argument 'AddressPrefixes'")
-	}
-	if args.DisplayName == nil {
-		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
 	if args.NetworkManagerId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkManagerId'")
@@ -196,7 +193,7 @@ type networkManagerIpamPoolArgs struct {
 	// The description of the Network Manager IPAM Pool.
 	Description *string `pulumi:"description"`
 	// The display name for the Network Manager IPAM Pool.
-	DisplayName string `pulumi:"displayName"`
+	DisplayName *string `pulumi:"displayName"`
 	// The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Network Manager IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
@@ -216,7 +213,7 @@ type NetworkManagerIpamPoolArgs struct {
 	// The description of the Network Manager IPAM Pool.
 	Description pulumi.StringPtrInput
 	// The display name for the Network Manager IPAM Pool.
-	DisplayName pulumi.StringInput
+	DisplayName pulumi.StringPtrInput
 	// The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Network Manager IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
@@ -327,8 +324,8 @@ func (o NetworkManagerIpamPoolOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The display name for the Network Manager IPAM Pool.
-func (o NetworkManagerIpamPoolOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkManagerIpamPool) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+func (o NetworkManagerIpamPoolOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerIpamPool) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.

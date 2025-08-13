@@ -61,7 +61,9 @@ import javax.annotation.Nullable;
  *             .displayName("example-exadata-infra")
  *             .storageCount(3)
  *             .computeCount(2)
- *             .shape("Exadata.X9M")
+ *             .shape("Exadata.X11M")
+ *             .databaseServerType("X11M")
+ *             .storageServerType("X11M-HC")
  *             .build());
  * 
  *     }
@@ -75,7 +77,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Oracle.Database`: 2024-06-01
+ * * `Oracle.Database` - 2025-03-01
  * 
  * ## Import
  * 
@@ -115,6 +117,20 @@ public class ExadataInfrastructure extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> customerContacts() {
         return this.customerContacts;
+    }
+    /**
+     * The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * 
+     */
+    @Export(name="databaseServerType", refs={String.class}, tree="[0]")
+    private Output<String> databaseServerType;
+
+    /**
+     * @return The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * 
+     */
+    public Output<String> databaseServerType() {
+        return this.databaseServerType;
     }
     /**
      * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -213,6 +229,20 @@ public class ExadataInfrastructure extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> storageCount() {
         return this.storageCount;
+    }
+    /**
+     * The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * 
+     */
+    @Export(name="storageServerType", refs={String.class}, tree="[0]")
+    private Output<String> storageServerType;
+
+    /**
+     * @return The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+     * 
+     */
+    public Output<String> storageServerType() {
+        return this.storageServerType;
     }
     /**
      * A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.

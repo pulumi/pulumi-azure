@@ -34,6 +34,11 @@ public final class FluxConfigurationGitRepository {
      */
     private @Nullable String localAuthReference;
     /**
+     * @return Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+     * 
+     */
+    private @Nullable String provider;
+    /**
      * @return Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
      * 
      */
@@ -99,6 +104,13 @@ public final class FluxConfigurationGitRepository {
         return Optional.ofNullable(this.localAuthReference);
     }
     /**
+     * @return Specifies the OIDC provider used for workload identity federation authentication against git repositories. Possible values are `Azure`, `Generic`.
+     * 
+     */
+    public Optional<String> provider() {
+        return Optional.ofNullable(this.provider);
+    }
+    /**
      * @return Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
      * 
      */
@@ -161,6 +173,7 @@ public final class FluxConfigurationGitRepository {
         private @Nullable String httpsKeyBase64;
         private @Nullable String httpsUser;
         private @Nullable String localAuthReference;
+        private @Nullable String provider;
         private String referenceType;
         private String referenceValue;
         private @Nullable String sshKnownHostsBase64;
@@ -175,6 +188,7 @@ public final class FluxConfigurationGitRepository {
     	      this.httpsKeyBase64 = defaults.httpsKeyBase64;
     	      this.httpsUser = defaults.httpsUser;
     	      this.localAuthReference = defaults.localAuthReference;
+    	      this.provider = defaults.provider;
     	      this.referenceType = defaults.referenceType;
     	      this.referenceValue = defaults.referenceValue;
     	      this.sshKnownHostsBase64 = defaults.sshKnownHostsBase64;
@@ -206,6 +220,12 @@ public final class FluxConfigurationGitRepository {
         public Builder localAuthReference(@Nullable String localAuthReference) {
 
             this.localAuthReference = localAuthReference;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder provider(@Nullable String provider) {
+
+            this.provider = provider;
             return this;
         }
         @CustomType.Setter
@@ -262,6 +282,7 @@ public final class FluxConfigurationGitRepository {
             _resultValue.httpsKeyBase64 = httpsKeyBase64;
             _resultValue.httpsUser = httpsUser;
             _resultValue.localAuthReference = localAuthReference;
+            _resultValue.provider = provider;
             _resultValue.referenceType = referenceType;
             _resultValue.referenceValue = referenceValue;
             _resultValue.sshKnownHostsBase64 = sshKnownHostsBase64;

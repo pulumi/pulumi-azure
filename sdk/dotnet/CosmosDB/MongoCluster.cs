@@ -95,7 +95,7 @@ namespace Pulumi.Azure.CosmosDB
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.DocumentDB`: 2024-07-01
+    /// * `Microsoft.DocumentDB` - 2024-07-01
     /// 
     /// ## Import
     /// 
@@ -205,7 +205,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -516,7 +516,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
+        /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

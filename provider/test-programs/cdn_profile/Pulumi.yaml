@@ -13,7 +13,7 @@ resources:
       location: ${resourceGroup.location}
       resourceGroupName: ${resourceGroup.name}
       # This is becoming case sensitive in the provider
-      sku: standard_verizon
+      sku: standard_microsoft
       tags:
         environment: Production
         cost_center: MSFT

@@ -626,7 +626,7 @@ class Service(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.AAD`: 2021-05-01
+        * `Microsoft.AAD` - 2021-05-01
 
         ## Import
 
@@ -782,7 +782,7 @@ class Service(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.AAD`: 2021-05-01
+        * `Microsoft.AAD` - 2021-05-01
 
         ## Import
 

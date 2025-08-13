@@ -13,7 +13,7 @@ namespace Pulumi.Azure.DataProtection.Inputs
     public sealed class BackupPolicyDiskRetentionRuleCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        /// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Disk to be created.
         /// </summary>
         [Input("absoluteCriteria")]
         public Input<string>? AbsoluteCriteria { get; set; }

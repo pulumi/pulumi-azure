@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Dashboard
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Dashboard`: 2023-09-01
+    /// * `Microsoft.Dashboard` - 2023-09-01
     /// 
     /// ## Import
     /// 

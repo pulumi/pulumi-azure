@@ -204,7 +204,7 @@ class Workspace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.HealthcareApis`: 2024-03-31
+        * `Microsoft.HealthcareApis` - 2024-03-31
 
         ## Import
 
@@ -247,7 +247,7 @@ class Workspace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.HealthcareApis`: 2024-03-31
+        * `Microsoft.HealthcareApis` - 2024-03-31
 
         ## Import
 

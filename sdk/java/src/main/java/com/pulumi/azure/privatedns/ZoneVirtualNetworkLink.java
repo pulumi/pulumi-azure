@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network`: 2024-06-01
+ * * `Microsoft.Network` - 2024-06-01
  * 
  * ## Import
  * 
@@ -139,6 +139,20 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<Boolean>> registrationEnabled() {
         return Codegen.optional(this.registrationEnabled);
+    }
+    /**
+     * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+     * 
+     */
+    @Export(name="resolutionPolicy", refs={String.class}, tree="[0]")
+    private Output<String> resolutionPolicy;
+
+    /**
+     * @return Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
+     * 
+     */
+    public Output<String> resolutionPolicy() {
+        return this.resolutionPolicy;
     }
     /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.

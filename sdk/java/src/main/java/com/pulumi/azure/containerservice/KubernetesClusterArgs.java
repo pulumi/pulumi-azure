@@ -36,6 +36,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -172,6 +173,21 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<Boolean>> costAnalysisEnabled() {
         return Optional.ofNullable(this.costAnalysisEnabled);
+    }
+
+    /**
+     * A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+     * 
+     */
+    @Import(name="customCaTrustCertificatesBase64s")
+    private @Nullable Output<List<String>> customCaTrustCertificatesBase64s;
+
+    /**
+     * @return A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+     * 
+     */
+    public Optional<Output<List<String>>> customCaTrustCertificatesBase64s() {
+        return Optional.ofNullable(this.customCaTrustCertificatesBase64s);
     }
 
     /**
@@ -326,14 +342,14 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+     * Specifies the interval in hours when images should be cleaned up.
      * 
      */
     @Import(name="imageCleanerIntervalHours")
     private @Nullable Output<Integer> imageCleanerIntervalHours;
 
     /**
-     * @return Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+     * @return Specifies the interval in hours when images should be cleaned up.
      * 
      */
     public Optional<Output<Integer>> imageCleanerIntervalHours() {
@@ -1096,6 +1112,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         this.azurePolicyEnabled = $.azurePolicyEnabled;
         this.confidentialComputing = $.confidentialComputing;
         this.costAnalysisEnabled = $.costAnalysisEnabled;
+        this.customCaTrustCertificatesBase64s = $.customCaTrustCertificatesBase64s;
         this.defaultNodePool = $.defaultNodePool;
         this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.dnsPrefix = $.dnsPrefix;
@@ -1340,6 +1357,37 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customCaTrustCertificatesBase64s(@Nullable Output<List<String>> customCaTrustCertificatesBase64s) {
+            $.customCaTrustCertificatesBase64s = customCaTrustCertificatesBase64s;
+            return this;
+        }
+
+        /**
+         * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customCaTrustCertificatesBase64s(List<String> customCaTrustCertificatesBase64s) {
+            return customCaTrustCertificatesBase64s(Output.of(customCaTrustCertificatesBase64s));
+        }
+
+        /**
+         * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customCaTrustCertificatesBase64s(String... customCaTrustCertificatesBase64s) {
+            return customCaTrustCertificatesBase64s(List.of(customCaTrustCertificatesBase64s));
+        }
+
+        /**
          * @param defaultNodePool Specifies configuration for &#34;System&#34; mode node pool. A `default_node_pool` block as defined below.
          * 
          * @return builder
@@ -1545,7 +1593,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up.
          * 
          * @return builder
          * 
@@ -1556,7 +1604,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
+         * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up.
          * 
          * @return builder
          * 

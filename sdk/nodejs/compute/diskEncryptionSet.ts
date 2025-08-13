@@ -187,7 +187,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Compute`: 2022-03-02
+ * * `Microsoft.Compute` - 2022-03-02
  *
  * ## Import
  *

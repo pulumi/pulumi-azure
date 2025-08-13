@@ -72,6 +72,11 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly metadataHost!: pulumi.Output<string | undefined>;
     /**
+     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+     * the endpoint. e.g. for Azure Container Apps.
+     */
+    public readonly msiApiVersion!: pulumi.Output<string | undefined>;
+    /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.
      */
@@ -136,6 +141,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["environment"] = (args ? args.environment : undefined) ?? (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
             resourceInputs["features"] = pulumi.output(args ? args.features : undefined).apply(JSON.stringify);
             resourceInputs["metadataHost"] = (args ? args.metadataHost : undefined) ?? utilities.getEnv("ARM_METADATA_HOSTNAME");
+            resourceInputs["msiApiVersion"] = args ? args.msiApiVersion : undefined;
             resourceInputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
             resourceInputs["oidcRequestToken"] = args?.oidcRequestToken ? pulumi.secret(args.oidcRequestToken) : undefined;
             resourceInputs["oidcRequestUrl"] = args ? args.oidcRequestUrl : undefined;
@@ -224,6 +230,11 @@ export interface ProviderArgs {
      * The Hostname which should be used for the Azure Metadata Service.
      */
     metadataHost?: pulumi.Input<string>;
+    /**
+     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
+     * the endpoint. e.g. for Azure Container Apps.
+     */
+    msiApiVersion?: pulumi.Input<string>;
     /**
      * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
      * automatically.

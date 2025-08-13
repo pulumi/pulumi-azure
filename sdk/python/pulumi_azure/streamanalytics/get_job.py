@@ -270,7 +270,7 @@ def get_job(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+    * `Microsoft.StreamAnalytics` - 2021-10-01-preview
 
 
     :param _builtins.str name: Specifies the name of the Stream Analytics Job.
@@ -323,7 +323,7 @@ def get_job_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+    * `Microsoft.StreamAnalytics` - 2021-10-01-preview
 
 
     :param _builtins.str name: Specifies the name of the Stream Analytics Job.

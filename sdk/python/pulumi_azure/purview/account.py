@@ -24,6 +24,7 @@ class AccountArgs:
                  identity: pulumi.Input['AccountIdentityArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -33,6 +34,9 @@ class AccountArgs:
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
+        :param pulumi.Input[_builtins.bool] managed_event_hub_enabled: Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+               
+               > **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
                > **Note:** `managed_resource_group_name` must be a new Resource Group.
@@ -44,6 +48,8 @@ class AccountArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_event_hub_enabled is not None:
+            pulumi.set(__self__, "managed_event_hub_enabled", managed_event_hub_enabled)
         if managed_resource_group_name is not None:
             pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if name is not None:
@@ -88,6 +94,20 @@ class AccountArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedEventHubEnabled")
+    def managed_event_hub_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+
+        > **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+        """
+        return pulumi.get(self, "managed_event_hub_enabled")
+
+    @managed_event_hub_enabled.setter
+    def managed_event_hub_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "managed_event_hub_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
@@ -145,10 +165,12 @@ class _AccountState:
     def __init__(__self__, *,
                  atlas_kafka_endpoint_primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
                  atlas_kafka_endpoint_secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
                  catalog_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  guardian_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -160,10 +182,14 @@ class _AccountState:
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[_builtins.str] atlas_kafka_endpoint_primary_connection_string: Atlas Kafka endpoint primary connection string.
         :param pulumi.Input[_builtins.str] atlas_kafka_endpoint_secondary_connection_string: Atlas Kafka endpoint secondary connection string.
+        :param pulumi.Input[_builtins.str] aws_external_id: Configured in AWS to allow use of the role arn used for scanning
         :param pulumi.Input[_builtins.str] catalog_endpoint: Catalog endpoint.
         :param pulumi.Input[_builtins.str] guardian_endpoint: Guardian endpoint.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
+        :param pulumi.Input[_builtins.bool] managed_event_hub_enabled: Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+               
+               > **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
                > **Note:** `managed_resource_group_name` must be a new Resource Group.
@@ -178,6 +204,8 @@ class _AccountState:
             pulumi.set(__self__, "atlas_kafka_endpoint_primary_connection_string", atlas_kafka_endpoint_primary_connection_string)
         if atlas_kafka_endpoint_secondary_connection_string is not None:
             pulumi.set(__self__, "atlas_kafka_endpoint_secondary_connection_string", atlas_kafka_endpoint_secondary_connection_string)
+        if aws_external_id is not None:
+            pulumi.set(__self__, "aws_external_id", aws_external_id)
         if catalog_endpoint is not None:
             pulumi.set(__self__, "catalog_endpoint", catalog_endpoint)
         if guardian_endpoint is not None:
@@ -186,6 +214,8 @@ class _AccountState:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_event_hub_enabled is not None:
+            pulumi.set(__self__, "managed_event_hub_enabled", managed_event_hub_enabled)
         if managed_resource_group_name is not None:
             pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if managed_resources is not None:
@@ -224,6 +254,18 @@ class _AccountState:
     @atlas_kafka_endpoint_secondary_connection_string.setter
     def atlas_kafka_endpoint_secondary_connection_string(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "atlas_kafka_endpoint_secondary_connection_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsExternalId")
+    def aws_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Configured in AWS to allow use of the role arn used for scanning
+        """
+        return pulumi.get(self, "aws_external_id")
+
+    @aws_external_id.setter
+    def aws_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "aws_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="catalogEndpoint")
@@ -272,6 +314,20 @@ class _AccountState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedEventHubEnabled")
+    def managed_event_hub_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+
+        > **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+        """
+        return pulumi.get(self, "managed_event_hub_enabled")
+
+    @managed_event_hub_enabled.setter
+    def managed_event_hub_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "managed_event_hub_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")
@@ -368,6 +424,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -400,7 +457,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Purview`: 2021-07-01
+        * `Microsoft.Purview` - 2021-12-01
 
         ## Import
 
@@ -414,6 +471,9 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
+        :param pulumi.Input[_builtins.bool] managed_event_hub_enabled: Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+               
+               > **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
                > **Note:** `managed_resource_group_name` must be a new Resource Group.
@@ -454,7 +514,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Purview`: 2021-07-01
+        * `Microsoft.Purview` - 2021-12-01
 
         ## Import
 
@@ -481,6 +541,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -499,6 +560,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["managed_event_hub_enabled"] = managed_event_hub_enabled
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_enabled"] = public_network_enabled
@@ -508,6 +570,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["atlas_kafka_endpoint_primary_connection_string"] = None
             __props__.__dict__["atlas_kafka_endpoint_secondary_connection_string"] = None
+            __props__.__dict__["aws_external_id"] = None
             __props__.__dict__["catalog_endpoint"] = None
             __props__.__dict__["guardian_endpoint"] = None
             __props__.__dict__["managed_resources"] = None
@@ -526,10 +589,12 @@ class Account(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             atlas_kafka_endpoint_primary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
             atlas_kafka_endpoint_secondary_connection_string: Optional[pulumi.Input[_builtins.str]] = None,
+            aws_external_id: Optional[pulumi.Input[_builtins.str]] = None,
             catalog_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             guardian_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
             identity: Optional[pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
+            managed_event_hub_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             managed_resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             managed_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict']]]]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -546,10 +611,14 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] atlas_kafka_endpoint_primary_connection_string: Atlas Kafka endpoint primary connection string.
         :param pulumi.Input[_builtins.str] atlas_kafka_endpoint_secondary_connection_string: Atlas Kafka endpoint secondary connection string.
+        :param pulumi.Input[_builtins.str] aws_external_id: Configured in AWS to allow use of the role arn used for scanning
         :param pulumi.Input[_builtins.str] catalog_endpoint: Catalog endpoint.
         :param pulumi.Input[_builtins.str] guardian_endpoint: Guardian endpoint.
         :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
+        :param pulumi.Input[_builtins.bool] managed_event_hub_enabled: Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+               
+               > **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
                > **Note:** `managed_resource_group_name` must be a new Resource Group.
@@ -566,10 +635,12 @@ class Account(pulumi.CustomResource):
 
         __props__.__dict__["atlas_kafka_endpoint_primary_connection_string"] = atlas_kafka_endpoint_primary_connection_string
         __props__.__dict__["atlas_kafka_endpoint_secondary_connection_string"] = atlas_kafka_endpoint_secondary_connection_string
+        __props__.__dict__["aws_external_id"] = aws_external_id
         __props__.__dict__["catalog_endpoint"] = catalog_endpoint
         __props__.__dict__["guardian_endpoint"] = guardian_endpoint
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
+        __props__.__dict__["managed_event_hub_enabled"] = managed_event_hub_enabled
         __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
         __props__.__dict__["managed_resources"] = managed_resources
         __props__.__dict__["name"] = name
@@ -594,6 +665,14 @@ class Account(pulumi.CustomResource):
         Atlas Kafka endpoint secondary connection string.
         """
         return pulumi.get(self, "atlas_kafka_endpoint_secondary_connection_string")
+
+    @_builtins.property
+    @pulumi.getter(name="awsExternalId")
+    def aws_external_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Configured in AWS to allow use of the role arn used for scanning
+        """
+        return pulumi.get(self, "aws_external_id")
 
     @_builtins.property
     @pulumi.getter(name="catalogEndpoint")
@@ -626,6 +705,16 @@ class Account(pulumi.CustomResource):
         The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="managedEventHubEnabled")
+    def managed_event_hub_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
+
+        > **Note:** `managed_event_hub_enabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
+        """
+        return pulumi.get(self, "managed_event_hub_enabled")
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupName")

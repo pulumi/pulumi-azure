@@ -94,6 +94,13 @@ namespace Pulumi.Azure.Role
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Authorization` - 2022-05-01-preview
+    /// 
     /// ## Import
     /// 
     /// Role Definitions can be imported using the `resource id`, e.g.

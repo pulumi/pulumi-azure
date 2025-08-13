@@ -1712,7 +1712,9 @@ func (o AccountStorageArrayOutput) Index(i pulumi.IntInput) AccountStorageOutput
 }
 
 type DeploymentModel struct {
-	// The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
+	// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Possible values of `format` can be found by running the command `az cognitiveservices account list-models`. The available values may vary by region or due to quota limitations. These could include models from `AI21 Labs`, `Black Forest Labs`, `Cohere`, `Core42`, `DeepSeek`, `Meta`, `Microsoft`, `Mistral AI`, `OpenAI`, and `xAI`.
 	Format string `pulumi:"format"`
 	// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -1732,7 +1734,9 @@ type DeploymentModelInput interface {
 }
 
 type DeploymentModelArgs struct {
-	// The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
+	// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Possible values of `format` can be found by running the command `az cognitiveservices account list-models`. The available values may vary by region or due to quota limitations. These could include models from `AI21 Labs`, `Black Forest Labs`, `Cohere`, `Core42`, `DeepSeek`, `Meta`, `Microsoft`, `Mistral AI`, `OpenAI`, and `xAI`.
 	Format pulumi.StringInput `pulumi:"format"`
 	// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1817,7 +1821,9 @@ func (o DeploymentModelOutput) ToDeploymentModelPtrOutputWithContext(ctx context
 	}).(DeploymentModelPtrOutput)
 }
 
-// The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
+// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+//
+// > **Note:** Possible values of `format` can be found by running the command `az cognitiveservices account list-models`. The available values may vary by region or due to quota limitations. These could include models from `AI21 Labs`, `Black Forest Labs`, `Cohere`, `Core42`, `DeepSeek`, `Meta`, `Microsoft`, `Mistral AI`, `OpenAI`, and `xAI`.
 func (o DeploymentModelOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentModel) string { return v.Format }).(pulumi.StringOutput)
 }
@@ -1856,7 +1862,9 @@ func (o DeploymentModelPtrOutput) Elem() DeploymentModelOutput {
 	}).(DeploymentModelOutput)
 }
 
-// The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
+// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+//
+// > **Note:** Possible values of `format` can be found by running the command `az cognitiveservices account list-models`. The available values may vary by region or due to quota limitations. These could include models from `AI21 Labs`, `Black Forest Labs`, `Cohere`, `Core42`, `DeepSeek`, `Meta`, `Microsoft`, `Mistral AI`, `OpenAI`, and `xAI`.
 func (o DeploymentModelPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentModel) *string {
 		if v == nil {

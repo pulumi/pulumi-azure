@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Solutions`: 2021-07-01
+ * * `Microsoft.Solutions` - 2021-07-01
  */
 export function getDefinition(args: GetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,7 +82,7 @@ export interface GetDefinitionResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Solutions`: 2021-07-01
+ * * `Microsoft.Solutions` - 2021-07-01
  */
 export function getDefinitionOutput(args: GetDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

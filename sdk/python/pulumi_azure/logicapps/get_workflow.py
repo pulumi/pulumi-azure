@@ -234,7 +234,7 @@ def get_workflow(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Logic`: 2019-05-01
+    * `Microsoft.Logic` - 2019-05-01
 
 
     :param _builtins.str name: The name of the Logic App Workflow.
@@ -284,7 +284,7 @@ def get_workflow_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Logic`: 2019-05-01
+    * `Microsoft.Logic` - 2019-05-01
 
 
     :param _builtins.str name: The name of the Logic App Workflow.

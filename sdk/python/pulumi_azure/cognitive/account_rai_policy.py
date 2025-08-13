@@ -272,7 +272,7 @@ class AccountRaiPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CognitiveServices`: 2024-10-01
+        * `Microsoft.CognitiveServices` - 2025-06-01
 
         ## Import
 
@@ -333,7 +333,7 @@ class AccountRaiPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CognitiveServices`: 2024-10-01
+        * `Microsoft.CognitiveServices` - 2025-06-01
 
         ## Import
 

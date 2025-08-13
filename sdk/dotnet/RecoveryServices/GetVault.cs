@@ -38,7 +38,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.RecoveryServices`: 2024-01-01
+        /// * `Microsoft.RecoveryServices` - 2024-01-01
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.RecoveryServices`: 2024-01-01
+        /// * `Microsoft.RecoveryServices` - 2024-01-01
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.RecoveryServices`: 2024-01-01
+        /// * `Microsoft.RecoveryServices` - 2024-01-01
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure:recoveryservices/getVault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());

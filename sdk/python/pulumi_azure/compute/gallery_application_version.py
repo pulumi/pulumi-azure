@@ -492,7 +492,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2022-03-03
+        * `Microsoft.Compute` - 2022-03-03
 
         ## Import
 
@@ -582,7 +582,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute`: 2022-03-03
+        * `Microsoft.Compute` - 2022-03-03
 
         ## Import
 

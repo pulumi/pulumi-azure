@@ -42,6 +42,13 @@ import * as utilities from "../utilities";
  * * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
  * * [Redis: Available Configuration Settings](https://redis.io/topics/config)
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cache` - 2024-11-01
+ *
  * ## Import
  *
  * Redis Cache's can be imported using the `resource id`, e.g.

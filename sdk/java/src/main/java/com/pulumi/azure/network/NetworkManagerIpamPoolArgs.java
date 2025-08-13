@@ -52,15 +52,15 @@ public final class NetworkManagerIpamPoolArgs extends com.pulumi.resources.Resou
      * The display name for the Network Manager IPAM Pool.
      * 
      */
-    @Import(name="displayName", required=true)
-    private Output<String> displayName;
+    @Import(name="displayName")
+    private @Nullable Output<String> displayName;
 
     /**
      * @return The display name for the Network Manager IPAM Pool.
      * 
      */
-    public Output<String> displayName() {
-        return this.displayName;
+    public Optional<Output<String>> displayName() {
+        return Optional.ofNullable(this.displayName);
     }
 
     /**
@@ -227,7 +227,7 @@ public final class NetworkManagerIpamPoolArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder displayName(Output<String> displayName) {
+        public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
@@ -350,9 +350,6 @@ public final class NetworkManagerIpamPoolArgs extends com.pulumi.resources.Resou
         public NetworkManagerIpamPoolArgs build() {
             if ($.addressPrefixes == null) {
                 throw new MissingRequiredPropertyException("NetworkManagerIpamPoolArgs", "addressPrefixes");
-            }
-            if ($.displayName == null) {
-                throw new MissingRequiredPropertyException("NetworkManagerIpamPoolArgs", "displayName");
             }
             if ($.networkManagerId == null) {
                 throw new MissingRequiredPropertyException("NetworkManagerIpamPoolArgs", "networkManagerId");

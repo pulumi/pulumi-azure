@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.eventhub.EventHubArgs;
 import com.pulumi.azure.eventhub.inputs.EventHubState;
 import com.pulumi.azure.eventhub.outputs.EventHubCaptureDescription;
+import com.pulumi.azure.eventhub.outputs.EventHubRetentionDescription;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -81,7 +82,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.EventHub`: 2024-01-01
+ * * `Microsoft.EventHub` - 2024-01-01
  * 
  * ## Import
  * 
@@ -213,6 +214,20 @@ public class EventHub extends com.pulumi.resources.CustomResource {
 
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A `retention_description` block as defined below.
+     * 
+     */
+    @Export(name="retentionDescription", refs={EventHubRetentionDescription.class}, tree="[0]")
+    private Output<EventHubRetentionDescription> retentionDescription;
+
+    /**
+     * @return A `retention_description` block as defined below.
+     * 
+     */
+    public Output<EventHubRetentionDescription> retentionDescription() {
+        return this.retentionDescription;
     }
     /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.

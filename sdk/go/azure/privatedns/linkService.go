@@ -30,6 +30,8 @@ type LinkService struct {
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds pulumi.StringArrayOutput `pulumi:"autoApprovalSubscriptionIds"`
+	// The destination IP address of the Private Link Service.
+	DestinationIpAddress pulumi.StringPtrOutput `pulumi:"destinationIpAddress"`
 	// Should the Private Link Service support the Proxy Protocol?
 	EnableProxyProtocol pulumi.BoolPtrOutput `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
@@ -59,9 +61,6 @@ func NewLinkService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.LoadBalancerFrontendIpConfigurationIds == nil {
-		return nil, errors.New("invalid value for required argument 'LoadBalancerFrontendIpConfigurationIds'")
-	}
 	if args.NatIpConfigurations == nil {
 		return nil, errors.New("invalid value for required argument 'NatIpConfigurations'")
 	}
@@ -95,6 +94,8 @@ type linkServiceState struct {
 	Alias *string `pulumi:"alias"`
 	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
+	// The destination IP address of the Private Link Service.
+	DestinationIpAddress *string `pulumi:"destinationIpAddress"`
 	// Should the Private Link Service support the Proxy Protocol?
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
@@ -122,6 +123,8 @@ type LinkServiceState struct {
 	Alias pulumi.StringPtrInput
 	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds pulumi.StringArrayInput
+	// The destination IP address of the Private Link Service.
+	DestinationIpAddress pulumi.StringPtrInput
 	// Should the Private Link Service support the Proxy Protocol?
 	EnableProxyProtocol pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Private Link Service.
@@ -151,6 +154,8 @@ func (LinkServiceState) ElementType() reflect.Type {
 type linkServiceArgs struct {
 	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
+	// The destination IP address of the Private Link Service.
+	DestinationIpAddress *string `pulumi:"destinationIpAddress"`
 	// Should the Private Link Service support the Proxy Protocol?
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
@@ -177,6 +182,8 @@ type linkServiceArgs struct {
 type LinkServiceArgs struct {
 	// A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 	AutoApprovalSubscriptionIds pulumi.StringArrayInput
+	// The destination IP address of the Private Link Service.
+	DestinationIpAddress pulumi.StringPtrInput
 	// Should the Private Link Service support the Proxy Protocol?
 	EnableProxyProtocol pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Private Link Service.
@@ -294,6 +301,11 @@ func (o LinkServiceOutput) Alias() pulumi.StringOutput {
 // A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
 func (o LinkServiceOutput) AutoApprovalSubscriptionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.StringArrayOutput { return v.AutoApprovalSubscriptionIds }).(pulumi.StringArrayOutput)
+}
+
+// The destination IP address of the Private Link Service.
+func (o LinkServiceOutput) DestinationIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkService) pulumi.StringPtrOutput { return v.DestinationIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // Should the Private Link Service support the Proxy Protocol?

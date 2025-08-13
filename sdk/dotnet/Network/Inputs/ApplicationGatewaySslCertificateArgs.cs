@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
         /// 
-        /// &gt; **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+        /// &gt; **Note:** To implement certificate rotation, the `azure.keyvault.Secret` attribute `versionless_id` should be used, although `id` is also supported.
         /// 
         /// &gt; **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
         /// 

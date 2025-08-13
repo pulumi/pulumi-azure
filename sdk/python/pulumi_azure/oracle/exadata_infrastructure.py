@@ -28,9 +28,11 @@ class ExadataInfrastructureArgs:
                  storage_count: pulumi.Input[_builtins.int],
                  zones: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 database_server_type: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_server_type: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExadataInfrastructure resource.
@@ -41,9 +43,11 @@ class ExadataInfrastructureArgs:
         :param pulumi.Input[_builtins.int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
         """
         pulumi.set(__self__, "compute_count", compute_count)
@@ -54,12 +58,16 @@ class ExadataInfrastructureArgs:
         pulumi.set(__self__, "zones", zones)
         if customer_contacts is not None:
             pulumi.set(__self__, "customer_contacts", customer_contacts)
+        if database_server_type is not None:
+            pulumi.set(__self__, "database_server_type", database_server_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if maintenance_windows is not None:
             pulumi.set(__self__, "maintenance_windows", maintenance_windows)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if storage_server_type is not None:
+            pulumi.set(__self__, "storage_server_type", storage_server_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -148,6 +156,18 @@ class ExadataInfrastructureArgs:
         pulumi.set(self, "customer_contacts", value)
 
     @_builtins.property
+    @pulumi.getter(name="databaseServerType")
+    def database_server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        """
+        return pulumi.get(self, "database_server_type")
+
+    @database_server_type.setter
+    def database_server_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "database_server_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -184,6 +204,18 @@ class ExadataInfrastructureArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageServerType")
+    def storage_server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        """
+        return pulumi.get(self, "storage_server_type")
+
+    @storage_server_type.setter
+    def storage_server_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_server_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -201,6 +233,7 @@ class _ExadataInfrastructureState:
     def __init__(__self__, *,
                  compute_count: Optional[pulumi.Input[_builtins.int]] = None,
                  customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 database_server_type: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]]] = None,
@@ -208,12 +241,14 @@ class _ExadataInfrastructureState:
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  shape: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 storage_server_type: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ExadataInfrastructure resources.
         :param pulumi.Input[_builtins.int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ExadataInfrastructureMaintenanceWindowArgs']]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -221,6 +256,7 @@ class _ExadataInfrastructureState:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
@@ -228,6 +264,8 @@ class _ExadataInfrastructureState:
             pulumi.set(__self__, "compute_count", compute_count)
         if customer_contacts is not None:
             pulumi.set(__self__, "customer_contacts", customer_contacts)
+        if database_server_type is not None:
+            pulumi.set(__self__, "database_server_type", database_server_type)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if location is not None:
@@ -242,6 +280,8 @@ class _ExadataInfrastructureState:
             pulumi.set(__self__, "shape", shape)
         if storage_count is not None:
             pulumi.set(__self__, "storage_count", storage_count)
+        if storage_server_type is not None:
+            pulumi.set(__self__, "storage_server_type", storage_server_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
@@ -270,6 +310,18 @@ class _ExadataInfrastructureState:
     @customer_contacts.setter
     def customer_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "customer_contacts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseServerType")
+    def database_server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        """
+        return pulumi.get(self, "database_server_type")
+
+    @database_server_type.setter
+    def database_server_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "database_server_type", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -356,6 +408,18 @@ class _ExadataInfrastructureState:
         pulumi.set(self, "storage_count", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageServerType")
+    def storage_server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        """
+        return pulumi.get(self, "storage_server_type")
+
+    @storage_server_type.setter
+    def storage_server_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "storage_server_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -388,6 +452,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_count: Optional[pulumi.Input[_builtins.int]] = None,
                  customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 database_server_type: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]]] = None,
@@ -395,6 +460,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  shape: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 storage_server_type: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -418,7 +484,9 @@ class ExadataInfrastructure(pulumi.CustomResource):
             display_name="example-exadata-infra",
             storage_count=3,
             compute_count=2,
-            shape="Exadata.X9M")
+            shape="Exadata.X11M",
+            database_server_type="X11M",
+            storage_server_type="X11M-HC")
         ```
 
         ## API Providers
@@ -426,7 +494,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Oracle.Database`: 2024-06-01
+        * `Oracle.Database` - 2025-03-01
 
         ## Import
 
@@ -440,6 +508,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -447,6 +516,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
@@ -476,7 +546,9 @@ class ExadataInfrastructure(pulumi.CustomResource):
             display_name="example-exadata-infra",
             storage_count=3,
             compute_count=2,
-            shape="Exadata.X9M")
+            shape="Exadata.X11M",
+            database_server_type="X11M",
+            storage_server_type="X11M-HC")
         ```
 
         ## API Providers
@@ -484,7 +556,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Oracle.Database`: 2024-06-01
+        * `Oracle.Database` - 2025-03-01
 
         ## Import
 
@@ -511,6 +583,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_count: Optional[pulumi.Input[_builtins.int]] = None,
                  customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 database_server_type: Optional[pulumi.Input[_builtins.str]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]]] = None,
@@ -518,6 +591,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  shape: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 storage_server_type: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -533,6 +607,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
                 raise TypeError("Missing required property 'compute_count'")
             __props__.__dict__["compute_count"] = compute_count
             __props__.__dict__["customer_contacts"] = customer_contacts
+            __props__.__dict__["database_server_type"] = database_server_type
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
@@ -548,6 +623,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
             if storage_count is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_count'")
             __props__.__dict__["storage_count"] = storage_count
+            __props__.__dict__["storage_server_type"] = storage_server_type
             __props__.__dict__["tags"] = tags
             if zones is None and not opts.urn:
                 raise TypeError("Missing required property 'zones'")
@@ -564,6 +640,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             compute_count: Optional[pulumi.Input[_builtins.int]] = None,
             customer_contacts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            database_server_type: Optional[pulumi.Input[_builtins.str]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             maintenance_windows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]]] = None,
@@ -571,6 +648,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             shape: Optional[pulumi.Input[_builtins.str]] = None,
             storage_count: Optional[pulumi.Input[_builtins.int]] = None,
+            storage_server_type: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ExadataInfrastructure':
         """
@@ -582,6 +660,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] compute_count: The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] customer_contacts: The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -589,6 +668,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.int] storage_count: The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
@@ -598,6 +678,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
 
         __props__.__dict__["compute_count"] = compute_count
         __props__.__dict__["customer_contacts"] = customer_contacts
+        __props__.__dict__["database_server_type"] = database_server_type
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["location"] = location
         __props__.__dict__["maintenance_windows"] = maintenance_windows
@@ -605,6 +686,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["shape"] = shape
         __props__.__dict__["storage_count"] = storage_count
+        __props__.__dict__["storage_server_type"] = storage_server_type
         __props__.__dict__["tags"] = tags
         __props__.__dict__["zones"] = zones
         return ExadataInfrastructure(resource_name, opts=opts, __props__=__props__)
@@ -624,6 +706,14 @@ class ExadataInfrastructure(pulumi.CustomResource):
         The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "customer_contacts")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseServerType")
+    def database_server_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        """
+        return pulumi.get(self, "database_server_type")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -680,6 +770,14 @@ class ExadataInfrastructure(pulumi.CustomResource):
         The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         """
         return pulumi.get(self, "storage_count")
+
+    @_builtins.property
+    @pulumi.getter(name="storageServerType")
+    def storage_server_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        """
+        return pulumi.get(self, "storage_server_type")
 
     @_builtins.property
     @pulumi.getter

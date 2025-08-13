@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Task<GetNetworkPacketCoreDataPlaneResult> InvokeAsync(GetNetworkPacketCoreDataPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkPacketCoreDataPlaneResult>("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args ?? new GetNetworkPacketCoreDataPlaneArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkPacketCoreDataPlaneResult> Invoke(GetNetworkPacketCoreDataPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPacketCoreDataPlaneResult>("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args ?? new GetNetworkPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Mobile
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.MobileNetwork`: 2022-11-01
+        /// * `Microsoft.MobileNetwork` - 2022-11-01
         /// </summary>
         public static Output<GetNetworkPacketCoreDataPlaneResult> Invoke(GetNetworkPacketCoreDataPlaneInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPacketCoreDataPlaneResult>("azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane", args ?? new GetNetworkPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());

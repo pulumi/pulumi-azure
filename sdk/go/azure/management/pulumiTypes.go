@@ -753,6 +753,272 @@ func (o GroupPolicyAssignmentResourceSelectorSelectorArrayOutput) Index(i pulumi
 	}).(GroupPolicyAssignmentResourceSelectorSelectorOutput)
 }
 
+type GroupPolicySetDefinitionPolicyDefinitionGroup struct {
+	// The ID of a resource that contains additional metadata for this Policy Definition Group.
+	AdditionalMetadataResourceId *string `pulumi:"additionalMetadataResourceId"`
+	// The category of this Policy Definition Group.
+	Category *string `pulumi:"category"`
+	// The description of this Policy Definition Group.
+	Description *string `pulumi:"description"`
+	// The display name of this Policy Definition Group.
+	DisplayName *string `pulumi:"displayName"`
+	// The name which should be used for this Policy Definition Group.
+	Name string `pulumi:"name"`
+}
+
+// GroupPolicySetDefinitionPolicyDefinitionGroupInput is an input type that accepts GroupPolicySetDefinitionPolicyDefinitionGroupArgs and GroupPolicySetDefinitionPolicyDefinitionGroupOutput values.
+// You can construct a concrete instance of `GroupPolicySetDefinitionPolicyDefinitionGroupInput` via:
+//
+//	GroupPolicySetDefinitionPolicyDefinitionGroupArgs{...}
+type GroupPolicySetDefinitionPolicyDefinitionGroupInput interface {
+	pulumi.Input
+
+	ToGroupPolicySetDefinitionPolicyDefinitionGroupOutput() GroupPolicySetDefinitionPolicyDefinitionGroupOutput
+	ToGroupPolicySetDefinitionPolicyDefinitionGroupOutputWithContext(context.Context) GroupPolicySetDefinitionPolicyDefinitionGroupOutput
+}
+
+type GroupPolicySetDefinitionPolicyDefinitionGroupArgs struct {
+	// The ID of a resource that contains additional metadata for this Policy Definition Group.
+	AdditionalMetadataResourceId pulumi.StringPtrInput `pulumi:"additionalMetadataResourceId"`
+	// The category of this Policy Definition Group.
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// The description of this Policy Definition Group.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The display name of this Policy Definition Group.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The name which should be used for this Policy Definition Group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GroupPolicySetDefinitionPolicyDefinitionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicySetDefinitionPolicyDefinitionGroup)(nil)).Elem()
+}
+
+func (i GroupPolicySetDefinitionPolicyDefinitionGroupArgs) ToGroupPolicySetDefinitionPolicyDefinitionGroupOutput() GroupPolicySetDefinitionPolicyDefinitionGroupOutput {
+	return i.ToGroupPolicySetDefinitionPolicyDefinitionGroupOutputWithContext(context.Background())
+}
+
+func (i GroupPolicySetDefinitionPolicyDefinitionGroupArgs) ToGroupPolicySetDefinitionPolicyDefinitionGroupOutputWithContext(ctx context.Context) GroupPolicySetDefinitionPolicyDefinitionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicySetDefinitionPolicyDefinitionGroupOutput)
+}
+
+// GroupPolicySetDefinitionPolicyDefinitionGroupArrayInput is an input type that accepts GroupPolicySetDefinitionPolicyDefinitionGroupArray and GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput values.
+// You can construct a concrete instance of `GroupPolicySetDefinitionPolicyDefinitionGroupArrayInput` via:
+//
+//	GroupPolicySetDefinitionPolicyDefinitionGroupArray{ GroupPolicySetDefinitionPolicyDefinitionGroupArgs{...} }
+type GroupPolicySetDefinitionPolicyDefinitionGroupArrayInput interface {
+	pulumi.Input
+
+	ToGroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput() GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput
+	ToGroupPolicySetDefinitionPolicyDefinitionGroupArrayOutputWithContext(context.Context) GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput
+}
+
+type GroupPolicySetDefinitionPolicyDefinitionGroupArray []GroupPolicySetDefinitionPolicyDefinitionGroupInput
+
+func (GroupPolicySetDefinitionPolicyDefinitionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicySetDefinitionPolicyDefinitionGroup)(nil)).Elem()
+}
+
+func (i GroupPolicySetDefinitionPolicyDefinitionGroupArray) ToGroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput() GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput {
+	return i.ToGroupPolicySetDefinitionPolicyDefinitionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GroupPolicySetDefinitionPolicyDefinitionGroupArray) ToGroupPolicySetDefinitionPolicyDefinitionGroupArrayOutputWithContext(ctx context.Context) GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput)
+}
+
+type GroupPolicySetDefinitionPolicyDefinitionGroupOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicySetDefinitionPolicyDefinitionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicySetDefinitionPolicyDefinitionGroup)(nil)).Elem()
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupOutput) ToGroupPolicySetDefinitionPolicyDefinitionGroupOutput() GroupPolicySetDefinitionPolicyDefinitionGroupOutput {
+	return o
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupOutput) ToGroupPolicySetDefinitionPolicyDefinitionGroupOutputWithContext(ctx context.Context) GroupPolicySetDefinitionPolicyDefinitionGroupOutput {
+	return o
+}
+
+// The ID of a resource that contains additional metadata for this Policy Definition Group.
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupOutput) AdditionalMetadataResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionGroup) *string { return v.AdditionalMetadataResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The category of this Policy Definition Group.
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionGroup) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// The description of this Policy Definition Group.
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionGroup) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of this Policy Definition Group.
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionGroup) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The name which should be used for this Policy Definition Group.
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicySetDefinitionPolicyDefinitionGroup)(nil)).Elem()
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput) ToGroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput() GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput {
+	return o
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput) ToGroupPolicySetDefinitionPolicyDefinitionGroupArrayOutputWithContext(ctx context.Context) GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput {
+	return o
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput) Index(i pulumi.IntInput) GroupPolicySetDefinitionPolicyDefinitionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupPolicySetDefinitionPolicyDefinitionGroup {
+		return vs[0].([]GroupPolicySetDefinitionPolicyDefinitionGroup)[vs[1].(int)]
+	}).(GroupPolicySetDefinitionPolicyDefinitionGroupOutput)
+}
+
+type GroupPolicySetDefinitionPolicyDefinitionReference struct {
+	// Parameter values for the references Policy Definition in JSON format.
+	ParameterValues *string `pulumi:"parameterValues"`
+	// The ID of the Policy Definition to include in this Policy Set Definition.
+	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
+	// Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+	PolicyGroupNames []string `pulumi:"policyGroupNames"`
+	// A unique ID within this Policy Set Definition for this Policy Definition Reference.
+	ReferenceId *string `pulumi:"referenceId"`
+	// The version of the Policy Definition to use.
+	Version *string `pulumi:"version"`
+}
+
+// GroupPolicySetDefinitionPolicyDefinitionReferenceInput is an input type that accepts GroupPolicySetDefinitionPolicyDefinitionReferenceArgs and GroupPolicySetDefinitionPolicyDefinitionReferenceOutput values.
+// You can construct a concrete instance of `GroupPolicySetDefinitionPolicyDefinitionReferenceInput` via:
+//
+//	GroupPolicySetDefinitionPolicyDefinitionReferenceArgs{...}
+type GroupPolicySetDefinitionPolicyDefinitionReferenceInput interface {
+	pulumi.Input
+
+	ToGroupPolicySetDefinitionPolicyDefinitionReferenceOutput() GroupPolicySetDefinitionPolicyDefinitionReferenceOutput
+	ToGroupPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(context.Context) GroupPolicySetDefinitionPolicyDefinitionReferenceOutput
+}
+
+type GroupPolicySetDefinitionPolicyDefinitionReferenceArgs struct {
+	// Parameter values for the references Policy Definition in JSON format.
+	ParameterValues pulumi.StringPtrInput `pulumi:"parameterValues"`
+	// The ID of the Policy Definition to include in this Policy Set Definition.
+	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
+	// Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+	PolicyGroupNames pulumi.StringArrayInput `pulumi:"policyGroupNames"`
+	// A unique ID within this Policy Set Definition for this Policy Definition Reference.
+	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
+	// The version of the Policy Definition to use.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (GroupPolicySetDefinitionPolicyDefinitionReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (i GroupPolicySetDefinitionPolicyDefinitionReferenceArgs) ToGroupPolicySetDefinitionPolicyDefinitionReferenceOutput() GroupPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return i.ToGroupPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(context.Background())
+}
+
+func (i GroupPolicySetDefinitionPolicyDefinitionReferenceArgs) ToGroupPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx context.Context) GroupPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicySetDefinitionPolicyDefinitionReferenceOutput)
+}
+
+// GroupPolicySetDefinitionPolicyDefinitionReferenceArrayInput is an input type that accepts GroupPolicySetDefinitionPolicyDefinitionReferenceArray and GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput values.
+// You can construct a concrete instance of `GroupPolicySetDefinitionPolicyDefinitionReferenceArrayInput` via:
+//
+//	GroupPolicySetDefinitionPolicyDefinitionReferenceArray{ GroupPolicySetDefinitionPolicyDefinitionReferenceArgs{...} }
+type GroupPolicySetDefinitionPolicyDefinitionReferenceArrayInput interface {
+	pulumi.Input
+
+	ToGroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput() GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput
+	ToGroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(context.Context) GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput
+}
+
+type GroupPolicySetDefinitionPolicyDefinitionReferenceArray []GroupPolicySetDefinitionPolicyDefinitionReferenceInput
+
+func (GroupPolicySetDefinitionPolicyDefinitionReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (i GroupPolicySetDefinitionPolicyDefinitionReferenceArray) ToGroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput() GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return i.ToGroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i GroupPolicySetDefinitionPolicyDefinitionReferenceArray) ToGroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx context.Context) GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput)
+}
+
+type GroupPolicySetDefinitionPolicyDefinitionReferenceOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicySetDefinitionPolicyDefinitionReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupPolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceOutput) ToGroupPolicySetDefinitionPolicyDefinitionReferenceOutput() GroupPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return o
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceOutput) ToGroupPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx context.Context) GroupPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return o
+}
+
+// Parameter values for the references Policy Definition in JSON format.
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceOutput) ParameterValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionReference) *string { return v.ParameterValues }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Policy Definition to include in this Policy Set Definition.
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceOutput) PolicyDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionReference) string { return v.PolicyDefinitionId }).(pulumi.StringOutput)
+}
+
+// Specifies a list of Policy Definition Groups names that this Policy Definition Reference belongs to.
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceOutput) PolicyGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionReference) []string { return v.PolicyGroupNames }).(pulumi.StringArrayOutput)
+}
+
+// A unique ID within this Policy Set Definition for this Policy Definition Reference.
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceOutput) ReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionReference) *string { return v.ReferenceId }).(pulumi.StringPtrOutput)
+}
+
+// The version of the Policy Definition to use.
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupPolicySetDefinitionPolicyDefinitionReference) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupPolicySetDefinitionPolicyDefinitionReference)(nil)).Elem()
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToGroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput() GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return o
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToGroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx context.Context) GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
+	return o
+}
+
+func (o GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) GroupPolicySetDefinitionPolicyDefinitionReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupPolicySetDefinitionPolicyDefinitionReference {
+		return vs[0].([]GroupPolicySetDefinitionPolicyDefinitionReference)[vs[1].(int)]
+	}).(GroupPolicySetDefinitionPolicyDefinitionReferenceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentIdentityInput)(nil)).Elem(), GroupPolicyAssignmentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentIdentityPtrInput)(nil)).Elem(), GroupPolicyAssignmentIdentityArgs{})
@@ -766,6 +1032,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentResourceSelectorArrayInput)(nil)).Elem(), GroupPolicyAssignmentResourceSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentResourceSelectorSelectorInput)(nil)).Elem(), GroupPolicyAssignmentResourceSelectorSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyAssignmentResourceSelectorSelectorArrayInput)(nil)).Elem(), GroupPolicyAssignmentResourceSelectorSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicySetDefinitionPolicyDefinitionGroupInput)(nil)).Elem(), GroupPolicySetDefinitionPolicyDefinitionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicySetDefinitionPolicyDefinitionGroupArrayInput)(nil)).Elem(), GroupPolicySetDefinitionPolicyDefinitionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicySetDefinitionPolicyDefinitionReferenceInput)(nil)).Elem(), GroupPolicySetDefinitionPolicyDefinitionReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicySetDefinitionPolicyDefinitionReferenceArrayInput)(nil)).Elem(), GroupPolicySetDefinitionPolicyDefinitionReferenceArray{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentIdentityOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentNonComplianceMessageOutput{})
@@ -778,4 +1048,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupPolicyAssignmentResourceSelectorArrayOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentResourceSelectorSelectorOutput{})
 	pulumi.RegisterOutputType(GroupPolicyAssignmentResourceSelectorSelectorArrayOutput{})
+	pulumi.RegisterOutputType(GroupPolicySetDefinitionPolicyDefinitionGroupOutput{})
+	pulumi.RegisterOutputType(GroupPolicySetDefinitionPolicyDefinitionGroupArrayOutput{})
+	pulumi.RegisterOutputType(GroupPolicySetDefinitionPolicyDefinitionReferenceOutput{})
+	pulumi.RegisterOutputType(GroupPolicySetDefinitionPolicyDefinitionReferenceArrayOutput{})
 }
