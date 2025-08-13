@@ -22,6 +22,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+	"time"
 	"unicode"
 
 	// Allow embedding the metadata file
@@ -453,14 +454,27 @@ func detectCloudShell() cloudShellProfile {
 
 // preConfigureCallback returns an error when cloud provider setup is misconfigured
 func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) error {
-	envName := tfbridge.ConfigStringValue(vars, "environment", []string{"ARM_ENVIRONMENT"})
-	if envName == "" {
-		envName = "public"
-	}
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
 
-	env, err := environments.FromName(envName)
-	if err != nil {
-		return fmt.Errorf("failed to read Azure environment \"%s\": %v", envName, err)
+	metaDataHost := tfbridge.ConfigStringValue(vars, "metadataHost", []string{"ARM_METADATA_HOSTNAME"})
+	var env *environments.Environment
+	var err error
+	if metaDataHost != "" {
+		env, err = environments.FromEndpoint(ctx, fmt.Sprintf("https://%s", metaDataHost))
+		if err != nil {
+			return fmt.Errorf("failed to read Azure environment from metadata host \"%s\": %v", metaDataHost, err)
+		}
+	} else {
+		envName := tfbridge.ConfigStringValue(vars, "environment", []string{"ARM_ENVIRONMENT"})
+		if envName == "" {
+			envName = "public"
+		}
+
+		env, err = environments.FromName(envName)
+		if err != nil {
+			return fmt.Errorf("failed to read Azure environment \"%s\": %v", envName, err)
+		}
 	}
 
 	// check for auxiliary tenants
