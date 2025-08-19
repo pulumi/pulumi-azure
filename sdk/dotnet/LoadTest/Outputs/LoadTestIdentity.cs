@@ -19,7 +19,6 @@ namespace Pulumi.Azure.LoadTest.Outputs
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-        /// *
         /// </summary>
         public readonly string? PrincipalId;
         /// <summary>

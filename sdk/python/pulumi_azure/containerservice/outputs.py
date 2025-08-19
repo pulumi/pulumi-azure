@@ -3455,6 +3455,8 @@ class KubernetesClusterDefaultNodePool(dict):
             suggest = "capacity_reservation_group_id"
         elif key == "fipsEnabled":
             suggest = "fips_enabled"
+        elif key == "gpuDriver":
+            suggest = "gpu_driver"
         elif key == "gpuInstance":
             suggest = "gpu_instance"
         elif key == "hostEncryptionEnabled":
@@ -3530,6 +3532,7 @@ class KubernetesClusterDefaultNodePool(dict):
                  auto_scaling_enabled: Optional[_builtins.bool] = None,
                  capacity_reservation_group_id: Optional[_builtins.str] = None,
                  fips_enabled: Optional[_builtins.bool] = None,
+                 gpu_driver: Optional[_builtins.str] = None,
                  gpu_instance: Optional[_builtins.str] = None,
                  host_encryption_enabled: Optional[_builtins.bool] = None,
                  host_group_id: Optional[_builtins.str] = None,
@@ -3620,6 +3623,8 @@ class KubernetesClusterDefaultNodePool(dict):
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if gpu_driver is not None:
+            pulumi.set(__self__, "gpu_driver", gpu_driver)
         if gpu_instance is not None:
             pulumi.set(__self__, "gpu_instance", gpu_instance)
         if host_encryption_enabled is not None:
@@ -3720,6 +3725,11 @@ class KubernetesClusterDefaultNodePool(dict):
         Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         """
         return pulumi.get(self, "fips_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="gpuDriver")
+    def gpu_driver(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "gpu_driver")
 
     @_builtins.property
     @pulumi.getter(name="gpuInstance")

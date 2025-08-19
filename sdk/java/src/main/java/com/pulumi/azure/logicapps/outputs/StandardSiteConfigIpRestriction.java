@@ -19,6 +19,11 @@ public final class StandardSiteConfigIpRestriction {
      */
     private @Nullable String action;
     /**
+     * @return The Description of this IP Restriction.
+     * 
+     */
+    private @Nullable String description;
+    /**
      * @return The `headers` block for this specific as a `ip_restriction` block as defined below.
      * 
      */
@@ -58,6 +63,13 @@ public final class StandardSiteConfigIpRestriction {
      */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
+    }
+    /**
+     * @return The Description of this IP Restriction.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
     }
     /**
      * @return The `headers` block for this specific as a `ip_restriction` block as defined below.
@@ -114,6 +126,7 @@ public final class StandardSiteConfigIpRestriction {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
+        private @Nullable String description;
         private @Nullable StandardSiteConfigIpRestrictionHeaders headers;
         private @Nullable String ipAddress;
         private @Nullable String name;
@@ -124,6 +137,7 @@ public final class StandardSiteConfigIpRestriction {
         public Builder(StandardSiteConfigIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
+    	      this.description = defaults.description;
     	      this.headers = defaults.headers;
     	      this.ipAddress = defaults.ipAddress;
     	      this.name = defaults.name;
@@ -136,6 +150,12 @@ public final class StandardSiteConfigIpRestriction {
         public Builder action(@Nullable String action) {
 
             this.action = action;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder description(@Nullable String description) {
+
+            this.description = description;
             return this;
         }
         @CustomType.Setter
@@ -177,6 +197,7 @@ public final class StandardSiteConfigIpRestriction {
         public StandardSiteConfigIpRestriction build() {
             final var _resultValue = new StandardSiteConfigIpRestriction();
             _resultValue.action = action;
+            _resultValue.description = description;
             _resultValue.headers = headers;
             _resultValue.ipAddress = ipAddress;
             _resultValue.name = name;

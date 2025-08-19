@@ -288,8 +288,6 @@ class LoadTest(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
         Manages a Load Test Service.
 
         ## Example Usage
@@ -349,8 +347,6 @@ class LoadTest(pulumi.CustomResource):
                  args: LoadTestArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
         Manages a Load Test Service.
 
         ## Example Usage

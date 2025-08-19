@@ -74,6 +74,7 @@ type GetClusterNodePoolResult struct {
 	AutoScalingEnabled bool `pulumi:"autoScalingEnabled"`
 	// The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
 	EvictionPolicy string `pulumi:"evictionPolicy"`
+	GpuDriver      string `pulumi:"gpuDriver"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                    string `pulumi:"id"`
 	KubernetesClusterName string `pulumi:"kubernetesClusterName"`
@@ -169,6 +170,10 @@ func (o GetClusterNodePoolResultOutput) AutoScalingEnabled() pulumi.BoolOutput {
 // The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
 func (o GetClusterNodePoolResultOutput) EvictionPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.EvictionPolicy }).(pulumi.StringOutput)
+}
+
+func (o GetClusterNodePoolResultOutput) GpuDriver() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) string { return v.GpuDriver }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

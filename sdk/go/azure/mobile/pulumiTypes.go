@@ -2938,9 +2938,13 @@ func (o NetworkSimStaticIpConfigurationArrayOutput) Index(i pulumi.IntInput) Net
 }
 
 type NetworkSliceSingleNetworkSliceSelectionAssistanceInformation struct {
-	// Slice differentiator (SD). Must be a 6 digit hex string.
+	// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	//
+	// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 	SliceDifferentiator *string `pulumi:"sliceDifferentiator"`
-	// Slice/service type (SST). Must be between `0` and `255`.
+	// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	//
+	// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 	SliceServiceType int `pulumi:"sliceServiceType"`
 }
 
@@ -2956,9 +2960,13 @@ type NetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput interface
 }
 
 type NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs struct {
-	// Slice differentiator (SD). Must be a 6 digit hex string.
+	// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	//
+	// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 	SliceDifferentiator pulumi.StringPtrInput `pulumi:"sliceDifferentiator"`
-	// Slice/service type (SST). Must be between `0` and `255`.
+	// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	//
+	// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 	SliceServiceType pulumi.IntInput `pulumi:"sliceServiceType"`
 }
 
@@ -3039,14 +3047,18 @@ func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) ToNe
 	}).(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput)
 }
 
-// Slice differentiator (SD). Must be a 6 digit hex string.
+// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+//
+// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) SliceDifferentiator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkSliceSingleNetworkSliceSelectionAssistanceInformation) *string {
 		return v.SliceDifferentiator
 	}).(pulumi.StringPtrOutput)
 }
 
-// Slice/service type (SST). Must be between `0` and `255`.
+// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+//
+// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) SliceServiceType() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkSliceSingleNetworkSliceSelectionAssistanceInformation) int { return v.SliceServiceType }).(pulumi.IntOutput)
 }
@@ -3075,7 +3087,9 @@ func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) E
 	}).(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput)
 }
 
-// Slice differentiator (SD). Must be a 6 digit hex string.
+// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+//
+// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) SliceDifferentiator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkSliceSingleNetworkSliceSelectionAssistanceInformation) *string {
 		if v == nil {
@@ -3085,7 +3099,9 @@ func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Slice/service type (SST). Must be between `0` and `255`.
+// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+//
+// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) SliceServiceType() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkSliceSingleNetworkSliceSelectionAssistanceInformation) *int {
 		if v == nil {

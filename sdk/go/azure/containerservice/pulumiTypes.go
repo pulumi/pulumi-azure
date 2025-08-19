@@ -7223,7 +7223,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
-	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	FipsEnabled *bool   `pulumi:"fipsEnabled"`
+	GpuDriver   *string `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
@@ -7322,7 +7323,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
-	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
+	FipsEnabled pulumi.BoolPtrInput   `pulumi:"fipsEnabled"`
+	GpuDriver   pulumi.StringPtrInput `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
@@ -7494,6 +7496,10 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 // Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) GpuDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.GpuDriver }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -7734,6 +7740,15 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrO
 		}
 		return v.FipsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolPtrOutput) GpuDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GpuDriver
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.

@@ -577,6 +577,7 @@
         "datafactory/credentialServicePrincipal.ts",
         "datafactory/credentialUserManagedIdentity.ts",
         "datafactory/customDataset.ts",
+        "datafactory/customerManagedKey.ts",
         "datafactory/dataFlow.ts",
         "datafactory/datasetAzureBlob.ts",
         "datafactory/datasetAzureSqlTable.ts",

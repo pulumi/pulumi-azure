@@ -20,13 +20,13 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// Are credentials supported?
         /// </summary>
-        public readonly bool? SupportCredentials;
+        public readonly bool SupportCredentials;
 
         [OutputConstructor]
         private GetStandardSiteConfigCorsResult(
             ImmutableArray<string> allowedOrigins,
 
-            bool? supportCredentials)
+            bool supportCredentials)
         {
             AllowedOrigins = allowedOrigins;
             SupportCredentials = supportCredentials;

@@ -26,6 +26,7 @@ class KubernetesClusterNodePoolArgs:
                  capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
                  gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
                  host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -76,6 +77,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[_builtins.bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
+        :param pulumi.Input[_builtins.str] gpu_driver: Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] host_encryption_enabled: Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
                
@@ -136,6 +138,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if gpu_driver is not None:
+            pulumi.set(__self__, "gpu_driver", gpu_driver)
         if gpu_instance is not None:
             pulumi.set(__self__, "gpu_instance", gpu_instance)
         if host_encryption_enabled is not None:
@@ -276,6 +280,18 @@ class KubernetesClusterNodePoolArgs:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gpuDriver")
+    def gpu_driver(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "gpu_driver")
+
+    @gpu_driver.setter
+    def gpu_driver(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "gpu_driver", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuInstance")
@@ -736,6 +752,7 @@ class _KubernetesClusterNodePoolState:
                  capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
                  gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
                  host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -784,6 +801,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[_builtins.bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
+        :param pulumi.Input[_builtins.str] gpu_driver: Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] host_encryption_enabled: Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
                
@@ -846,6 +864,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if gpu_driver is not None:
+            pulumi.set(__self__, "gpu_driver", gpu_driver)
         if gpu_instance is not None:
             pulumi.set(__self__, "gpu_instance", gpu_instance)
         if host_encryption_enabled is not None:
@@ -974,6 +994,18 @@ class _KubernetesClusterNodePoolState:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gpuDriver")
+    def gpu_driver(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "gpu_driver")
+
+    @gpu_driver.setter
+    def gpu_driver(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "gpu_driver", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuInstance")
@@ -1451,6 +1483,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
                  gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
                  host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1557,6 +1590,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
+        :param pulumi.Input[_builtins.str] gpu_driver: Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] host_encryption_enabled: Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
                
@@ -1693,6 +1727,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
                  gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
                  host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1744,6 +1779,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["fips_enabled"] = fips_enabled
+            __props__.__dict__["gpu_driver"] = gpu_driver
             __props__.__dict__["gpu_instance"] = gpu_instance
             __props__.__dict__["host_encryption_enabled"] = host_encryption_enabled
             __props__.__dict__["host_group_id"] = host_group_id
@@ -1798,6 +1834,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
             eviction_policy: Optional[pulumi.Input[_builtins.str]] = None,
             fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+            gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
             gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
             host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1851,6 +1888,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
+        :param pulumi.Input[_builtins.str] gpu_driver: Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] host_encryption_enabled: Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
                
@@ -1913,6 +1951,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
         __props__.__dict__["eviction_policy"] = eviction_policy
         __props__.__dict__["fips_enabled"] = fips_enabled
+        __props__.__dict__["gpu_driver"] = gpu_driver
         __props__.__dict__["gpu_instance"] = gpu_instance
         __props__.__dict__["host_encryption_enabled"] = host_encryption_enabled
         __props__.__dict__["host_group_id"] = host_group_id
@@ -1988,6 +2027,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         """
         return pulumi.get(self, "fips_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="gpuDriver")
+    def gpu_driver(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "gpu_driver")
 
     @_builtins.property
     @pulumi.getter(name="gpuInstance")

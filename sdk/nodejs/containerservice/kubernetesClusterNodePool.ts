@@ -115,6 +115,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     */
+    public readonly gpuDriver!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
      */
     public readonly gpuInstance!: pulumi.Output<string | undefined>;
@@ -293,6 +297,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             resourceInputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
+            resourceInputs["gpuDriver"] = state ? state.gpuDriver : undefined;
             resourceInputs["gpuInstance"] = state ? state.gpuInstance : undefined;
             resourceInputs["hostEncryptionEnabled"] = state ? state.hostEncryptionEnabled : undefined;
             resourceInputs["hostGroupId"] = state ? state.hostGroupId : undefined;
@@ -340,6 +345,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
+            resourceInputs["gpuDriver"] = args ? args.gpuDriver : undefined;
             resourceInputs["gpuInstance"] = args ? args.gpuInstance : undefined;
             resourceInputs["hostEncryptionEnabled"] = args ? args.hostEncryptionEnabled : undefined;
             resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
@@ -408,6 +414,10 @@ export interface KubernetesClusterNodePoolState {
      * > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      */
     fipsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     */
+    gpuDriver?: pulumi.Input<string>;
     /**
      * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
      */
@@ -595,6 +605,10 @@ export interface KubernetesClusterNodePoolArgs {
      * > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      */
     fipsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     */
+    gpuDriver?: pulumi.Input<string>;
     /**
      * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
      */
