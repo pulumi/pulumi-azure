@@ -5210,6 +5210,10 @@
                     }
                 }
             },
+            "azurerm_data_factory_customer_managed_key": {
+                "current": "azure:datafactory/customerManagedKey:CustomerManagedKey",
+                "majorVersion": 6
+            },
             "azurerm_data_factory_data_flow": {
                 "current": "azure:datafactory/dataFlow:DataFlow",
                 "majorVersion": 6,
@@ -32110,6 +32114,12 @@
             }
         },
         "datasources": {
+            "azurerm_logic_app_standard": {
+                "maxItemsOneOverrides": {
+                    "site_config": true,
+                    "site_config.$.cors": true
+                }
+            },
             "azurerm_portal_dashboard": {
                 "renames": [
                     "azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard"

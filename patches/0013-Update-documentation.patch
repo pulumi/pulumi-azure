@@ -2274,7 +2274,7 @@ index 5db6e49e16..53fb4675ca 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 5ab18d5d05..864b161828 100644
+index d857ec0e63..fe8f13c0fd 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,15 +10,13 @@ description: |-
@@ -2318,7 +2318,7 @@ index 5ab18d5d05..864b161828 100644
  
  * `node_public_ip_enabled` - (Optional) Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
  
-@@ -140,7 +138,7 @@ The following arguments are supported:
+@@ -142,7 +140,7 @@ The following arguments are supported:
  
  * `tags` - (Optional) A mapping of tags to assign to the resource.
  
@@ -2327,7 +2327,7 @@ index 5ab18d5d05..864b161828 100644
  
  * `scale_down_mode` - (Optional) Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
  
-@@ -152,7 +150,7 @@ The following arguments are supported:
+@@ -154,7 +152,7 @@ The following arguments are supported:
  
  * `vnet_subnet_id` - (Optional) The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
  
@@ -2336,7 +2336,7 @@ index 5ab18d5d05..864b161828 100644
  
  * `windows_profile` - (Optional) A `windows_profile` block as documented below. Changing this forces a new resource to be created.
  
-@@ -172,7 +170,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -174,7 +172,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
  
@@ -2345,7 +2345,7 @@ index 5ab18d5d05..864b161828 100644
  
  If `auto_scaling_enabled` is set to `false`, then the following fields can also be configured:
  
-@@ -240,7 +238,7 @@ An `allowed_host_ports` block supports the following:
+@@ -242,7 +240,7 @@ An `allowed_host_ports` block supports the following:
  
  A `sysctl_config` block supports the following:
  
@@ -2354,7 +2354,7 @@ index 5ab18d5d05..864b161828 100644
  
  * `fs_aio_max_nr` - (Optional) The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
  
-@@ -328,10 +326,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -330,10 +328,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
  
@@ -2368,7 +2368,7 @@ index 5ab18d5d05..864b161828 100644
  
  ## Import
  
-@@ -340,7 +338,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
+@@ -342,7 +340,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_kubernetes_cluster_node_pool.pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
  ```
@@ -4698,13 +4698,13 @@ index a6b287dd46..b1cb6e1a14 100644
  
 --> **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 +-> **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
- 
--~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
++
 +~> **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
  
--~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+-~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 +~> **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-+
+ 
+-~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 +* `vm_agent_platform_updates_enabled` - (Optional) Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
  
  * `vtpm_enabled` - (Optional) Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
