@@ -3503,6 +3503,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/customerManagedKey",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/customerManagedKey:CustomerManagedKey": "CustomerManagedKey"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/dataFlow",
   "fqn": "pulumi_azure.datafactory",
   "classes": {

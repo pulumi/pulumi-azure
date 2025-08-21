@@ -279,7 +279,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
         return this.workerCount;
     }
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+     * Should the Service Plan balance across Availability Zones in the region.
      * 
      * &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
      * 
@@ -290,7 +290,7 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> zoneBalancingEnabled;
 
     /**
-     * @return Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+     * @return Should the Service Plan balance across Availability Zones in the region.
      * 
      * &gt; **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
      * 

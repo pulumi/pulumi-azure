@@ -35,9 +35,7 @@ import * as utilities from "../utilities";
  *     name: "example-slice",
  *     mobileNetworkId: exampleNetwork.id,
  *     location: example.location,
- *     singleNetworkSliceSelectionAssistanceInformation: {
- *         sliceServiceType: 1,
- *     },
+ *     sliceServiceType: 1,
  * });
  * const exampleNetworkAttachedDataNetwork = new azure.mobile.NetworkAttachedDataNetwork("example", {
  *     mobileNetworkDataNetworkName: exampleAzurermMobileNetworkDataNetwork.name,

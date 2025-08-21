@@ -101,7 +101,7 @@ type ServicePlan struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntOutput `pulumi:"workerCount"`
-	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region.
 	//
 	// > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
 	//
@@ -180,7 +180,7 @@ type servicePlanState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount *int `pulumi:"workerCount"`
-	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region.
 	//
 	// > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
 	//
@@ -221,7 +221,7 @@ type ServicePlanState struct {
 	Tags pulumi.StringMapInput
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntPtrInput
-	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region.
 	//
 	// > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
 	//
@@ -262,7 +262,7 @@ type servicePlanArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The number of Workers (instances) to be allocated.
 	WorkerCount *int `pulumi:"workerCount"`
-	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region.
 	//
 	// > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
 	//
@@ -300,7 +300,7 @@ type ServicePlanArgs struct {
 	Tags pulumi.StringMapInput
 	// The number of Workers (instances) to be allocated.
 	WorkerCount pulumi.IntPtrInput
-	// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+	// Should the Service Plan balance across Availability Zones in the region.
 	//
 	// > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
 	//
@@ -466,7 +466,7 @@ func (o ServicePlanOutput) WorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServicePlan) pulumi.IntOutput { return v.WorkerCount }).(pulumi.IntOutput)
 }
 
-// Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+// Should the Service Plan balance across Availability Zones in the region.
 //
 // > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
 //

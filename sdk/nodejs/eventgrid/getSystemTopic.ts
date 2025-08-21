@@ -63,16 +63,18 @@ export interface GetSystemTopicResult {
      */
     readonly identities: outputs.eventgrid.GetSystemTopicIdentity[];
     readonly location: string;
-    /**
-     * The Metric ARM Resource ID of the Event Grid System Topic.
-     */
     readonly metricArmResourceId: string;
+    /**
+     * The Metric Resource ID of the Event Grid System Topic.
+     */
+    readonly metricResourceId: string;
     readonly name: string;
     readonly resourceGroupName: string;
+    readonly sourceArmResourceId: string;
     /**
      * The ID of the Event Grid System Topic ARM Source.
      */
-    readonly sourceArmResourceId: string;
+    readonly sourceResourceId: string;
     /**
      * A mapping of tags which are assigned to the Event Grid System Topic.
      */

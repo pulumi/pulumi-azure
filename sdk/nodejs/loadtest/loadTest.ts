@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
- *
  * Manages a Load Test Service.
  *
  * ## Example Usage

@@ -411,11 +411,13 @@ type BackupPolicyBlobStorageRetentionRuleCriteria struct {
 	DaysOfMonths []int `pulumi:"daysOfMonths"`
 	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy Blob Storage to be created.
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
-	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
 	MonthsOfYears []string `pulumi:"monthsOfYears"`
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Blob Storage to be created.
 	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
-	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
+	//
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
 }
 
@@ -437,11 +439,13 @@ type BackupPolicyBlobStorageRetentionRuleCriteriaArgs struct {
 	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
 	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy Blob Storage to be created.
 	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
-	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
 	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Blob Storage to be created.
 	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
-	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
+	//
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
 }
 
@@ -486,7 +490,7 @@ func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) DaysOfWeeks() pulumi
 	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }
 
-// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
 func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) MonthsOfYears() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) []string { return v.MonthsOfYears }).(pulumi.StringArrayOutput)
 }
@@ -496,7 +500,9 @@ func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) ScheduledBackupTimes
 	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) []string { return v.ScheduledBackupTimes }).(pulumi.StringArrayOutput)
 }
 
-// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
+//
+// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 func (o BackupPolicyBlobStorageRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPolicyBlobStorageRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
 }
@@ -1121,6 +1127,8 @@ type BackupPolicyKubernetesClusterRetentionRuleCriteria struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
 	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	// *
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
 }
 
@@ -1145,6 +1153,8 @@ type BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
 	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	// *
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
 }
 
@@ -1195,6 +1205,8 @@ func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) ScheduledBacku
 }
 
 // Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+// *
+// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
 }
@@ -1688,6 +1700,8 @@ type BackupPolicyMysqlFlexibleServerRetentionRuleCriteria struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
 	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
 }
 
@@ -1712,6 +1726,8 @@ type BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
 	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
 }
 
@@ -1762,6 +1778,8 @@ func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) ScheduledBac
 }
 
 // Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+//
+// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 func (o BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPolicyMysqlFlexibleServerRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
 }
@@ -2257,6 +2275,8 @@ type BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
 	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
 }
 
@@ -2281,6 +2301,8 @@ type BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
 	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
 }
 
@@ -2333,6 +2355,8 @@ func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) Schedul
 }
 
 // Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+//
+// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 func (o BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
 }
@@ -2579,6 +2603,8 @@ type BackupPolicyPostgresqlRetentionRuleCriteria struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
 	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+	//
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
 }
 
@@ -2603,6 +2629,8 @@ type BackupPolicyPostgresqlRetentionRuleCriteriaArgs struct {
 	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
 	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
 	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+	//
+	// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
 }
 
@@ -2653,6 +2681,8 @@ func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) ScheduledBackupTimes(
 }
 
 // Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+//
+// > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
 func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupPolicyPostgresqlRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
 }
