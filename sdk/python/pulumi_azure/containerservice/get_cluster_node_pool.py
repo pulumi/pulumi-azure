@@ -27,13 +27,16 @@ class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
-    def __init__(__self__, auto_scaling_enabled=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_enabled=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
+    def __init__(__self__, auto_scaling_enabled=None, eviction_policy=None, gpu_driver=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_enabled=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
         if auto_scaling_enabled and not isinstance(auto_scaling_enabled, bool):
             raise TypeError("Expected argument 'auto_scaling_enabled' to be a bool")
         pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if eviction_policy and not isinstance(eviction_policy, str):
             raise TypeError("Expected argument 'eviction_policy' to be a str")
         pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if gpu_driver and not isinstance(gpu_driver, str):
+            raise TypeError("Expected argument 'gpu_driver' to be a str")
+        pulumi.set(__self__, "gpu_driver", gpu_driver)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -125,6 +128,11 @@ class GetClusterNodePoolResult:
         The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
         """
         return pulumi.get(self, "eviction_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="gpuDriver")
+    def gpu_driver(self) -> _builtins.str:
+        return pulumi.get(self, "gpu_driver")
 
     @_builtins.property
     @pulumi.getter
@@ -326,6 +334,7 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
         return GetClusterNodePoolResult(
             auto_scaling_enabled=self.auto_scaling_enabled,
             eviction_policy=self.eviction_policy,
+            gpu_driver=self.gpu_driver,
             id=self.id,
             kubernetes_cluster_name=self.kubernetes_cluster_name,
             max_count=self.max_count,
@@ -394,6 +403,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[_builtins.str] = Non
     return AwaitableGetClusterNodePoolResult(
         auto_scaling_enabled=pulumi.get(__ret__, 'auto_scaling_enabled'),
         eviction_policy=pulumi.get(__ret__, 'eviction_policy'),
+        gpu_driver=pulumi.get(__ret__, 'gpu_driver'),
         id=pulumi.get(__ret__, 'id'),
         kubernetes_cluster_name=pulumi.get(__ret__, 'kubernetes_cluster_name'),
         max_count=pulumi.get(__ret__, 'max_count'),
@@ -459,6 +469,7 @@ def get_cluster_node_pool_output(kubernetes_cluster_name: Optional[pulumi.Input[
     return __ret__.apply(lambda __response__: GetClusterNodePoolResult(
         auto_scaling_enabled=pulumi.get(__response__, 'auto_scaling_enabled'),
         eviction_policy=pulumi.get(__response__, 'eviction_policy'),
+        gpu_driver=pulumi.get(__response__, 'gpu_driver'),
         id=pulumi.get(__response__, 'id'),
         kubernetes_cluster_name=pulumi.get(__response__, 'kubernetes_cluster_name'),
         max_count=pulumi.get(__response__, 'max_count'),

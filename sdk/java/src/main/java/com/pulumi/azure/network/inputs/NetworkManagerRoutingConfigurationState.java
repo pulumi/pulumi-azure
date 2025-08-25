@@ -16,14 +16,14 @@ public final class NetworkManagerRoutingConfigurationState extends com.pulumi.re
     public static final NetworkManagerRoutingConfigurationState Empty = new NetworkManagerRoutingConfigurationState();
 
     /**
-     * The description of the Network Manager.
+     * The description of the Network Manager Routing Configuration.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the Network Manager.
+     * @return The description of the Network Manager Routing Configuration.
      * 
      */
     public Optional<Output<String>> description() {
@@ -87,7 +87,7 @@ public final class NetworkManagerRoutingConfigurationState extends com.pulumi.re
         }
 
         /**
-         * @param description The description of the Network Manager.
+         * @param description The description of the Network Manager Routing Configuration.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class NetworkManagerRoutingConfigurationState extends com.pulumi.re
         }
 
         /**
-         * @param description The description of the Network Manager.
+         * @param description The description of the Network Manager Routing Configuration.
          * 
          * @return builder
          * 

@@ -69,6 +69,7 @@ export interface GetClusterNodePoolResult {
      * The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
      */
     readonly evictionPolicy: string;
+    readonly gpuDriver: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */

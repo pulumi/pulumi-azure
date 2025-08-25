@@ -19,6 +19,11 @@ public final class GetPoolResult {
      */
     private Boolean coolAccessEnabled;
     /**
+     * @return The custom throughput for the pool in MiB/s.
+     * 
+     */
+    private Integer customThroughputMibps;
+    /**
      * @return The encryption type of the pool.
      * 
      */
@@ -56,6 +61,13 @@ public final class GetPoolResult {
      */
     public Boolean coolAccessEnabled() {
         return this.coolAccessEnabled;
+    }
+    /**
+     * @return The custom throughput for the pool in MiB/s.
+     * 
+     */
+    public Integer customThroughputMibps() {
+        return this.customThroughputMibps;
     }
     /**
      * @return The encryption type of the pool.
@@ -110,6 +122,7 @@ public final class GetPoolResult {
     public static final class Builder {
         private String accountName;
         private Boolean coolAccessEnabled;
+        private Integer customThroughputMibps;
         private String encryptionType;
         private String id;
         private String location;
@@ -122,6 +135,7 @@ public final class GetPoolResult {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
     	      this.coolAccessEnabled = defaults.coolAccessEnabled;
+    	      this.customThroughputMibps = defaults.customThroughputMibps;
     	      this.encryptionType = defaults.encryptionType;
     	      this.id = defaults.id;
     	      this.location = defaults.location;
@@ -145,6 +159,14 @@ public final class GetPoolResult {
               throw new MissingRequiredPropertyException("GetPoolResult", "coolAccessEnabled");
             }
             this.coolAccessEnabled = coolAccessEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customThroughputMibps(Integer customThroughputMibps) {
+            if (customThroughputMibps == null) {
+              throw new MissingRequiredPropertyException("GetPoolResult", "customThroughputMibps");
+            }
+            this.customThroughputMibps = customThroughputMibps;
             return this;
         }
         @CustomType.Setter
@@ -207,6 +229,7 @@ public final class GetPoolResult {
             final var _resultValue = new GetPoolResult();
             _resultValue.accountName = accountName;
             _resultValue.coolAccessEnabled = coolAccessEnabled;
+            _resultValue.customThroughputMibps = customThroughputMibps;
             _resultValue.encryptionType = encryptionType;
             _resultValue.id = id;
             _resultValue.location = location;

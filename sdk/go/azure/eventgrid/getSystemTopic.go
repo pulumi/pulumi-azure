@@ -69,14 +69,16 @@ type LookupSystemTopicResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
-	Identities []GetSystemTopicIdentity `pulumi:"identities"`
-	Location   string                   `pulumi:"location"`
-	// The Metric ARM Resource ID of the Event Grid System Topic.
-	MetricArmResourceId string `pulumi:"metricArmResourceId"`
+	Identities          []GetSystemTopicIdentity `pulumi:"identities"`
+	Location            string                   `pulumi:"location"`
+	MetricArmResourceId string                   `pulumi:"metricArmResourceId"`
+	// The Metric Resource ID of the Event Grid System Topic.
+	MetricResourceId    string `pulumi:"metricResourceId"`
 	Name                string `pulumi:"name"`
 	ResourceGroupName   string `pulumi:"resourceGroupName"`
-	// The ID of the Event Grid System Topic ARM Source.
 	SourceArmResourceId string `pulumi:"sourceArmResourceId"`
+	// The ID of the Event Grid System Topic ARM Source.
+	SourceResourceId string `pulumi:"sourceResourceId"`
 	// A mapping of tags which are assigned to the Event Grid System Topic.
 	Tags map[string]string `pulumi:"tags"`
 	// The Topic Type of the Event Grid System Topic.
@@ -133,9 +135,13 @@ func (o LookupSystemTopicResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The Metric ARM Resource ID of the Event Grid System Topic.
 func (o LookupSystemTopicResultOutput) MetricArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.MetricArmResourceId }).(pulumi.StringOutput)
+}
+
+// The Metric Resource ID of the Event Grid System Topic.
+func (o LookupSystemTopicResultOutput) MetricResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.MetricResourceId }).(pulumi.StringOutput)
 }
 
 func (o LookupSystemTopicResultOutput) Name() pulumi.StringOutput {
@@ -146,9 +152,13 @@ func (o LookupSystemTopicResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The ID of the Event Grid System Topic ARM Source.
 func (o LookupSystemTopicResultOutput) SourceArmResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.SourceArmResourceId }).(pulumi.StringOutput)
+}
+
+// The ID of the Event Grid System Topic ARM Source.
+func (o LookupSystemTopicResultOutput) SourceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSystemTopicResult) string { return v.SourceResourceId }).(pulumi.StringOutput)
 }
 
 // A mapping of tags which are assigned to the Event Grid System Topic.

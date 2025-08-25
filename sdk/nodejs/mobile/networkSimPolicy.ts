@@ -53,9 +53,7 @@ import * as utilities from "../utilities";
  *     name: "example-mns",
  *     mobileNetworkId: exampleNetwork.id,
  *     location: example.location,
- *     singleNetworkSliceSelectionAssistanceInformation: {
- *         sliceServiceType: 1,
- *     },
+ *     sliceServiceType: 1,
  * });
  * const exampleNetworkSimPolicy = new azure.mobile.NetworkSimPolicy("example", {
  *     name: "example-mnsp",

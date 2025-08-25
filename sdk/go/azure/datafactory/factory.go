@@ -68,9 +68,9 @@ type Factory struct {
 	pulumi.CustomResourceState
 
 	// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
-	CustomerManagedKeyId pulumi.StringPtrOutput `pulumi:"customerManagedKeyId"`
+	CustomerManagedKeyId pulumi.StringOutput `pulumi:"customerManagedKeyId"`
 	// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
-	CustomerManagedKeyIdentityId pulumi.StringPtrOutput `pulumi:"customerManagedKeyIdentityId"`
+	CustomerManagedKeyIdentityId pulumi.StringOutput `pulumi:"customerManagedKeyIdentityId"`
 	// A `githubConfiguration` block as defined below.
 	GithubConfiguration FactoryGithubConfigurationPtrOutput `pulumi:"githubConfiguration"`
 	// A list of `globalParameter` blocks as defined above.
@@ -336,13 +336,13 @@ func (o FactoryOutput) ToFactoryOutputWithContext(ctx context.Context) FactoryOu
 }
 
 // Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
-func (o FactoryOutput) CustomerManagedKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Factory) pulumi.StringPtrOutput { return v.CustomerManagedKeyId }).(pulumi.StringPtrOutput)
+func (o FactoryOutput) CustomerManagedKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.CustomerManagedKeyId }).(pulumi.StringOutput)
 }
 
 // Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customerManagedKeyId` is set.
-func (o FactoryOutput) CustomerManagedKeyIdentityId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Factory) pulumi.StringPtrOutput { return v.CustomerManagedKeyIdentityId }).(pulumi.StringPtrOutput)
+func (o FactoryOutput) CustomerManagedKeyIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.CustomerManagedKeyIdentityId }).(pulumi.StringOutput)
 }
 
 // A `githubConfiguration` block as defined below.

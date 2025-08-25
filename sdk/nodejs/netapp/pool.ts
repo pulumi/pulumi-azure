@@ -32,12 +32,39 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## NetApp Pool with Flexible Service Level Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.netapp.Account("example", {
+ *     name: "example-netappaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const examplePool = new azure.netapp.Pool("example", {
+ *     name: "example-netapppool",
+ *     accountName: exampleAccount.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     serviceLevel: "Flexible",
+ *     sizeInTb: 4,
+ *     qosType: "Manual",
+ *     customThroughputMibps: 256,
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  *
  * ## Import
  *
@@ -86,6 +113,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly coolAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
+     */
+    public readonly customThroughputMibps!: pulumi.Output<number | undefined>;
+    /**
      * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
      */
     public readonly encryptionType!: pulumi.Output<string | undefined>;
@@ -106,7 +137,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
      */
     public readonly serviceLevel!: pulumi.Output<string>;
     /**
@@ -137,6 +168,7 @@ export class Pool extends pulumi.CustomResource {
             const state = argsOrState as PoolState | undefined;
             resourceInputs["accountName"] = state ? state.accountName : undefined;
             resourceInputs["coolAccessEnabled"] = state ? state.coolAccessEnabled : undefined;
+            resourceInputs["customThroughputMibps"] = state ? state.customThroughputMibps : undefined;
             resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -161,6 +193,7 @@ export class Pool extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["coolAccessEnabled"] = args ? args.coolAccessEnabled : undefined;
+            resourceInputs["customThroughputMibps"] = args ? args.customThroughputMibps : undefined;
             resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -190,6 +223,10 @@ export interface PoolState {
      */
     coolAccessEnabled?: pulumi.Input<boolean>;
     /**
+     * The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
+     */
+    customThroughputMibps?: pulumi.Input<number>;
+    /**
      * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
      */
     encryptionType?: pulumi.Input<string>;
@@ -210,7 +247,7 @@ export interface PoolState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
      */
     serviceLevel?: pulumi.Input<string>;
     /**
@@ -242,6 +279,10 @@ export interface PoolArgs {
      */
     coolAccessEnabled?: pulumi.Input<boolean>;
     /**
+     * The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
+     */
+    customThroughputMibps?: pulumi.Input<number>;
+    /**
      * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
      */
     encryptionType?: pulumi.Input<string>;
@@ -262,7 +303,7 @@ export interface PoolArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
      */
     serviceLevel: pulumi.Input<string>;
     /**

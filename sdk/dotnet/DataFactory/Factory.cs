@@ -60,13 +60,13 @@ namespace Pulumi.Azure.DataFactory
         /// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         /// </summary>
         [Output("customerManagedKeyId")]
-        public Output<string?> CustomerManagedKeyId { get; private set; } = null!;
+        public Output<string> CustomerManagedKeyId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
         /// </summary>
         [Output("customerManagedKeyIdentityId")]
-        public Output<string?> CustomerManagedKeyIdentityId { get; private set; } = null!;
+        public Output<string> CustomerManagedKeyIdentityId { get; private set; } = null!;
 
         /// <summary>
         /// A `github_configuration` block as defined below.

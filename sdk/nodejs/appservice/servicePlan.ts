@@ -128,7 +128,7 @@ export class ServicePlan extends pulumi.CustomResource {
      */
     public readonly workerCount!: pulumi.Output<number>;
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+     * Should the Service Plan balance across Availability Zones in the region.
      *
      * > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
      *
@@ -257,7 +257,7 @@ export interface ServicePlanState {
      */
     workerCount?: pulumi.Input<number>;
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+     * Should the Service Plan balance across Availability Zones in the region.
      *
      * > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
      *
@@ -321,7 +321,7 @@ export interface ServicePlanArgs {
      */
     workerCount?: pulumi.Input<number>;
     /**
-     * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+     * Should the Service Plan balance across Availability Zones in the region.
      *
      * > **Note:** If this setting is set to `true` and the `workerCount` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
      *

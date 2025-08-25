@@ -19,6 +19,12 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
+        /// The Description of this IP Restriction.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The `headers` block for this specific `ip_restriction` as defined below.
         /// </summary>
         [Input("headers")]

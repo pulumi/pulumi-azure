@@ -4806,6 +4806,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * The URL to the storage container with a shared access signature token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -4828,6 +4830,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * The URL to the storage container with a shared access signature token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -13551,6 +13555,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -13573,6 +13579,8 @@ export namespace appservice {
         retentionInDays?: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -14702,6 +14710,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * SAS URL to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -14724,6 +14734,8 @@ export namespace appservice {
         retentionInDays?: number;
         /**
          * SAS URL to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -15468,7 +15480,9 @@ export namespace appservice {
          */
         retentionInDays: number;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container, with a Service SAS token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -15490,7 +15504,9 @@ export namespace appservice {
          */
         retentionInDays: number;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container, with a Service SAS token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -18603,6 +18619,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -18625,6 +18643,8 @@ export namespace appservice {
         retentionInDays?: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -19847,6 +19867,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -19869,6 +19891,8 @@ export namespace appservice {
         retentionInDays?: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -24480,6 +24504,15 @@ export namespace cdn {
         type: string;
     }
 
+    export interface FrontdoorProfileLogScrubbingRule {
+        /**
+         * The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+         *
+         * > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+         */
+        matchVariable: string;
+    }
+
     export interface FrontdoorRouteCache {
         /**
          * Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
@@ -25180,13 +25213,20 @@ export namespace cdn {
         /**
          * The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
          */
-        identityIds?: string[];
+        identityIds: string[];
         principalId: string;
         tenantId: string;
         /**
          * The type of Managed Service Identity that is configured on this Front Door Profile.
          */
         type: string;
+    }
+
+    export interface GetFrontdoorProfileLogScrubbingRule {
+        /**
+         * The variable that is scrubbed from the logs.
+         */
+        matchVariable: string;
     }
 
     export interface GetFrontdoorSecretSecret {
@@ -33718,12 +33758,9 @@ export namespace containerservice {
          * How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
          */
         scanInterval: string;
-        /**
-         * If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-         */
         skipNodesWithLocalStorage?: boolean;
         /**
-         * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+         * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
          */
         skipNodesWithSystemPods?: boolean;
     }
@@ -33767,6 +33804,7 @@ export namespace containerservice {
          * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
          */
         fipsEnabled?: boolean;
+        gpuDriver?: string;
         /**
          * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
          */
@@ -39176,7 +39214,7 @@ export namespace dataprotection {
          */
         daysOfWeeks?: string[];
         /**
-         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
          */
         monthsOfYears?: string[];
         /**
@@ -39184,7 +39222,9 @@ export namespace dataprotection {
          */
         scheduledBackupTimes?: string[];
         /**
-         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -39282,6 +39322,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: string[];
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         * *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -39353,6 +39395,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: string[];
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -39424,6 +39468,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: string[];
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -39477,6 +39523,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: string[];
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -48512,6 +48560,8 @@ export namespace loadtest {
     export interface LoadTestEncryptionIdentity {
         /**
          * The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+         *
+         * > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
          */
         identityId: string;
         /**
@@ -48527,7 +48577,6 @@ export namespace loadtest {
         identityIds?: string[];
         /**
          * The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-         * *
          */
         principalId: string;
         /**
@@ -48612,7 +48661,7 @@ export namespace logicapps {
         /**
          * Should the Logic App be loaded at all times?
          */
-        alwaysOn?: boolean;
+        alwaysOn: boolean;
         /**
          * The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
          */
@@ -48644,7 +48693,7 @@ export namespace logicapps {
         /**
          * Specifies whether the HTTP2 protocol should be enabled.
          */
-        http2Enabled?: boolean;
+        http2Enabled: boolean;
         /**
          * A list of `ipRestriction` objects representing IP restrictions as defined below.
          */
@@ -48707,7 +48756,7 @@ export namespace logicapps {
         /**
          * Are credentials supported?
          */
-        supportCredentials?: boolean;
+        supportCredentials: boolean;
     }
 
     export interface GetStandardSiteConfigIpRestriction {
@@ -48722,7 +48771,7 @@ export namespace logicapps {
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
-        ipAddress?: string;
+        ipAddress: string;
         /**
          * The name of the Logic App.
          */
@@ -48734,11 +48783,11 @@ export namespace logicapps {
         /**
          * The Service Tag used for this IP Restriction.
          */
-        serviceTag?: string;
+        serviceTag: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId?: string;
+        virtualNetworkSubnetId: string;
     }
 
     export interface GetStandardSiteConfigIpRestrictionHeaders {
@@ -48772,7 +48821,7 @@ export namespace logicapps {
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
-        ipAddress?: string;
+        ipAddress: string;
         /**
          * The name of the Logic App.
          */
@@ -48784,11 +48833,11 @@ export namespace logicapps {
         /**
          * The Service Tag used for this IP Restriction.
          */
-        serviceTag?: string;
+        serviceTag: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId?: string;
+        virtualNetworkSubnetId: string;
     }
 
     export interface GetStandardSiteConfigScmIpRestrictionHeaders {
@@ -49018,7 +49067,7 @@ export namespace logicapps {
         /**
          * A `cors` block as defined below.
          */
-        cors: outputs.logicapps.StandardSiteConfigCors;
+        cors?: outputs.logicapps.StandardSiteConfigCors;
         /**
          * The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0` and `v8.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
@@ -49044,7 +49093,7 @@ export namespace logicapps {
          *
          * > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          */
-        ipRestrictions: outputs.logicapps.StandardSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.logicapps.StandardSiteConfigIpRestriction[];
         /**
          * Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
          *
@@ -49074,7 +49123,7 @@ export namespace logicapps {
          *
          * > **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          */
-        scmIpRestrictions: outputs.logicapps.StandardSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.logicapps.StandardSiteConfigScmIpRestriction[];
         /**
          * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
          *
@@ -49109,7 +49158,7 @@ export namespace logicapps {
         /**
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Are credentials supported?
          */
@@ -49122,9 +49171,13 @@ export namespace logicapps {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * The `headers` block for this specific as a `ipRestriction` block as defined below.
          */
-        headers: outputs.logicapps.StandardSiteConfigIpRestrictionHeaders;
+        headers?: outputs.logicapps.StandardSiteConfigIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -49174,9 +49227,13 @@ export namespace logicapps {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * The `headers` block for this specific `ipRestriction` as defined below.
          */
-        headers: outputs.logicapps.StandardSiteConfigScmIpRestrictionHeaders;
+        headers?: outputs.logicapps.StandardSiteConfigScmIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -49584,9 +49641,13 @@ export namespace machinelearning {
 
     export interface WorkspaceManagedNetwork {
         /**
-         * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+         * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
          */
         isolationMode: string;
+        /**
+         * Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        provisionOnCreationEnabled?: boolean;
     }
 
     export interface WorkspaceServerlessCompute {
@@ -50737,11 +50798,15 @@ export namespace mobile {
 
     export interface NetworkSliceSingleNetworkSliceSelectionAssistanceInformation {
         /**
-         * Slice differentiator (SD). Must be a 6 digit hex string.
+         * Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+         *
+         * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
          */
         sliceDifferentiator?: string;
         /**
-         * Slice/service type (SST). Must be between `0` and `255`.
+         * Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+         *
+         * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
          */
         sliceServiceType: number;
     }

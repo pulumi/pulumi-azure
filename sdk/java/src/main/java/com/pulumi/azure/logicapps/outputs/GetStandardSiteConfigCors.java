@@ -9,8 +9,6 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfigCors {
@@ -23,7 +21,7 @@ public final class GetStandardSiteConfigCors {
      * @return Are credentials supported?
      * 
      */
-    private @Nullable Boolean supportCredentials;
+    private Boolean supportCredentials;
 
     private GetStandardSiteConfigCors() {}
     /**
@@ -37,8 +35,8 @@ public final class GetStandardSiteConfigCors {
      * @return Are credentials supported?
      * 
      */
-    public Optional<Boolean> supportCredentials() {
-        return Optional.ofNullable(this.supportCredentials);
+    public Boolean supportCredentials() {
+        return this.supportCredentials;
     }
 
     public static Builder builder() {
@@ -51,7 +49,7 @@ public final class GetStandardSiteConfigCors {
     @CustomType.Builder
     public static final class Builder {
         private List<String> allowedOrigins;
-        private @Nullable Boolean supportCredentials;
+        private Boolean supportCredentials;
         public Builder() {}
         public Builder(GetStandardSiteConfigCors defaults) {
     	      Objects.requireNonNull(defaults);
@@ -71,8 +69,10 @@ public final class GetStandardSiteConfigCors {
             return allowedOrigins(List.of(allowedOrigins));
         }
         @CustomType.Setter
-        public Builder supportCredentials(@Nullable Boolean supportCredentials) {
-
+        public Builder supportCredentials(Boolean supportCredentials) {
+            if (supportCredentials == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigCors", "supportCredentials");
+            }
             this.supportCredentials = supportCredentials;
             return this;
         }

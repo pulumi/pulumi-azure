@@ -28,11 +28,34 @@ namespace Pulumi.Azure.Cdn
     ///         Location = "West Europe",
     ///     });
     /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         Name = "example-identity",
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
     ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
     ///     {
     ///         Name = "example-cdn-profile",
     ///         ResourceGroupName = example.Name,
-    ///         SkuName = "Standard_AzureFrontDoor",
+    ///         SkuName = "Premium_AzureFrontDoor",
+    ///         ResponseTimeoutSeconds = 120,
+    ///         Identity = new Azure.Cdn.Inputs.FrontdoorProfileIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned, UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         LogScrubbingRules = new[]
+    ///         {
+    ///             new Azure.Cdn.Inputs.FrontdoorProfileLogScrubbingRuleArgs
+    ///             {
+    ///                 MatchVariable = "RequestIPAddress",
+    ///             },
+    ///         },
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },
@@ -65,6 +88,14 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Output("identity")]
         public Output<Outputs.FrontdoorProfileIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more `log_scrubbing_rule` blocks as defined below.
+        /// 
+        /// &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+        /// </summary>
+        [Output("logScrubbingRules")]
+        public Output<ImmutableArray<Outputs.FrontdoorProfileLogScrubbingRule>> LogScrubbingRules { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
@@ -154,6 +185,20 @@ namespace Pulumi.Azure.Cdn
         [Input("identity")]
         public Input<Inputs.FrontdoorProfileIdentityArgs>? Identity { get; set; }
 
+        [Input("logScrubbingRules")]
+        private InputList<Inputs.FrontdoorProfileLogScrubbingRuleArgs>? _logScrubbingRules;
+
+        /// <summary>
+        /// One or more `log_scrubbing_rule` blocks as defined below.
+        /// 
+        /// &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+        /// </summary>
+        public InputList<Inputs.FrontdoorProfileLogScrubbingRuleArgs> LogScrubbingRules
+        {
+            get => _logScrubbingRules ?? (_logScrubbingRules = new InputList<Inputs.FrontdoorProfileLogScrubbingRuleArgs>());
+            set => _logScrubbingRules = value;
+        }
+
         /// <summary>
         /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>
@@ -203,6 +248,20 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("identity")]
         public Input<Inputs.FrontdoorProfileIdentityGetArgs>? Identity { get; set; }
+
+        [Input("logScrubbingRules")]
+        private InputList<Inputs.FrontdoorProfileLogScrubbingRuleGetArgs>? _logScrubbingRules;
+
+        /// <summary>
+        /// One or more `log_scrubbing_rule` blocks as defined below.
+        /// 
+        /// &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+        /// </summary>
+        public InputList<Inputs.FrontdoorProfileLogScrubbingRuleGetArgs> LogScrubbingRules
+        {
+            get => _logScrubbingRules ?? (_logScrubbingRules = new InputList<Inputs.FrontdoorProfileLogScrubbingRuleGetArgs>());
+            set => _logScrubbingRules = value;
+        }
 
         /// <summary>
         /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.

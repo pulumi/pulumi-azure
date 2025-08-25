@@ -15,6 +15,8 @@ namespace Pulumi.Azure.LoadTest.Outputs
     {
         /// <summary>
         /// The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+        /// 
+        /// &gt; **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
         /// </summary>
         public readonly string IdentityId;
         /// <summary>

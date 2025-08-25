@@ -47,19 +47,26 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * The Metric ARM Resource ID of the Event Grid System Topic.
-     * 
-     */
     @Import(name="metricArmResourceId")
     private @Nullable Output<String> metricArmResourceId;
 
-    /**
-     * @return The Metric ARM Resource ID of the Event Grid System Topic.
-     * 
-     */
     public Optional<Output<String>> metricArmResourceId() {
         return Optional.ofNullable(this.metricArmResourceId);
+    }
+
+    /**
+     * The Metric Resource ID of the Event Grid System Topic.
+     * 
+     */
+    @Import(name="metricResourceId")
+    private @Nullable Output<String> metricResourceId;
+
+    /**
+     * @return The Metric Resource ID of the Event Grid System Topic.
+     * 
+     */
+    public Optional<Output<String>> metricResourceId() {
+        return Optional.ofNullable(this.metricResourceId);
     }
 
     /**
@@ -93,18 +100,37 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * @deprecated
+     * the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider. */
+    @Import(name="sourceArmResourceId")
+    private @Nullable Output<String> sourceArmResourceId;
+
+    /**
+     * @deprecated
+     * the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider. */
+    public Optional<Output<String>> sourceArmResourceId() {
+        return Optional.ofNullable(this.sourceArmResourceId);
+    }
+
+    /**
      * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    @Import(name="sourceArmResourceId")
-    private @Nullable Output<String> sourceArmResourceId;
+    @Import(name="sourceResourceId")
+    private @Nullable Output<String> sourceResourceId;
 
     /**
      * @return The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
      * 
      */
-    public Optional<Output<String>> sourceArmResourceId() {
-        return Optional.ofNullable(this.sourceArmResourceId);
+    public Optional<Output<String>> sourceResourceId() {
+        return Optional.ofNullable(this.sourceResourceId);
     }
 
     /**
@@ -151,9 +177,11 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
         this.identity = $.identity;
         this.location = $.location;
         this.metricArmResourceId = $.metricArmResourceId;
+        this.metricResourceId = $.metricResourceId;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.sourceArmResourceId = $.sourceArmResourceId;
+        this.sourceResourceId = $.sourceResourceId;
         this.tags = $.tags;
         this.topicType = $.topicType;
     }
@@ -218,25 +246,34 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
             return location(Output.of(location));
         }
 
-        /**
-         * @param metricArmResourceId The Metric ARM Resource ID of the Event Grid System Topic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricArmResourceId(@Nullable Output<String> metricArmResourceId) {
             $.metricArmResourceId = metricArmResourceId;
             return this;
         }
 
+        public Builder metricArmResourceId(String metricArmResourceId) {
+            return metricArmResourceId(Output.of(metricArmResourceId));
+        }
+
         /**
-         * @param metricArmResourceId The Metric ARM Resource ID of the Event Grid System Topic.
+         * @param metricResourceId The Metric Resource ID of the Event Grid System Topic.
          * 
          * @return builder
          * 
          */
-        public Builder metricArmResourceId(String metricArmResourceId) {
-            return metricArmResourceId(Output.of(metricArmResourceId));
+        public Builder metricResourceId(@Nullable Output<String> metricResourceId) {
+            $.metricResourceId = metricResourceId;
+            return this;
+        }
+
+        /**
+         * @param metricResourceId The Metric Resource ID of the Event Grid System Topic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricResourceId(String metricResourceId) {
+            return metricResourceId(Output.of(metricResourceId));
         }
 
         /**
@@ -282,24 +319,49 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceArmResourceId The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider.
+         * 
          */
+        @Deprecated /* the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider. */
         public Builder sourceArmResourceId(@Nullable Output<String> sourceArmResourceId) {
             $.sourceArmResourceId = sourceArmResourceId;
             return this;
         }
 
         /**
-         * @param sourceArmResourceId The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
+         * @return builder
+         * 
+         * @deprecated
+         * the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider.
+         * 
+         */
+        @Deprecated /* the `source_arm_resource_id` property has been deprecated in favour of `source_resource_id` and will be removed in version 5.0 of the Provider. */
+        public Builder sourceArmResourceId(String sourceArmResourceId) {
+            return sourceArmResourceId(Output.of(sourceArmResourceId));
+        }
+
+        /**
+         * @param sourceResourceId The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
          * 
          * @return builder
          * 
          */
-        public Builder sourceArmResourceId(String sourceArmResourceId) {
-            return sourceArmResourceId(Output.of(sourceArmResourceId));
+        public Builder sourceResourceId(@Nullable Output<String> sourceResourceId) {
+            $.sourceResourceId = sourceResourceId;
+            return this;
+        }
+
+        /**
+         * @param sourceResourceId The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceResourceId(String sourceResourceId) {
+            return sourceResourceId(Output.of(sourceResourceId));
         }
 
         /**

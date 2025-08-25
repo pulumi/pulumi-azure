@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2025-01-01
+// * `Microsoft.NetApp` - 2025-06-01
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPoolResult
@@ -73,6 +73,8 @@ type LookupPoolResult struct {
 	AccountName string `pulumi:"accountName"`
 	// Whether the NetApp Pool can hold cool access enabled volumes.
 	CoolAccessEnabled bool `pulumi:"coolAccessEnabled"`
+	// The custom throughput for the pool in MiB/s.
+	CustomThroughputMibps int `pulumi:"customThroughputMibps"`
 	// The encryption type of the pool.
 	EncryptionType string `pulumi:"encryptionType"`
 	// The provider-assigned unique ID for this managed resource.
@@ -132,6 +134,11 @@ func (o LookupPoolResultOutput) AccountName() pulumi.StringOutput {
 // Whether the NetApp Pool can hold cool access enabled volumes.
 func (o LookupPoolResultOutput) CoolAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPoolResult) bool { return v.CoolAccessEnabled }).(pulumi.BoolOutput)
+}
+
+// The custom throughput for the pool in MiB/s.
+func (o LookupPoolResultOutput) CustomThroughputMibps() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupPoolResult) int { return v.CustomThroughputMibps }).(pulumi.IntOutput)
 }
 
 // The encryption type of the pool.

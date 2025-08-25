@@ -39,6 +39,7 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable Boolean fipsEnabled;
+    private @Nullable String gpuDriver;
     /**
      * @return Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
      * 
@@ -230,6 +231,9 @@ public final class KubernetesClusterDefaultNodePool {
      */
     public Optional<Boolean> fipsEnabled() {
         return Optional.ofNullable(this.fipsEnabled);
+    }
+    public Optional<String> gpuDriver() {
+        return Optional.ofNullable(this.gpuDriver);
     }
     /**
      * @return Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -475,6 +479,7 @@ public final class KubernetesClusterDefaultNodePool {
         private @Nullable Boolean autoScalingEnabled;
         private @Nullable String capacityReservationGroupId;
         private @Nullable Boolean fipsEnabled;
+        private @Nullable String gpuDriver;
         private @Nullable String gpuInstance;
         private @Nullable Boolean hostEncryptionEnabled;
         private @Nullable String hostGroupId;
@@ -514,6 +519,7 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.autoScalingEnabled = defaults.autoScalingEnabled;
     	      this.capacityReservationGroupId = defaults.capacityReservationGroupId;
     	      this.fipsEnabled = defaults.fipsEnabled;
+    	      this.gpuDriver = defaults.gpuDriver;
     	      this.gpuInstance = defaults.gpuInstance;
     	      this.hostEncryptionEnabled = defaults.hostEncryptionEnabled;
     	      this.hostGroupId = defaults.hostGroupId;
@@ -565,6 +571,12 @@ public final class KubernetesClusterDefaultNodePool {
         public Builder fipsEnabled(@Nullable Boolean fipsEnabled) {
 
             this.fipsEnabled = fipsEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder gpuDriver(@Nullable String gpuDriver) {
+
+            this.gpuDriver = gpuDriver;
             return this;
         }
         @CustomType.Setter
@@ -775,6 +787,7 @@ public final class KubernetesClusterDefaultNodePool {
             _resultValue.autoScalingEnabled = autoScalingEnabled;
             _resultValue.capacityReservationGroupId = capacityReservationGroupId;
             _resultValue.fipsEnabled = fipsEnabled;
+            _resultValue.gpuDriver = gpuDriver;
             _resultValue.gpuInstance = gpuInstance;
             _resultValue.hostEncryptionEnabled = hostEncryptionEnabled;
             _resultValue.hostGroupId = hostGroupId;

@@ -43,10 +43,7 @@ namespace Pulumi.Azure.Mobile
     ///         MobileNetworkId = exampleNetwork.Id,
     ///         Location = example.Location,
     ///         Description = "an example slice",
-    ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
-    ///         {
-    ///             SliceServiceType = 1,
-    ///         },
+    ///         SliceServiceType = 1,
     ///         Tags = 
     ///         {
     ///             { "key", "value" },
@@ -98,11 +95,20 @@ namespace Pulumi.Azure.Mobile
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-        /// </summary>
         [Output("singleNetworkSliceSelectionAssistanceInformation")]
         public Output<Outputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformation> SingleNetworkSliceSelectionAssistanceInformation { get; private set; } = null!;
+
+        /// <summary>
+        /// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        /// </summary>
+        [Output("sliceDifferentiator")]
+        public Output<string> SliceDifferentiator { get; private set; } = null!;
+
+        /// <summary>
+        /// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        /// </summary>
+        [Output("sliceServiceType")]
+        public Output<int> SliceServiceType { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Mobile Network Slice.
@@ -180,11 +186,20 @@ namespace Pulumi.Azure.Mobile
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("singleNetworkSliceSelectionAssistanceInformation")]
+        public Input<Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs>? SingleNetworkSliceSelectionAssistanceInformation { get; set; }
+
         /// <summary>
-        /// A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        /// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         /// </summary>
-        [Input("singleNetworkSliceSelectionAssistanceInformation", required: true)]
-        public Input<Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs> SingleNetworkSliceSelectionAssistanceInformation { get; set; } = null!;
+        [Input("sliceDifferentiator")]
+        public Input<string>? SliceDifferentiator { get; set; }
+
+        /// <summary>
+        /// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        /// </summary>
+        [Input("sliceServiceType")]
+        public Input<int>? SliceServiceType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -230,11 +245,20 @@ namespace Pulumi.Azure.Mobile
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// A `single_network_slice_selection_assistance_information` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-        /// </summary>
         [Input("singleNetworkSliceSelectionAssistanceInformation")]
         public Input<Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationGetArgs>? SingleNetworkSliceSelectionAssistanceInformation { get; set; }
+
+        /// <summary>
+        /// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        /// </summary>
+        [Input("sliceDifferentiator")]
+        public Input<string>? SliceDifferentiator { get; set; }
+
+        /// <summary>
+        /// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+        /// </summary>
+        [Input("sliceServiceType")]
+        public Input<int>? SliceServiceType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

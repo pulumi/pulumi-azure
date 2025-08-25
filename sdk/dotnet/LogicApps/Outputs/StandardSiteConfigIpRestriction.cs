@@ -18,6 +18,10 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
+        /// The Description of this IP Restriction.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The `headers` block for this specific as a `ip_restriction` block as defined below.
         /// </summary>
         public readonly Outputs.StandardSiteConfigIpRestrictionHeaders? Headers;
@@ -48,6 +52,8 @@ namespace Pulumi.Azure.LogicApps.Outputs
         private StandardSiteConfigIpRestriction(
             string? action,
 
+            string? description,
+
             Outputs.StandardSiteConfigIpRestrictionHeaders? headers,
 
             string? ipAddress,
@@ -61,6 +67,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
             string? virtualNetworkSubnetId)
         {
             Action = action;
+            Description = description;
             Headers = headers;
             IpAddress = ipAddress;
             Name = name;

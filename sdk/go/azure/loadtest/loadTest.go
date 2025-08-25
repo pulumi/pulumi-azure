@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-//
 // Manages a Load Test Service.
 //
 // ## Example Usage

@@ -9,6 +9,7 @@ import typing
 from .credential_service_principal import *
 from .credential_user_managed_identity import *
 from .custom_dataset import *
+from .customer_managed_key import *
 from .data_flow import *
 from .dataset_azure_blob import *
 from .dataset_azure_sql_table import *

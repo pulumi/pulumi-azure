@@ -4424,6 +4424,8 @@ export namespace appservice {
         retentionInDays: pulumi.Input<number>;
         /**
          * The URL to the storage container with a shared access signature token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -4446,6 +4448,8 @@ export namespace appservice {
         retentionInDays: pulumi.Input<number>;
         /**
          * The URL to the storage container with a shared access signature token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -8420,6 +8424,8 @@ export namespace appservice {
         retentionInDays: pulumi.Input<number>;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -8442,6 +8448,8 @@ export namespace appservice {
         retentionInDays?: pulumi.Input<number>;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -9571,6 +9579,8 @@ export namespace appservice {
         retentionInDays: pulumi.Input<number>;
         /**
          * SAS URL to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -9593,6 +9603,8 @@ export namespace appservice {
         retentionInDays?: pulumi.Input<number>;
         /**
          * SAS URL to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -10337,7 +10349,9 @@ export namespace appservice {
          */
         retentionInDays: pulumi.Input<number>;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container, with a Service SAS token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -10359,7 +10373,9 @@ export namespace appservice {
          */
         retentionInDays: pulumi.Input<number>;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container, with a Service SAS token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -13472,6 +13488,8 @@ export namespace appservice {
         retentionInDays: pulumi.Input<number>;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -13494,6 +13512,8 @@ export namespace appservice {
         retentionInDays?: pulumi.Input<number>;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -14716,6 +14736,8 @@ export namespace appservice {
         retentionInDays: pulumi.Input<number>;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -14738,6 +14760,8 @@ export namespace appservice {
         retentionInDays?: pulumi.Input<number>;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -18376,6 +18400,15 @@ export namespace cdn {
         type: pulumi.Input<string>;
     }
 
+    export interface FrontdoorProfileLogScrubbingRule {
+        /**
+         * The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+         *
+         * > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+         */
+        matchVariable: pulumi.Input<string>;
+    }
+
     export interface FrontdoorRouteCache {
         /**
          * Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
@@ -19021,32 +19054,6 @@ export namespace cdn {
          * The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
          */
         cdnFrontdoorDomainId: pulumi.Input<string>;
-    }
-
-    export interface GetFrontdoorProfileIdentity {
-        /**
-         * The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
-         */
-        identityIds?: string[];
-        principalId?: string;
-        tenantId?: string;
-        /**
-         * The type of Managed Service Identity that is configured on this Front Door Profile.
-         */
-        type: string;
-    }
-
-    export interface GetFrontdoorProfileIdentityArgs {
-        /**
-         * The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
-         */
-        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
-        principalId?: pulumi.Input<string>;
-        tenantId?: pulumi.Input<string>;
-        /**
-         * The type of Managed Service Identity that is configured on this Front Door Profile.
-         */
-        type: pulumi.Input<string>;
     }
 
 }
@@ -25351,12 +25358,9 @@ export namespace containerservice {
          * How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
          */
         scanInterval?: pulumi.Input<string>;
-        /**
-         * If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-         */
         skipNodesWithLocalStorage?: pulumi.Input<boolean>;
         /**
-         * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+         * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
          */
         skipNodesWithSystemPods?: pulumi.Input<boolean>;
     }
@@ -25400,6 +25404,7 @@ export namespace containerservice {
          * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
          */
         fipsEnabled?: pulumi.Input<boolean>;
+        gpuDriver?: pulumi.Input<string>;
         /**
          * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
          */
@@ -30347,7 +30352,7 @@ export namespace dataprotection {
          */
         daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
          */
         monthsOfYears?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -30355,7 +30360,9 @@ export namespace dataprotection {
          */
         scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -30453,6 +30460,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         * *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -30524,6 +30533,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -30595,6 +30606,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -30648,6 +30661,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -38506,6 +38521,8 @@ export namespace loadtest {
     export interface LoadTestEncryptionIdentity {
         /**
          * The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+         *
+         * > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
          */
         identityId: pulumi.Input<string>;
         /**
@@ -38521,7 +38538,6 @@ export namespace loadtest {
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-         * *
          */
         principalId?: pulumi.Input<string>;
         /**
@@ -38570,410 +38586,6 @@ export namespace logicapps {
          * Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
          */
         actionResult: pulumi.Input<string>;
-    }
-
-    export interface GetStandardSiteConfig {
-        /**
-         * Should the Logic App be loaded at all times?
-         */
-        alwaysOn?: boolean;
-        /**
-         * The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
-         */
-        appScaleLimit?: number;
-        /**
-         * The Auto-swap slot name.
-         */
-        autoSwapSlotName?: string;
-        /**
-         * A `cors` block as defined below.
-         */
-        cors?: inputs.logicapps.GetStandardSiteConfigCors;
-        /**
-         * The version of the .NET framework's CLR used in this Logic App.
-         */
-        dotnetFrameworkVersion?: string;
-        /**
-         * The number of minimum instances for this Logic App Only affects apps on the Premium plan.
-         */
-        elasticInstanceMinimum?: number;
-        /**
-         * The state of FTP / FTPS service for this Logic App.
-         */
-        ftpsState?: string;
-        /**
-         * Path which will be checked for this Logic App health.
-         */
-        healthCheckPath?: string;
-        /**
-         * Specifies whether the HTTP2 protocol should be enabled.
-         */
-        http2Enabled?: boolean;
-        /**
-         * A list of `ipRestriction` objects representing IP restrictions as defined below.
-         */
-        ipRestrictions?: inputs.logicapps.GetStandardSiteConfigIpRestriction[];
-        /**
-         * Linux App Framework and version for the Logic App.
-         */
-        linuxFxVersion?: string;
-        /**
-         * The minimum supported TLS version for the Logic App.
-         */
-        minTlsVersion?: string;
-        /**
-         * The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
-         */
-        preWarmedInstanceCount?: number;
-        /**
-         * @deprecated the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-         */
-        publicNetworkAccessEnabled?: boolean;
-        /**
-         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
-         */
-        runtimeScaleMonitoringEnabled?: boolean;
-        /**
-         * A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
-         */
-        scmIpRestrictions?: inputs.logicapps.GetStandardSiteConfigScmIpRestriction[];
-        /**
-         * The minimum version of TLS required for SSL requests to the SCM site.
-         */
-        scmMinTlsVersion?: string;
-        /**
-         * The type of Source Control used by the Logic App in use by the Windows Function App.
-         */
-        scmType?: string;
-        /**
-         * Should the Logic App `ipRestriction` configuration be used for the SCM too.
-         */
-        scmUseMainIpRestriction?: boolean;
-        /**
-         * Should the Logic App run in 32 bit mode, rather than 64 bit mode?
-         */
-        use32BitWorkerProcess?: boolean;
-        /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-         */
-        vnetRouteAllEnabled?: boolean;
-        /**
-         * Should WebSockets be enabled?
-         */
-        websocketsEnabled?: boolean;
-    }
-
-    export interface GetStandardSiteConfigArgs {
-        /**
-         * Should the Logic App be loaded at all times?
-         */
-        alwaysOn?: pulumi.Input<boolean>;
-        /**
-         * The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
-         */
-        appScaleLimit?: pulumi.Input<number>;
-        /**
-         * The Auto-swap slot name.
-         */
-        autoSwapSlotName?: pulumi.Input<string>;
-        /**
-         * A `cors` block as defined below.
-         */
-        cors?: pulumi.Input<inputs.logicapps.GetStandardSiteConfigCorsArgs>;
-        /**
-         * The version of the .NET framework's CLR used in this Logic App.
-         */
-        dotnetFrameworkVersion?: pulumi.Input<string>;
-        /**
-         * The number of minimum instances for this Logic App Only affects apps on the Premium plan.
-         */
-        elasticInstanceMinimum?: pulumi.Input<number>;
-        /**
-         * The state of FTP / FTPS service for this Logic App.
-         */
-        ftpsState?: pulumi.Input<string>;
-        /**
-         * Path which will be checked for this Logic App health.
-         */
-        healthCheckPath?: pulumi.Input<string>;
-        /**
-         * Specifies whether the HTTP2 protocol should be enabled.
-         */
-        http2Enabled?: pulumi.Input<boolean>;
-        /**
-         * A list of `ipRestriction` objects representing IP restrictions as defined below.
-         */
-        ipRestrictions?: pulumi.Input<pulumi.Input<inputs.logicapps.GetStandardSiteConfigIpRestrictionArgs>[]>;
-        /**
-         * Linux App Framework and version for the Logic App.
-         */
-        linuxFxVersion?: pulumi.Input<string>;
-        /**
-         * The minimum supported TLS version for the Logic App.
-         */
-        minTlsVersion?: pulumi.Input<string>;
-        /**
-         * The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
-         */
-        preWarmedInstanceCount?: pulumi.Input<number>;
-        /**
-         * @deprecated the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-         */
-        publicNetworkAccessEnabled?: pulumi.Input<boolean>;
-        /**
-         * Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
-         */
-        runtimeScaleMonitoringEnabled?: pulumi.Input<boolean>;
-        /**
-         * A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
-         */
-        scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.logicapps.GetStandardSiteConfigScmIpRestrictionArgs>[]>;
-        /**
-         * The minimum version of TLS required for SSL requests to the SCM site.
-         */
-        scmMinTlsVersion?: pulumi.Input<string>;
-        /**
-         * The type of Source Control used by the Logic App in use by the Windows Function App.
-         */
-        scmType?: pulumi.Input<string>;
-        /**
-         * Should the Logic App `ipRestriction` configuration be used for the SCM too.
-         */
-        scmUseMainIpRestriction?: pulumi.Input<boolean>;
-        /**
-         * Should the Logic App run in 32 bit mode, rather than 64 bit mode?
-         */
-        use32BitWorkerProcess?: pulumi.Input<boolean>;
-        /**
-         * Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-         */
-        vnetRouteAllEnabled?: pulumi.Input<boolean>;
-        /**
-         * Should WebSockets be enabled?
-         */
-        websocketsEnabled?: pulumi.Input<boolean>;
-    }
-
-    export interface GetStandardSiteConfigCors {
-        /**
-         * A list of origins which should be able to make cross-origin calls.
-         */
-        allowedOrigins: string[];
-        /**
-         * Are credentials supported?
-         */
-        supportCredentials?: boolean;
-    }
-
-    export interface GetStandardSiteConfigCorsArgs {
-        /**
-         * A list of origins which should be able to make cross-origin calls.
-         */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Are credentials supported?
-         */
-        supportCredentials?: pulumi.Input<boolean>;
-    }
-
-    export interface GetStandardSiteConfigIpRestriction {
-        /**
-         * Does this restriction `Allow` or `Deny` access for this IP range.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `ipRestriction` as defined below.
-         */
-        headers?: inputs.logicapps.GetStandardSiteConfigIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name of the Logic App.
-         */
-        name?: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface GetStandardSiteConfigIpRestrictionArgs {
-        /**
-         * Does this restriction `Allow` or `Deny` access for this IP range.
-         */
-        action?: pulumi.Input<string>;
-        /**
-         * The `headers` block for this specific `ipRestriction` as defined below.
-         */
-        headers?: pulumi.Input<inputs.logicapps.GetStandardSiteConfigIpRestrictionHeadersArgs>;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: pulumi.Input<string>;
-        /**
-         * The name of the Logic App.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order.
-         */
-        priority?: pulumi.Input<number>;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: pulumi.Input<string>;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         */
-        virtualNetworkSubnetId?: pulumi.Input<string>;
-    }
-
-    export interface GetStandardSiteConfigIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header.
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface GetStandardSiteConfigIpRestrictionHeadersArgs {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation.
-         */
-        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * A list to allow the Azure FrontDoor health probe header.
-         */
-        xFdHealthProbe?: pulumi.Input<string>;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
-         */
-        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains.
-         */
-        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
-    export interface GetStandardSiteConfigScmIpRestriction {
-        /**
-         * Does this restriction `Allow` or `Deny` access for this IP range.
-         */
-        action?: string;
-        /**
-         * The `headers` block for this specific `ipRestriction` as defined below.
-         */
-        headers?: inputs.logicapps.GetStandardSiteConfigScmIpRestrictionHeaders;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: string;
-        /**
-         * The name of the Logic App.
-         */
-        name?: string;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order.
-         */
-        priority?: number;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: string;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         */
-        virtualNetworkSubnetId?: string;
-    }
-
-    export interface GetStandardSiteConfigScmIpRestrictionArgs {
-        /**
-         * Does this restriction `Allow` or `Deny` access for this IP range.
-         */
-        action?: pulumi.Input<string>;
-        /**
-         * The `headers` block for this specific `ipRestriction` as defined below.
-         */
-        headers?: pulumi.Input<inputs.logicapps.GetStandardSiteConfigScmIpRestrictionHeadersArgs>;
-        /**
-         * The IP Address used for this IP Restriction in CIDR notation.
-         */
-        ipAddress?: pulumi.Input<string>;
-        /**
-         * The name of the Logic App.
-         */
-        name?: pulumi.Input<string>;
-        /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order.
-         */
-        priority?: pulumi.Input<number>;
-        /**
-         * The Service Tag used for this IP Restriction.
-         */
-        serviceTag?: pulumi.Input<string>;
-        /**
-         * The Virtual Network Subnet ID used for this IP Restriction.
-         */
-        virtualNetworkSubnetId?: pulumi.Input<string>;
-    }
-
-    export interface GetStandardSiteConfigScmIpRestrictionHeaders {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation.
-         */
-        xAzureFdids?: string[];
-        /**
-         * A list to allow the Azure FrontDoor health probe header.
-         */
-        xFdHealthProbe?: string;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
-         */
-        xForwardedFors?: string[];
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains.
-         */
-        xForwardedHosts?: string[];
-    }
-
-    export interface GetStandardSiteConfigScmIpRestrictionHeadersArgs {
-        /**
-         * A list of allowed Azure FrontDoor IDs in UUID notation.
-         */
-        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * A list to allow the Azure FrontDoor health probe header.
-         */
-        xFdHealthProbe?: pulumi.Input<string>;
-        /**
-         * A list of allowed 'X-Forwarded-For' IPs in CIDR notation.
-         */
-        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * A list of allowed 'X-Forwarded-Host' domains.
-         */
-        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface IntegrationAccountAgreementGuestIdentity {
@@ -39245,7 +38857,7 @@ export namespace logicapps {
         /**
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
          */
-        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Are credentials supported?
          */
@@ -39257,6 +38869,10 @@ export namespace logicapps {
          * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * The `headers` block for this specific as a `ipRestriction` block as defined below.
          */
@@ -39309,6 +38925,10 @@ export namespace logicapps {
          * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
          */
         action?: pulumi.Input<string>;
+        /**
+         * The Description of this IP Restriction.
+         */
+        description?: pulumi.Input<string>;
         /**
          * The `headers` block for this specific `ipRestriction` as defined below.
          */
@@ -39700,9 +39320,13 @@ export namespace machinelearning {
 
     export interface WorkspaceManagedNetwork {
         /**
-         * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+         * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
          */
         isolationMode?: pulumi.Input<string>;
+        /**
+         * Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        provisionOnCreationEnabled?: pulumi.Input<boolean>;
     }
 
     export interface WorkspaceServerlessCompute {
@@ -40425,11 +40049,15 @@ export namespace mobile {
 
     export interface NetworkSliceSingleNetworkSliceSelectionAssistanceInformation {
         /**
-         * Slice differentiator (SD). Must be a 6 digit hex string.
+         * Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+         *
+         * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
          */
         sliceDifferentiator?: pulumi.Input<string>;
         /**
-         * Slice/service type (SST). Must be between `0` and `255`.
+         * Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+         *
+         * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
          */
         sliceServiceType: pulumi.Input<number>;
     }

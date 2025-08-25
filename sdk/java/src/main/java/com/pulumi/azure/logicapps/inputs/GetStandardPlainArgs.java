@@ -3,13 +3,10 @@
 
 package com.pulumi.azure.logicapps.inputs;
 
-import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfig;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetStandardPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -46,27 +43,11 @@ public final class GetStandardPlainArgs extends com.pulumi.resources.InvokeArgs 
         return this.resourceGroupName;
     }
 
-    /**
-     * A `site_config` object as defined below.
-     * 
-     */
-    @Import(name="siteConfig")
-    private @Nullable GetStandardSiteConfig siteConfig;
-
-    /**
-     * @return A `site_config` object as defined below.
-     * 
-     */
-    public Optional<GetStandardSiteConfig> siteConfig() {
-        return Optional.ofNullable(this.siteConfig);
-    }
-
     private GetStandardPlainArgs() {}
 
     private GetStandardPlainArgs(GetStandardPlainArgs $) {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
-        this.siteConfig = $.siteConfig;
     }
 
     public static Builder builder() {
@@ -106,17 +87,6 @@ public final class GetStandardPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder resourceGroupName(String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @param siteConfig A `site_config` object as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder siteConfig(@Nullable GetStandardSiteConfig siteConfig) {
-            $.siteConfig = siteConfig;
             return this;
         }
 

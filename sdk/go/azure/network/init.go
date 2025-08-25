@@ -95,12 +95,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkManagerDeployment{}
 	case "azure:network/networkManagerIpamPool:NetworkManagerIpamPool":
 		r = &NetworkManagerIpamPool{}
+	case "azure:network/networkManagerIpamPoolStaticCidr:NetworkManagerIpamPoolStaticCidr":
+		r = &NetworkManagerIpamPoolStaticCidr{}
 	case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
 		r = &NetworkManagerManagementGroupConnection{}
 	case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
 		r = &NetworkManagerNetworkGroup{}
 	case "azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration":
 		r = &NetworkManagerRoutingConfiguration{}
+	case "azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection":
+		r = &NetworkManagerRoutingRuleCollection{}
 	case "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection":
 		r = &NetworkManagerScopeConnection{}
 	case "azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration":
@@ -399,6 +403,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"network/networkManagerIpamPoolStaticCidr",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"network/networkManagerManagementGroupConnection",
 		&module{version},
 	)
@@ -410,6 +419,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"network/networkManagerRoutingConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"network/networkManagerRoutingRuleCollection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

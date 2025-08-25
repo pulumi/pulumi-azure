@@ -370,6 +370,11 @@ export type NetworkManagerIpamPool = import("./networkManagerIpamPool").NetworkM
 export const NetworkManagerIpamPool: typeof import("./networkManagerIpamPool").NetworkManagerIpamPool = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerIpamPool"], () => require("./networkManagerIpamPool"));
 
+export { NetworkManagerIpamPoolStaticCidrArgs, NetworkManagerIpamPoolStaticCidrState } from "./networkManagerIpamPoolStaticCidr";
+export type NetworkManagerIpamPoolStaticCidr = import("./networkManagerIpamPoolStaticCidr").NetworkManagerIpamPoolStaticCidr;
+export const NetworkManagerIpamPoolStaticCidr: typeof import("./networkManagerIpamPoolStaticCidr").NetworkManagerIpamPoolStaticCidr = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerIpamPoolStaticCidr"], () => require("./networkManagerIpamPoolStaticCidr"));
+
 export { NetworkManagerManagementGroupConnectionArgs, NetworkManagerManagementGroupConnectionState } from "./networkManagerManagementGroupConnection";
 export type NetworkManagerManagementGroupConnection = import("./networkManagerManagementGroupConnection").NetworkManagerManagementGroupConnection;
 export const NetworkManagerManagementGroupConnection: typeof import("./networkManagerManagementGroupConnection").NetworkManagerManagementGroupConnection = null as any;
@@ -384,6 +389,11 @@ export { NetworkManagerRoutingConfigurationArgs, NetworkManagerRoutingConfigurat
 export type NetworkManagerRoutingConfiguration = import("./networkManagerRoutingConfiguration").NetworkManagerRoutingConfiguration;
 export const NetworkManagerRoutingConfiguration: typeof import("./networkManagerRoutingConfiguration").NetworkManagerRoutingConfiguration = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerRoutingConfiguration"], () => require("./networkManagerRoutingConfiguration"));
+
+export { NetworkManagerRoutingRuleCollectionArgs, NetworkManagerRoutingRuleCollectionState } from "./networkManagerRoutingRuleCollection";
+export type NetworkManagerRoutingRuleCollection = import("./networkManagerRoutingRuleCollection").NetworkManagerRoutingRuleCollection;
+export const NetworkManagerRoutingRuleCollection: typeof import("./networkManagerRoutingRuleCollection").NetworkManagerRoutingRuleCollection = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerRoutingRuleCollection"], () => require("./networkManagerRoutingRuleCollection"));
 
 export { NetworkManagerScopeConnectionArgs, NetworkManagerScopeConnectionState } from "./networkManagerScopeConnection";
 export type NetworkManagerScopeConnection = import("./networkManagerScopeConnection").NetworkManagerScopeConnection;
@@ -709,12 +719,16 @@ const _module = {
                 return new NetworkManagerDeployment(name, <any>undefined, { urn })
             case "azure:network/networkManagerIpamPool:NetworkManagerIpamPool":
                 return new NetworkManagerIpamPool(name, <any>undefined, { urn })
+            case "azure:network/networkManagerIpamPoolStaticCidr:NetworkManagerIpamPoolStaticCidr":
+                return new NetworkManagerIpamPoolStaticCidr(name, <any>undefined, { urn })
             case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
                 return new NetworkManagerManagementGroupConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
                 return new NetworkManagerNetworkGroup(name, <any>undefined, { urn })
             case "azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration":
                 return new NetworkManagerRoutingConfiguration(name, <any>undefined, { urn })
+            case "azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection":
+                return new NetworkManagerRoutingRuleCollection(name, <any>undefined, { urn })
             case "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection":
                 return new NetworkManagerScopeConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration":
@@ -855,9 +869,11 @@ pulumi.runtime.registerResourceModule("azure", "network/networkManagerAdminRuleC
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerConnectivityConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerIpamPool", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerIpamPoolStaticCidr", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerManagementGroupConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerRoutingConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerRoutingRuleCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerScopeConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerSecurityAdminConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerStaticMember", _module)
