@@ -84,12 +84,10 @@ import (
 //				return err
 //			}
 //			exampleNetworkSlice, err := mobile.NewNetworkSlice(ctx, "example", &mobile.NetworkSliceArgs{
-//				Name:            pulumi.String("example-mns"),
-//				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        example.Location,
-//				SingleNetworkSliceSelectionAssistanceInformation: &mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{
-//					SliceServiceType: pulumi.Int(1),
-//				},
+//				Name:             pulumi.String("example-mns"),
+//				MobileNetworkId:  exampleNetwork.ID(),
+//				Location:         example.Location,
+//				SliceServiceType: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

@@ -53,6 +53,21 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+     * 
+     */
+    @Import(name="customThroughputMibps")
+    private @Nullable Output<Integer> customThroughputMibps;
+
+    /**
+     * @return The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+     * 
+     */
+    public Optional<Output<Integer>> customThroughputMibps() {
+        return Optional.ofNullable(this.customThroughputMibps);
+    }
+
+    /**
      * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
      * 
      */
@@ -128,14 +143,14 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="serviceLevel")
     private @Nullable Output<String> serviceLevel;
 
     /**
-     * @return The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+     * @return The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> serviceLevel() {
@@ -185,6 +200,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     private PoolState(PoolState $) {
         this.accountName = $.accountName;
         this.coolAccessEnabled = $.coolAccessEnabled;
+        this.customThroughputMibps = $.customThroughputMibps;
         this.encryptionType = $.encryptionType;
         this.location = $.location;
         this.name = $.name;
@@ -257,6 +273,27 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder coolAccessEnabled(Boolean coolAccessEnabled) {
             return coolAccessEnabled(Output.of(coolAccessEnabled));
+        }
+
+        /**
+         * @param customThroughputMibps The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customThroughputMibps(@Nullable Output<Integer> customThroughputMibps) {
+            $.customThroughputMibps = customThroughputMibps;
+            return this;
+        }
+
+        /**
+         * @param customThroughputMibps The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customThroughputMibps(Integer customThroughputMibps) {
+            return customThroughputMibps(Output.of(customThroughputMibps));
         }
 
         /**
@@ -365,7 +402,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceLevel The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+         * @param serviceLevel The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -376,7 +413,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceLevel The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+         * @param serviceLevel The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

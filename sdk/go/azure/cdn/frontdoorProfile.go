@@ -21,6 +21,7 @@ import (
 //
 // import (
 //
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cdn"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -36,10 +37,30 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
-//				Name:              pulumi.String("example-cdn-profile"),
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Location:          example.Location,
+//				Name:              pulumi.String("example-identity"),
 //				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:                   pulumi.String("example-cdn-profile"),
+//				ResourceGroupName:      example.Name,
+//				SkuName:                pulumi.String("Premium_AzureFrontDoor"),
+//				ResponseTimeoutSeconds: pulumi.Int(120),
+//				Identity: &cdn.FrontdoorProfileIdentityArgs{
+//					Type: pulumi.String("SystemAssigned, UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//				LogScrubbingRules: cdn.FrontdoorProfileLogScrubbingRuleArray{
+//					&cdn.FrontdoorProfileLogScrubbingRuleArgs{
+//						MatchVariable: pulumi.String("RequestIPAddress"),
+//					},
+//				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},
@@ -72,6 +93,10 @@ type FrontdoorProfile struct {
 
 	// An `identity` block as defined below.
 	Identity FrontdoorProfileIdentityPtrOutput `pulumi:"identity"`
+	// One or more `logScrubbingRule` blocks as defined below.
+	//
+	// > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
+	LogScrubbingRules FrontdoorProfileLogScrubbingRuleArrayOutput `pulumi:"logScrubbingRules"`
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -124,6 +149,10 @@ func GetFrontdoorProfile(ctx *pulumi.Context,
 type frontdoorProfileState struct {
 	// An `identity` block as defined below.
 	Identity *FrontdoorProfileIdentity `pulumi:"identity"`
+	// One or more `logScrubbingRule` blocks as defined below.
+	//
+	// > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
+	LogScrubbingRules []FrontdoorProfileLogScrubbingRule `pulumi:"logScrubbingRules"`
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -141,6 +170,10 @@ type frontdoorProfileState struct {
 type FrontdoorProfileState struct {
 	// An `identity` block as defined below.
 	Identity FrontdoorProfileIdentityPtrInput
+	// One or more `logScrubbingRule` blocks as defined below.
+	//
+	// > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
+	LogScrubbingRules FrontdoorProfileLogScrubbingRuleArrayInput
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -162,6 +195,10 @@ func (FrontdoorProfileState) ElementType() reflect.Type {
 type frontdoorProfileArgs struct {
 	// An `identity` block as defined below.
 	Identity *FrontdoorProfileIdentity `pulumi:"identity"`
+	// One or more `logScrubbingRule` blocks as defined below.
+	//
+	// > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
+	LogScrubbingRules []FrontdoorProfileLogScrubbingRule `pulumi:"logScrubbingRules"`
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -178,6 +215,10 @@ type frontdoorProfileArgs struct {
 type FrontdoorProfileArgs struct {
 	// An `identity` block as defined below.
 	Identity FrontdoorProfileIdentityPtrInput
+	// One or more `logScrubbingRule` blocks as defined below.
+	//
+	// > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
+	LogScrubbingRules FrontdoorProfileLogScrubbingRuleArrayInput
 	// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
@@ -280,6 +321,13 @@ func (o FrontdoorProfileOutput) ToFrontdoorProfileOutputWithContext(ctx context.
 // An `identity` block as defined below.
 func (o FrontdoorProfileOutput) Identity() FrontdoorProfileIdentityPtrOutput {
 	return o.ApplyT(func(v *FrontdoorProfile) FrontdoorProfileIdentityPtrOutput { return v.Identity }).(FrontdoorProfileIdentityPtrOutput)
+}
+
+// One or more `logScrubbingRule` blocks as defined below.
+//
+// > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
+func (o FrontdoorProfileOutput) LogScrubbingRules() FrontdoorProfileLogScrubbingRuleArrayOutput {
+	return o.ApplyT(func(v *FrontdoorProfile) FrontdoorProfileLogScrubbingRuleArrayOutput { return v.LogScrubbingRules }).(FrontdoorProfileLogScrubbingRuleArrayOutput)
 }
 
 // Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.

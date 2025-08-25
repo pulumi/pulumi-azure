@@ -16,7 +16,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// Should the Logic App be loaded at all times?
         /// </summary>
-        public readonly bool? AlwaysOn;
+        public readonly bool AlwaysOn;
         /// <summary>
         /// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// Specifies whether the HTTP2 protocol should be enabled.
         /// </summary>
-        public readonly bool? Http2Enabled;
+        public readonly bool Http2Enabled;
         /// <summary>
         /// A list of `ip_restriction` objects representing IP restrictions as defined below.
         /// </summary>
@@ -101,7 +101,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
         [OutputConstructor]
         private GetStandardSiteConfigResult(
-            bool? alwaysOn,
+            bool alwaysOn,
 
             int appScaleLimit,
 
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             string? healthCheckPath,
 
-            bool? http2Enabled,
+            bool http2Enabled,
 
             ImmutableArray<Outputs.GetStandardSiteConfigIpRestrictionResult> ipRestrictions,
 

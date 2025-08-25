@@ -50,6 +50,51 @@ import (
 //				Name:                                pulumi.String("example-backup-policy"),
 //				VaultId:                             exampleBackupVault.ID(),
 //				OperationalDefaultRetentionDuration: pulumi.String("P30D"),
+//				VaultDefaultRetentionDuration:       pulumi.String("P7D"),
+//				RetentionRules: dataprotection.BackupPolicyBlobStorageRetentionRuleArray{
+//					&dataprotection.BackupPolicyBlobStorageRetentionRuleArgs{
+//						Name:     pulumi.String("Weekly"),
+//						Priority: pulumi.Int(20),
+//						LifeCycle: &dataprotection.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{
+//							Duration:      pulumi.String("P90D"),
+//							DataStoreType: pulumi.String("VaultStore"),
+//						},
+//						Criteria: &dataprotection.BackupPolicyBlobStorageRetentionRuleCriteriaArgs{
+//							DaysOfWeeks: pulumi.StringArray{
+//								pulumi.String("Monday"),
+//							},
+//						},
+//					},
+//					&dataprotection.BackupPolicyBlobStorageRetentionRuleArgs{
+//						Name:     pulumi.String("Monthly"),
+//						Priority: pulumi.Int(10),
+//						LifeCycle: &dataprotection.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{
+//							Duration:      pulumi.String("P180D"),
+//							DataStoreType: pulumi.String("VaultStore"),
+//						},
+//						Criteria: &dataprotection.BackupPolicyBlobStorageRetentionRuleCriteriaArgs{
+//							DaysOfMonths: pulumi.IntArray{
+//								pulumi.Int(1),
+//							},
+//						},
+//					},
+//					&dataprotection.BackupPolicyBlobStorageRetentionRuleArgs{
+//						Name:     pulumi.String("Yearly"),
+//						Priority: pulumi.Int(5),
+//						LifeCycle: &dataprotection.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{
+//							Duration:      pulumi.String("P365D"),
+//							DataStoreType: pulumi.String("VaultStore"),
+//						},
+//						Criteria: &dataprotection.BackupPolicyBlobStorageRetentionRuleCriteriaArgs{
+//							MonthsOfYears: pulumi.StringArray{
+//								pulumi.String("January"),
+//							},
+//							DaysOfMonths: pulumi.IntArray{
+//								pulumi.Int(1),
+//							},
+//						},
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err

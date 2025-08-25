@@ -4,7 +4,6 @@
 package com.pulumi.azure.logicapps.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -18,7 +17,7 @@ public final class StandardSiteConfigCors {
      * @return A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
      * 
      */
-    private List<String> allowedOrigins;
+    private @Nullable List<String> allowedOrigins;
     /**
      * @return Are credentials supported?
      * 
@@ -31,7 +30,7 @@ public final class StandardSiteConfigCors {
      * 
      */
     public List<String> allowedOrigins() {
-        return this.allowedOrigins;
+        return this.allowedOrigins == null ? List.of() : this.allowedOrigins;
     }
     /**
      * @return Are credentials supported?
@@ -50,7 +49,7 @@ public final class StandardSiteConfigCors {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> allowedOrigins;
+        private @Nullable List<String> allowedOrigins;
         private @Nullable Boolean supportCredentials;
         public Builder() {}
         public Builder(StandardSiteConfigCors defaults) {
@@ -60,10 +59,8 @@ public final class StandardSiteConfigCors {
         }
 
         @CustomType.Setter
-        public Builder allowedOrigins(List<String> allowedOrigins) {
-            if (allowedOrigins == null) {
-              throw new MissingRequiredPropertyException("StandardSiteConfigCors", "allowedOrigins");
-            }
+        public Builder allowedOrigins(@Nullable List<String> allowedOrigins) {
+
             this.allowedOrigins = allowedOrigins;
             return this;
         }

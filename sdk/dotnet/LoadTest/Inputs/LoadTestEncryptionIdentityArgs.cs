@@ -14,6 +14,8 @@ namespace Pulumi.Azure.LoadTest.Inputs
     {
         /// <summary>
         /// The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+        /// 
+        /// &gt; **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
         /// </summary>
         [Input("identityId", required: true)]
         public Input<string> IdentityId { get; set; } = null!;

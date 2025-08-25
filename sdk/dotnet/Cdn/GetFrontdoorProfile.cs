@@ -30,6 +30,11 @@ namespace Pulumi.Azure.Cdn
         ///         ResourceGroupName = "existing-resources",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["frontDoorId"] = example.Apply(getFrontdoorProfileResult =&gt; getFrontdoorProfileResult.Id),
+        ///         ["logScrubbingMatchVariable"] = example.Apply(getFrontdoorProfileResult =&gt; getFrontdoorProfileResult.LogScrubbingRules[0]?.MatchVariable),
+        ///     };
         /// });
         /// ```
         /// 
@@ -62,6 +67,11 @@ namespace Pulumi.Azure.Cdn
         ///         ResourceGroupName = "existing-resources",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["frontDoorId"] = example.Apply(getFrontdoorProfileResult =&gt; getFrontdoorProfileResult.Id),
+        ///         ["logScrubbingMatchVariable"] = example.Apply(getFrontdoorProfileResult =&gt; getFrontdoorProfileResult.LogScrubbingRules[0]?.MatchVariable),
+        ///     };
         /// });
         /// ```
         /// 
@@ -94,6 +104,11 @@ namespace Pulumi.Azure.Cdn
         ///         ResourceGroupName = "existing-resources",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["frontDoorId"] = example.Apply(getFrontdoorProfileResult =&gt; getFrontdoorProfileResult.Id),
+        ///         ["logScrubbingMatchVariable"] = example.Apply(getFrontdoorProfileResult =&gt; getFrontdoorProfileResult.LogScrubbingRules[0]?.MatchVariable),
+        ///     };
         /// });
         /// ```
         /// 
@@ -111,12 +126,6 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class GetFrontdoorProfileArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// An `identity` block as defined below.
-        /// </summary>
-        [Input("identity")]
-        public Inputs.GetFrontdoorProfileIdentityArgs? Identity { get; set; }
-
         /// <summary>
         /// Specifies the name of the Front Door Profile.
         /// </summary>
@@ -137,12 +146,6 @@ namespace Pulumi.Azure.Cdn
 
     public sealed class GetFrontdoorProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// An `identity` block as defined below.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.GetFrontdoorProfileIdentityInputArgs>? Identity { get; set; }
-
         /// <summary>
         /// Specifies the name of the Front Door Profile.
         /// </summary>
@@ -169,7 +172,14 @@ namespace Pulumi.Azure.Cdn
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly Outputs.GetFrontdoorProfileIdentityResult? Identity;
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        public readonly Outputs.GetFrontdoorProfileIdentityResult Identity;
+        /// <summary>
+        /// One or more `log_scrubbing_rule` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFrontdoorProfileLogScrubbingRuleResult> LogScrubbingRules;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -193,7 +203,9 @@ namespace Pulumi.Azure.Cdn
         private GetFrontdoorProfileResult(
             string id,
 
-            Outputs.GetFrontdoorProfileIdentityResult? identity,
+            Outputs.GetFrontdoorProfileIdentityResult identity,
+
+            ImmutableArray<Outputs.GetFrontdoorProfileLogScrubbingRuleResult> logScrubbingRules,
 
             string name,
 
@@ -209,6 +221,7 @@ namespace Pulumi.Azure.Cdn
         {
             Id = id;
             Identity = identity;
+            LogScrubbingRules = logScrubbingRules;
             Name = name;
             ResourceGroupName = resourceGroupName;
             ResourceGuid = resourceGuid;

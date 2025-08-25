@@ -63,8 +63,6 @@ type LookupStandardArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where the Logic App exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `siteConfig` object as defined below.
-	SiteConfig *GetStandardSiteConfig `pulumi:"siteConfig"`
 }
 
 // A collection of values returned by getStandard.
@@ -145,8 +143,6 @@ type LookupStandardOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where the Logic App exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// A `siteConfig` object as defined below.
-	SiteConfig GetStandardSiteConfigPtrInput `pulumi:"siteConfig"`
 }
 
 func (LookupStandardOutputArgs) ElementType() reflect.Type {

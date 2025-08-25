@@ -77,6 +77,13 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         return Optional.ofNullable(this.fipsEnabled);
     }
 
+    @Import(name="gpuDriver")
+    private @Nullable Output<String> gpuDriver;
+
+    public Optional<Output<String>> gpuDriver() {
+        return Optional.ofNullable(this.gpuDriver);
+    }
+
     /**
      * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
      * 
@@ -578,6 +585,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         this.autoScalingEnabled = $.autoScalingEnabled;
         this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.fipsEnabled = $.fipsEnabled;
+        this.gpuDriver = $.gpuDriver;
         this.gpuInstance = $.gpuInstance;
         this.hostEncryptionEnabled = $.hostEncryptionEnabled;
         this.hostGroupId = $.hostGroupId;
@@ -700,6 +708,15 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
          */
         public Builder fipsEnabled(Boolean fipsEnabled) {
             return fipsEnabled(Output.of(fipsEnabled));
+        }
+
+        public Builder gpuDriver(@Nullable Output<String> gpuDriver) {
+            $.gpuDriver = gpuDriver;
+            return this;
+        }
+
+        public Builder gpuDriver(String gpuDriver) {
+            return gpuDriver(Output.of(gpuDriver));
         }
 
         /**

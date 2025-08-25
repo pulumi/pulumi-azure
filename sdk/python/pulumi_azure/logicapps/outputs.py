@@ -1021,19 +1021,20 @@ class StandardSiteConfigCors(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_origins: Sequence[_builtins.str],
+                 allowed_origins: Optional[Sequence[_builtins.str]] = None,
                  support_credentials: Optional[_builtins.bool] = None):
         """
         :param Sequence[_builtins.str] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         :param _builtins.bool support_credentials: Are credentials supported?
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_origins is not None:
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if support_credentials is not None:
             pulumi.set(__self__, "support_credentials", support_credentials)
 
     @_builtins.property
     @pulumi.getter(name="allowedOrigins")
-    def allowed_origins(self) -> Sequence[_builtins.str]:
+    def allowed_origins(self) -> Optional[Sequence[_builtins.str]]:
         """
         A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         """
@@ -1073,6 +1074,7 @@ class StandardSiteConfigIpRestriction(dict):
 
     def __init__(__self__, *,
                  action: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
                  headers: Optional['outputs.StandardSiteConfigIpRestrictionHeaders'] = None,
                  ip_address: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
@@ -1081,6 +1083,7 @@ class StandardSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param _builtins.str description: The Description of this IP Restriction.
         :param 'StandardSiteConfigIpRestrictionHeadersArgs' headers: The `headers` block for this specific as a `ip_restriction` block as defined below.
         :param _builtins.str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param _builtins.str name: The name for this IP Restriction.
@@ -1092,6 +1095,8 @@ class StandardSiteConfigIpRestriction(dict):
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -1112,6 +1117,14 @@ class StandardSiteConfigIpRestriction(dict):
         Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
@@ -1267,6 +1280,7 @@ class StandardSiteConfigScmIpRestriction(dict):
 
     def __init__(__self__, *,
                  action: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
                  headers: Optional['outputs.StandardSiteConfigScmIpRestrictionHeaders'] = None,
                  ip_address: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
@@ -1275,6 +1289,7 @@ class StandardSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param _builtins.str description: The Description of this IP Restriction.
         :param 'StandardSiteConfigScmIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
         :param _builtins.str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param _builtins.str name: The name for this IP Restriction.
@@ -1286,6 +1301,8 @@ class StandardSiteConfigScmIpRestriction(dict):
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if ip_address is not None:
@@ -1306,6 +1323,14 @@ class StandardSiteConfigScmIpRestriction(dict):
         Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The Description of this IP Restriction.
+        """
+        return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
@@ -1981,11 +2006,13 @@ class GetStandardIdentityResult(dict):
 @pulumi.output_type
 class GetStandardSiteConfigResult(dict):
     def __init__(__self__, *,
+                 always_on: _builtins.bool,
                  app_scale_limit: _builtins.int,
                  auto_swap_slot_name: _builtins.str,
                  cors: 'outputs.GetStandardSiteConfigCorsResult',
                  elastic_instance_minimum: _builtins.int,
                  ftps_state: _builtins.str,
+                 http2_enabled: _builtins.bool,
                  ip_restrictions: Sequence['outputs.GetStandardSiteConfigIpRestrictionResult'],
                  linux_fx_version: _builtins.str,
                  min_tls_version: _builtins.str,
@@ -1995,20 +2022,20 @@ class GetStandardSiteConfigResult(dict):
                  scm_min_tls_version: _builtins.str,
                  scm_type: _builtins.str,
                  vnet_route_all_enabled: _builtins.bool,
-                 always_on: Optional[_builtins.bool] = None,
                  dotnet_framework_version: Optional[_builtins.str] = None,
                  health_check_path: Optional[_builtins.str] = None,
-                 http2_enabled: Optional[_builtins.bool] = None,
                  runtime_scale_monitoring_enabled: Optional[_builtins.bool] = None,
                  scm_use_main_ip_restriction: Optional[_builtins.bool] = None,
                  use32_bit_worker_process: Optional[_builtins.bool] = None,
                  websockets_enabled: Optional[_builtins.bool] = None):
         """
+        :param _builtins.bool always_on: Should the Logic App be loaded at all times?
         :param _builtins.int app_scale_limit: The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
         :param _builtins.str auto_swap_slot_name: The Auto-swap slot name.
         :param 'GetStandardSiteConfigCorsArgs' cors: A `cors` block as defined below.
         :param _builtins.int elastic_instance_minimum: The number of minimum instances for this Logic App Only affects apps on the Premium plan.
         :param _builtins.str ftps_state: The state of FTP / FTPS service for this Logic App.
+        :param _builtins.bool http2_enabled: Specifies whether the HTTP2 protocol should be enabled.
         :param Sequence['GetStandardSiteConfigIpRestrictionArgs'] ip_restrictions: A list of `ip_restriction` objects representing IP restrictions as defined below.
         :param _builtins.str linux_fx_version: Linux App Framework and version for the Logic App.
         :param _builtins.str min_tls_version: The minimum supported TLS version for the Logic App.
@@ -2017,20 +2044,20 @@ class GetStandardSiteConfigResult(dict):
         :param _builtins.str scm_min_tls_version: The minimum version of TLS required for SSL requests to the SCM site.
         :param _builtins.str scm_type: The type of Source Control used by the Logic App in use by the Windows Function App.
         :param _builtins.bool vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-        :param _builtins.bool always_on: Should the Logic App be loaded at all times?
         :param _builtins.str dotnet_framework_version: The version of the .NET framework's CLR used in this Logic App.
         :param _builtins.str health_check_path: Path which will be checked for this Logic App health.
-        :param _builtins.bool http2_enabled: Specifies whether the HTTP2 protocol should be enabled.
         :param _builtins.bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
         :param _builtins.bool scm_use_main_ip_restriction: Should the Logic App `ip_restriction` configuration be used for the SCM too.
         :param _builtins.bool use32_bit_worker_process: Should the Logic App run in 32 bit mode, rather than 64 bit mode?
         :param _builtins.bool websockets_enabled: Should WebSockets be enabled?
         """
+        pulumi.set(__self__, "always_on", always_on)
         pulumi.set(__self__, "app_scale_limit", app_scale_limit)
         pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
         pulumi.set(__self__, "cors", cors)
         pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
         pulumi.set(__self__, "ftps_state", ftps_state)
+        pulumi.set(__self__, "http2_enabled", http2_enabled)
         pulumi.set(__self__, "ip_restrictions", ip_restrictions)
         pulumi.set(__self__, "linux_fx_version", linux_fx_version)
         pulumi.set(__self__, "min_tls_version", min_tls_version)
@@ -2040,14 +2067,10 @@ class GetStandardSiteConfigResult(dict):
         pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
         pulumi.set(__self__, "scm_type", scm_type)
         pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
-        if always_on is not None:
-            pulumi.set(__self__, "always_on", always_on)
         if dotnet_framework_version is not None:
             pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
         if health_check_path is not None:
             pulumi.set(__self__, "health_check_path", health_check_path)
-        if http2_enabled is not None:
-            pulumi.set(__self__, "http2_enabled", http2_enabled)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         if scm_use_main_ip_restriction is not None:
@@ -2056,6 +2079,14 @@ class GetStandardSiteConfigResult(dict):
             pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
         if websockets_enabled is not None:
             pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="alwaysOn")
+    def always_on(self) -> _builtins.bool:
+        """
+        Should the Logic App be loaded at all times?
+        """
+        return pulumi.get(self, "always_on")
 
     @_builtins.property
     @pulumi.getter(name="appScaleLimit")
@@ -2096,6 +2127,14 @@ class GetStandardSiteConfigResult(dict):
         The state of FTP / FTPS service for this Logic App.
         """
         return pulumi.get(self, "ftps_state")
+
+    @_builtins.property
+    @pulumi.getter(name="http2Enabled")
+    def http2_enabled(self) -> _builtins.bool:
+        """
+        Specifies whether the HTTP2 protocol should be enabled.
+        """
+        return pulumi.get(self, "http2_enabled")
 
     @_builtins.property
     @pulumi.getter(name="ipRestrictions")
@@ -2168,14 +2207,6 @@ class GetStandardSiteConfigResult(dict):
         return pulumi.get(self, "vnet_route_all_enabled")
 
     @_builtins.property
-    @pulumi.getter(name="alwaysOn")
-    def always_on(self) -> Optional[_builtins.bool]:
-        """
-        Should the Logic App be loaded at all times?
-        """
-        return pulumi.get(self, "always_on")
-
-    @_builtins.property
     @pulumi.getter(name="dotnetFrameworkVersion")
     def dotnet_framework_version(self) -> Optional[_builtins.str]:
         """
@@ -2190,14 +2221,6 @@ class GetStandardSiteConfigResult(dict):
         Path which will be checked for this Logic App health.
         """
         return pulumi.get(self, "health_check_path")
-
-    @_builtins.property
-    @pulumi.getter(name="http2Enabled")
-    def http2_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Specifies whether the HTTP2 protocol should be enabled.
-        """
-        return pulumi.get(self, "http2_enabled")
 
     @_builtins.property
     @pulumi.getter(name="runtimeScaleMonitoringEnabled")
@@ -2236,14 +2259,13 @@ class GetStandardSiteConfigResult(dict):
 class GetStandardSiteConfigCorsResult(dict):
     def __init__(__self__, *,
                  allowed_origins: Sequence[_builtins.str],
-                 support_credentials: Optional[_builtins.bool] = None):
+                 support_credentials: _builtins.bool):
         """
         :param Sequence[_builtins.str] allowed_origins: A list of origins which should be able to make cross-origin calls.
         :param _builtins.bool support_credentials: Are credentials supported?
         """
         pulumi.set(__self__, "allowed_origins", allowed_origins)
-        if support_credentials is not None:
-            pulumi.set(__self__, "support_credentials", support_credentials)
+        pulumi.set(__self__, "support_credentials", support_credentials)
 
     @_builtins.property
     @pulumi.getter(name="allowedOrigins")
@@ -2255,7 +2277,7 @@ class GetStandardSiteConfigCorsResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="supportCredentials")
-    def support_credentials(self) -> Optional[_builtins.bool]:
+    def support_credentials(self) -> _builtins.bool:
         """
         Are credentials supported?
         """
@@ -2266,33 +2288,30 @@ class GetStandardSiteConfigCorsResult(dict):
 class GetStandardSiteConfigIpRestrictionResult(dict):
     def __init__(__self__, *,
                  headers: 'outputs.GetStandardSiteConfigIpRestrictionHeadersResult',
+                 ip_address: _builtins.str,
                  name: _builtins.str,
+                 service_tag: _builtins.str,
+                 virtual_network_subnet_id: _builtins.str,
                  action: Optional[_builtins.str] = None,
-                 ip_address: Optional[_builtins.str] = None,
-                 priority: Optional[_builtins.int] = None,
-                 service_tag: Optional[_builtins.str] = None,
-                 virtual_network_subnet_id: Optional[_builtins.str] = None):
+                 priority: Optional[_builtins.int] = None):
         """
         :param 'GetStandardSiteConfigIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
-        :param _builtins.str name: The name of the Logic App.
-        :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range.
         :param _builtins.str ip_address: The IP Address used for this IP Restriction in CIDR notation.
-        :param _builtins.int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
+        :param _builtins.str name: The name of the Logic App.
         :param _builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param _builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range.
+        :param _builtins.int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
         """
         pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_tag", service_tag)
+        pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if action is not None:
             pulumi.set(__self__, "action", action)
-        if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if service_tag is not None:
-            pulumi.set(__self__, "service_tag", service_tag)
-        if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @_builtins.property
     @pulumi.getter
@@ -2303,12 +2322,36 @@ class GetStandardSiteConfigIpRestrictionResult(dict):
         return pulumi.get(self, "headers")
 
     @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> _builtins.str:
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
         The name of the Logic App.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> _builtins.str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> _builtins.str:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
 
     @_builtins.property
     @pulumi.getter
@@ -2319,36 +2362,12 @@ class GetStandardSiteConfigIpRestrictionResult(dict):
         return pulumi.get(self, "action")
 
     @_builtins.property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[_builtins.str]:
-        """
-        The IP Address used for this IP Restriction in CIDR notation.
-        """
-        return pulumi.get(self, "ip_address")
-
-    @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[_builtins.int]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order.
         """
         return pulumi.get(self, "priority")
-
-    @_builtins.property
-    @pulumi.getter(name="serviceTag")
-    def service_tag(self) -> Optional[_builtins.str]:
-        """
-        The Service Tag used for this IP Restriction.
-        """
-        return pulumi.get(self, "service_tag")
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[_builtins.str]:
-        """
-        The Virtual Network Subnet ID used for this IP Restriction.
-        """
-        return pulumi.get(self, "virtual_network_subnet_id")
 
 
 @pulumi.output_type
@@ -2410,33 +2429,30 @@ class GetStandardSiteConfigIpRestrictionHeadersResult(dict):
 class GetStandardSiteConfigScmIpRestrictionResult(dict):
     def __init__(__self__, *,
                  headers: 'outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult',
+                 ip_address: _builtins.str,
                  name: _builtins.str,
+                 service_tag: _builtins.str,
+                 virtual_network_subnet_id: _builtins.str,
                  action: Optional[_builtins.str] = None,
-                 ip_address: Optional[_builtins.str] = None,
-                 priority: Optional[_builtins.int] = None,
-                 service_tag: Optional[_builtins.str] = None,
-                 virtual_network_subnet_id: Optional[_builtins.str] = None):
+                 priority: Optional[_builtins.int] = None):
         """
         :param 'GetStandardSiteConfigScmIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
-        :param _builtins.str name: The name of the Logic App.
-        :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range.
         :param _builtins.str ip_address: The IP Address used for this IP Restriction in CIDR notation.
-        :param _builtins.int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
+        :param _builtins.str name: The name of the Logic App.
         :param _builtins.str service_tag: The Service Tag used for this IP Restriction.
         :param _builtins.str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
+        :param _builtins.str action: Does this restriction `Allow` or `Deny` access for this IP range.
+        :param _builtins.int priority: The priority for this IP Restriction. Restrictions are enforced in priority order.
         """
         pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "ip_address", ip_address)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_tag", service_tag)
+        pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if action is not None:
             pulumi.set(__self__, "action", action)
-        if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if service_tag is not None:
-            pulumi.set(__self__, "service_tag", service_tag)
-        if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @_builtins.property
     @pulumi.getter
@@ -2447,12 +2463,36 @@ class GetStandardSiteConfigScmIpRestrictionResult(dict):
         return pulumi.get(self, "headers")
 
     @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> _builtins.str:
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
         The name of the Logic App.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceTag")
+    def service_tag(self) -> _builtins.str:
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        return pulumi.get(self, "service_tag")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> _builtins.str:
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
 
     @_builtins.property
     @pulumi.getter
@@ -2463,36 +2503,12 @@ class GetStandardSiteConfigScmIpRestrictionResult(dict):
         return pulumi.get(self, "action")
 
     @_builtins.property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[_builtins.str]:
-        """
-        The IP Address used for this IP Restriction in CIDR notation.
-        """
-        return pulumi.get(self, "ip_address")
-
-    @_builtins.property
     @pulumi.getter
     def priority(self) -> Optional[_builtins.int]:
         """
         The priority for this IP Restriction. Restrictions are enforced in priority order.
         """
         return pulumi.get(self, "priority")
-
-    @_builtins.property
-    @pulumi.getter(name="serviceTag")
-    def service_tag(self) -> Optional[_builtins.str]:
-        """
-        The Service Tag used for this IP Restriction.
-        """
-        return pulumi.get(self, "service_tag")
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkSubnetId")
-    def virtual_network_subnet_id(self) -> Optional[_builtins.str]:
-        """
-        The Virtual Network Subnet ID used for this IP Restriction.
-        """
-        return pulumi.get(self, "virtual_network_subnet_id")
 
 
 @pulumi.output_type

@@ -377,9 +377,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
             name="example-mns",
             mobile_network_id=example_network.id,
             location=example.location,
-            single_network_slice_selection_assistance_information={
-                "slice_service_type": 1,
-            })
+            slice_service_type=1)
         example_network_sim_policy = azure.mobile.NetworkSimPolicy("example",
             name="example-mnsp",
             mobile_network_id=example_network.id,
@@ -488,9 +486,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
             name="example-mns",
             mobile_network_id=example_network.id,
             location=example.location,
-            single_network_slice_selection_assistance_information={
-                "slice_service_type": 1,
-            })
+            slice_service_type=1)
         example_network_sim_policy = azure.mobile.NetworkSimPolicy("example",
             name="example-mnsp",
             mobile_network_id=example_network.id,

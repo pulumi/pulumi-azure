@@ -3503,6 +3503,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/customerManagedKey",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/customerManagedKey:CustomerManagedKey": "CustomerManagedKey"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/dataFlow",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -6807,6 +6815,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "network/networkManagerIpamPoolStaticCidr",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerIpamPoolStaticCidr:NetworkManagerIpamPoolStaticCidr": "NetworkManagerIpamPoolStaticCidr"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "network/networkManagerManagementGroupConnection",
   "fqn": "pulumi_azure.network",
   "classes": {
@@ -6827,6 +6843,14 @@ _utilities.register(
   "fqn": "pulumi_azure.network",
   "classes": {
    "azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration": "NetworkManagerRoutingConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "network/networkManagerRoutingRuleCollection",
+  "fqn": "pulumi_azure.network",
+  "classes": {
+   "azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection": "NetworkManagerRoutingRuleCollection"
   }
  },
  {

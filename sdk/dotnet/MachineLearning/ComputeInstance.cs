@@ -181,7 +181,9 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// 
+        /// &gt; **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
         /// </summary>
         [Output("nodePublicIpEnabled")]
         public Output<bool?> NodePublicIpEnabled { get; private set; } = null!;
@@ -194,6 +196,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// 
+        /// &gt; **Note:** The property `subnet_resource_id` can be set only if the instance's workspace is not using Azure-managed networking.
         /// </summary>
         [Output("subnetResourceId")]
         public Output<string?> SubnetResourceId { get; private set; } = null!;
@@ -299,7 +303,9 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// 
+        /// &gt; **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
         /// </summary>
         [Input("nodePublicIpEnabled")]
         public Input<bool>? NodePublicIpEnabled { get; set; }
@@ -312,6 +318,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// 
+        /// &gt; **Note:** The property `subnet_resource_id` can be set only if the instance's workspace is not using Azure-managed networking.
         /// </summary>
         [Input("subnetResourceId")]
         public Input<string>? SubnetResourceId { get; set; }
@@ -385,7 +393,9 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// 
+        /// &gt; **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
         /// </summary>
         [Input("nodePublicIpEnabled")]
         public Input<bool>? NodePublicIpEnabled { get; set; }
@@ -398,6 +408,8 @@ namespace Pulumi.Azure.MachineLearning
 
         /// <summary>
         /// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+        /// 
+        /// &gt; **Note:** The property `subnet_resource_id` can be set only if the instance's workspace is not using Azure-managed networking.
         /// </summary>
         [Input("subnetResourceId")]
         public Input<string>? SubnetResourceId { get; set; }

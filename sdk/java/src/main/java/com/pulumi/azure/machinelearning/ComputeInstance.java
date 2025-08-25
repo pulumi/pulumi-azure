@@ -260,14 +260,18 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * 
+     * &gt; **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance&#39;s workspace is not using a managed network (i.e. the workspace&#39;s outbound isolation mode is `Disabled`).
      * 
      */
     @Export(name="nodePublicIpEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> nodePublicIpEnabled;
 
     /**
-     * @return Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * 
+     * &gt; **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance&#39;s workspace is not using a managed network (i.e. the workspace&#39;s outbound isolation mode is `Disabled`).
      * 
      */
     public Output<Optional<Boolean>> nodePublicIpEnabled() {
@@ -290,12 +294,16 @@ public class ComputeInstance extends com.pulumi.resources.CustomResource {
     /**
      * Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
      * 
+     * &gt; **Note:** The property `subnet_resource_id` can be set only if the instance&#39;s workspace is not using Azure-managed networking.
+     * 
      */
     @Export(name="subnetResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetResourceId;
 
     /**
      * @return Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+     * 
+     * &gt; **Note:** The property `subnet_resource_id` can be set only if the instance&#39;s workspace is not using Azure-managed networking.
      * 
      */
     public Output<Optional<String>> subnetResourceId() {

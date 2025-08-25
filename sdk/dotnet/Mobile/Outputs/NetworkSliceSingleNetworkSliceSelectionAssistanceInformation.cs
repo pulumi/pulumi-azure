@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Mobile.Outputs
     public sealed class NetworkSliceSingleNetworkSliceSelectionAssistanceInformation
     {
         /// <summary>
-        /// Slice differentiator (SD). Must be a 6 digit hex string.
+        /// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         /// </summary>
         public readonly string? SliceDifferentiator;
         /// <summary>
-        /// Slice/service type (SST). Must be between `0` and `255`.
+        /// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         /// </summary>
         public readonly int SliceServiceType;
 

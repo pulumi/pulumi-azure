@@ -2292,8 +2292,10 @@ func (o WorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type WorkspaceManagedNetwork struct {
-	// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+	// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
 	IsolationMode *string `pulumi:"isolationMode"`
+	// Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+	ProvisionOnCreationEnabled *bool `pulumi:"provisionOnCreationEnabled"`
 }
 
 // WorkspaceManagedNetworkInput is an input type that accepts WorkspaceManagedNetworkArgs and WorkspaceManagedNetworkOutput values.
@@ -2308,8 +2310,10 @@ type WorkspaceManagedNetworkInput interface {
 }
 
 type WorkspaceManagedNetworkArgs struct {
-	// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+	// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
 	IsolationMode pulumi.StringPtrInput `pulumi:"isolationMode"`
+	// Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+	ProvisionOnCreationEnabled pulumi.BoolPtrInput `pulumi:"provisionOnCreationEnabled"`
 }
 
 func (WorkspaceManagedNetworkArgs) ElementType() reflect.Type {
@@ -2389,9 +2393,14 @@ func (o WorkspaceManagedNetworkOutput) ToWorkspaceManagedNetworkPtrOutputWithCon
 	}).(WorkspaceManagedNetworkPtrOutput)
 }
 
-// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
 func (o WorkspaceManagedNetworkOutput) IsolationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceManagedNetwork) *string { return v.IsolationMode }).(pulumi.StringPtrOutput)
+}
+
+// Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+func (o WorkspaceManagedNetworkOutput) ProvisionOnCreationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceManagedNetwork) *bool { return v.ProvisionOnCreationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type WorkspaceManagedNetworkPtrOutput struct{ *pulumi.OutputState }
@@ -2418,7 +2427,7 @@ func (o WorkspaceManagedNetworkPtrOutput) Elem() WorkspaceManagedNetworkOutput {
 	}).(WorkspaceManagedNetworkOutput)
 }
 
-// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
 func (o WorkspaceManagedNetworkPtrOutput) IsolationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceManagedNetwork) *string {
 		if v == nil {
@@ -2426,6 +2435,16 @@ func (o WorkspaceManagedNetworkPtrOutput) IsolationMode() pulumi.StringPtrOutput
 		}
 		return v.IsolationMode
 	}).(pulumi.StringPtrOutput)
+}
+
+// Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+func (o WorkspaceManagedNetworkPtrOutput) ProvisionOnCreationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspaceManagedNetwork) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionOnCreationEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type WorkspaceServerlessCompute struct {

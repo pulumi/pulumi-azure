@@ -87,7 +87,7 @@ import (
 type NetworkManagerRoutingConfiguration struct {
 	pulumi.CustomResourceState
 
-	// The description of the Network Manager.
+	// The description of the Network Manager Routing Configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -128,7 +128,7 @@ func GetNetworkManagerRoutingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkManagerRoutingConfiguration resources.
 type networkManagerRoutingConfigurationState struct {
-	// The description of the Network Manager.
+	// The description of the Network Manager Routing Configuration.
 	Description *string `pulumi:"description"`
 	// The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
 	Name *string `pulumi:"name"`
@@ -137,7 +137,7 @@ type networkManagerRoutingConfigurationState struct {
 }
 
 type NetworkManagerRoutingConfigurationState struct {
-	// The description of the Network Manager.
+	// The description of the Network Manager Routing Configuration.
 	Description pulumi.StringPtrInput
 	// The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
 	Name pulumi.StringPtrInput
@@ -150,7 +150,7 @@ func (NetworkManagerRoutingConfigurationState) ElementType() reflect.Type {
 }
 
 type networkManagerRoutingConfigurationArgs struct {
-	// The description of the Network Manager.
+	// The description of the Network Manager Routing Configuration.
 	Description *string `pulumi:"description"`
 	// The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
 	Name *string `pulumi:"name"`
@@ -160,7 +160,7 @@ type networkManagerRoutingConfigurationArgs struct {
 
 // The set of arguments for constructing a NetworkManagerRoutingConfiguration resource.
 type NetworkManagerRoutingConfigurationArgs struct {
-	// The description of the Network Manager.
+	// The description of the Network Manager Routing Configuration.
 	Description pulumi.StringPtrInput
 	// The name which should be used for this Network Manager Routing Configuration. Changing this forces a new Network Manager Routing Configuration to be created.
 	Name pulumi.StringPtrInput
@@ -255,7 +255,7 @@ func (o NetworkManagerRoutingConfigurationOutput) ToNetworkManagerRoutingConfigu
 	return o
 }
 
-// The description of the Network Manager.
+// The description of the Network Manager Routing Configuration.
 func (o NetworkManagerRoutingConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkManagerRoutingConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

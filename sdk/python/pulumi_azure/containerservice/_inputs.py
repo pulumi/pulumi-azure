@@ -4113,12 +4113,9 @@ if not MYPY:
         How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
         """
         skip_nodes_with_local_storage: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-        """
         skip_nodes_with_system_pods: NotRequired[pulumi.Input[_builtins.bool]]
         """
-        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
 elif False:
     KubernetesClusterAutoScalerProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -4165,8 +4162,7 @@ class KubernetesClusterAutoScalerProfileArgs:
         :param pulumi.Input[_builtins.str] scale_down_unready: How long an unready node should be unneeded before it is eligible for scale down. Defaults to `20m`.
         :param pulumi.Input[_builtins.str] scale_down_utilization_threshold: Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
         :param pulumi.Input[_builtins.str] scan_interval: How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
-        :param pulumi.Input[_builtins.bool] skip_nodes_with_local_storage: If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] skip_nodes_with_system_pods: If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+        :param pulumi.Input[_builtins.bool] skip_nodes_with_system_pods: If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
@@ -4428,9 +4424,6 @@ class KubernetesClusterAutoScalerProfileArgs:
     @_builtins.property
     @pulumi.getter(name="skipNodesWithLocalStorage")
     def skip_nodes_with_local_storage(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-        """
         return pulumi.get(self, "skip_nodes_with_local_storage")
 
     @skip_nodes_with_local_storage.setter
@@ -4441,7 +4434,7 @@ class KubernetesClusterAutoScalerProfileArgs:
     @pulumi.getter(name="skipNodesWithSystemPods")
     def skip_nodes_with_system_pods(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+        If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
         """
         return pulumi.get(self, "skip_nodes_with_system_pods")
 
@@ -4575,6 +4568,7 @@ if not MYPY:
         """
         Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         """
+        gpu_driver: NotRequired[pulumi.Input[_builtins.str]]
         gpu_instance: NotRequired[pulumi.Input[_builtins.str]]
         """
         Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -4716,6 +4710,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  auto_scaling_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  fips_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 gpu_driver: Optional[pulumi.Input[_builtins.str]] = None,
                  gpu_instance: Optional[pulumi.Input[_builtins.str]] = None,
                  host_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  host_group_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -4806,6 +4801,8 @@ class KubernetesClusterDefaultNodePoolArgs:
             pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if gpu_driver is not None:
+            pulumi.set(__self__, "gpu_driver", gpu_driver)
         if gpu_instance is not None:
             pulumi.set(__self__, "gpu_instance", gpu_instance)
         if host_encryption_enabled is not None:
@@ -4922,6 +4919,15 @@ class KubernetesClusterDefaultNodePoolArgs:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gpuDriver")
+    def gpu_driver(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "gpu_driver")
+
+    @gpu_driver.setter
+    def gpu_driver(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "gpu_driver", value)
 
     @_builtins.property
     @pulumi.getter(name="gpuInstance")

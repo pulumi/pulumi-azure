@@ -26,10 +26,16 @@ class GetAccountEncryptionResult:
     """
     A collection of values returned by getAccountEncryption.
     """
-    def __init__(__self__, encryption_key=None, id=None, netapp_account_id=None, system_assigned_identity_principal_id=None, user_assigned_identity_id=None):
+    def __init__(__self__, cross_tenant_key_vault_resource_id=None, encryption_key=None, federated_client_id=None, id=None, netapp_account_id=None, system_assigned_identity_principal_id=None, user_assigned_identity_id=None):
+        if cross_tenant_key_vault_resource_id and not isinstance(cross_tenant_key_vault_resource_id, str):
+            raise TypeError("Expected argument 'cross_tenant_key_vault_resource_id' to be a str")
+        pulumi.set(__self__, "cross_tenant_key_vault_resource_id", cross_tenant_key_vault_resource_id)
         if encryption_key and not isinstance(encryption_key, str):
             raise TypeError("Expected argument 'encryption_key' to be a str")
         pulumi.set(__self__, "encryption_key", encryption_key)
+        if federated_client_id and not isinstance(federated_client_id, str):
+            raise TypeError("Expected argument 'federated_client_id' to be a str")
+        pulumi.set(__self__, "federated_client_id", federated_client_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,9 +50,19 @@ class GetAccountEncryptionResult:
         pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @_builtins.property
+    @pulumi.getter(name="crossTenantKeyVaultResourceId")
+    def cross_tenant_key_vault_resource_id(self) -> _builtins.str:
+        return pulumi.get(self, "cross_tenant_key_vault_resource_id")
+
+    @_builtins.property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> _builtins.str:
         return pulumi.get(self, "encryption_key")
+
+    @_builtins.property
+    @pulumi.getter(name="federatedClientId")
+    def federated_client_id(self) -> _builtins.str:
+        return pulumi.get(self, "federated_client_id")
 
     @_builtins.property
     @pulumi.getter
@@ -78,7 +94,9 @@ class AwaitableGetAccountEncryptionResult(GetAccountEncryptionResult):
         if False:
             yield self
         return GetAccountEncryptionResult(
+            cross_tenant_key_vault_resource_id=self.cross_tenant_key_vault_resource_id,
             encryption_key=self.encryption_key,
+            federated_client_id=self.federated_client_id,
             id=self.id,
             netapp_account_id=self.netapp_account_id,
             system_assigned_identity_principal_id=self.system_assigned_identity_principal_id,
@@ -105,7 +123,7 @@ def get_account_encryption(netapp_account_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str netapp_account_id: The ID of the NetApp account where customer managed keys-based encryption is enabled.
@@ -116,7 +134,9 @@ def get_account_encryption(netapp_account_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure:netapp/getAccountEncryption:getAccountEncryption', __args__, opts=opts, typ=GetAccountEncryptionResult).value
 
     return AwaitableGetAccountEncryptionResult(
+        cross_tenant_key_vault_resource_id=pulumi.get(__ret__, 'cross_tenant_key_vault_resource_id'),
         encryption_key=pulumi.get(__ret__, 'encryption_key'),
+        federated_client_id=pulumi.get(__ret__, 'federated_client_id'),
         id=pulumi.get(__ret__, 'id'),
         netapp_account_id=pulumi.get(__ret__, 'netapp_account_id'),
         system_assigned_identity_principal_id=pulumi.get(__ret__, 'system_assigned_identity_principal_id'),
@@ -141,7 +161,7 @@ def get_account_encryption_output(netapp_account_id: Optional[pulumi.Input[_buil
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str netapp_account_id: The ID of the NetApp account where customer managed keys-based encryption is enabled.
@@ -151,7 +171,9 @@ def get_account_encryption_output(netapp_account_id: Optional[pulumi.Input[_buil
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getAccountEncryption:getAccountEncryption', __args__, opts=opts, typ=GetAccountEncryptionResult)
     return __ret__.apply(lambda __response__: GetAccountEncryptionResult(
+        cross_tenant_key_vault_resource_id=pulumi.get(__response__, 'cross_tenant_key_vault_resource_id'),
         encryption_key=pulumi.get(__response__, 'encryption_key'),
+        federated_client_id=pulumi.get(__response__, 'federated_client_id'),
         id=pulumi.get(__response__, 'id'),
         netapp_account_id=pulumi.get(__response__, 'netapp_account_id'),
         system_assigned_identity_principal_id=pulumi.get(__response__, 'system_assigned_identity_principal_id'),

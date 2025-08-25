@@ -47,13 +47,11 @@ import (
 //				return err
 //			}
 //			_, err = mobile.NewNetworkSlice(ctx, "example", &mobile.NetworkSliceArgs{
-//				Name:            pulumi.String("example-mns"),
-//				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        example.Location,
-//				Description:     pulumi.String("an example slice"),
-//				SingleNetworkSliceSelectionAssistanceInformation: &mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{
-//					SliceServiceType: pulumi.Int(1),
-//				},
+//				Name:             pulumi.String("example-mns"),
+//				MobileNetworkId:  exampleNetwork.ID(),
+//				Location:         example.Location,
+//				Description:      pulumi.String("an example slice"),
+//				SliceServiceType: pulumi.Int(1),
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},
@@ -92,8 +90,12 @@ type NetworkSlice struct {
 	MobileNetworkId pulumi.StringOutput `pulumi:"mobileNetworkId"`
 	// Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 	SingleNetworkSliceSelectionAssistanceInformation NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput `pulumi:"singleNetworkSliceSelectionAssistanceInformation"`
+	// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceDifferentiator pulumi.StringOutput `pulumi:"sliceDifferentiator"`
+	// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceServiceType pulumi.IntOutput `pulumi:"sliceServiceType"`
 	// A mapping of tags which should be assigned to the Mobile Network Slice.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -107,9 +109,6 @@ func NewNetworkSlice(ctx *pulumi.Context,
 
 	if args.MobileNetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'MobileNetworkId'")
-	}
-	if args.SingleNetworkSliceSelectionAssistanceInformation == nil {
-		return nil, errors.New("invalid value for required argument 'SingleNetworkSliceSelectionAssistanceInformation'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkSlice
@@ -142,8 +141,12 @@ type networkSliceState struct {
 	MobileNetworkId *string `pulumi:"mobileNetworkId"`
 	// Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
 	Name *string `pulumi:"name"`
-	// A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 	SingleNetworkSliceSelectionAssistanceInformation *NetworkSliceSingleNetworkSliceSelectionAssistanceInformation `pulumi:"singleNetworkSliceSelectionAssistanceInformation"`
+	// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceDifferentiator *string `pulumi:"sliceDifferentiator"`
+	// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceServiceType *int `pulumi:"sliceServiceType"`
 	// A mapping of tags which should be assigned to the Mobile Network Slice.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -157,8 +160,12 @@ type NetworkSliceState struct {
 	MobileNetworkId pulumi.StringPtrInput
 	// Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
 	Name pulumi.StringPtrInput
-	// A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 	SingleNetworkSliceSelectionAssistanceInformation NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrInput
+	// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceDifferentiator pulumi.StringPtrInput
+	// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceServiceType pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Mobile Network Slice.
 	Tags pulumi.StringMapInput
 }
@@ -176,8 +183,12 @@ type networkSliceArgs struct {
 	MobileNetworkId string `pulumi:"mobileNetworkId"`
 	// Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
 	Name *string `pulumi:"name"`
-	// A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-	SingleNetworkSliceSelectionAssistanceInformation NetworkSliceSingleNetworkSliceSelectionAssistanceInformation `pulumi:"singleNetworkSliceSelectionAssistanceInformation"`
+	// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
+	SingleNetworkSliceSelectionAssistanceInformation *NetworkSliceSingleNetworkSliceSelectionAssistanceInformation `pulumi:"singleNetworkSliceSelectionAssistanceInformation"`
+	// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceDifferentiator *string `pulumi:"sliceDifferentiator"`
+	// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceServiceType *int `pulumi:"sliceServiceType"`
 	// A mapping of tags which should be assigned to the Mobile Network Slice.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -192,8 +203,12 @@ type NetworkSliceArgs struct {
 	MobileNetworkId pulumi.StringInput
 	// Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
 	Name pulumi.StringPtrInput
-	// A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
-	SingleNetworkSliceSelectionAssistanceInformation NetworkSliceSingleNetworkSliceSelectionAssistanceInformationInput
+	// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
+	SingleNetworkSliceSelectionAssistanceInformation NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrInput
+	// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceDifferentiator pulumi.StringPtrInput
+	// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+	SliceServiceType pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the Mobile Network Slice.
 	Tags pulumi.StringMapInput
 }
@@ -305,11 +320,21 @@ func (o NetworkSliceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSlice) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+// Deprecated: `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
 func (o NetworkSliceOutput) SingleNetworkSliceSelectionAssistanceInformation() NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput {
 	return o.ApplyT(func(v *NetworkSlice) NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput {
 		return v.SingleNetworkSliceSelectionAssistanceInformation
 	}).(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput)
+}
+
+// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+func (o NetworkSliceOutput) SliceDifferentiator() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSlice) pulumi.StringOutput { return v.SliceDifferentiator }).(pulumi.StringOutput)
+}
+
+// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+func (o NetworkSliceOutput) SliceServiceType() pulumi.IntOutput {
+	return o.ApplyT(func(v *NetworkSlice) pulumi.IntOutput { return v.SliceServiceType }).(pulumi.IntOutput)
 }
 
 // A mapping of tags which should be assigned to the Mobile Network Slice.

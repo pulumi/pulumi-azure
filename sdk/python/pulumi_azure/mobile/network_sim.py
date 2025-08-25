@@ -407,9 +407,7 @@ class NetworkSim(pulumi.CustomResource):
             name="example-slice",
             mobile_network_id=example_network.id,
             location=example.location,
-            single_network_slice_selection_assistance_information={
-                "slice_service_type": 1,
-            })
+            slice_service_type=1)
         example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("example",
             mobile_network_data_network_name=example_azurerm_mobile_network_data_network["name"],
             mobile_network_packet_core_data_plane_id=example_azurerm_mobile_network_packet_core_data_plane["id"],
@@ -494,9 +492,7 @@ class NetworkSim(pulumi.CustomResource):
             name="example-slice",
             mobile_network_id=example_network.id,
             location=example.location,
-            single_network_slice_selection_assistance_information={
-                "slice_service_type": 1,
-            })
+            slice_service_type=1)
         example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("example",
             mobile_network_data_network_name=example_azurerm_mobile_network_data_network["name"],
             mobile_network_packet_core_data_plane_id=example_azurerm_mobile_network_packet_core_data_plane["id"],

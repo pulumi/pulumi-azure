@@ -674,7 +674,7 @@ class Factory(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyId")
-    def customer_managed_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def customer_managed_key_id(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         """
@@ -682,7 +682,7 @@ class Factory(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyIdentityId")
-    def customer_managed_key_identity_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def customer_managed_key_identity_id(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
         """

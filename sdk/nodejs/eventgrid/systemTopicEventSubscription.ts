@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     name: "example-system-topic",
  *     location: "Global",
  *     resourceGroupName: example.name,
- *     sourceArmResourceId: example.id,
+ *     sourceResourceId: example.id,
  *     topicType: "Microsoft.Resources.ResourceGroups",
  * });
  * const exampleSystemTopicEventSubscription = new azure.eventgrid.SystemTopicEventSubscription("example", {

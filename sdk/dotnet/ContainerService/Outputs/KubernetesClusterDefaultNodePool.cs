@@ -29,6 +29,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         /// </summary>
         public readonly bool? FipsEnabled;
+        public readonly string? GpuDriver;
         /// <summary>
         /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         /// </summary>
@@ -173,6 +174,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool? fipsEnabled,
 
+            string? gpuDriver,
+
             string? gpuInstance,
 
             bool? hostEncryptionEnabled,
@@ -242,6 +245,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             AutoScalingEnabled = autoScalingEnabled;
             CapacityReservationGroupId = capacityReservationGroupId;
             FipsEnabled = fipsEnabled;
+            GpuDriver = gpuDriver;
             GpuInstance = gpuInstance;
             HostEncryptionEnabled = hostEncryptionEnabled;
             HostGroupId = hostGroupId;
