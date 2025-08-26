@@ -676,7 +676,7 @@ index 04fbc512a9..6fcaf40abc 100644
  }
  ```
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index b372d00d98..7007acc30b 100644
+index d03a2fd1bd..65211d0f23 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -17,7 +17,7 @@ Manages an App Service (within an App Service Plan).
@@ -688,7 +688,7 @@ index b372d00d98..7007acc30b 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -217,7 +217,7 @@ A `site_config` block supports the following:
+@@ -219,7 +219,7 @@ A `site_config` block supports the following:
  
  * `http2_enabled` - (Optional) Is HTTP2 Enabled on this App Service? Defaults to `false`.
  
@@ -697,7 +697,7 @@ index b372d00d98..7007acc30b 100644
  
  -> **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
  
-@@ -237,7 +237,7 @@ A `site_config` block supports the following:
+@@ -239,7 +239,7 @@ A `site_config` block supports the following:
  
  * `local_mysql_enabled` - (Optional) Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
  
@@ -706,7 +706,7 @@ index b372d00d98..7007acc30b 100644
  
  * `linux_fx_version` - (Optional) Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
  
-@@ -245,8 +245,6 @@ A `site_config` block supports the following:
+@@ -247,8 +247,6 @@ A `site_config` block supports the following:
  
  * `windows_fx_version` - (Optional) The Windows Docker container image (`DOCKER|<user/image:tag>`)
  
@@ -785,7 +785,7 @@ index 05e05fb47e..ee52bfdf44 100644
  
  ## Import
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 92f5dd4131..f2005c1659 100644
+index 339aa60b57..5fc54f128f 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -235,7 +235,7 @@ A `site_config` block supports the following:
@@ -2135,7 +2135,7 @@ index a3e77a0f61..096e44351e 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 5db6e49e16..53fb4675ca 100644
+index 0c6cff39ff..b840056ad5 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
@@ -2158,7 +2158,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -372,7 +366,7 @@ A `default_node_pool` block supports the following:
+@@ -373,7 +367,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -2167,7 +2167,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  * `host_encryption_enabled` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -428,7 +422,7 @@ A `default_node_pool` block supports the following:
+@@ -429,7 +423,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -2176,7 +2176,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -452,7 +446,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -453,7 +447,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -2185,7 +2185,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  -> **Note:** If `auto_scaling_enabled` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -683,13 +677,11 @@ A `network_profile` block supports the following:
+@@ -684,13 +678,11 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -2201,7 +2201,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  * `load_balancer_sku` - (Optional) Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
  
-@@ -751,7 +743,7 @@ An `ingress_application_gateway` block supports the following:
+@@ -752,7 +744,7 @@ An `ingress_application_gateway` block supports the following:
  
  * `subnet_id` - (Optional) The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
  
@@ -2210,7 +2210,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  -> **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azurerm_kubernetes_cluster_node_pool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
  
-@@ -763,13 +755,13 @@ A `service_mesh_profile` block supports the following:
+@@ -764,13 +756,13 @@ A `service_mesh_profile` block supports the following:
  
  * `revisions` - (Required) Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
  
@@ -2226,7 +2226,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  * `certificate_authority` - (Optional) A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
  
-@@ -819,7 +811,7 @@ A `storage_profile` block supports the following:
+@@ -820,7 +812,7 @@ A `storage_profile` block supports the following:
  
  A `sysctl_config` block supports the following:
  
@@ -2235,7 +2235,7 @@ index 5db6e49e16..53fb4675ca 100644
  
  * `fs_aio_max_nr` - (Optional) The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
  
-@@ -1067,19 +1059,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1068,19 +1060,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2255,7 +2255,7 @@ index 5db6e49e16..53fb4675ca 100644
  ---
  
  The `ingress_application_gateway` block exports the following:
-@@ -1153,8 +1132,8 @@ The `web_app_routing_identity` block exports the following:
+@@ -1154,8 +1133,8 @@ The `web_app_routing_identity` block exports the following:
  The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 90 minutes) Used when creating the Kubernetes Cluster.
@@ -2265,7 +2265,7 @@ index 5db6e49e16..53fb4675ca 100644
  * `delete` - (Defaults to 90 minutes) Used when deleting the Kubernetes Cluster.
  
  ## Import
-@@ -1164,7 +1143,6 @@ Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
+@@ -1165,7 +1144,6 @@ Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_kubernetes_cluster.cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
  ```
@@ -2274,7 +2274,7 @@ index 5db6e49e16..53fb4675ca 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 5ab18d5d05..864b161828 100644
+index d857ec0e63..fe8f13c0fd 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,15 +10,13 @@ description: |-
@@ -2318,7 +2318,7 @@ index 5ab18d5d05..864b161828 100644
  
  * `node_public_ip_enabled` - (Optional) Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
  
-@@ -140,7 +138,7 @@ The following arguments are supported:
+@@ -142,7 +140,7 @@ The following arguments are supported:
  
  * `tags` - (Optional) A mapping of tags to assign to the resource.
  
@@ -2327,7 +2327,7 @@ index 5ab18d5d05..864b161828 100644
  
  * `scale_down_mode` - (Optional) Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
  
-@@ -152,7 +150,7 @@ The following arguments are supported:
+@@ -154,7 +152,7 @@ The following arguments are supported:
  
  * `vnet_subnet_id` - (Optional) The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
  
@@ -2336,7 +2336,7 @@ index 5ab18d5d05..864b161828 100644
  
  * `windows_profile` - (Optional) A `windows_profile` block as documented below. Changing this forces a new resource to be created.
  
-@@ -172,7 +170,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -174,7 +172,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
  
@@ -2345,7 +2345,7 @@ index 5ab18d5d05..864b161828 100644
  
  If `auto_scaling_enabled` is set to `false`, then the following fields can also be configured:
  
-@@ -240,7 +238,7 @@ An `allowed_host_ports` block supports the following:
+@@ -242,7 +240,7 @@ An `allowed_host_ports` block supports the following:
  
  A `sysctl_config` block supports the following:
  
@@ -2354,7 +2354,7 @@ index 5ab18d5d05..864b161828 100644
  
  * `fs_aio_max_nr` - (Optional) The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
  
-@@ -328,10 +326,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -330,10 +328,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
  
@@ -2368,7 +2368,7 @@ index 5ab18d5d05..864b161828 100644
  
  ## Import
  
-@@ -340,7 +338,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
+@@ -342,7 +340,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_kubernetes_cluster_node_pool.pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
  ```
@@ -4698,13 +4698,13 @@ index a6b287dd46..b1cb6e1a14 100644
  
 --> **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 +-> **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
- 
--~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
++
 +~> **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
  
--~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+-~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 +~> **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-+
+ 
+-~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 +* `vm_agent_platform_updates_enabled` - (Optional) Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
  
  * `vtpm_enabled` - (Optional) Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
