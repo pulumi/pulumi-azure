@@ -5,6 +5,7 @@ package com.pulumi.azure.machinelearning.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,24 +17,40 @@ public final class WorkspaceManagedNetworkArgs extends com.pulumi.resources.Reso
     public static final WorkspaceManagedNetworkArgs Empty = new WorkspaceManagedNetworkArgs();
 
     /**
-     * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+     * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
      * 
      */
     @Import(name="isolationMode")
     private @Nullable Output<String> isolationMode;
 
     /**
-     * @return The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+     * @return The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
      * 
      */
     public Optional<Output<String>> isolationMode() {
         return Optional.ofNullable(this.isolationMode);
     }
 
+    /**
+     * Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="provisionOnCreationEnabled")
+    private @Nullable Output<Boolean> provisionOnCreationEnabled;
+
+    /**
+     * @return Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> provisionOnCreationEnabled() {
+        return Optional.ofNullable(this.provisionOnCreationEnabled);
+    }
+
     private WorkspaceManagedNetworkArgs() {}
 
     private WorkspaceManagedNetworkArgs(WorkspaceManagedNetworkArgs $) {
         this.isolationMode = $.isolationMode;
+        this.provisionOnCreationEnabled = $.provisionOnCreationEnabled;
     }
 
     public static Builder builder() {
@@ -55,7 +72,7 @@ public final class WorkspaceManagedNetworkArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param isolationMode The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+         * @param isolationMode The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
          * 
          * @return builder
          * 
@@ -66,13 +83,34 @@ public final class WorkspaceManagedNetworkArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param isolationMode The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+         * @param isolationMode The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
          * 
          * @return builder
          * 
          */
         public Builder isolationMode(String isolationMode) {
             return isolationMode(Output.of(isolationMode));
+        }
+
+        /**
+         * @param provisionOnCreationEnabled Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionOnCreationEnabled(@Nullable Output<Boolean> provisionOnCreationEnabled) {
+            $.provisionOnCreationEnabled = provisionOnCreationEnabled;
+            return this;
+        }
+
+        /**
+         * @param provisionOnCreationEnabled Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder provisionOnCreationEnabled(Boolean provisionOnCreationEnabled) {
+            return provisionOnCreationEnabled(Output.of(provisionOnCreationEnabled));
         }
 
         public WorkspaceManagedNetworkArgs build() {

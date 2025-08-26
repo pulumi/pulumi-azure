@@ -12,7 +12,7 @@ namespace Pulumi.Azure.LogicApps.Inputs
 
     public sealed class StandardSiteConfigCorsGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("allowedOrigins", required: true)]
+        [Input("allowedOrigins")]
         private InputList<string>? _allowedOrigins;
 
         /// <summary>

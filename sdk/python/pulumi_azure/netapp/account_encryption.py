@@ -21,17 +21,25 @@ class AccountEncryptionArgs:
     def __init__(__self__, *,
                  encryption_key: pulumi.Input[_builtins.str],
                  netapp_account_id: pulumi.Input[_builtins.str],
+                 cross_tenant_key_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  system_assigned_identity_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountEncryption resource.
         :param pulumi.Input[_builtins.str] encryption_key: Specify the versionless ID of the encryption key.
         :param pulumi.Input[_builtins.str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
+        :param pulumi.Input[_builtins.str] cross_tenant_key_vault_resource_id: The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        :param pulumi.Input[_builtins.str] federated_client_id: The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
         :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
         """
         pulumi.set(__self__, "encryption_key", encryption_key)
         pulumi.set(__self__, "netapp_account_id", netapp_account_id)
+        if cross_tenant_key_vault_resource_id is not None:
+            pulumi.set(__self__, "cross_tenant_key_vault_resource_id", cross_tenant_key_vault_resource_id)
+        if federated_client_id is not None:
+            pulumi.set(__self__, "federated_client_id", federated_client_id)
         if system_assigned_identity_principal_id is not None:
             pulumi.set(__self__, "system_assigned_identity_principal_id", system_assigned_identity_principal_id)
         if user_assigned_identity_id is not None:
@@ -62,6 +70,30 @@ class AccountEncryptionArgs:
         pulumi.set(self, "netapp_account_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="crossTenantKeyVaultResourceId")
+    def cross_tenant_key_vault_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        """
+        return pulumi.get(self, "cross_tenant_key_vault_resource_id")
+
+    @cross_tenant_key_vault_resource_id.setter
+    def cross_tenant_key_vault_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cross_tenant_key_vault_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="federatedClientId")
+    def federated_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+        """
+        return pulumi.get(self, "federated_client_id")
+
+    @federated_client_id.setter
+    def federated_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "federated_client_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="systemAssignedIdentityPrincipalId")
     def system_assigned_identity_principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -89,25 +121,45 @@ class AccountEncryptionArgs:
 @pulumi.input_type
 class _AccountEncryptionState:
     def __init__(__self__, *,
+                 cross_tenant_key_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  netapp_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  system_assigned_identity_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountEncryption resources.
+        :param pulumi.Input[_builtins.str] cross_tenant_key_vault_resource_id: The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
         :param pulumi.Input[_builtins.str] encryption_key: Specify the versionless ID of the encryption key.
+        :param pulumi.Input[_builtins.str] federated_client_id: The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
         :param pulumi.Input[_builtins.str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
         """
+        if cross_tenant_key_vault_resource_id is not None:
+            pulumi.set(__self__, "cross_tenant_key_vault_resource_id", cross_tenant_key_vault_resource_id)
         if encryption_key is not None:
             pulumi.set(__self__, "encryption_key", encryption_key)
+        if federated_client_id is not None:
+            pulumi.set(__self__, "federated_client_id", federated_client_id)
         if netapp_account_id is not None:
             pulumi.set(__self__, "netapp_account_id", netapp_account_id)
         if system_assigned_identity_principal_id is not None:
             pulumi.set(__self__, "system_assigned_identity_principal_id", system_assigned_identity_principal_id)
         if user_assigned_identity_id is not None:
             pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="crossTenantKeyVaultResourceId")
+    def cross_tenant_key_vault_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        """
+        return pulumi.get(self, "cross_tenant_key_vault_resource_id")
+
+    @cross_tenant_key_vault_resource_id.setter
+    def cross_tenant_key_vault_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cross_tenant_key_vault_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKey")
@@ -120,6 +172,18 @@ class _AccountEncryptionState:
     @encryption_key.setter
     def encryption_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "encryption_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="federatedClientId")
+    def federated_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+        """
+        return pulumi.get(self, "federated_client_id")
+
+    @federated_client_id.setter
+    def federated_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "federated_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="netappAccountId")
@@ -164,7 +228,9 @@ class AccountEncryption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cross_tenant_key_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  netapp_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  system_assigned_identity_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -246,7 +312,24 @@ class AccountEncryption(pulumi.CustomResource):
         example_account_encryption = azure.netapp.AccountEncryption("example",
             netapp_account_id=example_account.id,
             user_assigned_identity_id=example_user_assigned_identity.id,
-            encryption_key=example_key.versionless_id)
+            encryption_key=example_key.versionless_id,
+            federated_client_id=example_user_assigned_identity.client_id)
+        ```
+
+        ## Cross-Tenant Usage
+
+        For scenarios where the key vault is in a different Entra ID tenant:
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        cross_tenant = azure.netapp.AccountEncryption("cross_tenant",
+            netapp_account_id=example["id"],
+            user_assigned_identity_id=example_azurerm_user_assigned_identity["id"],
+            encryption_key="https://keyvault-in-other-tenant.vault.azure.net/keys/encryption-key",
+            federated_client_id="12345678-1234-1234-1234-123456789012",
+            cross_tenant_key_vault_resource_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/remote-rg/providers/Microsoft.KeyVault/vaults/keyvault-in-other-tenant")
         ```
 
         ## API Providers
@@ -254,7 +337,7 @@ class AccountEncryption(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2025-01-01
+        * `Microsoft.NetApp` - 2025-06-01
 
         ## Import
 
@@ -266,7 +349,9 @@ class AccountEncryption(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] cross_tenant_key_vault_resource_id: The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
         :param pulumi.Input[_builtins.str] encryption_key: Specify the versionless ID of the encryption key.
+        :param pulumi.Input[_builtins.str] federated_client_id: The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
         :param pulumi.Input[_builtins.str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
@@ -354,7 +439,24 @@ class AccountEncryption(pulumi.CustomResource):
         example_account_encryption = azure.netapp.AccountEncryption("example",
             netapp_account_id=example_account.id,
             user_assigned_identity_id=example_user_assigned_identity.id,
-            encryption_key=example_key.versionless_id)
+            encryption_key=example_key.versionless_id,
+            federated_client_id=example_user_assigned_identity.client_id)
+        ```
+
+        ## Cross-Tenant Usage
+
+        For scenarios where the key vault is in a different Entra ID tenant:
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        cross_tenant = azure.netapp.AccountEncryption("cross_tenant",
+            netapp_account_id=example["id"],
+            user_assigned_identity_id=example_azurerm_user_assigned_identity["id"],
+            encryption_key="https://keyvault-in-other-tenant.vault.azure.net/keys/encryption-key",
+            federated_client_id="12345678-1234-1234-1234-123456789012",
+            cross_tenant_key_vault_resource_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/remote-rg/providers/Microsoft.KeyVault/vaults/keyvault-in-other-tenant")
         ```
 
         ## API Providers
@@ -362,7 +464,7 @@ class AccountEncryption(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2025-01-01
+        * `Microsoft.NetApp` - 2025-06-01
 
         ## Import
 
@@ -387,7 +489,9 @@ class AccountEncryption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cross_tenant_key_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  netapp_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  system_assigned_identity_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -400,9 +504,11 @@ class AccountEncryption(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountEncryptionArgs.__new__(AccountEncryptionArgs)
 
+            __props__.__dict__["cross_tenant_key_vault_resource_id"] = cross_tenant_key_vault_resource_id
             if encryption_key is None and not opts.urn:
                 raise TypeError("Missing required property 'encryption_key'")
             __props__.__dict__["encryption_key"] = encryption_key
+            __props__.__dict__["federated_client_id"] = federated_client_id
             if netapp_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'netapp_account_id'")
             __props__.__dict__["netapp_account_id"] = netapp_account_id
@@ -418,7 +524,9 @@ class AccountEncryption(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cross_tenant_key_vault_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
             encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
+            federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
             netapp_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             system_assigned_identity_principal_id: Optional[pulumi.Input[_builtins.str]] = None,
             user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountEncryption':
@@ -429,7 +537,9 @@ class AccountEncryption(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] cross_tenant_key_vault_resource_id: The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
         :param pulumi.Input[_builtins.str] encryption_key: Specify the versionless ID of the encryption key.
+        :param pulumi.Input[_builtins.str] federated_client_id: The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
         :param pulumi.Input[_builtins.str] netapp_account_id: The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         :param pulumi.Input[_builtins.str] system_assigned_identity_principal_id: The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
@@ -438,11 +548,21 @@ class AccountEncryption(pulumi.CustomResource):
 
         __props__ = _AccountEncryptionState.__new__(_AccountEncryptionState)
 
+        __props__.__dict__["cross_tenant_key_vault_resource_id"] = cross_tenant_key_vault_resource_id
         __props__.__dict__["encryption_key"] = encryption_key
+        __props__.__dict__["federated_client_id"] = federated_client_id
         __props__.__dict__["netapp_account_id"] = netapp_account_id
         __props__.__dict__["system_assigned_identity_principal_id"] = system_assigned_identity_principal_id
         __props__.__dict__["user_assigned_identity_id"] = user_assigned_identity_id
         return AccountEncryption(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="crossTenantKeyVaultResourceId")
+    def cross_tenant_key_vault_resource_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+        """
+        return pulumi.get(self, "cross_tenant_key_vault_resource_id")
 
     @_builtins.property
     @pulumi.getter(name="encryptionKey")
@@ -451,6 +571,14 @@ class AccountEncryption(pulumi.CustomResource):
         Specify the versionless ID of the encryption key.
         """
         return pulumi.get(self, "encryption_key")
+
+    @_builtins.property
+    @pulumi.getter(name="federatedClientId")
+    def federated_client_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+        """
+        return pulumi.get(self, "federated_client_id")
 
     @_builtins.property
     @pulumi.getter(name="netappAccountId")

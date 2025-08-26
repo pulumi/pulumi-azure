@@ -104,13 +104,9 @@ public final class KubernetesClusterAutoScalerProfile {
      * 
      */
     private @Nullable String scanInterval;
-    /**
-     * @return If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean skipNodesWithLocalStorage;
     /**
-     * @return If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
+     * @return If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
      * 
      */
     private @Nullable Boolean skipNodesWithSystemPods;
@@ -242,15 +238,11 @@ public final class KubernetesClusterAutoScalerProfile {
     public Optional<String> scanInterval() {
         return Optional.ofNullable(this.scanInterval);
     }
-    /**
-     * @return If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> skipNodesWithLocalStorage() {
         return Optional.ofNullable(this.skipNodesWithLocalStorage);
     }
     /**
-     * @return If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
+     * @return If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
      * 
      */
     public Optional<Boolean> skipNodesWithSystemPods() {

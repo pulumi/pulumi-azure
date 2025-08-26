@@ -90,7 +90,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -141,7 +141,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -192,7 +192,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -243,7 +243,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
@@ -294,7 +294,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -344,7 +344,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args) {
@@ -394,7 +394,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args) {
@@ -444,7 +444,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args, InvokeOptions options) {
@@ -494,7 +494,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetAccountEncryptionResult> getAccountEncryption(GetAccountEncryptionArgs args, InvokeOutputOptions options) {
@@ -544,7 +544,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetAccountEncryptionResult> getAccountEncryptionPlain(GetAccountEncryptionPlainArgs args, InvokeOptions options) {
@@ -596,7 +596,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args) {
@@ -648,7 +648,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetBackupPolicyResult> getBackupPolicyPlain(GetBackupPolicyPlainArgs args) {
@@ -700,7 +700,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args, InvokeOptions options) {
@@ -752,7 +752,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetBackupPolicyResult> getBackupPolicy(GetBackupPolicyArgs args, InvokeOutputOptions options) {
@@ -804,7 +804,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetBackupPolicyResult> getBackupPolicyPlain(GetBackupPolicyPlainArgs args, InvokeOptions options) {
@@ -856,7 +856,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args) {
@@ -908,7 +908,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args) {
@@ -960,7 +960,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOptions options) {
@@ -1012,7 +1012,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetBackupVaultResult> getBackupVault(GetBackupVaultArgs args, InvokeOutputOptions options) {
@@ -1064,7 +1064,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetBackupVaultResult> getBackupVaultPlain(GetBackupVaultPlainArgs args, InvokeOptions options) {
@@ -1116,7 +1116,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args) {
@@ -1168,7 +1168,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args) {
@@ -1220,7 +1220,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOptions options) {
@@ -1272,7 +1272,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOutputOptions options) {
@@ -1324,7 +1324,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args, InvokeOptions options) {
@@ -1378,7 +1378,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args) {
@@ -1432,7 +1432,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args) {
@@ -1486,7 +1486,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOptions options) {
@@ -1540,7 +1540,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetSnapshotResult> getSnapshot(GetSnapshotArgs args, InvokeOutputOptions options) {
@@ -1594,7 +1594,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetSnapshotResult> getSnapshotPlain(GetSnapshotPlainArgs args, InvokeOptions options) {
@@ -1652,7 +1652,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetSnapshotPolicyResult> getSnapshotPolicy(GetSnapshotPolicyArgs args) {
@@ -1710,7 +1710,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetSnapshotPolicyResult> getSnapshotPolicyPlain(GetSnapshotPolicyPlainArgs args) {
@@ -1768,7 +1768,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetSnapshotPolicyResult> getSnapshotPolicy(GetSnapshotPolicyArgs args, InvokeOptions options) {
@@ -1826,7 +1826,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetSnapshotPolicyResult> getSnapshotPolicy(GetSnapshotPolicyArgs args, InvokeOutputOptions options) {
@@ -1884,7 +1884,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetSnapshotPolicyResult> getSnapshotPolicyPlain(GetSnapshotPolicyPlainArgs args, InvokeOptions options) {
@@ -1937,7 +1937,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args) {
@@ -1990,7 +1990,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args) {
@@ -2043,7 +2043,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOptions options) {
@@ -2096,7 +2096,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeResult> getVolume(GetVolumeArgs args, InvokeOutputOptions options) {
@@ -2149,7 +2149,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetVolumeResult> getVolumePlain(GetVolumePlainArgs args, InvokeOptions options) {
@@ -2201,7 +2201,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeGroupOracleResult> getVolumeGroupOracle(GetVolumeGroupOracleArgs args) {
@@ -2253,7 +2253,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupOracleResult> getVolumeGroupOraclePlain(GetVolumeGroupOraclePlainArgs args) {
@@ -2305,7 +2305,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeGroupOracleResult> getVolumeGroupOracle(GetVolumeGroupOracleArgs args, InvokeOptions options) {
@@ -2357,7 +2357,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeGroupOracleResult> getVolumeGroupOracle(GetVolumeGroupOracleArgs args, InvokeOutputOptions options) {
@@ -2409,7 +2409,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupOracleResult> getVolumeGroupOraclePlain(GetVolumeGroupOraclePlainArgs args, InvokeOptions options) {
@@ -2461,7 +2461,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args) {
@@ -2513,7 +2513,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args) {
@@ -2565,7 +2565,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args, InvokeOptions options) {
@@ -2617,7 +2617,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeGroupSapHanaResult> getVolumeGroupSapHana(GetVolumeGroupSapHanaArgs args, InvokeOutputOptions options) {
@@ -2669,7 +2669,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupSapHanaResult> getVolumeGroupSapHanaPlain(GetVolumeGroupSapHanaPlainArgs args, InvokeOptions options) {
@@ -2720,7 +2720,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args) {
@@ -2771,7 +2771,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetVolumeQuotaRuleResult> getVolumeQuotaRulePlain(GetVolumeQuotaRulePlainArgs args) {
@@ -2822,7 +2822,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args, InvokeOptions options) {
@@ -2873,7 +2873,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static Output<GetVolumeQuotaRuleResult> getVolumeQuotaRule(GetVolumeQuotaRuleArgs args, InvokeOutputOptions options) {
@@ -2924,7 +2924,7 @@ public final class NetappFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.NetApp` - 2025-01-01
+     * * `Microsoft.NetApp` - 2025-06-01
      * 
      */
     public static CompletableFuture<GetVolumeQuotaRuleResult> getVolumeQuotaRulePlain(GetVolumeQuotaRulePlainArgs args, InvokeOptions options) {

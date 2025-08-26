@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  */
 export function getAccountEncryption(args: GetAccountEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountEncryptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,7 +47,9 @@ export interface GetAccountEncryptionArgs {
  * A collection of values returned by getAccountEncryption.
  */
 export interface GetAccountEncryptionResult {
+    readonly crossTenantKeyVaultResourceId: string;
     readonly encryptionKey: string;
+    readonly federatedClientId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -76,7 +78,7 @@ export interface GetAccountEncryptionResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  */
 export function getAccountEncryptionOutput(args: GetAccountEncryptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountEncryptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

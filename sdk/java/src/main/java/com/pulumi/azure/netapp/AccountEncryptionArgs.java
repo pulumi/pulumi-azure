@@ -17,6 +17,21 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
     public static final AccountEncryptionArgs Empty = new AccountEncryptionArgs();
 
     /**
+     * The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+     * 
+     */
+    @Import(name="crossTenantKeyVaultResourceId")
+    private @Nullable Output<String> crossTenantKeyVaultResourceId;
+
+    /**
+     * @return The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+     * 
+     */
+    public Optional<Output<String>> crossTenantKeyVaultResourceId() {
+        return Optional.ofNullable(this.crossTenantKeyVaultResourceId);
+    }
+
+    /**
      * Specify the versionless ID of the encryption key.
      * 
      */
@@ -29,6 +44,21 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
      */
     public Output<String> encryptionKey() {
         return this.encryptionKey;
+    }
+
+    /**
+     * The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+     * 
+     */
+    @Import(name="federatedClientId")
+    private @Nullable Output<String> federatedClientId;
+
+    /**
+     * @return The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+     * 
+     */
+    public Optional<Output<String>> federatedClientId() {
+        return Optional.ofNullable(this.federatedClientId);
     }
 
     /**
@@ -79,7 +109,9 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
     private AccountEncryptionArgs() {}
 
     private AccountEncryptionArgs(AccountEncryptionArgs $) {
+        this.crossTenantKeyVaultResourceId = $.crossTenantKeyVaultResourceId;
         this.encryptionKey = $.encryptionKey;
+        this.federatedClientId = $.federatedClientId;
         this.netappAccountId = $.netappAccountId;
         this.systemAssignedIdentityPrincipalId = $.systemAssignedIdentityPrincipalId;
         this.userAssignedIdentityId = $.userAssignedIdentityId;
@@ -104,6 +136,27 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param crossTenantKeyVaultResourceId The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossTenantKeyVaultResourceId(@Nullable Output<String> crossTenantKeyVaultResourceId) {
+            $.crossTenantKeyVaultResourceId = crossTenantKeyVaultResourceId;
+            return this;
+        }
+
+        /**
+         * @param crossTenantKeyVaultResourceId The full resource ID of the cross-tenant key vault. This is recommended when using `federated_client_id` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossTenantKeyVaultResourceId(String crossTenantKeyVaultResourceId) {
+            return crossTenantKeyVaultResourceId(Output.of(crossTenantKeyVaultResourceId));
+        }
+
+        /**
          * @param encryptionKey Specify the versionless ID of the encryption key.
          * 
          * @return builder
@@ -122,6 +175,27 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder encryptionKey(String encryptionKey) {
             return encryptionKey(Output.of(encryptionKey));
+        }
+
+        /**
+         * @param federatedClientId The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder federatedClientId(@Nullable Output<String> federatedClientId) {
+            $.federatedClientId = federatedClientId;
+            return this;
+        }
+
+        /**
+         * @param federatedClientId The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder federatedClientId(String federatedClientId) {
+            return federatedClientId(Output.of(federatedClientId));
         }
 
         /**

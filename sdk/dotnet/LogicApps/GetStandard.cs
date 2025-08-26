@@ -135,12 +135,6 @@ namespace Pulumi.Azure.LogicApps
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// A `site_config` object as defined below.
-        /// </summary>
-        [Input("siteConfig")]
-        public Inputs.GetStandardSiteConfigArgs? SiteConfig { get; set; }
-
         public GetStandardArgs()
         {
         }
@@ -160,12 +154,6 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// A `site_config` object as defined below.
-        /// </summary>
-        [Input("siteConfig")]
-        public Input<Inputs.GetStandardSiteConfigInputArgs>? SiteConfig { get; set; }
 
         public GetStandardInvokeArgs()
         {

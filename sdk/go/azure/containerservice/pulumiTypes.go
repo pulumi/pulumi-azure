@@ -6437,10 +6437,9 @@ type KubernetesClusterAutoScalerProfile struct {
 	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
 	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
 	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
-	ScanInterval *string `pulumi:"scanInterval"`
-	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-	SkipNodesWithLocalStorage *bool `pulumi:"skipNodesWithLocalStorage"`
-	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+	ScanInterval              *string `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage *bool   `pulumi:"skipNodesWithLocalStorage"`
+	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 	SkipNodesWithSystemPods *bool `pulumi:"skipNodesWithSystemPods"`
 }
 
@@ -6491,10 +6490,9 @@ type KubernetesClusterAutoScalerProfileArgs struct {
 	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
 	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
 	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
-	ScanInterval pulumi.StringPtrInput `pulumi:"scanInterval"`
-	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-	SkipNodesWithLocalStorage pulumi.BoolPtrInput `pulumi:"skipNodesWithLocalStorage"`
-	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+	ScanInterval              pulumi.StringPtrInput `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage pulumi.BoolPtrInput   `pulumi:"skipNodesWithLocalStorage"`
+	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 	SkipNodesWithSystemPods pulumi.BoolPtrInput `pulumi:"skipNodesWithSystemPods"`
 }
 
@@ -6665,12 +6663,11 @@ func (o KubernetesClusterAutoScalerProfileOutput) ScanInterval() pulumi.StringPt
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
 func (o KubernetesClusterAutoScalerProfileOutput) SkipNodesWithLocalStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.SkipNodesWithLocalStorage }).(pulumi.BoolPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 func (o KubernetesClusterAutoScalerProfileOutput) SkipNodesWithSystemPods() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.SkipNodesWithSystemPods }).(pulumi.BoolPtrOutput)
 }
@@ -6879,7 +6876,6 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) ScanInterval() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
 func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
 		if v == nil {
@@ -6889,7 +6885,7 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
 		if v == nil {
@@ -7223,7 +7219,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
-	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	FipsEnabled *bool   `pulumi:"fipsEnabled"`
+	GpuDriver   *string `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
@@ -7322,7 +7319,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
-	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
+	FipsEnabled pulumi.BoolPtrInput   `pulumi:"fipsEnabled"`
+	GpuDriver   pulumi.StringPtrInput `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
@@ -7494,6 +7492,10 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 // Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) GpuDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.GpuDriver }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -7734,6 +7736,15 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrO
 		}
 		return v.FipsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolPtrOutput) GpuDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GpuDriver
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.

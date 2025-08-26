@@ -27,7 +27,7 @@ class GetSystemTopicResult:
     """
     A collection of values returned by getSystemTopic.
     """
-    def __init__(__self__, id=None, identities=None, location=None, metric_arm_resource_id=None, name=None, resource_group_name=None, source_arm_resource_id=None, tags=None, topic_type=None):
+    def __init__(__self__, id=None, identities=None, location=None, metric_arm_resource_id=None, metric_resource_id=None, name=None, resource_group_name=None, source_arm_resource_id=None, source_resource_id=None, tags=None, topic_type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +40,9 @@ class GetSystemTopicResult:
         if metric_arm_resource_id and not isinstance(metric_arm_resource_id, str):
             raise TypeError("Expected argument 'metric_arm_resource_id' to be a str")
         pulumi.set(__self__, "metric_arm_resource_id", metric_arm_resource_id)
+        if metric_resource_id and not isinstance(metric_resource_id, str):
+            raise TypeError("Expected argument 'metric_resource_id' to be a str")
+        pulumi.set(__self__, "metric_resource_id", metric_resource_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,6 +52,9 @@ class GetSystemTopicResult:
         if source_arm_resource_id and not isinstance(source_arm_resource_id, str):
             raise TypeError("Expected argument 'source_arm_resource_id' to be a str")
         pulumi.set(__self__, "source_arm_resource_id", source_arm_resource_id)
+        if source_resource_id and not isinstance(source_resource_id, str):
+            raise TypeError("Expected argument 'source_resource_id' to be a str")
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -80,10 +86,15 @@ class GetSystemTopicResult:
     @_builtins.property
     @pulumi.getter(name="metricArmResourceId")
     def metric_arm_resource_id(self) -> _builtins.str:
-        """
-        The Metric ARM Resource ID of the Event Grid System Topic.
-        """
         return pulumi.get(self, "metric_arm_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="metricResourceId")
+    def metric_resource_id(self) -> _builtins.str:
+        """
+        The Metric Resource ID of the Event Grid System Topic.
+        """
+        return pulumi.get(self, "metric_resource_id")
 
     @_builtins.property
     @pulumi.getter
@@ -98,10 +109,15 @@ class GetSystemTopicResult:
     @_builtins.property
     @pulumi.getter(name="sourceArmResourceId")
     def source_arm_resource_id(self) -> _builtins.str:
+        return pulumi.get(self, "source_arm_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> _builtins.str:
         """
         The ID of the Event Grid System Topic ARM Source.
         """
-        return pulumi.get(self, "source_arm_resource_id")
+        return pulumi.get(self, "source_resource_id")
 
     @_builtins.property
     @pulumi.getter
@@ -130,9 +146,11 @@ class AwaitableGetSystemTopicResult(GetSystemTopicResult):
             identities=self.identities,
             location=self.location,
             metric_arm_resource_id=self.metric_arm_resource_id,
+            metric_resource_id=self.metric_resource_id,
             name=self.name,
             resource_group_name=self.resource_group_name,
             source_arm_resource_id=self.source_arm_resource_id,
+            source_resource_id=self.source_resource_id,
             tags=self.tags,
             topic_type=self.topic_type)
 
@@ -175,9 +193,11 @@ def get_system_topic(name: Optional[_builtins.str] = None,
         identities=pulumi.get(__ret__, 'identities'),
         location=pulumi.get(__ret__, 'location'),
         metric_arm_resource_id=pulumi.get(__ret__, 'metric_arm_resource_id'),
+        metric_resource_id=pulumi.get(__ret__, 'metric_resource_id'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         source_arm_resource_id=pulumi.get(__ret__, 'source_arm_resource_id'),
+        source_resource_id=pulumi.get(__ret__, 'source_resource_id'),
         tags=pulumi.get(__ret__, 'tags'),
         topic_type=pulumi.get(__ret__, 'topic_type'))
 def get_system_topic_output(name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -217,8 +237,10 @@ def get_system_topic_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         identities=pulumi.get(__response__, 'identities'),
         location=pulumi.get(__response__, 'location'),
         metric_arm_resource_id=pulumi.get(__response__, 'metric_arm_resource_id'),
+        metric_resource_id=pulumi.get(__response__, 'metric_resource_id'),
         name=pulumi.get(__response__, 'name'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         source_arm_resource_id=pulumi.get(__response__, 'source_arm_resource_id'),
+        source_resource_id=pulumi.get(__response__, 'source_resource_id'),
         tags=pulumi.get(__response__, 'tags'),
         topic_type=pulumi.get(__response__, 'topic_type')))

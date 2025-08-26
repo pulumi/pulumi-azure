@@ -42,7 +42,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Task<GetVolumeQuotaRuleResult> InvokeAsync(GetVolumeQuotaRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeQuotaRuleResult>("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", args ?? new GetVolumeQuotaRuleArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetVolumeQuotaRuleResult> Invoke(GetVolumeQuotaRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeQuotaRuleResult>("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", args ?? new GetVolumeQuotaRuleInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetVolumeQuotaRuleResult> Invoke(GetVolumeQuotaRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeQuotaRuleResult>("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", args ?? new GetVolumeQuotaRuleInvokeArgs(), options.WithDefaults());

@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .name("example-system-topic")
  *             .location("Global")
  *             .resourceGroupName(example.name())
- *             .sourceArmResourceId(example.id())
+ *             .sourceResourceId(example.id())
  *             .topicType("Microsoft.Resources.ResourceGroups")
  *             .build());
  * 

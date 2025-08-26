@@ -288,30 +288,22 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
         return Optional.ofNullable(this.scanInterval);
     }
 
-    /**
-     * If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-     * 
-     */
     @Import(name="skipNodesWithLocalStorage")
     private @Nullable Output<Boolean> skipNodesWithLocalStorage;
 
-    /**
-     * @return If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> skipNodesWithLocalStorage() {
         return Optional.ofNullable(this.skipNodesWithLocalStorage);
     }
 
     /**
-     * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
+     * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
      * 
      */
     @Import(name="skipNodesWithSystemPods")
     private @Nullable Output<Boolean> skipNodesWithSystemPods;
 
     /**
-     * @return If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
+     * @return If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> skipNodesWithSystemPods() {
@@ -739,29 +731,17 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
             return scanInterval(Output.of(scanInterval));
         }
 
-        /**
-         * @param skipNodesWithLocalStorage If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipNodesWithLocalStorage(@Nullable Output<Boolean> skipNodesWithLocalStorage) {
             $.skipNodesWithLocalStorage = skipNodesWithLocalStorage;
             return this;
         }
 
-        /**
-         * @param skipNodesWithLocalStorage If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skipNodesWithLocalStorage(Boolean skipNodesWithLocalStorage) {
             return skipNodesWithLocalStorage(Output.of(skipNodesWithLocalStorage));
         }
 
         /**
-         * @param skipNodesWithSystemPods If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
+         * @param skipNodesWithSystemPods If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
          * 
          * @return builder
          * 
@@ -772,7 +752,7 @@ public final class KubernetesClusterAutoScalerProfileArgs extends com.pulumi.res
         }
 
         /**
-         * @param skipNodesWithSystemPods If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. &lt;!-- defaults to `false` in code, not in Schema --&gt;
+         * @param skipNodesWithSystemPods If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
          * 
          * @return builder
          * 

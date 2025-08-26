@@ -33,6 +33,21 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
     }
 
     /**
+     * The Description of this IP Restriction.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return The Description of this IP Restriction.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * The `headers` block for this specific `ip_restriction` as defined below.
      * 
      */
@@ -130,6 +145,7 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
 
     private StandardSiteConfigScmIpRestrictionArgs(StandardSiteConfigScmIpRestrictionArgs $) {
         this.action = $.action;
+        this.description = $.description;
         this.headers = $.headers;
         this.ipAddress = $.ipAddress;
         this.name = $.name;
@@ -175,6 +191,27 @@ public final class StandardSiteConfigScmIpRestrictionArgs extends com.pulumi.res
          */
         public Builder action(String action) {
             return action(Output.of(action));
+        }
+
+        /**
+         * @param description The Description of this IP Restriction.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description The Description of this IP Restriction.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

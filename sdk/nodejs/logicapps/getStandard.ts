@@ -34,7 +34,6 @@ export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions):
     return pulumi.runtime.invoke("azure:logicapps/getStandard:getStandard", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "siteConfig": args.siteConfig,
     }, opts);
 }
 
@@ -50,10 +49,6 @@ export interface GetStandardArgs {
      * The name of the Resource Group where the Logic App exists.
      */
     resourceGroupName: string;
-    /**
-     * A `siteConfig` object as defined below.
-     */
-    siteConfig?: inputs.logicapps.GetStandardSiteConfig;
 }
 
 /**
@@ -206,7 +201,6 @@ export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.Inv
     return pulumi.runtime.invokeOutput("azure:logicapps/getStandard:getStandard", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "siteConfig": args.siteConfig,
     }, opts);
 }
 
@@ -222,8 +216,4 @@ export interface GetStandardOutputArgs {
      * The name of the Resource Group where the Logic App exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * A `siteConfig` object as defined below.
-     */
-    siteConfig?: pulumi.Input<inputs.logicapps.GetStandardSiteConfigArgs>;
 }
