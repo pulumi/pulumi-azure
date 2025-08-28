@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetFrontdoorProfileResult',
@@ -28,13 +27,16 @@ class GetFrontdoorProfileResult:
     """
     A collection of values returned by getFrontdoorProfile.
     """
-    def __init__(__self__, id=None, identity=None, name=None, resource_group_name=None, resource_guid=None, response_timeout_seconds=None, sku_name=None, tags=None):
+    def __init__(__self__, id=None, identity=None, log_scrubbing_rules=None, name=None, resource_group_name=None, resource_guid=None, response_timeout_seconds=None, sku_name=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if log_scrubbing_rules and not isinstance(log_scrubbing_rules, list):
+            raise TypeError("Expected argument 'log_scrubbing_rules' to be a list")
+        pulumi.set(__self__, "log_scrubbing_rules", log_scrubbing_rules)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -64,8 +66,19 @@ class GetFrontdoorProfileResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.GetFrontdoorProfileIdentityResult']:
+    def identity(self) -> 'outputs.GetFrontdoorProfileIdentityResult':
+        """
+        An `identity` block as defined below.
+        """
         return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="logScrubbingRules")
+    def log_scrubbing_rules(self) -> Sequence['outputs.GetFrontdoorProfileLogScrubbingRuleResult']:
+        """
+        One or more `log_scrubbing_rule` blocks as defined below.
+        """
+        return pulumi.get(self, "log_scrubbing_rules")
 
     @_builtins.property
     @pulumi.getter
@@ -118,6 +131,7 @@ class AwaitableGetFrontdoorProfileResult(GetFrontdoorProfileResult):
         return GetFrontdoorProfileResult(
             id=self.id,
             identity=self.identity,
+            log_scrubbing_rules=self.log_scrubbing_rules,
             name=self.name,
             resource_group_name=self.resource_group_name,
             resource_guid=self.resource_guid,
@@ -126,8 +140,7 @@ class AwaitableGetFrontdoorProfileResult(GetFrontdoorProfileResult):
             tags=self.tags)
 
 
-def get_frontdoor_profile(identity: Optional[Union['GetFrontdoorProfileIdentityArgs', 'GetFrontdoorProfileIdentityArgsDict']] = None,
-                          name: Optional[_builtins.str] = None,
+def get_frontdoor_profile(name: Optional[_builtins.str] = None,
                           resource_group_name: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontdoorProfileResult:
     """
@@ -141,6 +154,8 @@ def get_frontdoor_profile(identity: Optional[Union['GetFrontdoorProfileIdentityA
 
     example = azure.cdn.get_frontdoor_profile(name="existing-cdn-profile",
         resource_group_name="existing-resources")
+    pulumi.export("frontDoorId", example.id)
+    pulumi.export("logScrubbingMatchVariable", example.log_scrubbing_rules[0].match_variable)
     ```
 
     ## API Providers
@@ -151,12 +166,10 @@ def get_frontdoor_profile(identity: Optional[Union['GetFrontdoorProfileIdentityA
     * `Microsoft.Cdn` - 2024-02-01
 
 
-    :param Union['GetFrontdoorProfileIdentityArgs', 'GetFrontdoorProfileIdentityArgsDict'] identity: An `identity` block as defined below.
     :param _builtins.str name: Specifies the name of the Front Door Profile.
     :param _builtins.str resource_group_name: The name of the Resource Group where this Front Door Profile exists.
     """
     __args__ = dict()
-    __args__['identity'] = identity
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -165,14 +178,14 @@ def get_frontdoor_profile(identity: Optional[Union['GetFrontdoorProfileIdentityA
     return AwaitableGetFrontdoorProfileResult(
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        log_scrubbing_rules=pulumi.get(__ret__, 'log_scrubbing_rules'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         response_timeout_seconds=pulumi.get(__ret__, 'response_timeout_seconds'),
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_frontdoor_profile_output(identity: Optional[pulumi.Input[Optional[Union['GetFrontdoorProfileIdentityArgs', 'GetFrontdoorProfileIdentityArgsDict']]]] = None,
-                                 name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_frontdoor_profile_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontdoorProfileResult]:
     """
@@ -186,6 +199,8 @@ def get_frontdoor_profile_output(identity: Optional[pulumi.Input[Optional[Union[
 
     example = azure.cdn.get_frontdoor_profile(name="existing-cdn-profile",
         resource_group_name="existing-resources")
+    pulumi.export("frontDoorId", example.id)
+    pulumi.export("logScrubbingMatchVariable", example.log_scrubbing_rules[0].match_variable)
     ```
 
     ## API Providers
@@ -196,12 +211,10 @@ def get_frontdoor_profile_output(identity: Optional[pulumi.Input[Optional[Union[
     * `Microsoft.Cdn` - 2024-02-01
 
 
-    :param Union['GetFrontdoorProfileIdentityArgs', 'GetFrontdoorProfileIdentityArgsDict'] identity: An `identity` block as defined below.
     :param _builtins.str name: Specifies the name of the Front Door Profile.
     :param _builtins.str resource_group_name: The name of the Resource Group where this Front Door Profile exists.
     """
     __args__ = dict()
-    __args__['identity'] = identity
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -209,6 +222,7 @@ def get_frontdoor_profile_output(identity: Optional[pulumi.Input[Optional[Union[
     return __ret__.apply(lambda __response__: GetFrontdoorProfileResult(
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        log_scrubbing_rules=pulumi.get(__response__, 'log_scrubbing_rules'),
         name=pulumi.get(__response__, 'name'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         resource_guid=pulumi.get(__response__, 'resource_guid'),

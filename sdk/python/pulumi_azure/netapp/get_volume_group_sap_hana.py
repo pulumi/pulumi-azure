@@ -152,7 +152,7 @@ def get_volume_group_sap_hana(account_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str account_name: Name of the account where the application volume group belong to.
@@ -199,7 +199,7 @@ def get_volume_group_sap_hana_output(account_name: Optional[pulumi.Input[_builti
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str account_name: Name of the account where the application volume group belong to.

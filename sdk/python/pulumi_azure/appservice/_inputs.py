@@ -6466,6 +6466,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         The URL to the storage container with a shared access signature token appended.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
 elif False:
     AppServiceLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -6480,6 +6482,8 @@ class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
         :param pulumi.Input[_builtins.str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for.
         :param pulumi.Input[_builtins.str] sas_url: The URL to the storage container with a shared access signature token appended.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -6514,6 +6518,8 @@ class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         The URL to the storage container with a shared access signature token appended.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -6583,6 +6589,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         The URL to the storage container with a shared access signature token appended.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
 elif False:
     AppServiceLogsHttpLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -6595,6 +6603,8 @@ class AppServiceLogsHttpLogsAzureBlobStorageArgs:
         """
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for.
         :param pulumi.Input[_builtins.str] sas_url: The URL to the storage container with a shared access signature token appended.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         pulumi.set(__self__, "sas_url", sas_url)
@@ -6616,6 +6626,8 @@ class AppServiceLogsHttpLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         The URL to the storage container with a shared access signature token appended.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -25464,6 +25476,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
 elif False:
     LinuxWebAppLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -25478,6 +25492,8 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
         :param pulumi.Input[_builtins.str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[_builtins.int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param pulumi.Input[_builtins.str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -25512,6 +25528,8 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -25577,6 +25595,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -25592,6 +25612,8 @@ class LinuxWebAppLogsHttpLogsAzureBlobStorageArgs:
                  retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         :param pulumi.Input[_builtins.int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         """
         pulumi.set(__self__, "sas_url", sas_url)
@@ -25603,6 +25625,8 @@ class LinuxWebAppLogsHttpLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -30952,6 +30976,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         SAS URL to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
 elif False:
     LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -30966,6 +30992,8 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
         :param pulumi.Input[_builtins.str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[_builtins.int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param pulumi.Input[_builtins.str] sas_url: SAS URL to an Azure blob container with read/write/list/delete permissions.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -31000,6 +31028,8 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         SAS URL to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -31065,6 +31095,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         SAS URL to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -31080,6 +31112,8 @@ class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
                  retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] sas_url: SAS URL to an Azure blob container with read/write/list/delete permissions.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         :param pulumi.Input[_builtins.int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         """
         pulumi.set(__self__, "sas_url", sas_url)
@@ -31091,6 +31125,8 @@ class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         SAS URL to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -34635,7 +34671,9 @@ if not MYPY:
         """
         sas_url: pulumi.Input[_builtins.str]
         """
-        The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        The URL to the storage container, with a Service SAS token appended.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
 elif False:
     SlotLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -34649,7 +34687,9 @@ class SlotLogsApplicationLogsAzureBlobStorageArgs:
         """
         :param pulumi.Input[_builtins.str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for.
-        :param pulumi.Input[_builtins.str] sas_url: The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        :param pulumi.Input[_builtins.str] sas_url: The URL to the storage container, with a Service SAS token appended.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -34683,7 +34723,9 @@ class SlotLogsApplicationLogsAzureBlobStorageArgs:
     @pulumi.getter(name="sasUrl")
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
-        The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        The URL to the storage container, with a Service SAS token appended.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -34752,7 +34794,9 @@ if not MYPY:
         """
         sas_url: pulumi.Input[_builtins.str]
         """
-        The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        The URL to the storage container, with a Service SAS token appended.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
 elif False:
     SlotLogsHttpLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -34764,7 +34808,9 @@ class SlotLogsHttpLogsAzureBlobStorageArgs:
                  sas_url: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for.
-        :param pulumi.Input[_builtins.str] sas_url: The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        :param pulumi.Input[_builtins.str] sas_url: The URL to the storage container, with a Service SAS token appended.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
         pulumi.set(__self__, "sas_url", sas_url)
@@ -34785,7 +34831,9 @@ class SlotLogsHttpLogsAzureBlobStorageArgs:
     @pulumi.getter(name="sasUrl")
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
-        The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        The URL to the storage container, with a Service SAS token appended.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -49539,6 +49587,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
 elif False:
     WindowsWebAppLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -49553,6 +49603,8 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
         :param pulumi.Input[_builtins.str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[_builtins.int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param pulumi.Input[_builtins.str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -49587,6 +49639,8 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -49652,6 +49706,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -49667,6 +49723,8 @@ class WindowsWebAppLogsHttpLogsAzureBlobStorageArgs:
                  retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         :param pulumi.Input[_builtins.int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         """
         pulumi.set(__self__, "sas_url", sas_url)
@@ -49678,6 +49736,8 @@ class WindowsWebAppLogsHttpLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -55450,6 +55510,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
 elif False:
     WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -55464,6 +55526,8 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
         :param pulumi.Input[_builtins.str] level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param pulumi.Input[_builtins.int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         :param pulumi.Input[_builtins.str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -55498,6 +55562,8 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 
@@ -55563,6 +55629,8 @@ if not MYPY:
         sas_url: pulumi.Input[_builtins.str]
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -55578,6 +55646,8 @@ class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
                  retention_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+               
+               > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         :param pulumi.Input[_builtins.int] retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         """
         pulumi.set(__self__, "sas_url", sas_url)
@@ -55589,6 +55659,8 @@ class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
     def sas_url(self) -> pulumi.Input[_builtins.str]:
         """
         SAS url to an Azure blob container with read/write/list/delete permissions.
+
+        > **Note:** There isn't enough information to for the provider to generate the `sas_url` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
         """
         return pulumi.get(self, "sas_url")
 

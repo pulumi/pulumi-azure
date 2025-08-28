@@ -4,14 +4,14 @@
 package com.pulumi.azure.cdn.outputs;
 
 import com.pulumi.azure.cdn.outputs.GetFrontdoorProfileIdentity;
+import com.pulumi.azure.cdn.outputs.GetFrontdoorProfileLogScrubbingRule;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFrontdoorProfileResult {
@@ -20,7 +20,16 @@ public final class GetFrontdoorProfileResult {
      * 
      */
     private String id;
-    private @Nullable GetFrontdoorProfileIdentity identity;
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    private GetFrontdoorProfileIdentity identity;
+    /**
+     * @return One or more `log_scrubbing_rule` blocks as defined below.
+     * 
+     */
+    private List<GetFrontdoorProfileLogScrubbingRule> logScrubbingRules;
     private String name;
     private String resourceGroupName;
     /**
@@ -52,8 +61,19 @@ public final class GetFrontdoorProfileResult {
     public String id() {
         return this.id;
     }
-    public Optional<GetFrontdoorProfileIdentity> identity() {
-        return Optional.ofNullable(this.identity);
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public GetFrontdoorProfileIdentity identity() {
+        return this.identity;
+    }
+    /**
+     * @return One or more `log_scrubbing_rule` blocks as defined below.
+     * 
+     */
+    public List<GetFrontdoorProfileLogScrubbingRule> logScrubbingRules() {
+        return this.logScrubbingRules;
     }
     public String name() {
         return this.name;
@@ -100,7 +120,8 @@ public final class GetFrontdoorProfileResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private @Nullable GetFrontdoorProfileIdentity identity;
+        private GetFrontdoorProfileIdentity identity;
+        private List<GetFrontdoorProfileLogScrubbingRule> logScrubbingRules;
         private String name;
         private String resourceGroupName;
         private String resourceGuid;
@@ -112,6 +133,7 @@ public final class GetFrontdoorProfileResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.identity = defaults.identity;
+    	      this.logScrubbingRules = defaults.logScrubbingRules;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.resourceGuid = defaults.resourceGuid;
@@ -129,10 +151,23 @@ public final class GetFrontdoorProfileResult {
             return this;
         }
         @CustomType.Setter
-        public Builder identity(@Nullable GetFrontdoorProfileIdentity identity) {
-
+        public Builder identity(GetFrontdoorProfileIdentity identity) {
+            if (identity == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "identity");
+            }
             this.identity = identity;
             return this;
+        }
+        @CustomType.Setter
+        public Builder logScrubbingRules(List<GetFrontdoorProfileLogScrubbingRule> logScrubbingRules) {
+            if (logScrubbingRules == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "logScrubbingRules");
+            }
+            this.logScrubbingRules = logScrubbingRules;
+            return this;
+        }
+        public Builder logScrubbingRules(GetFrontdoorProfileLogScrubbingRule... logScrubbingRules) {
+            return logScrubbingRules(List.of(logScrubbingRules));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -186,6 +221,7 @@ public final class GetFrontdoorProfileResult {
             final var _resultValue = new GetFrontdoorProfileResult();
             _resultValue.id = id;
             _resultValue.identity = identity;
+            _resultValue.logScrubbingRules = logScrubbingRules;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.resourceGuid = resourceGuid;

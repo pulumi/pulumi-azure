@@ -4,11 +4,13 @@
 package com.pulumi.azure.cdn;
 
 import com.pulumi.azure.cdn.inputs.FrontdoorProfileIdentityArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorProfileLogScrubbingRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -32,6 +34,25 @@ public final class FrontdoorProfileArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<FrontdoorProfileIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * One or more `log_scrubbing_rule` blocks as defined below.
+     * 
+     * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+     * 
+     */
+    @Import(name="logScrubbingRules")
+    private @Nullable Output<List<FrontdoorProfileLogScrubbingRuleArgs>> logScrubbingRules;
+
+    /**
+     * @return One or more `log_scrubbing_rule` blocks as defined below.
+     * 
+     * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+     * 
+     */
+    public Optional<Output<List<FrontdoorProfileLogScrubbingRuleArgs>>> logScrubbingRules() {
+        return Optional.ofNullable(this.logScrubbingRules);
     }
 
     /**
@@ -113,6 +134,7 @@ public final class FrontdoorProfileArgs extends com.pulumi.resources.ResourceArg
 
     private FrontdoorProfileArgs(FrontdoorProfileArgs $) {
         this.identity = $.identity;
+        this.logScrubbingRules = $.logScrubbingRules;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.responseTimeoutSeconds = $.responseTimeoutSeconds;
@@ -157,6 +179,43 @@ public final class FrontdoorProfileArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder identity(FrontdoorProfileIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param logScrubbingRules One or more `log_scrubbing_rule` blocks as defined below.
+         * 
+         * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logScrubbingRules(@Nullable Output<List<FrontdoorProfileLogScrubbingRuleArgs>> logScrubbingRules) {
+            $.logScrubbingRules = logScrubbingRules;
+            return this;
+        }
+
+        /**
+         * @param logScrubbingRules One or more `log_scrubbing_rule` blocks as defined below.
+         * 
+         * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logScrubbingRules(List<FrontdoorProfileLogScrubbingRuleArgs> logScrubbingRules) {
+            return logScrubbingRules(Output.of(logScrubbingRules));
+        }
+
+        /**
+         * @param logScrubbingRules One or more `log_scrubbing_rule` blocks as defined below.
+         * 
+         * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logScrubbingRules(FrontdoorProfileLogScrubbingRuleArgs... logScrubbingRules) {
+            return logScrubbingRules(List.of(logScrubbingRules));
         }
 
         /**

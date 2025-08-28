@@ -22,7 +22,7 @@ public final class GetStandardSiteConfig {
      * @return Should the Logic App be loaded at all times?
      * 
      */
-    private @Nullable Boolean alwaysOn;
+    private Boolean alwaysOn;
     /**
      * @return The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
      * 
@@ -62,7 +62,7 @@ public final class GetStandardSiteConfig {
      * @return Specifies whether the HTTP2 protocol should be enabled.
      * 
      */
-    private @Nullable Boolean http2Enabled;
+    private Boolean http2Enabled;
     /**
      * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
      * 
@@ -136,8 +136,8 @@ public final class GetStandardSiteConfig {
      * @return Should the Logic App be loaded at all times?
      * 
      */
-    public Optional<Boolean> alwaysOn() {
-        return Optional.ofNullable(this.alwaysOn);
+    public Boolean alwaysOn() {
+        return this.alwaysOn;
     }
     /**
      * @return The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
@@ -192,8 +192,8 @@ public final class GetStandardSiteConfig {
      * @return Specifies whether the HTTP2 protocol should be enabled.
      * 
      */
-    public Optional<Boolean> http2Enabled() {
-        return Optional.ofNullable(this.http2Enabled);
+    public Boolean http2Enabled() {
+        return this.http2Enabled;
     }
     /**
      * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
@@ -298,7 +298,7 @@ public final class GetStandardSiteConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Boolean alwaysOn;
+        private Boolean alwaysOn;
         private Integer appScaleLimit;
         private String autoSwapSlotName;
         private GetStandardSiteConfigCors cors;
@@ -306,7 +306,7 @@ public final class GetStandardSiteConfig {
         private Integer elasticInstanceMinimum;
         private String ftpsState;
         private @Nullable String healthCheckPath;
-        private @Nullable Boolean http2Enabled;
+        private Boolean http2Enabled;
         private List<GetStandardSiteConfigIpRestriction> ipRestrictions;
         private String linuxFxVersion;
         private String minTlsVersion;
@@ -348,8 +348,10 @@ public final class GetStandardSiteConfig {
         }
 
         @CustomType.Setter
-        public Builder alwaysOn(@Nullable Boolean alwaysOn) {
-
+        public Builder alwaysOn(Boolean alwaysOn) {
+            if (alwaysOn == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "alwaysOn");
+            }
             this.alwaysOn = alwaysOn;
             return this;
         }
@@ -406,8 +408,10 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder http2Enabled(@Nullable Boolean http2Enabled) {
-
+        public Builder http2Enabled(Boolean http2Enabled) {
+            if (http2Enabled == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "http2Enabled");
+            }
             this.http2Enabled = http2Enabled;
             return this;
         }

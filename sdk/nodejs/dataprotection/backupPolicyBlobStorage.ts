@@ -30,6 +30,43 @@ import * as utilities from "../utilities";
  *     name: "example-backup-policy",
  *     vaultId: exampleBackupVault.id,
  *     operationalDefaultRetentionDuration: "P30D",
+ *     vaultDefaultRetentionDuration: "P7D",
+ *     retentionRules: [
+ *         {
+ *             name: "Weekly",
+ *             priority: 20,
+ *             lifeCycle: {
+ *                 duration: "P90D",
+ *                 dataStoreType: "VaultStore",
+ *             },
+ *             criteria: {
+ *                 daysOfWeeks: ["Monday"],
+ *             },
+ *         },
+ *         {
+ *             name: "Monthly",
+ *             priority: 10,
+ *             lifeCycle: {
+ *                 duration: "P180D",
+ *                 dataStoreType: "VaultStore",
+ *             },
+ *             criteria: {
+ *                 daysOfMonths: [1],
+ *             },
+ *         },
+ *         {
+ *             name: "Yearly",
+ *             priority: 5,
+ *             lifeCycle: {
+ *                 duration: "P365D",
+ *                 dataStoreType: "VaultStore",
+ *             },
+ *             criteria: {
+ *                 monthsOfYears: ["January"],
+ *                 daysOfMonths: [1],
+ *             },
+ *         },
+ *     ],
  * });
  * ```
  *

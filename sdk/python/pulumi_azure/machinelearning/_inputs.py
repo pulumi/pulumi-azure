@@ -1071,7 +1071,11 @@ if not MYPY:
     class WorkspaceManagedNetworkArgsDict(TypedDict):
         isolation_mode: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+        The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
+        """
+        provision_on_creation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
         """
 elif False:
     WorkspaceManagedNetworkArgsDict: TypeAlias = Mapping[str, Any]
@@ -1079,24 +1083,40 @@ elif False:
 @pulumi.input_type
 class WorkspaceManagedNetworkArgs:
     def __init__(__self__, *,
-                 isolation_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 isolation_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 provision_on_creation_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] isolation_mode: The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+        :param pulumi.Input[_builtins.str] isolation_mode: The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
+        :param pulumi.Input[_builtins.bool] provision_on_creation_enabled: Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
         """
         if isolation_mode is not None:
             pulumi.set(__self__, "isolation_mode", isolation_mode)
+        if provision_on_creation_enabled is not None:
+            pulumi.set(__self__, "provision_on_creation_enabled", provision_on_creation_enabled)
 
     @_builtins.property
     @pulumi.getter(name="isolationMode")
     def isolation_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+        The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
         """
         return pulumi.get(self, "isolation_mode")
 
     @isolation_mode.setter
     def isolation_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "isolation_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="provisionOnCreationEnabled")
+    def provision_on_creation_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "provision_on_creation_enabled")
+
+    @provision_on_creation_enabled.setter
+    def provision_on_creation_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "provision_on_creation_enabled", value)
 
 
 if not MYPY:

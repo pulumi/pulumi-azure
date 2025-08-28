@@ -122,7 +122,7 @@ def get_account(identity: Optional[Union['GetAccountIdentityArgs', 'GetAccountId
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str name: The name of the NetApp Account.
@@ -165,7 +165,7 @@ def get_account_output(identity: Optional[pulumi.Input[Optional[Union['GetAccoun
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str name: The name of the NetApp Account.

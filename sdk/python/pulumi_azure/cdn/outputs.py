@@ -63,6 +63,7 @@ __all__ = [
     'FrontdoorOriginGroupLoadBalancing',
     'FrontdoorOriginPrivateLink',
     'FrontdoorProfileIdentity',
+    'FrontdoorProfileLogScrubbingRule',
     'FrontdoorRouteCache',
     'FrontdoorRuleActions',
     'FrontdoorRuleActionsRequestHeaderAction',
@@ -100,6 +101,7 @@ __all__ = [
     'GetFrontdoorOriginGroupHealthProbeResult',
     'GetFrontdoorOriginGroupLoadBalancingResult',
     'GetFrontdoorProfileIdentityResult',
+    'GetFrontdoorProfileLogScrubbingRuleResult',
     'GetFrontdoorSecretSecretResult',
     'GetFrontdoorSecretSecretCustomerCertificateResult',
 ]
@@ -3490,6 +3492,45 @@ class FrontdoorProfileIdentity(dict):
 
 
 @pulumi.output_type
+class FrontdoorProfileLogScrubbingRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorProfileLogScrubbingRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorProfileLogScrubbingRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorProfileLogScrubbingRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_variable: _builtins.str):
+        """
+        :param _builtins.str match_variable: The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+               
+               > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+
+    @_builtins.property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> _builtins.str:
+        """
+        The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+
+        > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+        """
+        return pulumi.get(self, "match_variable")
+
+
+@pulumi.output_type
 class FrontdoorRouteCache(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6101,19 +6142,26 @@ class GetFrontdoorOriginGroupLoadBalancingResult(dict):
 @pulumi.output_type
 class GetFrontdoorProfileIdentityResult(dict):
     def __init__(__self__, *,
+                 identity_ids: Sequence[_builtins.str],
                  principal_id: _builtins.str,
                  tenant_id: _builtins.str,
-                 type: _builtins.str,
-                 identity_ids: Optional[Sequence[_builtins.str]] = None):
+                 type: _builtins.str):
         """
-        :param _builtins.str type: The type of Managed Service Identity that is configured on this Front Door Profile.
         :param Sequence[_builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+        :param _builtins.str type: The type of Managed Service Identity that is configured on this Front Door Profile.
         """
+        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
-        if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[_builtins.str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+        """
+        return pulumi.get(self, "identity_ids")
 
     @_builtins.property
     @pulumi.getter(name="principalId")
@@ -6133,13 +6181,23 @@ class GetFrontdoorProfileIdentityResult(dict):
         """
         return pulumi.get(self, "type")
 
+
+@pulumi.output_type
+class GetFrontdoorProfileLogScrubbingRuleResult(dict):
+    def __init__(__self__, *,
+                 match_variable: _builtins.str):
+        """
+        :param _builtins.str match_variable: The variable that is scrubbed from the logs.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+
     @_builtins.property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[Sequence[_builtins.str]]:
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> _builtins.str:
         """
-        The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
+        The variable that is scrubbed from the logs.
         """
-        return pulumi.get(self, "identity_ids")
+        return pulumi.get(self, "match_variable")
 
 
 @pulumi.output_type

@@ -24,6 +24,7 @@ class FrontdoorProfileArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
                  identity: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']] = None,
+                 log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -32,6 +33,9 @@ class FrontdoorProfileArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         :param pulumi.Input['FrontdoorProfileIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]] log_scrubbing_rules: One or more `log_scrubbing_rule` blocks as defined below.
+               
+               > **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] response_timeout_seconds: Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Specifies a mapping of tags to assign to the resource.
@@ -40,6 +44,8 @@ class FrontdoorProfileArgs:
         pulumi.set(__self__, "sku_name", sku_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if log_scrubbing_rules is not None:
+            pulumi.set(__self__, "log_scrubbing_rules", log_scrubbing_rules)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if response_timeout_seconds is not None:
@@ -84,6 +90,20 @@ class FrontdoorProfileArgs:
         pulumi.set(self, "identity", value)
 
     @_builtins.property
+    @pulumi.getter(name="logScrubbingRules")
+    def log_scrubbing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]:
+        """
+        One or more `log_scrubbing_rule` blocks as defined below.
+
+        > **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+        """
+        return pulumi.get(self, "log_scrubbing_rules")
+
+    @log_scrubbing_rules.setter
+    def log_scrubbing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]):
+        pulumi.set(self, "log_scrubbing_rules", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -124,6 +144,7 @@ class FrontdoorProfileArgs:
 class _FrontdoorProfileState:
     def __init__(__self__, *,
                  identity: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']] = None,
+                 log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_guid: Optional[pulumi.Input[_builtins.str]] = None,
@@ -133,6 +154,9 @@ class _FrontdoorProfileState:
         """
         Input properties used for looking up and filtering FrontdoorProfile resources.
         :param pulumi.Input['FrontdoorProfileIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]] log_scrubbing_rules: One or more `log_scrubbing_rule` blocks as defined below.
+               
+               > **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_guid: The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
@@ -142,6 +166,8 @@ class _FrontdoorProfileState:
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if log_scrubbing_rules is not None:
+            pulumi.set(__self__, "log_scrubbing_rules", log_scrubbing_rules)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
@@ -166,6 +192,20 @@ class _FrontdoorProfileState:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['FrontdoorProfileIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logScrubbingRules")
+    def log_scrubbing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]:
+        """
+        One or more `log_scrubbing_rule` blocks as defined below.
+
+        > **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+        """
+        return pulumi.get(self, "log_scrubbing_rules")
+
+    @log_scrubbing_rules.setter
+    def log_scrubbing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorProfileLogScrubbingRuleArgs']]]]):
+        pulumi.set(self, "log_scrubbing_rules", value)
 
     @_builtins.property
     @pulumi.getter
@@ -247,6 +287,7 @@ class FrontdoorProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
+                 log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -265,10 +306,22 @@ class FrontdoorProfile(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=example.location,
+            name="example-identity",
+            resource_group_name=example.name)
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
             name="example-cdn-profile",
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor",
+            sku_name="Premium_AzureFrontDoor",
+            response_timeout_seconds=120,
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
+            log_scrubbing_rules=[{
+                "match_variable": "RequestIPAddress",
+            }],
             tags={
                 "environment": "Production",
             })
@@ -292,6 +345,9 @@ class FrontdoorProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]] log_scrubbing_rules: One or more `log_scrubbing_rule` blocks as defined below.
+               
+               > **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] response_timeout_seconds: Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
@@ -316,10 +372,22 @@ class FrontdoorProfile(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=example.location,
+            name="example-identity",
+            resource_group_name=example.name)
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
             name="example-cdn-profile",
             resource_group_name=example.name,
-            sku_name="Standard_AzureFrontDoor",
+            sku_name="Premium_AzureFrontDoor",
+            response_timeout_seconds=120,
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
+            log_scrubbing_rules=[{
+                "match_variable": "RequestIPAddress",
+            }],
             tags={
                 "environment": "Production",
             })
@@ -356,6 +424,7 @@ class FrontdoorProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
+                 log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  response_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
@@ -371,6 +440,7 @@ class FrontdoorProfile(pulumi.CustomResource):
             __props__ = FrontdoorProfileArgs.__new__(FrontdoorProfileArgs)
 
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["log_scrubbing_rules"] = log_scrubbing_rules
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -392,6 +462,7 @@ class FrontdoorProfile(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             identity: Optional[pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
+            log_scrubbing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
             resource_guid: Optional[pulumi.Input[_builtins.str]] = None,
@@ -406,6 +477,9 @@ class FrontdoorProfile(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]] log_scrubbing_rules: One or more `log_scrubbing_rule` blocks as defined below.
+               
+               > **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_guid: The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
@@ -418,6 +492,7 @@ class FrontdoorProfile(pulumi.CustomResource):
         __props__ = _FrontdoorProfileState.__new__(_FrontdoorProfileState)
 
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["log_scrubbing_rules"] = log_scrubbing_rules
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["resource_guid"] = resource_guid
@@ -433,6 +508,16 @@ class FrontdoorProfile(pulumi.CustomResource):
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="logScrubbingRules")
+    def log_scrubbing_rules(self) -> pulumi.Output[Optional[Sequence['outputs.FrontdoorProfileLogScrubbingRule']]]:
+        """
+        One or more `log_scrubbing_rule` blocks as defined below.
+
+        > **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+        """
+        return pulumi.get(self, "log_scrubbing_rules")
 
     @_builtins.property
     @pulumi.getter

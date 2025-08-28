@@ -46,7 +46,7 @@ namespace Pulumi.Azure.EventGrid
     ///         Name = "example-topic",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         SourceArmResourceId = exampleAccount.Id,
+    ///         SourceResourceId = exampleAccount.Id,
     ///         TopicType = "Microsoft.Storage.StorageAccounts",
     ///     });
     /// 
@@ -83,11 +83,14 @@ namespace Pulumi.Azure.EventGrid
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
-        /// <summary>
-        /// The Metric ARM Resource ID of the Event Grid System Topic.
-        /// </summary>
         [Output("metricArmResourceId")]
         public Output<string> MetricArmResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Metric Resource ID of the Event Grid System Topic.
+        /// </summary>
+        [Output("metricResourceId")]
+        public Output<string> MetricResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
@@ -101,11 +104,14 @@ namespace Pulumi.Azure.EventGrid
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("sourceArmResourceId")]
+        public Output<string> SourceArmResourceId { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
-        [Output("sourceArmResourceId")]
-        public Output<string> SourceArmResourceId { get; private set; } = null!;
+        [Output("sourceResourceId")]
+        public Output<string> SourceResourceId { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the Event Grid System Topic.
@@ -193,11 +199,14 @@ namespace Pulumi.Azure.EventGrid
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("sourceArmResourceId")]
+        public Input<string>? SourceArmResourceId { get; set; }
+
         /// <summary>
         /// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
-        [Input("sourceArmResourceId", required: true)]
-        public Input<string> SourceArmResourceId { get; set; } = null!;
+        [Input("sourceResourceId")]
+        public Input<string>? SourceResourceId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -241,11 +250,14 @@ namespace Pulumi.Azure.EventGrid
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// The Metric ARM Resource ID of the Event Grid System Topic.
-        /// </summary>
         [Input("metricArmResourceId")]
         public Input<string>? MetricArmResourceId { get; set; }
+
+        /// <summary>
+        /// The Metric Resource ID of the Event Grid System Topic.
+        /// </summary>
+        [Input("metricResourceId")]
+        public Input<string>? MetricResourceId { get; set; }
 
         /// <summary>
         /// The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
@@ -259,11 +271,14 @@ namespace Pulumi.Azure.EventGrid
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("sourceArmResourceId")]
+        public Input<string>? SourceArmResourceId { get; set; }
+
         /// <summary>
         /// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
-        [Input("sourceArmResourceId")]
-        public Input<string>? SourceArmResourceId { get; set; }
+        [Input("sourceResourceId")]
+        public Input<string>? SourceResourceId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

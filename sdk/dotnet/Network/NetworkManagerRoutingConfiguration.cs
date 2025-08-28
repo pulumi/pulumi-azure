@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Network
     public partial class NetworkManagerRoutingConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The description of the Network Manager.
+        /// The description of the Network Manager Routing Configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkManagerRoutingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the Network Manager.
+        /// The description of the Network Manager Routing Configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkManagerRoutingConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the Network Manager.
+        /// The description of the Network Manager Routing Configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

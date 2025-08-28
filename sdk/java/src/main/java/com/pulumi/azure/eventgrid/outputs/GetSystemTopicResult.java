@@ -24,18 +24,20 @@ public final class GetSystemTopicResult {
      */
     private List<GetSystemTopicIdentity> identities;
     private String location;
+    private String metricArmResourceId;
     /**
-     * @return The Metric ARM Resource ID of the Event Grid System Topic.
+     * @return The Metric Resource ID of the Event Grid System Topic.
      * 
      */
-    private String metricArmResourceId;
+    private String metricResourceId;
     private String name;
     private String resourceGroupName;
+    private String sourceArmResourceId;
     /**
      * @return The ID of the Event Grid System Topic ARM Source.
      * 
      */
-    private String sourceArmResourceId;
+    private String sourceResourceId;
     /**
      * @return A mapping of tags which are assigned to the Event Grid System Topic.
      * 
@@ -65,12 +67,15 @@ public final class GetSystemTopicResult {
     public String location() {
         return this.location;
     }
-    /**
-     * @return The Metric ARM Resource ID of the Event Grid System Topic.
-     * 
-     */
     public String metricArmResourceId() {
         return this.metricArmResourceId;
+    }
+    /**
+     * @return The Metric Resource ID of the Event Grid System Topic.
+     * 
+     */
+    public String metricResourceId() {
+        return this.metricResourceId;
     }
     public String name() {
         return this.name;
@@ -78,12 +83,15 @@ public final class GetSystemTopicResult {
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
+    public String sourceArmResourceId() {
+        return this.sourceArmResourceId;
+    }
     /**
      * @return The ID of the Event Grid System Topic ARM Source.
      * 
      */
-    public String sourceArmResourceId() {
-        return this.sourceArmResourceId;
+    public String sourceResourceId() {
+        return this.sourceResourceId;
     }
     /**
      * @return A mapping of tags which are assigned to the Event Grid System Topic.
@@ -113,9 +121,11 @@ public final class GetSystemTopicResult {
         private List<GetSystemTopicIdentity> identities;
         private String location;
         private String metricArmResourceId;
+        private String metricResourceId;
         private String name;
         private String resourceGroupName;
         private String sourceArmResourceId;
+        private String sourceResourceId;
         private Map<String,String> tags;
         private String topicType;
         public Builder() {}
@@ -125,9 +135,11 @@ public final class GetSystemTopicResult {
     	      this.identities = defaults.identities;
     	      this.location = defaults.location;
     	      this.metricArmResourceId = defaults.metricArmResourceId;
+    	      this.metricResourceId = defaults.metricResourceId;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.sourceArmResourceId = defaults.sourceArmResourceId;
+    	      this.sourceResourceId = defaults.sourceResourceId;
     	      this.tags = defaults.tags;
     	      this.topicType = defaults.topicType;
         }
@@ -168,6 +180,14 @@ public final class GetSystemTopicResult {
             return this;
         }
         @CustomType.Setter
+        public Builder metricResourceId(String metricResourceId) {
+            if (metricResourceId == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "metricResourceId");
+            }
+            this.metricResourceId = metricResourceId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetSystemTopicResult", "name");
@@ -192,6 +212,14 @@ public final class GetSystemTopicResult {
             return this;
         }
         @CustomType.Setter
+        public Builder sourceResourceId(String sourceResourceId) {
+            if (sourceResourceId == null) {
+              throw new MissingRequiredPropertyException("GetSystemTopicResult", "sourceResourceId");
+            }
+            this.sourceResourceId = sourceResourceId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetSystemTopicResult", "tags");
@@ -213,9 +241,11 @@ public final class GetSystemTopicResult {
             _resultValue.identities = identities;
             _resultValue.location = location;
             _resultValue.metricArmResourceId = metricArmResourceId;
+            _resultValue.metricResourceId = metricResourceId;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.sourceArmResourceId = sourceArmResourceId;
+            _resultValue.sourceResourceId = sourceResourceId;
             _resultValue.tags = tags;
             _resultValue.topicType = topicType;
             return _resultValue;

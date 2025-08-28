@@ -94,6 +94,8 @@ class LoadTestEncryptionIdentity(dict):
                  type: _builtins.str):
         """
         :param _builtins.str identity_id: The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+               
+               > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
         :param _builtins.str type: Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
         """
         pulumi.set(__self__, "identity_id", identity_id)
@@ -104,6 +106,8 @@ class LoadTestEncryptionIdentity(dict):
     def identity_id(self) -> _builtins.str:
         """
         The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+
+        > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
         """
         return pulumi.get(self, "identity_id")
 
@@ -148,7 +152,6 @@ class LoadTestIdentity(dict):
         :param _builtins.str type: Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
         :param Sequence[_builtins.str] identity_ids: A list of the User Assigned Identity IDs that should be assigned to this Load Test.
         :param _builtins.str principal_id: The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-               *
         :param _builtins.str tenant_id: The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
         """
         pulumi.set(__self__, "type", type)
@@ -180,7 +183,6 @@ class LoadTestIdentity(dict):
     def principal_id(self) -> Optional[_builtins.str]:
         """
         The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-        *
         """
         return pulumi.get(self, "principal_id")
 
