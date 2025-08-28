@@ -24,6 +24,7 @@ class PoolArgs:
                  service_level: pulumi.Input[_builtins.str],
                  size_in_tb: pulumi.Input[_builtins.int],
                  cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -33,7 +34,7 @@ class PoolArgs:
         The set of arguments for constructing a Pool resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
                > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
@@ -42,6 +43,7 @@ class PoolArgs:
         :param pulumi.Input[_builtins.bool] cool_access_enabled: Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
                
                > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] custom_throughput_mibps: The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -54,6 +56,8 @@ class PoolArgs:
         pulumi.set(__self__, "size_in_tb", size_in_tb)
         if cool_access_enabled is not None:
             pulumi.set(__self__, "cool_access_enabled", cool_access_enabled)
+        if custom_throughput_mibps is not None:
+            pulumi.set(__self__, "custom_throughput_mibps", custom_throughput_mibps)
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if location is not None:
@@ -93,7 +97,7 @@ class PoolArgs:
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Input[_builtins.str]:
         """
-        The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 
@@ -130,6 +134,18 @@ class PoolArgs:
     @cool_access_enabled.setter
     def cool_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "cool_access_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customThroughputMibps")
+    def custom_throughput_mibps(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+        """
+        return pulumi.get(self, "custom_throughput_mibps")
+
+    @custom_throughput_mibps.setter
+    def custom_throughput_mibps(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "custom_throughput_mibps", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
@@ -197,6 +213,7 @@ class _PoolState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -211,12 +228,13 @@ class _PoolState:
         :param pulumi.Input[_builtins.bool] cool_access_enabled: Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
                
                > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] custom_throughput_mibps: The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
                > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
@@ -228,6 +246,8 @@ class _PoolState:
             pulumi.set(__self__, "account_name", account_name)
         if cool_access_enabled is not None:
             pulumi.set(__self__, "cool_access_enabled", cool_access_enabled)
+        if custom_throughput_mibps is not None:
+            pulumi.set(__self__, "custom_throughput_mibps", custom_throughput_mibps)
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if location is not None:
@@ -270,6 +290,18 @@ class _PoolState:
     @cool_access_enabled.setter
     def cool_access_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "cool_access_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customThroughputMibps")
+    def custom_throughput_mibps(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+        """
+        return pulumi.get(self, "custom_throughput_mibps")
+
+    @custom_throughput_mibps.setter
+    def custom_throughput_mibps(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "custom_throughput_mibps", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
@@ -335,7 +367,7 @@ class _PoolState:
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 
@@ -380,6 +412,7 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -414,12 +447,36 @@ class Pool(pulumi.CustomResource):
             size_in_tb=4)
         ```
 
+        ## NetApp Pool with Flexible Service Level Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.netapp.Account("example",
+            name="example-netappaccount",
+            location=example.location,
+            resource_group_name=example.name)
+        example_pool = azure.netapp.Pool("example",
+            name="example-netapppool",
+            account_name=example_account.name,
+            location=example.location,
+            resource_group_name=example.name,
+            service_level="Flexible",
+            size_in_tb=4,
+            qos_type="Manual",
+            custom_throughput_mibps=256)
+        ```
+
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2025-01-01
+        * `Microsoft.NetApp` - 2025-06-01
 
         ## Import
 
@@ -435,12 +492,13 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cool_access_enabled: Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
                
                > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] custom_throughput_mibps: The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
                > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
@@ -479,12 +537,36 @@ class Pool(pulumi.CustomResource):
             size_in_tb=4)
         ```
 
+        ## NetApp Pool with Flexible Service Level Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.netapp.Account("example",
+            name="example-netappaccount",
+            location=example.location,
+            resource_group_name=example.name)
+        example_pool = azure.netapp.Pool("example",
+            name="example-netapppool",
+            account_name=example_account.name,
+            location=example.location,
+            resource_group_name=example.name,
+            service_level="Flexible",
+            size_in_tb=4,
+            qos_type="Manual",
+            custom_throughput_mibps=256)
+        ```
+
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2025-01-01
+        * `Microsoft.NetApp` - 2025-06-01
 
         ## Import
 
@@ -511,6 +593,7 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
                  encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -532,6 +615,7 @@ class Pool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["cool_access_enabled"] = cool_access_enabled
+            __props__.__dict__["custom_throughput_mibps"] = custom_throughput_mibps
             __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -558,6 +642,7 @@ class Pool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[_builtins.str]] = None,
             cool_access_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+            custom_throughput_mibps: Optional[pulumi.Input[_builtins.int]] = None,
             encryption_type: Optional[pulumi.Input[_builtins.str]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -577,12 +662,13 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cool_access_enabled: Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
                
                > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] custom_throughput_mibps: The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] qos_type: QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
                > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
@@ -596,6 +682,7 @@ class Pool(pulumi.CustomResource):
 
         __props__.__dict__["account_name"] = account_name
         __props__.__dict__["cool_access_enabled"] = cool_access_enabled
+        __props__.__dict__["custom_throughput_mibps"] = custom_throughput_mibps
         __props__.__dict__["encryption_type"] = encryption_type
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -623,6 +710,14 @@ class Pool(pulumi.CustomResource):
         > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
         """
         return pulumi.get(self, "cool_access_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="customThroughputMibps")
+    def custom_throughput_mibps(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+        """
+        return pulumi.get(self, "custom_throughput_mibps")
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
@@ -668,7 +763,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="serviceLevel")
     def service_level(self) -> pulumi.Output[_builtins.str]:
         """
-        The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "service_level")
 

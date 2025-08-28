@@ -20,6 +20,11 @@ export type CustomDataset = import("./customDataset").CustomDataset;
 export const CustomDataset: typeof import("./customDataset").CustomDataset = null as any;
 utilities.lazyLoad(exports, ["CustomDataset"], () => require("./customDataset"));
 
+export { CustomerManagedKeyArgs, CustomerManagedKeyState } from "./customerManagedKey";
+export type CustomerManagedKey = import("./customerManagedKey").CustomerManagedKey;
+export const CustomerManagedKey: typeof import("./customerManagedKey").CustomerManagedKey = null as any;
+utilities.lazyLoad(exports, ["CustomerManagedKey"], () => require("./customerManagedKey"));
+
 export { DataFlowArgs, DataFlowState } from "./dataFlow";
 export type DataFlow = import("./dataFlow").DataFlow;
 export const DataFlow: typeof import("./dataFlow").DataFlow = null as any;
@@ -276,6 +281,8 @@ const _module = {
                 return new CredentialUserManagedIdentity(name, <any>undefined, { urn })
             case "azure:datafactory/customDataset:CustomDataset":
                 return new CustomDataset(name, <any>undefined, { urn })
+            case "azure:datafactory/customerManagedKey:CustomerManagedKey":
+                return new CustomerManagedKey(name, <any>undefined, { urn })
             case "azure:datafactory/dataFlow:DataFlow":
                 return new DataFlow(name, <any>undefined, { urn })
             case "azure:datafactory/datasetAzureBlob:DatasetAzureBlob":
@@ -376,6 +383,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "datafactory/credentialServicePrincipal", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/credentialUserManagedIdentity", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/customDataset", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/customerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/dataFlow", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetAzureBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetAzureSqlTable", _module)

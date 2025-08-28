@@ -171,6 +171,8 @@ func (o LoadTestEncryptionPtrOutput) KeyUrl() pulumi.StringPtrOutput {
 
 type LoadTestEncryptionIdentity struct {
 	// The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+	//
+	// > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
 	IdentityId string `pulumi:"identityId"`
 	// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
 	Type string `pulumi:"type"`
@@ -189,6 +191,8 @@ type LoadTestEncryptionIdentityInput interface {
 
 type LoadTestEncryptionIdentityArgs struct {
 	// The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+	//
+	// > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
 	IdentityId pulumi.StringInput `pulumi:"identityId"`
 	// Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -272,6 +276,8 @@ func (o LoadTestEncryptionIdentityOutput) ToLoadTestEncryptionIdentityPtrOutputW
 }
 
 // The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+//
+// > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
 func (o LoadTestEncryptionIdentityOutput) IdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadTestEncryptionIdentity) string { return v.IdentityId }).(pulumi.StringOutput)
 }
@@ -306,6 +312,8 @@ func (o LoadTestEncryptionIdentityPtrOutput) Elem() LoadTestEncryptionIdentityOu
 }
 
 // The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+//
+// > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
 func (o LoadTestEncryptionIdentityPtrOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTestEncryptionIdentity) *string {
 		if v == nil {
@@ -329,7 +337,6 @@ type LoadTestIdentity struct {
 	// A list of the User Assigned Identity IDs that should be assigned to this Load Test.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-	// *
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 	TenantId *string `pulumi:"tenantId"`
@@ -352,7 +359,6 @@ type LoadTestIdentityArgs struct {
 	// A list of the User Assigned Identity IDs that should be assigned to this Load Test.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-	// *
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
@@ -443,7 +449,6 @@ func (o LoadTestIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 }
 
 // The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-// *
 func (o LoadTestIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadTestIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -493,7 +498,6 @@ func (o LoadTestIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 }
 
 // The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-// *
 func (o LoadTestIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadTestIdentity) *string {
 		if v == nil {

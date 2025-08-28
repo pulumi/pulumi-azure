@@ -83,10 +83,7 @@ namespace Pulumi.Azure.Mobile
     ///         Name = "example-mns",
     ///         MobileNetworkId = exampleNetwork.Id,
     ///         Location = example.Location,
-    ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
-    ///         {
-    ///             SliceServiceType = 1,
-    ///         },
+    ///         SliceServiceType = 1,
     ///     });
     /// 
     ///     var exampleNetworkSimPolicy = new Azure.Mobile.NetworkSimPolicy("example", new()

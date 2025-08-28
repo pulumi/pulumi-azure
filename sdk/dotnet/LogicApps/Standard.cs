@@ -173,7 +173,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<bool> ClientAffinityEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         /// </summary>
         [Output("clientCertificateMode")]
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<bool>? ClientAffinityEnabled { get; set; }
 
         /// <summary>
-        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
@@ -585,7 +585,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<bool>? ClientAffinityEnabled { get; set; }
 
         /// <summary>
-        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }

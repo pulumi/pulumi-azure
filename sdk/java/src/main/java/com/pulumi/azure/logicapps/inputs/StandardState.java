@@ -87,14 +87,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      * 
      */
     @Import(name="clientCertificateMode")
     private @Nullable Output<String> clientCertificateMode;
 
     /**
-     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      * 
      */
     public Optional<Output<String>> clientCertificateMode() {
@@ -606,7 +606,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
          * 
          * @return builder
          * 

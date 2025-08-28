@@ -4,6 +4,7 @@
 package com.pulumi.azure.machinelearning.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -12,18 +13,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkspaceManagedNetwork {
     /**
-     * @return The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+     * @return The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
      * 
      */
     private @Nullable String isolationMode;
+    /**
+     * @return Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable Boolean provisionOnCreationEnabled;
 
     private WorkspaceManagedNetwork() {}
     /**
-     * @return The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+     * @return The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
      * 
      */
     public Optional<String> isolationMode() {
         return Optional.ofNullable(this.isolationMode);
+    }
+    /**
+     * @return Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Boolean> provisionOnCreationEnabled() {
+        return Optional.ofNullable(this.provisionOnCreationEnabled);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class WorkspaceManagedNetwork {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String isolationMode;
+        private @Nullable Boolean provisionOnCreationEnabled;
         public Builder() {}
         public Builder(WorkspaceManagedNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.isolationMode = defaults.isolationMode;
+    	      this.provisionOnCreationEnabled = defaults.provisionOnCreationEnabled;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class WorkspaceManagedNetwork {
             this.isolationMode = isolationMode;
             return this;
         }
+        @CustomType.Setter
+        public Builder provisionOnCreationEnabled(@Nullable Boolean provisionOnCreationEnabled) {
+
+            this.provisionOnCreationEnabled = provisionOnCreationEnabled;
+            return this;
+        }
         public WorkspaceManagedNetwork build() {
             final var _resultValue = new WorkspaceManagedNetwork();
             _resultValue.isolationMode = isolationMode;
+            _resultValue.provisionOnCreationEnabled = provisionOnCreationEnabled;
             return _resultValue;
         }
     }

@@ -52,7 +52,7 @@ namespace Pulumi.Azure.EventGrid
     ///         Name = "example-system-topic",
     ///         Location = "Global",
     ///         ResourceGroupName = example.Name,
-    ///         SourceArmResourceId = example.Id,
+    ///         SourceResourceId = example.Id,
     ///         TopicType = "Microsoft.Resources.ResourceGroups",
     ///     });
     /// 

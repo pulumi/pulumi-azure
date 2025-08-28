@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Mobile.Inputs
     public sealed class NetworkSliceSingleNetworkSliceSelectionAssistanceInformationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Slice differentiator (SD). Must be a 6 digit hex string.
+        /// Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         /// </summary>
         [Input("sliceDifferentiator")]
         public Input<string>? SliceDifferentiator { get; set; }
 
         /// <summary>
-        /// Slice/service type (SST). Must be between `0` and `255`.
+        /// Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
         /// </summary>
         [Input("sliceServiceType", required: true)]
         public Input<int> SliceServiceType { get; set; } = null!;

@@ -34,6 +34,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
+        [Input("gpuDriver")]
+        public Input<string>? GpuDriver { get; set; }
+
         /// <summary>
         /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         /// </summary>

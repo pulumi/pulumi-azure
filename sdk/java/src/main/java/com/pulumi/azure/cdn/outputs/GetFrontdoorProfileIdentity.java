@@ -8,7 +8,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFrontdoorProfileIdentity {
@@ -16,7 +15,7 @@ public final class GetFrontdoorProfileIdentity {
      * @return The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
      * 
      */
-    private @Nullable List<String> identityIds;
+    private List<String> identityIds;
     private String principalId;
     private String tenantId;
     /**
@@ -31,7 +30,7 @@ public final class GetFrontdoorProfileIdentity {
      * 
      */
     public List<String> identityIds() {
-        return this.identityIds == null ? List.of() : this.identityIds;
+        return this.identityIds;
     }
     public String principalId() {
         return this.principalId;
@@ -56,7 +55,7 @@ public final class GetFrontdoorProfileIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<String> identityIds;
+        private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
@@ -70,8 +69,10 @@ public final class GetFrontdoorProfileIdentity {
         }
 
         @CustomType.Setter
-        public Builder identityIds(@Nullable List<String> identityIds) {
-
+        public Builder identityIds(List<String> identityIds) {
+            if (identityIds == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileIdentity", "identityIds");
+            }
             this.identityIds = identityIds;
             return this;
         }

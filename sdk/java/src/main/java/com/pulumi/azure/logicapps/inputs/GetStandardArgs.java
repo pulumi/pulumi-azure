@@ -3,14 +3,11 @@
 
 package com.pulumi.azure.logicapps.inputs;
 
-import com.pulumi.azure.logicapps.inputs.GetStandardSiteConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetStandardArgs extends com.pulumi.resources.InvokeArgs {
@@ -47,27 +44,11 @@ public final class GetStandardArgs extends com.pulumi.resources.InvokeArgs {
         return this.resourceGroupName;
     }
 
-    /**
-     * A `site_config` object as defined below.
-     * 
-     */
-    @Import(name="siteConfig")
-    private @Nullable Output<GetStandardSiteConfigArgs> siteConfig;
-
-    /**
-     * @return A `site_config` object as defined below.
-     * 
-     */
-    public Optional<Output<GetStandardSiteConfigArgs>> siteConfig() {
-        return Optional.ofNullable(this.siteConfig);
-    }
-
     private GetStandardArgs() {}
 
     private GetStandardArgs(GetStandardArgs $) {
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
-        this.siteConfig = $.siteConfig;
     }
 
     public static Builder builder() {
@@ -128,27 +109,6 @@ public final class GetStandardArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
-        }
-
-        /**
-         * @param siteConfig A `site_config` object as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder siteConfig(@Nullable Output<GetStandardSiteConfigArgs> siteConfig) {
-            $.siteConfig = siteConfig;
-            return this;
-        }
-
-        /**
-         * @param siteConfig A `site_config` object as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder siteConfig(GetStandardSiteConfigArgs siteConfig) {
-            return siteConfig(Output.of(siteConfig));
         }
 
         public GetStandardArgs build() {

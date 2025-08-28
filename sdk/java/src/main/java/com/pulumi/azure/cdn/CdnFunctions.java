@@ -944,6 +944,8 @@ public final class CdnFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
+     *         ctx.export("frontDoorId", example.id());
+     *         ctx.export("logScrubbingMatchVariable", example.logScrubbingRules()[0].matchVariable());
      *     }
      * }
      * }
@@ -994,6 +996,8 @@ public final class CdnFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
+     *         ctx.export("frontDoorId", example.id());
+     *         ctx.export("logScrubbingMatchVariable", example.logScrubbingRules()[0].matchVariable());
      *     }
      * }
      * }
@@ -1044,6 +1048,8 @@ public final class CdnFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
+     *         ctx.export("frontDoorId", example.id());
+     *         ctx.export("logScrubbingMatchVariable", example.logScrubbingRules()[0].matchVariable());
      *     }
      * }
      * }
@@ -1094,6 +1100,8 @@ public final class CdnFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
+     *         ctx.export("frontDoorId", example.id());
+     *         ctx.export("logScrubbingMatchVariable", example.logScrubbingRules()[0].matchVariable());
      *     }
      * }
      * }
@@ -1144,6 +1152,8 @@ public final class CdnFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
+     *         ctx.export("frontDoorId", example.id());
+     *         ctx.export("logScrubbingMatchVariable", example.logScrubbingRules()[0].matchVariable());
      *     }
      * }
      * }

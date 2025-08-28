@@ -10,7 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccountEncryptionResult {
+    private String crossTenantKeyVaultResourceId;
     private String encryptionKey;
+    private String federatedClientId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -21,8 +23,14 @@ public final class GetAccountEncryptionResult {
     private String userAssignedIdentityId;
 
     private GetAccountEncryptionResult() {}
+    public String crossTenantKeyVaultResourceId() {
+        return this.crossTenantKeyVaultResourceId;
+    }
     public String encryptionKey() {
         return this.encryptionKey;
+    }
+    public String federatedClientId() {
+        return this.federatedClientId;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -50,7 +58,9 @@ public final class GetAccountEncryptionResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String crossTenantKeyVaultResourceId;
         private String encryptionKey;
+        private String federatedClientId;
         private String id;
         private String netappAccountId;
         private String systemAssignedIdentityPrincipalId;
@@ -58,7 +68,9 @@ public final class GetAccountEncryptionResult {
         public Builder() {}
         public Builder(GetAccountEncryptionResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.crossTenantKeyVaultResourceId = defaults.crossTenantKeyVaultResourceId;
     	      this.encryptionKey = defaults.encryptionKey;
+    	      this.federatedClientId = defaults.federatedClientId;
     	      this.id = defaults.id;
     	      this.netappAccountId = defaults.netappAccountId;
     	      this.systemAssignedIdentityPrincipalId = defaults.systemAssignedIdentityPrincipalId;
@@ -66,11 +78,27 @@ public final class GetAccountEncryptionResult {
         }
 
         @CustomType.Setter
+        public Builder crossTenantKeyVaultResourceId(String crossTenantKeyVaultResourceId) {
+            if (crossTenantKeyVaultResourceId == null) {
+              throw new MissingRequiredPropertyException("GetAccountEncryptionResult", "crossTenantKeyVaultResourceId");
+            }
+            this.crossTenantKeyVaultResourceId = crossTenantKeyVaultResourceId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder encryptionKey(String encryptionKey) {
             if (encryptionKey == null) {
               throw new MissingRequiredPropertyException("GetAccountEncryptionResult", "encryptionKey");
             }
             this.encryptionKey = encryptionKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder federatedClientId(String federatedClientId) {
+            if (federatedClientId == null) {
+              throw new MissingRequiredPropertyException("GetAccountEncryptionResult", "federatedClientId");
+            }
+            this.federatedClientId = federatedClientId;
             return this;
         }
         @CustomType.Setter
@@ -107,7 +135,9 @@ public final class GetAccountEncryptionResult {
         }
         public GetAccountEncryptionResult build() {
             final var _resultValue = new GetAccountEncryptionResult();
+            _resultValue.crossTenantKeyVaultResourceId = crossTenantKeyVaultResourceId;
             _resultValue.encryptionKey = encryptionKey;
+            _resultValue.federatedClientId = federatedClientId;
             _resultValue.id = id;
             _resultValue.netappAccountId = netappAccountId;
             _resultValue.systemAssignedIdentityPrincipalId = systemAssignedIdentityPrincipalId;

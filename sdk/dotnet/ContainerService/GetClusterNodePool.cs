@@ -188,6 +188,7 @@ namespace Pulumi.Azure.ContainerService
         /// The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
         /// </summary>
         public readonly string EvictionPolicy;
+        public readonly string GpuDriver;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -286,6 +287,8 @@ namespace Pulumi.Azure.ContainerService
 
             string evictionPolicy,
 
+            string gpuDriver,
+
             string id,
 
             string kubernetesClusterName,
@@ -338,6 +341,7 @@ namespace Pulumi.Azure.ContainerService
         {
             AutoScalingEnabled = autoScalingEnabled;
             EvictionPolicy = evictionPolicy;
+            GpuDriver = gpuDriver;
             Id = id;
             KubernetesClusterName = kubernetesClusterName;
             MaxCount = maxCount;

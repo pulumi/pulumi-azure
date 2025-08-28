@@ -182,6 +182,20 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.fipsEnabled);
     }
     /**
+     * Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="gpuDriver", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> gpuDriver;
+
+    /**
+     * @return Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> gpuDriver() {
+        return Codegen.optional(this.gpuDriver);
+    }
+    /**
      * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
      * 
      */

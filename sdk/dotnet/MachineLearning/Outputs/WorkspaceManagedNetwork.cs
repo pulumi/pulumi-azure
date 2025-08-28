@@ -14,14 +14,22 @@ namespace Pulumi.Azure.MachineLearning.Outputs
     public sealed class WorkspaceManagedNetwork
     {
         /// <summary>
-        /// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+        /// The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
         /// </summary>
         public readonly string? IsolationMode;
+        /// <summary>
+        /// Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly bool? ProvisionOnCreationEnabled;
 
         [OutputConstructor]
-        private WorkspaceManagedNetwork(string? isolationMode)
+        private WorkspaceManagedNetwork(
+            string? isolationMode,
+
+            bool? provisionOnCreationEnabled)
         {
             IsolationMode = isolationMode;
+            ProvisionOnCreationEnabled = provisionOnCreationEnabled;
         }
     }
 }

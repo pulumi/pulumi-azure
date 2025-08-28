@@ -162,16 +162,18 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSystemTopicIdentityResult> Identities;
         public readonly string Location;
-        /// <summary>
-        /// The Metric ARM Resource ID of the Event Grid System Topic.
-        /// </summary>
         public readonly string MetricArmResourceId;
+        /// <summary>
+        /// The Metric Resource ID of the Event Grid System Topic.
+        /// </summary>
+        public readonly string MetricResourceId;
         public readonly string Name;
         public readonly string ResourceGroupName;
+        public readonly string SourceArmResourceId;
         /// <summary>
         /// The ID of the Event Grid System Topic ARM Source.
         /// </summary>
-        public readonly string SourceArmResourceId;
+        public readonly string SourceResourceId;
         /// <summary>
         /// A mapping of tags which are assigned to the Event Grid System Topic.
         /// </summary>
@@ -191,11 +193,15 @@ namespace Pulumi.Azure.EventGrid
 
             string metricArmResourceId,
 
+            string metricResourceId,
+
             string name,
 
             string resourceGroupName,
 
             string sourceArmResourceId,
+
+            string sourceResourceId,
 
             ImmutableDictionary<string, string> tags,
 
@@ -205,9 +211,11 @@ namespace Pulumi.Azure.EventGrid
             Identities = identities;
             Location = location;
             MetricArmResourceId = metricArmResourceId;
+            MetricResourceId = metricResourceId;
             Name = name;
             ResourceGroupName = resourceGroupName;
             SourceArmResourceId = sourceArmResourceId;
+            SourceResourceId = sourceResourceId;
             Tags = tags;
             TopicType = topicType;
         }

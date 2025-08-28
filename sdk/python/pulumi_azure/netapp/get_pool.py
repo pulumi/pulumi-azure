@@ -26,13 +26,16 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, cool_access_enabled=None, encryption_type=None, id=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None):
+    def __init__(__self__, account_name=None, cool_access_enabled=None, custom_throughput_mibps=None, encryption_type=None, id=None, location=None, name=None, resource_group_name=None, service_level=None, size_in_tb=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
         if cool_access_enabled and not isinstance(cool_access_enabled, bool):
             raise TypeError("Expected argument 'cool_access_enabled' to be a bool")
         pulumi.set(__self__, "cool_access_enabled", cool_access_enabled)
+        if custom_throughput_mibps and not isinstance(custom_throughput_mibps, int):
+            raise TypeError("Expected argument 'custom_throughput_mibps' to be a int")
+        pulumi.set(__self__, "custom_throughput_mibps", custom_throughput_mibps)
         if encryption_type and not isinstance(encryption_type, str):
             raise TypeError("Expected argument 'encryption_type' to be a str")
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -67,6 +70,14 @@ class GetPoolResult:
         Whether the NetApp Pool can hold cool access enabled volumes.
         """
         return pulumi.get(self, "cool_access_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="customThroughputMibps")
+    def custom_throughput_mibps(self) -> _builtins.int:
+        """
+        The custom throughput for the pool in MiB/s.
+        """
+        return pulumi.get(self, "custom_throughput_mibps")
 
     @_builtins.property
     @pulumi.getter(name="encryptionType")
@@ -127,6 +138,7 @@ class AwaitableGetPoolResult(GetPoolResult):
         return GetPoolResult(
             account_name=self.account_name,
             cool_access_enabled=self.cool_access_enabled,
+            custom_throughput_mibps=self.custom_throughput_mibps,
             encryption_type=self.encryption_type,
             id=self.id,
             location=self.location,
@@ -160,7 +172,7 @@ def get_pool(account_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str account_name: The name of the NetApp account where the NetApp pool exists.
@@ -177,6 +189,7 @@ def get_pool(account_name: Optional[_builtins.str] = None,
     return AwaitableGetPoolResult(
         account_name=pulumi.get(__ret__, 'account_name'),
         cool_access_enabled=pulumi.get(__ret__, 'cool_access_enabled'),
+        custom_throughput_mibps=pulumi.get(__ret__, 'custom_throughput_mibps'),
         encryption_type=pulumi.get(__ret__, 'encryption_type'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -208,7 +221,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str account_name: The name of the NetApp account where the NetApp pool exists.
@@ -224,6 +237,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetPoolResult(
         account_name=pulumi.get(__response__, 'account_name'),
         cool_access_enabled=pulumi.get(__response__, 'cool_access_enabled'),
+        custom_throughput_mibps=pulumi.get(__response__, 'custom_throughput_mibps'),
         encryption_type=pulumi.get(__response__, 'encryption_type'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

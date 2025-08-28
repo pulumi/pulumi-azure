@@ -50,7 +50,7 @@ class ServicePlanArgs:
         :param pulumi.Input[_builtins.bool] premium_plan_auto_scale_enabled: Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[_builtins.int] worker_count: The number of Workers (instances) to be allocated.
-        :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region.
                
                > **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
                
@@ -220,7 +220,7 @@ class ServicePlanArgs:
     @pulumi.getter(name="zoneBalancingEnabled")
     def zone_balancing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        Should the Service Plan balance across Availability Zones in the region.
 
         > **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
 
@@ -271,7 +271,7 @@ class _ServicePlanState:
                > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[_builtins.int] worker_count: The number of Workers (instances) to be allocated.
-        :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region.
                
                > **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
                
@@ -472,7 +472,7 @@ class _ServicePlanState:
     @pulumi.getter(name="zoneBalancingEnabled")
     def zone_balancing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        Should the Service Plan balance across Availability Zones in the region.
 
         > **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
 
@@ -558,7 +558,7 @@ class ServicePlan(pulumi.CustomResource):
                > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[_builtins.int] worker_count: The number of Workers (instances) to be allocated.
-        :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region.
                
                > **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
                
@@ -711,7 +711,7 @@ class ServicePlan(pulumi.CustomResource):
                > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[_builtins.int] worker_count: The number of Workers (instances) to be allocated.
-        :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region.
                
                > **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
                
@@ -851,7 +851,7 @@ class ServicePlan(pulumi.CustomResource):
     @pulumi.getter(name="zoneBalancingEnabled")
     def zone_balancing_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
+        Should the Service Plan balance across Availability Zones in the region.
 
         > **Note:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
 

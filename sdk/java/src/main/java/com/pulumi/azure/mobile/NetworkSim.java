@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mobile.NetworkSimGroupArgs;
  * import com.pulumi.azure.mobile.NetworkSlice;
  * import com.pulumi.azure.mobile.NetworkSliceArgs;
- * import com.pulumi.azure.mobile.inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs;
  * import com.pulumi.azure.mobile.NetworkAttachedDataNetwork;
  * import com.pulumi.azure.mobile.NetworkAttachedDataNetworkArgs;
  * import com.pulumi.azure.mobile.NetworkSim;
@@ -79,9 +78,7 @@ import javax.annotation.Nullable;
  *             .name("example-slice")
  *             .mobileNetworkId(exampleNetwork.id())
  *             .location(example.location())
- *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
- *                 .sliceServiceType(1)
- *                 .build())
+ *             .sliceServiceType(1)
  *             .build());
  * 
  *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork", NetworkAttachedDataNetworkArgs.builder()
