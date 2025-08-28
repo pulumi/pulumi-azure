@@ -81,39 +81,39 @@ export class LinkedServiceOdbc extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service ODBC.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service ODBC.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * A `basicAuthentication` block as defined below.
      */
-    public readonly basicAuthentication!: pulumi.Output<outputs.datafactory.LinkedServiceOdbcBasicAuthentication | undefined>;
+    declare public readonly basicAuthentication: pulumi.Output<outputs.datafactory.LinkedServiceOdbcBasicAuthentication | undefined>;
     /**
      * The connection string in which to authenticate with ODBC.
      */
-    public readonly connectionString!: pulumi.Output<string>;
+    declare public readonly connectionString: pulumi.Output<string>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service ODBC.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service ODBC.
      */
-    public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service ODBC. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service ODBC.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LinkedServiceOdbc resource with the given unique name, arguments, and options.
@@ -128,32 +128,32 @@ export class LinkedServiceOdbc extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceOdbcState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["basicAuthentication"] = state ? state.basicAuthentication : undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["basicAuthentication"] = state?.basicAuthentication;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
         } else {
             const args = argsOrState as LinkedServiceOdbcArgs | undefined;
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
+            if (args?.connectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["basicAuthentication"] = args ? args.basicAuthentication : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["basicAuthentication"] = args?.basicAuthentication;
+            resourceInputs["connectionString"] = args?.connectionString;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedServiceOdbc.__pulumiType, name, resourceInputs, opts);

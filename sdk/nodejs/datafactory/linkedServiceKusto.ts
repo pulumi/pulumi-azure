@@ -100,47 +100,47 @@ export class LinkedServiceKusto extends pulumi.CustomResource {
      *
      * The following supported arguments are specific to Azure Kusto Linked Service:
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
      * The Kusto Database Name.
      */
-    public readonly kustoDatabaseName!: pulumi.Output<string>;
+    declare public readonly kustoDatabaseName: pulumi.Output<string>;
     /**
      * The URI of the Kusto Cluster endpoint.
      */
-    public readonly kustoEndpoint!: pulumi.Output<string>;
+    declare public readonly kustoEndpoint: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The service principal id in which to authenticate against the Kusto Database.
      */
-    public readonly servicePrincipalId!: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalId: pulumi.Output<string | undefined>;
     /**
      * The service principal key in which to authenticate against the Kusto Database.
      */
-    public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalKey: pulumi.Output<string | undefined>;
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      *
@@ -148,11 +148,11 @@ export class LinkedServiceKusto extends pulumi.CustomResource {
      *
      * > **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      */
-    public readonly tenant!: pulumi.Output<string | undefined>;
+    declare public readonly tenant: pulumi.Output<string | undefined>;
     /**
      * Whether to use the Data Factory's managed identity to authenticate against the Kusto Database.
      */
-    public readonly useManagedIdentity!: pulumi.Output<boolean | undefined>;
+    declare public readonly useManagedIdentity: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LinkedServiceKusto resource with the given unique name, arguments, and options.
@@ -167,43 +167,43 @@ export class LinkedServiceKusto extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceKustoState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            resourceInputs["kustoDatabaseName"] = state ? state.kustoDatabaseName : undefined;
-            resourceInputs["kustoEndpoint"] = state ? state.kustoEndpoint : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
-            resourceInputs["tenant"] = state ? state.tenant : undefined;
-            resourceInputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
+            resourceInputs["kustoDatabaseName"] = state?.kustoDatabaseName;
+            resourceInputs["kustoEndpoint"] = state?.kustoEndpoint;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["servicePrincipalId"] = state?.servicePrincipalId;
+            resourceInputs["servicePrincipalKey"] = state?.servicePrincipalKey;
+            resourceInputs["tenant"] = state?.tenant;
+            resourceInputs["useManagedIdentity"] = state?.useManagedIdentity;
         } else {
             const args = argsOrState as LinkedServiceKustoArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.kustoDatabaseName === undefined) && !opts.urn) {
+            if (args?.kustoDatabaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoDatabaseName'");
             }
-            if ((!args || args.kustoEndpoint === undefined) && !opts.urn) {
+            if (args?.kustoEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoEndpoint'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            resourceInputs["kustoDatabaseName"] = args ? args.kustoDatabaseName : undefined;
-            resourceInputs["kustoEndpoint"] = args ? args.kustoEndpoint : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
+            resourceInputs["kustoDatabaseName"] = args?.kustoDatabaseName;
+            resourceInputs["kustoEndpoint"] = args?.kustoEndpoint;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["servicePrincipalId"] = args?.servicePrincipalId;
             resourceInputs["servicePrincipalKey"] = args?.servicePrincipalKey ? pulumi.secret(args.servicePrincipalKey) : undefined;
-            resourceInputs["tenant"] = args ? args.tenant : undefined;
-            resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
+            resourceInputs["tenant"] = args?.tenant;
+            resourceInputs["useManagedIdentity"] = args?.useManagedIdentity;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["servicePrincipalKey"] };

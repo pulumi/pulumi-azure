@@ -232,15 +232,15 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
     /**
      * The ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly eventhubNamespaceId!: pulumi.Output<string>;
+    declare public readonly eventhubNamespaceId: pulumi.Output<string>;
     /**
      * Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
      */
-    public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly infrastructureEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The list of keys of Key Vault.
      */
-    public readonly keyVaultKeyIds!: pulumi.Output<string[]>;
+    declare public readonly keyVaultKeyIds: pulumi.Output<string[]>;
     /**
      * The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
      *
@@ -248,7 +248,7 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
      *
      * > **Note:** If using `userAssignedIdentityId`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
      */
-    public readonly userAssignedIdentityId!: pulumi.Output<string | undefined>;
+    declare public readonly userAssignedIdentityId: pulumi.Output<string | undefined>;
 
     /**
      * Create a NamespaceCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -263,22 +263,22 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceCustomerManagedKeyState | undefined;
-            resourceInputs["eventhubNamespaceId"] = state ? state.eventhubNamespaceId : undefined;
-            resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["keyVaultKeyIds"] = state ? state.keyVaultKeyIds : undefined;
-            resourceInputs["userAssignedIdentityId"] = state ? state.userAssignedIdentityId : undefined;
+            resourceInputs["eventhubNamespaceId"] = state?.eventhubNamespaceId;
+            resourceInputs["infrastructureEncryptionEnabled"] = state?.infrastructureEncryptionEnabled;
+            resourceInputs["keyVaultKeyIds"] = state?.keyVaultKeyIds;
+            resourceInputs["userAssignedIdentityId"] = state?.userAssignedIdentityId;
         } else {
             const args = argsOrState as NamespaceCustomerManagedKeyArgs | undefined;
-            if ((!args || args.eventhubNamespaceId === undefined) && !opts.urn) {
+            if (args?.eventhubNamespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubNamespaceId'");
             }
-            if ((!args || args.keyVaultKeyIds === undefined) && !opts.urn) {
+            if (args?.keyVaultKeyIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyIds'");
             }
-            resourceInputs["eventhubNamespaceId"] = args ? args.eventhubNamespaceId : undefined;
-            resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["keyVaultKeyIds"] = args ? args.keyVaultKeyIds : undefined;
-            resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
+            resourceInputs["eventhubNamespaceId"] = args?.eventhubNamespaceId;
+            resourceInputs["infrastructureEncryptionEnabled"] = args?.infrastructureEncryptionEnabled;
+            resourceInputs["keyVaultKeyIds"] = args?.keyVaultKeyIds;
+            resourceInputs["userAssignedIdentityId"] = args?.userAssignedIdentityId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NamespaceCustomerManagedKey.__pulumiType, name, resourceInputs, opts);

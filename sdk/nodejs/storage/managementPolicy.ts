@@ -131,11 +131,11 @@ export class ManagementPolicy extends pulumi.CustomResource {
     /**
      * A `rule` block as documented below.
      */
-    public readonly rules!: pulumi.Output<outputs.storage.ManagementPolicyRule[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.storage.ManagementPolicyRule[] | undefined>;
     /**
      * Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a ManagementPolicy resource with the given unique name, arguments, and options.
@@ -150,15 +150,15 @@ export class ManagementPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagementPolicyState | undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as ManagementPolicyArgs | undefined;
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagementPolicy.__pulumiType, name, resourceInputs, opts);

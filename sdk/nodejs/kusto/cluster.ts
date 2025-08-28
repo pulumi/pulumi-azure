@@ -79,99 +79,99 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
      */
-    public readonly allowedFqdns!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedFqdns: pulumi.Output<string[] | undefined>;
     /**
      * The list of ips in the format of CIDR allowed to connect to the cluster.
      */
-    public readonly allowedIpRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedIpRanges: pulumi.Output<string[] | undefined>;
     /**
      * Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
      */
-    public readonly autoStopEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoStopEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Kusto Cluster URI to be used for data ingestion.
      */
-    public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataIngestionUri: pulumi.Output<string>;
     /**
      * Specifies if the cluster's disks are encrypted.
      */
-    public readonly diskEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly diskEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
      */
-    public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly doubleEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.kusto.ClusterIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.kusto.ClusterIdentity | undefined>;
     /**
      * An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
      *
      * > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      */
-    public readonly languageExtensions!: pulumi.Output<outputs.kusto.ClusterLanguageExtension[] | undefined>;
+    declare public readonly languageExtensions: pulumi.Output<outputs.kusto.ClusterLanguageExtension[] | undefined>;
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An `optimizedAutoScale` block as defined below.
      */
-    public readonly optimizedAutoScale!: pulumi.Output<outputs.kusto.ClusterOptimizedAutoScale | undefined>;
+    declare public readonly optimizedAutoScale: pulumi.Output<outputs.kusto.ClusterOptimizedAutoScale | undefined>;
     /**
      * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
      */
-    public readonly outboundNetworkAccessRestricted!: pulumi.Output<boolean | undefined>;
+    declare public readonly outboundNetworkAccessRestricted: pulumi.Output<boolean | undefined>;
     /**
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
      */
-    public readonly publicIpType!: pulumi.Output<string | undefined>;
+    declare public readonly publicIpType: pulumi.Output<string | undefined>;
     /**
      * Is the public network access enabled? Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies if the purge operations are enabled.
      */
-    public readonly purgeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly purgeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<outputs.kusto.ClusterSku>;
+    declare public readonly sku: pulumi.Output<outputs.kusto.ClusterSku>;
     /**
      * Specifies if the streaming ingest is enabled.
      */
-    public readonly streamingIngestionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly streamingIngestionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trustedExternalTenants = ["*"]` to explicitly allow all other tenants, `trustedExternalTenants = ["MyTenantOnly"]` for only your tenant or `trustedExternalTenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
      *
      * > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trustedExternalTenants = ["MyTenantOnly"]` to `trustedExternalTenants = []`.
      */
-    public readonly trustedExternalTenants!: pulumi.Output<string[]>;
+    declare public readonly trustedExternalTenants: pulumi.Output<string[]>;
     /**
      * The FQDN of the Azure Kusto Cluster.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
     /**
      * @deprecated The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
      */
-    public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
+    declare public readonly virtualNetworkConfiguration: pulumi.Output<outputs.kusto.ClusterVirtualNetworkConfiguration | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -186,58 +186,58 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["allowedFqdns"] = state ? state.allowedFqdns : undefined;
-            resourceInputs["allowedIpRanges"] = state ? state.allowedIpRanges : undefined;
-            resourceInputs["autoStopEnabled"] = state ? state.autoStopEnabled : undefined;
-            resourceInputs["dataIngestionUri"] = state ? state.dataIngestionUri : undefined;
-            resourceInputs["diskEncryptionEnabled"] = state ? state.diskEncryptionEnabled : undefined;
-            resourceInputs["doubleEncryptionEnabled"] = state ? state.doubleEncryptionEnabled : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["languageExtensions"] = state ? state.languageExtensions : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["optimizedAutoScale"] = state ? state.optimizedAutoScale : undefined;
-            resourceInputs["outboundNetworkAccessRestricted"] = state ? state.outboundNetworkAccessRestricted : undefined;
-            resourceInputs["publicIpType"] = state ? state.publicIpType : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["purgeEnabled"] = state ? state.purgeEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["streamingIngestionEnabled"] = state ? state.streamingIngestionEnabled : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["trustedExternalTenants"] = state ? state.trustedExternalTenants : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
-            resourceInputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["allowedFqdns"] = state?.allowedFqdns;
+            resourceInputs["allowedIpRanges"] = state?.allowedIpRanges;
+            resourceInputs["autoStopEnabled"] = state?.autoStopEnabled;
+            resourceInputs["dataIngestionUri"] = state?.dataIngestionUri;
+            resourceInputs["diskEncryptionEnabled"] = state?.diskEncryptionEnabled;
+            resourceInputs["doubleEncryptionEnabled"] = state?.doubleEncryptionEnabled;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["languageExtensions"] = state?.languageExtensions;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["optimizedAutoScale"] = state?.optimizedAutoScale;
+            resourceInputs["outboundNetworkAccessRestricted"] = state?.outboundNetworkAccessRestricted;
+            resourceInputs["publicIpType"] = state?.publicIpType;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["purgeEnabled"] = state?.purgeEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["streamingIngestionEnabled"] = state?.streamingIngestionEnabled;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["trustedExternalTenants"] = state?.trustedExternalTenants;
+            resourceInputs["uri"] = state?.uri;
+            resourceInputs["virtualNetworkConfiguration"] = state?.virtualNetworkConfiguration;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["allowedFqdns"] = args ? args.allowedFqdns : undefined;
-            resourceInputs["allowedIpRanges"] = args ? args.allowedIpRanges : undefined;
-            resourceInputs["autoStopEnabled"] = args ? args.autoStopEnabled : undefined;
-            resourceInputs["diskEncryptionEnabled"] = args ? args.diskEncryptionEnabled : undefined;
-            resourceInputs["doubleEncryptionEnabled"] = args ? args.doubleEncryptionEnabled : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["languageExtensions"] = args ? args.languageExtensions : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["optimizedAutoScale"] = args ? args.optimizedAutoScale : undefined;
-            resourceInputs["outboundNetworkAccessRestricted"] = args ? args.outboundNetworkAccessRestricted : undefined;
-            resourceInputs["publicIpType"] = args ? args.publicIpType : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["purgeEnabled"] = args ? args.purgeEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["streamingIngestionEnabled"] = args ? args.streamingIngestionEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
-            resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["allowedFqdns"] = args?.allowedFqdns;
+            resourceInputs["allowedIpRanges"] = args?.allowedIpRanges;
+            resourceInputs["autoStopEnabled"] = args?.autoStopEnabled;
+            resourceInputs["diskEncryptionEnabled"] = args?.diskEncryptionEnabled;
+            resourceInputs["doubleEncryptionEnabled"] = args?.doubleEncryptionEnabled;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["languageExtensions"] = args?.languageExtensions;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["optimizedAutoScale"] = args?.optimizedAutoScale;
+            resourceInputs["outboundNetworkAccessRestricted"] = args?.outboundNetworkAccessRestricted;
+            resourceInputs["publicIpType"] = args?.publicIpType;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["purgeEnabled"] = args?.purgeEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["streamingIngestionEnabled"] = args?.streamingIngestionEnabled;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustedExternalTenants"] = args?.trustedExternalTenants;
+            resourceInputs["virtualNetworkConfiguration"] = args?.virtualNetworkConfiguration;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
         }

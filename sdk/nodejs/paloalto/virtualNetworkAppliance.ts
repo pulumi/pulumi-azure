@@ -84,13 +84,13 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
     /**
      * The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
      *
      * > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkAppliance resource with the given unique name, arguments, and options.
@@ -105,15 +105,15 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkApplianceState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
         } else {
             const args = argsOrState as VirtualNetworkApplianceArgs | undefined;
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualNetworkAppliance.__pulumiType, name, resourceInputs, opts);

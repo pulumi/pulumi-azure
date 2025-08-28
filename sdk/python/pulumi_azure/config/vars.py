@@ -42,16 +42,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def client_certificate_password(self) -> Optional[str]:
         """
-        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-        Certificate
+        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         """
         return __config__.get('clientCertificatePassword')
 
     @_builtins.property
     def client_certificate_path(self) -> Optional[str]:
         """
-        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-        Principal using a Client Certificate.
+        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         """
         return __config__.get('clientCertificatePath')
 
@@ -79,8 +77,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def client_secret_file_path(self) -> Optional[str]:
         """
-        The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-        using a Client Secret.
+        The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         """
         return __config__.get('clientSecretFilePath')
 
@@ -98,8 +95,7 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def environment(self) -> str:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-        used and should not be specified when `metadata_host` is specified.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
         """
         return __config__.get('environment') or (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
 
@@ -121,32 +117,28 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def msi_api_version(self) -> Optional[str]:
         """
-        The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-        the endpoint. e.g. for Azure Container Apps.
+        The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
         """
         return __config__.get('msiApiVersion')
 
     @_builtins.property
     def msi_endpoint(self) -> Optional[str]:
         """
-        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-        automatically.
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         """
         return __config__.get('msiEndpoint')
 
     @_builtins.property
     def oidc_request_token(self) -> Optional[str]:
         """
-        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-        Connect.
+        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return __config__.get('oidcRequestToken')
 
     @_builtins.property
     def oidc_request_url(self) -> Optional[str]:
         """
-        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-        using OpenID Connect.
+        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return __config__.get('oidcRequestUrl')
 
@@ -181,16 +173,14 @@ class _ExportableConfig(types.ModuleType):
     @_builtins.property
     def resource_providers_to_registers(self) -> Optional[str]:
         """
-        A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-        `resource_provider_registrations` property.
+        A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
         """
         return __config__.get('resourceProvidersToRegisters')
 
     @_builtins.property
     def skip_provider_registration(self) -> bool:
         """
-        Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
-        registered?
+        Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
         """
         return __config__.get_bool('skipProviderRegistration') or (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
 

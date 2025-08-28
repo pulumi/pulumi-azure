@@ -97,184 +97,184 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
     /**
      * Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler).
      */
-    public readonly autoScalingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoScalingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
      */
-    public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly capacityReservationGroupId: pulumi.Output<string | undefined>;
     /**
      * The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
      * > **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified.
      */
-    public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly evictionPolicy: pulumi.Output<string | undefined>;
     /**
      * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      */
-    public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly fipsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
      */
-    public readonly gpuInstance!: pulumi.Output<string | undefined>;
+    declare public readonly gpuInstance: pulumi.Output<string | undefined>;
     /**
      * Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
      */
-    public readonly hostEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly hostEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
      */
-    public readonly hostGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly hostGroupId: pulumi.Output<string | undefined>;
     /**
      * A `kubeletConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
      */
-    public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolKubeletConfig | undefined>;
+    declare public readonly kubeletConfig: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolKubeletConfig | undefined>;
     /**
      * The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly kubeletDiskType!: pulumi.Output<string>;
+    declare public readonly kubeletDiskType: pulumi.Output<string>;
     /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      *
      * > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
      */
-    public readonly kubernetesClusterId!: pulumi.Output<string>;
+    declare public readonly kubernetesClusterId: pulumi.Output<string>;
     /**
      * A `linuxOsConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
      */
-    public readonly linuxOsConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig | undefined>;
-    public readonly maxCount!: pulumi.Output<number | undefined>;
+    declare public readonly linuxOsConfig: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolLinuxOsConfig | undefined>;
+    declare public readonly maxCount: pulumi.Output<number | undefined>;
     /**
      * The maximum number of pods that can run on each agent. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly maxPods!: pulumi.Output<number>;
-    public readonly minCount!: pulumi.Output<number | undefined>;
+    declare public readonly maxPods: pulumi.Output<number>;
+    declare public readonly minCount: pulumi.Output<number | undefined>;
     /**
      * Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
      *
      * > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly nodeCount!: pulumi.Output<number>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly nodeCount: pulumi.Output<number>;
     /**
      * A map of Kubernetes labels which should be applied to nodes in this Node Pool.
      */
-    public readonly nodeLabels!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly nodeLabels: pulumi.Output<{[key: string]: string}>;
     /**
      * A `nodeNetworkProfile` block as documented below.
      */
-    public readonly nodeNetworkProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile | undefined>;
+    declare public readonly nodeNetworkProfile: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfile | undefined>;
     /**
      * Should each node have a Public IP Address? Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly nodePublicIpEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly nodePublicIpEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `nodePublicIpEnabled` should be `true`. Changing this forces a new resource to be created.
      */
-    public readonly nodePublicIpPrefixId!: pulumi.Output<string | undefined>;
+    declare public readonly nodePublicIpPrefixId: pulumi.Output<string | undefined>;
     /**
      * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      */
-    public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
+    declare public readonly nodeTaints: pulumi.Output<string[] | undefined>;
     /**
      * Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      *
      * > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
      */
-    public readonly orchestratorVersion!: pulumi.Output<string>;
+    declare public readonly orchestratorVersion: pulumi.Output<string>;
     /**
      * The Agent Operating System disk size in GB. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly osDiskSizeGb!: pulumi.Output<number>;
+    declare public readonly osDiskSizeGb: pulumi.Output<number>;
     /**
      * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly osDiskType!: pulumi.Output<string | undefined>;
+    declare public readonly osDiskType: pulumi.Output<string | undefined>;
     /**
      * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise it forces a new resource to be created.
      */
-    public readonly osSku!: pulumi.Output<string>;
+    declare public readonly osSku: pulumi.Output<string>;
     /**
      * The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    declare public readonly osType: pulumi.Output<string | undefined>;
     /**
      * The ID of the Subnet where the pods in the Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly podSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly podSubnetId: pulumi.Output<string | undefined>;
     /**
      * The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
-    public readonly priority!: pulumi.Output<string | undefined>;
+    declare public readonly priority: pulumi.Output<string | undefined>;
     /**
      * The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created.
      *
      * > **Note:** When setting `priority` to Spot - you must configure an `evictionPolicy`, `spotMaxPrice` and add the applicable `nodeLabels` and `nodeTaints` [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool).
      */
-    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly proximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
      * Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
      */
-    public readonly scaleDownMode!: pulumi.Output<string | undefined>;
+    declare public readonly scaleDownMode: pulumi.Output<string | undefined>;
     /**
      * The ID of the Snapshot which should be used to create this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly snapshotId!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotId: pulumi.Output<string | undefined>;
     /**
      * The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
      *
      * > **Note:** This field can only be configured when `priority` is set to `Spot`.
      */
-    public readonly spotMaxPrice!: pulumi.Output<number | undefined>;
+    declare public readonly spotMaxPrice: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      *
      * > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
      */
-    public readonly temporaryNameForRotation!: pulumi.Output<string | undefined>;
+    declare public readonly temporaryNameForRotation: pulumi.Output<string | undefined>;
     /**
      * Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly ultraSsdEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ultraSsdEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `upgradeSettings` block as documented below.
      */
-    public readonly upgradeSettings!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolUpgradeSettings | undefined>;
+    declare public readonly upgradeSettings: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolUpgradeSettings | undefined>;
     /**
      * The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly vmSize!: pulumi.Output<string>;
+    declare public readonly vmSize: pulumi.Output<string>;
     /**
      * The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
      *
      * > **NOTE:** A route table must be configured on this Subnet.
      */
-    public readonly vnetSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly vnetSubnetId: pulumi.Output<string | undefined>;
     /**
      * A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
      */
-    public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolWindowsProfile | undefined>;
+    declare public readonly windowsProfile: pulumi.Output<outputs.containerservice.KubernetesClusterNodePoolWindowsProfile | undefined>;
     /**
      * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
      *
      * > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
      */
-    public readonly workloadRuntime!: pulumi.Output<string | undefined>;
+    declare public readonly workloadRuntime: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporaryNameForRotation`.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a KubernetesClusterNodePool resource with the given unique name, arguments, and options.
@@ -289,95 +289,95 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KubernetesClusterNodePoolState | undefined;
-            resourceInputs["autoScalingEnabled"] = state ? state.autoScalingEnabled : undefined;
-            resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
-            resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
-            resourceInputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
-            resourceInputs["gpuInstance"] = state ? state.gpuInstance : undefined;
-            resourceInputs["hostEncryptionEnabled"] = state ? state.hostEncryptionEnabled : undefined;
-            resourceInputs["hostGroupId"] = state ? state.hostGroupId : undefined;
-            resourceInputs["kubeletConfig"] = state ? state.kubeletConfig : undefined;
-            resourceInputs["kubeletDiskType"] = state ? state.kubeletDiskType : undefined;
-            resourceInputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
-            resourceInputs["linuxOsConfig"] = state ? state.linuxOsConfig : undefined;
-            resourceInputs["maxCount"] = state ? state.maxCount : undefined;
-            resourceInputs["maxPods"] = state ? state.maxPods : undefined;
-            resourceInputs["minCount"] = state ? state.minCount : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
-            resourceInputs["nodeLabels"] = state ? state.nodeLabels : undefined;
-            resourceInputs["nodeNetworkProfile"] = state ? state.nodeNetworkProfile : undefined;
-            resourceInputs["nodePublicIpEnabled"] = state ? state.nodePublicIpEnabled : undefined;
-            resourceInputs["nodePublicIpPrefixId"] = state ? state.nodePublicIpPrefixId : undefined;
-            resourceInputs["nodeTaints"] = state ? state.nodeTaints : undefined;
-            resourceInputs["orchestratorVersion"] = state ? state.orchestratorVersion : undefined;
-            resourceInputs["osDiskSizeGb"] = state ? state.osDiskSizeGb : undefined;
-            resourceInputs["osDiskType"] = state ? state.osDiskType : undefined;
-            resourceInputs["osSku"] = state ? state.osSku : undefined;
-            resourceInputs["osType"] = state ? state.osType : undefined;
-            resourceInputs["podSubnetId"] = state ? state.podSubnetId : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            resourceInputs["scaleDownMode"] = state ? state.scaleDownMode : undefined;
-            resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
-            resourceInputs["spotMaxPrice"] = state ? state.spotMaxPrice : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["temporaryNameForRotation"] = state ? state.temporaryNameForRotation : undefined;
-            resourceInputs["ultraSsdEnabled"] = state ? state.ultraSsdEnabled : undefined;
-            resourceInputs["upgradeSettings"] = state ? state.upgradeSettings : undefined;
-            resourceInputs["vmSize"] = state ? state.vmSize : undefined;
-            resourceInputs["vnetSubnetId"] = state ? state.vnetSubnetId : undefined;
-            resourceInputs["windowsProfile"] = state ? state.windowsProfile : undefined;
-            resourceInputs["workloadRuntime"] = state ? state.workloadRuntime : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["autoScalingEnabled"] = state?.autoScalingEnabled;
+            resourceInputs["capacityReservationGroupId"] = state?.capacityReservationGroupId;
+            resourceInputs["evictionPolicy"] = state?.evictionPolicy;
+            resourceInputs["fipsEnabled"] = state?.fipsEnabled;
+            resourceInputs["gpuInstance"] = state?.gpuInstance;
+            resourceInputs["hostEncryptionEnabled"] = state?.hostEncryptionEnabled;
+            resourceInputs["hostGroupId"] = state?.hostGroupId;
+            resourceInputs["kubeletConfig"] = state?.kubeletConfig;
+            resourceInputs["kubeletDiskType"] = state?.kubeletDiskType;
+            resourceInputs["kubernetesClusterId"] = state?.kubernetesClusterId;
+            resourceInputs["linuxOsConfig"] = state?.linuxOsConfig;
+            resourceInputs["maxCount"] = state?.maxCount;
+            resourceInputs["maxPods"] = state?.maxPods;
+            resourceInputs["minCount"] = state?.minCount;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeCount"] = state?.nodeCount;
+            resourceInputs["nodeLabels"] = state?.nodeLabels;
+            resourceInputs["nodeNetworkProfile"] = state?.nodeNetworkProfile;
+            resourceInputs["nodePublicIpEnabled"] = state?.nodePublicIpEnabled;
+            resourceInputs["nodePublicIpPrefixId"] = state?.nodePublicIpPrefixId;
+            resourceInputs["nodeTaints"] = state?.nodeTaints;
+            resourceInputs["orchestratorVersion"] = state?.orchestratorVersion;
+            resourceInputs["osDiskSizeGb"] = state?.osDiskSizeGb;
+            resourceInputs["osDiskType"] = state?.osDiskType;
+            resourceInputs["osSku"] = state?.osSku;
+            resourceInputs["osType"] = state?.osType;
+            resourceInputs["podSubnetId"] = state?.podSubnetId;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["proximityPlacementGroupId"] = state?.proximityPlacementGroupId;
+            resourceInputs["scaleDownMode"] = state?.scaleDownMode;
+            resourceInputs["snapshotId"] = state?.snapshotId;
+            resourceInputs["spotMaxPrice"] = state?.spotMaxPrice;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["temporaryNameForRotation"] = state?.temporaryNameForRotation;
+            resourceInputs["ultraSsdEnabled"] = state?.ultraSsdEnabled;
+            resourceInputs["upgradeSettings"] = state?.upgradeSettings;
+            resourceInputs["vmSize"] = state?.vmSize;
+            resourceInputs["vnetSubnetId"] = state?.vnetSubnetId;
+            resourceInputs["windowsProfile"] = state?.windowsProfile;
+            resourceInputs["workloadRuntime"] = state?.workloadRuntime;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as KubernetesClusterNodePoolArgs | undefined;
-            if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
+            if (args?.kubernetesClusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterId'");
             }
-            resourceInputs["autoScalingEnabled"] = args ? args.autoScalingEnabled : undefined;
-            resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
-            resourceInputs["gpuInstance"] = args ? args.gpuInstance : undefined;
-            resourceInputs["hostEncryptionEnabled"] = args ? args.hostEncryptionEnabled : undefined;
-            resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
-            resourceInputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
-            resourceInputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
-            resourceInputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
-            resourceInputs["linuxOsConfig"] = args ? args.linuxOsConfig : undefined;
-            resourceInputs["maxCount"] = args ? args.maxCount : undefined;
-            resourceInputs["maxPods"] = args ? args.maxPods : undefined;
-            resourceInputs["minCount"] = args ? args.minCount : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
-            resourceInputs["nodeLabels"] = args ? args.nodeLabels : undefined;
-            resourceInputs["nodeNetworkProfile"] = args ? args.nodeNetworkProfile : undefined;
-            resourceInputs["nodePublicIpEnabled"] = args ? args.nodePublicIpEnabled : undefined;
-            resourceInputs["nodePublicIpPrefixId"] = args ? args.nodePublicIpPrefixId : undefined;
-            resourceInputs["nodeTaints"] = args ? args.nodeTaints : undefined;
-            resourceInputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
-            resourceInputs["osDiskSizeGb"] = args ? args.osDiskSizeGb : undefined;
-            resourceInputs["osDiskType"] = args ? args.osDiskType : undefined;
-            resourceInputs["osSku"] = args ? args.osSku : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["podSubnetId"] = args ? args.podSubnetId : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            resourceInputs["scaleDownMode"] = args ? args.scaleDownMode : undefined;
-            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
-            resourceInputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["temporaryNameForRotation"] = args ? args.temporaryNameForRotation : undefined;
-            resourceInputs["ultraSsdEnabled"] = args ? args.ultraSsdEnabled : undefined;
-            resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
-            resourceInputs["vnetSubnetId"] = args ? args.vnetSubnetId : undefined;
-            resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
-            resourceInputs["workloadRuntime"] = args ? args.workloadRuntime : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["autoScalingEnabled"] = args?.autoScalingEnabled;
+            resourceInputs["capacityReservationGroupId"] = args?.capacityReservationGroupId;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
+            resourceInputs["fipsEnabled"] = args?.fipsEnabled;
+            resourceInputs["gpuInstance"] = args?.gpuInstance;
+            resourceInputs["hostEncryptionEnabled"] = args?.hostEncryptionEnabled;
+            resourceInputs["hostGroupId"] = args?.hostGroupId;
+            resourceInputs["kubeletConfig"] = args?.kubeletConfig;
+            resourceInputs["kubeletDiskType"] = args?.kubeletDiskType;
+            resourceInputs["kubernetesClusterId"] = args?.kubernetesClusterId;
+            resourceInputs["linuxOsConfig"] = args?.linuxOsConfig;
+            resourceInputs["maxCount"] = args?.maxCount;
+            resourceInputs["maxPods"] = args?.maxPods;
+            resourceInputs["minCount"] = args?.minCount;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodeCount"] = args?.nodeCount;
+            resourceInputs["nodeLabels"] = args?.nodeLabels;
+            resourceInputs["nodeNetworkProfile"] = args?.nodeNetworkProfile;
+            resourceInputs["nodePublicIpEnabled"] = args?.nodePublicIpEnabled;
+            resourceInputs["nodePublicIpPrefixId"] = args?.nodePublicIpPrefixId;
+            resourceInputs["nodeTaints"] = args?.nodeTaints;
+            resourceInputs["orchestratorVersion"] = args?.orchestratorVersion;
+            resourceInputs["osDiskSizeGb"] = args?.osDiskSizeGb;
+            resourceInputs["osDiskType"] = args?.osDiskType;
+            resourceInputs["osSku"] = args?.osSku;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["podSubnetId"] = args?.podSubnetId;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["proximityPlacementGroupId"] = args?.proximityPlacementGroupId;
+            resourceInputs["scaleDownMode"] = args?.scaleDownMode;
+            resourceInputs["snapshotId"] = args?.snapshotId;
+            resourceInputs["spotMaxPrice"] = args?.spotMaxPrice;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["temporaryNameForRotation"] = args?.temporaryNameForRotation;
+            resourceInputs["ultraSsdEnabled"] = args?.ultraSsdEnabled;
+            resourceInputs["upgradeSettings"] = args?.upgradeSettings;
+            resourceInputs["vmSize"] = args?.vmSize;
+            resourceInputs["vnetSubnetId"] = args?.vnetSubnetId;
+            resourceInputs["windowsProfile"] = args?.windowsProfile;
+            resourceInputs["workloadRuntime"] = args?.workloadRuntime;
+            resourceInputs["zones"] = args?.zones;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KubernetesClusterNodePool.__pulumiType, name, resourceInputs, opts);

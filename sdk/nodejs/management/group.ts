@@ -73,25 +73,25 @@ export class Group extends pulumi.CustomResource {
     /**
      * A friendly name for this Management Group. If not specified, this will be the same as the `name`.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Parent Management Group.
      */
-    public readonly parentManagementGroupId!: pulumi.Output<string>;
+    declare public readonly parentManagementGroupId: pulumi.Output<string>;
     /**
      * A list of Subscription GUIDs which should be assigned to the Management Group.
      *
      * > **Note:** To clear all Subscriptions from the Management Group set `subscriptionIds` to an empty list
      */
-    public readonly subscriptionIds!: pulumi.Output<string[]>;
+    declare public readonly subscriptionIds: pulumi.Output<string[]>;
     /**
      * The Management Group ID with the Tenant ID prefix.
      */
-    public /*out*/ readonly tenantScopedId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantScopedId: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -106,17 +106,17 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentManagementGroupId"] = state ? state.parentManagementGroupId : undefined;
-            resourceInputs["subscriptionIds"] = state ? state.subscriptionIds : undefined;
-            resourceInputs["tenantScopedId"] = state ? state.tenantScopedId : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentManagementGroupId"] = state?.parentManagementGroupId;
+            resourceInputs["subscriptionIds"] = state?.subscriptionIds;
+            resourceInputs["tenantScopedId"] = state?.tenantScopedId;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentManagementGroupId"] = args ? args.parentManagementGroupId : undefined;
-            resourceInputs["subscriptionIds"] = args ? args.subscriptionIds : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentManagementGroupId"] = args?.parentManagementGroupId;
+            resourceInputs["subscriptionIds"] = args?.subscriptionIds;
             resourceInputs["tenantScopedId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -86,65 +86,65 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
+    declare public readonly autoDeleteOnIdle: pulumi.Output<string | undefined>;
     /**
      * Boolean flag which controls whether the Subscription supports batched operations.
      */
-    public readonly batchedOperationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly batchedOperationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `clientScopedSubscription` block as defined below.
      */
-    public readonly clientScopedSubscription!: pulumi.Output<outputs.servicebus.SubscriptionClientScopedSubscription | undefined>;
+    declare public readonly clientScopedSubscription: pulumi.Output<outputs.servicebus.SubscriptionClientScopedSubscription | undefined>;
     /**
      * whether the subscription is scoped to a client id. Defaults to `false`.
      *
      * > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      */
-    public readonly clientScopedSubscriptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientScopedSubscriptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
      */
-    public readonly deadLetteringOnFilterEvaluationError!: pulumi.Output<boolean | undefined>;
+    declare public readonly deadLetteringOnFilterEvaluationError: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Subscription has dead letter support when a message expires.
      */
-    public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
+    declare public readonly deadLetteringOnMessageExpiration: pulumi.Output<boolean | undefined>;
     /**
      * The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the value used when TimeToLive is not set on a message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    public readonly defaultMessageTtl!: pulumi.Output<string | undefined>;
+    declare public readonly defaultMessageTtl: pulumi.Output<string | undefined>;
     /**
      * The name of a Queue or Topic to automatically forward Dead Letter messages to.
      */
-    public readonly forwardDeadLetteredMessagesTo!: pulumi.Output<string | undefined>;
+    declare public readonly forwardDeadLetteredMessagesTo: pulumi.Output<string | undefined>;
     /**
      * The name of a Queue or Topic to automatically forward messages to.
      */
-    public readonly forwardTo!: pulumi.Output<string | undefined>;
+    declare public readonly forwardTo: pulumi.Output<string | undefined>;
     /**
      * The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . Defaults to `PT1M`.
      */
-    public readonly lockDuration!: pulumi.Output<string | undefined>;
+    declare public readonly lockDuration: pulumi.Output<string | undefined>;
     /**
      * The maximum number of deliveries.
      */
-    public readonly maxDeliveryCount!: pulumi.Output<number>;
+    declare public readonly maxDeliveryCount: pulumi.Output<number>;
     /**
      * Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
      */
-    public readonly requiresSession!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiresSession: pulumi.Output<boolean | undefined>;
     /**
      * The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
      */
-    public readonly topicId!: pulumi.Output<string>;
+    declare public readonly topicId: pulumi.Output<string>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -159,44 +159,44 @@ export class Subscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
-            resourceInputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
-            resourceInputs["batchedOperationsEnabled"] = state ? state.batchedOperationsEnabled : undefined;
-            resourceInputs["clientScopedSubscription"] = state ? state.clientScopedSubscription : undefined;
-            resourceInputs["clientScopedSubscriptionEnabled"] = state ? state.clientScopedSubscriptionEnabled : undefined;
-            resourceInputs["deadLetteringOnFilterEvaluationError"] = state ? state.deadLetteringOnFilterEvaluationError : undefined;
-            resourceInputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
-            resourceInputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
-            resourceInputs["forwardDeadLetteredMessagesTo"] = state ? state.forwardDeadLetteredMessagesTo : undefined;
-            resourceInputs["forwardTo"] = state ? state.forwardTo : undefined;
-            resourceInputs["lockDuration"] = state ? state.lockDuration : undefined;
-            resourceInputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["requiresSession"] = state ? state.requiresSession : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["topicId"] = state ? state.topicId : undefined;
+            resourceInputs["autoDeleteOnIdle"] = state?.autoDeleteOnIdle;
+            resourceInputs["batchedOperationsEnabled"] = state?.batchedOperationsEnabled;
+            resourceInputs["clientScopedSubscription"] = state?.clientScopedSubscription;
+            resourceInputs["clientScopedSubscriptionEnabled"] = state?.clientScopedSubscriptionEnabled;
+            resourceInputs["deadLetteringOnFilterEvaluationError"] = state?.deadLetteringOnFilterEvaluationError;
+            resourceInputs["deadLetteringOnMessageExpiration"] = state?.deadLetteringOnMessageExpiration;
+            resourceInputs["defaultMessageTtl"] = state?.defaultMessageTtl;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = state?.forwardDeadLetteredMessagesTo;
+            resourceInputs["forwardTo"] = state?.forwardTo;
+            resourceInputs["lockDuration"] = state?.lockDuration;
+            resourceInputs["maxDeliveryCount"] = state?.maxDeliveryCount;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["requiresSession"] = state?.requiresSession;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["topicId"] = state?.topicId;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
-            if ((!args || args.maxDeliveryCount === undefined) && !opts.urn) {
+            if (args?.maxDeliveryCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxDeliveryCount'");
             }
-            if ((!args || args.topicId === undefined) && !opts.urn) {
+            if (args?.topicId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicId'");
             }
-            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            resourceInputs["batchedOperationsEnabled"] = args ? args.batchedOperationsEnabled : undefined;
-            resourceInputs["clientScopedSubscription"] = args ? args.clientScopedSubscription : undefined;
-            resourceInputs["clientScopedSubscriptionEnabled"] = args ? args.clientScopedSubscriptionEnabled : undefined;
-            resourceInputs["deadLetteringOnFilterEvaluationError"] = args ? args.deadLetteringOnFilterEvaluationError : undefined;
-            resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
-            resourceInputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
-            resourceInputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
-            resourceInputs["forwardTo"] = args ? args.forwardTo : undefined;
-            resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
-            resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["topicId"] = args ? args.topicId : undefined;
+            resourceInputs["autoDeleteOnIdle"] = args?.autoDeleteOnIdle;
+            resourceInputs["batchedOperationsEnabled"] = args?.batchedOperationsEnabled;
+            resourceInputs["clientScopedSubscription"] = args?.clientScopedSubscription;
+            resourceInputs["clientScopedSubscriptionEnabled"] = args?.clientScopedSubscriptionEnabled;
+            resourceInputs["deadLetteringOnFilterEvaluationError"] = args?.deadLetteringOnFilterEvaluationError;
+            resourceInputs["deadLetteringOnMessageExpiration"] = args?.deadLetteringOnMessageExpiration;
+            resourceInputs["defaultMessageTtl"] = args?.defaultMessageTtl;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = args?.forwardDeadLetteredMessagesTo;
+            resourceInputs["forwardTo"] = args?.forwardTo;
+            resourceInputs["lockDuration"] = args?.lockDuration;
+            resourceInputs["maxDeliveryCount"] = args?.maxDeliveryCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requiresSession"] = args?.requiresSession;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["topicId"] = args?.topicId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/subscription:Subscription" }] };

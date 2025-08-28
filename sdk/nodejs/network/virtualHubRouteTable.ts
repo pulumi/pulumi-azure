@@ -117,19 +117,19 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
     /**
      * List of labels associated with this route table.
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `route` blocks as defined below.
      */
-    public readonly routes!: pulumi.Output<outputs.network.VirtualHubRouteTableRoute[]>;
+    declare public readonly routes: pulumi.Output<outputs.network.VirtualHubRouteTableRoute[]>;
     /**
      * The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
 
     /**
      * Create a VirtualHubRouteTable resource with the given unique name, arguments, and options.
@@ -144,19 +144,19 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubRouteTableState | undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["routes"] = state ? state.routes : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["routes"] = state?.routes;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
         } else {
             const args = argsOrState as VirtualHubRouteTableArgs | undefined;
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualHubRouteTable.__pulumiType, name, resourceInputs, opts);

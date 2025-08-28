@@ -143,57 +143,57 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
      */
-    public readonly allowForwardedTraffic!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowForwardedTraffic: pulumi.Output<boolean | undefined>;
     /**
      * Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
      */
-    public readonly allowGatewayTransit!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowGatewayTransit: pulumi.Output<boolean | undefined>;
     /**
      * Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      */
-    public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowVirtualNetworkAccess: pulumi.Output<boolean | undefined>;
     /**
      * A list of local Subnet names that are Subnet peered with remote Virtual Network.
      */
-    public readonly localSubnetNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly localSubnetNames: pulumi.Output<string[] | undefined>;
     /**
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
      */
-    public readonly onlyIpv6PeeringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly onlyIpv6PeeringEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    public readonly peerCompleteVirtualNetworksEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly peerCompleteVirtualNetworksEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of remote Subnet names from remote Virtual Network that are Subnet peered.
      */
-    public readonly remoteSubnetNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly remoteSubnetNames: pulumi.Output<string[] | undefined>;
     /**
      * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      */
-    public readonly remoteVirtualNetworkId!: pulumi.Output<string>;
+    declare public readonly remoteVirtualNetworkId: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
      */
-    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly triggers: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
      *
      * > **Note:** `useRemoteGateways` must be set to `false` if using Global Virtual Network Peerings.
      */
-    public readonly useRemoteGateways!: pulumi.Output<boolean | undefined>;
+    declare public readonly useRemoteGateways: pulumi.Output<boolean | undefined>;
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
-    public readonly virtualNetworkName!: pulumi.Output<string>;
+    declare public readonly virtualNetworkName: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkPeering resource with the given unique name, arguments, and options.
@@ -208,43 +208,43 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkPeeringState | undefined;
-            resourceInputs["allowForwardedTraffic"] = state ? state.allowForwardedTraffic : undefined;
-            resourceInputs["allowGatewayTransit"] = state ? state.allowGatewayTransit : undefined;
-            resourceInputs["allowVirtualNetworkAccess"] = state ? state.allowVirtualNetworkAccess : undefined;
-            resourceInputs["localSubnetNames"] = state ? state.localSubnetNames : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["onlyIpv6PeeringEnabled"] = state ? state.onlyIpv6PeeringEnabled : undefined;
-            resourceInputs["peerCompleteVirtualNetworksEnabled"] = state ? state.peerCompleteVirtualNetworksEnabled : undefined;
-            resourceInputs["remoteSubnetNames"] = state ? state.remoteSubnetNames : undefined;
-            resourceInputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["triggers"] = state ? state.triggers : undefined;
-            resourceInputs["useRemoteGateways"] = state ? state.useRemoteGateways : undefined;
-            resourceInputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
+            resourceInputs["allowForwardedTraffic"] = state?.allowForwardedTraffic;
+            resourceInputs["allowGatewayTransit"] = state?.allowGatewayTransit;
+            resourceInputs["allowVirtualNetworkAccess"] = state?.allowVirtualNetworkAccess;
+            resourceInputs["localSubnetNames"] = state?.localSubnetNames;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["onlyIpv6PeeringEnabled"] = state?.onlyIpv6PeeringEnabled;
+            resourceInputs["peerCompleteVirtualNetworksEnabled"] = state?.peerCompleteVirtualNetworksEnabled;
+            resourceInputs["remoteSubnetNames"] = state?.remoteSubnetNames;
+            resourceInputs["remoteVirtualNetworkId"] = state?.remoteVirtualNetworkId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["triggers"] = state?.triggers;
+            resourceInputs["useRemoteGateways"] = state?.useRemoteGateways;
+            resourceInputs["virtualNetworkName"] = state?.virtualNetworkName;
         } else {
             const args = argsOrState as VirtualNetworkPeeringArgs | undefined;
-            if ((!args || args.remoteVirtualNetworkId === undefined) && !opts.urn) {
+            if (args?.remoteVirtualNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteVirtualNetworkId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
+            if (args?.virtualNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
-            resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
-            resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
-            resourceInputs["localSubnetNames"] = args ? args.localSubnetNames : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["onlyIpv6PeeringEnabled"] = args ? args.onlyIpv6PeeringEnabled : undefined;
-            resourceInputs["peerCompleteVirtualNetworksEnabled"] = args ? args.peerCompleteVirtualNetworksEnabled : undefined;
-            resourceInputs["remoteSubnetNames"] = args ? args.remoteSubnetNames : undefined;
-            resourceInputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
-            resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
-            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["allowForwardedTraffic"] = args?.allowForwardedTraffic;
+            resourceInputs["allowGatewayTransit"] = args?.allowGatewayTransit;
+            resourceInputs["allowVirtualNetworkAccess"] = args?.allowVirtualNetworkAccess;
+            resourceInputs["localSubnetNames"] = args?.localSubnetNames;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["onlyIpv6PeeringEnabled"] = args?.onlyIpv6PeeringEnabled;
+            resourceInputs["peerCompleteVirtualNetworksEnabled"] = args?.peerCompleteVirtualNetworksEnabled;
+            resourceInputs["remoteSubnetNames"] = args?.remoteSubnetNames;
+            resourceInputs["remoteVirtualNetworkId"] = args?.remoteVirtualNetworkId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["triggers"] = args?.triggers;
+            resourceInputs["useRemoteGateways"] = args?.useRemoteGateways;
+            resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualNetworkPeering.__pulumiType, name, resourceInputs, opts);

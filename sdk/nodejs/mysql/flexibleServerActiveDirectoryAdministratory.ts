@@ -91,23 +91,23 @@ export class FlexibleServerActiveDirectoryAdministratory extends pulumi.CustomRe
     /**
      * The resource ID of the identity used for AAD Authentication.
      */
-    public readonly identityId!: pulumi.Output<string>;
+    declare public readonly identityId: pulumi.Output<string>;
     /**
      * The login name of the principal to set as the server administrator
      */
-    public readonly login!: pulumi.Output<string>;
+    declare public readonly login: pulumi.Output<string>;
     /**
      * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
      */
-    public readonly objectId!: pulumi.Output<string>;
+    declare public readonly objectId: pulumi.Output<string>;
     /**
      * The resource ID of the MySQL Flexible Server. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * The Azure Tenant ID.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a FlexibleServerActiveDirectoryAdministratory resource with the given unique name, arguments, and options.
@@ -122,33 +122,33 @@ export class FlexibleServerActiveDirectoryAdministratory extends pulumi.CustomRe
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerActiveDirectoryAdministratoryState | undefined;
-            resourceInputs["identityId"] = state ? state.identityId : undefined;
-            resourceInputs["login"] = state ? state.login : undefined;
-            resourceInputs["objectId"] = state ? state.objectId : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["identityId"] = state?.identityId;
+            resourceInputs["login"] = state?.login;
+            resourceInputs["objectId"] = state?.objectId;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as FlexibleServerActiveDirectoryAdministratoryArgs | undefined;
-            if ((!args || args.identityId === undefined) && !opts.urn) {
+            if (args?.identityId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityId'");
             }
-            if ((!args || args.login === undefined) && !opts.urn) {
+            if (args?.login === undefined && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["identityId"] = args ? args.identityId : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["identityId"] = args?.identityId;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator" }] };

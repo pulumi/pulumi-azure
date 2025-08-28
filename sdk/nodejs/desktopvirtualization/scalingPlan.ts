@@ -157,43 +157,43 @@ export class ScalingPlan extends pulumi.CustomResource {
     /**
      * A description of the Scaling Plan.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the tag associated with the VMs you want to exclude from autoscaling.
      */
-    public readonly exclusionTag!: pulumi.Output<string | undefined>;
+    declare public readonly exclusionTag: pulumi.Output<string | undefined>;
     /**
      * Friendly name of the Scaling Plan.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * One or more `hostPool` blocks as defined below.
      */
-    public readonly hostPools!: pulumi.Output<outputs.desktopvirtualization.ScalingPlanHostPool[]>;
+    declare public readonly hostPools: pulumi.Output<outputs.desktopvirtualization.ScalingPlanHostPool[]>;
     /**
      * The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * One or more `schedule` blocks as defined below.
      */
-    public readonly schedules!: pulumi.Output<outputs.desktopvirtualization.ScalingPlanSchedule[]>;
+    declare public readonly schedules: pulumi.Output<outputs.desktopvirtualization.ScalingPlanSchedule[]>;
     /**
      * A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    declare public readonly timeZone: pulumi.Output<string>;
 
     /**
      * Create a ScalingPlan resource with the given unique name, arguments, and options.
@@ -208,37 +208,37 @@ export class ScalingPlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScalingPlanState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["exclusionTag"] = state ? state.exclusionTag : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["hostPools"] = state ? state.hostPools : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["schedules"] = state ? state.schedules : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["exclusionTag"] = state?.exclusionTag;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["hostPools"] = state?.hostPools;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["schedules"] = state?.schedules;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["timeZone"] = state?.timeZone;
         } else {
             const args = argsOrState as ScalingPlanArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schedules === undefined) && !opts.urn) {
+            if (args?.schedules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedules'");
             }
-            if ((!args || args.timeZone === undefined) && !opts.urn) {
+            if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["exclusionTag"] = args ? args.exclusionTag : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["hostPools"] = args ? args.hostPools : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["exclusionTag"] = args?.exclusionTag;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["hostPools"] = args?.hostPools;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schedules"] = args?.schedules;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeZone"] = args?.timeZone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScalingPlan.__pulumiType, name, resourceInputs, opts);

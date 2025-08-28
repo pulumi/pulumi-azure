@@ -137,75 +137,75 @@ export class EventGridDataConnection extends pulumi.CustomResource {
     /**
      * Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
      */
-    public readonly blobStorageEventType!: pulumi.Output<string | undefined>;
+    declare public readonly blobStorageEventType: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
      */
-    public readonly dataFormat!: pulumi.Output<string | undefined>;
+    declare public readonly dataFormat: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
-    public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
+    declare public readonly databaseRoutingType: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the event grid that is subscribed to the storage account events.
      */
-    public readonly eventgridEventSubscriptionId!: pulumi.Output<string>;
+    declare public readonly eventgridEventSubscriptionId: pulumi.Output<string>;
     /**
      * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    public readonly eventgridResourceId!: pulumi.Output<string>;
+    declare public readonly eventgridResourceId: pulumi.Output<string>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    public readonly eventhubConsumerGroupName!: pulumi.Output<string>;
+    declare public readonly eventhubConsumerGroupName: pulumi.Output<string>;
     /**
      * Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    public readonly eventhubId!: pulumi.Output<string>;
+    declare public readonly eventhubId: pulumi.Output<string>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
-    public readonly managedIdentityId!: pulumi.Output<string>;
+    declare public readonly managedIdentityId: pulumi.Output<string>;
     /**
      * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    public readonly managedIdentityResourceId!: pulumi.Output<string>;
+    declare public readonly managedIdentityResourceId: pulumi.Output<string>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
-    public readonly mappingRuleName!: pulumi.Output<string | undefined>;
+    declare public readonly mappingRuleName: pulumi.Output<string | undefined>;
     /**
      * The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * is the first record of every file ignored? Defaults to `false`.
      */
-    public readonly skipFirstRecord!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipFirstRecord: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
-    public readonly tableName!: pulumi.Output<string | undefined>;
+    declare public readonly tableName: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventGridDataConnection resource with the given unique name, arguments, and options.
@@ -220,62 +220,62 @@ export class EventGridDataConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventGridDataConnectionState | undefined;
-            resourceInputs["blobStorageEventType"] = state ? state.blobStorageEventType : undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["databaseRoutingType"] = state ? state.databaseRoutingType : undefined;
-            resourceInputs["eventgridEventSubscriptionId"] = state ? state.eventgridEventSubscriptionId : undefined;
-            resourceInputs["eventgridResourceId"] = state ? state.eventgridResourceId : undefined;
-            resourceInputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
-            resourceInputs["eventhubId"] = state ? state.eventhubId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedIdentityId"] = state ? state.managedIdentityId : undefined;
-            resourceInputs["managedIdentityResourceId"] = state ? state.managedIdentityResourceId : undefined;
-            resourceInputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skipFirstRecord"] = state ? state.skipFirstRecord : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["blobStorageEventType"] = state?.blobStorageEventType;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["dataFormat"] = state?.dataFormat;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["databaseRoutingType"] = state?.databaseRoutingType;
+            resourceInputs["eventgridEventSubscriptionId"] = state?.eventgridEventSubscriptionId;
+            resourceInputs["eventgridResourceId"] = state?.eventgridResourceId;
+            resourceInputs["eventhubConsumerGroupName"] = state?.eventhubConsumerGroupName;
+            resourceInputs["eventhubId"] = state?.eventhubId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedIdentityId"] = state?.managedIdentityId;
+            resourceInputs["managedIdentityResourceId"] = state?.managedIdentityResourceId;
+            resourceInputs["mappingRuleName"] = state?.mappingRuleName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skipFirstRecord"] = state?.skipFirstRecord;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as EventGridDataConnectionArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.eventhubConsumerGroupName === undefined) && !opts.urn) {
+            if (args?.eventhubConsumerGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubConsumerGroupName'");
             }
-            if ((!args || args.eventhubId === undefined) && !opts.urn) {
+            if (args?.eventhubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["blobStorageEventType"] = args ? args.blobStorageEventType : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["databaseRoutingType"] = args ? args.databaseRoutingType : undefined;
-            resourceInputs["eventgridEventSubscriptionId"] = args ? args.eventgridEventSubscriptionId : undefined;
-            resourceInputs["eventgridResourceId"] = args ? args.eventgridResourceId : undefined;
-            resourceInputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
-            resourceInputs["eventhubId"] = args ? args.eventhubId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedIdentityId"] = args ? args.managedIdentityId : undefined;
-            resourceInputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
-            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skipFirstRecord"] = args ? args.skipFirstRecord : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["blobStorageEventType"] = args?.blobStorageEventType;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["dataFormat"] = args?.dataFormat;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["databaseRoutingType"] = args?.databaseRoutingType;
+            resourceInputs["eventgridEventSubscriptionId"] = args?.eventgridEventSubscriptionId;
+            resourceInputs["eventgridResourceId"] = args?.eventgridResourceId;
+            resourceInputs["eventhubConsumerGroupName"] = args?.eventhubConsumerGroupName;
+            resourceInputs["eventhubId"] = args?.eventhubId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedIdentityId"] = args?.managedIdentityId;
+            resourceInputs["managedIdentityResourceId"] = args?.managedIdentityResourceId;
+            resourceInputs["mappingRuleName"] = args?.mappingRuleName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skipFirstRecord"] = args?.skipFirstRecord;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tableName"] = args?.tableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventGridDataConnection.__pulumiType, name, resourceInputs, opts);

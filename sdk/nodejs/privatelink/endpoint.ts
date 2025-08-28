@@ -50,51 +50,51 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * A `customDnsConfigs` block as defined below.
      */
-    public /*out*/ readonly customDnsConfigs!: pulumi.Output<outputs.privatelink.EndpointCustomDnsConfig[]>;
+    declare public /*out*/ readonly customDnsConfigs: pulumi.Output<outputs.privatelink.EndpointCustomDnsConfig[]>;
     /**
      * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
      */
-    public readonly customNetworkInterfaceName!: pulumi.Output<string | undefined>;
+    declare public readonly customNetworkInterfaceName: pulumi.Output<string | undefined>;
     /**
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.privatelink.EndpointIpConfiguration[] | undefined>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.privatelink.EndpointIpConfiguration[] | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkInterface` block as defined below.
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.privatelink.EndpointNetworkInterface[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.privatelink.EndpointNetworkInterface[]>;
     /**
      * A `privateDnsZoneConfigs` block as defined below.
      */
-    public /*out*/ readonly privateDnsZoneConfigs!: pulumi.Output<outputs.privatelink.EndpointPrivateDnsZoneConfig[]>;
+    declare public /*out*/ readonly privateDnsZoneConfigs: pulumi.Output<outputs.privatelink.EndpointPrivateDnsZoneConfig[]>;
     /**
      * A `privateDnsZoneGroup` block as defined below.
      */
-    public readonly privateDnsZoneGroup!: pulumi.Output<outputs.privatelink.EndpointPrivateDnsZoneGroup | undefined>;
+    declare public readonly privateDnsZoneGroup: pulumi.Output<outputs.privatelink.EndpointPrivateDnsZoneGroup | undefined>;
     /**
      * A `privateServiceConnection` block as defined below.
      */
-    public readonly privateServiceConnection!: pulumi.Output<outputs.privatelink.EndpointPrivateServiceConnection>;
+    declare public readonly privateServiceConnection: pulumi.Output<outputs.privatelink.EndpointPrivateServiceConnection>;
     /**
      * Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -109,38 +109,38 @@ export class Endpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            resourceInputs["customDnsConfigs"] = state ? state.customDnsConfigs : undefined;
-            resourceInputs["customNetworkInterfaceName"] = state ? state.customNetworkInterfaceName : undefined;
-            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            resourceInputs["privateDnsZoneConfigs"] = state ? state.privateDnsZoneConfigs : undefined;
-            resourceInputs["privateDnsZoneGroup"] = state ? state.privateDnsZoneGroup : undefined;
-            resourceInputs["privateServiceConnection"] = state ? state.privateServiceConnection : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customDnsConfigs"] = state?.customDnsConfigs;
+            resourceInputs["customNetworkInterfaceName"] = state?.customNetworkInterfaceName;
+            resourceInputs["ipConfigurations"] = state?.ipConfigurations;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkInterfaces"] = state?.networkInterfaces;
+            resourceInputs["privateDnsZoneConfigs"] = state?.privateDnsZoneConfigs;
+            resourceInputs["privateDnsZoneGroup"] = state?.privateDnsZoneGroup;
+            resourceInputs["privateServiceConnection"] = state?.privateServiceConnection;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if ((!args || args.privateServiceConnection === undefined) && !opts.urn) {
+            if (args?.privateServiceConnection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateServiceConnection'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["customNetworkInterfaceName"] = args ? args.customNetworkInterfaceName : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateDnsZoneGroup"] = args ? args.privateDnsZoneGroup : undefined;
-            resourceInputs["privateServiceConnection"] = args ? args.privateServiceConnection : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customNetworkInterfaceName"] = args?.customNetworkInterfaceName;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateDnsZoneGroup"] = args?.privateDnsZoneGroup;
+            resourceInputs["privateServiceConnection"] = args?.privateServiceConnection;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["customDnsConfigs"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["privateDnsZoneConfigs"] = undefined /*out*/;

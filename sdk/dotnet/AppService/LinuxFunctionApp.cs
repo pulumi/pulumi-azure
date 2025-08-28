@@ -77,8 +77,7 @@ namespace Pulumi.Azure.AppService
     public partial class LinuxFunctionApp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A map of key-value pairs for [App
-        /// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         [Output("appSettings")]
         public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
@@ -408,8 +407,7 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _appSettings;
 
         /// <summary>
-        /// A map of key-value pairs for [App
-        /// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         public InputMap<string> AppSettings
         {
@@ -672,8 +670,7 @@ namespace Pulumi.Azure.AppService
         private InputMap<string>? _appSettings;
 
         /// <summary>
-        /// A map of key-value pairs for [App
-        /// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         /// </summary>
         public InputMap<string> AppSettings
         {

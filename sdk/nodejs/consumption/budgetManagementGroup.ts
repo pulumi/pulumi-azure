@@ -112,35 +112,35 @@ export class BudgetManagementGroup extends pulumi.CustomResource {
     /**
      * The total amount of cost to track with the budget.
      */
-    public readonly amount!: pulumi.Output<number>;
+    declare public readonly amount: pulumi.Output<number>;
     /**
      * (Optional) The ETag of the Management Group Consumption Budget.
      */
-    public readonly etag!: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * A `filter` block as defined below.
      */
-    public readonly filter!: pulumi.Output<outputs.consumption.BudgetManagementGroupFilter | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.consumption.BudgetManagementGroupFilter | undefined>;
     /**
      * The ID of the Management Group. Changing this forces a new resource to be created.
      */
-    public readonly managementGroupId!: pulumi.Output<string>;
+    declare public readonly managementGroupId: pulumi.Output<string>;
     /**
      * The name which should be used for this Management Group Consumption Budget. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    public readonly notifications!: pulumi.Output<outputs.consumption.BudgetManagementGroupNotification[]>;
+    declare public readonly notifications: pulumi.Output<outputs.consumption.BudgetManagementGroupNotification[]>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
      */
-    public readonly timeGrain!: pulumi.Output<string | undefined>;
+    declare public readonly timeGrain: pulumi.Output<string | undefined>;
     /**
      * A `timePeriod` block as defined below.
      */
-    public readonly timePeriod!: pulumi.Output<outputs.consumption.BudgetManagementGroupTimePeriod>;
+    declare public readonly timePeriod: pulumi.Output<outputs.consumption.BudgetManagementGroupTimePeriod>;
 
     /**
      * Create a BudgetManagementGroup resource with the given unique name, arguments, and options.
@@ -155,36 +155,36 @@ export class BudgetManagementGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BudgetManagementGroupState | undefined;
-            resourceInputs["amount"] = state ? state.amount : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifications"] = state ? state.notifications : undefined;
-            resourceInputs["timeGrain"] = state ? state.timeGrain : undefined;
-            resourceInputs["timePeriod"] = state ? state.timePeriod : undefined;
+            resourceInputs["amount"] = state?.amount;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["managementGroupId"] = state?.managementGroupId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifications"] = state?.notifications;
+            resourceInputs["timeGrain"] = state?.timeGrain;
+            resourceInputs["timePeriod"] = state?.timePeriod;
         } else {
             const args = argsOrState as BudgetManagementGroupArgs | undefined;
-            if ((!args || args.amount === undefined) && !opts.urn) {
+            if (args?.amount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amount'");
             }
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.notifications === undefined) && !opts.urn) {
+            if (args?.notifications === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notifications'");
             }
-            if ((!args || args.timePeriod === undefined) && !opts.urn) {
+            if (args?.timePeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
-            resourceInputs["amount"] = args ? args.amount : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
-            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["amount"] = args?.amount;
+            resourceInputs["etag"] = args?.etag;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["timeGrain"] = args?.timeGrain;
+            resourceInputs["timePeriod"] = args?.timePeriod;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BudgetManagementGroup.__pulumiType, name, resourceInputs, opts);

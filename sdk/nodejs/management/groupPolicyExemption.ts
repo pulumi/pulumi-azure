@@ -73,39 +73,39 @@ export class GroupPolicyExemption extends pulumi.CustomResource {
     /**
      * A description to use for this Policy Exemption.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A friendly display name to use for this Policy Exemption.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The category of this policy exemption. Possible values are `Waiver` and `Mitigated`.
      */
-    public readonly exemptionCategory!: pulumi.Output<string>;
+    declare public readonly exemptionCategory: pulumi.Output<string>;
     /**
      * The expiration date and time in UTC ISO 8601 format of this policy exemption.
      */
-    public readonly expiresOn!: pulumi.Output<string | undefined>;
+    declare public readonly expiresOn: pulumi.Output<string | undefined>;
     /**
      * The Management Group ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
      */
-    public readonly managementGroupId!: pulumi.Output<string>;
+    declare public readonly managementGroupId: pulumi.Output<string>;
     /**
      * The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
      */
-    public readonly metadata!: pulumi.Output<string>;
+    declare public readonly metadata: pulumi.Output<string>;
     /**
      * The name of the Policy Exemption. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Policy Assignment to be exempted at the specified Scope.
      */
-    public readonly policyAssignmentId!: pulumi.Output<string>;
+    declare public readonly policyAssignmentId: pulumi.Output<string>;
     /**
      * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
      */
-    public readonly policyDefinitionReferenceIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly policyDefinitionReferenceIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a GroupPolicyExemption resource with the given unique name, arguments, and options.
@@ -120,35 +120,35 @@ export class GroupPolicyExemption extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupPolicyExemptionState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["exemptionCategory"] = state ? state.exemptionCategory : undefined;
-            resourceInputs["expiresOn"] = state ? state.expiresOn : undefined;
-            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceIds"] = state ? state.policyDefinitionReferenceIds : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["exemptionCategory"] = state?.exemptionCategory;
+            resourceInputs["expiresOn"] = state?.expiresOn;
+            resourceInputs["managementGroupId"] = state?.managementGroupId;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyAssignmentId"] = state?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceIds"] = state?.policyDefinitionReferenceIds;
         } else {
             const args = argsOrState as GroupPolicyExemptionArgs | undefined;
-            if ((!args || args.exemptionCategory === undefined) && !opts.urn) {
+            if (args?.exemptionCategory === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exemptionCategory'");
             }
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
+            if (args?.policyAssignmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["exemptionCategory"] = args ? args.exemptionCategory : undefined;
-            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceIds"] = args ? args.policyDefinitionReferenceIds : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["exemptionCategory"] = args?.exemptionCategory;
+            resourceInputs["expiresOn"] = args?.expiresOn;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyAssignmentId"] = args?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceIds"] = args?.policyDefinitionReferenceIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupPolicyExemption.__pulumiType, name, resourceInputs, opts);

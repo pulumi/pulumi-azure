@@ -94,47 +94,47 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
     /**
      * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
      */
-    public readonly alwaysServeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly alwaysServeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `customHeader` blocks as defined below.
      */
-    public readonly customHeaders!: pulumi.Output<outputs.network.TrafficManagerExternalEndpointCustomHeader[] | undefined>;
+    declare public readonly customHeaders: pulumi.Output<outputs.network.TrafficManagerExternalEndpointCustomHeader[] | undefined>;
     /**
      * Is the endpoint enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      */
-    public readonly endpointLocation!: pulumi.Output<string>;
+    declare public readonly endpointLocation: pulumi.Output<string>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
-    public readonly geoMappings!: pulumi.Output<string[] | undefined>;
+    declare public readonly geoMappings: pulumi.Output<string[] | undefined>;
     /**
      * The name of the External Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
      */
-    public readonly profileId!: pulumi.Output<string>;
+    declare public readonly profileId: pulumi.Output<string>;
     /**
      * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly subnets!: pulumi.Output<outputs.network.TrafficManagerExternalEndpointSubnet[] | undefined>;
+    declare public readonly subnets: pulumi.Output<outputs.network.TrafficManagerExternalEndpointSubnet[] | undefined>;
     /**
      * The FQDN DNS name of the target.
      */
-    public readonly target!: pulumi.Output<string>;
+    declare public readonly target: pulumi.Output<string>;
     /**
      * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
-    public readonly weight!: pulumi.Output<number | undefined>;
+    declare public readonly weight: pulumi.Output<number | undefined>;
 
     /**
      * Create a TrafficManagerExternalEndpoint resource with the given unique name, arguments, and options.
@@ -149,36 +149,36 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficManagerExternalEndpointState | undefined;
-            resourceInputs["alwaysServeEnabled"] = state ? state.alwaysServeEnabled : undefined;
-            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["endpointLocation"] = state ? state.endpointLocation : undefined;
-            resourceInputs["geoMappings"] = state ? state.geoMappings : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["profileId"] = state ? state.profileId : undefined;
-            resourceInputs["subnets"] = state ? state.subnets : undefined;
-            resourceInputs["target"] = state ? state.target : undefined;
-            resourceInputs["weight"] = state ? state.weight : undefined;
+            resourceInputs["alwaysServeEnabled"] = state?.alwaysServeEnabled;
+            resourceInputs["customHeaders"] = state?.customHeaders;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["endpointLocation"] = state?.endpointLocation;
+            resourceInputs["geoMappings"] = state?.geoMappings;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["profileId"] = state?.profileId;
+            resourceInputs["subnets"] = state?.subnets;
+            resourceInputs["target"] = state?.target;
+            resourceInputs["weight"] = state?.weight;
         } else {
             const args = argsOrState as TrafficManagerExternalEndpointArgs | undefined;
-            if ((!args || args.profileId === undefined) && !opts.urn) {
+            if (args?.profileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileId'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["alwaysServeEnabled"] = args ? args.alwaysServeEnabled : undefined;
-            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["endpointLocation"] = args ? args.endpointLocation : undefined;
-            resourceInputs["geoMappings"] = args ? args.geoMappings : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["profileId"] = args ? args.profileId : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["alwaysServeEnabled"] = args?.alwaysServeEnabled;
+            resourceInputs["customHeaders"] = args?.customHeaders;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["endpointLocation"] = args?.endpointLocation;
+            resourceInputs["geoMappings"] = args?.geoMappings;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["profileId"] = args?.profileId;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["weight"] = args?.weight;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TrafficManagerExternalEndpoint.__pulumiType, name, resourceInputs, opts);

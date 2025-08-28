@@ -153,49 +153,49 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The base-64 encoded certificate data, which must be a PFX file.
      */
-    public readonly data!: pulumi.Output<string | undefined>;
+    declare public readonly data: pulumi.Output<string | undefined>;
     /**
      * The Expiration Date of this Certificate, formatted as an RFC3339 string.
      */
-    public /*out*/ readonly expiration!: pulumi.Output<string>;
+    declare public /*out*/ readonly expiration: pulumi.Output<string>;
     /**
      * The Client ID of the User Assigned Managed Identity to use for retrieving certificate.
      *
      * > **Note:** If not specified, will use System Assigned identity of the API Management Service.
      */
-    public readonly keyVaultIdentityClientId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultIdentityClientId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      *
      * > **Note:** Setting this field requires the `identity` block to be specified in API Management Service, since this identity is used to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires that Secret version isn't specified.
      */
-    public readonly keyVaultSecretId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultSecretId: pulumi.Output<string | undefined>;
     /**
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password used for this certificate.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      *
      * > **Note:** Either `data` or `keyVaultSecretId` must be specified - but not both.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Subject of this Certificate.
      */
-    public /*out*/ readonly subject!: pulumi.Output<string>;
+    declare public /*out*/ readonly subject: pulumi.Output<string>;
     /**
      * The Thumbprint of this Certificate.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -210,31 +210,31 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["data"] = state ? state.data : undefined;
-            resourceInputs["expiration"] = state ? state.expiration : undefined;
-            resourceInputs["keyVaultIdentityClientId"] = state ? state.keyVaultIdentityClientId : undefined;
-            resourceInputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subject"] = state ? state.subject : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["data"] = state?.data;
+            resourceInputs["expiration"] = state?.expiration;
+            resourceInputs["keyVaultIdentityClientId"] = state?.keyVaultIdentityClientId;
+            resourceInputs["keyVaultSecretId"] = state?.keyVaultSecretId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subject"] = state?.subject;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
             resourceInputs["data"] = args?.data ? pulumi.secret(args.data) : undefined;
-            resourceInputs["keyVaultIdentityClientId"] = args ? args.keyVaultIdentityClientId : undefined;
-            resourceInputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["keyVaultIdentityClientId"] = args?.keyVaultIdentityClientId;
+            resourceInputs["keyVaultSecretId"] = args?.keyVaultSecretId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["expiration"] = undefined /*out*/;
             resourceInputs["subject"] = undefined /*out*/;
             resourceInputs["thumbprint"] = undefined /*out*/;

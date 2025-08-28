@@ -90,89 +90,89 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      *
      * The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * An `azureBlobFsLocation` block as defined below.
      */
-    public readonly azureBlobFsLocation!: pulumi.Output<outputs.datafactory.DatasetDelimitedTextAzureBlobFsLocation | undefined>;
+    declare public readonly azureBlobFsLocation: pulumi.Output<outputs.datafactory.DatasetDelimitedTextAzureBlobFsLocation | undefined>;
     /**
      * An `azureBlobStorageLocation` block as defined below.
      */
-    public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation | undefined>;
+    declare public readonly azureBlobStorageLocation: pulumi.Output<outputs.datafactory.DatasetDelimitedTextAzureBlobStorageLocation | undefined>;
     /**
      * The column delimiter. Defaults to `,`.
      */
-    public readonly columnDelimiter!: pulumi.Output<string | undefined>;
+    declare public readonly columnDelimiter: pulumi.Output<string | undefined>;
     /**
      * The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
      */
-    public readonly compressionCodec!: pulumi.Output<string | undefined>;
+    declare public readonly compressionCodec: pulumi.Output<string | undefined>;
     /**
      * The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
      */
-    public readonly compressionLevel!: pulumi.Output<string | undefined>;
+    declare public readonly compressionLevel: pulumi.Output<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Dataset.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The encoding format for the file.
      */
-    public readonly encoding!: pulumi.Output<string | undefined>;
+    declare public readonly encoding: pulumi.Output<string | undefined>;
     /**
      * The escape character. Defaults to `\`.
      */
-    public readonly escapeCharacter!: pulumi.Output<string | undefined>;
+    declare public readonly escapeCharacter: pulumi.Output<string | undefined>;
     /**
      * When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
      */
-    public readonly firstRowAsHeader!: pulumi.Output<boolean | undefined>;
+    declare public readonly firstRowAsHeader: pulumi.Output<boolean | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<string | undefined>;
+    declare public readonly folder: pulumi.Output<string | undefined>;
     /**
      * A `httpServerLocation` block as defined below.
      *
      * The following supported arguments are specific to Delimited Text Dataset:
      */
-    public readonly httpServerLocation!: pulumi.Output<outputs.datafactory.DatasetDelimitedTextHttpServerLocation | undefined>;
+    declare public readonly httpServerLocation: pulumi.Output<outputs.datafactory.DatasetDelimitedTextHttpServerLocation | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    public readonly linkedServiceName!: pulumi.Output<string>;
+    declare public readonly linkedServiceName: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The null value string. Defaults to `""`.
      */
-    public readonly nullValue!: pulumi.Output<string | undefined>;
+    declare public readonly nullValue: pulumi.Output<string | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The quote character. Defaults to `"`.
      */
-    public readonly quoteCharacter!: pulumi.Output<string | undefined>;
+    declare public readonly quoteCharacter: pulumi.Output<string | undefined>;
     /**
      * The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
      */
-    public readonly rowDelimiter!: pulumi.Output<string | undefined>;
+    declare public readonly rowDelimiter: pulumi.Output<string | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    public readonly schemaColumns!: pulumi.Output<outputs.datafactory.DatasetDelimitedTextSchemaColumn[] | undefined>;
+    declare public readonly schemaColumns: pulumi.Output<outputs.datafactory.DatasetDelimitedTextSchemaColumn[] | undefined>;
 
     /**
      * Create a DatasetDelimitedText resource with the given unique name, arguments, and options.
@@ -187,56 +187,56 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetDelimitedTextState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["azureBlobFsLocation"] = state ? state.azureBlobFsLocation : undefined;
-            resourceInputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
-            resourceInputs["columnDelimiter"] = state ? state.columnDelimiter : undefined;
-            resourceInputs["compressionCodec"] = state ? state.compressionCodec : undefined;
-            resourceInputs["compressionLevel"] = state ? state.compressionLevel : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["encoding"] = state ? state.encoding : undefined;
-            resourceInputs["escapeCharacter"] = state ? state.escapeCharacter : undefined;
-            resourceInputs["firstRowAsHeader"] = state ? state.firstRowAsHeader : undefined;
-            resourceInputs["folder"] = state ? state.folder : undefined;
-            resourceInputs["httpServerLocation"] = state ? state.httpServerLocation : undefined;
-            resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nullValue"] = state ? state.nullValue : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["quoteCharacter"] = state ? state.quoteCharacter : undefined;
-            resourceInputs["rowDelimiter"] = state ? state.rowDelimiter : undefined;
-            resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["azureBlobFsLocation"] = state?.azureBlobFsLocation;
+            resourceInputs["azureBlobStorageLocation"] = state?.azureBlobStorageLocation;
+            resourceInputs["columnDelimiter"] = state?.columnDelimiter;
+            resourceInputs["compressionCodec"] = state?.compressionCodec;
+            resourceInputs["compressionLevel"] = state?.compressionLevel;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["encoding"] = state?.encoding;
+            resourceInputs["escapeCharacter"] = state?.escapeCharacter;
+            resourceInputs["firstRowAsHeader"] = state?.firstRowAsHeader;
+            resourceInputs["folder"] = state?.folder;
+            resourceInputs["httpServerLocation"] = state?.httpServerLocation;
+            resourceInputs["linkedServiceName"] = state?.linkedServiceName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nullValue"] = state?.nullValue;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["quoteCharacter"] = state?.quoteCharacter;
+            resourceInputs["rowDelimiter"] = state?.rowDelimiter;
+            resourceInputs["schemaColumns"] = state?.schemaColumns;
         } else {
             const args = argsOrState as DatasetDelimitedTextArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
+            if (args?.linkedServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["azureBlobFsLocation"] = args ? args.azureBlobFsLocation : undefined;
-            resourceInputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
-            resourceInputs["columnDelimiter"] = args ? args.columnDelimiter : undefined;
-            resourceInputs["compressionCodec"] = args ? args.compressionCodec : undefined;
-            resourceInputs["compressionLevel"] = args ? args.compressionLevel : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encoding"] = args ? args.encoding : undefined;
-            resourceInputs["escapeCharacter"] = args ? args.escapeCharacter : undefined;
-            resourceInputs["firstRowAsHeader"] = args ? args.firstRowAsHeader : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["httpServerLocation"] = args ? args.httpServerLocation : undefined;
-            resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nullValue"] = args ? args.nullValue : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["quoteCharacter"] = args ? args.quoteCharacter : undefined;
-            resourceInputs["rowDelimiter"] = args ? args.rowDelimiter : undefined;
-            resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["azureBlobFsLocation"] = args?.azureBlobFsLocation;
+            resourceInputs["azureBlobStorageLocation"] = args?.azureBlobStorageLocation;
+            resourceInputs["columnDelimiter"] = args?.columnDelimiter;
+            resourceInputs["compressionCodec"] = args?.compressionCodec;
+            resourceInputs["compressionLevel"] = args?.compressionLevel;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encoding"] = args?.encoding;
+            resourceInputs["escapeCharacter"] = args?.escapeCharacter;
+            resourceInputs["firstRowAsHeader"] = args?.firstRowAsHeader;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["httpServerLocation"] = args?.httpServerLocation;
+            resourceInputs["linkedServiceName"] = args?.linkedServiceName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nullValue"] = args?.nullValue;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["quoteCharacter"] = args?.quoteCharacter;
+            resourceInputs["rowDelimiter"] = args?.rowDelimiter;
+            resourceInputs["schemaColumns"] = args?.schemaColumns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DatasetDelimitedText.__pulumiType, name, resourceInputs, opts);

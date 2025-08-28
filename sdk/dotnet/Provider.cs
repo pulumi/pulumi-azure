@@ -31,15 +31,13 @@ namespace Pulumi.Azure
         public Output<string?> ClientCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-        /// Certificate
+        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         /// </summary>
         [Output("clientCertificatePassword")]
         public Output<string?> ClientCertificatePassword { get; private set; } = null!;
 
         /// <summary>
-        /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-        /// Principal using a Client Certificate.
+        /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         /// </summary>
         [Output("clientCertificatePath")]
         public Output<string?> ClientCertificatePath { get; private set; } = null!;
@@ -63,15 +61,13 @@ namespace Pulumi.Azure
         public Output<string?> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-        /// using a Client Secret.
+        /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         /// </summary>
         [Output("clientSecretFilePath")]
         public Output<string?> ClientSecretFilePath { get; private set; } = null!;
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-        /// used and should not be specified when `metadata_host` is specified.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
         /// </summary>
         [Output("environment")]
         public Output<string?> Environment { get; private set; } = null!;
@@ -83,29 +79,25 @@ namespace Pulumi.Azure
         public Output<string?> MetadataHost { get; private set; } = null!;
 
         /// <summary>
-        /// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-        /// the endpoint. e.g. for Azure Container Apps.
+        /// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
         /// </summary>
         [Output("msiApiVersion")]
         public Output<string?> MsiApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-        /// automatically.
+        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         /// </summary>
         [Output("msiEndpoint")]
         public Output<string?> MsiEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-        /// Connect.
+        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
         /// </summary>
         [Output("oidcRequestToken")]
         public Output<string?> OidcRequestToken { get; private set; } = null!;
 
         /// <summary>
-        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-        /// using OpenID Connect.
+        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         /// </summary>
         [Output("oidcRequestUrl")]
         public Output<string?> OidcRequestUrl { get; private set; } = null!;
@@ -233,8 +225,7 @@ namespace Pulumi.Azure
         private Input<string>? _clientCertificatePassword;
 
         /// <summary>
-        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-        /// Certificate
+        /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         /// </summary>
         public Input<string>? ClientCertificatePassword
         {
@@ -250,8 +241,7 @@ namespace Pulumi.Azure
         private Input<string>? _clientCertificatePath;
 
         /// <summary>
-        /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-        /// Principal using a Client Certificate.
+        /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         /// </summary>
         public Input<string>? ClientCertificatePath
         {
@@ -315,8 +305,7 @@ namespace Pulumi.Azure
         private Input<string>? _clientSecretFilePath;
 
         /// <summary>
-        /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-        /// using a Client Secret.
+        /// The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         /// </summary>
         public Input<string>? ClientSecretFilePath
         {
@@ -338,8 +327,7 @@ namespace Pulumi.Azure
         public Input<bool>? DisableTerraformPartnerId { get; set; }
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-        /// used and should not be specified when `metadata_host` is specified.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }
@@ -354,15 +342,13 @@ namespace Pulumi.Azure
         public Input<string>? MetadataHost { get; set; }
 
         /// <summary>
-        /// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-        /// the endpoint. e.g. for Azure Container Apps.
+        /// The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
         /// </summary>
         [Input("msiApiVersion")]
         public Input<string>? MsiApiVersion { get; set; }
 
         /// <summary>
-        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-        /// automatically.
+        /// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         /// </summary>
         [Input("msiEndpoint")]
         public Input<string>? MsiEndpoint { get; set; }
@@ -371,8 +357,7 @@ namespace Pulumi.Azure
         private Input<string>? _oidcRequestToken;
 
         /// <summary>
-        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-        /// Connect.
+        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
         /// </summary>
         public Input<string>? OidcRequestToken
         {
@@ -385,8 +370,7 @@ namespace Pulumi.Azure
         }
 
         /// <summary>
-        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-        /// using OpenID Connect.
+        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         /// </summary>
         [Input("oidcRequestUrl")]
         public Input<string>? OidcRequestUrl { get; set; }
@@ -439,8 +423,7 @@ namespace Pulumi.Azure
         private InputList<string>? _resourceProvidersToRegisters;
 
         /// <summary>
-        /// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-        /// `resource_provider_registrations` property.
+        /// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
         /// </summary>
         public InputList<string> ResourceProvidersToRegisters
         {
@@ -449,8 +432,7 @@ namespace Pulumi.Azure
         }
 
         /// <summary>
-        /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
-        /// registered?
+        /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
         /// </summary>
         [Input("skipProviderRegistration", json: true)]
         public Input<bool>? SkipProviderRegistration { get; set; }

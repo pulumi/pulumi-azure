@@ -86,27 +86,27 @@ export class AccountRaiPolicy extends pulumi.CustomResource {
     /**
      * The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
      */
-    public readonly basePolicyName!: pulumi.Output<string>;
+    declare public readonly basePolicyName: pulumi.Output<string>;
     /**
      * The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
      */
-    public readonly cognitiveAccountId!: pulumi.Output<string>;
+    declare public readonly cognitiveAccountId: pulumi.Output<string>;
     /**
      * A `contentFilter` block as defined below.
      */
-    public readonly contentFilters!: pulumi.Output<outputs.cognitive.AccountRaiPolicyContentFilter[]>;
+    declare public readonly contentFilters: pulumi.Output<outputs.cognitive.AccountRaiPolicyContentFilter[]>;
     /**
      * The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name of the Cognitive Service Account RAI Policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AccountRaiPolicy resource with the given unique name, arguments, and options.
@@ -121,29 +121,29 @@ export class AccountRaiPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountRaiPolicyState | undefined;
-            resourceInputs["basePolicyName"] = state ? state.basePolicyName : undefined;
-            resourceInputs["cognitiveAccountId"] = state ? state.cognitiveAccountId : undefined;
-            resourceInputs["contentFilters"] = state ? state.contentFilters : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["basePolicyName"] = state?.basePolicyName;
+            resourceInputs["cognitiveAccountId"] = state?.cognitiveAccountId;
+            resourceInputs["contentFilters"] = state?.contentFilters;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AccountRaiPolicyArgs | undefined;
-            if ((!args || args.basePolicyName === undefined) && !opts.urn) {
+            if (args?.basePolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'basePolicyName'");
             }
-            if ((!args || args.cognitiveAccountId === undefined) && !opts.urn) {
+            if (args?.cognitiveAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cognitiveAccountId'");
             }
-            if ((!args || args.contentFilters === undefined) && !opts.urn) {
+            if (args?.contentFilters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentFilters'");
             }
-            resourceInputs["basePolicyName"] = args ? args.basePolicyName : undefined;
-            resourceInputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
-            resourceInputs["contentFilters"] = args ? args.contentFilters : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["basePolicyName"] = args?.basePolicyName;
+            resourceInputs["cognitiveAccountId"] = args?.cognitiveAccountId;
+            resourceInputs["contentFilters"] = args?.contentFilters;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountRaiPolicy.__pulumiType, name, resourceInputs, opts);

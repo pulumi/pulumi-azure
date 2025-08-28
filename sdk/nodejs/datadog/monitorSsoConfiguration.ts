@@ -88,27 +88,27 @@ export class MonitorSsoConfiguration extends pulumi.CustomResource {
     /**
      * The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
      */
-    public readonly datadogMonitorId!: pulumi.Output<string>;
+    declare public readonly datadogMonitorId: pulumi.Output<string>;
     /**
      * The application Id to perform SSO operation.
      */
-    public readonly enterpriseApplicationId!: pulumi.Output<string>;
+    declare public readonly enterpriseApplicationId: pulumi.Output<string>;
     /**
      * The SingleSignOn URL to login to Datadog org.
      */
-    public /*out*/ readonly loginUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly loginUrl: pulumi.Output<string>;
     /**
      * The name of the SingleSignOn configuration. Defaults to `default`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
      */
-    public readonly singleSignOn!: pulumi.Output<string>;
+    declare public readonly singleSignOn: pulumi.Output<string>;
     /**
      * @deprecated `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    public readonly singleSignOnEnabled!: pulumi.Output<string>;
+    declare public readonly singleSignOnEnabled: pulumi.Output<string>;
 
     /**
      * Create a MonitorSsoConfiguration resource with the given unique name, arguments, and options.
@@ -123,25 +123,25 @@ export class MonitorSsoConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorSsoConfigurationState | undefined;
-            resourceInputs["datadogMonitorId"] = state ? state.datadogMonitorId : undefined;
-            resourceInputs["enterpriseApplicationId"] = state ? state.enterpriseApplicationId : undefined;
-            resourceInputs["loginUrl"] = state ? state.loginUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["singleSignOn"] = state ? state.singleSignOn : undefined;
-            resourceInputs["singleSignOnEnabled"] = state ? state.singleSignOnEnabled : undefined;
+            resourceInputs["datadogMonitorId"] = state?.datadogMonitorId;
+            resourceInputs["enterpriseApplicationId"] = state?.enterpriseApplicationId;
+            resourceInputs["loginUrl"] = state?.loginUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["singleSignOn"] = state?.singleSignOn;
+            resourceInputs["singleSignOnEnabled"] = state?.singleSignOnEnabled;
         } else {
             const args = argsOrState as MonitorSsoConfigurationArgs | undefined;
-            if ((!args || args.datadogMonitorId === undefined) && !opts.urn) {
+            if (args?.datadogMonitorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datadogMonitorId'");
             }
-            if ((!args || args.enterpriseApplicationId === undefined) && !opts.urn) {
+            if (args?.enterpriseApplicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enterpriseApplicationId'");
             }
-            resourceInputs["datadogMonitorId"] = args ? args.datadogMonitorId : undefined;
-            resourceInputs["enterpriseApplicationId"] = args ? args.enterpriseApplicationId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
-            resourceInputs["singleSignOnEnabled"] = args ? args.singleSignOnEnabled : undefined;
+            resourceInputs["datadogMonitorId"] = args?.datadogMonitorId;
+            resourceInputs["enterpriseApplicationId"] = args?.enterpriseApplicationId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["singleSignOn"] = args?.singleSignOn;
+            resourceInputs["singleSignOnEnabled"] = args?.singleSignOnEnabled;
             resourceInputs["loginUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

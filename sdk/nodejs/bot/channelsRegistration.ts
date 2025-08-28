@@ -72,67 +72,67 @@ export class ChannelsRegistration extends pulumi.CustomResource {
      *
      * > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
      */
-    public readonly cmkKeyVaultUrl!: pulumi.Output<string | undefined>;
+    declare public readonly cmkKeyVaultUrl: pulumi.Output<string | undefined>;
     /**
      * The description of the Bot Channels Registration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Application Insights API Key to associate with the Bot Channels Registration.
      */
-    public readonly developerAppInsightsApiKey!: pulumi.Output<string | undefined>;
+    declare public readonly developerAppInsightsApiKey: pulumi.Output<string | undefined>;
     /**
      * The Application Insights Application ID to associate with the Bot Channels Registration.
      */
-    public readonly developerAppInsightsApplicationId!: pulumi.Output<string | undefined>;
+    declare public readonly developerAppInsightsApplicationId: pulumi.Output<string | undefined>;
     /**
      * The Application Insights Key to associate with the Bot Channels Registration.
      */
-    public readonly developerAppInsightsKey!: pulumi.Output<string | undefined>;
+    declare public readonly developerAppInsightsKey: pulumi.Output<string | undefined>;
     /**
      * The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Bot Channels Registration endpoint.
      */
-    public readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
-    public readonly iconUrl!: pulumi.Output<string | undefined>;
+    declare public readonly iconUrl: pulumi.Output<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
      */
-    public readonly microsoftAppId!: pulumi.Output<string>;
+    declare public readonly microsoftAppId: pulumi.Output<string>;
     /**
      * Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Is the Bot Channels Registration in an isolated network?
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
      */
-    public readonly streamingEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly streamingEndpointEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ChannelsRegistration resource with the given unique name, arguments, and options.
@@ -147,49 +147,49 @@ export class ChannelsRegistration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelsRegistrationState | undefined;
-            resourceInputs["cmkKeyVaultUrl"] = state ? state.cmkKeyVaultUrl : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["developerAppInsightsApiKey"] = state ? state.developerAppInsightsApiKey : undefined;
-            resourceInputs["developerAppInsightsApplicationId"] = state ? state.developerAppInsightsApplicationId : undefined;
-            resourceInputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["iconUrl"] = state ? state.iconUrl : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["streamingEndpointEnabled"] = state ? state.streamingEndpointEnabled : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["cmkKeyVaultUrl"] = state?.cmkKeyVaultUrl;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["developerAppInsightsApiKey"] = state?.developerAppInsightsApiKey;
+            resourceInputs["developerAppInsightsApplicationId"] = state?.developerAppInsightsApplicationId;
+            resourceInputs["developerAppInsightsKey"] = state?.developerAppInsightsKey;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["iconUrl"] = state?.iconUrl;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["microsoftAppId"] = state?.microsoftAppId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["streamingEndpointEnabled"] = state?.streamingEndpointEnabled;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ChannelsRegistrationArgs | undefined;
-            if ((!args || args.microsoftAppId === undefined) && !opts.urn) {
+            if (args?.microsoftAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'microsoftAppId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["cmkKeyVaultUrl"] = args ? args.cmkKeyVaultUrl : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["cmkKeyVaultUrl"] = args?.cmkKeyVaultUrl;
+            resourceInputs["description"] = args?.description;
             resourceInputs["developerAppInsightsApiKey"] = args?.developerAppInsightsApiKey ? pulumi.secret(args.developerAppInsightsApiKey) : undefined;
-            resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
-            resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["iconUrl"] = args ? args.iconUrl : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["streamingEndpointEnabled"] = args ? args.streamingEndpointEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["developerAppInsightsApplicationId"] = args?.developerAppInsightsApplicationId;
+            resourceInputs["developerAppInsightsKey"] = args?.developerAppInsightsKey;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["iconUrl"] = args?.iconUrl;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["microsoftAppId"] = args?.microsoftAppId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["streamingEndpointEnabled"] = args?.streamingEndpointEnabled;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["developerAppInsightsApiKey"] };

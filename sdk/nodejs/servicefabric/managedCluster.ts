@@ -90,75 +90,75 @@ export class ManagedCluster extends pulumi.CustomResource {
     /**
      * Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
      */
-    public readonly authentication!: pulumi.Output<outputs.servicefabric.ManagedClusterAuthentication | undefined>;
+    declare public readonly authentication: pulumi.Output<outputs.servicefabric.ManagedClusterAuthentication | undefined>;
     /**
      * If true, backup service is enabled.
      */
-    public readonly backupServiceEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly backupServiceEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Port to use when connecting to the cluster.
      */
-    public readonly clientConnectionPort!: pulumi.Output<number>;
+    declare public readonly clientConnectionPort: pulumi.Output<number>;
     /**
      * One or more `customFabricSetting` blocks as defined below.
      */
-    public readonly customFabricSettings!: pulumi.Output<outputs.servicefabric.ManagedClusterCustomFabricSetting[] | undefined>;
+    declare public readonly customFabricSettings: pulumi.Output<outputs.servicefabric.ManagedClusterCustomFabricSetting[] | undefined>;
     /**
      * Hostname for the cluster. If unset the cluster's name will be used..
      */
-    public readonly dnsName!: pulumi.Output<string>;
+    declare public readonly dnsName: pulumi.Output<string>;
     /**
      * If true, DNS service is enabled.
      */
-    public readonly dnsServiceEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dnsServiceEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
      */
-    public readonly httpGatewayPort!: pulumi.Output<number>;
+    declare public readonly httpGatewayPort: pulumi.Output<number>;
     /**
      * One or more `lbRule` blocks as defined below.
      */
-    public readonly lbRules!: pulumi.Output<outputs.servicefabric.ManagedClusterLbRule[]>;
+    declare public readonly lbRules: pulumi.Output<outputs.servicefabric.ManagedClusterLbRule[]>;
     /**
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    public readonly nodeTypes!: pulumi.Output<outputs.servicefabric.ManagedClusterNodeType[] | undefined>;
+    declare public readonly nodeTypes: pulumi.Output<outputs.servicefabric.ManagedClusterNodeType[] | undefined>;
     /**
      * Administrator password for the VMs that will be created as part of this cluster.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the Subnet. Changing this forces a new Resource Group to be created.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
      */
-    public readonly upgradeWave!: pulumi.Output<string | undefined>;
+    declare public readonly upgradeWave: pulumi.Output<string | undefined>;
     /**
      * Administrator password for the VMs that will be created as part of this cluster.
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedCluster resource with the given unique name, arguments, and options.
@@ -173,56 +173,56 @@ export class ManagedCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedClusterState | undefined;
-            resourceInputs["authentication"] = state ? state.authentication : undefined;
-            resourceInputs["backupServiceEnabled"] = state ? state.backupServiceEnabled : undefined;
-            resourceInputs["clientConnectionPort"] = state ? state.clientConnectionPort : undefined;
-            resourceInputs["customFabricSettings"] = state ? state.customFabricSettings : undefined;
-            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
-            resourceInputs["dnsServiceEnabled"] = state ? state.dnsServiceEnabled : undefined;
-            resourceInputs["httpGatewayPort"] = state ? state.httpGatewayPort : undefined;
-            resourceInputs["lbRules"] = state ? state.lbRules : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeTypes"] = state ? state.nodeTypes : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["upgradeWave"] = state ? state.upgradeWave : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["authentication"] = state?.authentication;
+            resourceInputs["backupServiceEnabled"] = state?.backupServiceEnabled;
+            resourceInputs["clientConnectionPort"] = state?.clientConnectionPort;
+            resourceInputs["customFabricSettings"] = state?.customFabricSettings;
+            resourceInputs["dnsName"] = state?.dnsName;
+            resourceInputs["dnsServiceEnabled"] = state?.dnsServiceEnabled;
+            resourceInputs["httpGatewayPort"] = state?.httpGatewayPort;
+            resourceInputs["lbRules"] = state?.lbRules;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeTypes"] = state?.nodeTypes;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["upgradeWave"] = state?.upgradeWave;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as ManagedClusterArgs | undefined;
-            if ((!args || args.clientConnectionPort === undefined) && !opts.urn) {
+            if (args?.clientConnectionPort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientConnectionPort'");
             }
-            if ((!args || args.httpGatewayPort === undefined) && !opts.urn) {
+            if (args?.httpGatewayPort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpGatewayPort'");
             }
-            if ((!args || args.lbRules === undefined) && !opts.urn) {
+            if (args?.lbRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lbRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["backupServiceEnabled"] = args ? args.backupServiceEnabled : undefined;
-            resourceInputs["clientConnectionPort"] = args ? args.clientConnectionPort : undefined;
-            resourceInputs["customFabricSettings"] = args ? args.customFabricSettings : undefined;
-            resourceInputs["dnsName"] = args ? args.dnsName : undefined;
-            resourceInputs["dnsServiceEnabled"] = args ? args.dnsServiceEnabled : undefined;
-            resourceInputs["httpGatewayPort"] = args ? args.httpGatewayPort : undefined;
-            resourceInputs["lbRules"] = args ? args.lbRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodeTypes"] = args ? args.nodeTypes : undefined;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["backupServiceEnabled"] = args?.backupServiceEnabled;
+            resourceInputs["clientConnectionPort"] = args?.clientConnectionPort;
+            resourceInputs["customFabricSettings"] = args?.customFabricSettings;
+            resourceInputs["dnsName"] = args?.dnsName;
+            resourceInputs["dnsServiceEnabled"] = args?.dnsServiceEnabled;
+            resourceInputs["httpGatewayPort"] = args?.httpGatewayPort;
+            resourceInputs["lbRules"] = args?.lbRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodeTypes"] = args?.nodeTypes;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradeWave"] = args ? args.upgradeWave : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradeWave"] = args?.upgradeWave;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

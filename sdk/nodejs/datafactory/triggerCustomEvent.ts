@@ -101,47 +101,47 @@ export class TriggerCustomEvent extends pulumi.CustomResource {
     /**
      * Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
      */
-    public readonly activated!: pulumi.Output<boolean | undefined>;
+    declare public readonly activated: pulumi.Output<boolean | undefined>;
     /**
      * A map of additional properties to associate with the Data Factory Custom Event Trigger.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Custom Event Trigger.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Custom Event Trigger.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource.
      */
-    public readonly eventgridTopicId!: pulumi.Output<string>;
+    declare public readonly eventgridTopicId: pulumi.Output<string>;
     /**
      * List of events that will fire this trigger. At least one event must be specified.
      */
-    public readonly events!: pulumi.Output<string[]>;
+    declare public readonly events: pulumi.Output<string[]>;
     /**
      * Specifies the name of the Data Factory Custom Event Trigger. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `pipeline` blocks as defined below.
      */
-    public readonly pipelines!: pulumi.Output<outputs.datafactory.TriggerCustomEventPipeline[]>;
+    declare public readonly pipelines: pulumi.Output<outputs.datafactory.TriggerCustomEventPipeline[]>;
     /**
      * The pattern that event subject starts with for trigger to fire.
      */
-    public readonly subjectBeginsWith!: pulumi.Output<string | undefined>;
+    declare public readonly subjectBeginsWith: pulumi.Output<string | undefined>;
     /**
      * The pattern that event subject ends with for trigger to fire.
      */
-    public readonly subjectEndsWith!: pulumi.Output<string | undefined>;
+    declare public readonly subjectEndsWith: pulumi.Output<string | undefined>;
 
     /**
      * Create a TriggerCustomEvent resource with the given unique name, arguments, and options.
@@ -156,42 +156,42 @@ export class TriggerCustomEvent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerCustomEventState | undefined;
-            resourceInputs["activated"] = state ? state.activated : undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["eventgridTopicId"] = state ? state.eventgridTopicId : undefined;
-            resourceInputs["events"] = state ? state.events : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pipelines"] = state ? state.pipelines : undefined;
-            resourceInputs["subjectBeginsWith"] = state ? state.subjectBeginsWith : undefined;
-            resourceInputs["subjectEndsWith"] = state ? state.subjectEndsWith : undefined;
+            resourceInputs["activated"] = state?.activated;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["eventgridTopicId"] = state?.eventgridTopicId;
+            resourceInputs["events"] = state?.events;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pipelines"] = state?.pipelines;
+            resourceInputs["subjectBeginsWith"] = state?.subjectBeginsWith;
+            resourceInputs["subjectEndsWith"] = state?.subjectEndsWith;
         } else {
             const args = argsOrState as TriggerCustomEventArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.eventgridTopicId === undefined) && !opts.urn) {
+            if (args?.eventgridTopicId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventgridTopicId'");
             }
-            if ((!args || args.events === undefined) && !opts.urn) {
+            if (args?.events === undefined && !opts.urn) {
                 throw new Error("Missing required property 'events'");
             }
-            if ((!args || args.pipelines === undefined) && !opts.urn) {
+            if (args?.pipelines === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelines'");
             }
-            resourceInputs["activated"] = args ? args.activated : undefined;
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eventgridTopicId"] = args ? args.eventgridTopicId : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pipelines"] = args ? args.pipelines : undefined;
-            resourceInputs["subjectBeginsWith"] = args ? args.subjectBeginsWith : undefined;
-            resourceInputs["subjectEndsWith"] = args ? args.subjectEndsWith : undefined;
+            resourceInputs["activated"] = args?.activated;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eventgridTopicId"] = args?.eventgridTopicId;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pipelines"] = args?.pipelines;
+            resourceInputs["subjectBeginsWith"] = args?.subjectBeginsWith;
+            resourceInputs["subjectEndsWith"] = args?.subjectEndsWith;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TriggerCustomEvent.__pulumiType, name, resourceInputs, opts);

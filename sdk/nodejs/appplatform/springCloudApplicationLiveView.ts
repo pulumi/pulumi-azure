@@ -74,11 +74,11 @@ export class SpringCloudApplicationLiveView extends pulumi.CustomResource {
     /**
      * The name which should be used for this Spring Cloud Application Live View. Changing this forces a new Spring Cloud Application Live View to be created. The only possible value is `default`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Application Live View to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudApplicationLiveView resource with the given unique name, arguments, and options.
@@ -93,15 +93,15 @@ export class SpringCloudApplicationLiveView extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudApplicationLiveViewState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
         } else {
             const args = argsOrState as SpringCloudApplicationLiveViewArgs | undefined;
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudApplicationLiveView.__pulumiType, name, resourceInputs, opts);

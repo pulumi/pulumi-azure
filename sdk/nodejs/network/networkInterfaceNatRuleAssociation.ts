@@ -116,15 +116,15 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
     /**
      * The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
      */
-    public readonly ipConfigurationName!: pulumi.Output<string>;
+    declare public readonly ipConfigurationName: pulumi.Output<string>;
     /**
      * The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly natRuleId!: pulumi.Output<string>;
+    declare public readonly natRuleId: pulumi.Output<string>;
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string>;
+    declare public readonly networkInterfaceId: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceNatRuleAssociation resource with the given unique name, arguments, and options.
@@ -139,23 +139,23 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceNatRuleAssociationState | undefined;
-            resourceInputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
-            resourceInputs["natRuleId"] = state ? state.natRuleId : undefined;
-            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["ipConfigurationName"] = state?.ipConfigurationName;
+            resourceInputs["natRuleId"] = state?.natRuleId;
+            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
         } else {
             const args = argsOrState as NetworkInterfaceNatRuleAssociationArgs | undefined;
-            if ((!args || args.ipConfigurationName === undefined) && !opts.urn) {
+            if (args?.ipConfigurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipConfigurationName'");
             }
-            if ((!args || args.natRuleId === undefined) && !opts.urn) {
+            if (args?.natRuleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'natRuleId'");
             }
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            resourceInputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
-            resourceInputs["natRuleId"] = args ? args.natRuleId : undefined;
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["ipConfigurationName"] = args?.ipConfigurationName;
+            resourceInputs["natRuleId"] = args?.natRuleId;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkInterfaceNatRuleAssociation.__pulumiType, name, resourceInputs, opts);

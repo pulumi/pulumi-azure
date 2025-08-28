@@ -71,23 +71,23 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The Azure Region where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Stream Analytics Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The number of streaming units supported by the Cluster. Accepted values are multiples of `36` in the range of `36` to `216`.
      */
-    public readonly streamingCapacity!: pulumi.Output<number>;
+    declare public readonly streamingCapacity: pulumi.Output<number>;
     /**
      * A mapping of tags which should be assigned to the Stream Analytics.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -102,24 +102,24 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["streamingCapacity"] = state ? state.streamingCapacity : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["streamingCapacity"] = state?.streamingCapacity;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.streamingCapacity === undefined) && !opts.urn) {
+            if (args?.streamingCapacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamingCapacity'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["streamingCapacity"] = args ? args.streamingCapacity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["streamingCapacity"] = args?.streamingCapacity;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);

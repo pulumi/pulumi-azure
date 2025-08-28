@@ -78,35 +78,35 @@ export class DedicatedHost extends pulumi.CustomResource {
     /**
      * Should the Dedicated Host automatically be replaced in case of a Hardware Failure? Defaults to `true`.
      */
-    public readonly autoReplaceOnFailure!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoReplaceOnFailure: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the ID of the Dedicated Host Group where the Dedicated Host should exist. Changing this forces a new resource to be created.
      */
-    public readonly dedicatedHostGroupId!: pulumi.Output<string>;
+    declare public readonly dedicatedHostGroupId: pulumi.Output<string>;
     /**
      * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Dedicated Host. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specify the fault domain of the Dedicated Host Group in which to create the Dedicated Host. Changing this forces a new resource to be created.
      */
-    public readonly platformFaultDomain!: pulumi.Output<number>;
+    declare public readonly platformFaultDomain: pulumi.Output<number>;
     /**
      * Specify the SKU name of the Dedicated Host. Possible values are `DADSv5-Type1`, `DASv4-Type1`, `DASv4-Type2`, `DASv5-Type1`, `DCSv2-Type1`, `DDSv4-Type1`, `DDSv4-Type2`, `DDSv5-Type1`, `DSv3-Type1`, `DSv3-Type2`, `DSv3-Type3`, `DSv3-Type4`, `DSv4-Type1`, `DSv4-Type2`, `DSv5-Type1`, `EADSv5-Type1`, `EASv4-Type1`, `EASv4-Type2`, `EASv5-Type1`, `EDSv4-Type1`, `EDSv4-Type2`, `EDSv5-Type1`, `ESv3-Type1`, `ESv3-Type2`, `ESv3-Type3`, `ESv3-Type4`, `ESv4-Type1`, `ESv4-Type2`, `ESv5-Type1`, `FSv2-Type2`, `FSv2-Type3`, `FSv2-Type4`, `FXmds-Type1`, `LSv2-Type1`, `LSv3-Type1`, `MDMSv2MedMem-Type1`, `MDSv2MedMem-Type1`, `MMSv2MedMem-Type1`, `MS-Type1`, `MSm-Type1`, `MSmv2-Type1`, `MSv2-Type1`, `MSv2MedMem-Type1`, `NVASv4-Type1` and `NVSv3-Type1`. Changing this forces a new resource to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DedicatedHost resource with the given unique name, arguments, and options.
@@ -121,33 +121,33 @@ export class DedicatedHost extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedHostState | undefined;
-            resourceInputs["autoReplaceOnFailure"] = state ? state.autoReplaceOnFailure : undefined;
-            resourceInputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["platformFaultDomain"] = state ? state.platformFaultDomain : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoReplaceOnFailure"] = state?.autoReplaceOnFailure;
+            resourceInputs["dedicatedHostGroupId"] = state?.dedicatedHostGroupId;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["platformFaultDomain"] = state?.platformFaultDomain;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as DedicatedHostArgs | undefined;
-            if ((!args || args.dedicatedHostGroupId === undefined) && !opts.urn) {
+            if (args?.dedicatedHostGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dedicatedHostGroupId'");
             }
-            if ((!args || args.platformFaultDomain === undefined) && !opts.urn) {
+            if (args?.platformFaultDomain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platformFaultDomain'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
-            resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoReplaceOnFailure"] = args?.autoReplaceOnFailure;
+            resourceInputs["dedicatedHostGroupId"] = args?.dedicatedHostGroupId;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platformFaultDomain"] = args?.platformFaultDomain;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DedicatedHost.__pulumiType, name, resourceInputs, opts);

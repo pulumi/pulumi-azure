@@ -48,53 +48,53 @@ export class NetworkAttachedDataNetwork extends pulumi.CustomResource {
     /**
      * Specifies the DNS servers to signal to UEs to use for this attached data network.
      */
-    public readonly dnsAddresses!: pulumi.Output<string[]>;
+    declare public readonly dnsAddresses: pulumi.Output<string[]>;
     /**
      * Specifies the Azure Region where the Mobile Network Attached Data Network should exist. Changing this forces a new Mobile Network Attached Data Network to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the `azure.mobile.NetworkDataNetwork` which the Attached Data Network belongs to, Changing this forces a new Mobile Network Attached Data Network to be created.
      */
-    public readonly mobileNetworkDataNetworkName!: pulumi.Output<string>;
+    declare public readonly mobileNetworkDataNetworkName: pulumi.Output<string>;
     /**
      * Specifies the ID of the `azure.mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
      */
-    public readonly mobileNetworkPacketCoreDataPlaneId!: pulumi.Output<string>;
+    declare public readonly mobileNetworkPacketCoreDataPlaneId: pulumi.Output<string>;
     /**
      * A `networkAddressPortTranslation` block as defined below.
      */
-    public readonly networkAddressPortTranslation!: pulumi.Output<outputs.mobile.NetworkAttachedDataNetworkNetworkAddressPortTranslation | undefined>;
+    declare public readonly networkAddressPortTranslation: pulumi.Output<outputs.mobile.NetworkAttachedDataNetworkNetworkAddressPortTranslation | undefined>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
      */
-    public readonly userEquipmentAddressPoolPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly userEquipmentAddressPoolPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
      *
      * > **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
      */
-    public readonly userEquipmentStaticAddressPoolPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly userEquipmentStaticAddressPoolPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly userPlaneAccessIpv4Address!: pulumi.Output<string | undefined>;
+    declare public readonly userPlaneAccessIpv4Address: pulumi.Output<string | undefined>;
     /**
      * The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly userPlaneAccessIpv4Gateway!: pulumi.Output<string | undefined>;
+    declare public readonly userPlaneAccessIpv4Gateway: pulumi.Output<string | undefined>;
     /**
      * The IPv4 subnet for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly userPlaneAccessIpv4Subnet!: pulumi.Output<string | undefined>;
+    declare public readonly userPlaneAccessIpv4Subnet: pulumi.Output<string | undefined>;
     /**
      * Specifies the logical name for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly userPlaneAccessName!: pulumi.Output<string | undefined>;
+    declare public readonly userPlaneAccessName: pulumi.Output<string | undefined>;
 
     /**
      * Create a NetworkAttachedDataNetwork resource with the given unique name, arguments, and options.
@@ -109,41 +109,41 @@ export class NetworkAttachedDataNetwork extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkAttachedDataNetworkState | undefined;
-            resourceInputs["dnsAddresses"] = state ? state.dnsAddresses : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mobileNetworkDataNetworkName"] = state ? state.mobileNetworkDataNetworkName : undefined;
-            resourceInputs["mobileNetworkPacketCoreDataPlaneId"] = state ? state.mobileNetworkPacketCoreDataPlaneId : undefined;
-            resourceInputs["networkAddressPortTranslation"] = state ? state.networkAddressPortTranslation : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["userEquipmentAddressPoolPrefixes"] = state ? state.userEquipmentAddressPoolPrefixes : undefined;
-            resourceInputs["userEquipmentStaticAddressPoolPrefixes"] = state ? state.userEquipmentStaticAddressPoolPrefixes : undefined;
-            resourceInputs["userPlaneAccessIpv4Address"] = state ? state.userPlaneAccessIpv4Address : undefined;
-            resourceInputs["userPlaneAccessIpv4Gateway"] = state ? state.userPlaneAccessIpv4Gateway : undefined;
-            resourceInputs["userPlaneAccessIpv4Subnet"] = state ? state.userPlaneAccessIpv4Subnet : undefined;
-            resourceInputs["userPlaneAccessName"] = state ? state.userPlaneAccessName : undefined;
+            resourceInputs["dnsAddresses"] = state?.dnsAddresses;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mobileNetworkDataNetworkName"] = state?.mobileNetworkDataNetworkName;
+            resourceInputs["mobileNetworkPacketCoreDataPlaneId"] = state?.mobileNetworkPacketCoreDataPlaneId;
+            resourceInputs["networkAddressPortTranslation"] = state?.networkAddressPortTranslation;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["userEquipmentAddressPoolPrefixes"] = state?.userEquipmentAddressPoolPrefixes;
+            resourceInputs["userEquipmentStaticAddressPoolPrefixes"] = state?.userEquipmentStaticAddressPoolPrefixes;
+            resourceInputs["userPlaneAccessIpv4Address"] = state?.userPlaneAccessIpv4Address;
+            resourceInputs["userPlaneAccessIpv4Gateway"] = state?.userPlaneAccessIpv4Gateway;
+            resourceInputs["userPlaneAccessIpv4Subnet"] = state?.userPlaneAccessIpv4Subnet;
+            resourceInputs["userPlaneAccessName"] = state?.userPlaneAccessName;
         } else {
             const args = argsOrState as NetworkAttachedDataNetworkArgs | undefined;
-            if ((!args || args.dnsAddresses === undefined) && !opts.urn) {
+            if (args?.dnsAddresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsAddresses'");
             }
-            if ((!args || args.mobileNetworkDataNetworkName === undefined) && !opts.urn) {
+            if (args?.mobileNetworkDataNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkDataNetworkName'");
             }
-            if ((!args || args.mobileNetworkPacketCoreDataPlaneId === undefined) && !opts.urn) {
+            if (args?.mobileNetworkPacketCoreDataPlaneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkPacketCoreDataPlaneId'");
             }
-            resourceInputs["dnsAddresses"] = args ? args.dnsAddresses : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkDataNetworkName"] = args ? args.mobileNetworkDataNetworkName : undefined;
-            resourceInputs["mobileNetworkPacketCoreDataPlaneId"] = args ? args.mobileNetworkPacketCoreDataPlaneId : undefined;
-            resourceInputs["networkAddressPortTranslation"] = args ? args.networkAddressPortTranslation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userEquipmentAddressPoolPrefixes"] = args ? args.userEquipmentAddressPoolPrefixes : undefined;
-            resourceInputs["userEquipmentStaticAddressPoolPrefixes"] = args ? args.userEquipmentStaticAddressPoolPrefixes : undefined;
-            resourceInputs["userPlaneAccessIpv4Address"] = args ? args.userPlaneAccessIpv4Address : undefined;
-            resourceInputs["userPlaneAccessIpv4Gateway"] = args ? args.userPlaneAccessIpv4Gateway : undefined;
-            resourceInputs["userPlaneAccessIpv4Subnet"] = args ? args.userPlaneAccessIpv4Subnet : undefined;
-            resourceInputs["userPlaneAccessName"] = args ? args.userPlaneAccessName : undefined;
+            resourceInputs["dnsAddresses"] = args?.dnsAddresses;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkDataNetworkName"] = args?.mobileNetworkDataNetworkName;
+            resourceInputs["mobileNetworkPacketCoreDataPlaneId"] = args?.mobileNetworkPacketCoreDataPlaneId;
+            resourceInputs["networkAddressPortTranslation"] = args?.networkAddressPortTranslation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userEquipmentAddressPoolPrefixes"] = args?.userEquipmentAddressPoolPrefixes;
+            resourceInputs["userEquipmentStaticAddressPoolPrefixes"] = args?.userEquipmentStaticAddressPoolPrefixes;
+            resourceInputs["userPlaneAccessIpv4Address"] = args?.userPlaneAccessIpv4Address;
+            resourceInputs["userPlaneAccessIpv4Gateway"] = args?.userPlaneAccessIpv4Gateway;
+            resourceInputs["userPlaneAccessIpv4Subnet"] = args?.userPlaneAccessIpv4Subnet;
+            resourceInputs["userPlaneAccessName"] = args?.userPlaneAccessName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkAttachedDataNetwork.__pulumiType, name, resourceInputs, opts);

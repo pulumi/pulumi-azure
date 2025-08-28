@@ -29,14 +29,12 @@ Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Servic
 
 clientCertificatePassword: Optional[str]
 """
-The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-Certificate
+The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
 """
 
 clientCertificatePath: Optional[str]
 """
-The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-Principal using a Client Certificate.
+The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
 """
 
 clientId: Optional[str]
@@ -56,8 +54,7 @@ The Client Secret which should be used. For use When authenticating as a Service
 
 clientSecretFilePath: Optional[str]
 """
-The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-using a Client Secret.
+The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 """
 
 disableCorrelationRequestId: Optional[bool]
@@ -69,8 +66,7 @@ disableTerraformPartnerId: Optional[bool]
 
 environment: str
 """
-The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-used and should not be specified when `metadata_host` is specified.
+The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
 """
 
 features: Optional[str]
@@ -84,26 +80,22 @@ The Hostname which should be used for the Azure Metadata Service.
 
 msiApiVersion: Optional[str]
 """
-The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-the endpoint. e.g. for Azure Container Apps.
+The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
 """
 
 msiEndpoint: Optional[str]
 """
-The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-automatically.
+The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
 """
 
 oidcRequestToken: Optional[str]
 """
-The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-Connect.
+The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
 """
 
 oidcRequestUrl: Optional[str]
 """
-The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-using OpenID Connect.
+The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
 """
 
 oidcToken: Optional[str]
@@ -128,14 +120,12 @@ The set of Resource Providers which should be automatically registered for the s
 
 resourceProvidersToRegisters: Optional[str]
 """
-A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-`resource_provider_registrations` property.
+A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
 """
 
 skipProviderRegistration: bool
 """
-Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
-registered?
+Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
 """
 
 storageUseAzuread: bool

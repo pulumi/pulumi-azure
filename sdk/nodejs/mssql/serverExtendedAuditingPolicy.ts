@@ -80,45 +80,45 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
     /**
      * A list of Actions-Groups and Actions to audit.
      */
-    public readonly auditActionsAndGroups!: pulumi.Output<string[]>;
+    declare public readonly auditActionsAndGroups: pulumi.Output<string[]>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
-    public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly logMonitoringEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies condition of where clause when creating an audit.
      */
-    public readonly predicateExpression!: pulumi.Output<string | undefined>;
+    declare public readonly predicateExpression: pulumi.Output<string | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
      * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * The access key to use for the auditing storage account.
      */
-    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountAccessKey: pulumi.Output<string | undefined>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    public readonly storageAccountAccessKeyIsSecondary!: pulumi.Output<boolean | undefined>;
+    declare public readonly storageAccountAccessKeyIsSecondary: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Subscription containing the Storage Account.
      */
-    public readonly storageAccountSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
-    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly storageEndpoint: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerExtendedAuditingPolicy resource with the given unique name, arguments, and options.
@@ -133,31 +133,31 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerExtendedAuditingPolicyState | undefined;
-            resourceInputs["auditActionsAndGroups"] = state ? state.auditActionsAndGroups : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
-            resourceInputs["predicateExpression"] = state ? state.predicateExpression : undefined;
-            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            resourceInputs["storageAccountAccessKeyIsSecondary"] = state ? state.storageAccountAccessKeyIsSecondary : undefined;
-            resourceInputs["storageAccountSubscriptionId"] = state ? state.storageAccountSubscriptionId : undefined;
-            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
+            resourceInputs["auditActionsAndGroups"] = state?.auditActionsAndGroups;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["logMonitoringEnabled"] = state?.logMonitoringEnabled;
+            resourceInputs["predicateExpression"] = state?.predicateExpression;
+            resourceInputs["retentionInDays"] = state?.retentionInDays;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = state?.storageAccountAccessKeyIsSecondary;
+            resourceInputs["storageAccountSubscriptionId"] = state?.storageAccountSubscriptionId;
+            resourceInputs["storageEndpoint"] = state?.storageEndpoint;
         } else {
             const args = argsOrState as ServerExtendedAuditingPolicyArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["auditActionsAndGroups"] = args ? args.auditActionsAndGroups : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
-            resourceInputs["predicateExpression"] = args ? args.predicateExpression : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["auditActionsAndGroups"] = args?.auditActionsAndGroups;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["logMonitoringEnabled"] = args?.logMonitoringEnabled;
+            resourceInputs["predicateExpression"] = args?.predicateExpression;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["serverId"] = args?.serverId;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
-            resourceInputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = args?.storageAccountAccessKeyIsSecondary;
             resourceInputs["storageAccountSubscriptionId"] = args?.storageAccountSubscriptionId ? pulumi.secret(args.storageAccountSubscriptionId) : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey", "storageAccountSubscriptionId"] };

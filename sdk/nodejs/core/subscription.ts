@@ -115,11 +115,11 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
      */
-    public readonly alias!: pulumi.Output<string>;
+    declare public readonly alias: pulumi.Output<string>;
     /**
      * The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
      */
-    public readonly billingScopeId!: pulumi.Output<string | undefined>;
+    declare public readonly billingScopeId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      *
@@ -127,23 +127,23 @@ export class Subscription extends pulumi.CustomResource {
      *
      * > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
     /**
      * The Name of the Subscription. This is the Display Name in the portal.
      */
-    public readonly subscriptionName!: pulumi.Output<string>;
+    declare public readonly subscriptionName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Subscription.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Tenant to which the subscription belongs.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
      */
-    public readonly workload!: pulumi.Output<string | undefined>;
+    declare public readonly workload: pulumi.Output<string | undefined>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -158,24 +158,24 @@ export class Subscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["billingScopeId"] = state ? state.billingScopeId : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            resourceInputs["subscriptionName"] = state ? state.subscriptionName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
-            resourceInputs["workload"] = state ? state.workload : undefined;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["billingScopeId"] = state?.billingScopeId;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
+            resourceInputs["subscriptionName"] = state?.subscriptionName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["workload"] = state?.workload;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
-            if ((!args || args.subscriptionName === undefined) && !opts.urn) {
+            if (args?.subscriptionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["billingScopeId"] = args ? args.billingScopeId : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workload"] = args ? args.workload : undefined;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["billingScopeId"] = args?.billingScopeId;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["subscriptionName"] = args?.subscriptionName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workload"] = args?.workload;
             resourceInputs["tenantId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

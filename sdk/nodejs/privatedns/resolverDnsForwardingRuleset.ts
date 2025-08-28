@@ -108,23 +108,23 @@ export class ResolverDnsForwardingRuleset extends pulumi.CustomResource {
     /**
      * Specifies the Azure Region where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Dns Forwarding Ruleset. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The list of IDs of the Private DNS Resolver Outbound Endpoint that is linked to the Private DNS Resolver Dns Forwarding Ruleset.
      */
-    public readonly privateDnsResolverOutboundEndpointIds!: pulumi.Output<string[]>;
+    declare public readonly privateDnsResolverOutboundEndpointIds: pulumi.Output<string[]>;
     /**
      * Specifies the name of the Resource Group where the Private DNS Resolver Dns Forwarding Ruleset should exist. Changing this forces a new Private DNS Resolver Dns Forwarding Ruleset to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ResolverDnsForwardingRuleset resource with the given unique name, arguments, and options.
@@ -139,24 +139,24 @@ export class ResolverDnsForwardingRuleset extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverDnsForwardingRulesetState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateDnsResolverOutboundEndpointIds"] = state ? state.privateDnsResolverOutboundEndpointIds : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateDnsResolverOutboundEndpointIds"] = state?.privateDnsResolverOutboundEndpointIds;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ResolverDnsForwardingRulesetArgs | undefined;
-            if ((!args || args.privateDnsResolverOutboundEndpointIds === undefined) && !opts.urn) {
+            if (args?.privateDnsResolverOutboundEndpointIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateDnsResolverOutboundEndpointIds'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateDnsResolverOutboundEndpointIds"] = args ? args.privateDnsResolverOutboundEndpointIds : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateDnsResolverOutboundEndpointIds"] = args?.privateDnsResolverOutboundEndpointIds;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverDnsForwardingRuleset.__pulumiType, name, resourceInputs, opts);

@@ -138,27 +138,27 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
     /**
      * One or more `applicationRuleCollection` blocks as defined below.
      */
-    public readonly applicationRuleCollections!: pulumi.Output<outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollection[] | undefined>;
+    declare public readonly applicationRuleCollections: pulumi.Output<outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollection[] | undefined>;
     /**
      * The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      */
-    public readonly firewallPolicyId!: pulumi.Output<string>;
+    declare public readonly firewallPolicyId: pulumi.Output<string>;
     /**
      * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `natRuleCollection` blocks as defined below.
      */
-    public readonly natRuleCollections!: pulumi.Output<outputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollection[] | undefined>;
+    declare public readonly natRuleCollections: pulumi.Output<outputs.network.FirewallPolicyRuleCollectionGroupNatRuleCollection[] | undefined>;
     /**
      * One or more `networkRuleCollection` blocks as defined below.
      */
-    public readonly networkRuleCollections!: pulumi.Output<outputs.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollection[] | undefined>;
+    declare public readonly networkRuleCollections: pulumi.Output<outputs.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollection[] | undefined>;
     /**
      * The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
 
     /**
      * Create a FirewallPolicyRuleCollectionGroup resource with the given unique name, arguments, and options.
@@ -173,26 +173,26 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallPolicyRuleCollectionGroupState | undefined;
-            resourceInputs["applicationRuleCollections"] = state ? state.applicationRuleCollections : undefined;
-            resourceInputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["natRuleCollections"] = state ? state.natRuleCollections : undefined;
-            resourceInputs["networkRuleCollections"] = state ? state.networkRuleCollections : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["applicationRuleCollections"] = state?.applicationRuleCollections;
+            resourceInputs["firewallPolicyId"] = state?.firewallPolicyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["natRuleCollections"] = state?.natRuleCollections;
+            resourceInputs["networkRuleCollections"] = state?.networkRuleCollections;
+            resourceInputs["priority"] = state?.priority;
         } else {
             const args = argsOrState as FirewallPolicyRuleCollectionGroupArgs | undefined;
-            if ((!args || args.firewallPolicyId === undefined) && !opts.urn) {
+            if (args?.firewallPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyId'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            resourceInputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
-            resourceInputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
-            resourceInputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["applicationRuleCollections"] = args?.applicationRuleCollections;
+            resourceInputs["firewallPolicyId"] = args?.firewallPolicyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["natRuleCollections"] = args?.natRuleCollections;
+            resourceInputs["networkRuleCollections"] = args?.networkRuleCollections;
+            resourceInputs["priority"] = args?.priority;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, resourceInputs, opts);

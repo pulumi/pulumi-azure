@@ -82,39 +82,39 @@ export class AnalyticsItem extends pulumi.CustomResource {
     /**
      * The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
      */
-    public readonly applicationInsightsId!: pulumi.Output<string>;
+    declare public readonly applicationInsightsId: pulumi.Output<string>;
     /**
      * The content for the Analytics Item, for example the query text if `type` is `query`.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * The alias to use for the function. Required when `type` is `function`.
      */
-    public readonly functionAlias!: pulumi.Output<string | undefined>;
+    declare public readonly functionAlias: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * A string containing the time the Analytics Item was created.
      */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeCreated: pulumi.Output<string>;
     /**
      * A string containing the time the Analytics Item was last modified.
      */
-    public /*out*/ readonly timeModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeModified: pulumi.Output<string>;
     /**
      * The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * A string indicating the version of the query format
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a AnalyticsItem resource with the given unique name, arguments, and options.
@@ -129,35 +129,35 @@ export class AnalyticsItem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsItemState | undefined;
-            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["functionAlias"] = state ? state.functionAlias : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["timeCreated"] = state ? state.timeCreated : undefined;
-            resourceInputs["timeModified"] = state ? state.timeModified : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["applicationInsightsId"] = state?.applicationInsightsId;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["functionAlias"] = state?.functionAlias;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["timeCreated"] = state?.timeCreated;
+            resourceInputs["timeModified"] = state?.timeModified;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as AnalyticsItemArgs | undefined;
-            if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
+            if (args?.applicationInsightsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["functionAlias"] = args ? args.functionAlias : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["applicationInsightsId"] = args?.applicationInsightsId;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["functionAlias"] = args?.functionAlias;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["type"] = args?.type;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

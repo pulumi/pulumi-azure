@@ -76,31 +76,31 @@ export class CustomProvider extends pulumi.CustomResource {
     /**
      * Any number of `action` block as defined below. One of `resourceType` or `action` must be specified.
      */
-    public readonly actions!: pulumi.Output<outputs.core.CustomProviderAction[] | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.core.CustomProviderAction[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Any number of `resourceType` block as defined below. One of `resourceType` or `action` must be specified.
      */
-    public readonly resourceTypes!: pulumi.Output<outputs.core.CustomProviderResourceType[] | undefined>;
+    declare public readonly resourceTypes: pulumi.Output<outputs.core.CustomProviderResourceType[] | undefined>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Any number of `validation` block as defined below.
      */
-    public readonly validations!: pulumi.Output<outputs.core.CustomProviderValidation[] | undefined>;
+    declare public readonly validations: pulumi.Output<outputs.core.CustomProviderValidation[] | undefined>;
 
     /**
      * Create a CustomProvider resource with the given unique name, arguments, and options.
@@ -115,25 +115,25 @@ export class CustomProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomProviderState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["resourceTypes"] = state ? state.resourceTypes : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["validations"] = state ? state.validations : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["resourceTypes"] = state?.resourceTypes;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["validations"] = state?.validations;
         } else {
             const args = argsOrState as CustomProviderArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validations"] = args ? args.validations : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceTypes"] = args?.resourceTypes;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validations"] = args?.validations;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomProvider.__pulumiType, name, resourceInputs, opts);

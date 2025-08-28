@@ -115,19 +115,19 @@ export class Lock extends pulumi.CustomResource {
      *
      * > **Note:** `CanNotDelete` means authorized users are able to read and modify the resources, but not delete. `ReadOnly` means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    public readonly lockLevel!: pulumi.Output<string>;
+    declare public readonly lockLevel: pulumi.Output<string>;
     /**
      * Specifies the name of the Management Lock. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
 
     /**
      * Create a Lock resource with the given unique name, arguments, and options.
@@ -142,22 +142,22 @@ export class Lock extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LockState | undefined;
-            resourceInputs["lockLevel"] = state ? state.lockLevel : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["lockLevel"] = state?.lockLevel;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notes"] = state?.notes;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as LockArgs | undefined;
-            if ((!args || args.lockLevel === undefined) && !opts.urn) {
+            if (args?.lockLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["lockLevel"] = args?.lockLevel;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["scope"] = args?.scope;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:managementresource/manangementLock:ManangementLock" }] };

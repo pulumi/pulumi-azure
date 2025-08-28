@@ -97,11 +97,11 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
     /**
      * The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly networkSecurityGroupId!: pulumi.Output<string>;
+    declare public readonly networkSecurityGroupId: pulumi.Output<string>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a SubnetNetworkSecurityGroupAssociation resource with the given unique name, arguments, and options.
@@ -116,18 +116,18 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetNetworkSecurityGroupAssociationState | undefined;
-            resourceInputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["networkSecurityGroupId"] = state?.networkSecurityGroupId;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as SubnetNetworkSecurityGroupAssociationArgs | undefined;
-            if ((!args || args.networkSecurityGroupId === undefined) && !opts.urn) {
+            if (args?.networkSecurityGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityGroupId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["networkSecurityGroupId"] = args?.networkSecurityGroupId;
+            resourceInputs["subnetId"] = args?.subnetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubnetNetworkSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);

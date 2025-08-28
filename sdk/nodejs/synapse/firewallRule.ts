@@ -92,19 +92,19 @@ export class FirewallRule extends pulumi.CustomResource {
      *
      * > **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
      */
-    public readonly endIpAddress!: pulumi.Output<string>;
+    declare public readonly endIpAddress: pulumi.Output<string>;
     /**
      * The Name of the firewall rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The starting IP address to allow through the firewall for this rule.
      */
-    public readonly startIpAddress!: pulumi.Output<string>;
+    declare public readonly startIpAddress: pulumi.Output<string>;
     /**
      * The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string>;
 
     /**
      * Create a FirewallRule resource with the given unique name, arguments, and options.
@@ -119,25 +119,25 @@ export class FirewallRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallRuleState | undefined;
-            resourceInputs["endIpAddress"] = state ? state.endIpAddress : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["startIpAddress"] = state ? state.startIpAddress : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["endIpAddress"] = state?.endIpAddress;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["startIpAddress"] = state?.startIpAddress;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
         } else {
             const args = argsOrState as FirewallRuleArgs | undefined;
-            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
+            if (args?.endIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
+            if (args?.startIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
+            if (args?.synapseWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            resourceInputs["endIpAddress"] = args ? args.endIpAddress : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["endIpAddress"] = args?.endIpAddress;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["startIpAddress"] = args?.startIpAddress;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);

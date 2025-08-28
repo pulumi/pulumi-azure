@@ -107,41 +107,41 @@ export class SyncServerEndpoint extends pulumi.CustomResource {
     /**
      * Is Cloud Tiering Enabled? Defaults to `false`.
      */
-    public readonly cloudTieringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly cloudTieringEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies how the server initially downloads the Azure file share data. Valid Values includes `NamespaceThenModifiedFiles`, `NamespaceOnly`, and `AvoidTieredFiles`. Defaults to `NamespaceThenModifiedFiles`.
      */
-    public readonly initialDownloadPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly initialDownloadPolicy: pulumi.Output<string | undefined>;
     /**
      * Specifies how to handle the local cache. Valid Values include `UpdateLocallyCachedFiles` and `DownloadNewAndModifiedFiles`. Defaults to `UpdateLocallyCachedFiles`.
      */
-    public readonly localCacheMode!: pulumi.Output<string | undefined>;
+    declare public readonly localCacheMode: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync Server Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
      *
      * > **Note:** The target server must already be registered with the parent `azure.storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
      */
-    public readonly registeredServerId!: pulumi.Output<string>;
+    declare public readonly registeredServerId: pulumi.Output<string>;
     /**
      * The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
      */
-    public readonly serverLocalPath!: pulumi.Output<string>;
+    declare public readonly serverLocalPath: pulumi.Output<string>;
     /**
      * The ID of the Storage Sync Group where the Storage Sync Server Endpoint should exist. Changing this forces a new Storage Sync Server Endpoint to be created.
      */
-    public readonly storageSyncGroupId!: pulumi.Output<string>;
+    declare public readonly storageSyncGroupId: pulumi.Output<string>;
     /**
      * Files older than the specified age will be tiered to the cloud.
      */
-    public readonly tierFilesOlderThanDays!: pulumi.Output<number | undefined>;
+    declare public readonly tierFilesOlderThanDays: pulumi.Output<number | undefined>;
     /**
      * What percentage of free space on the volume should be preserved? Defaults to `20`.
      */
-    public readonly volumeFreeSpacePercent!: pulumi.Output<number | undefined>;
+    declare public readonly volumeFreeSpacePercent: pulumi.Output<number | undefined>;
 
     /**
      * Create a SyncServerEndpoint resource with the given unique name, arguments, and options.
@@ -156,35 +156,35 @@ export class SyncServerEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyncServerEndpointState | undefined;
-            resourceInputs["cloudTieringEnabled"] = state ? state.cloudTieringEnabled : undefined;
-            resourceInputs["initialDownloadPolicy"] = state ? state.initialDownloadPolicy : undefined;
-            resourceInputs["localCacheMode"] = state ? state.localCacheMode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["registeredServerId"] = state ? state.registeredServerId : undefined;
-            resourceInputs["serverLocalPath"] = state ? state.serverLocalPath : undefined;
-            resourceInputs["storageSyncGroupId"] = state ? state.storageSyncGroupId : undefined;
-            resourceInputs["tierFilesOlderThanDays"] = state ? state.tierFilesOlderThanDays : undefined;
-            resourceInputs["volumeFreeSpacePercent"] = state ? state.volumeFreeSpacePercent : undefined;
+            resourceInputs["cloudTieringEnabled"] = state?.cloudTieringEnabled;
+            resourceInputs["initialDownloadPolicy"] = state?.initialDownloadPolicy;
+            resourceInputs["localCacheMode"] = state?.localCacheMode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["registeredServerId"] = state?.registeredServerId;
+            resourceInputs["serverLocalPath"] = state?.serverLocalPath;
+            resourceInputs["storageSyncGroupId"] = state?.storageSyncGroupId;
+            resourceInputs["tierFilesOlderThanDays"] = state?.tierFilesOlderThanDays;
+            resourceInputs["volumeFreeSpacePercent"] = state?.volumeFreeSpacePercent;
         } else {
             const args = argsOrState as SyncServerEndpointArgs | undefined;
-            if ((!args || args.registeredServerId === undefined) && !opts.urn) {
+            if (args?.registeredServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registeredServerId'");
             }
-            if ((!args || args.serverLocalPath === undefined) && !opts.urn) {
+            if (args?.serverLocalPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverLocalPath'");
             }
-            if ((!args || args.storageSyncGroupId === undefined) && !opts.urn) {
+            if (args?.storageSyncGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncGroupId'");
             }
-            resourceInputs["cloudTieringEnabled"] = args ? args.cloudTieringEnabled : undefined;
-            resourceInputs["initialDownloadPolicy"] = args ? args.initialDownloadPolicy : undefined;
-            resourceInputs["localCacheMode"] = args ? args.localCacheMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["registeredServerId"] = args ? args.registeredServerId : undefined;
-            resourceInputs["serverLocalPath"] = args ? args.serverLocalPath : undefined;
-            resourceInputs["storageSyncGroupId"] = args ? args.storageSyncGroupId : undefined;
-            resourceInputs["tierFilesOlderThanDays"] = args ? args.tierFilesOlderThanDays : undefined;
-            resourceInputs["volumeFreeSpacePercent"] = args ? args.volumeFreeSpacePercent : undefined;
+            resourceInputs["cloudTieringEnabled"] = args?.cloudTieringEnabled;
+            resourceInputs["initialDownloadPolicy"] = args?.initialDownloadPolicy;
+            resourceInputs["localCacheMode"] = args?.localCacheMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["registeredServerId"] = args?.registeredServerId;
+            resourceInputs["serverLocalPath"] = args?.serverLocalPath;
+            resourceInputs["storageSyncGroupId"] = args?.storageSyncGroupId;
+            resourceInputs["tierFilesOlderThanDays"] = args?.tierFilesOlderThanDays;
+            resourceInputs["volumeFreeSpacePercent"] = args?.volumeFreeSpacePercent;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SyncServerEndpoint.__pulumiType, name, resourceInputs, opts);

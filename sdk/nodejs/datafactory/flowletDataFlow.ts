@@ -200,43 +200,43 @@ export class FlowletDataFlow extends pulumi.CustomResource {
     /**
      * List of tags that can be used for describing the Data Factory Flowlet Data Flow.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Flowlet Data Flow.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<string | undefined>;
+    declare public readonly folder: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The script for the Data Factory Flowlet Data Flow.
      */
-    public readonly script!: pulumi.Output<string | undefined>;
+    declare public readonly script: pulumi.Output<string | undefined>;
     /**
      * The script lines for the Data Factory Flowlet Data Flow.
      */
-    public readonly scriptLines!: pulumi.Output<string[] | undefined>;
+    declare public readonly scriptLines: pulumi.Output<string[] | undefined>;
     /**
      * One or more `sink` blocks as defined below.
      */
-    public readonly sinks!: pulumi.Output<outputs.datafactory.FlowletDataFlowSink[] | undefined>;
+    declare public readonly sinks: pulumi.Output<outputs.datafactory.FlowletDataFlowSink[] | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    public readonly sources!: pulumi.Output<outputs.datafactory.FlowletDataFlowSource[] | undefined>;
+    declare public readonly sources: pulumi.Output<outputs.datafactory.FlowletDataFlowSource[] | undefined>;
     /**
      * One or more `transformation` blocks as defined below.
      */
-    public readonly transformations!: pulumi.Output<outputs.datafactory.FlowletDataFlowTransformation[] | undefined>;
+    declare public readonly transformations: pulumi.Output<outputs.datafactory.FlowletDataFlowTransformation[] | undefined>;
 
     /**
      * Create a FlowletDataFlow resource with the given unique name, arguments, and options.
@@ -251,31 +251,31 @@ export class FlowletDataFlow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlowletDataFlowState | undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["folder"] = state ? state.folder : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["script"] = state ? state.script : undefined;
-            resourceInputs["scriptLines"] = state ? state.scriptLines : undefined;
-            resourceInputs["sinks"] = state ? state.sinks : undefined;
-            resourceInputs["sources"] = state ? state.sources : undefined;
-            resourceInputs["transformations"] = state ? state.transformations : undefined;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["folder"] = state?.folder;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["script"] = state?.script;
+            resourceInputs["scriptLines"] = state?.scriptLines;
+            resourceInputs["sinks"] = state?.sinks;
+            resourceInputs["sources"] = state?.sources;
+            resourceInputs["transformations"] = state?.transformations;
         } else {
             const args = argsOrState as FlowletDataFlowArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["script"] = args ? args.script : undefined;
-            resourceInputs["scriptLines"] = args ? args.scriptLines : undefined;
-            resourceInputs["sinks"] = args ? args.sinks : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["transformations"] = args ? args.transformations : undefined;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["script"] = args?.script;
+            resourceInputs["scriptLines"] = args?.scriptLines;
+            resourceInputs["sinks"] = args?.sinks;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["transformations"] = args?.transformations;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FlowletDataFlow.__pulumiType, name, resourceInputs, opts);

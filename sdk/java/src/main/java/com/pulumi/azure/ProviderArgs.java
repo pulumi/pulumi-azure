@@ -57,16 +57,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-     * Certificate
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
      * 
      */
     @Import(name="clientCertificatePassword")
     private @Nullable Output<String> clientCertificatePassword;
 
     /**
-     * @return The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-     * Certificate
+     * @return The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
      * 
      */
     public Optional<Output<String>> clientCertificatePassword() {
@@ -74,16 +72,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-     * Principal using a Client Certificate.
+     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     @Import(name="clientCertificatePath")
     private @Nullable Output<String> clientCertificatePath;
 
     /**
-     * @return The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-     * Principal using a Client Certificate.
+     * @return The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     public Optional<Output<String>> clientCertificatePath() {
@@ -136,16 +132,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-     * using a Client Secret.
+     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      * 
      */
     @Import(name="clientSecretFilePath")
     private @Nullable Output<String> clientSecretFilePath;
 
     /**
-     * @return The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-     * using a Client Secret.
+     * @return The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      * 
      */
     public Optional<Output<String>> clientSecretFilePath() {
@@ -175,16 +169,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-     * used and should not be specified when `metadata_host` is specified.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
      * 
      */
     @Import(name="environment")
     private @Nullable Output<String> environment;
 
     /**
-     * @return The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-     * used and should not be specified when `metadata_host` is specified.
+     * @return The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
      * 
      */
     public Optional<Output<String>> environment() {
@@ -214,16 +206,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-     * the endpoint. e.g. for Azure Container Apps.
+     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
      * 
      */
     @Import(name="msiApiVersion")
     private @Nullable Output<String> msiApiVersion;
 
     /**
-     * @return The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-     * the endpoint. e.g. for Azure Container Apps.
+     * @return The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
      * 
      */
     public Optional<Output<String>> msiApiVersion() {
@@ -231,16 +221,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-     * automatically.
+     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      * 
      */
     @Import(name="msiEndpoint")
     private @Nullable Output<String> msiEndpoint;
 
     /**
-     * @return The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-     * automatically.
+     * @return The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      * 
      */
     public Optional<Output<String>> msiEndpoint() {
@@ -248,16 +236,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-     * Connect.
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     @Import(name="oidcRequestToken")
     private @Nullable Output<String> oidcRequestToken;
 
     /**
-     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-     * Connect.
+     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     public Optional<Output<String>> oidcRequestToken() {
@@ -265,16 +251,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-     * using OpenID Connect.
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     @Import(name="oidcRequestUrl")
     private @Nullable Output<String> oidcRequestUrl;
 
     /**
-     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-     * using OpenID Connect.
+     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     public Optional<Output<String>> oidcRequestUrl() {
@@ -342,16 +326,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-     * `resource_provider_registrations` property.
+     * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
      * 
      */
     @Import(name="resourceProvidersToRegisters", json=true)
     private @Nullable Output<List<String>> resourceProvidersToRegisters;
 
     /**
-     * @return A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-     * `resource_provider_registrations` property.
+     * @return A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
      * 
      */
     public Optional<Output<List<String>>> resourceProvidersToRegisters() {
@@ -359,8 +341,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already
-     * registered?
+     * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
      * 
      * @deprecated
      * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
@@ -371,8 +352,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> skipProviderRegistration;
 
     /**
-     * @return Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already
-     * registered?
+     * @return Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
      * 
      * @deprecated
      * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.
@@ -598,8 +578,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificatePassword The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-         * Certificate
+         * @param clientCertificatePassword The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
          * 
          * @return builder
          * 
@@ -610,8 +589,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificatePassword The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-         * Certificate
+         * @param clientCertificatePassword The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
          * 
          * @return builder
          * 
@@ -621,8 +599,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificatePath The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-         * Principal using a Client Certificate.
+         * @param clientCertificatePath The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
          * 
          * @return builder
          * 
@@ -633,8 +610,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificatePath The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-         * Principal using a Client Certificate.
+         * @param clientCertificatePath The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
          * 
          * @return builder
          * 
@@ -707,8 +683,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecretFilePath The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-         * using a Client Secret.
+         * @param clientSecretFilePath The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
          * 
          * @return builder
          * 
@@ -719,8 +694,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSecretFilePath The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-         * using a Client Secret.
+         * @param clientSecretFilePath The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
          * 
          * @return builder
          * 
@@ -760,8 +734,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-         * used and should not be specified when `metadata_host` is specified.
+         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
          * 
          * @return builder
          * 
@@ -772,8 +745,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-         * used and should not be specified when `metadata_host` is specified.
+         * @param environment The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
          * 
          * @return builder
          * 
@@ -813,8 +785,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param msiApiVersion The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-         * the endpoint. e.g. for Azure Container Apps.
+         * @param msiApiVersion The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
          * 
          * @return builder
          * 
@@ -825,8 +796,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param msiApiVersion The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-         * the endpoint. e.g. for Azure Container Apps.
+         * @param msiApiVersion The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
          * 
          * @return builder
          * 
@@ -836,8 +806,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param msiEndpoint The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-         * automatically.
+         * @param msiEndpoint The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
          * 
          * @return builder
          * 
@@ -848,8 +817,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param msiEndpoint The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-         * automatically.
+         * @param msiEndpoint The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
          * 
          * @return builder
          * 
@@ -859,8 +827,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-         * Connect.
+         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
          * 
          * @return builder
          * 
@@ -871,8 +838,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-         * Connect.
+         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
          * 
          * @return builder
          * 
@@ -882,8 +848,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-         * using OpenID Connect.
+         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
          * 
          * @return builder
          * 
@@ -894,8 +859,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-         * using OpenID Connect.
+         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
          * 
          * @return builder
          * 
@@ -989,8 +953,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-         * `resource_provider_registrations` property.
+         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
          * 
          * @return builder
          * 
@@ -1001,8 +964,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-         * `resource_provider_registrations` property.
+         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
          * 
          * @return builder
          * 
@@ -1012,8 +974,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-         * `resource_provider_registrations` property.
+         * @param resourceProvidersToRegisters A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
          * 
          * @return builder
          * 
@@ -1023,8 +984,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipProviderRegistration Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already
-         * registered?
+         * @param skipProviderRegistration Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
          * 
          * @return builder
          * 
@@ -1039,8 +999,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipProviderRegistration Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already
-         * registered?
+         * @param skipProviderRegistration Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
          * 
          * @return builder
          * 

@@ -79,59 +79,59 @@ export class ElasticSan extends pulumi.CustomResource {
      *
      * > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
      */
-    public readonly baseSizeInTib!: pulumi.Output<number>;
+    declare public readonly baseSizeInTib: pulumi.Output<number>;
     /**
      * Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      *
      * > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      */
-    public readonly extendedSizeInTib!: pulumi.Output<number | undefined>;
+    declare public readonly extendedSizeInTib: pulumi.Output<number | undefined>;
     /**
      * The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<outputs.elasticsan.ElasticSanSku>;
+    declare public readonly sku: pulumi.Output<outputs.elasticsan.ElasticSanSku>;
     /**
      * A mapping of tags which should be assigned to the Elastic SAN resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Total Provisioned IOps of the Elastic SAN resource.
      */
-    public /*out*/ readonly totalIops!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalIops: pulumi.Output<number>;
     /**
      * Total Provisioned MBps Elastic SAN resource.
      */
-    public /*out*/ readonly totalMbps!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalMbps: pulumi.Output<number>;
     /**
      * Total size of the Elastic SAN resource in TB.
      */
-    public /*out*/ readonly totalSizeInTib!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalSizeInTib: pulumi.Output<number>;
     /**
      * Total size of the provisioned Volumes in GiB.
      */
-    public /*out*/ readonly totalVolumeSizeInGib!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalVolumeSizeInGib: pulumi.Output<number>;
     /**
      * Total number of volume groups in this Elastic SAN resource.
      */
-    public /*out*/ readonly volumeGroupCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly volumeGroupCount: pulumi.Output<number>;
     /**
      * Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      *
      * > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ElasticSan resource with the given unique name, arguments, and options.
@@ -146,38 +146,38 @@ export class ElasticSan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ElasticSanState | undefined;
-            resourceInputs["baseSizeInTib"] = state ? state.baseSizeInTib : undefined;
-            resourceInputs["extendedSizeInTib"] = state ? state.extendedSizeInTib : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["totalIops"] = state ? state.totalIops : undefined;
-            resourceInputs["totalMbps"] = state ? state.totalMbps : undefined;
-            resourceInputs["totalSizeInTib"] = state ? state.totalSizeInTib : undefined;
-            resourceInputs["totalVolumeSizeInGib"] = state ? state.totalVolumeSizeInGib : undefined;
-            resourceInputs["volumeGroupCount"] = state ? state.volumeGroupCount : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["baseSizeInTib"] = state?.baseSizeInTib;
+            resourceInputs["extendedSizeInTib"] = state?.extendedSizeInTib;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["totalIops"] = state?.totalIops;
+            resourceInputs["totalMbps"] = state?.totalMbps;
+            resourceInputs["totalSizeInTib"] = state?.totalSizeInTib;
+            resourceInputs["totalVolumeSizeInGib"] = state?.totalVolumeSizeInGib;
+            resourceInputs["volumeGroupCount"] = state?.volumeGroupCount;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as ElasticSanArgs | undefined;
-            if ((!args || args.baseSizeInTib === undefined) && !opts.urn) {
+            if (args?.baseSizeInTib === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseSizeInTib'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["baseSizeInTib"] = args ? args.baseSizeInTib : undefined;
-            resourceInputs["extendedSizeInTib"] = args ? args.extendedSizeInTib : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["baseSizeInTib"] = args?.baseSizeInTib;
+            resourceInputs["extendedSizeInTib"] = args?.extendedSizeInTib;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["totalIops"] = undefined /*out*/;
             resourceInputs["totalMbps"] = undefined /*out*/;
             resourceInputs["totalSizeInTib"] = undefined /*out*/;

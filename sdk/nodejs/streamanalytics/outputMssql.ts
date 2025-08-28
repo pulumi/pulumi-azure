@@ -91,47 +91,47 @@ export class OutputMssql extends pulumi.CustomResource {
     /**
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
-    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationMode: pulumi.Output<string | undefined>;
     /**
      * The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
      */
-    public readonly maxBatchCount!: pulumi.Output<number | undefined>;
+    declare public readonly maxBatchCount: pulumi.Output<number | undefined>;
     /**
      * The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
      */
-    public readonly maxWriterCount!: pulumi.Output<number | undefined>;
+    declare public readonly maxWriterCount: pulumi.Output<number | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Password used together with username, to login to the Microsoft SQL Server. Required if `authenticationMode` is `ConnectionString`.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SQL server url. Changing this forces a new resource to be created.
      */
-    public readonly server!: pulumi.Output<string>;
+    declare public readonly server: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobName: pulumi.Output<string>;
     /**
      * Table in the database that the output points to. Changing this forces a new resource to be created.
      */
-    public readonly table!: pulumi.Output<string>;
+    declare public readonly table: pulumi.Output<string>;
     /**
      * Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authenticationMode` is `ConnectionString`.
      */
-    public readonly user!: pulumi.Output<string | undefined>;
+    declare public readonly user: pulumi.Output<string | undefined>;
 
     /**
      * Create a OutputMssql resource with the given unique name, arguments, and options.
@@ -146,45 +146,45 @@ export class OutputMssql extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputMssqlState | undefined;
-            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["maxBatchCount"] = state ? state.maxBatchCount : undefined;
-            resourceInputs["maxWriterCount"] = state ? state.maxWriterCount : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["server"] = state ? state.server : undefined;
-            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
-            resourceInputs["user"] = state ? state.user : undefined;
+            resourceInputs["authenticationMode"] = state?.authenticationMode;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["maxBatchCount"] = state?.maxBatchCount;
+            resourceInputs["maxWriterCount"] = state?.maxWriterCount;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["server"] = state?.server;
+            resourceInputs["streamAnalyticsJobName"] = state?.streamAnalyticsJobName;
+            resourceInputs["table"] = state?.table;
+            resourceInputs["user"] = state?.user;
         } else {
             const args = argsOrState as OutputMssqlArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.server === undefined) && !opts.urn) {
+            if (args?.server === undefined && !opts.urn) {
                 throw new Error("Missing required property 'server'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if ((!args || args.table === undefined) && !opts.urn) {
+            if (args?.table === undefined && !opts.urn) {
                 throw new Error("Missing required property 'table'");
             }
-            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["maxBatchCount"] = args ? args.maxBatchCount : undefined;
-            resourceInputs["maxWriterCount"] = args ? args.maxWriterCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["authenticationMode"] = args?.authenticationMode;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["maxBatchCount"] = args?.maxBatchCount;
+            resourceInputs["maxWriterCount"] = args?.maxWriterCount;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["server"] = args ? args.server : undefined;
-            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["server"] = args?.server;
+            resourceInputs["streamAnalyticsJobName"] = args?.streamAnalyticsJobName;
+            resourceInputs["table"] = args?.table;
+            resourceInputs["user"] = args?.user;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

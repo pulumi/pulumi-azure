@@ -90,47 +90,47 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     /**
      * Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
      */
-    public readonly hybridConnectionName!: pulumi.Output<string>;
+    declare public readonly hybridConnectionName: pulumi.Output<string>;
     /**
      * Grants listen access to this Authorization Rule. Defaults to `false`.
      */
-    public readonly listen!: pulumi.Output<boolean | undefined>;
+    declare public readonly listen: pulumi.Output<boolean | undefined>;
     /**
      * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be set to `true` too. Defaults to `false`.
      */
-    public readonly manage!: pulumi.Output<boolean | undefined>;
+    declare public readonly manage: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Azure Relay Hybrid Connection Authorization Rule. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Name of the Azure Relay Namespace for which this Azure Relay Hybrid Connection Authorization Rule will be created. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * The Primary Connection String for the Azure Relay Hybrid Connection Authorization Rule.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The Primary Key for the Azure Relay Hybrid Connection Authorization Rule.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Azure Relay Hybrid Connection Authorization Rule should exist. Changing this forces a new Azure Relay Hybrid Connection Authorization Rule to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the Azure Relay Hybrid Connection Authorization Rule.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The Secondary Key for the Azure Relay Hybrid Connection Authorization Rule.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * Grants send access to this Authorization Rule. Defaults to `false`.
      */
-    public readonly send!: pulumi.Output<boolean | undefined>;
+    declare public readonly send: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a HybridConnectionAuthorizationRule resource with the given unique name, arguments, and options.
@@ -145,35 +145,35 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HybridConnectionAuthorizationRuleState | undefined;
-            resourceInputs["hybridConnectionName"] = state ? state.hybridConnectionName : undefined;
-            resourceInputs["listen"] = state ? state.listen : undefined;
-            resourceInputs["manage"] = state ? state.manage : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["send"] = state ? state.send : undefined;
+            resourceInputs["hybridConnectionName"] = state?.hybridConnectionName;
+            resourceInputs["listen"] = state?.listen;
+            resourceInputs["manage"] = state?.manage;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["send"] = state?.send;
         } else {
             const args = argsOrState as HybridConnectionAuthorizationRuleArgs | undefined;
-            if ((!args || args.hybridConnectionName === undefined) && !opts.urn) {
+            if (args?.hybridConnectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hybridConnectionName'");
             }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["hybridConnectionName"] = args ? args.hybridConnectionName : undefined;
-            resourceInputs["listen"] = args ? args.listen : undefined;
-            resourceInputs["manage"] = args ? args.manage : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["send"] = args ? args.send : undefined;
+            resourceInputs["hybridConnectionName"] = args?.hybridConnectionName;
+            resourceInputs["listen"] = args?.listen;
+            resourceInputs["manage"] = args?.manage;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["send"] = args?.send;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["secondaryConnectionString"] = undefined /*out*/;

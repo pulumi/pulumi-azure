@@ -89,76 +89,76 @@ export class HostPool extends pulumi.CustomResource {
     /**
      * A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
      */
-    public readonly customRdpProperties!: pulumi.Output<string | undefined>;
+    declare public readonly customRdpProperties: pulumi.Output<string | undefined>;
     /**
      * A description for the Virtual Desktop Host Pool.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A friendly name for the Virtual Desktop Host Pool.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
      * `DepthFirst` load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
      * `Persistent` should be used if the host pool type is `Personal`
      */
-    public readonly loadBalancerType!: pulumi.Output<string>;
+    declare public readonly loadBalancerType: pulumi.Output<string>;
     /**
      * The location/region where the Virtual Desktop Host Pool is located. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host.
      * Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`.
      */
-    public readonly maximumSessionsAllowed!: pulumi.Output<number | undefined>;
+    declare public readonly maximumSessionsAllowed: pulumi.Output<number | undefined>;
     /**
      * The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
      *
      * > **Note:** `personalDesktopAssignmentType` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
      */
-    public readonly personalDesktopAssignmentType!: pulumi.Output<string | undefined>;
+    declare public readonly personalDesktopAssignmentType: pulumi.Output<string | undefined>;
     /**
      * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
      */
-    public readonly preferredAppGroupType!: pulumi.Output<string | undefined>;
+    declare public readonly preferredAppGroupType: pulumi.Output<string | undefined>;
     /**
      * Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
      */
-    public readonly scheduledAgentUpdates!: pulumi.Output<outputs.desktopvirtualization.HostPoolScheduledAgentUpdates | undefined>;
+    declare public readonly scheduledAgentUpdates: pulumi.Output<outputs.desktopvirtualization.HostPoolScheduledAgentUpdates | undefined>;
     /**
      * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
      */
-    public readonly startVmOnConnect!: pulumi.Output<boolean | undefined>;
+    declare public readonly startVmOnConnect: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Allows you to test service changes before they are deployed to production. Defaults to `false`.
      */
-    public readonly validateEnvironment!: pulumi.Output<boolean | undefined>;
+    declare public readonly validateEnvironment: pulumi.Output<boolean | undefined>;
     /**
      * A VM template for session hosts configuration within hostpool. This is a JSON string.
      */
-    public readonly vmTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly vmTemplate: pulumi.Output<string | undefined>;
 
     /**
      * Create a HostPool resource with the given unique name, arguments, and options.
@@ -173,51 +173,51 @@ export class HostPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostPoolState | undefined;
-            resourceInputs["customRdpProperties"] = state ? state.customRdpProperties : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maximumSessionsAllowed"] = state ? state.maximumSessionsAllowed : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["personalDesktopAssignmentType"] = state ? state.personalDesktopAssignmentType : undefined;
-            resourceInputs["preferredAppGroupType"] = state ? state.preferredAppGroupType : undefined;
-            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scheduledAgentUpdates"] = state ? state.scheduledAgentUpdates : undefined;
-            resourceInputs["startVmOnConnect"] = state ? state.startVmOnConnect : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["validateEnvironment"] = state ? state.validateEnvironment : undefined;
-            resourceInputs["vmTemplate"] = state ? state.vmTemplate : undefined;
+            resourceInputs["customRdpProperties"] = state?.customRdpProperties;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["loadBalancerType"] = state?.loadBalancerType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maximumSessionsAllowed"] = state?.maximumSessionsAllowed;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["personalDesktopAssignmentType"] = state?.personalDesktopAssignmentType;
+            resourceInputs["preferredAppGroupType"] = state?.preferredAppGroupType;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scheduledAgentUpdates"] = state?.scheduledAgentUpdates;
+            resourceInputs["startVmOnConnect"] = state?.startVmOnConnect;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["validateEnvironment"] = state?.validateEnvironment;
+            resourceInputs["vmTemplate"] = state?.vmTemplate;
         } else {
             const args = argsOrState as HostPoolArgs | undefined;
-            if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
+            if (args?.loadBalancerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["customRdpProperties"] = args ? args.customRdpProperties : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumSessionsAllowed"] = args ? args.maximumSessionsAllowed : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
-            resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scheduledAgentUpdates"] = args ? args.scheduledAgentUpdates : undefined;
-            resourceInputs["startVmOnConnect"] = args ? args.startVmOnConnect : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["validateEnvironment"] = args ? args.validateEnvironment : undefined;
-            resourceInputs["vmTemplate"] = args ? args.vmTemplate : undefined;
+            resourceInputs["customRdpProperties"] = args?.customRdpProperties;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["loadBalancerType"] = args?.loadBalancerType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumSessionsAllowed"] = args?.maximumSessionsAllowed;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["personalDesktopAssignmentType"] = args?.personalDesktopAssignmentType;
+            resourceInputs["preferredAppGroupType"] = args?.preferredAppGroupType;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scheduledAgentUpdates"] = args?.scheduledAgentUpdates;
+            resourceInputs["startVmOnConnect"] = args?.startVmOnConnect;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["validateEnvironment"] = args?.validateEnvironment;
+            resourceInputs["vmTemplate"] = args?.vmTemplate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HostPool.__pulumiType, name, resourceInputs, opts);

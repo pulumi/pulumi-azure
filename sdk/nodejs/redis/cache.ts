@@ -88,127 +88,127 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Whether access key authentication is enabled? Defaults to `true`. `activeDirectoryAuthenticationEnabled` must be set to `true` to disable access key authentication.
      */
-    public readonly accessKeysAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly accessKeysAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
      */
-    public readonly capacity!: pulumi.Output<number>;
+    declare public readonly capacity: pulumi.Output<number>;
     /**
      * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */
-    public readonly family!: pulumi.Output<string>;
+    declare public readonly family: pulumi.Output<string>;
     /**
      * The Hostname of the Redis Instance
      */
-    public /*out*/ readonly hostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostname: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.redis.CacheIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.redis.CacheIdentity | undefined>;
     /**
      * The location of the resource group. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      *
      * > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the Redis instance. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Enable the non-SSL port (6379) - disabled by default.
      */
-    public readonly nonSslPortEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly nonSslPortEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of `patchSchedule` blocks as defined below.
      */
-    public readonly patchSchedules!: pulumi.Output<outputs.redis.CachePatchSchedule[] | undefined>;
+    declare public readonly patchSchedules: pulumi.Output<outputs.redis.CachePatchSchedule[] | undefined>;
     /**
      * The non-SSL Port of the Redis Instance
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
      * The Primary Access Key for the Redis Instance
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * The primary connection string of the Redis Instance.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
      */
-    public readonly privateStaticIpAddress!: pulumi.Output<string>;
+    declare public readonly privateStaticIpAddress: pulumi.Output<string>;
     /**
      * Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    public readonly redisConfiguration!: pulumi.Output<outputs.redis.CacheRedisConfiguration>;
+    declare public readonly redisConfiguration: pulumi.Output<outputs.redis.CacheRedisConfiguration>;
     /**
      * Redis version. Only major version needed. Possible values are `4` and `6`. Defaults to `6`.
      */
-    public readonly redisVersion!: pulumi.Output<string | undefined>;
+    declare public readonly redisVersion: pulumi.Output<string | undefined>;
     /**
      * Amount of replicas to create per master for this Redis Cache.
      *
      * > **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards.
      */
-    public readonly replicasPerMaster!: pulumi.Output<number>;
+    declare public readonly replicasPerMaster: pulumi.Output<number>;
     /**
      * Amount of replicas to create per primary for this Redis Cache. If both `replicasPerPrimary` and `replicasPerMaster` are set, they need to be equal.
      */
-    public readonly replicasPerPrimary!: pulumi.Output<number>;
+    declare public readonly replicasPerPrimary: pulumi.Output<number>;
     /**
      * The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Secondary Access Key for the Redis Instance
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * The secondary connection string of the Redis Instance.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
      */
-    public readonly shardCount!: pulumi.Output<number | undefined>;
+    declare public readonly shardCount: pulumi.Output<number | undefined>;
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      *
      * > **Note** Downgrading the SKU will force a new resource to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * The SSL Port of the Redis Instance
      */
-    public /*out*/ readonly sslPort!: pulumi.Output<number>;
+    declare public /*out*/ readonly sslPort: pulumi.Output<number>;
     /**
      * *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A mapping of tenant settings to assign to the resource.
      */
-    public readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tenantSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      *
      * > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -223,71 +223,71 @@ export class Cache extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheState | undefined;
-            resourceInputs["accessKeysAuthenticationEnabled"] = state ? state.accessKeysAuthenticationEnabled : undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["family"] = state ? state.family : undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nonSslPortEnabled"] = state ? state.nonSslPortEnabled : undefined;
-            resourceInputs["patchSchedules"] = state ? state.patchSchedules : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["privateStaticIpAddress"] = state ? state.privateStaticIpAddress : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["redisConfiguration"] = state ? state.redisConfiguration : undefined;
-            resourceInputs["redisVersion"] = state ? state.redisVersion : undefined;
-            resourceInputs["replicasPerMaster"] = state ? state.replicasPerMaster : undefined;
-            resourceInputs["replicasPerPrimary"] = state ? state.replicasPerPrimary : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["shardCount"] = state ? state.shardCount : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["sslPort"] = state ? state.sslPort : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantSettings"] = state ? state.tenantSettings : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["accessKeysAuthenticationEnabled"] = state?.accessKeysAuthenticationEnabled;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["family"] = state?.family;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["minimumTlsVersion"] = state?.minimumTlsVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nonSslPortEnabled"] = state?.nonSslPortEnabled;
+            resourceInputs["patchSchedules"] = state?.patchSchedules;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["privateStaticIpAddress"] = state?.privateStaticIpAddress;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["redisConfiguration"] = state?.redisConfiguration;
+            resourceInputs["redisVersion"] = state?.redisVersion;
+            resourceInputs["replicasPerMaster"] = state?.replicasPerMaster;
+            resourceInputs["replicasPerPrimary"] = state?.replicasPerPrimary;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["shardCount"] = state?.shardCount;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["sslPort"] = state?.sslPort;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantSettings"] = state?.tenantSettings;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as CacheArgs | undefined;
-            if ((!args || args.capacity === undefined) && !opts.urn) {
+            if (args?.capacity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacity'");
             }
-            if ((!args || args.family === undefined) && !opts.urn) {
+            if (args?.family === undefined && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["accessKeysAuthenticationEnabled"] = args ? args.accessKeysAuthenticationEnabled : undefined;
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nonSslPortEnabled"] = args ? args.nonSslPortEnabled : undefined;
-            resourceInputs["patchSchedules"] = args ? args.patchSchedules : undefined;
-            resourceInputs["privateStaticIpAddress"] = args ? args.privateStaticIpAddress : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
-            resourceInputs["redisVersion"] = args ? args.redisVersion : undefined;
-            resourceInputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
-            resourceInputs["replicasPerPrimary"] = args ? args.replicasPerPrimary : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantSettings"] = args ? args.tenantSettings : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["accessKeysAuthenticationEnabled"] = args?.accessKeysAuthenticationEnabled;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["family"] = args?.family;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nonSslPortEnabled"] = args?.nonSslPortEnabled;
+            resourceInputs["patchSchedules"] = args?.patchSchedules;
+            resourceInputs["privateStaticIpAddress"] = args?.privateStaticIpAddress;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["redisConfiguration"] = args?.redisConfiguration;
+            resourceInputs["redisVersion"] = args?.redisVersion;
+            resourceInputs["replicasPerMaster"] = args?.replicasPerMaster;
+            resourceInputs["replicasPerPrimary"] = args?.replicasPerPrimary;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantSettings"] = args?.tenantSettings;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["hostname"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;

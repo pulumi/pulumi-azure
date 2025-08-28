@@ -118,23 +118,23 @@ export class RestorePointCollection extends pulumi.CustomResource {
     /**
      * The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      */
-    public readonly sourceVirtualMachineId!: pulumi.Output<string>;
+    declare public readonly sourceVirtualMachineId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RestorePointCollection resource with the given unique name, arguments, and options.
@@ -149,24 +149,24 @@ export class RestorePointCollection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestorePointCollectionState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceVirtualMachineId"] = state ? state.sourceVirtualMachineId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceVirtualMachineId"] = state?.sourceVirtualMachineId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as RestorePointCollectionArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceVirtualMachineId === undefined) && !opts.urn) {
+            if (args?.sourceVirtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceVirtualMachineId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceVirtualMachineId"] = args ? args.sourceVirtualMachineId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceVirtualMachineId"] = args?.sourceVirtualMachineId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection" }] };

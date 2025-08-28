@@ -48,57 +48,57 @@ export class EndpointCosmosdbAccount extends pulumi.CustomResource {
     /**
      * The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      */
-    public readonly authenticationType!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationType: pulumi.Output<string | undefined>;
     /**
      * The name of the Cosmos DB Container in the Cosmos DB Database. Changing this forces a new resource to be created.
      */
-    public readonly containerName!: pulumi.Output<string>;
+    declare public readonly containerName: pulumi.Output<string>;
     /**
      * The name of the Cosmos DB Database in the Cosmos DB Account. Changing this forces a new resource to be created.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The URI of the Cosmos DB Account. Changing this forces a new resource to be created.
      */
-    public readonly endpointUri!: pulumi.Output<string>;
+    declare public readonly endpointUri: pulumi.Output<string>;
     /**
      * The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
      *
      * > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      */
-    public readonly identityId!: pulumi.Output<string | undefined>;
+    declare public readonly identityId: pulumi.Output<string | undefined>;
     /**
      * The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
      */
-    public readonly iothubId!: pulumi.Output<string>;
+    declare public readonly iothubId: pulumi.Output<string>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the partition key associated with the Cosmos DB Container.
      */
-    public readonly partitionKeyName!: pulumi.Output<string | undefined>;
+    declare public readonly partitionKeyName: pulumi.Output<string | undefined>;
     /**
      * The template for generating a synthetic partition key value for use within the Cosmos DB Container.
      */
-    public readonly partitionKeyTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly partitionKeyTemplate: pulumi.Output<string | undefined>;
     /**
      * The primary key of the Cosmos DB Account.
      *
      * > **Note:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
      */
-    public readonly primaryKey!: pulumi.Output<string | undefined>;
+    declare public readonly primaryKey: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary key of the Cosmos DB Account.
      *
      * > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
      */
-    public readonly secondaryKey!: pulumi.Output<string | undefined>;
+    declare public readonly secondaryKey: pulumi.Output<string | undefined>;
 
     /**
      * Create a EndpointCosmosdbAccount resource with the given unique name, arguments, and options.
@@ -113,46 +113,46 @@ export class EndpointCosmosdbAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointCosmosdbAccountState | undefined;
-            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
-            resourceInputs["containerName"] = state ? state.containerName : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["endpointUri"] = state ? state.endpointUri : undefined;
-            resourceInputs["identityId"] = state ? state.identityId : undefined;
-            resourceInputs["iothubId"] = state ? state.iothubId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partitionKeyName"] = state ? state.partitionKeyName : undefined;
-            resourceInputs["partitionKeyTemplate"] = state ? state.partitionKeyTemplate : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
+            resourceInputs["authenticationType"] = state?.authenticationType;
+            resourceInputs["containerName"] = state?.containerName;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["endpointUri"] = state?.endpointUri;
+            resourceInputs["identityId"] = state?.identityId;
+            resourceInputs["iothubId"] = state?.iothubId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partitionKeyName"] = state?.partitionKeyName;
+            resourceInputs["partitionKeyTemplate"] = state?.partitionKeyTemplate;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
         } else {
             const args = argsOrState as EndpointCosmosdbAccountArgs | undefined;
-            if ((!args || args.containerName === undefined) && !opts.urn) {
+            if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.endpointUri === undefined) && !opts.urn) {
+            if (args?.endpointUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointUri'");
             }
-            if ((!args || args.iothubId === undefined) && !opts.urn) {
+            if (args?.iothubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["endpointUri"] = args ? args.endpointUri : undefined;
-            resourceInputs["identityId"] = args ? args.identityId : undefined;
-            resourceInputs["iothubId"] = args ? args.iothubId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partitionKeyName"] = args ? args.partitionKeyName : undefined;
-            resourceInputs["partitionKeyTemplate"] = args ? args.partitionKeyTemplate : undefined;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["endpointUri"] = args?.endpointUri;
+            resourceInputs["identityId"] = args?.identityId;
+            resourceInputs["iothubId"] = args?.iothubId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partitionKeyName"] = args?.partitionKeyName;
+            resourceInputs["partitionKeyTemplate"] = args?.partitionKeyTemplate;
             resourceInputs["primaryKey"] = args?.primaryKey ? pulumi.secret(args.primaryKey) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["secondaryKey"] = args?.secondaryKey ? pulumi.secret(args.secondaryKey) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

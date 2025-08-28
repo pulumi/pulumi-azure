@@ -46,31 +46,31 @@ export class LinkedServer extends pulumi.CustomResource {
     /**
      * The geo-replicated primary hostname for this linked server.
      */
-    public /*out*/ readonly geoReplicatedPrimaryHostName!: pulumi.Output<string>;
+    declare public /*out*/ readonly geoReplicatedPrimaryHostName: pulumi.Output<string>;
     /**
      * The ID of the linked Redis cache. Changing this forces a new Redis to be created.
      */
-    public readonly linkedRedisCacheId!: pulumi.Output<string>;
+    declare public readonly linkedRedisCacheId: pulumi.Output<string>;
     /**
      * The location of the linked Redis cache. Changing this forces a new Redis to be created.
      */
-    public readonly linkedRedisCacheLocation!: pulumi.Output<string>;
+    declare public readonly linkedRedisCacheLocation: pulumi.Output<string>;
     /**
      * The name of the linked server.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
      */
-    public readonly serverRole!: pulumi.Output<string>;
+    declare public readonly serverRole: pulumi.Output<string>;
     /**
      * The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
      */
-    public readonly targetRedisCacheName!: pulumi.Output<string>;
+    declare public readonly targetRedisCacheName: pulumi.Output<string>;
 
     /**
      * Create a LinkedServer resource with the given unique name, arguments, and options.
@@ -85,35 +85,35 @@ export class LinkedServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServerState | undefined;
-            resourceInputs["geoReplicatedPrimaryHostName"] = state ? state.geoReplicatedPrimaryHostName : undefined;
-            resourceInputs["linkedRedisCacheId"] = state ? state.linkedRedisCacheId : undefined;
-            resourceInputs["linkedRedisCacheLocation"] = state ? state.linkedRedisCacheLocation : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serverRole"] = state ? state.serverRole : undefined;
-            resourceInputs["targetRedisCacheName"] = state ? state.targetRedisCacheName : undefined;
+            resourceInputs["geoReplicatedPrimaryHostName"] = state?.geoReplicatedPrimaryHostName;
+            resourceInputs["linkedRedisCacheId"] = state?.linkedRedisCacheId;
+            resourceInputs["linkedRedisCacheLocation"] = state?.linkedRedisCacheLocation;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serverRole"] = state?.serverRole;
+            resourceInputs["targetRedisCacheName"] = state?.targetRedisCacheName;
         } else {
             const args = argsOrState as LinkedServerArgs | undefined;
-            if ((!args || args.linkedRedisCacheId === undefined) && !opts.urn) {
+            if (args?.linkedRedisCacheId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedRedisCacheId'");
             }
-            if ((!args || args.linkedRedisCacheLocation === undefined) && !opts.urn) {
+            if (args?.linkedRedisCacheLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedRedisCacheLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverRole === undefined) && !opts.urn) {
+            if (args?.serverRole === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverRole'");
             }
-            if ((!args || args.targetRedisCacheName === undefined) && !opts.urn) {
+            if (args?.targetRedisCacheName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetRedisCacheName'");
             }
-            resourceInputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
-            resourceInputs["linkedRedisCacheLocation"] = args ? args.linkedRedisCacheLocation : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverRole"] = args ? args.serverRole : undefined;
-            resourceInputs["targetRedisCacheName"] = args ? args.targetRedisCacheName : undefined;
+            resourceInputs["linkedRedisCacheId"] = args?.linkedRedisCacheId;
+            resourceInputs["linkedRedisCacheLocation"] = args?.linkedRedisCacheLocation;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverRole"] = args?.serverRole;
+            resourceInputs["targetRedisCacheName"] = args?.targetRedisCacheName;
             resourceInputs["geoReplicatedPrimaryHostName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

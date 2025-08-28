@@ -141,27 +141,27 @@ export class MedtechServiceFhirDestination extends pulumi.CustomResource {
     /**
      * Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
      */
-    public readonly destinationFhirMappingJson!: pulumi.Output<string>;
+    declare public readonly destinationFhirMappingJson: pulumi.Output<string>;
     /**
      * Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
      */
-    public readonly destinationFhirServiceId!: pulumi.Output<string>;
+    declare public readonly destinationFhirServiceId: pulumi.Output<string>;
     /**
      * Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
      */
-    public readonly destinationIdentityResolutionType!: pulumi.Output<string>;
+    declare public readonly destinationIdentityResolutionType: pulumi.Output<string>;
     /**
      * Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      */
-    public readonly medtechServiceId!: pulumi.Output<string>;
+    declare public readonly medtechServiceId: pulumi.Output<string>;
     /**
      * Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a MedtechServiceFhirDestination resource with the given unique name, arguments, and options.
@@ -176,32 +176,32 @@ export class MedtechServiceFhirDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MedtechServiceFhirDestinationState | undefined;
-            resourceInputs["destinationFhirMappingJson"] = state ? state.destinationFhirMappingJson : undefined;
-            resourceInputs["destinationFhirServiceId"] = state ? state.destinationFhirServiceId : undefined;
-            resourceInputs["destinationIdentityResolutionType"] = state ? state.destinationIdentityResolutionType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["medtechServiceId"] = state ? state.medtechServiceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["destinationFhirMappingJson"] = state?.destinationFhirMappingJson;
+            resourceInputs["destinationFhirServiceId"] = state?.destinationFhirServiceId;
+            resourceInputs["destinationIdentityResolutionType"] = state?.destinationIdentityResolutionType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["medtechServiceId"] = state?.medtechServiceId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as MedtechServiceFhirDestinationArgs | undefined;
-            if ((!args || args.destinationFhirMappingJson === undefined) && !opts.urn) {
+            if (args?.destinationFhirMappingJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationFhirMappingJson'");
             }
-            if ((!args || args.destinationFhirServiceId === undefined) && !opts.urn) {
+            if (args?.destinationFhirServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationFhirServiceId'");
             }
-            if ((!args || args.destinationIdentityResolutionType === undefined) && !opts.urn) {
+            if (args?.destinationIdentityResolutionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationIdentityResolutionType'");
             }
-            if ((!args || args.medtechServiceId === undefined) && !opts.urn) {
+            if (args?.medtechServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'medtechServiceId'");
             }
-            resourceInputs["destinationFhirMappingJson"] = args ? args.destinationFhirMappingJson : undefined;
-            resourceInputs["destinationFhirServiceId"] = args ? args.destinationFhirServiceId : undefined;
-            resourceInputs["destinationIdentityResolutionType"] = args ? args.destinationIdentityResolutionType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["medtechServiceId"] = args ? args.medtechServiceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["destinationFhirMappingJson"] = args?.destinationFhirMappingJson;
+            resourceInputs["destinationFhirServiceId"] = args?.destinationFhirServiceId;
+            resourceInputs["destinationIdentityResolutionType"] = args?.destinationIdentityResolutionType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["medtechServiceId"] = args?.medtechServiceId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MedtechServiceFhirDestination.__pulumiType, name, resourceInputs, opts);

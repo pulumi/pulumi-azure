@@ -113,59 +113,59 @@ export class EventhubDataConnection extends pulumi.CustomResource {
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
      */
-    public readonly compression!: pulumi.Output<string | undefined>;
+    declare public readonly compression: pulumi.Output<string | undefined>;
     /**
      * Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    public readonly consumerGroup!: pulumi.Output<string>;
+    declare public readonly consumerGroup: pulumi.Output<string>;
     /**
      * Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
      */
-    public readonly dataFormat!: pulumi.Output<string | undefined>;
+    declare public readonly dataFormat: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
-    public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
+    declare public readonly databaseRoutingType: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of system properties for the Event Hub.
      */
-    public readonly eventSystemProperties!: pulumi.Output<string[]>;
+    declare public readonly eventSystemProperties: pulumi.Output<string[]>;
     /**
      * Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    public readonly eventhubId!: pulumi.Output<string>;
+    declare public readonly eventhubId: pulumi.Output<string>;
     /**
      * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
      */
-    public readonly identityId!: pulumi.Output<string | undefined>;
+    declare public readonly identityId: pulumi.Output<string | undefined>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
-    public readonly mappingRuleName!: pulumi.Output<string | undefined>;
+    declare public readonly mappingRuleName: pulumi.Output<string | undefined>;
     /**
      * The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created.
      */
-    public readonly tableName!: pulumi.Output<string | undefined>;
+    declare public readonly tableName: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventhubDataConnection resource with the given unique name, arguments, and options.
@@ -180,51 +180,51 @@ export class EventhubDataConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventhubDataConnectionState | undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["compression"] = state ? state.compression : undefined;
-            resourceInputs["consumerGroup"] = state ? state.consumerGroup : undefined;
-            resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["databaseRoutingType"] = state ? state.databaseRoutingType : undefined;
-            resourceInputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
-            resourceInputs["eventhubId"] = state ? state.eventhubId : undefined;
-            resourceInputs["identityId"] = state ? state.identityId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["compression"] = state?.compression;
+            resourceInputs["consumerGroup"] = state?.consumerGroup;
+            resourceInputs["dataFormat"] = state?.dataFormat;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["databaseRoutingType"] = state?.databaseRoutingType;
+            resourceInputs["eventSystemProperties"] = state?.eventSystemProperties;
+            resourceInputs["eventhubId"] = state?.eventhubId;
+            resourceInputs["identityId"] = state?.identityId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mappingRuleName"] = state?.mappingRuleName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as EventhubDataConnectionArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.consumerGroup === undefined) && !opts.urn) {
+            if (args?.consumerGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerGroup'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.eventhubId === undefined) && !opts.urn) {
+            if (args?.eventhubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["compression"] = args ? args.compression : undefined;
-            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["databaseRoutingType"] = args ? args.databaseRoutingType : undefined;
-            resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
-            resourceInputs["eventhubId"] = args ? args.eventhubId : undefined;
-            resourceInputs["identityId"] = args ? args.identityId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["compression"] = args?.compression;
+            resourceInputs["consumerGroup"] = args?.consumerGroup;
+            resourceInputs["dataFormat"] = args?.dataFormat;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["databaseRoutingType"] = args?.databaseRoutingType;
+            resourceInputs["eventSystemProperties"] = args?.eventSystemProperties;
+            resourceInputs["eventhubId"] = args?.eventhubId;
+            resourceInputs["identityId"] = args?.identityId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mappingRuleName"] = args?.mappingRuleName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tableName"] = args?.tableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventhubDataConnection.__pulumiType, name, resourceInputs, opts);

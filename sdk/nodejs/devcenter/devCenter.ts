@@ -97,31 +97,31 @@ export class DevCenter extends pulumi.CustomResource {
     /**
      * The URI of the Dev Center.
      */
-    public /*out*/ readonly devCenterUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly devCenterUri: pulumi.Output<string>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
      */
-    public readonly identity!: pulumi.Output<outputs.devcenter.DevCenterIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.devcenter.DevCenterIdentity | undefined>;
     /**
      * The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
      */
-    public readonly projectCatalogItemSyncEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly projectCatalogItemSyncEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Dev Center.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DevCenter resource with the given unique name, arguments, and options.
@@ -136,24 +136,24 @@ export class DevCenter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DevCenterState | undefined;
-            resourceInputs["devCenterUri"] = state ? state.devCenterUri : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["projectCatalogItemSyncEnabled"] = state ? state.projectCatalogItemSyncEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["devCenterUri"] = state?.devCenterUri;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["projectCatalogItemSyncEnabled"] = state?.projectCatalogItemSyncEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as DevCenterArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["projectCatalogItemSyncEnabled"] = args ? args.projectCatalogItemSyncEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["projectCatalogItemSyncEnabled"] = args?.projectCatalogItemSyncEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["devCenterUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

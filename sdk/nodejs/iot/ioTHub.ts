@@ -162,91 +162,91 @@ export class IoTHub extends pulumi.CustomResource {
         return obj['__pulumiType'] === IoTHub.__pulumiType;
     }
 
-    public readonly cloudToDevice!: pulumi.Output<outputs.iot.IoTHubCloudToDevice>;
+    declare public readonly cloudToDevice: pulumi.Output<outputs.iot.IoTHubCloudToDevice>;
     /**
      * An `endpoint` block as defined below.
      */
-    public readonly endpoints!: pulumi.Output<outputs.iot.IoTHubEndpoint[]>;
-    public readonly enrichments!: pulumi.Output<outputs.iot.IoTHubEnrichment[]>;
+    declare public readonly endpoints: pulumi.Output<outputs.iot.IoTHubEndpoint[]>;
+    declare public readonly enrichments: pulumi.Output<outputs.iot.IoTHubEnrichment[]>;
     /**
      * The EventHub compatible endpoint for events data
      */
-    public /*out*/ readonly eventHubEventsEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventHubEventsEndpoint: pulumi.Output<string>;
     /**
      * The EventHub namespace for events data
      */
-    public /*out*/ readonly eventHubEventsNamespace!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventHubEventsNamespace: pulumi.Output<string>;
     /**
      * The EventHub compatible path for events data
      */
-    public /*out*/ readonly eventHubEventsPath!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventHubEventsPath: pulumi.Output<string>;
     /**
      * The EventHub compatible endpoint for operational data
      */
-    public /*out*/ readonly eventHubOperationsEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventHubOperationsEndpoint: pulumi.Output<string>;
     /**
      * The EventHub compatible path for operational data
      */
-    public /*out*/ readonly eventHubOperationsPath!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventHubOperationsPath: pulumi.Output<string>;
     /**
      * The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
      */
-    public readonly eventHubPartitionCount!: pulumi.Output<number | undefined>;
+    declare public readonly eventHubPartitionCount: pulumi.Output<number | undefined>;
     /**
      * The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
      */
-    public readonly eventHubRetentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly eventHubRetentionInDays: pulumi.Output<number | undefined>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      *
      * > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
      */
-    public readonly fallbackRoute!: pulumi.Output<outputs.iot.IoTHubFallbackRoute>;
+    declare public readonly fallbackRoute: pulumi.Output<outputs.iot.IoTHubFallbackRoute>;
     /**
      * A `fileUpload` block as defined below.
      */
-    public readonly fileUpload!: pulumi.Output<outputs.iot.IoTHubFileUpload | undefined>;
+    declare public readonly fileUpload: pulumi.Output<outputs.iot.IoTHubFileUpload | undefined>;
     /**
      * The hostname of the IotHub Resource.
      */
-    public /*out*/ readonly hostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostname: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.iot.IoTHubIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.iot.IoTHubIdentity | undefined>;
     /**
      * If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
      */
-    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
-    public readonly minTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string>;
+    declare public readonly minTlsVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkRuleSet` block as defined below.
      */
-    public readonly networkRuleSets!: pulumi.Output<outputs.iot.IoTHubNetworkRuleSet[] | undefined>;
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly networkRuleSets: pulumi.Output<outputs.iot.IoTHubNetworkRuleSet[] | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    public readonly routes!: pulumi.Output<outputs.iot.IoTHubRoute[]>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
+    declare public readonly routes: pulumi.Output<outputs.iot.IoTHubRoute[]>;
     /**
      * One or more `sharedAccessPolicy` blocks as defined below.
      */
-    public /*out*/ readonly sharedAccessPolicies!: pulumi.Output<outputs.iot.IoTHubSharedAccessPolicy[]>;
+    declare public /*out*/ readonly sharedAccessPolicies: pulumi.Output<outputs.iot.IoTHubSharedAccessPolicy[]>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<outputs.iot.IoTHubSku>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<outputs.iot.IoTHubSku>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IoTHub resource with the given unique name, arguments, and options.
@@ -261,58 +261,58 @@ export class IoTHub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IoTHubState | undefined;
-            resourceInputs["cloudToDevice"] = state ? state.cloudToDevice : undefined;
-            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
-            resourceInputs["enrichments"] = state ? state.enrichments : undefined;
-            resourceInputs["eventHubEventsEndpoint"] = state ? state.eventHubEventsEndpoint : undefined;
-            resourceInputs["eventHubEventsNamespace"] = state ? state.eventHubEventsNamespace : undefined;
-            resourceInputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;
-            resourceInputs["eventHubOperationsEndpoint"] = state ? state.eventHubOperationsEndpoint : undefined;
-            resourceInputs["eventHubOperationsPath"] = state ? state.eventHubOperationsPath : undefined;
-            resourceInputs["eventHubPartitionCount"] = state ? state.eventHubPartitionCount : undefined;
-            resourceInputs["eventHubRetentionInDays"] = state ? state.eventHubRetentionInDays : undefined;
-            resourceInputs["fallbackRoute"] = state ? state.fallbackRoute : undefined;
-            resourceInputs["fileUpload"] = state ? state.fileUpload : undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkRuleSets"] = state ? state.networkRuleSets : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routes"] = state ? state.routes : undefined;
-            resourceInputs["sharedAccessPolicies"] = state ? state.sharedAccessPolicies : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["cloudToDevice"] = state?.cloudToDevice;
+            resourceInputs["endpoints"] = state?.endpoints;
+            resourceInputs["enrichments"] = state?.enrichments;
+            resourceInputs["eventHubEventsEndpoint"] = state?.eventHubEventsEndpoint;
+            resourceInputs["eventHubEventsNamespace"] = state?.eventHubEventsNamespace;
+            resourceInputs["eventHubEventsPath"] = state?.eventHubEventsPath;
+            resourceInputs["eventHubOperationsEndpoint"] = state?.eventHubOperationsEndpoint;
+            resourceInputs["eventHubOperationsPath"] = state?.eventHubOperationsPath;
+            resourceInputs["eventHubPartitionCount"] = state?.eventHubPartitionCount;
+            resourceInputs["eventHubRetentionInDays"] = state?.eventHubRetentionInDays;
+            resourceInputs["fallbackRoute"] = state?.fallbackRoute;
+            resourceInputs["fileUpload"] = state?.fileUpload;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["minTlsVersion"] = state?.minTlsVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkRuleSets"] = state?.networkRuleSets;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routes"] = state?.routes;
+            resourceInputs["sharedAccessPolicies"] = state?.sharedAccessPolicies;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as IoTHubArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["cloudToDevice"] = args ? args.cloudToDevice : undefined;
-            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
-            resourceInputs["enrichments"] = args ? args.enrichments : undefined;
-            resourceInputs["eventHubPartitionCount"] = args ? args.eventHubPartitionCount : undefined;
-            resourceInputs["eventHubRetentionInDays"] = args ? args.eventHubRetentionInDays : undefined;
-            resourceInputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
-            resourceInputs["fileUpload"] = args ? args.fileUpload : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkRuleSets"] = args ? args.networkRuleSets : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cloudToDevice"] = args?.cloudToDevice;
+            resourceInputs["endpoints"] = args?.endpoints;
+            resourceInputs["enrichments"] = args?.enrichments;
+            resourceInputs["eventHubPartitionCount"] = args?.eventHubPartitionCount;
+            resourceInputs["eventHubRetentionInDays"] = args?.eventHubRetentionInDays;
+            resourceInputs["fallbackRoute"] = args?.fallbackRoute;
+            resourceInputs["fileUpload"] = args?.fileUpload;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minTlsVersion"] = args?.minTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkRuleSets"] = args?.networkRuleSets;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["eventHubEventsEndpoint"] = undefined /*out*/;
             resourceInputs["eventHubEventsNamespace"] = undefined /*out*/;
             resourceInputs["eventHubEventsPath"] = undefined /*out*/;

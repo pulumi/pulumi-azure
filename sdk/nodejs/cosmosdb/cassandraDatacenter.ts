@@ -107,57 +107,57 @@ export class CassandraDatacenter extends pulumi.CustomResource {
     /**
      * Determines whether availability zones are enabled. Defaults to `true`.
      */
-    public readonly availabilityZonesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly availabilityZonesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The key URI of the customer key to use for the encryption of the backup Storage Account.
      */
-    public readonly backupStorageCustomerKeyUri!: pulumi.Output<string | undefined>;
+    declare public readonly backupStorageCustomerKeyUri: pulumi.Output<string | undefined>;
     /**
      * The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
      */
-    public readonly base64EncodedYamlFragment!: pulumi.Output<string | undefined>;
+    declare public readonly base64EncodedYamlFragment: pulumi.Output<string | undefined>;
     /**
      * The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
      */
-    public readonly cassandraClusterId!: pulumi.Output<string>;
+    declare public readonly cassandraClusterId: pulumi.Output<string>;
     /**
      * The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
      */
-    public readonly delegatedManagementSubnetId!: pulumi.Output<string>;
+    declare public readonly delegatedManagementSubnetId: pulumi.Output<string>;
     /**
      * Determines the number of p30 disks that are attached to each node.
      */
-    public readonly diskCount!: pulumi.Output<number | undefined>;
+    declare public readonly diskCount: pulumi.Output<number | undefined>;
     /**
      * The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
      */
-    public readonly diskSku!: pulumi.Output<string | undefined>;
+    declare public readonly diskSku: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The key URI of the customer key to use for the encryption of the Managed Disk.
      */
-    public readonly managedDiskCustomerKeyUri!: pulumi.Output<string | undefined>;
+    declare public readonly managedDiskCustomerKeyUri: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
      */
-    public readonly nodeCount!: pulumi.Output<number | undefined>;
+    declare public readonly nodeCount: pulumi.Output<number | undefined>;
     /**
      * A list of IP Address for the seed nodes in this Cassandra Datacenter.
      */
-    public /*out*/ readonly seedNodeIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly seedNodeIpAddresses: pulumi.Output<string[]>;
     /**
      * Determines the selected sku.
      *
      * > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
      */
-    public readonly skuName!: pulumi.Output<string | undefined>;
+    declare public readonly skuName: pulumi.Output<string | undefined>;
 
     /**
      * Create a CassandraDatacenter resource with the given unique name, arguments, and options.
@@ -172,39 +172,39 @@ export class CassandraDatacenter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CassandraDatacenterState | undefined;
-            resourceInputs["availabilityZonesEnabled"] = state ? state.availabilityZonesEnabled : undefined;
-            resourceInputs["backupStorageCustomerKeyUri"] = state ? state.backupStorageCustomerKeyUri : undefined;
-            resourceInputs["base64EncodedYamlFragment"] = state ? state.base64EncodedYamlFragment : undefined;
-            resourceInputs["cassandraClusterId"] = state ? state.cassandraClusterId : undefined;
-            resourceInputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
-            resourceInputs["diskCount"] = state ? state.diskCount : undefined;
-            resourceInputs["diskSku"] = state ? state.diskSku : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedDiskCustomerKeyUri"] = state ? state.managedDiskCustomerKeyUri : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
-            resourceInputs["seedNodeIpAddresses"] = state ? state.seedNodeIpAddresses : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
+            resourceInputs["availabilityZonesEnabled"] = state?.availabilityZonesEnabled;
+            resourceInputs["backupStorageCustomerKeyUri"] = state?.backupStorageCustomerKeyUri;
+            resourceInputs["base64EncodedYamlFragment"] = state?.base64EncodedYamlFragment;
+            resourceInputs["cassandraClusterId"] = state?.cassandraClusterId;
+            resourceInputs["delegatedManagementSubnetId"] = state?.delegatedManagementSubnetId;
+            resourceInputs["diskCount"] = state?.diskCount;
+            resourceInputs["diskSku"] = state?.diskSku;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedDiskCustomerKeyUri"] = state?.managedDiskCustomerKeyUri;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeCount"] = state?.nodeCount;
+            resourceInputs["seedNodeIpAddresses"] = state?.seedNodeIpAddresses;
+            resourceInputs["skuName"] = state?.skuName;
         } else {
             const args = argsOrState as CassandraDatacenterArgs | undefined;
-            if ((!args || args.cassandraClusterId === undefined) && !opts.urn) {
+            if (args?.cassandraClusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cassandraClusterId'");
             }
-            if ((!args || args.delegatedManagementSubnetId === undefined) && !opts.urn) {
+            if (args?.delegatedManagementSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'delegatedManagementSubnetId'");
             }
-            resourceInputs["availabilityZonesEnabled"] = args ? args.availabilityZonesEnabled : undefined;
-            resourceInputs["backupStorageCustomerKeyUri"] = args ? args.backupStorageCustomerKeyUri : undefined;
-            resourceInputs["base64EncodedYamlFragment"] = args ? args.base64EncodedYamlFragment : undefined;
-            resourceInputs["cassandraClusterId"] = args ? args.cassandraClusterId : undefined;
-            resourceInputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
-            resourceInputs["diskCount"] = args ? args.diskCount : undefined;
-            resourceInputs["diskSku"] = args ? args.diskSku : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedDiskCustomerKeyUri"] = args ? args.managedDiskCustomerKeyUri : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["availabilityZonesEnabled"] = args?.availabilityZonesEnabled;
+            resourceInputs["backupStorageCustomerKeyUri"] = args?.backupStorageCustomerKeyUri;
+            resourceInputs["base64EncodedYamlFragment"] = args?.base64EncodedYamlFragment;
+            resourceInputs["cassandraClusterId"] = args?.cassandraClusterId;
+            resourceInputs["delegatedManagementSubnetId"] = args?.delegatedManagementSubnetId;
+            resourceInputs["diskCount"] = args?.diskCount;
+            resourceInputs["diskSku"] = args?.diskSku;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedDiskCustomerKeyUri"] = args?.managedDiskCustomerKeyUri;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodeCount"] = args?.nodeCount;
+            resourceInputs["skuName"] = args?.skuName;
             resourceInputs["seedNodeIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

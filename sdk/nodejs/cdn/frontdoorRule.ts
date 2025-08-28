@@ -318,33 +318,33 @@ export class FrontdoorRule extends pulumi.CustomResource {
     /**
      * An `actions` block as defined below.
      */
-    public readonly actions!: pulumi.Output<outputs.cdn.FrontdoorRuleActions>;
+    declare public readonly actions: pulumi.Output<outputs.cdn.FrontdoorRuleActions>;
     /**
      * If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
      */
-    public readonly behaviorOnMatch!: pulumi.Output<string | undefined>;
+    declare public readonly behaviorOnMatch: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      */
-    public readonly cdnFrontdoorRuleSetId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorRuleSetId: pulumi.Output<string>;
     /**
      * The name of the Front Door Rule Set containing this Front Door Rule.
      */
-    public /*out*/ readonly cdnFrontdoorRuleSetName!: pulumi.Output<string>;
+    declare public /*out*/ readonly cdnFrontdoorRuleSetName: pulumi.Output<string>;
     /**
      * A `conditions` block as defined below.
      */
-    public readonly conditions!: pulumi.Output<outputs.cdn.FrontdoorRuleConditions | undefined>;
+    declare public readonly conditions: pulumi.Output<outputs.cdn.FrontdoorRuleConditions | undefined>;
     /**
      * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
      *
      * > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
 
     /**
      * Create a FrontdoorRule resource with the given unique name, arguments, and options.
@@ -359,30 +359,30 @@ export class FrontdoorRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorRuleState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["behaviorOnMatch"] = state ? state.behaviorOnMatch : undefined;
-            resourceInputs["cdnFrontdoorRuleSetId"] = state ? state.cdnFrontdoorRuleSetId : undefined;
-            resourceInputs["cdnFrontdoorRuleSetName"] = state ? state.cdnFrontdoorRuleSetName : undefined;
-            resourceInputs["conditions"] = state ? state.conditions : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["behaviorOnMatch"] = state?.behaviorOnMatch;
+            resourceInputs["cdnFrontdoorRuleSetId"] = state?.cdnFrontdoorRuleSetId;
+            resourceInputs["cdnFrontdoorRuleSetName"] = state?.cdnFrontdoorRuleSetName;
+            resourceInputs["conditions"] = state?.conditions;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["order"] = state?.order;
         } else {
             const args = argsOrState as FrontdoorRuleArgs | undefined;
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.cdnFrontdoorRuleSetId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorRuleSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorRuleSetId'");
             }
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["behaviorOnMatch"] = args ? args.behaviorOnMatch : undefined;
-            resourceInputs["cdnFrontdoorRuleSetId"] = args ? args.cdnFrontdoorRuleSetId : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["behaviorOnMatch"] = args?.behaviorOnMatch;
+            resourceInputs["cdnFrontdoorRuleSetId"] = args?.cdnFrontdoorRuleSetId;
+            resourceInputs["conditions"] = args?.conditions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["order"] = args?.order;
             resourceInputs["cdnFrontdoorRuleSetName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

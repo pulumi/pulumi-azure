@@ -74,37 +74,37 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     /**
      * The list of string CIDRs representing the address spaces the gateway exposes.
      */
-    public readonly addressSpaces!: pulumi.Output<string[] | undefined>;
+    declare public readonly addressSpaces: pulumi.Output<string[] | undefined>;
     /**
      * A `bgpSettings` block as defined below containing the Local Network Gateway's BGP speaker settings.
      */
-    public readonly bgpSettings!: pulumi.Output<outputs.network.LocalNetworkGatewayBgpSettings | undefined>;
+    declare public readonly bgpSettings: pulumi.Output<outputs.network.LocalNetworkGatewayBgpSettings | undefined>;
     /**
      * The gateway IP address to connect with.
      */
-    public readonly gatewayAddress!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayAddress: pulumi.Output<string | undefined>;
     /**
      * The gateway FQDN to connect with.
      *
      * > **Note:** Either `gatewayAddress` or `gatewayFqdn` should be specified.
      */
-    public readonly gatewayFqdn!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayFqdn: pulumi.Output<string | undefined>;
     /**
      * The location/region where the local network gateway is created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the local network gateway. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LocalNetworkGateway resource with the given unique name, arguments, and options.
@@ -119,27 +119,27 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalNetworkGatewayState | undefined;
-            resourceInputs["addressSpaces"] = state ? state.addressSpaces : undefined;
-            resourceInputs["bgpSettings"] = state ? state.bgpSettings : undefined;
-            resourceInputs["gatewayAddress"] = state ? state.gatewayAddress : undefined;
-            resourceInputs["gatewayFqdn"] = state ? state.gatewayFqdn : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["addressSpaces"] = state?.addressSpaces;
+            resourceInputs["bgpSettings"] = state?.bgpSettings;
+            resourceInputs["gatewayAddress"] = state?.gatewayAddress;
+            resourceInputs["gatewayFqdn"] = state?.gatewayFqdn;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LocalNetworkGatewayArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressSpaces"] = args ? args.addressSpaces : undefined;
-            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            resourceInputs["gatewayAddress"] = args ? args.gatewayAddress : undefined;
-            resourceInputs["gatewayFqdn"] = args ? args.gatewayFqdn : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressSpaces"] = args?.addressSpaces;
+            resourceInputs["bgpSettings"] = args?.bgpSettings;
+            resourceInputs["gatewayAddress"] = args?.gatewayAddress;
+            resourceInputs["gatewayFqdn"] = args?.gatewayFqdn;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalNetworkGateway.__pulumiType, name, resourceInputs, opts);

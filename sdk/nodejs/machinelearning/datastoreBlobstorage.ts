@@ -110,43 +110,43 @@ export class DatastoreBlobstorage extends pulumi.CustomResource {
     /**
      * The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      */
-    public readonly accountKey!: pulumi.Output<string | undefined>;
+    declare public readonly accountKey: pulumi.Output<string | undefined>;
     /**
      * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
      *
      * > **Note:** `isDefault` can only be set to `true` on update.
      */
-    public readonly isDefault!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDefault: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
      */
-    public readonly serviceDataAuthIdentity!: pulumi.Output<string | undefined>;
+    declare public readonly serviceDataAuthIdentity: pulumi.Output<string | undefined>;
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      *
      * > **Note:** If `serviceDataAuthIdentity` is set to `None` or omitted, one of `accountKey` or `sharedAccessSignature` must be specified.
      */
-    public readonly sharedAccessSignature!: pulumi.Output<string | undefined>;
+    declare public readonly sharedAccessSignature: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly storageContainerId!: pulumi.Output<string>;
+    declare public readonly storageContainerId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a DatastoreBlobstorage resource with the given unique name, arguments, and options.
@@ -161,32 +161,32 @@ export class DatastoreBlobstorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatastoreBlobstorageState | undefined;
-            resourceInputs["accountKey"] = state ? state.accountKey : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serviceDataAuthIdentity"] = state ? state.serviceDataAuthIdentity : undefined;
-            resourceInputs["sharedAccessSignature"] = state ? state.sharedAccessSignature : undefined;
-            resourceInputs["storageContainerId"] = state ? state.storageContainerId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["accountKey"] = state?.accountKey;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serviceDataAuthIdentity"] = state?.serviceDataAuthIdentity;
+            resourceInputs["sharedAccessSignature"] = state?.sharedAccessSignature;
+            resourceInputs["storageContainerId"] = state?.storageContainerId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as DatastoreBlobstorageArgs | undefined;
-            if ((!args || args.storageContainerId === undefined) && !opts.urn) {
+            if (args?.storageContainerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
             resourceInputs["accountKey"] = args?.accountKey ? pulumi.secret(args.accountKey) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isDefault"] = args ? args.isDefault : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceDataAuthIdentity"] = args ? args.serviceDataAuthIdentity : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isDefault"] = args?.isDefault;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceDataAuthIdentity"] = args?.serviceDataAuthIdentity;
             resourceInputs["sharedAccessSignature"] = args?.sharedAccessSignature ? pulumi.secret(args.sharedAccessSignature) : undefined;
-            resourceInputs["storageContainerId"] = args ? args.storageContainerId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["storageContainerId"] = args?.storageContainerId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accountKey", "sharedAccessSignature"] };

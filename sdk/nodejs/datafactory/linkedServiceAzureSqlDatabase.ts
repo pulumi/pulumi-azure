@@ -70,63 +70,63 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    public readonly connectionString!: pulumi.Output<string | undefined>;
+    declare public readonly connectionString: pulumi.Output<string | undefined>;
     /**
      * The name of a User-assigned Managed Identity. Use this argument to authenticate against the linked resource using a User-assigned Managed Identity.
      */
-    public readonly credentialName!: pulumi.Output<string | undefined>;
+    declare public readonly credentialName: pulumi.Output<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service Azure SQL Database.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database.
      */
-    public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
      * A `keyVaultConnectionString` block as defined below. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connectionString` or `keyVaultConnectionString` is required.
      */
-    public readonly keyVaultConnectionString!: pulumi.Output<outputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultConnectionString | undefined>;
+    declare public readonly keyVaultConnectionString: pulumi.Output<outputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultConnectionString | undefined>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
-    public readonly keyVaultPassword!: pulumi.Output<outputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultPassword | undefined>;
+    declare public readonly keyVaultPassword: pulumi.Output<outputs.datafactory.LinkedServiceAzureSqlDatabaseKeyVaultPassword | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service Azure SQL Database.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The service principal id in which to authenticate against the Azure SQL Database. Required if `servicePrincipalKey` is set.
      */
-    public readonly servicePrincipalId!: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalId: pulumi.Output<string | undefined>;
     /**
      * The service principal key in which to authenticate against the Azure SQL Database. Required if `servicePrincipalId` is set.
      */
-    public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalKey: pulumi.Output<string | undefined>;
     /**
      * The tenant id or name in which to authenticate against the Azure SQL Database.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `servicePrincipalId` and `servicePrincipalKey`
      */
-    public readonly useManagedIdentity!: pulumi.Output<boolean | undefined>;
+    declare public readonly useManagedIdentity: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LinkedServiceAzureSqlDatabase resource with the given unique name, arguments, and options.
@@ -141,41 +141,41 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceAzureSqlDatabaseState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["credentialName"] = state ? state.credentialName : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultConnectionString"] = state ? state.keyVaultConnectionString : undefined;
-            resourceInputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
-            resourceInputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["credentialName"] = state?.credentialName;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
+            resourceInputs["keyVaultConnectionString"] = state?.keyVaultConnectionString;
+            resourceInputs["keyVaultPassword"] = state?.keyVaultPassword;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["servicePrincipalId"] = state?.servicePrincipalId;
+            resourceInputs["servicePrincipalKey"] = state?.servicePrincipalKey;
+            resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["useManagedIdentity"] = state?.useManagedIdentity;
         } else {
             const args = argsOrState as LinkedServiceAzureSqlDatabaseArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
-            resourceInputs["credentialName"] = args ? args.credentialName : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultConnectionString"] = args ? args.keyVaultConnectionString : undefined;
-            resourceInputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["connectionString"] = args?.connectionString;
+            resourceInputs["credentialName"] = args?.credentialName;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
+            resourceInputs["keyVaultConnectionString"] = args?.keyVaultConnectionString;
+            resourceInputs["keyVaultPassword"] = args?.keyVaultPassword;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["servicePrincipalId"] = args?.servicePrincipalId;
+            resourceInputs["servicePrincipalKey"] = args?.servicePrincipalKey;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["useManagedIdentity"] = args?.useManagedIdentity;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedServiceAzureSqlDatabase.__pulumiType, name, resourceInputs, opts);

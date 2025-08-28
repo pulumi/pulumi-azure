@@ -91,45 +91,45 @@ export class SourceControlSlot extends pulumi.CustomResource {
     /**
      * The URL for the repository. Changing this forces a new resource to be created.
      */
-    public readonly branch!: pulumi.Output<string>;
+    declare public readonly branch: pulumi.Output<string>;
     /**
      * A `githubActionConfiguration` block as detailed below. Changing this forces a new resource to be created.
      */
-    public readonly githubActionConfiguration!: pulumi.Output<outputs.appservice.SourceControlSlotGithubActionConfiguration | undefined>;
+    declare public readonly githubActionConfiguration: pulumi.Output<outputs.appservice.SourceControlSlotGithubActionConfiguration | undefined>;
     /**
      * The branch name to use for deployments. Changing this forces a new resource to be created.
      */
-    public readonly repoUrl!: pulumi.Output<string>;
+    declare public readonly repoUrl: pulumi.Output<string>;
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
      */
-    public readonly rollbackEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly rollbackEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The SCM Type in use. This value is decoded by the service from the repository information supplied.
      */
-    public /*out*/ readonly scmType!: pulumi.Output<string>;
+    declare public /*out*/ readonly scmType: pulumi.Output<string>;
     /**
      * The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
      *
      * > **Note:** Function App Slots are not supported at this time.
      */
-    public readonly slotId!: pulumi.Output<string>;
+    declare public readonly slotId: pulumi.Output<string>;
     /**
      * Should the Slot use local Git configuration. Changing this forces a new resource to be created.
      */
-    public readonly useLocalGit!: pulumi.Output<boolean | undefined>;
+    declare public readonly useLocalGit: pulumi.Output<boolean | undefined>;
     /**
      * Should code be deployed manually. Set to `true` to disable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly useManualIntegration!: pulumi.Output<boolean | undefined>;
+    declare public readonly useManualIntegration: pulumi.Output<boolean | undefined>;
     /**
      * The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly useMercurial!: pulumi.Output<boolean | undefined>;
+    declare public readonly useMercurial: pulumi.Output<boolean | undefined>;
     /**
      * Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied.
      */
-    public /*out*/ readonly usesGithubAction!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly usesGithubAction: pulumi.Output<boolean>;
 
     /**
      * Create a SourceControlSlot resource with the given unique name, arguments, and options.
@@ -144,29 +144,29 @@ export class SourceControlSlot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SourceControlSlotState | undefined;
-            resourceInputs["branch"] = state ? state.branch : undefined;
-            resourceInputs["githubActionConfiguration"] = state ? state.githubActionConfiguration : undefined;
-            resourceInputs["repoUrl"] = state ? state.repoUrl : undefined;
-            resourceInputs["rollbackEnabled"] = state ? state.rollbackEnabled : undefined;
-            resourceInputs["scmType"] = state ? state.scmType : undefined;
-            resourceInputs["slotId"] = state ? state.slotId : undefined;
-            resourceInputs["useLocalGit"] = state ? state.useLocalGit : undefined;
-            resourceInputs["useManualIntegration"] = state ? state.useManualIntegration : undefined;
-            resourceInputs["useMercurial"] = state ? state.useMercurial : undefined;
-            resourceInputs["usesGithubAction"] = state ? state.usesGithubAction : undefined;
+            resourceInputs["branch"] = state?.branch;
+            resourceInputs["githubActionConfiguration"] = state?.githubActionConfiguration;
+            resourceInputs["repoUrl"] = state?.repoUrl;
+            resourceInputs["rollbackEnabled"] = state?.rollbackEnabled;
+            resourceInputs["scmType"] = state?.scmType;
+            resourceInputs["slotId"] = state?.slotId;
+            resourceInputs["useLocalGit"] = state?.useLocalGit;
+            resourceInputs["useManualIntegration"] = state?.useManualIntegration;
+            resourceInputs["useMercurial"] = state?.useMercurial;
+            resourceInputs["usesGithubAction"] = state?.usesGithubAction;
         } else {
             const args = argsOrState as SourceControlSlotArgs | undefined;
-            if ((!args || args.slotId === undefined) && !opts.urn) {
+            if (args?.slotId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slotId'");
             }
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["githubActionConfiguration"] = args ? args.githubActionConfiguration : undefined;
-            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
-            resourceInputs["rollbackEnabled"] = args ? args.rollbackEnabled : undefined;
-            resourceInputs["slotId"] = args ? args.slotId : undefined;
-            resourceInputs["useLocalGit"] = args ? args.useLocalGit : undefined;
-            resourceInputs["useManualIntegration"] = args ? args.useManualIntegration : undefined;
-            resourceInputs["useMercurial"] = args ? args.useMercurial : undefined;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["githubActionConfiguration"] = args?.githubActionConfiguration;
+            resourceInputs["repoUrl"] = args?.repoUrl;
+            resourceInputs["rollbackEnabled"] = args?.rollbackEnabled;
+            resourceInputs["slotId"] = args?.slotId;
+            resourceInputs["useLocalGit"] = args?.useLocalGit;
+            resourceInputs["useManualIntegration"] = args?.useManualIntegration;
+            resourceInputs["useMercurial"] = args?.useMercurial;
             resourceInputs["scmType"] = undefined /*out*/;
             resourceInputs["usesGithubAction"] = undefined /*out*/;
         }

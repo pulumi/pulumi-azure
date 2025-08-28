@@ -110,43 +110,43 @@ export class Application extends pulumi.CustomResource {
     /**
      * The application definition ID to deploy.
      */
-    public readonly applicationDefinitionId!: pulumi.Output<string | undefined>;
+    declare public readonly applicationDefinitionId: pulumi.Output<string | undefined>;
     /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
      */
-    public readonly managedResourceGroupName!: pulumi.Output<string>;
+    declare public readonly managedResourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the Managed Application. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name and value pairs that define the managed application outputs.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly outputs: pulumi.Output<{[key: string]: string}>;
     /**
      * The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
      */
-    public readonly parameterValues!: pulumi.Output<string>;
+    declare public readonly parameterValues: pulumi.Output<string>;
     /**
      * One `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly plan!: pulumi.Output<outputs.managedapplication.ApplicationPlan | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.managedapplication.ApplicationPlan | undefined>;
     /**
      * The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -161,36 +161,36 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["applicationDefinitionId"] = state ? state.applicationDefinitionId : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputs"] = state ? state.outputs : undefined;
-            resourceInputs["parameterValues"] = state ? state.parameterValues : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["applicationDefinitionId"] = state?.applicationDefinitionId;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedResourceGroupName"] = state?.managedResourceGroupName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputs"] = state?.outputs;
+            resourceInputs["parameterValues"] = state?.parameterValues;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.managedResourceGroupName === undefined) && !opts.urn) {
+            if (args?.managedResourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedResourceGroupName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationDefinitionId"] = args?.applicationDefinitionId;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameterValues"] = args?.parameterValues;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["outputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

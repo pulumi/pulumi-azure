@@ -79,55 +79,55 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
     /**
      * The number of compute servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly computeCount!: pulumi.Output<number>;
+    declare public readonly computeCount: pulumi.Output<number>;
     /**
      * The email address used by Oracle to send notifications regarding databases and infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly customerContacts!: pulumi.Output<string[]>;
+    declare public readonly customerContacts: pulumi.Output<string[]>;
     /**
      * The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly databaseServerType!: pulumi.Output<string>;
+    declare public readonly databaseServerType: pulumi.Output<string>;
     /**
      * The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * One or more `maintenanceWindow` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly maintenanceWindows!: pulumi.Output<outputs.oracle.ExadataInfrastructureMaintenanceWindow[]>;
+    declare public readonly maintenanceWindows: pulumi.Output<outputs.oracle.ExadataInfrastructureMaintenanceWindow[]>;
     /**
      * The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly shape!: pulumi.Output<string>;
+    declare public readonly shape: pulumi.Output<string>;
     /**
      * The number of storage servers for the Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly storageCount!: pulumi.Output<number>;
+    declare public readonly storageCount: pulumi.Output<number>;
     /**
      * The storage server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly storageServerType!: pulumi.Output<string>;
+    declare public readonly storageServerType: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Cloud Exadata Infrastructure.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    declare public readonly zones: pulumi.Output<string[]>;
 
     /**
      * Create a ExadataInfrastructure resource with the given unique name, arguments, and options.
@@ -142,52 +142,52 @@ export class ExadataInfrastructure extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExadataInfrastructureState | undefined;
-            resourceInputs["computeCount"] = state ? state.computeCount : undefined;
-            resourceInputs["customerContacts"] = state ? state.customerContacts : undefined;
-            resourceInputs["databaseServerType"] = state ? state.databaseServerType : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maintenanceWindows"] = state ? state.maintenanceWindows : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["shape"] = state ? state.shape : undefined;
-            resourceInputs["storageCount"] = state ? state.storageCount : undefined;
-            resourceInputs["storageServerType"] = state ? state.storageServerType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["computeCount"] = state?.computeCount;
+            resourceInputs["customerContacts"] = state?.customerContacts;
+            resourceInputs["databaseServerType"] = state?.databaseServerType;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maintenanceWindows"] = state?.maintenanceWindows;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["shape"] = state?.shape;
+            resourceInputs["storageCount"] = state?.storageCount;
+            resourceInputs["storageServerType"] = state?.storageServerType;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as ExadataInfrastructureArgs | undefined;
-            if ((!args || args.computeCount === undefined) && !opts.urn) {
+            if (args?.computeCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeCount'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shape === undefined) && !opts.urn) {
+            if (args?.shape === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shape'");
             }
-            if ((!args || args.storageCount === undefined) && !opts.urn) {
+            if (args?.storageCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageCount'");
             }
-            if ((!args || args.zones === undefined) && !opts.urn) {
+            if (args?.zones === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zones'");
             }
-            resourceInputs["computeCount"] = args ? args.computeCount : undefined;
-            resourceInputs["customerContacts"] = args ? args.customerContacts : undefined;
-            resourceInputs["databaseServerType"] = args ? args.databaseServerType : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceWindows"] = args ? args.maintenanceWindows : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shape"] = args ? args.shape : undefined;
-            resourceInputs["storageCount"] = args ? args.storageCount : undefined;
-            resourceInputs["storageServerType"] = args ? args.storageServerType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["computeCount"] = args?.computeCount;
+            resourceInputs["customerContacts"] = args?.customerContacts;
+            resourceInputs["databaseServerType"] = args?.databaseServerType;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceWindows"] = args?.maintenanceWindows;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shape"] = args?.shape;
+            resourceInputs["storageCount"] = args?.storageCount;
+            resourceInputs["storageServerType"] = args?.storageServerType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ExadataInfrastructure.__pulumiType, name, resourceInputs, opts);

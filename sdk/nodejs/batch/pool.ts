@@ -146,119 +146,119 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * A `autoScale` block that describes the scale settings when using auto scale as defined below.
      */
-    public readonly autoScale!: pulumi.Output<outputs.batch.PoolAutoScale | undefined>;
+    declare public readonly autoScale: pulumi.Output<outputs.batch.PoolAutoScale | undefined>;
     /**
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
      */
-    public readonly certificates!: pulumi.Output<outputs.batch.PoolCertificate[] | undefined>;
+    declare public readonly certificates: pulumi.Output<outputs.batch.PoolCertificate[] | undefined>;
     /**
      * The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
      */
-    public readonly containerConfiguration!: pulumi.Output<outputs.batch.PoolContainerConfiguration | undefined>;
+    declare public readonly containerConfiguration: pulumi.Output<outputs.batch.PoolContainerConfiguration | undefined>;
     /**
      * A `dataDisks` block describes the data disk settings as defined below.
      */
-    public readonly dataDisks!: pulumi.Output<outputs.batch.PoolDataDisk[] | undefined>;
+    declare public readonly dataDisks: pulumi.Output<outputs.batch.PoolDataDisk[] | undefined>;
     /**
      * A `diskEncryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
      */
-    public readonly diskEncryptions!: pulumi.Output<outputs.batch.PoolDiskEncryption[] | undefined>;
+    declare public readonly diskEncryptions: pulumi.Output<outputs.batch.PoolDiskEncryption[] | undefined>;
     /**
      * Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * An `extensions` block as defined below.
      */
-    public readonly extensions!: pulumi.Output<outputs.batch.PoolExtension[] | undefined>;
+    declare public readonly extensions: pulumi.Output<outputs.batch.PoolExtension[] | undefined>;
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale as defined below.
      */
-    public readonly fixedScale!: pulumi.Output<outputs.batch.PoolFixedScale | undefined>;
+    declare public readonly fixedScale: pulumi.Output<outputs.batch.PoolFixedScale | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.batch.PoolIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.batch.PoolIdentity | undefined>;
     /**
      * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      */
-    public readonly interNodeCommunication!: pulumi.Output<string | undefined>;
+    declare public readonly interNodeCommunication: pulumi.Output<string | undefined>;
     /**
      * The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
-    public readonly maxTasksPerNode!: pulumi.Output<number | undefined>;
+    declare public readonly maxTasksPerNode: pulumi.Output<number | undefined>;
     /**
      * A map of custom batch pool metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `mount` block defined as below.
      */
-    public readonly mounts!: pulumi.Output<outputs.batch.PoolMount[] | undefined>;
+    declare public readonly mounts: pulumi.Output<outputs.batch.PoolMount[] | undefined>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkConfiguration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.batch.PoolNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.batch.PoolNetworkConfiguration | undefined>;
     /**
      * Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
      */
-    public readonly nodeAgentSkuId!: pulumi.Output<string>;
+    declare public readonly nodeAgentSkuId: pulumi.Output<string>;
     /**
      * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool as defined below.
      */
-    public readonly nodePlacements!: pulumi.Output<outputs.batch.PoolNodePlacement[] | undefined>;
+    declare public readonly nodePlacements: pulumi.Output<outputs.batch.PoolNodePlacement[] | undefined>;
     /**
      * Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
      */
-    public readonly osDiskPlacement!: pulumi.Output<string | undefined>;
+    declare public readonly osDiskPlacement: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `securityProfile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.batch.PoolSecurityProfile | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.batch.PoolSecurityProfile | undefined>;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool as defined below.
      */
-    public readonly startTask!: pulumi.Output<outputs.batch.PoolStartTask | undefined>;
+    declare public readonly startTask: pulumi.Output<outputs.batch.PoolStartTask | undefined>;
     /**
      * Whether to stop if there is a pending resize operation on this pool.
      */
-    public readonly stopPendingResizeOperation!: pulumi.Output<boolean | undefined>;
+    declare public readonly stopPendingResizeOperation: pulumi.Output<boolean | undefined>;
     /**
      * A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      */
-    public readonly storageImageReference!: pulumi.Output<outputs.batch.PoolStorageImageReference>;
+    declare public readonly storageImageReference: pulumi.Output<outputs.batch.PoolStorageImageReference>;
     /**
      * The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      */
-    public readonly targetNodeCommunicationMode!: pulumi.Output<string | undefined>;
+    declare public readonly targetNodeCommunicationMode: pulumi.Output<string | undefined>;
     /**
      * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      */
-    public readonly taskSchedulingPolicies!: pulumi.Output<outputs.batch.PoolTaskSchedulingPolicy[]>;
+    declare public readonly taskSchedulingPolicies: pulumi.Output<outputs.batch.PoolTaskSchedulingPolicy[]>;
     /**
      * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
      */
-    public readonly userAccounts!: pulumi.Output<outputs.batch.PoolUserAccount[] | undefined>;
+    declare public readonly userAccounts: pulumi.Output<outputs.batch.PoolUserAccount[] | undefined>;
     /**
      * Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
      */
-    public readonly vmSize!: pulumi.Output<string>;
+    declare public readonly vmSize: pulumi.Output<string>;
     /**
      * A `windows` block that describes the Windows configuration in the pool as defined below.
      *
@@ -266,7 +266,7 @@ export class Pool extends pulumi.CustomResource {
      *
      * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
-    public readonly windows!: pulumi.Output<outputs.batch.PoolWindow[] | undefined>;
+    declare public readonly windows: pulumi.Output<outputs.batch.PoolWindow[] | undefined>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -281,83 +281,83 @@ export class Pool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["autoScale"] = state ? state.autoScale : undefined;
-            resourceInputs["certificates"] = state ? state.certificates : undefined;
-            resourceInputs["containerConfiguration"] = state ? state.containerConfiguration : undefined;
-            resourceInputs["dataDisks"] = state ? state.dataDisks : undefined;
-            resourceInputs["diskEncryptions"] = state ? state.diskEncryptions : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["extensions"] = state ? state.extensions : undefined;
-            resourceInputs["fixedScale"] = state ? state.fixedScale : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["interNodeCommunication"] = state ? state.interNodeCommunication : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["mounts"] = state ? state.mounts : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
-            resourceInputs["nodeAgentSkuId"] = state ? state.nodeAgentSkuId : undefined;
-            resourceInputs["nodePlacements"] = state ? state.nodePlacements : undefined;
-            resourceInputs["osDiskPlacement"] = state ? state.osDiskPlacement : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["securityProfile"] = state ? state.securityProfile : undefined;
-            resourceInputs["startTask"] = state ? state.startTask : undefined;
-            resourceInputs["stopPendingResizeOperation"] = state ? state.stopPendingResizeOperation : undefined;
-            resourceInputs["storageImageReference"] = state ? state.storageImageReference : undefined;
-            resourceInputs["targetNodeCommunicationMode"] = state ? state.targetNodeCommunicationMode : undefined;
-            resourceInputs["taskSchedulingPolicies"] = state ? state.taskSchedulingPolicies : undefined;
-            resourceInputs["userAccounts"] = state ? state.userAccounts : undefined;
-            resourceInputs["vmSize"] = state ? state.vmSize : undefined;
-            resourceInputs["windows"] = state ? state.windows : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["autoScale"] = state?.autoScale;
+            resourceInputs["certificates"] = state?.certificates;
+            resourceInputs["containerConfiguration"] = state?.containerConfiguration;
+            resourceInputs["dataDisks"] = state?.dataDisks;
+            resourceInputs["diskEncryptions"] = state?.diskEncryptions;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["extensions"] = state?.extensions;
+            resourceInputs["fixedScale"] = state?.fixedScale;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["interNodeCommunication"] = state?.interNodeCommunication;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["maxTasksPerNode"] = state?.maxTasksPerNode;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["mounts"] = state?.mounts;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConfiguration"] = state?.networkConfiguration;
+            resourceInputs["nodeAgentSkuId"] = state?.nodeAgentSkuId;
+            resourceInputs["nodePlacements"] = state?.nodePlacements;
+            resourceInputs["osDiskPlacement"] = state?.osDiskPlacement;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["securityProfile"] = state?.securityProfile;
+            resourceInputs["startTask"] = state?.startTask;
+            resourceInputs["stopPendingResizeOperation"] = state?.stopPendingResizeOperation;
+            resourceInputs["storageImageReference"] = state?.storageImageReference;
+            resourceInputs["targetNodeCommunicationMode"] = state?.targetNodeCommunicationMode;
+            resourceInputs["taskSchedulingPolicies"] = state?.taskSchedulingPolicies;
+            resourceInputs["userAccounts"] = state?.userAccounts;
+            resourceInputs["vmSize"] = state?.vmSize;
+            resourceInputs["windows"] = state?.windows;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.nodeAgentSkuId === undefined) && !opts.urn) {
+            if (args?.nodeAgentSkuId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeAgentSkuId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageImageReference === undefined) && !opts.urn) {
+            if (args?.storageImageReference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageImageReference'");
             }
-            if ((!args || args.vmSize === undefined) && !opts.urn) {
+            if (args?.vmSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["autoScale"] = args ? args.autoScale : undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["containerConfiguration"] = args ? args.containerConfiguration : undefined;
-            resourceInputs["dataDisks"] = args ? args.dataDisks : undefined;
-            resourceInputs["diskEncryptions"] = args ? args.diskEncryptions : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["fixedScale"] = args ? args.fixedScale : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["interNodeCommunication"] = args ? args.interNodeCommunication : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["mounts"] = args ? args.mounts : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["nodeAgentSkuId"] = args ? args.nodeAgentSkuId : undefined;
-            resourceInputs["nodePlacements"] = args ? args.nodePlacements : undefined;
-            resourceInputs["osDiskPlacement"] = args ? args.osDiskPlacement : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["startTask"] = args ? args.startTask : undefined;
-            resourceInputs["stopPendingResizeOperation"] = args ? args.stopPendingResizeOperation : undefined;
-            resourceInputs["storageImageReference"] = args ? args.storageImageReference : undefined;
-            resourceInputs["targetNodeCommunicationMode"] = args ? args.targetNodeCommunicationMode : undefined;
-            resourceInputs["taskSchedulingPolicies"] = args ? args.taskSchedulingPolicies : undefined;
-            resourceInputs["userAccounts"] = args ? args.userAccounts : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
-            resourceInputs["windows"] = args ? args.windows : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["autoScale"] = args?.autoScale;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["containerConfiguration"] = args?.containerConfiguration;
+            resourceInputs["dataDisks"] = args?.dataDisks;
+            resourceInputs["diskEncryptions"] = args?.diskEncryptions;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["fixedScale"] = args?.fixedScale;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["interNodeCommunication"] = args?.interNodeCommunication;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["maxTasksPerNode"] = args?.maxTasksPerNode;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["mounts"] = args?.mounts;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["nodeAgentSkuId"] = args?.nodeAgentSkuId;
+            resourceInputs["nodePlacements"] = args?.nodePlacements;
+            resourceInputs["osDiskPlacement"] = args?.osDiskPlacement;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["startTask"] = args?.startTask;
+            resourceInputs["stopPendingResizeOperation"] = args?.stopPendingResizeOperation;
+            resourceInputs["storageImageReference"] = args?.storageImageReference;
+            resourceInputs["targetNodeCommunicationMode"] = args?.targetNodeCommunicationMode;
+            resourceInputs["taskSchedulingPolicies"] = args?.taskSchedulingPolicies;
+            resourceInputs["userAccounts"] = args?.userAccounts;
+            resourceInputs["vmSize"] = args?.vmSize;
+            resourceInputs["windows"] = args?.windows;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Pool.__pulumiType, name, resourceInputs, opts);

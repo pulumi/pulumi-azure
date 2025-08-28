@@ -119,37 +119,37 @@ export class BudgetSubscription extends pulumi.CustomResource {
     /**
      * The total amount of cost to track with the budget.
      */
-    public readonly amount!: pulumi.Output<number>;
+    declare public readonly amount: pulumi.Output<number>;
     /**
      * (Optional) The ETag of the Subscription Consumption Budget.
      */
-    public readonly etag!: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * A `filter` block as defined below.
      */
-    public readonly filter!: pulumi.Output<outputs.consumption.BudgetSubscriptionFilter | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.consumption.BudgetSubscriptionFilter | undefined>;
     /**
      * The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    public readonly notifications!: pulumi.Output<outputs.consumption.BudgetSubscriptionNotification[]>;
+    declare public readonly notifications: pulumi.Output<outputs.consumption.BudgetSubscriptionNotification[]>;
     /**
      * The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
      *
      * > **Note:** The `subscriptionId` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
      */
-    public readonly timeGrain!: pulumi.Output<string | undefined>;
+    declare public readonly timeGrain: pulumi.Output<string | undefined>;
     /**
      * A `timePeriod` block as defined below.
      */
-    public readonly timePeriod!: pulumi.Output<outputs.consumption.BudgetSubscriptionTimePeriod>;
+    declare public readonly timePeriod: pulumi.Output<outputs.consumption.BudgetSubscriptionTimePeriod>;
 
     /**
      * Create a BudgetSubscription resource with the given unique name, arguments, and options.
@@ -164,36 +164,36 @@ export class BudgetSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BudgetSubscriptionState | undefined;
-            resourceInputs["amount"] = state ? state.amount : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifications"] = state ? state.notifications : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            resourceInputs["timeGrain"] = state ? state.timeGrain : undefined;
-            resourceInputs["timePeriod"] = state ? state.timePeriod : undefined;
+            resourceInputs["amount"] = state?.amount;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifications"] = state?.notifications;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
+            resourceInputs["timeGrain"] = state?.timeGrain;
+            resourceInputs["timePeriod"] = state?.timePeriod;
         } else {
             const args = argsOrState as BudgetSubscriptionArgs | undefined;
-            if ((!args || args.amount === undefined) && !opts.urn) {
+            if (args?.amount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amount'");
             }
-            if ((!args || args.notifications === undefined) && !opts.urn) {
+            if (args?.notifications === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notifications'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            if ((!args || args.timePeriod === undefined) && !opts.urn) {
+            if (args?.timePeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
-            resourceInputs["amount"] = args ? args.amount : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
-            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["amount"] = args?.amount;
+            resourceInputs["etag"] = args?.etag;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["timeGrain"] = args?.timeGrain;
+            resourceInputs["timePeriod"] = args?.timePeriod;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BudgetSubscription.__pulumiType, name, resourceInputs, opts);

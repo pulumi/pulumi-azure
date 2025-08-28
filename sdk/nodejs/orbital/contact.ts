@@ -144,27 +144,27 @@ export class Contact extends pulumi.CustomResource {
     /**
      * ID of the orbital contact profile. Changing this forces a new resource to be created.
      */
-    public readonly contactProfileId!: pulumi.Output<string>;
+    declare public readonly contactProfileId: pulumi.Output<string>;
     /**
      * Name of the Azure ground station. Changing this forces a new resource to be created.
      */
-    public readonly groundStationName!: pulumi.Output<string>;
+    declare public readonly groundStationName: pulumi.Output<string>;
     /**
      * The name of the Contact. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Reservation end time of the Contact. Changing this forces a new resource to be created.
      */
-    public readonly reservationEndTime!: pulumi.Output<string>;
+    declare public readonly reservationEndTime: pulumi.Output<string>;
     /**
      * Reservation start time of the Contact. Changing this forces a new resource to be created.
      */
-    public readonly reservationStartTime!: pulumi.Output<string>;
+    declare public readonly reservationStartTime: pulumi.Output<string>;
     /**
      * The ID of the spacecraft which the contact will be made to. Changing this forces a new resource to be created.
      */
-    public readonly spacecraftId!: pulumi.Output<string>;
+    declare public readonly spacecraftId: pulumi.Output<string>;
 
     /**
      * Create a Contact resource with the given unique name, arguments, and options.
@@ -179,35 +179,35 @@ export class Contact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactState | undefined;
-            resourceInputs["contactProfileId"] = state ? state.contactProfileId : undefined;
-            resourceInputs["groundStationName"] = state ? state.groundStationName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["reservationEndTime"] = state ? state.reservationEndTime : undefined;
-            resourceInputs["reservationStartTime"] = state ? state.reservationStartTime : undefined;
-            resourceInputs["spacecraftId"] = state ? state.spacecraftId : undefined;
+            resourceInputs["contactProfileId"] = state?.contactProfileId;
+            resourceInputs["groundStationName"] = state?.groundStationName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["reservationEndTime"] = state?.reservationEndTime;
+            resourceInputs["reservationStartTime"] = state?.reservationStartTime;
+            resourceInputs["spacecraftId"] = state?.spacecraftId;
         } else {
             const args = argsOrState as ContactArgs | undefined;
-            if ((!args || args.contactProfileId === undefined) && !opts.urn) {
+            if (args?.contactProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactProfileId'");
             }
-            if ((!args || args.groundStationName === undefined) && !opts.urn) {
+            if (args?.groundStationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groundStationName'");
             }
-            if ((!args || args.reservationEndTime === undefined) && !opts.urn) {
+            if (args?.reservationEndTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reservationEndTime'");
             }
-            if ((!args || args.reservationStartTime === undefined) && !opts.urn) {
+            if (args?.reservationStartTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reservationStartTime'");
             }
-            if ((!args || args.spacecraftId === undefined) && !opts.urn) {
+            if (args?.spacecraftId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spacecraftId'");
             }
-            resourceInputs["contactProfileId"] = args ? args.contactProfileId : undefined;
-            resourceInputs["groundStationName"] = args ? args.groundStationName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reservationEndTime"] = args ? args.reservationEndTime : undefined;
-            resourceInputs["reservationStartTime"] = args ? args.reservationStartTime : undefined;
-            resourceInputs["spacecraftId"] = args ? args.spacecraftId : undefined;
+            resourceInputs["contactProfileId"] = args?.contactProfileId;
+            resourceInputs["groundStationName"] = args?.groundStationName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reservationEndTime"] = args?.reservationEndTime;
+            resourceInputs["reservationStartTime"] = args?.reservationStartTime;
+            resourceInputs["spacecraftId"] = args?.spacecraftId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Contact.__pulumiType, name, resourceInputs, opts);

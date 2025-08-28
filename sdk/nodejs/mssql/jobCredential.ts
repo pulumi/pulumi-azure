@@ -90,23 +90,23 @@ export class JobCredential extends pulumi.CustomResource {
     /**
      * The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created.
      */
-    public readonly jobAgentId!: pulumi.Output<string>;
+    declare public readonly jobAgentId: pulumi.Output<string>;
     /**
      * The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password to use for this Elastic Job credential.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * An integer value used to trigger an update for `passwordWo`. This property should be incremented when updating `passwordWo`.
      */
-    public readonly passwordWoVersion!: pulumi.Output<number | undefined>;
+    declare public readonly passwordWoVersion: pulumi.Output<number | undefined>;
     /**
      * The username to use for this Elastic Job credential.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a JobCredential resource with the given unique name, arguments, and options.
@@ -121,24 +121,24 @@ export class JobCredential extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobCredentialState | undefined;
-            resourceInputs["jobAgentId"] = state ? state.jobAgentId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["passwordWoVersion"] = state ? state.passwordWoVersion : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["jobAgentId"] = state?.jobAgentId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["passwordWoVersion"] = state?.passwordWoVersion;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as JobCredentialArgs | undefined;
-            if ((!args || args.jobAgentId === undefined) && !opts.urn) {
+            if (args?.jobAgentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentId'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["jobAgentId"] = args ? args.jobAgentId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["jobAgentId"] = args?.jobAgentId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["passwordWoVersion"] = args ? args.passwordWoVersion : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["passwordWoVersion"] = args?.passwordWoVersion;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

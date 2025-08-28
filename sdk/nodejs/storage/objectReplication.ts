@@ -111,23 +111,23 @@ export class ObjectReplication extends pulumi.CustomResource {
     /**
      * The ID of the Object Replication in the destination storage account.
      */
-    public /*out*/ readonly destinationObjectReplicationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly destinationObjectReplicationId: pulumi.Output<string>;
     /**
      * The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
      */
-    public readonly destinationStorageAccountId!: pulumi.Output<string>;
+    declare public readonly destinationStorageAccountId: pulumi.Output<string>;
     /**
      * One or more `rules` blocks as defined below.
      */
-    public readonly rules!: pulumi.Output<outputs.storage.ObjectReplicationRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.storage.ObjectReplicationRule[]>;
     /**
      * The ID of the Object Replication in the source storage account.
      */
-    public /*out*/ readonly sourceObjectReplicationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly sourceObjectReplicationId: pulumi.Output<string>;
     /**
      * The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
      */
-    public readonly sourceStorageAccountId!: pulumi.Output<string>;
+    declare public readonly sourceStorageAccountId: pulumi.Output<string>;
 
     /**
      * Create a ObjectReplication resource with the given unique name, arguments, and options.
@@ -142,25 +142,25 @@ export class ObjectReplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ObjectReplicationState | undefined;
-            resourceInputs["destinationObjectReplicationId"] = state ? state.destinationObjectReplicationId : undefined;
-            resourceInputs["destinationStorageAccountId"] = state ? state.destinationStorageAccountId : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["sourceObjectReplicationId"] = state ? state.sourceObjectReplicationId : undefined;
-            resourceInputs["sourceStorageAccountId"] = state ? state.sourceStorageAccountId : undefined;
+            resourceInputs["destinationObjectReplicationId"] = state?.destinationObjectReplicationId;
+            resourceInputs["destinationStorageAccountId"] = state?.destinationStorageAccountId;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["sourceObjectReplicationId"] = state?.sourceObjectReplicationId;
+            resourceInputs["sourceStorageAccountId"] = state?.sourceStorageAccountId;
         } else {
             const args = argsOrState as ObjectReplicationArgs | undefined;
-            if ((!args || args.destinationStorageAccountId === undefined) && !opts.urn) {
+            if (args?.destinationStorageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationStorageAccountId'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            if ((!args || args.sourceStorageAccountId === undefined) && !opts.urn) {
+            if (args?.sourceStorageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceStorageAccountId'");
             }
-            resourceInputs["destinationStorageAccountId"] = args ? args.destinationStorageAccountId : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["sourceStorageAccountId"] = args ? args.sourceStorageAccountId : undefined;
+            resourceInputs["destinationStorageAccountId"] = args?.destinationStorageAccountId;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["sourceStorageAccountId"] = args?.sourceStorageAccountId;
             resourceInputs["destinationObjectReplicationId"] = undefined /*out*/;
             resourceInputs["sourceObjectReplicationId"] = undefined /*out*/;
         }

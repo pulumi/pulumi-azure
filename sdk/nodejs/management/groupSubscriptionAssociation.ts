@@ -73,11 +73,11 @@ export class GroupSubscriptionAssociation extends pulumi.CustomResource {
     /**
      * The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
      */
-    public readonly managementGroupId!: pulumi.Output<string>;
+    declare public readonly managementGroupId: pulumi.Output<string>;
     /**
      * The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
 
     /**
      * Create a GroupSubscriptionAssociation resource with the given unique name, arguments, and options.
@@ -92,18 +92,18 @@ export class GroupSubscriptionAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupSubscriptionAssociationState | undefined;
-            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["managementGroupId"] = state?.managementGroupId;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
         } else {
             const args = argsOrState as GroupSubscriptionAssociationArgs | undefined;
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupSubscriptionAssociation.__pulumiType, name, resourceInputs, opts);

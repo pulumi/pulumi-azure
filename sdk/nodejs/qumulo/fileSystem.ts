@@ -46,51 +46,51 @@ export class FileSystem extends pulumi.CustomResource {
     /**
      * The initial administrator password of the Azure Native Qumulo Scalable File System. Changing this forces a new resource to be created.
      */
-    public readonly adminPassword!: pulumi.Output<string>;
+    declare public readonly adminPassword: pulumi.Output<string>;
     /**
      * The email address used for the Azure Native Qumulo Scalable File System. Changing this forces a new resource to be created.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * The Azure Region where the Azure Native Qumulo Scalable File System should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Azure Native Qumulo Scalable File System resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the marketplace offer ID. Defaults to `qumulo-saas-mpp`. Changing this forces a new resource to be created.
      */
-    public readonly offerId!: pulumi.Output<string | undefined>;
+    declare public readonly offerId: pulumi.Output<string | undefined>;
     /**
      * Specifies the marketplace plan ID. Defaults to `azure-native-qumulo-v3`. Changing this forces a new resource to be created.
      */
-    public readonly planId!: pulumi.Output<string | undefined>;
+    declare public readonly planId: pulumi.Output<string | undefined>;
     /**
      * Specifies the marketplace publisher ID. Defaults to `qumulo1584033880660`. Changing this forces a new resource to be created.
      */
-    public readonly publisherId!: pulumi.Output<string | undefined>;
+    declare public readonly publisherId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Azure Native Qumulo Scalable File System should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The storage Sku. Possible values are `Cold_LRS`, `Hot_LRS` and `Hot_ZRS`. Changing this forces a new resource to be created.
      */
-    public readonly storageSku!: pulumi.Output<string>;
+    declare public readonly storageSku: pulumi.Output<string>;
     /**
      * The delegated subnet ID for Vnet injection. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the File System.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Availability Zone in which the Azure Native Qumulo Scalable File system is located. Changing this forces a new resource to be created.
      */
-    public readonly zone!: pulumi.Output<string>;
+    declare public readonly zone: pulumi.Output<string>;
 
     /**
      * Create a FileSystem resource with the given unique name, arguments, and options.
@@ -105,50 +105,50 @@ export class FileSystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FileSystemState | undefined;
-            resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["offerId"] = state ? state.offerId : undefined;
-            resourceInputs["planId"] = state ? state.planId : undefined;
-            resourceInputs["publisherId"] = state ? state.publisherId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storageSku"] = state ? state.storageSku : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["adminPassword"] = state?.adminPassword;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["offerId"] = state?.offerId;
+            resourceInputs["planId"] = state?.planId;
+            resourceInputs["publisherId"] = state?.publisherId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storageSku"] = state?.storageSku;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as FileSystemArgs | undefined;
-            if ((!args || args.adminPassword === undefined) && !opts.urn) {
+            if (args?.adminPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminPassword'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSku === undefined) && !opts.urn) {
+            if (args?.storageSku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSku'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.zone === undefined) && !opts.urn) {
+            if (args?.zone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zone'");
             }
             resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["offerId"] = args ? args.offerId : undefined;
-            resourceInputs["planId"] = args ? args.planId : undefined;
-            resourceInputs["publisherId"] = args ? args.publisherId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageSku"] = args ? args.storageSku : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["offerId"] = args?.offerId;
+            resourceInputs["planId"] = args?.planId;
+            resourceInputs["publisherId"] = args?.publisherId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageSku"] = args?.storageSku;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zone"] = args?.zone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminPassword"] };

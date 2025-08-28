@@ -138,27 +138,27 @@ export class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent extends p
     /**
      * The description of the resource. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the destination resource. The value can be the ID of either Public internet, Cosmos DB, Storage Account, SQL Server, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    public readonly destinationResourceId!: pulumi.Output<string>;
+    declare public readonly destinationResourceId: pulumi.Output<string>;
     /**
      * An `ipTraffic` block as defined below. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    public readonly ipTraffic!: pulumi.Output<outputs.network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic>;
+    declare public readonly ipTraffic: pulumi.Output<outputs.network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTraffic>;
     /**
      * The name which should be used for this Network Manager Verifier Workspace Reachability Analysis Intent. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the source resource. The value can be the ID of either Public internet, Virtual machines, or Subnet. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    public readonly sourceResourceId!: pulumi.Output<string>;
+    declare public readonly sourceResourceId: pulumi.Output<string>;
     /**
      * The ID of the Network Manager Verifier Workspace. Changing this forces a new Network Manager Verifier Workspace Reachability Analysis Intent to be created.
      */
-    public readonly verifierWorkspaceId!: pulumi.Output<string>;
+    declare public readonly verifierWorkspaceId: pulumi.Output<string>;
 
     /**
      * Create a NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent resource with the given unique name, arguments, and options.
@@ -173,32 +173,32 @@ export class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent extends p
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destinationResourceId"] = state ? state.destinationResourceId : undefined;
-            resourceInputs["ipTraffic"] = state ? state.ipTraffic : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
-            resourceInputs["verifierWorkspaceId"] = state ? state.verifierWorkspaceId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destinationResourceId"] = state?.destinationResourceId;
+            resourceInputs["ipTraffic"] = state?.ipTraffic;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sourceResourceId"] = state?.sourceResourceId;
+            resourceInputs["verifierWorkspaceId"] = state?.verifierWorkspaceId;
         } else {
             const args = argsOrState as NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs | undefined;
-            if ((!args || args.destinationResourceId === undefined) && !opts.urn) {
+            if (args?.destinationResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationResourceId'");
             }
-            if ((!args || args.ipTraffic === undefined) && !opts.urn) {
+            if (args?.ipTraffic === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipTraffic'");
             }
-            if ((!args || args.sourceResourceId === undefined) && !opts.urn) {
+            if (args?.sourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceId'");
             }
-            if ((!args || args.verifierWorkspaceId === undefined) && !opts.urn) {
+            if (args?.verifierWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'verifierWorkspaceId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationResourceId"] = args ? args.destinationResourceId : undefined;
-            resourceInputs["ipTraffic"] = args ? args.ipTraffic : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["verifierWorkspaceId"] = args ? args.verifierWorkspaceId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationResourceId"] = args?.destinationResourceId;
+            resourceInputs["ipTraffic"] = args?.ipTraffic;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["verifierWorkspaceId"] = args?.verifierWorkspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent.__pulumiType, name, resourceInputs, opts);

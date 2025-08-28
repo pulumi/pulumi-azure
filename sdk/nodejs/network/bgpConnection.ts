@@ -106,23 +106,23 @@ export class BgpConnection extends pulumi.CustomResource {
     /**
      * The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
-    public readonly peerAsn!: pulumi.Output<number>;
+    declare public readonly peerAsn: pulumi.Output<number>;
     /**
      * The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
      */
-    public readonly peerIp!: pulumi.Output<string>;
+    declare public readonly peerIp: pulumi.Output<string>;
     /**
      * The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
     /**
      * The ID of virtual network connection.
      */
-    public readonly virtualNetworkConnectionId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkConnectionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a BgpConnection resource with the given unique name, arguments, and options.
@@ -137,27 +137,27 @@ export class BgpConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BgpConnectionState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["peerAsn"] = state ? state.peerAsn : undefined;
-            resourceInputs["peerIp"] = state ? state.peerIp : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
-            resourceInputs["virtualNetworkConnectionId"] = state ? state.virtualNetworkConnectionId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["peerAsn"] = state?.peerAsn;
+            resourceInputs["peerIp"] = state?.peerIp;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
+            resourceInputs["virtualNetworkConnectionId"] = state?.virtualNetworkConnectionId;
         } else {
             const args = argsOrState as BgpConnectionArgs | undefined;
-            if ((!args || args.peerAsn === undefined) && !opts.urn) {
+            if (args?.peerAsn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAsn'");
             }
-            if ((!args || args.peerIp === undefined) && !opts.urn) {
+            if (args?.peerIp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerIp'");
             }
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
-            resourceInputs["peerIp"] = args ? args.peerIp : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
-            resourceInputs["virtualNetworkConnectionId"] = args ? args.virtualNetworkConnectionId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerAsn"] = args?.peerAsn;
+            resourceInputs["peerIp"] = args?.peerIp;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
+            resourceInputs["virtualNetworkConnectionId"] = args?.virtualNetworkConnectionId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BgpConnection.__pulumiType, name, resourceInputs, opts);

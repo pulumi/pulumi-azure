@@ -85,25 +85,25 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
      * The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * Fully qualified domain names. Changing this forces a new resource to be created.
      *
      * > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
-    public readonly fqdns!: pulumi.Output<string[]>;
+    declare public readonly fqdns: pulumi.Output<string[]>;
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      */
-    public readonly subresourceName!: pulumi.Output<string | undefined>;
+    declare public readonly subresourceName: pulumi.Output<string | undefined>;
     /**
      * The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
 
     /**
      * Create a ManagedPrivateEndpoint resource with the given unique name, arguments, and options.
@@ -118,24 +118,24 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrivateEndpointState | undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["fqdns"] = state ? state.fqdns : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["subresourceName"] = state ? state.subresourceName : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["fqdns"] = state?.fqdns;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["subresourceName"] = state?.subresourceName;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
         } else {
             const args = argsOrState as ManagedPrivateEndpointArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["subresourceName"] = args ? args.subresourceName : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["fqdns"] = args?.fqdns;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["subresourceName"] = args?.subresourceName;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);

@@ -125,43 +125,43 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
     /**
      * The IP address of assigned machine.
      */
-    public /*out*/ readonly ip!: pulumi.Output<string>;
+    declare public /*out*/ readonly ip: pulumi.Output<string>;
     /**
      * Last Heartbeat from the Worker.
      */
-    public /*out*/ readonly lastSeenDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSeenDateTime: pulumi.Output<string>;
     /**
      * The registration time of the worker machine.
      */
-    public /*out*/ readonly registrationDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly registrationDateTime: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
      */
-    public readonly vmResourceId!: pulumi.Output<string>;
+    declare public readonly vmResourceId: pulumi.Output<string>;
     /**
      * The name of the HybridWorker Group. Changing this forces a new Automation to be created.
      */
-    public readonly workerGroupName!: pulumi.Output<string>;
+    declare public readonly workerGroupName: pulumi.Output<string>;
     /**
      * Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
      */
-    public readonly workerId!: pulumi.Output<string>;
+    declare public readonly workerId: pulumi.Output<string>;
     /**
      * The name of HybridWorker.
      */
-    public /*out*/ readonly workerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly workerName: pulumi.Output<string>;
     /**
      * The type of the HybridWorker, the possible values are `HybridV1` and `HybridV2`.
      */
-    public /*out*/ readonly workerType!: pulumi.Output<string>;
+    declare public /*out*/ readonly workerType: pulumi.Output<string>;
 
     /**
      * Create a HybridRunbookWorker resource with the given unique name, arguments, and options.
@@ -176,38 +176,38 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HybridRunbookWorkerState | undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["ip"] = state ? state.ip : undefined;
-            resourceInputs["lastSeenDateTime"] = state ? state.lastSeenDateTime : undefined;
-            resourceInputs["registrationDateTime"] = state ? state.registrationDateTime : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["vmResourceId"] = state ? state.vmResourceId : undefined;
-            resourceInputs["workerGroupName"] = state ? state.workerGroupName : undefined;
-            resourceInputs["workerId"] = state ? state.workerId : undefined;
-            resourceInputs["workerName"] = state ? state.workerName : undefined;
-            resourceInputs["workerType"] = state ? state.workerType : undefined;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["ip"] = state?.ip;
+            resourceInputs["lastSeenDateTime"] = state?.lastSeenDateTime;
+            resourceInputs["registrationDateTime"] = state?.registrationDateTime;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["vmResourceId"] = state?.vmResourceId;
+            resourceInputs["workerGroupName"] = state?.workerGroupName;
+            resourceInputs["workerId"] = state?.workerId;
+            resourceInputs["workerName"] = state?.workerName;
+            resourceInputs["workerType"] = state?.workerType;
         } else {
             const args = argsOrState as HybridRunbookWorkerArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmResourceId === undefined) && !opts.urn) {
+            if (args?.vmResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmResourceId'");
             }
-            if ((!args || args.workerGroupName === undefined) && !opts.urn) {
+            if (args?.workerGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workerGroupName'");
             }
-            if ((!args || args.workerId === undefined) && !opts.urn) {
+            if (args?.workerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workerId'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vmResourceId"] = args ? args.vmResourceId : undefined;
-            resourceInputs["workerGroupName"] = args ? args.workerGroupName : undefined;
-            resourceInputs["workerId"] = args ? args.workerId : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vmResourceId"] = args?.vmResourceId;
+            resourceInputs["workerGroupName"] = args?.workerGroupName;
+            resourceInputs["workerId"] = args?.workerId;
             resourceInputs["ip"] = undefined /*out*/;
             resourceInputs["lastSeenDateTime"] = undefined /*out*/;
             resourceInputs["registrationDateTime"] = undefined /*out*/;

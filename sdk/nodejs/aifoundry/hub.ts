@@ -111,77 +111,77 @@ export class Hub extends pulumi.CustomResource {
     /**
      * The Application Insights ID that should be used by this AI Foundry Hub.
      */
-    public readonly applicationInsightsId!: pulumi.Output<string | undefined>;
+    declare public readonly applicationInsightsId: pulumi.Output<string | undefined>;
     /**
      * The Container Registry ID that should be used by this AI Foundry Hub.
      */
-    public readonly containerRegistryId!: pulumi.Output<string | undefined>;
+    declare public readonly containerRegistryId: pulumi.Output<string | undefined>;
     /**
      * The description of this AI Foundry Hub.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The URL for the discovery service to identify regional endpoints for AI Foundry Hub services.
      */
-    public /*out*/ readonly discoveryUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly discoveryUrl: pulumi.Output<string>;
     /**
      * An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
      */
-    public readonly encryption!: pulumi.Output<outputs.aifoundry.HubEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.aifoundry.HubEncryption | undefined>;
     /**
      * The display name of this AI Foundry Hub.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
      *
      * > **Note:** `highBusinessImpactEnabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
      */
-    public readonly highBusinessImpactEnabled!: pulumi.Output<boolean>;
+    declare public readonly highBusinessImpactEnabled: pulumi.Output<boolean>;
     /**
      * A `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.aifoundry.HubIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.aifoundry.HubIdentity>;
     /**
      * The Key Vault ID that should be used by this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string>;
     /**
      * The Azure Region where the AI Foundry Hub should exist. Changing this forces a new AI Foundry Hub to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `managedNetwork` block as defined below.
      */
-    public readonly managedNetwork!: pulumi.Output<outputs.aifoundry.HubManagedNetwork>;
+    declare public readonly managedNetwork: pulumi.Output<outputs.aifoundry.HubManagedNetwork>;
     /**
      * The name which should be used for this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
      */
-    public readonly primaryUserAssignedIdentity!: pulumi.Output<string | undefined>;
+    declare public readonly primaryUserAssignedIdentity: pulumi.Output<string | undefined>;
     /**
      * Whether public network access for this AI Service Hub should be enabled. Possible values include `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the AI Foundry Hub should exist. Changing this forces a new AI Foundry Hub to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Storage Account ID that should be used by this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the AI Foundry Hub.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The immutable ID associated with this AI Foundry Hub.
      */
-    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a Hub resource with the given unique name, arguments, and options.
@@ -196,54 +196,54 @@ export class Hub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HubState | undefined;
-            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            resourceInputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["discoveryUrl"] = state ? state.discoveryUrl : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["highBusinessImpactEnabled"] = state ? state.highBusinessImpactEnabled : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedNetwork"] = state ? state.managedNetwork : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryUserAssignedIdentity"] = state ? state.primaryUserAssignedIdentity : undefined;
-            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["applicationInsightsId"] = state?.applicationInsightsId;
+            resourceInputs["containerRegistryId"] = state?.containerRegistryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["discoveryUrl"] = state?.discoveryUrl;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["highBusinessImpactEnabled"] = state?.highBusinessImpactEnabled;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedNetwork"] = state?.managedNetwork;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryUserAssignedIdentity"] = state?.primaryUserAssignedIdentity;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as HubArgs | undefined;
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
+            if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            resourceInputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["highBusinessImpactEnabled"] = args ? args.highBusinessImpactEnabled : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedNetwork"] = args ? args.managedNetwork : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationInsightsId"] = args?.applicationInsightsId;
+            resourceInputs["containerRegistryId"] = args?.containerRegistryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["highBusinessImpactEnabled"] = args?.highBusinessImpactEnabled;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedNetwork"] = args?.managedNetwork;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["primaryUserAssignedIdentity"] = args?.primaryUserAssignedIdentity;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["discoveryUrl"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
         }

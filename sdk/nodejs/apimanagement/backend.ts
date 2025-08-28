@@ -82,51 +82,51 @@ export class Backend extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * A `credentials` block as documented below.
      */
-    public readonly credentials!: pulumi.Output<outputs.apimanagement.BackendCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.apimanagement.BackendCredentials | undefined>;
     /**
      * The description of the backend.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the API Management backend. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The protocol used by the backend host. Possible values are `http` or `soap`.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * A `proxy` block as documented below.
      */
-    public readonly proxy!: pulumi.Output<outputs.apimanagement.BackendProxy | undefined>;
+    declare public readonly proxy: pulumi.Output<outputs.apimanagement.BackendProxy | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
      */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceId: pulumi.Output<string | undefined>;
     /**
      * A `serviceFabricCluster` block as documented below.
      */
-    public readonly serviceFabricCluster!: pulumi.Output<outputs.apimanagement.BackendServiceFabricCluster | undefined>;
+    declare public readonly serviceFabricCluster: pulumi.Output<outputs.apimanagement.BackendServiceFabricCluster | undefined>;
     /**
      * The title of the backend.
      */
-    public readonly title!: pulumi.Output<string | undefined>;
+    declare public readonly title: pulumi.Output<string | undefined>;
     /**
      * A `tls` block as documented below.
      */
-    public readonly tls!: pulumi.Output<outputs.apimanagement.BackendTls | undefined>;
+    declare public readonly tls: pulumi.Output<outputs.apimanagement.BackendTls | undefined>;
     /**
      * The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a Backend resource with the given unique name, arguments, and options.
@@ -141,44 +141,44 @@ export class Backend extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["credentials"] = state ? state.credentials : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["proxy"] = state ? state.proxy : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["serviceFabricCluster"] = state ? state.serviceFabricCluster : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
-            resourceInputs["tls"] = state ? state.tls : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["credentials"] = state?.credentials;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["proxy"] = state?.proxy;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["serviceFabricCluster"] = state?.serviceFabricCluster;
+            resourceInputs["title"] = state?.title;
+            resourceInputs["tls"] = state?.tls;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as BackendArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["proxy"] = args ? args.proxy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["serviceFabricCluster"] = args ? args.serviceFabricCluster : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["tls"] = args ? args.tls : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["proxy"] = args?.proxy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["serviceFabricCluster"] = args?.serviceFabricCluster;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["tls"] = args?.tls;
+            resourceInputs["url"] = args?.url;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Backend.__pulumiType, name, resourceInputs, opts);

@@ -239,99 +239,99 @@ export class ReplicatedVM extends pulumi.CustomResource {
     /**
      * One or more `managedDisk` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly managedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMManagedDisk[]>;
+    declare public readonly managedDisks: pulumi.Output<outputs.siterecovery.ReplicatedVMManagedDisk[]>;
     /**
      * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
      */
-    public readonly multiVmGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly multiVmGroupName: pulumi.Output<string | undefined>;
     /**
      * The name of the replication for the replicated VM. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `networkInterface` block as defined below.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.siterecovery.ReplicatedVMNetworkInterface[]>;
+    declare public readonly networkInterfaces: pulumi.Output<outputs.siterecovery.ReplicatedVMNetworkInterface[]>;
     /**
      * Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
      */
-    public readonly recoveryReplicationPolicyId!: pulumi.Output<string>;
+    declare public readonly recoveryReplicationPolicyId: pulumi.Output<string>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Name of fabric that should contain this replication. Changing this forces a new resource to be created.
      */
-    public readonly sourceRecoveryFabricName!: pulumi.Output<string>;
+    declare public readonly sourceRecoveryFabricName: pulumi.Output<string>;
     /**
      * Name of the protection container to use. Changing this forces a new resource to be created.
      */
-    public readonly sourceRecoveryProtectionContainerName!: pulumi.Output<string>;
+    declare public readonly sourceRecoveryProtectionContainerName: pulumi.Output<string>;
     /**
      * Id of the VM to replicate Changing this forces a new resource to be created.
      */
-    public readonly sourceVmId!: pulumi.Output<string>;
+    declare public readonly sourceVmId: pulumi.Output<string>;
     /**
      * Id of availability set that the new VM should belong to when a failover is done.
      */
-    public readonly targetAvailabilitySetId!: pulumi.Output<string | undefined>;
+    declare public readonly targetAvailabilitySetId: pulumi.Output<string | undefined>;
     /**
      * Id of the storage account which the new VM should used for boot diagnostic when a failover is done.
      */
-    public readonly targetBootDiagnosticStorageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly targetBootDiagnosticStorageAccountId: pulumi.Output<string | undefined>;
     /**
      * Id of the Capacity reservation group where the new VM should belong to when a failover is done.
      */
-    public readonly targetCapacityReservationGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly targetCapacityReservationGroupId: pulumi.Output<string | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly targetEdgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly targetEdgeZone: pulumi.Output<string | undefined>;
     /**
      * Network to use when a failover is done (recommended to set if any networkInterface is configured for failover).
      */
-    public readonly targetNetworkId!: pulumi.Output<string>;
+    declare public readonly targetNetworkId: pulumi.Output<string>;
     /**
      * Id of Proximity Placement Group the new VM should belong to when a failover is done.
      */
-    public readonly targetProximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly targetProximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
      * Id of fabric where the VM replication should be handled when a failover is done. Changing this forces a new resource to be created.
      */
-    public readonly targetRecoveryFabricId!: pulumi.Output<string>;
+    declare public readonly targetRecoveryFabricId: pulumi.Output<string>;
     /**
      * Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created.
      */
-    public readonly targetRecoveryProtectionContainerId!: pulumi.Output<string>;
+    declare public readonly targetRecoveryProtectionContainerId: pulumi.Output<string>;
     /**
      * Id of resource group where the VM should be created when a failover is done. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceGroupId!: pulumi.Output<string>;
+    declare public readonly targetResourceGroupId: pulumi.Output<string>;
     /**
      * Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done.
      */
-    public readonly targetVirtualMachineScaleSetId!: pulumi.Output<string | undefined>;
+    declare public readonly targetVirtualMachineScaleSetId: pulumi.Output<string | undefined>;
     /**
      * Specifies the size the Virtual Machine should have.
      */
-    public readonly targetVirtualMachineSize!: pulumi.Output<string>;
+    declare public readonly targetVirtualMachineSize: pulumi.Output<string>;
     /**
      * Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
      */
-    public readonly targetZone!: pulumi.Output<string | undefined>;
+    declare public readonly targetZone: pulumi.Output<string | undefined>;
     /**
      * Network to use when a test failover is done.
      */
-    public readonly testNetworkId!: pulumi.Output<string>;
+    declare public readonly testNetworkId: pulumi.Output<string>;
     /**
      * One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly unmanagedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMUnmanagedDisk[]>;
+    declare public readonly unmanagedDisks: pulumi.Output<outputs.siterecovery.ReplicatedVMUnmanagedDisk[]>;
 
     /**
      * Create a ReplicatedVM resource with the given unique name, arguments, and options.
@@ -346,83 +346,83 @@ export class ReplicatedVM extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicatedVMState | undefined;
-            resourceInputs["managedDisks"] = state ? state.managedDisks : undefined;
-            resourceInputs["multiVmGroupName"] = state ? state.multiVmGroupName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            resourceInputs["recoveryReplicationPolicyId"] = state ? state.recoveryReplicationPolicyId : undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceRecoveryFabricName"] = state ? state.sourceRecoveryFabricName : undefined;
-            resourceInputs["sourceRecoveryProtectionContainerName"] = state ? state.sourceRecoveryProtectionContainerName : undefined;
-            resourceInputs["sourceVmId"] = state ? state.sourceVmId : undefined;
-            resourceInputs["targetAvailabilitySetId"] = state ? state.targetAvailabilitySetId : undefined;
-            resourceInputs["targetBootDiagnosticStorageAccountId"] = state ? state.targetBootDiagnosticStorageAccountId : undefined;
-            resourceInputs["targetCapacityReservationGroupId"] = state ? state.targetCapacityReservationGroupId : undefined;
-            resourceInputs["targetEdgeZone"] = state ? state.targetEdgeZone : undefined;
-            resourceInputs["targetNetworkId"] = state ? state.targetNetworkId : undefined;
-            resourceInputs["targetProximityPlacementGroupId"] = state ? state.targetProximityPlacementGroupId : undefined;
-            resourceInputs["targetRecoveryFabricId"] = state ? state.targetRecoveryFabricId : undefined;
-            resourceInputs["targetRecoveryProtectionContainerId"] = state ? state.targetRecoveryProtectionContainerId : undefined;
-            resourceInputs["targetResourceGroupId"] = state ? state.targetResourceGroupId : undefined;
-            resourceInputs["targetVirtualMachineScaleSetId"] = state ? state.targetVirtualMachineScaleSetId : undefined;
-            resourceInputs["targetVirtualMachineSize"] = state ? state.targetVirtualMachineSize : undefined;
-            resourceInputs["targetZone"] = state ? state.targetZone : undefined;
-            resourceInputs["testNetworkId"] = state ? state.testNetworkId : undefined;
-            resourceInputs["unmanagedDisks"] = state ? state.unmanagedDisks : undefined;
+            resourceInputs["managedDisks"] = state?.managedDisks;
+            resourceInputs["multiVmGroupName"] = state?.multiVmGroupName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkInterfaces"] = state?.networkInterfaces;
+            resourceInputs["recoveryReplicationPolicyId"] = state?.recoveryReplicationPolicyId;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceRecoveryFabricName"] = state?.sourceRecoveryFabricName;
+            resourceInputs["sourceRecoveryProtectionContainerName"] = state?.sourceRecoveryProtectionContainerName;
+            resourceInputs["sourceVmId"] = state?.sourceVmId;
+            resourceInputs["targetAvailabilitySetId"] = state?.targetAvailabilitySetId;
+            resourceInputs["targetBootDiagnosticStorageAccountId"] = state?.targetBootDiagnosticStorageAccountId;
+            resourceInputs["targetCapacityReservationGroupId"] = state?.targetCapacityReservationGroupId;
+            resourceInputs["targetEdgeZone"] = state?.targetEdgeZone;
+            resourceInputs["targetNetworkId"] = state?.targetNetworkId;
+            resourceInputs["targetProximityPlacementGroupId"] = state?.targetProximityPlacementGroupId;
+            resourceInputs["targetRecoveryFabricId"] = state?.targetRecoveryFabricId;
+            resourceInputs["targetRecoveryProtectionContainerId"] = state?.targetRecoveryProtectionContainerId;
+            resourceInputs["targetResourceGroupId"] = state?.targetResourceGroupId;
+            resourceInputs["targetVirtualMachineScaleSetId"] = state?.targetVirtualMachineScaleSetId;
+            resourceInputs["targetVirtualMachineSize"] = state?.targetVirtualMachineSize;
+            resourceInputs["targetZone"] = state?.targetZone;
+            resourceInputs["testNetworkId"] = state?.testNetworkId;
+            resourceInputs["unmanagedDisks"] = state?.unmanagedDisks;
         } else {
             const args = argsOrState as ReplicatedVMArgs | undefined;
-            if ((!args || args.recoveryReplicationPolicyId === undefined) && !opts.urn) {
+            if (args?.recoveryReplicationPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryReplicationPolicyId'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceRecoveryFabricName === undefined) && !opts.urn) {
+            if (args?.sourceRecoveryFabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceRecoveryFabricName'");
             }
-            if ((!args || args.sourceRecoveryProtectionContainerName === undefined) && !opts.urn) {
+            if (args?.sourceRecoveryProtectionContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceRecoveryProtectionContainerName'");
             }
-            if ((!args || args.sourceVmId === undefined) && !opts.urn) {
+            if (args?.sourceVmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceVmId'");
             }
-            if ((!args || args.targetRecoveryFabricId === undefined) && !opts.urn) {
+            if (args?.targetRecoveryFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetRecoveryFabricId'");
             }
-            if ((!args || args.targetRecoveryProtectionContainerId === undefined) && !opts.urn) {
+            if (args?.targetRecoveryProtectionContainerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetRecoveryProtectionContainerId'");
             }
-            if ((!args || args.targetResourceGroupId === undefined) && !opts.urn) {
+            if (args?.targetResourceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceGroupId'");
             }
-            resourceInputs["managedDisks"] = args ? args.managedDisks : undefined;
-            resourceInputs["multiVmGroupName"] = args ? args.multiVmGroupName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            resourceInputs["recoveryReplicationPolicyId"] = args ? args.recoveryReplicationPolicyId : undefined;
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceRecoveryFabricName"] = args ? args.sourceRecoveryFabricName : undefined;
-            resourceInputs["sourceRecoveryProtectionContainerName"] = args ? args.sourceRecoveryProtectionContainerName : undefined;
-            resourceInputs["sourceVmId"] = args ? args.sourceVmId : undefined;
-            resourceInputs["targetAvailabilitySetId"] = args ? args.targetAvailabilitySetId : undefined;
-            resourceInputs["targetBootDiagnosticStorageAccountId"] = args ? args.targetBootDiagnosticStorageAccountId : undefined;
-            resourceInputs["targetCapacityReservationGroupId"] = args ? args.targetCapacityReservationGroupId : undefined;
-            resourceInputs["targetEdgeZone"] = args ? args.targetEdgeZone : undefined;
-            resourceInputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
-            resourceInputs["targetProximityPlacementGroupId"] = args ? args.targetProximityPlacementGroupId : undefined;
-            resourceInputs["targetRecoveryFabricId"] = args ? args.targetRecoveryFabricId : undefined;
-            resourceInputs["targetRecoveryProtectionContainerId"] = args ? args.targetRecoveryProtectionContainerId : undefined;
-            resourceInputs["targetResourceGroupId"] = args ? args.targetResourceGroupId : undefined;
-            resourceInputs["targetVirtualMachineScaleSetId"] = args ? args.targetVirtualMachineScaleSetId : undefined;
-            resourceInputs["targetVirtualMachineSize"] = args ? args.targetVirtualMachineSize : undefined;
-            resourceInputs["targetZone"] = args ? args.targetZone : undefined;
-            resourceInputs["testNetworkId"] = args ? args.testNetworkId : undefined;
-            resourceInputs["unmanagedDisks"] = args ? args.unmanagedDisks : undefined;
+            resourceInputs["managedDisks"] = args?.managedDisks;
+            resourceInputs["multiVmGroupName"] = args?.multiVmGroupName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["recoveryReplicationPolicyId"] = args?.recoveryReplicationPolicyId;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceRecoveryFabricName"] = args?.sourceRecoveryFabricName;
+            resourceInputs["sourceRecoveryProtectionContainerName"] = args?.sourceRecoveryProtectionContainerName;
+            resourceInputs["sourceVmId"] = args?.sourceVmId;
+            resourceInputs["targetAvailabilitySetId"] = args?.targetAvailabilitySetId;
+            resourceInputs["targetBootDiagnosticStorageAccountId"] = args?.targetBootDiagnosticStorageAccountId;
+            resourceInputs["targetCapacityReservationGroupId"] = args?.targetCapacityReservationGroupId;
+            resourceInputs["targetEdgeZone"] = args?.targetEdgeZone;
+            resourceInputs["targetNetworkId"] = args?.targetNetworkId;
+            resourceInputs["targetProximityPlacementGroupId"] = args?.targetProximityPlacementGroupId;
+            resourceInputs["targetRecoveryFabricId"] = args?.targetRecoveryFabricId;
+            resourceInputs["targetRecoveryProtectionContainerId"] = args?.targetRecoveryProtectionContainerId;
+            resourceInputs["targetResourceGroupId"] = args?.targetResourceGroupId;
+            resourceInputs["targetVirtualMachineScaleSetId"] = args?.targetVirtualMachineScaleSetId;
+            resourceInputs["targetVirtualMachineSize"] = args?.targetVirtualMachineSize;
+            resourceInputs["targetZone"] = args?.targetZone;
+            resourceInputs["testNetworkId"] = args?.testNetworkId;
+            resourceInputs["unmanagedDisks"] = args?.unmanagedDisks;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReplicatedVM.__pulumiType, name, resourceInputs, opts);

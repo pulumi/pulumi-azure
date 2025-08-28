@@ -75,23 +75,23 @@ export class ServicesAccount extends pulumi.CustomResource {
     /**
      * Customer owned application ID. Changing this forces a new Account to be created.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * Billing Plan Id.
      */
-    public /*out*/ readonly billingPlanId!: pulumi.Output<string>;
+    declare public /*out*/ readonly billingPlanId: pulumi.Output<string>;
     /**
      * Specifies the name of this Account. Changing this forces a new Account to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group within which this Account should exist. Changing this forces a new Account to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Account.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ServicesAccount resource with the given unique name, arguments, and options.
@@ -106,23 +106,23 @@ export class ServicesAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServicesAccountState | undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["billingPlanId"] = state ? state.billingPlanId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["billingPlanId"] = state?.billingPlanId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ServicesAccountArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["billingPlanId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

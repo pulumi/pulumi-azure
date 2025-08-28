@@ -83,61 +83,61 @@ export class DatasetParquet extends pulumi.CustomResource {
      *
      * The following supported locations for a Parquet Dataset:
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * A `azureBlobFsLocation` block as defined below.
      */
-    public readonly azureBlobFsLocation!: pulumi.Output<outputs.datafactory.DatasetParquetAzureBlobFsLocation | undefined>;
+    declare public readonly azureBlobFsLocation: pulumi.Output<outputs.datafactory.DatasetParquetAzureBlobFsLocation | undefined>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      *
      * The following supported arguments are specific to Parquet Dataset:
      */
-    public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetParquetAzureBlobStorageLocation | undefined>;
+    declare public readonly azureBlobStorageLocation: pulumi.Output<outputs.datafactory.DatasetParquetAzureBlobStorageLocation | undefined>;
     /**
      * The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
      */
-    public readonly compressionCodec!: pulumi.Output<string | undefined>;
+    declare public readonly compressionCodec: pulumi.Output<string | undefined>;
     /**
      * Specifies the compression level. Possible values are `Optimal` and `Fastest`,
      */
-    public readonly compressionLevel!: pulumi.Output<string | undefined>;
+    declare public readonly compressionLevel: pulumi.Output<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Dataset.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<string | undefined>;
+    declare public readonly folder: pulumi.Output<string | undefined>;
     /**
      * A `httpServerLocation` block as defined below.
      */
-    public readonly httpServerLocation!: pulumi.Output<outputs.datafactory.DatasetParquetHttpServerLocation | undefined>;
+    declare public readonly httpServerLocation: pulumi.Output<outputs.datafactory.DatasetParquetHttpServerLocation | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    public readonly linkedServiceName!: pulumi.Output<string>;
+    declare public readonly linkedServiceName: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    public readonly schemaColumns!: pulumi.Output<outputs.datafactory.DatasetParquetSchemaColumn[] | undefined>;
+    declare public readonly schemaColumns: pulumi.Output<outputs.datafactory.DatasetParquetSchemaColumn[] | undefined>;
 
     /**
      * Create a DatasetParquet resource with the given unique name, arguments, and options.
@@ -152,42 +152,42 @@ export class DatasetParquet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetParquetState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["azureBlobFsLocation"] = state ? state.azureBlobFsLocation : undefined;
-            resourceInputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
-            resourceInputs["compressionCodec"] = state ? state.compressionCodec : undefined;
-            resourceInputs["compressionLevel"] = state ? state.compressionLevel : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["folder"] = state ? state.folder : undefined;
-            resourceInputs["httpServerLocation"] = state ? state.httpServerLocation : undefined;
-            resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["azureBlobFsLocation"] = state?.azureBlobFsLocation;
+            resourceInputs["azureBlobStorageLocation"] = state?.azureBlobStorageLocation;
+            resourceInputs["compressionCodec"] = state?.compressionCodec;
+            resourceInputs["compressionLevel"] = state?.compressionLevel;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["folder"] = state?.folder;
+            resourceInputs["httpServerLocation"] = state?.httpServerLocation;
+            resourceInputs["linkedServiceName"] = state?.linkedServiceName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["schemaColumns"] = state?.schemaColumns;
         } else {
             const args = argsOrState as DatasetParquetArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
+            if (args?.linkedServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["azureBlobFsLocation"] = args ? args.azureBlobFsLocation : undefined;
-            resourceInputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
-            resourceInputs["compressionCodec"] = args ? args.compressionCodec : undefined;
-            resourceInputs["compressionLevel"] = args ? args.compressionLevel : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["httpServerLocation"] = args ? args.httpServerLocation : undefined;
-            resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["azureBlobFsLocation"] = args?.azureBlobFsLocation;
+            resourceInputs["azureBlobStorageLocation"] = args?.azureBlobStorageLocation;
+            resourceInputs["compressionCodec"] = args?.compressionCodec;
+            resourceInputs["compressionLevel"] = args?.compressionLevel;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["httpServerLocation"] = args?.httpServerLocation;
+            resourceInputs["linkedServiceName"] = args?.linkedServiceName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["schemaColumns"] = args?.schemaColumns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DatasetParquet.__pulumiType, name, resourceInputs, opts);

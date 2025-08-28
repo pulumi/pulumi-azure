@@ -82,11 +82,11 @@ export class NatGatewayPublicIpAssociation extends pulumi.CustomResource {
     /**
      * The ID of the NAT Gateway. Changing this forces a new resource to be created.
      */
-    public readonly natGatewayId!: pulumi.Output<string>;
+    declare public readonly natGatewayId: pulumi.Output<string>;
     /**
      * The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly publicIpAddressId!: pulumi.Output<string>;
+    declare public readonly publicIpAddressId: pulumi.Output<string>;
 
     /**
      * Create a NatGatewayPublicIpAssociation resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class NatGatewayPublicIpAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatGatewayPublicIpAssociationState | undefined;
-            resourceInputs["natGatewayId"] = state ? state.natGatewayId : undefined;
-            resourceInputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
+            resourceInputs["natGatewayId"] = state?.natGatewayId;
+            resourceInputs["publicIpAddressId"] = state?.publicIpAddressId;
         } else {
             const args = argsOrState as NatGatewayPublicIpAssociationArgs | undefined;
-            if ((!args || args.natGatewayId === undefined) && !opts.urn) {
+            if (args?.natGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'natGatewayId'");
             }
-            if ((!args || args.publicIpAddressId === undefined) && !opts.urn) {
+            if (args?.publicIpAddressId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicIpAddressId'");
             }
-            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
+            resourceInputs["natGatewayId"] = args?.natGatewayId;
+            resourceInputs["publicIpAddressId"] = args?.publicIpAddressId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NatGatewayPublicIpAssociation.__pulumiType, name, resourceInputs, opts);

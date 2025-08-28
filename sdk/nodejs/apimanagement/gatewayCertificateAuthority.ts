@@ -99,19 +99,19 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
     /**
      * The ID of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementId!: pulumi.Output<string>;
+    declare public readonly apiManagementId: pulumi.Output<string>;
     /**
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      */
-    public readonly certificateName!: pulumi.Output<string>;
+    declare public readonly certificateName: pulumi.Output<string>;
     /**
      * The name of the API Management Gateway. Changing this forces a new resource to be created.
      */
-    public readonly gatewayName!: pulumi.Output<string>;
+    declare public readonly gatewayName: pulumi.Output<string>;
     /**
      * Whether the API Management Gateway Certificate Authority is trusted.
      */
-    public readonly isTrusted!: pulumi.Output<boolean | undefined>;
+    declare public readonly isTrusted: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GatewayCertificateAuthority resource with the given unique name, arguments, and options.
@@ -126,25 +126,25 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayCertificateAuthorityState | undefined;
-            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            resourceInputs["certificateName"] = state ? state.certificateName : undefined;
-            resourceInputs["gatewayName"] = state ? state.gatewayName : undefined;
-            resourceInputs["isTrusted"] = state ? state.isTrusted : undefined;
+            resourceInputs["apiManagementId"] = state?.apiManagementId;
+            resourceInputs["certificateName"] = state?.certificateName;
+            resourceInputs["gatewayName"] = state?.gatewayName;
+            resourceInputs["isTrusted"] = state?.isTrusted;
         } else {
             const args = argsOrState as GatewayCertificateAuthorityArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
+            if (args?.apiManagementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            if ((!args || args.certificateName === undefined) && !opts.urn) {
+            if (args?.certificateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateName'");
             }
-            if ((!args || args.gatewayName === undefined) && !opts.urn) {
+            if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["isTrusted"] = args ? args.isTrusted : undefined;
+            resourceInputs["apiManagementId"] = args?.apiManagementId;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["isTrusted"] = args?.isTrusted;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GatewayCertificateAuthority.__pulumiType, name, resourceInputs, opts);

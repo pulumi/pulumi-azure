@@ -83,25 +83,25 @@ export class EventHub extends pulumi.CustomResource {
     /**
      * A `captureDescription` block as defined below.
      */
-    public readonly captureDescription!: pulumi.Output<outputs.eventhub.EventHubCaptureDescription | undefined>;
+    declare public readonly captureDescription: pulumi.Output<outputs.eventhub.EventHubCaptureDescription | undefined>;
     /**
      * Specifies the number of days to retain the events for this Event Hub.
      *
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `messageRetention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
      */
-    public readonly messageRetention!: pulumi.Output<number>;
+    declare public readonly messageRetention: pulumi.Output<number>;
     /**
      * Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly namespaceId!: pulumi.Output<string>;
+    declare public readonly namespaceId: pulumi.Output<string>;
     /**
      * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * Specifies the current number of shards on the Event Hub.
      *
@@ -109,23 +109,23 @@ export class EventHub extends pulumi.CustomResource {
      *
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      */
-    public readonly partitionCount!: pulumi.Output<number>;
+    declare public readonly partitionCount: pulumi.Output<number>;
     /**
      * The identifiers for partitions created for Event Hubs.
      */
-    public /*out*/ readonly partitionIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly partitionIds: pulumi.Output<string[]>;
     /**
      * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `retentionDescription` block as defined below.
      */
-    public readonly retentionDescription!: pulumi.Output<outputs.eventhub.EventHubRetentionDescription>;
+    declare public readonly retentionDescription: pulumi.Output<outputs.eventhub.EventHubRetentionDescription>;
     /**
      * Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventHub resource with the given unique name, arguments, and options.
@@ -140,30 +140,30 @@ export class EventHub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventHubState | undefined;
-            resourceInputs["captureDescription"] = state ? state.captureDescription : undefined;
-            resourceInputs["messageRetention"] = state ? state.messageRetention : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["partitionCount"] = state ? state.partitionCount : undefined;
-            resourceInputs["partitionIds"] = state ? state.partitionIds : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionDescription"] = state ? state.retentionDescription : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["captureDescription"] = state?.captureDescription;
+            resourceInputs["messageRetention"] = state?.messageRetention;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceId"] = state?.namespaceId;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["partitionCount"] = state?.partitionCount;
+            resourceInputs["partitionIds"] = state?.partitionIds;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionDescription"] = state?.retentionDescription;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as EventHubArgs | undefined;
-            if ((!args || args.partitionCount === undefined) && !opts.urn) {
+            if (args?.partitionCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionCount'");
             }
-            resourceInputs["captureDescription"] = args ? args.captureDescription : undefined;
-            resourceInputs["messageRetention"] = args ? args.messageRetention : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDescription"] = args ? args.retentionDescription : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["captureDescription"] = args?.captureDescription;
+            resourceInputs["messageRetention"] = args?.messageRetention;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceId"] = args?.namespaceId;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["partitionCount"] = args?.partitionCount;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDescription"] = args?.retentionDescription;
+            resourceInputs["status"] = args?.status;
             resourceInputs["partitionIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

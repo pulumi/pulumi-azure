@@ -82,27 +82,27 @@ export class EndpointEventGrid extends pulumi.CustomResource {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    public readonly deadLetterStorageSecret!: pulumi.Output<string | undefined>;
+    declare public readonly deadLetterStorageSecret: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
-    public readonly digitalTwinsId!: pulumi.Output<string>;
+    declare public readonly digitalTwinsId: pulumi.Output<string>;
     /**
      * The endpoint of the Event Grid Topic.
      */
-    public readonly eventgridTopicEndpoint!: pulumi.Output<string>;
+    declare public readonly eventgridTopicEndpoint: pulumi.Output<string>;
     /**
      * The primary access key of the Event Grid Topic.
      */
-    public readonly eventgridTopicPrimaryAccessKey!: pulumi.Output<string>;
+    declare public readonly eventgridTopicPrimaryAccessKey: pulumi.Output<string>;
     /**
      * The secondary access key of the Event Grid Topic.
      */
-    public readonly eventgridTopicSecondaryAccessKey!: pulumi.Output<string>;
+    declare public readonly eventgridTopicSecondaryAccessKey: pulumi.Output<string>;
     /**
      * The name which should be used for this Digital Twins Eventgrid Endpoint. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a EndpointEventGrid resource with the given unique name, arguments, and options.
@@ -117,32 +117,32 @@ export class EndpointEventGrid extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointEventGridState | undefined;
-            resourceInputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
-            resourceInputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
-            resourceInputs["eventgridTopicEndpoint"] = state ? state.eventgridTopicEndpoint : undefined;
-            resourceInputs["eventgridTopicPrimaryAccessKey"] = state ? state.eventgridTopicPrimaryAccessKey : undefined;
-            resourceInputs["eventgridTopicSecondaryAccessKey"] = state ? state.eventgridTopicSecondaryAccessKey : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["deadLetterStorageSecret"] = state?.deadLetterStorageSecret;
+            resourceInputs["digitalTwinsId"] = state?.digitalTwinsId;
+            resourceInputs["eventgridTopicEndpoint"] = state?.eventgridTopicEndpoint;
+            resourceInputs["eventgridTopicPrimaryAccessKey"] = state?.eventgridTopicPrimaryAccessKey;
+            resourceInputs["eventgridTopicSecondaryAccessKey"] = state?.eventgridTopicSecondaryAccessKey;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as EndpointEventGridArgs | undefined;
-            if ((!args || args.digitalTwinsId === undefined) && !opts.urn) {
+            if (args?.digitalTwinsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'digitalTwinsId'");
             }
-            if ((!args || args.eventgridTopicEndpoint === undefined) && !opts.urn) {
+            if (args?.eventgridTopicEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventgridTopicEndpoint'");
             }
-            if ((!args || args.eventgridTopicPrimaryAccessKey === undefined) && !opts.urn) {
+            if (args?.eventgridTopicPrimaryAccessKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventgridTopicPrimaryAccessKey'");
             }
-            if ((!args || args.eventgridTopicSecondaryAccessKey === undefined) && !opts.urn) {
+            if (args?.eventgridTopicSecondaryAccessKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventgridTopicSecondaryAccessKey'");
             }
-            resourceInputs["deadLetterStorageSecret"] = args ? args.deadLetterStorageSecret : undefined;
-            resourceInputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
-            resourceInputs["eventgridTopicEndpoint"] = args ? args.eventgridTopicEndpoint : undefined;
-            resourceInputs["eventgridTopicPrimaryAccessKey"] = args ? args.eventgridTopicPrimaryAccessKey : undefined;
-            resourceInputs["eventgridTopicSecondaryAccessKey"] = args ? args.eventgridTopicSecondaryAccessKey : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["deadLetterStorageSecret"] = args?.deadLetterStorageSecret;
+            resourceInputs["digitalTwinsId"] = args?.digitalTwinsId;
+            resourceInputs["eventgridTopicEndpoint"] = args?.eventgridTopicEndpoint;
+            resourceInputs["eventgridTopicPrimaryAccessKey"] = args?.eventgridTopicPrimaryAccessKey;
+            resourceInputs["eventgridTopicSecondaryAccessKey"] = args?.eventgridTopicSecondaryAccessKey;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EndpointEventGrid.__pulumiType, name, resourceInputs, opts);

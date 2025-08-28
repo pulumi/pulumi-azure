@@ -76,47 +76,47 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
     /**
      * The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
      */
-    public /*out*/ readonly configurationAccessEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationAccessEndpoint: pulumi.Output<string>;
     /**
      * Specifies a description for the Data Collection Endpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The immutable ID of the Data Collection Endpoint.
      */
-    public /*out*/ readonly immutableId!: pulumi.Output<string>;
+    declare public /*out*/ readonly immutableId: pulumi.Output<string>;
     /**
      * The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
      */
-    public /*out*/ readonly logsIngestionEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly logsIngestionEndpoint: pulumi.Output<string>;
     /**
      * The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
      */
-    public /*out*/ readonly metricsIngestionEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly metricsIngestionEndpoint: pulumi.Output<string>;
     /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Data Collection Endpoint.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DataCollectionEndpoint resource with the given unique name, arguments, and options.
@@ -131,29 +131,29 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataCollectionEndpointState | undefined;
-            resourceInputs["configurationAccessEndpoint"] = state ? state.configurationAccessEndpoint : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["immutableId"] = state ? state.immutableId : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logsIngestionEndpoint"] = state ? state.logsIngestionEndpoint : undefined;
-            resourceInputs["metricsIngestionEndpoint"] = state ? state.metricsIngestionEndpoint : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["configurationAccessEndpoint"] = state?.configurationAccessEndpoint;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["immutableId"] = state?.immutableId;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logsIngestionEndpoint"] = state?.logsIngestionEndpoint;
+            resourceInputs["metricsIngestionEndpoint"] = state?.metricsIngestionEndpoint;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as DataCollectionEndpointArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["configurationAccessEndpoint"] = undefined /*out*/;
             resourceInputs["immutableId"] = undefined /*out*/;
             resourceInputs["logsIngestionEndpoint"] = undefined /*out*/;

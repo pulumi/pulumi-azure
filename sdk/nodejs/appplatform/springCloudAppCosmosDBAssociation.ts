@@ -91,43 +91,43 @@ export class SpringCloudAppCosmosDBAssociation extends pulumi.CustomResource {
     /**
      * Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
      */
-    public readonly apiType!: pulumi.Output<string>;
+    declare public readonly apiType: pulumi.Output<string>;
     /**
      * Specifies the CosmosDB Account access key.
      */
-    public readonly cosmosdbAccessKey!: pulumi.Output<string>;
+    declare public readonly cosmosdbAccessKey: pulumi.Output<string>;
     /**
      * Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
      */
-    public readonly cosmosdbAccountId!: pulumi.Output<string>;
+    declare public readonly cosmosdbAccountId: pulumi.Output<string>;
     /**
      * Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `apiType` is `cassandra`.
      */
-    public readonly cosmosdbCassandraKeyspaceName!: pulumi.Output<string | undefined>;
+    declare public readonly cosmosdbCassandraKeyspaceName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
      */
-    public readonly cosmosdbGremlinDatabaseName!: pulumi.Output<string | undefined>;
+    declare public readonly cosmosdbGremlinDatabaseName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `apiType` is `gremlin`.
      */
-    public readonly cosmosdbGremlinGraphName!: pulumi.Output<string | undefined>;
+    declare public readonly cosmosdbGremlinGraphName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `mongo`.
      */
-    public readonly cosmosdbMongoDatabaseName!: pulumi.Output<string | undefined>;
+    declare public readonly cosmosdbMongoDatabaseName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `apiType` is `sql`.
      */
-    public readonly cosmosdbSqlDatabaseName!: pulumi.Output<string | undefined>;
+    declare public readonly cosmosdbSqlDatabaseName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
      */
-    public readonly springCloudAppId!: pulumi.Output<string>;
+    declare public readonly springCloudAppId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudAppCosmosDBAssociation resource with the given unique name, arguments, and options.
@@ -142,40 +142,40 @@ export class SpringCloudAppCosmosDBAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppCosmosDBAssociationState | undefined;
-            resourceInputs["apiType"] = state ? state.apiType : undefined;
-            resourceInputs["cosmosdbAccessKey"] = state ? state.cosmosdbAccessKey : undefined;
-            resourceInputs["cosmosdbAccountId"] = state ? state.cosmosdbAccountId : undefined;
-            resourceInputs["cosmosdbCassandraKeyspaceName"] = state ? state.cosmosdbCassandraKeyspaceName : undefined;
-            resourceInputs["cosmosdbGremlinDatabaseName"] = state ? state.cosmosdbGremlinDatabaseName : undefined;
-            resourceInputs["cosmosdbGremlinGraphName"] = state ? state.cosmosdbGremlinGraphName : undefined;
-            resourceInputs["cosmosdbMongoDatabaseName"] = state ? state.cosmosdbMongoDatabaseName : undefined;
-            resourceInputs["cosmosdbSqlDatabaseName"] = state ? state.cosmosdbSqlDatabaseName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["apiType"] = state?.apiType;
+            resourceInputs["cosmosdbAccessKey"] = state?.cosmosdbAccessKey;
+            resourceInputs["cosmosdbAccountId"] = state?.cosmosdbAccountId;
+            resourceInputs["cosmosdbCassandraKeyspaceName"] = state?.cosmosdbCassandraKeyspaceName;
+            resourceInputs["cosmosdbGremlinDatabaseName"] = state?.cosmosdbGremlinDatabaseName;
+            resourceInputs["cosmosdbGremlinGraphName"] = state?.cosmosdbGremlinGraphName;
+            resourceInputs["cosmosdbMongoDatabaseName"] = state?.cosmosdbMongoDatabaseName;
+            resourceInputs["cosmosdbSqlDatabaseName"] = state?.cosmosdbSqlDatabaseName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudAppId"] = state?.springCloudAppId;
         } else {
             const args = argsOrState as SpringCloudAppCosmosDBAssociationArgs | undefined;
-            if ((!args || args.apiType === undefined) && !opts.urn) {
+            if (args?.apiType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiType'");
             }
-            if ((!args || args.cosmosdbAccessKey === undefined) && !opts.urn) {
+            if (args?.cosmosdbAccessKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosdbAccessKey'");
             }
-            if ((!args || args.cosmosdbAccountId === undefined) && !opts.urn) {
+            if (args?.cosmosdbAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosdbAccountId'");
             }
-            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
+            if (args?.springCloudAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            resourceInputs["apiType"] = args ? args.apiType : undefined;
-            resourceInputs["cosmosdbAccessKey"] = args ? args.cosmosdbAccessKey : undefined;
-            resourceInputs["cosmosdbAccountId"] = args ? args.cosmosdbAccountId : undefined;
-            resourceInputs["cosmosdbCassandraKeyspaceName"] = args ? args.cosmosdbCassandraKeyspaceName : undefined;
-            resourceInputs["cosmosdbGremlinDatabaseName"] = args ? args.cosmosdbGremlinDatabaseName : undefined;
-            resourceInputs["cosmosdbGremlinGraphName"] = args ? args.cosmosdbGremlinGraphName : undefined;
-            resourceInputs["cosmosdbMongoDatabaseName"] = args ? args.cosmosdbMongoDatabaseName : undefined;
-            resourceInputs["cosmosdbSqlDatabaseName"] = args ? args.cosmosdbSqlDatabaseName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["apiType"] = args?.apiType;
+            resourceInputs["cosmosdbAccessKey"] = args?.cosmosdbAccessKey;
+            resourceInputs["cosmosdbAccountId"] = args?.cosmosdbAccountId;
+            resourceInputs["cosmosdbCassandraKeyspaceName"] = args?.cosmosdbCassandraKeyspaceName;
+            resourceInputs["cosmosdbGremlinDatabaseName"] = args?.cosmosdbGremlinDatabaseName;
+            resourceInputs["cosmosdbGremlinGraphName"] = args?.cosmosdbGremlinGraphName;
+            resourceInputs["cosmosdbMongoDatabaseName"] = args?.cosmosdbMongoDatabaseName;
+            resourceInputs["cosmosdbSqlDatabaseName"] = args?.cosmosdbSqlDatabaseName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudAppId"] = args?.springCloudAppId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudAppCosmosDBAssociation.__pulumiType, name, resourceInputs, opts);

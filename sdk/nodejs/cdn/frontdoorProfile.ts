@@ -75,31 +75,31 @@ export class FrontdoorProfile extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.cdn.FrontdoorProfileIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.cdn.FrontdoorProfileIdentity | undefined>;
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
      */
-    public readonly responseTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly responseTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * Specifies a mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a FrontdoorProfile resource with the given unique name, arguments, and options.
@@ -114,27 +114,27 @@ export class FrontdoorProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorProfileState | undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["resourceGuid"] = state ? state.resourceGuid : undefined;
-            resourceInputs["responseTimeoutSeconds"] = state ? state.responseTimeoutSeconds : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["resourceGuid"] = state?.resourceGuid;
+            resourceInputs["responseTimeoutSeconds"] = state?.responseTimeoutSeconds;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as FrontdoorProfileArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["responseTimeoutSeconds"] = args ? args.responseTimeoutSeconds : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["responseTimeoutSeconds"] = args?.responseTimeoutSeconds;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["resourceGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

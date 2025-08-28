@@ -86,41 +86,41 @@ export class EnvironmentDaprComponent extends pulumi.CustomResource {
     /**
      * The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
      */
-    public readonly componentType!: pulumi.Output<string>;
+    declare public readonly componentType: pulumi.Output<string>;
     /**
      * The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
      */
-    public readonly containerAppEnvironmentId!: pulumi.Output<string>;
+    declare public readonly containerAppEnvironmentId: pulumi.Output<string>;
     /**
      * Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
      */
-    public readonly ignoreErrors!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreErrors: pulumi.Output<boolean | undefined>;
     /**
      * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      */
-    public readonly initTimeout!: pulumi.Output<string | undefined>;
+    declare public readonly initTimeout: pulumi.Output<string | undefined>;
     /**
      * One or more `metadata` blocks as detailed below.
      */
-    public readonly metadatas!: pulumi.Output<outputs.containerapp.EnvironmentDaprComponentMetadata[] | undefined>;
+    declare public readonly metadatas: pulumi.Output<outputs.containerapp.EnvironmentDaprComponentMetadata[] | undefined>;
     /**
      * The name for this Dapr component. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of scopes to which this component applies.
      *
      * > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      */
-    public readonly scopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly scopes: pulumi.Output<string[] | undefined>;
     /**
      * A `secret` block as detailed below.
      */
-    public readonly secrets!: pulumi.Output<outputs.containerapp.EnvironmentDaprComponentSecret[] | undefined>;
+    declare public readonly secrets: pulumi.Output<outputs.containerapp.EnvironmentDaprComponentSecret[] | undefined>;
     /**
      * The version of the component.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a EnvironmentDaprComponent resource with the given unique name, arguments, and options.
@@ -135,35 +135,35 @@ export class EnvironmentDaprComponent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentDaprComponentState | undefined;
-            resourceInputs["componentType"] = state ? state.componentType : undefined;
-            resourceInputs["containerAppEnvironmentId"] = state ? state.containerAppEnvironmentId : undefined;
-            resourceInputs["ignoreErrors"] = state ? state.ignoreErrors : undefined;
-            resourceInputs["initTimeout"] = state ? state.initTimeout : undefined;
-            resourceInputs["metadatas"] = state ? state.metadatas : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["secrets"] = state ? state.secrets : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["componentType"] = state?.componentType;
+            resourceInputs["containerAppEnvironmentId"] = state?.containerAppEnvironmentId;
+            resourceInputs["ignoreErrors"] = state?.ignoreErrors;
+            resourceInputs["initTimeout"] = state?.initTimeout;
+            resourceInputs["metadatas"] = state?.metadatas;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["secrets"] = state?.secrets;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as EnvironmentDaprComponentArgs | undefined;
-            if ((!args || args.componentType === undefined) && !opts.urn) {
+            if (args?.componentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'componentType'");
             }
-            if ((!args || args.containerAppEnvironmentId === undefined) && !opts.urn) {
+            if (args?.containerAppEnvironmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppEnvironmentId'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["componentType"] = args ? args.componentType : undefined;
-            resourceInputs["containerAppEnvironmentId"] = args ? args.containerAppEnvironmentId : undefined;
-            resourceInputs["ignoreErrors"] = args ? args.ignoreErrors : undefined;
-            resourceInputs["initTimeout"] = args ? args.initTimeout : undefined;
-            resourceInputs["metadatas"] = args ? args.metadatas : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["componentType"] = args?.componentType;
+            resourceInputs["containerAppEnvironmentId"] = args?.containerAppEnvironmentId;
+            resourceInputs["ignoreErrors"] = args?.ignoreErrors;
+            resourceInputs["initTimeout"] = args?.initTimeout;
+            resourceInputs["metadatas"] = args?.metadatas;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scopes"] = args?.scopes;
             resourceInputs["secrets"] = args?.secrets ? pulumi.secret(args.secrets) : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["version"] = args?.version;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secrets"] };

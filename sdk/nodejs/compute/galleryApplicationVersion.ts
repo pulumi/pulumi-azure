@@ -113,51 +113,51 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**
      * Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
      */
-    public readonly configFile!: pulumi.Output<string | undefined>;
+    declare public readonly configFile: pulumi.Output<string | undefined>;
     /**
      * Should the Gallery Application reports health. Defaults to `false`.
      */
-    public readonly enableHealthCheck!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableHealthCheck: pulumi.Output<boolean | undefined>;
     /**
      * The end of life date in RFC3339 format of the Gallery Application Version.
      */
-    public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
+    declare public readonly endOfLifeDate: pulumi.Output<string | undefined>;
     /**
      * Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
      */
-    public readonly excludeFromLatest!: pulumi.Output<boolean | undefined>;
+    declare public readonly excludeFromLatest: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Gallery Application. Changing this forces a new resource to be created.
      */
-    public readonly galleryApplicationId!: pulumi.Output<string>;
+    declare public readonly galleryApplicationId: pulumi.Output<string>;
     /**
      * The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `manageAction` block as defined below.
      */
-    public readonly manageAction!: pulumi.Output<outputs.compute.GalleryApplicationVersionManageAction>;
+    declare public readonly manageAction: pulumi.Output<outputs.compute.GalleryApplicationVersionManageAction>;
     /**
      * The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
      */
-    public readonly packageFile!: pulumi.Output<string | undefined>;
+    declare public readonly packageFile: pulumi.Output<string | undefined>;
     /**
      * A `source` block as defined below.
      */
-    public readonly source!: pulumi.Output<outputs.compute.GalleryApplicationVersionSource>;
+    declare public readonly source: pulumi.Output<outputs.compute.GalleryApplicationVersionSource>;
     /**
      * A mapping of tags to assign to the Gallery Application Version.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `targetRegion` blocks as defined below.
      */
-    public readonly targetRegions!: pulumi.Output<outputs.compute.GalleryApplicationVersionTargetRegion[]>;
+    declare public readonly targetRegions: pulumi.Output<outputs.compute.GalleryApplicationVersionTargetRegion[]>;
 
     /**
      * Create a GalleryApplicationVersion resource with the given unique name, arguments, and options.
@@ -172,44 +172,44 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GalleryApplicationVersionState | undefined;
-            resourceInputs["configFile"] = state ? state.configFile : undefined;
-            resourceInputs["enableHealthCheck"] = state ? state.enableHealthCheck : undefined;
-            resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
-            resourceInputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
-            resourceInputs["galleryApplicationId"] = state ? state.galleryApplicationId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["manageAction"] = state ? state.manageAction : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["packageFile"] = state ? state.packageFile : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["targetRegions"] = state ? state.targetRegions : undefined;
+            resourceInputs["configFile"] = state?.configFile;
+            resourceInputs["enableHealthCheck"] = state?.enableHealthCheck;
+            resourceInputs["endOfLifeDate"] = state?.endOfLifeDate;
+            resourceInputs["excludeFromLatest"] = state?.excludeFromLatest;
+            resourceInputs["galleryApplicationId"] = state?.galleryApplicationId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["manageAction"] = state?.manageAction;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["packageFile"] = state?.packageFile;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["targetRegions"] = state?.targetRegions;
         } else {
             const args = argsOrState as GalleryApplicationVersionArgs | undefined;
-            if ((!args || args.galleryApplicationId === undefined) && !opts.urn) {
+            if (args?.galleryApplicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryApplicationId'");
             }
-            if ((!args || args.manageAction === undefined) && !opts.urn) {
+            if (args?.manageAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'manageAction'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.targetRegions === undefined) && !opts.urn) {
+            if (args?.targetRegions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetRegions'");
             }
-            resourceInputs["configFile"] = args ? args.configFile : undefined;
-            resourceInputs["enableHealthCheck"] = args ? args.enableHealthCheck : undefined;
-            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
-            resourceInputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
-            resourceInputs["galleryApplicationId"] = args ? args.galleryApplicationId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["manageAction"] = args ? args.manageAction : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["packageFile"] = args ? args.packageFile : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetRegions"] = args ? args.targetRegions : undefined;
+            resourceInputs["configFile"] = args?.configFile;
+            resourceInputs["enableHealthCheck"] = args?.enableHealthCheck;
+            resourceInputs["endOfLifeDate"] = args?.endOfLifeDate;
+            resourceInputs["excludeFromLatest"] = args?.excludeFromLatest;
+            resourceInputs["galleryApplicationId"] = args?.galleryApplicationId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["manageAction"] = args?.manageAction;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["packageFile"] = args?.packageFile;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetRegions"] = args?.targetRegions;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GalleryApplicationVersion.__pulumiType, name, resourceInputs, opts);

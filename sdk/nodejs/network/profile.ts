@@ -98,27 +98,27 @@ export class Profile extends pulumi.CustomResource {
     /**
      * A `containerNetworkInterface` block as documented below.
      */
-    public readonly containerNetworkInterface!: pulumi.Output<outputs.network.ProfileContainerNetworkInterface>;
+    declare public readonly containerNetworkInterface: pulumi.Output<outputs.network.ProfileContainerNetworkInterface>;
     /**
      * A list of Container Network Interface IDs.
      */
-    public /*out*/ readonly containerNetworkInterfaceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly containerNetworkInterfaceIds: pulumi.Output<string[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Network Profile. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -133,25 +133,25 @@ export class Profile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileState | undefined;
-            resourceInputs["containerNetworkInterface"] = state ? state.containerNetworkInterface : undefined;
-            resourceInputs["containerNetworkInterfaceIds"] = state ? state.containerNetworkInterfaceIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["containerNetworkInterface"] = state?.containerNetworkInterface;
+            resourceInputs["containerNetworkInterfaceIds"] = state?.containerNetworkInterfaceIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
-            if ((!args || args.containerNetworkInterface === undefined) && !opts.urn) {
+            if (args?.containerNetworkInterface === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerNetworkInterface'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["containerNetworkInterface"] = args ? args.containerNetworkInterface : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerNetworkInterface"] = args?.containerNetworkInterface;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["containerNetworkInterfaceIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

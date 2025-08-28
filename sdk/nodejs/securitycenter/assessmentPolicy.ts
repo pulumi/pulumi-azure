@@ -66,39 +66,39 @@ export class AssessmentPolicy extends pulumi.CustomResource {
     /**
      * A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
      */
-    public readonly categories!: pulumi.Output<string[]>;
+    declare public readonly categories: pulumi.Output<string[]>;
     /**
      * The description of the Security Center Assessment.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The user-friendly display name of the Security Center Assessment.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The implementation effort which is used to remediate the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    public readonly implementationEffort!: pulumi.Output<string | undefined>;
+    declare public readonly implementationEffort: pulumi.Output<string | undefined>;
     /**
      * The GUID as the name of the Security Center Assessment Policy.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The description which is used to mitigate the security issue.
      */
-    public readonly remediationDescription!: pulumi.Output<string | undefined>;
+    declare public readonly remediationDescription: pulumi.Output<string | undefined>;
     /**
      * The severity level of the Security Center Assessment. Possible values are `Low`, `Medium` and `High`. Defaults to `Medium`.
      */
-    public readonly severity!: pulumi.Output<string | undefined>;
+    declare public readonly severity: pulumi.Output<string | undefined>;
     /**
      * A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
      */
-    public readonly threats!: pulumi.Output<string[] | undefined>;
+    declare public readonly threats: pulumi.Output<string[] | undefined>;
     /**
      * The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
      */
-    public readonly userImpact!: pulumi.Output<string | undefined>;
+    declare public readonly userImpact: pulumi.Output<string | undefined>;
 
     /**
      * Create a AssessmentPolicy resource with the given unique name, arguments, and options.
@@ -113,31 +113,31 @@ export class AssessmentPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentPolicyState | undefined;
-            resourceInputs["categories"] = state ? state.categories : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["implementationEffort"] = state ? state.implementationEffort : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["remediationDescription"] = state ? state.remediationDescription : undefined;
-            resourceInputs["severity"] = state ? state.severity : undefined;
-            resourceInputs["threats"] = state ? state.threats : undefined;
-            resourceInputs["userImpact"] = state ? state.userImpact : undefined;
+            resourceInputs["categories"] = state?.categories;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["implementationEffort"] = state?.implementationEffort;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["remediationDescription"] = state?.remediationDescription;
+            resourceInputs["severity"] = state?.severity;
+            resourceInputs["threats"] = state?.threats;
+            resourceInputs["userImpact"] = state?.userImpact;
         } else {
             const args = argsOrState as AssessmentPolicyArgs | undefined;
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["categories"] = args ? args.categories : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["implementationEffort"] = args ? args.implementationEffort : undefined;
-            resourceInputs["remediationDescription"] = args ? args.remediationDescription : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["threats"] = args ? args.threats : undefined;
-            resourceInputs["userImpact"] = args ? args.userImpact : undefined;
+            resourceInputs["categories"] = args?.categories;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["implementationEffort"] = args?.implementationEffort;
+            resourceInputs["remediationDescription"] = args?.remediationDescription;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["threats"] = args?.threats;
+            resourceInputs["userImpact"] = args?.userImpact;
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -101,43 +101,43 @@ export class Application extends pulumi.CustomResource {
     /**
      * Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
      */
-    public readonly applicationGroupId!: pulumi.Output<string>;
+    declare public readonly applicationGroupId: pulumi.Output<string>;
     /**
      * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
      */
-    public readonly commandLineArgumentPolicy!: pulumi.Output<string>;
+    declare public readonly commandLineArgumentPolicy: pulumi.Output<string>;
     /**
      * Command Line Arguments for Virtual Desktop Application.
      */
-    public readonly commandLineArguments!: pulumi.Output<string | undefined>;
+    declare public readonly commandLineArguments: pulumi.Output<string | undefined>;
     /**
      * Option to set a description for the Virtual Desktop Application.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Option to set a friendly name for the Virtual Desktop Application.
      */
-    public readonly friendlyName!: pulumi.Output<string>;
+    declare public readonly friendlyName: pulumi.Output<string>;
     /**
      * The index of the icon you wish to use.
      */
-    public readonly iconIndex!: pulumi.Output<number | undefined>;
+    declare public readonly iconIndex: pulumi.Output<number | undefined>;
     /**
      * Specifies the path for an icon which will be used for this Virtual Desktop Application.
      */
-    public readonly iconPath!: pulumi.Output<string>;
+    declare public readonly iconPath: pulumi.Output<string>;
     /**
      * The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The file path location of the app on the Virtual Desktop OS.
      */
-    public readonly path!: pulumi.Output<string>;
+    declare public readonly path: pulumi.Output<string>;
     /**
      * Specifies whether to show the RemoteApp program in the RD Web Access server.
      */
-    public readonly showInPortal!: pulumi.Output<boolean | undefined>;
+    declare public readonly showInPortal: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -152,37 +152,37 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["applicationGroupId"] = state ? state.applicationGroupId : undefined;
-            resourceInputs["commandLineArgumentPolicy"] = state ? state.commandLineArgumentPolicy : undefined;
-            resourceInputs["commandLineArguments"] = state ? state.commandLineArguments : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["iconIndex"] = state ? state.iconIndex : undefined;
-            resourceInputs["iconPath"] = state ? state.iconPath : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["showInPortal"] = state ? state.showInPortal : undefined;
+            resourceInputs["applicationGroupId"] = state?.applicationGroupId;
+            resourceInputs["commandLineArgumentPolicy"] = state?.commandLineArgumentPolicy;
+            resourceInputs["commandLineArguments"] = state?.commandLineArguments;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["iconIndex"] = state?.iconIndex;
+            resourceInputs["iconPath"] = state?.iconPath;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["showInPortal"] = state?.showInPortal;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if ((!args || args.applicationGroupId === undefined) && !opts.urn) {
+            if (args?.applicationGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationGroupId'");
             }
-            if ((!args || args.commandLineArgumentPolicy === undefined) && !opts.urn) {
+            if (args?.commandLineArgumentPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'commandLineArgumentPolicy'");
             }
-            if ((!args || args.path === undefined) && !opts.urn) {
+            if (args?.path === undefined && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            resourceInputs["applicationGroupId"] = args ? args.applicationGroupId : undefined;
-            resourceInputs["commandLineArgumentPolicy"] = args ? args.commandLineArgumentPolicy : undefined;
-            resourceInputs["commandLineArguments"] = args ? args.commandLineArguments : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["iconIndex"] = args ? args.iconIndex : undefined;
-            resourceInputs["iconPath"] = args ? args.iconPath : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["showInPortal"] = args ? args.showInPortal : undefined;
+            resourceInputs["applicationGroupId"] = args?.applicationGroupId;
+            resourceInputs["commandLineArgumentPolicy"] = args?.commandLineArgumentPolicy;
+            resourceInputs["commandLineArguments"] = args?.commandLineArguments;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["iconIndex"] = args?.iconIndex;
+            resourceInputs["iconPath"] = args?.iconPath;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["showInPortal"] = args?.showInPortal;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Application.__pulumiType, name, resourceInputs, opts);

@@ -59,7 +59,7 @@ export class AutoProvisioning extends pulumi.CustomResource {
     /**
      * Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically).
      */
-    public readonly autoProvision!: pulumi.Output<string>;
+    declare public readonly autoProvision: pulumi.Output<string>;
 
     /**
      * Create a AutoProvisioning resource with the given unique name, arguments, and options.
@@ -74,13 +74,13 @@ export class AutoProvisioning extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutoProvisioningState | undefined;
-            resourceInputs["autoProvision"] = state ? state.autoProvision : undefined;
+            resourceInputs["autoProvision"] = state?.autoProvision;
         } else {
             const args = argsOrState as AutoProvisioningArgs | undefined;
-            if ((!args || args.autoProvision === undefined) && !opts.urn) {
+            if (args?.autoProvision === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoProvision'");
             }
-            resourceInputs["autoProvision"] = args ? args.autoProvision : undefined;
+            resourceInputs["autoProvision"] = args?.autoProvision;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AutoProvisioning.__pulumiType, name, resourceInputs, opts);

@@ -71,31 +71,31 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
     /**
      * The ID of the app associated with the Identity.
      */
-    public /*out*/ readonly clientId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clientId: pulumi.Output<string>;
     /**
      * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Service Principal object associated with the created Identity.
      */
-    public /*out*/ readonly principalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalId: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the User Assigned Identity.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Tenant which the Identity belongs to.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a UserAssignedIdentity resource with the given unique name, arguments, and options.
@@ -110,22 +110,22 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserAssignedIdentityState | undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["principalId"] = state ? state.principalId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["principalId"] = state?.principalId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as UserAssignedIdentityArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;

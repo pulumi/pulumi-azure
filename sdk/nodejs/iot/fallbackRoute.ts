@@ -106,27 +106,27 @@ export class FallbackRoute extends pulumi.CustomResource {
     /**
      * The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
      */
-    public readonly condition!: pulumi.Output<string | undefined>;
+    declare public readonly condition: pulumi.Output<string | undefined>;
     /**
      * Used to specify whether the fallback route is enabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
      */
-    public readonly endpointNames!: pulumi.Output<string>;
+    declare public readonly endpointNames: pulumi.Output<string>;
     /**
      * The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
      */
-    public readonly iothubName!: pulumi.Output<string>;
+    declare public readonly iothubName: pulumi.Output<string>;
     /**
      * The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    declare public readonly source: pulumi.Output<string | undefined>;
 
     /**
      * Create a FallbackRoute resource with the given unique name, arguments, and options.
@@ -141,32 +141,32 @@ export class FallbackRoute extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FallbackRouteState | undefined;
-            resourceInputs["condition"] = state ? state.condition : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["endpointNames"] = state ? state.endpointNames : undefined;
-            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["condition"] = state?.condition;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["endpointNames"] = state?.endpointNames;
+            resourceInputs["iothubName"] = state?.iothubName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["source"] = state?.source;
         } else {
             const args = argsOrState as FallbackRouteArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.endpointNames === undefined) && !opts.urn) {
+            if (args?.endpointNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointNames'");
             }
-            if ((!args || args.iothubName === undefined) && !opts.urn) {
+            if (args?.iothubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["endpointNames"] = args ? args.endpointNames : undefined;
-            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["endpointNames"] = args?.endpointNames;
+            resourceInputs["iothubName"] = args?.iothubName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FallbackRoute.__pulumiType, name, resourceInputs, opts);

@@ -69,43 +69,43 @@ export class StaticSite extends pulumi.CustomResource {
     /**
      * The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
      */
-    public /*out*/ readonly apiKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiKey: pulumi.Output<string>;
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly appSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The default host name of the Static Web App.
      */
-    public /*out*/ readonly defaultHostName!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultHostName: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.StaticSiteIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appservice.StaticSiteIdentity | undefined>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      */
-    public readonly skuSize!: pulumi.Output<string | undefined>;
+    declare public readonly skuSize: pulumi.Output<string | undefined>;
     /**
      * Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      */
-    public readonly skuTier!: pulumi.Output<string | undefined>;
+    declare public readonly skuTier: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a StaticSite resource with the given unique name, arguments, and options.
@@ -120,29 +120,29 @@ export class StaticSite extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticSiteState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
-            resourceInputs["defaultHostName"] = state ? state.defaultHostName : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuSize"] = state ? state.skuSize : undefined;
-            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["appSettings"] = state?.appSettings;
+            resourceInputs["defaultHostName"] = state?.defaultHostName;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuSize"] = state?.skuSize;
+            resourceInputs["skuTier"] = state?.skuTier;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as StaticSiteArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuSize"] = args ? args.skuSize : undefined;
-            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appSettings"] = args?.appSettings;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuSize"] = args?.skuSize;
+            resourceInputs["skuTier"] = args?.skuTier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["apiKey"] = undefined /*out*/;
             resourceInputs["defaultHostName"] = undefined /*out*/;
         }

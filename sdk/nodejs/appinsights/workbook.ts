@@ -88,49 +88,49 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
      */
-    public readonly category!: pulumi.Output<string | undefined>;
+    declare public readonly category: pulumi.Output<string | undefined>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON.
      */
-    public readonly dataJson!: pulumi.Output<string>;
+    declare public readonly dataJson: pulumi.Output<string>;
     /**
      * Specifies the description of the workbook.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the user-defined name (display name) of the workbook.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * An `identity` block as defined below. Changing this forces a new Workbook to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.appinsights.WorkbookIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appinsights.WorkbookIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
      */
-    public readonly sourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceId: pulumi.Output<string | undefined>;
     /**
      * Specifies the Resource Manager ID of the Storage Container when bring your own storage is used. Changing this forces a new Workbook to be created.
      *
      * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
-    public readonly storageContainerId!: pulumi.Output<string | undefined>;
+    declare public readonly storageContainerId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Workbook.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Workbook resource with the given unique name, arguments, and options.
@@ -145,39 +145,39 @@ export class Workbook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkbookState | undefined;
-            resourceInputs["category"] = state ? state.category : undefined;
-            resourceInputs["dataJson"] = state ? state.dataJson : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceId"] = state ? state.sourceId : undefined;
-            resourceInputs["storageContainerId"] = state ? state.storageContainerId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["category"] = state?.category;
+            resourceInputs["dataJson"] = state?.dataJson;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceId"] = state?.sourceId;
+            resourceInputs["storageContainerId"] = state?.storageContainerId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as WorkbookArgs | undefined;
-            if ((!args || args.dataJson === undefined) && !opts.urn) {
+            if (args?.dataJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataJson'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["dataJson"] = args ? args.dataJson : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
-            resourceInputs["storageContainerId"] = args ? args.storageContainerId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["dataJson"] = args?.dataJson;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceId"] = args?.sourceId;
+            resourceInputs["storageContainerId"] = args?.storageContainerId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workbook.__pulumiType, name, resourceInputs, opts);

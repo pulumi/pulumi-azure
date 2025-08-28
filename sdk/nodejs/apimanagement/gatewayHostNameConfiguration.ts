@@ -104,39 +104,39 @@ export class GatewayHostNameConfiguration extends pulumi.CustomResource {
     /**
      * The ID of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementId!: pulumi.Output<string>;
+    declare public readonly apiManagementId: pulumi.Output<string>;
     /**
      * The certificate ID to be used for TLS connection establishment.
      */
-    public readonly certificateId!: pulumi.Output<string>;
+    declare public readonly certificateId: pulumi.Output<string>;
     /**
      * The name of the API Management Gateway. Changing this forces a new resource to be created.
      */
-    public readonly gatewayName!: pulumi.Output<string>;
+    declare public readonly gatewayName: pulumi.Output<string>;
     /**
      * The host name to use for the API Management Gateway Host Name Configuration.
      */
-    public readonly hostName!: pulumi.Output<string>;
+    declare public readonly hostName: pulumi.Output<string>;
     /**
      * Whether HTTP/2.0 is supported. Defaults to `true`.
      */
-    public readonly http2Enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly http2Enabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether the API Management Gateway requests a client certificate.
      */
-    public readonly requestClientCertificateEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly requestClientCertificateEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether TLS 1.0 is supported.
      */
-    public readonly tls10Enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tls10Enabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether TLS 1.1 is supported.
      */
-    public readonly tls11Enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tls11Enabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a GatewayHostNameConfiguration resource with the given unique name, arguments, and options.
@@ -151,38 +151,38 @@ export class GatewayHostNameConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayHostNameConfigurationState | undefined;
-            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
-            resourceInputs["gatewayName"] = state ? state.gatewayName : undefined;
-            resourceInputs["hostName"] = state ? state.hostName : undefined;
-            resourceInputs["http2Enabled"] = state ? state.http2Enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["requestClientCertificateEnabled"] = state ? state.requestClientCertificateEnabled : undefined;
-            resourceInputs["tls10Enabled"] = state ? state.tls10Enabled : undefined;
-            resourceInputs["tls11Enabled"] = state ? state.tls11Enabled : undefined;
+            resourceInputs["apiManagementId"] = state?.apiManagementId;
+            resourceInputs["certificateId"] = state?.certificateId;
+            resourceInputs["gatewayName"] = state?.gatewayName;
+            resourceInputs["hostName"] = state?.hostName;
+            resourceInputs["http2Enabled"] = state?.http2Enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["requestClientCertificateEnabled"] = state?.requestClientCertificateEnabled;
+            resourceInputs["tls10Enabled"] = state?.tls10Enabled;
+            resourceInputs["tls11Enabled"] = state?.tls11Enabled;
         } else {
             const args = argsOrState as GatewayHostNameConfigurationArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
+            if (args?.apiManagementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            if ((!args || args.certificateId === undefined) && !opts.urn) {
+            if (args?.certificateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateId'");
             }
-            if ((!args || args.gatewayName === undefined) && !opts.urn) {
+            if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["http2Enabled"] = args ? args.http2Enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requestClientCertificateEnabled"] = args ? args.requestClientCertificateEnabled : undefined;
-            resourceInputs["tls10Enabled"] = args ? args.tls10Enabled : undefined;
-            resourceInputs["tls11Enabled"] = args ? args.tls11Enabled : undefined;
+            resourceInputs["apiManagementId"] = args?.apiManagementId;
+            resourceInputs["certificateId"] = args?.certificateId;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["http2Enabled"] = args?.http2Enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requestClientCertificateEnabled"] = args?.requestClientCertificateEnabled;
+            resourceInputs["tls10Enabled"] = args?.tls10Enabled;
+            resourceInputs["tls11Enabled"] = args?.tls11Enabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GatewayHostNameConfiguration.__pulumiType, name, resourceInputs, opts);

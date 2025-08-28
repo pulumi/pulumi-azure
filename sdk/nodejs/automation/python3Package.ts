@@ -83,35 +83,35 @@ export class Python3Package extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
     /**
      * The URL of the python package. Changing this forces a new Automation Python3 Package to be created.
      */
-    public readonly contentUri!: pulumi.Output<string>;
+    declare public readonly contentUri: pulumi.Output<string>;
     /**
      * Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created.
      */
-    public readonly contentVersion!: pulumi.Output<string | undefined>;
+    declare public readonly contentVersion: pulumi.Output<string | undefined>;
     /**
      * Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created.
      */
-    public readonly hashAlgorithm!: pulumi.Output<string | undefined>;
+    declare public readonly hashAlgorithm: pulumi.Output<string | undefined>;
     /**
      * Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created.
      */
-    public readonly hashValue!: pulumi.Output<string | undefined>;
+    declare public readonly hashValue: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Automation Python3 Package.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Python3Package resource with the given unique name, arguments, and options.
@@ -126,33 +126,33 @@ export class Python3Package extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as Python3PackageState | undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["contentUri"] = state ? state.contentUri : undefined;
-            resourceInputs["contentVersion"] = state ? state.contentVersion : undefined;
-            resourceInputs["hashAlgorithm"] = state ? state.hashAlgorithm : undefined;
-            resourceInputs["hashValue"] = state ? state.hashValue : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["contentUri"] = state?.contentUri;
+            resourceInputs["contentVersion"] = state?.contentVersion;
+            resourceInputs["hashAlgorithm"] = state?.hashAlgorithm;
+            resourceInputs["hashValue"] = state?.hashValue;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as Python3PackageArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentUri === undefined) && !opts.urn) {
+            if (args?.contentUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentUri'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["contentUri"] = args ? args.contentUri : undefined;
-            resourceInputs["contentVersion"] = args ? args.contentVersion : undefined;
-            resourceInputs["hashAlgorithm"] = args ? args.hashAlgorithm : undefined;
-            resourceInputs["hashValue"] = args ? args.hashValue : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["contentUri"] = args?.contentUri;
+            resourceInputs["contentVersion"] = args?.contentVersion;
+            resourceInputs["hashAlgorithm"] = args?.hashAlgorithm;
+            resourceInputs["hashValue"] = args?.hashValue;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Python3Package.__pulumiType, name, resourceInputs, opts);

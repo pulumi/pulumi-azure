@@ -76,59 +76,59 @@ export class TriggerSchedule extends pulumi.CustomResource {
     /**
      * Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
      */
-    public readonly activated!: pulumi.Output<boolean | undefined>;
+    declare public readonly activated: pulumi.Output<boolean | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Schedule Trigger.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The Schedule Trigger's description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The time the Schedule Trigger should end. The time will be represented in UTC.
      */
-    public readonly endTime!: pulumi.Output<string | undefined>;
+    declare public readonly endTime: pulumi.Output<string | undefined>;
     /**
      * The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
      */
-    public readonly frequency!: pulumi.Output<string | undefined>;
+    declare public readonly frequency: pulumi.Output<string | undefined>;
     /**
      * The interval for how often the trigger occurs. This defaults to `1`.
      */
-    public readonly interval!: pulumi.Output<number | undefined>;
+    declare public readonly interval: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Data Factory Pipeline name that the trigger will act on.
      */
-    public readonly pipelineName!: pulumi.Output<string>;
+    declare public readonly pipelineName: pulumi.Output<string>;
     /**
      * The pipeline parameters that the trigger will act upon.
      */
-    public readonly pipelineParameters!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly pipelineParameters: pulumi.Output<{[key: string]: string}>;
     /**
      * A `pipeline` block as defined below.
      */
-    public readonly pipelines!: pulumi.Output<outputs.datafactory.TriggerSchedulePipeline[]>;
+    declare public readonly pipelines: pulumi.Output<outputs.datafactory.TriggerSchedulePipeline[]>;
     /**
      * A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
      */
-    public readonly schedule!: pulumi.Output<outputs.datafactory.TriggerScheduleSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.datafactory.TriggerScheduleSchedule | undefined>;
     /**
      * The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
     /**
      * The timezone of the start/end time.
      */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
+    declare public readonly timeZone: pulumi.Output<string | undefined>;
 
     /**
      * Create a TriggerSchedule resource with the given unique name, arguments, and options.
@@ -143,39 +143,39 @@ export class TriggerSchedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerScheduleState | undefined;
-            resourceInputs["activated"] = state ? state.activated : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["interval"] = state ? state.interval : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
-            resourceInputs["pipelineParameters"] = state ? state.pipelineParameters : undefined;
-            resourceInputs["pipelines"] = state ? state.pipelines : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["activated"] = state?.activated;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["interval"] = state?.interval;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pipelineName"] = state?.pipelineName;
+            resourceInputs["pipelineParameters"] = state?.pipelineParameters;
+            resourceInputs["pipelines"] = state?.pipelines;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["timeZone"] = state?.timeZone;
         } else {
             const args = argsOrState as TriggerScheduleArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["activated"] = args ? args.activated : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["pipelineParameters"] = args ? args.pipelineParameters : undefined;
-            resourceInputs["pipelines"] = args ? args.pipelines : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["activated"] = args?.activated;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["pipelineParameters"] = args?.pipelineParameters;
+            resourceInputs["pipelines"] = args?.pipelines;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["timeZone"] = args?.timeZone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TriggerSchedule.__pulumiType, name, resourceInputs, opts);

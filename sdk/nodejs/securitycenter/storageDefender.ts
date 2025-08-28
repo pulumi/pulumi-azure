@@ -73,27 +73,27 @@ export class StorageDefender extends pulumi.CustomResource {
     /**
      * The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
      */
-    public readonly malwareScanningOnUploadCapGbPerMonth!: pulumi.Output<number | undefined>;
+    declare public readonly malwareScanningOnUploadCapGbPerMonth: pulumi.Output<number | undefined>;
     /**
      * Whether On Upload malware scanning should be enabled. Defaults to `false`.
      */
-    public readonly malwareScanningOnUploadEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly malwareScanningOnUploadEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
      */
-    public readonly overrideSubscriptionSettingsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly overrideSubscriptionSettingsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
      */
-    public readonly scanResultsEventGridTopicId!: pulumi.Output<string | undefined>;
+    declare public readonly scanResultsEventGridTopicId: pulumi.Output<string | undefined>;
     /**
      * Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
      */
-    public readonly sensitiveDataDiscoveryEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sensitiveDataDiscoveryEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a StorageDefender resource with the given unique name, arguments, and options.
@@ -108,23 +108,23 @@ export class StorageDefender extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StorageDefenderState | undefined;
-            resourceInputs["malwareScanningOnUploadCapGbPerMonth"] = state ? state.malwareScanningOnUploadCapGbPerMonth : undefined;
-            resourceInputs["malwareScanningOnUploadEnabled"] = state ? state.malwareScanningOnUploadEnabled : undefined;
-            resourceInputs["overrideSubscriptionSettingsEnabled"] = state ? state.overrideSubscriptionSettingsEnabled : undefined;
-            resourceInputs["scanResultsEventGridTopicId"] = state ? state.scanResultsEventGridTopicId : undefined;
-            resourceInputs["sensitiveDataDiscoveryEnabled"] = state ? state.sensitiveDataDiscoveryEnabled : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["malwareScanningOnUploadCapGbPerMonth"] = state?.malwareScanningOnUploadCapGbPerMonth;
+            resourceInputs["malwareScanningOnUploadEnabled"] = state?.malwareScanningOnUploadEnabled;
+            resourceInputs["overrideSubscriptionSettingsEnabled"] = state?.overrideSubscriptionSettingsEnabled;
+            resourceInputs["scanResultsEventGridTopicId"] = state?.scanResultsEventGridTopicId;
+            resourceInputs["sensitiveDataDiscoveryEnabled"] = state?.sensitiveDataDiscoveryEnabled;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as StorageDefenderArgs | undefined;
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["malwareScanningOnUploadCapGbPerMonth"] = args ? args.malwareScanningOnUploadCapGbPerMonth : undefined;
-            resourceInputs["malwareScanningOnUploadEnabled"] = args ? args.malwareScanningOnUploadEnabled : undefined;
-            resourceInputs["overrideSubscriptionSettingsEnabled"] = args ? args.overrideSubscriptionSettingsEnabled : undefined;
-            resourceInputs["scanResultsEventGridTopicId"] = args ? args.scanResultsEventGridTopicId : undefined;
-            resourceInputs["sensitiveDataDiscoveryEnabled"] = args ? args.sensitiveDataDiscoveryEnabled : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["malwareScanningOnUploadCapGbPerMonth"] = args?.malwareScanningOnUploadCapGbPerMonth;
+            resourceInputs["malwareScanningOnUploadEnabled"] = args?.malwareScanningOnUploadEnabled;
+            resourceInputs["overrideSubscriptionSettingsEnabled"] = args?.overrideSubscriptionSettingsEnabled;
+            resourceInputs["scanResultsEventGridTopicId"] = args?.scanResultsEventGridTopicId;
+            resourceInputs["sensitiveDataDiscoveryEnabled"] = args?.sensitiveDataDiscoveryEnabled;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StorageDefender.__pulumiType, name, resourceInputs, opts);

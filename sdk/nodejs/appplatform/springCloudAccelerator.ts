@@ -72,11 +72,11 @@ export class SpringCloudAccelerator extends pulumi.CustomResource {
     /**
      * The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Accelerator to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudAccelerator resource with the given unique name, arguments, and options.
@@ -91,15 +91,15 @@ export class SpringCloudAccelerator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAcceleratorState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
         } else {
             const args = argsOrState as SpringCloudAcceleratorArgs | undefined;
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudAccelerator.__pulumiType, name, resourceInputs, opts);

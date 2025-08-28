@@ -96,29 +96,29 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
      * The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
-    public readonly requestMessage!: pulumi.Output<string | undefined>;
+    declare public readonly requestMessage: pulumi.Output<string | undefined>;
     /**
      * The id of the Signalr Service. Changing this forces a new resource to be created.
      */
-    public readonly signalrServiceId!: pulumi.Output<string>;
+    declare public readonly signalrServiceId: pulumi.Output<string>;
     /**
      * The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
      */
-    public readonly subResourceName!: pulumi.Output<string>;
+    declare public readonly subResourceName: pulumi.Output<string>;
     /**
      * The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
      * > **Note:** The `subResourceName` should match with the type of the `targetResourceId` that's being specified.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
 
     /**
      * Create a SharedPrivateLinkResource resource with the given unique name, arguments, and options.
@@ -133,28 +133,28 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedPrivateLinkResourceState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["requestMessage"] = state ? state.requestMessage : undefined;
-            resourceInputs["signalrServiceId"] = state ? state.signalrServiceId : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["subResourceName"] = state ? state.subResourceName : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["requestMessage"] = state?.requestMessage;
+            resourceInputs["signalrServiceId"] = state?.signalrServiceId;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["subResourceName"] = state?.subResourceName;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
         } else {
             const args = argsOrState as SharedPrivateLinkResourceArgs | undefined;
-            if ((!args || args.signalrServiceId === undefined) && !opts.urn) {
+            if (args?.signalrServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signalrServiceId'");
             }
-            if ((!args || args.subResourceName === undefined) && !opts.urn) {
+            if (args?.subResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subResourceName'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
-            resourceInputs["signalrServiceId"] = args ? args.signalrServiceId : undefined;
-            resourceInputs["subResourceName"] = args ? args.subResourceName : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requestMessage"] = args?.requestMessage;
+            resourceInputs["signalrServiceId"] = args?.signalrServiceId;
+            resourceInputs["subResourceName"] = args?.subResourceName;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

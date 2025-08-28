@@ -90,35 +90,35 @@ export class ProtectedVM extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProtectedVM.__pulumiType;
     }
 
-    public readonly backupPolicyId!: pulumi.Output<string | undefined>;
+    declare public readonly backupPolicyId: pulumi.Output<string | undefined>;
     /**
      * A list of Disks' Logical Unit Numbers (LUN) to be excluded for VM Protection.
      */
-    public readonly excludeDiskLuns!: pulumi.Output<number[] | undefined>;
+    declare public readonly excludeDiskLuns: pulumi.Output<number[] | undefined>;
     /**
      * A list of Disks' Logical Unit Numbers (LUN) to be included for VM Protection.
      */
-    public readonly includeDiskLuns!: pulumi.Output<number[] | undefined>;
+    declare public readonly includeDiskLuns: pulumi.Output<number[] | undefined>;
     /**
      * Specifies Protection state of the backup. Possible values are `Protected`, `BackupsSuspended`, and `ProtectionStopped`.
      *
      * > **Note:** `protectionState` cannot be set to `BackupsSuspended` unless the `azure.recoveryservices.Vault` has `immutability` set to `Unlocked` or `Locked`.
      */
-    public readonly protectionState!: pulumi.Output<string>;
+    declare public readonly protectionState: pulumi.Output<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the ID of the virtual machine to back up. Changing this forces a new resource to be created.
      *
      * > **Note:** After creation, the `sourceVmId` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource. This allows the source virtual machine to be deleted without having to remove the backup.
      */
-    public readonly sourceVmId!: pulumi.Output<string>;
+    declare public readonly sourceVmId: pulumi.Output<string>;
 
     /**
      * Create a ProtectedVM resource with the given unique name, arguments, and options.
@@ -133,28 +133,28 @@ export class ProtectedVM extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectedVMState | undefined;
-            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            resourceInputs["excludeDiskLuns"] = state ? state.excludeDiskLuns : undefined;
-            resourceInputs["includeDiskLuns"] = state ? state.includeDiskLuns : undefined;
-            resourceInputs["protectionState"] = state ? state.protectionState : undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceVmId"] = state ? state.sourceVmId : undefined;
+            resourceInputs["backupPolicyId"] = state?.backupPolicyId;
+            resourceInputs["excludeDiskLuns"] = state?.excludeDiskLuns;
+            resourceInputs["includeDiskLuns"] = state?.includeDiskLuns;
+            resourceInputs["protectionState"] = state?.protectionState;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceVmId"] = state?.sourceVmId;
         } else {
             const args = argsOrState as ProtectedVMArgs | undefined;
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            resourceInputs["excludeDiskLuns"] = args ? args.excludeDiskLuns : undefined;
-            resourceInputs["includeDiskLuns"] = args ? args.includeDiskLuns : undefined;
-            resourceInputs["protectionState"] = args ? args.protectionState : undefined;
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceVmId"] = args ? args.sourceVmId : undefined;
+            resourceInputs["backupPolicyId"] = args?.backupPolicyId;
+            resourceInputs["excludeDiskLuns"] = args?.excludeDiskLuns;
+            resourceInputs["includeDiskLuns"] = args?.includeDiskLuns;
+            resourceInputs["protectionState"] = args?.protectionState;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceVmId"] = args?.sourceVmId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProtectedVM.__pulumiType, name, resourceInputs, opts);

@@ -104,59 +104,59 @@ export class FhirService extends pulumi.CustomResource {
     /**
      * A list of the access policies of the service instance.
      */
-    public readonly accessPolicyObjectIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly accessPolicyObjectIds: pulumi.Output<string[] | undefined>;
     /**
      * An `authentication` block as defined below.
      */
-    public readonly authentication!: pulumi.Output<outputs.healthcare.FhirServiceAuthentication>;
+    declare public readonly authentication: pulumi.Output<outputs.healthcare.FhirServiceAuthentication>;
     /**
      * Specifies the name of the storage account which the operation configuration information is exported to.
      */
-    public readonly configurationExportStorageAccountName!: pulumi.Output<string | undefined>;
+    declare public readonly configurationExportStorageAccountName: pulumi.Output<string | undefined>;
     /**
      * A list of azure container registry settings used for convert data operation of the service instance.
      */
-    public readonly containerRegistryLoginServerUrls!: pulumi.Output<string[] | undefined>;
+    declare public readonly containerRegistryLoginServerUrls: pulumi.Output<string[] | undefined>;
     /**
      * A `cors` block as defined below.
      */
-    public readonly cors!: pulumi.Output<outputs.healthcare.FhirServiceCors | undefined>;
+    declare public readonly cors: pulumi.Output<outputs.healthcare.FhirServiceCors | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcare.FhirServiceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.healthcare.FhirServiceIdentity | undefined>;
     /**
      * Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      */
-    public readonly ociArtifacts!: pulumi.Output<outputs.healthcare.FhirServiceOciArtifact[] | undefined>;
+    declare public readonly ociArtifacts: pulumi.Output<outputs.healthcare.FhirServiceOciArtifact[] | undefined>;
     /**
      * Whether public networks access is enabled.
      */
-    public /*out*/ readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly publicNetworkAccessEnabled: pulumi.Output<boolean>;
     /**
      * Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Healthcare FHIR Service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a FhirService resource with the given unique name, arguments, and options.
@@ -171,44 +171,44 @@ export class FhirService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FhirServiceState | undefined;
-            resourceInputs["accessPolicyObjectIds"] = state ? state.accessPolicyObjectIds : undefined;
-            resourceInputs["authentication"] = state ? state.authentication : undefined;
-            resourceInputs["configurationExportStorageAccountName"] = state ? state.configurationExportStorageAccountName : undefined;
-            resourceInputs["containerRegistryLoginServerUrls"] = state ? state.containerRegistryLoginServerUrls : undefined;
-            resourceInputs["cors"] = state ? state.cors : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ociArtifacts"] = state ? state.ociArtifacts : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["accessPolicyObjectIds"] = state?.accessPolicyObjectIds;
+            resourceInputs["authentication"] = state?.authentication;
+            resourceInputs["configurationExportStorageAccountName"] = state?.configurationExportStorageAccountName;
+            resourceInputs["containerRegistryLoginServerUrls"] = state?.containerRegistryLoginServerUrls;
+            resourceInputs["cors"] = state?.cors;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ociArtifacts"] = state?.ociArtifacts;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as FhirServiceArgs | undefined;
-            if ((!args || args.authentication === undefined) && !opts.urn) {
+            if (args?.authentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["accessPolicyObjectIds"] = args ? args.accessPolicyObjectIds : undefined;
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["configurationExportStorageAccountName"] = args ? args.configurationExportStorageAccountName : undefined;
-            resourceInputs["containerRegistryLoginServerUrls"] = args ? args.containerRegistryLoginServerUrls : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ociArtifacts"] = args ? args.ociArtifacts : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["accessPolicyObjectIds"] = args?.accessPolicyObjectIds;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["configurationExportStorageAccountName"] = args?.configurationExportStorageAccountName;
+            resourceInputs["containerRegistryLoginServerUrls"] = args?.containerRegistryLoginServerUrls;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ociArtifacts"] = args?.ociArtifacts;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["publicNetworkAccessEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

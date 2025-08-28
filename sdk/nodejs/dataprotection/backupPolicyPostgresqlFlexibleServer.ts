@@ -130,27 +130,27 @@ export class BackupPolicyPostgresqlFlexibleServer extends pulumi.CustomResource 
     /**
      * Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
      */
-    public readonly backupRepeatingTimeIntervals!: pulumi.Output<string[]>;
+    declare public readonly backupRepeatingTimeIntervals: pulumi.Output<string[]>;
     /**
      * A `defaultRetentionRule` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly defaultRetentionRule!: pulumi.Output<outputs.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule>;
+    declare public readonly defaultRetentionRule: pulumi.Output<outputs.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule>;
     /**
      * Specifies the name of the Backup Policy for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly retentionRules!: pulumi.Output<outputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRule[] | undefined>;
+    declare public readonly retentionRules: pulumi.Output<outputs.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRule[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
      */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
+    declare public readonly timeZone: pulumi.Output<string | undefined>;
     /**
      * The ID of the Backup Vault where the Backup Policy PostgreSQL Flexible Server should exist. Changing this forces a new resource to be created.
      */
-    public readonly vaultId!: pulumi.Output<string>;
+    declare public readonly vaultId: pulumi.Output<string>;
 
     /**
      * Create a BackupPolicyPostgresqlFlexibleServer resource with the given unique name, arguments, and options.
@@ -165,29 +165,29 @@ export class BackupPolicyPostgresqlFlexibleServer extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupPolicyPostgresqlFlexibleServerState | undefined;
-            resourceInputs["backupRepeatingTimeIntervals"] = state ? state.backupRepeatingTimeIntervals : undefined;
-            resourceInputs["defaultRetentionRule"] = state ? state.defaultRetentionRule : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["retentionRules"] = state ? state.retentionRules : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
-            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupRepeatingTimeIntervals"] = state?.backupRepeatingTimeIntervals;
+            resourceInputs["defaultRetentionRule"] = state?.defaultRetentionRule;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["retentionRules"] = state?.retentionRules;
+            resourceInputs["timeZone"] = state?.timeZone;
+            resourceInputs["vaultId"] = state?.vaultId;
         } else {
             const args = argsOrState as BackupPolicyPostgresqlFlexibleServerArgs | undefined;
-            if ((!args || args.backupRepeatingTimeIntervals === undefined) && !opts.urn) {
+            if (args?.backupRepeatingTimeIntervals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupRepeatingTimeIntervals'");
             }
-            if ((!args || args.defaultRetentionRule === undefined) && !opts.urn) {
+            if (args?.defaultRetentionRule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultRetentionRule'");
             }
-            if ((!args || args.vaultId === undefined) && !opts.urn) {
+            if (args?.vaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            resourceInputs["backupRepeatingTimeIntervals"] = args ? args.backupRepeatingTimeIntervals : undefined;
-            resourceInputs["defaultRetentionRule"] = args ? args.defaultRetentionRule : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retentionRules"] = args ? args.retentionRules : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
-            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupRepeatingTimeIntervals"] = args?.backupRepeatingTimeIntervals;
+            resourceInputs["defaultRetentionRule"] = args?.defaultRetentionRule;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retentionRules"] = args?.retentionRules;
+            resourceInputs["timeZone"] = args?.timeZone;
+            resourceInputs["vaultId"] = args?.vaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupPolicyPostgresqlFlexibleServer.__pulumiType, name, resourceInputs, opts);

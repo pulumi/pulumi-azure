@@ -72,23 +72,23 @@ export class DataConnectorAwsS3 extends pulumi.CustomResource {
     /**
      * The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
      */
-    public readonly awsRoleArn!: pulumi.Output<string>;
+    declare public readonly awsRoleArn: pulumi.Output<string>;
     /**
      * The name of the Log Analytics table that will store the ingested data.
      */
-    public readonly destinationTable!: pulumi.Output<string>;
+    declare public readonly destinationTable: pulumi.Output<string>;
     /**
      * The ID of the Log Analytics Workspace that this AWS S3 Data Connector resides in. Changing this forces a new AWS S3 Data Connector to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a list of AWS SQS urls for the AWS S3 Data Connector.
      */
-    public readonly sqsUrls!: pulumi.Output<string[]>;
+    declare public readonly sqsUrls: pulumi.Output<string[]>;
 
     /**
      * Create a DataConnectorAwsS3 resource with the given unique name, arguments, and options.
@@ -103,30 +103,30 @@ export class DataConnectorAwsS3 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorAwsS3State | undefined;
-            resourceInputs["awsRoleArn"] = state ? state.awsRoleArn : undefined;
-            resourceInputs["destinationTable"] = state ? state.destinationTable : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sqsUrls"] = state ? state.sqsUrls : undefined;
+            resourceInputs["awsRoleArn"] = state?.awsRoleArn;
+            resourceInputs["destinationTable"] = state?.destinationTable;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sqsUrls"] = state?.sqsUrls;
         } else {
             const args = argsOrState as DataConnectorAwsS3Args | undefined;
-            if ((!args || args.awsRoleArn === undefined) && !opts.urn) {
+            if (args?.awsRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsRoleArn'");
             }
-            if ((!args || args.destinationTable === undefined) && !opts.urn) {
+            if (args?.destinationTable === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationTable'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.sqsUrls === undefined) && !opts.urn) {
+            if (args?.sqsUrls === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqsUrls'");
             }
-            resourceInputs["awsRoleArn"] = args ? args.awsRoleArn : undefined;
-            resourceInputs["destinationTable"] = args ? args.destinationTable : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sqsUrls"] = args ? args.sqsUrls : undefined;
+            resourceInputs["awsRoleArn"] = args?.awsRoleArn;
+            resourceInputs["destinationTable"] = args?.destinationTable;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sqsUrls"] = args?.sqsUrls;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataConnectorAwsS3.__pulumiType, name, resourceInputs, opts);

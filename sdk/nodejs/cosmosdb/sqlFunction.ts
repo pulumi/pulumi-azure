@@ -46,15 +46,15 @@ export class SqlFunction extends pulumi.CustomResource {
     /**
      * Body of the User Defined Function.
      */
-    public readonly body!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string>;
     /**
      * The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
      */
-    public readonly containerId!: pulumi.Output<string>;
+    declare public readonly containerId: pulumi.Output<string>;
     /**
      * The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a SqlFunction resource with the given unique name, arguments, and options.
@@ -69,20 +69,20 @@ export class SqlFunction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlFunctionState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["containerId"] = state ? state.containerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["containerId"] = state?.containerId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as SqlFunctionArgs | undefined;
-            if ((!args || args.body === undefined) && !opts.urn) {
+            if (args?.body === undefined && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.containerId === undefined) && !opts.urn) {
+            if (args?.containerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerId'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["containerId"] = args ? args.containerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["containerId"] = args?.containerId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SqlFunction.__pulumiType, name, resourceInputs, opts);

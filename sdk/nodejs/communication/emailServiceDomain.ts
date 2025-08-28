@@ -77,35 +77,35 @@ export class EmailServiceDomain extends pulumi.CustomResource {
     /**
      * Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
      */
-    public readonly domainManagement!: pulumi.Output<string>;
+    declare public readonly domainManagement: pulumi.Output<string>;
     /**
      * The resource ID of the Email Communication Service where the Domain belongs to. Changing this forces a new Email Communication Service to be created.
      */
-    public readonly emailServiceId!: pulumi.Output<string>;
+    declare public readonly emailServiceId: pulumi.Output<string>;
     /**
      * P2 sender domain that is displayed to the email recipients [RFC 5322].
      */
-    public /*out*/ readonly fromSenderDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly fromSenderDomain: pulumi.Output<string>;
     /**
      * P1 sender domain that is present on the email envelope [RFC 5321].
      */
-    public /*out*/ readonly mailFromSenderDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly mailFromSenderDomain: pulumi.Output<string>;
     /**
      * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Email Communication Service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Describes user engagement tracking is enabled or disabled. Defaults to `false`.
      */
-    public readonly userEngagementTrackingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly userEngagementTrackingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * (Optional) An `verificationRecords` block as defined below.
      */
-    public /*out*/ readonly verificationRecords!: pulumi.Output<outputs.communication.EmailServiceDomainVerificationRecord[]>;
+    declare public /*out*/ readonly verificationRecords: pulumi.Output<outputs.communication.EmailServiceDomainVerificationRecord[]>;
 
     /**
      * Create a EmailServiceDomain resource with the given unique name, arguments, and options.
@@ -120,27 +120,27 @@ export class EmailServiceDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailServiceDomainState | undefined;
-            resourceInputs["domainManagement"] = state ? state.domainManagement : undefined;
-            resourceInputs["emailServiceId"] = state ? state.emailServiceId : undefined;
-            resourceInputs["fromSenderDomain"] = state ? state.fromSenderDomain : undefined;
-            resourceInputs["mailFromSenderDomain"] = state ? state.mailFromSenderDomain : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["userEngagementTrackingEnabled"] = state ? state.userEngagementTrackingEnabled : undefined;
-            resourceInputs["verificationRecords"] = state ? state.verificationRecords : undefined;
+            resourceInputs["domainManagement"] = state?.domainManagement;
+            resourceInputs["emailServiceId"] = state?.emailServiceId;
+            resourceInputs["fromSenderDomain"] = state?.fromSenderDomain;
+            resourceInputs["mailFromSenderDomain"] = state?.mailFromSenderDomain;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["userEngagementTrackingEnabled"] = state?.userEngagementTrackingEnabled;
+            resourceInputs["verificationRecords"] = state?.verificationRecords;
         } else {
             const args = argsOrState as EmailServiceDomainArgs | undefined;
-            if ((!args || args.domainManagement === undefined) && !opts.urn) {
+            if (args?.domainManagement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainManagement'");
             }
-            if ((!args || args.emailServiceId === undefined) && !opts.urn) {
+            if (args?.emailServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailServiceId'");
             }
-            resourceInputs["domainManagement"] = args ? args.domainManagement : undefined;
-            resourceInputs["emailServiceId"] = args ? args.emailServiceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userEngagementTrackingEnabled"] = args ? args.userEngagementTrackingEnabled : undefined;
+            resourceInputs["domainManagement"] = args?.domainManagement;
+            resourceInputs["emailServiceId"] = args?.emailServiceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userEngagementTrackingEnabled"] = args?.userEngagementTrackingEnabled;
             resourceInputs["fromSenderDomain"] = undefined /*out*/;
             resourceInputs["mailFromSenderDomain"] = undefined /*out*/;
             resourceInputs["verificationRecords"] = undefined /*out*/;

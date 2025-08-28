@@ -98,31 +98,31 @@ export class RoleDefinition extends pulumi.CustomResource {
      *
      * > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
      */
-    public readonly assignableScopes!: pulumi.Output<string[]>;
+    declare public readonly assignableScopes: pulumi.Output<string[]>;
     /**
      * A description of the Role Definition.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the Role Definition.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `permissions` block as defined below.
      */
-    public readonly permissions!: pulumi.Output<outputs.authorization.RoleDefinitionPermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.authorization.RoleDefinitionPermission[] | undefined>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    declare public readonly roleDefinitionId: pulumi.Output<string>;
     /**
      * The Azure Resource Manager ID for the resource.
      */
-    public /*out*/ readonly roleDefinitionResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly roleDefinitionResourceId: pulumi.Output<string>;
     /**
      * The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignableScopes`. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
 
     /**
      * Create a RoleDefinition resource with the given unique name, arguments, and options.
@@ -137,24 +137,24 @@ export class RoleDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleDefinitionState | undefined;
-            resourceInputs["assignableScopes"] = state ? state.assignableScopes : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            resourceInputs["roleDefinitionResourceId"] = state ? state.roleDefinitionResourceId : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["assignableScopes"] = state?.assignableScopes;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["roleDefinitionId"] = state?.roleDefinitionId;
+            resourceInputs["roleDefinitionResourceId"] = state?.roleDefinitionResourceId;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as RoleDefinitionArgs | undefined;
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignableScopes"] = args ? args.assignableScopes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["assignableScopes"] = args?.assignableScopes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["roleDefinitionResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

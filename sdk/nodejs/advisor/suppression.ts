@@ -69,23 +69,23 @@ export class Suppression extends pulumi.CustomResource {
     /**
      * The Name which should be used for this Advisor suppression. Changing this forces a new Advisor suppression to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Advisor recommendation to suppress. Changing this forces a new Advisor suppression to be created.
      */
-    public readonly recommendationId!: pulumi.Output<string>;
+    declare public readonly recommendationId: pulumi.Output<string>;
     /**
      * The ID of the Resource to suppress the Advisor recommendation for. Changing this forces a new Advisor suppression to be created.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * The GUID of the suppression.
      */
-    public /*out*/ readonly suppressionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly suppressionId: pulumi.Output<string>;
     /**
      * A optional time to live value. If omitted, the suppression will not expire. Changing this forces a new Advisor suppression to be created.
      */
-    public readonly ttl!: pulumi.Output<string | undefined>;
+    declare public readonly ttl: pulumi.Output<string | undefined>;
 
     /**
      * Create a Suppression resource with the given unique name, arguments, and options.
@@ -100,23 +100,23 @@ export class Suppression extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SuppressionState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recommendationId"] = state ? state.recommendationId : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["suppressionId"] = state ? state.suppressionId : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recommendationId"] = state?.recommendationId;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["suppressionId"] = state?.suppressionId;
+            resourceInputs["ttl"] = state?.ttl;
         } else {
             const args = argsOrState as SuppressionArgs | undefined;
-            if ((!args || args.recommendationId === undefined) && !opts.urn) {
+            if (args?.recommendationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recommendationId'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recommendationId"] = args ? args.recommendationId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recommendationId"] = args?.recommendationId;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["ttl"] = args?.ttl;
             resourceInputs["suppressionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

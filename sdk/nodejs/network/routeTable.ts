@@ -83,33 +83,33 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Boolean flag which controls propagation of routes learned by BGP on that route table. Defaults to `true`.
      */
-    public readonly bgpRoutePropagationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly bgpRoutePropagationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the route.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A list of objects representing routes. Each object accepts the arguments documented below.
      *
      * > **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    public readonly routes!: pulumi.Output<outputs.network.RouteTableRoute[]>;
+    declare public readonly routes: pulumi.Output<outputs.network.RouteTableRoute[]>;
     /**
      * The collection of Subnets associated with this route table.
      */
-    public /*out*/ readonly subnets!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly subnets: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RouteTable resource with the given unique name, arguments, and options.
@@ -124,24 +124,24 @@ export class RouteTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteTableState | undefined;
-            resourceInputs["bgpRoutePropagationEnabled"] = state ? state.bgpRoutePropagationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routes"] = state ? state.routes : undefined;
-            resourceInputs["subnets"] = state ? state.subnets : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["bgpRoutePropagationEnabled"] = state?.bgpRoutePropagationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routes"] = state?.routes;
+            resourceInputs["subnets"] = state?.subnets;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as RouteTableArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bgpRoutePropagationEnabled"] = args ? args.bgpRoutePropagationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bgpRoutePropagationEnabled"] = args?.bgpRoutePropagationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["subnets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

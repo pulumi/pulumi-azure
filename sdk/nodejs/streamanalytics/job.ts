@@ -89,79 +89,79 @@ export class Job extends pulumi.CustomResource {
      *
      * > **Note:** Support for Compatibility Level 1.2 is dependent on a new version of the Stream Analytics API, which [being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/5604).
      */
-    public readonly compatibilityLevel!: pulumi.Output<string>;
+    declare public readonly compatibilityLevel: pulumi.Output<string>;
     /**
      * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
      */
-    public readonly contentStoragePolicy!: pulumi.Output<string | undefined>;
+    declare public readonly contentStoragePolicy: pulumi.Output<string | undefined>;
     /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
      */
-    public readonly dataLocale!: pulumi.Output<string | undefined>;
+    declare public readonly dataLocale: pulumi.Output<string | undefined>;
     /**
      * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
      */
-    public readonly eventsLateArrivalMaxDelayInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly eventsLateArrivalMaxDelayInSeconds: pulumi.Output<number | undefined>;
     /**
      * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
      */
-    public readonly eventsOutOfOrderMaxDelayInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly eventsOutOfOrderMaxDelayInSeconds: pulumi.Output<number | undefined>;
     /**
      * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
      */
-    public readonly eventsOutOfOrderPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly eventsOutOfOrderPolicy: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.streamanalytics.JobIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.streamanalytics.JobIdentity | undefined>;
     /**
      * The Job ID assigned by the Stream Analytics Job.
      */
-    public /*out*/ readonly jobId!: pulumi.Output<string>;
+    declare public /*out*/ readonly jobId: pulumi.Output<string>;
     /**
      * The details of the job storage account. A `jobStorageAccount` block as defined below.
      *
      * > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      */
-    public readonly jobStorageAccounts!: pulumi.Output<outputs.streamanalytics.JobJobStorageAccount[] | undefined>;
+    declare public readonly jobStorageAccounts: pulumi.Output<outputs.streamanalytics.JobJobStorageAccount[] | undefined>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`.
      */
-    public readonly outputErrorPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly outputErrorPolicy: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU Name to use for the Stream Analytics Job. Possible values are `Standard`, `StandardV2`. Defaults to `Standard`.
      */
-    public readonly skuName!: pulumi.Output<string | undefined>;
+    declare public readonly skuName: pulumi.Output<string | undefined>;
     /**
      * The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run.
      */
-    public readonly streamAnalyticsClusterId!: pulumi.Output<string | undefined>;
+    declare public readonly streamAnalyticsClusterId: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. A conversion table for V2 streaming units can be found [here](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-streaming-unit-consumption#understand-streaming-unit-conversions-and-where-they-apply)
      *
      * > **Note:** `streamingUnits` must be set when `type` is `Cloud`.
      */
-    public readonly streamingUnits!: pulumi.Output<number | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly transformationQuery!: pulumi.Output<string>;
+    declare public readonly streamingUnits: pulumi.Output<number | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly transformationQuery: pulumi.Output<string>;
     /**
      * The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created.
      *
      * > **Note:** `Edge` doesn't support `streamAnalyticsClusterId` and `streamingUnits`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -176,51 +176,51 @@ export class Job extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
-            resourceInputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
-            resourceInputs["contentStoragePolicy"] = state ? state.contentStoragePolicy : undefined;
-            resourceInputs["dataLocale"] = state ? state.dataLocale : undefined;
-            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = state ? state.eventsLateArrivalMaxDelayInSeconds : undefined;
-            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = state ? state.eventsOutOfOrderMaxDelayInSeconds : undefined;
-            resourceInputs["eventsOutOfOrderPolicy"] = state ? state.eventsOutOfOrderPolicy : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["jobId"] = state ? state.jobId : undefined;
-            resourceInputs["jobStorageAccounts"] = state ? state.jobStorageAccounts : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputErrorPolicy"] = state ? state.outputErrorPolicy : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["streamAnalyticsClusterId"] = state ? state.streamAnalyticsClusterId : undefined;
-            resourceInputs["streamingUnits"] = state ? state.streamingUnits : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["transformationQuery"] = state ? state.transformationQuery : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["compatibilityLevel"] = state?.compatibilityLevel;
+            resourceInputs["contentStoragePolicy"] = state?.contentStoragePolicy;
+            resourceInputs["dataLocale"] = state?.dataLocale;
+            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = state?.eventsLateArrivalMaxDelayInSeconds;
+            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = state?.eventsOutOfOrderMaxDelayInSeconds;
+            resourceInputs["eventsOutOfOrderPolicy"] = state?.eventsOutOfOrderPolicy;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["jobId"] = state?.jobId;
+            resourceInputs["jobStorageAccounts"] = state?.jobStorageAccounts;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputErrorPolicy"] = state?.outputErrorPolicy;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["streamAnalyticsClusterId"] = state?.streamAnalyticsClusterId;
+            resourceInputs["streamingUnits"] = state?.streamingUnits;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["transformationQuery"] = state?.transformationQuery;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.transformationQuery === undefined) && !opts.urn) {
+            if (args?.transformationQuery === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transformationQuery'");
             }
-            resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
-            resourceInputs["contentStoragePolicy"] = args ? args.contentStoragePolicy : undefined;
-            resourceInputs["dataLocale"] = args ? args.dataLocale : undefined;
-            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
-            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
-            resourceInputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["jobStorageAccounts"] = args ? args.jobStorageAccounts : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["streamAnalyticsClusterId"] = args ? args.streamAnalyticsClusterId : undefined;
-            resourceInputs["streamingUnits"] = args ? args.streamingUnits : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transformationQuery"] = args ? args.transformationQuery : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["compatibilityLevel"] = args?.compatibilityLevel;
+            resourceInputs["contentStoragePolicy"] = args?.contentStoragePolicy;
+            resourceInputs["dataLocale"] = args?.dataLocale;
+            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args?.eventsLateArrivalMaxDelayInSeconds;
+            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args?.eventsOutOfOrderMaxDelayInSeconds;
+            resourceInputs["eventsOutOfOrderPolicy"] = args?.eventsOutOfOrderPolicy;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["jobStorageAccounts"] = args?.jobStorageAccounts;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputErrorPolicy"] = args?.outputErrorPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["streamAnalyticsClusterId"] = args?.streamAnalyticsClusterId;
+            resourceInputs["streamingUnits"] = args?.streamingUnits;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transformationQuery"] = args?.transformationQuery;
+            resourceInputs["type"] = args?.type;
             resourceInputs["jobId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

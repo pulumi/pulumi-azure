@@ -86,23 +86,23 @@ export class NetworkSite extends pulumi.CustomResource {
     /**
      * The Azure Region where the Mobile Network Site should exist. Changing this forces a new Mobile Network Site to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * the ID of the Mobile Network which the Mobile Network Site belongs to. Changing this forces a new Mobile Network Site to be created.
      */
-    public readonly mobileNetworkId!: pulumi.Output<string>;
+    declare public readonly mobileNetworkId: pulumi.Output<string>;
     /**
      * The name which should be used for this Mobile Network Site. Changing this forces a new Mobile Network Site to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An array of Id of Network Functions deployed on the site.
      */
-    public /*out*/ readonly networkFunctionIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly networkFunctionIds: pulumi.Output<string[]>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Site.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NetworkSite resource with the given unique name, arguments, and options.
@@ -117,20 +117,20 @@ export class NetworkSite extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkSiteState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mobileNetworkId"] = state ? state.mobileNetworkId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkFunctionIds"] = state ? state.networkFunctionIds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mobileNetworkId"] = state?.mobileNetworkId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkFunctionIds"] = state?.networkFunctionIds;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NetworkSiteArgs | undefined;
-            if ((!args || args.mobileNetworkId === undefined) && !opts.urn) {
+            if (args?.mobileNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkId"] = args ? args.mobileNetworkId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkId"] = args?.mobileNetworkId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["networkFunctionIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -82,23 +82,23 @@ export class EncryptionScope extends pulumi.CustomResource {
     /**
      * Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
      */
-    public readonly infrastructureEncryptionRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly infrastructureEncryptionRequired: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`.
      */
-    public readonly source!: pulumi.Output<string>;
+    declare public readonly source: pulumi.Output<string>;
     /**
      * The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a EncryptionScope resource with the given unique name, arguments, and options.
@@ -113,24 +113,24 @@ export class EncryptionScope extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EncryptionScopeState | undefined;
-            resourceInputs["infrastructureEncryptionRequired"] = state ? state.infrastructureEncryptionRequired : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["infrastructureEncryptionRequired"] = state?.infrastructureEncryptionRequired;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as EncryptionScopeArgs | undefined;
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["infrastructureEncryptionRequired"] = args ? args.infrastructureEncryptionRequired : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["infrastructureEncryptionRequired"] = args?.infrastructureEncryptionRequired;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EncryptionScope.__pulumiType, name, resourceInputs, opts);

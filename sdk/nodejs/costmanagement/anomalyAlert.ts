@@ -70,31 +70,31 @@ export class AnomalyAlert extends pulumi.CustomResource {
     /**
      * The display name which should be used for this Cost Anomaly Alert.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Specifies a list of email addresses which the Anomaly Alerts are send to.
      */
-    public readonly emailAddresses!: pulumi.Output<string[]>;
+    declare public readonly emailAddresses: pulumi.Output<string[]>;
     /**
      * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
      */
-    public readonly emailSubject!: pulumi.Output<string>;
+    declare public readonly emailSubject: pulumi.Output<string>;
     /**
      * The message of the Cost Anomaly Alert. Maximum length of the message is 250.
      */
-    public readonly message!: pulumi.Output<string | undefined>;
+    declare public readonly message: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The email address of the point of contact that should get the unsubscribe requests and notification emails.
      */
-    public readonly notificationEmail!: pulumi.Output<string>;
+    declare public readonly notificationEmail: pulumi.Output<string>;
     /**
      * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
 
     /**
      * Create a AnomalyAlert resource with the given unique name, arguments, and options.
@@ -109,31 +109,31 @@ export class AnomalyAlert extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnomalyAlertState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["emailAddresses"] = state ? state.emailAddresses : undefined;
-            resourceInputs["emailSubject"] = state ? state.emailSubject : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationEmail"] = state ? state.notificationEmail : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["emailAddresses"] = state?.emailAddresses;
+            resourceInputs["emailSubject"] = state?.emailSubject;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationEmail"] = state?.notificationEmail;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
         } else {
             const args = argsOrState as AnomalyAlertArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.emailAddresses === undefined) && !opts.urn) {
+            if (args?.emailAddresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailAddresses'");
             }
-            if ((!args || args.emailSubject === undefined) && !opts.urn) {
+            if (args?.emailSubject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailSubject'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            resourceInputs["emailSubject"] = args ? args.emailSubject : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationEmail"] = args ? args.notificationEmail : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["emailAddresses"] = args?.emailAddresses;
+            resourceInputs["emailSubject"] = args?.emailSubject;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationEmail"] = args?.notificationEmail;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AnomalyAlert.__pulumiType, name, resourceInputs, opts);

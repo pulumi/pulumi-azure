@@ -116,19 +116,19 @@ export class ResolverVirtualNetworkLink extends pulumi.CustomResource {
     /**
      * Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
      */
-    public readonly dnsForwardingRulesetId!: pulumi.Output<string>;
+    declare public readonly dnsForwardingRulesetId: pulumi.Output<string>;
     /**
      * Metadata attached to the Private DNS Resolver Virtual Network Link.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
      */
-    public readonly virtualNetworkId!: pulumi.Output<string>;
+    declare public readonly virtualNetworkId: pulumi.Output<string>;
 
     /**
      * Create a ResolverVirtualNetworkLink resource with the given unique name, arguments, and options.
@@ -143,22 +143,22 @@ export class ResolverVirtualNetworkLink extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverVirtualNetworkLinkState | undefined;
-            resourceInputs["dnsForwardingRulesetId"] = state ? state.dnsForwardingRulesetId : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["dnsForwardingRulesetId"] = state?.dnsForwardingRulesetId;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["virtualNetworkId"] = state?.virtualNetworkId;
         } else {
             const args = argsOrState as ResolverVirtualNetworkLinkArgs | undefined;
-            if ((!args || args.dnsForwardingRulesetId === undefined) && !opts.urn) {
+            if (args?.dnsForwardingRulesetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsForwardingRulesetId'");
             }
-            if ((!args || args.virtualNetworkId === undefined) && !opts.urn) {
+            if (args?.virtualNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkId'");
             }
-            resourceInputs["dnsForwardingRulesetId"] = args ? args.dnsForwardingRulesetId : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["dnsForwardingRulesetId"] = args?.dnsForwardingRulesetId;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverVirtualNetworkLink.__pulumiType, name, resourceInputs, opts);

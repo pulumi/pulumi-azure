@@ -82,47 +82,47 @@ export class Product extends pulumi.CustomResource {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
      *
      * > **Note:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
      */
-    public readonly approvalRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly approvalRequired: pulumi.Output<boolean | undefined>;
     /**
      * A description of this Product, which may include HTML formatting tags.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Display Name for this API Management Product.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly productId!: pulumi.Output<string>;
+    declare public readonly productId: pulumi.Output<string>;
     /**
      * Is this Product Published?
      */
-    public readonly published!: pulumi.Output<boolean>;
+    declare public readonly published: pulumi.Output<boolean>;
     /**
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Is a Subscription required to access API's included in this Product? Defaults to `true`.
      */
-    public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly subscriptionRequired: pulumi.Output<boolean | undefined>;
     /**
      * The number of subscriptions a user can have to this Product at the same time.
      *
      * > **Note:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
      */
-    public readonly subscriptionsLimit!: pulumi.Output<number | undefined>;
+    declare public readonly subscriptionsLimit: pulumi.Output<number | undefined>;
     /**
      * The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
      */
-    public readonly terms!: pulumi.Output<string | undefined>;
+    declare public readonly terms: pulumi.Output<string | undefined>;
 
     /**
      * Create a Product resource with the given unique name, arguments, and options.
@@ -137,43 +137,43 @@ export class Product extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["approvalRequired"] = state ? state.approvalRequired : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["productId"] = state ? state.productId : undefined;
-            resourceInputs["published"] = state ? state.published : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
-            resourceInputs["subscriptionsLimit"] = state ? state.subscriptionsLimit : undefined;
-            resourceInputs["terms"] = state ? state.terms : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["approvalRequired"] = state?.approvalRequired;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["productId"] = state?.productId;
+            resourceInputs["published"] = state?.published;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subscriptionRequired"] = state?.subscriptionRequired;
+            resourceInputs["subscriptionsLimit"] = state?.subscriptionsLimit;
+            resourceInputs["terms"] = state?.terms;
         } else {
             const args = argsOrState as ProductArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.productId === undefined) && !opts.urn) {
+            if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.published === undefined) && !opts.urn) {
+            if (args?.published === undefined && !opts.urn) {
                 throw new Error("Missing required property 'published'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["approvalRequired"] = args ? args.approvalRequired : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["published"] = args ? args.published : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
-            resourceInputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
-            resourceInputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["approvalRequired"] = args?.approvalRequired;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["published"] = args?.published;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subscriptionRequired"] = args?.subscriptionRequired;
+            resourceInputs["subscriptionsLimit"] = args?.subscriptionsLimit;
+            resourceInputs["terms"] = args?.terms;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Product.__pulumiType, name, resourceInputs, opts);

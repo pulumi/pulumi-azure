@@ -74,65 +74,65 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
      */
-    public readonly classicVmwareReplicationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly classicVmwareReplicationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
      *
      * > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
      */
-    public readonly crossRegionRestoreEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly crossRegionRestoreEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `encryption` block as defined below. Required with `identity`.
      *
      * !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
      */
-    public readonly encryption!: pulumi.Output<outputs.recoveryservices.VaultEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.recoveryservices.VaultEncryption | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.recoveryservices.VaultIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.recoveryservices.VaultIdentity | undefined>;
     /**
      * Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
      *
      * > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
      */
-    public readonly immutability!: pulumi.Output<string>;
+    declare public readonly immutability: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `monitoring` block as defined below.
      */
-    public readonly monitoring!: pulumi.Output<outputs.recoveryservices.VaultMonitoring | undefined>;
+    declare public readonly monitoring: pulumi.Output<outputs.recoveryservices.VaultMonitoring | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Is it enabled to access the vault from public networks. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * Is soft delete enable for this Vault? Defaults to `true`.
      */
-    public readonly softDeleteEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly softDeleteEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
      */
-    public readonly storageModeType!: pulumi.Output<string | undefined>;
+    declare public readonly storageModeType: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Vault resource with the given unique name, arguments, and options.
@@ -147,42 +147,42 @@ export class Vault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultState | undefined;
-            resourceInputs["classicVmwareReplicationEnabled"] = state ? state.classicVmwareReplicationEnabled : undefined;
-            resourceInputs["crossRegionRestoreEnabled"] = state ? state.crossRegionRestoreEnabled : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["immutability"] = state ? state.immutability : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["monitoring"] = state ? state.monitoring : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["softDeleteEnabled"] = state ? state.softDeleteEnabled : undefined;
-            resourceInputs["storageModeType"] = state ? state.storageModeType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["classicVmwareReplicationEnabled"] = state?.classicVmwareReplicationEnabled;
+            resourceInputs["crossRegionRestoreEnabled"] = state?.crossRegionRestoreEnabled;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["immutability"] = state?.immutability;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["monitoring"] = state?.monitoring;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["softDeleteEnabled"] = state?.softDeleteEnabled;
+            resourceInputs["storageModeType"] = state?.storageModeType;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as VaultArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["classicVmwareReplicationEnabled"] = args ? args.classicVmwareReplicationEnabled : undefined;
-            resourceInputs["crossRegionRestoreEnabled"] = args ? args.crossRegionRestoreEnabled : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["immutability"] = args ? args.immutability : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monitoring"] = args ? args.monitoring : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["softDeleteEnabled"] = args ? args.softDeleteEnabled : undefined;
-            resourceInputs["storageModeType"] = args ? args.storageModeType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["classicVmwareReplicationEnabled"] = args?.classicVmwareReplicationEnabled;
+            resourceInputs["crossRegionRestoreEnabled"] = args?.crossRegionRestoreEnabled;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["immutability"] = args?.immutability;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["monitoring"] = args?.monitoring;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["softDeleteEnabled"] = args?.softDeleteEnabled;
+            resourceInputs["storageModeType"] = args?.storageModeType;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Vault.__pulumiType, name, resourceInputs, opts);

@@ -105,71 +105,71 @@ export class VirtualNetwork extends pulumi.CustomResource {
      *
      * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
-    public readonly addressSpaces!: pulumi.Output<string[] | undefined>;
+    declare public readonly addressSpaces: pulumi.Output<string[] | undefined>;
     /**
      * The BGP community attribute in format `<as-number>:<community-value>`.
      *
      * > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      */
-    public readonly bgpCommunity!: pulumi.Output<string | undefined>;
+    declare public readonly bgpCommunity: pulumi.Output<string | undefined>;
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
-    public readonly ddosProtectionPlan!: pulumi.Output<outputs.network.VirtualNetworkDdosProtectionPlan | undefined>;
+    declare public readonly ddosProtectionPlan: pulumi.Output<outputs.network.VirtualNetworkDdosProtectionPlan | undefined>;
     /**
      * List of IP addresses of DNS servers
      *
      * > **NOTE** Since `dnsServers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    public readonly dnsServers!: pulumi.Output<string[]>;
+    declare public readonly dnsServers: pulumi.Output<string[]>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * A `encryption` block as defined below.
      */
-    public readonly encryption!: pulumi.Output<outputs.network.VirtualNetworkEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.network.VirtualNetworkEncryption | undefined>;
     /**
      * The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
      */
-    public readonly flowTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly flowTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * The GUID of the Virtual Network.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * One or two `ipAddressPool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
      *
      * > **Note:** Exactly one of `addressSpace` or `ipAddressPool` must be specified.
      */
-    public readonly ipAddressPools!: pulumi.Output<outputs.network.VirtualNetworkIpAddressPool[] | undefined>;
+    declare public readonly ipAddressPools: pulumi.Output<outputs.network.VirtualNetworkIpAddressPool[] | undefined>;
     /**
      * The location/region where the virtual network is created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the virtual network. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
      */
-    public readonly privateEndpointVnetPolicies!: pulumi.Output<string | undefined>;
+    declare public readonly privateEndpointVnetPolicies: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      *
      * > **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    public readonly subnets!: pulumi.Output<outputs.network.VirtualNetworkSubnet[]>;
+    declare public readonly subnets: pulumi.Output<outputs.network.VirtualNetworkSubnet[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -184,40 +184,40 @@ export class VirtualNetwork extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkState | undefined;
-            resourceInputs["addressSpaces"] = state ? state.addressSpaces : undefined;
-            resourceInputs["bgpCommunity"] = state ? state.bgpCommunity : undefined;
-            resourceInputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
-            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["flowTimeoutInMinutes"] = state ? state.flowTimeoutInMinutes : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["ipAddressPools"] = state ? state.ipAddressPools : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateEndpointVnetPolicies"] = state ? state.privateEndpointVnetPolicies : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subnets"] = state ? state.subnets : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["addressSpaces"] = state?.addressSpaces;
+            resourceInputs["bgpCommunity"] = state?.bgpCommunity;
+            resourceInputs["ddosProtectionPlan"] = state?.ddosProtectionPlan;
+            resourceInputs["dnsServers"] = state?.dnsServers;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["flowTimeoutInMinutes"] = state?.flowTimeoutInMinutes;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["ipAddressPools"] = state?.ipAddressPools;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateEndpointVnetPolicies"] = state?.privateEndpointVnetPolicies;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subnets"] = state?.subnets;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressSpaces"] = args ? args.addressSpaces : undefined;
-            resourceInputs["bgpCommunity"] = args ? args.bgpCommunity : undefined;
-            resourceInputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
-            resourceInputs["ipAddressPools"] = args ? args.ipAddressPools : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateEndpointVnetPolicies"] = args ? args.privateEndpointVnetPolicies : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressSpaces"] = args?.addressSpaces;
+            resourceInputs["bgpCommunity"] = args?.bgpCommunity;
+            resourceInputs["ddosProtectionPlan"] = args?.ddosProtectionPlan;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["flowTimeoutInMinutes"] = args?.flowTimeoutInMinutes;
+            resourceInputs["ipAddressPools"] = args?.ipAddressPools;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateEndpointVnetPolicies"] = args?.privateEndpointVnetPolicies;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["guid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

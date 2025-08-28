@@ -50,51 +50,51 @@ export class SingleNodeVirtualInstance extends pulumi.CustomResource {
     /**
      * The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
      */
-    public readonly appLocation!: pulumi.Output<string>;
+    declare public readonly appLocation: pulumi.Output<string>;
     /**
      * The environment type for the SAP Single Node Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
      */
-    public readonly environment!: pulumi.Output<string>;
+    declare public readonly environment: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.workloadssap.SingleNodeVirtualInstanceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.workloadssap.SingleNodeVirtualInstanceIdentity | undefined>;
     /**
      * The Azure Region where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the managed Resource Group for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
      */
-    public readonly managedResourceGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourceGroupName: pulumi.Output<string | undefined>;
     /**
      * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
      */
-    public readonly managedResourcesNetworkAccessType!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourcesNetworkAccessType: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of this SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The fully qualified domain name for the SAP system. Changing this forces a new resource to be created.
      */
-    public readonly sapFqdn!: pulumi.Output<string>;
+    declare public readonly sapFqdn: pulumi.Output<string>;
     /**
      * The SAP Product type for the SAP Single Node Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
      */
-    public readonly sapProduct!: pulumi.Output<string>;
+    declare public readonly sapProduct: pulumi.Output<string>;
     /**
      * A `singleServerConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly singleServerConfiguration!: pulumi.Output<outputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfiguration>;
+    declare public readonly singleServerConfiguration: pulumi.Output<outputs.workloadssap.SingleNodeVirtualInstanceSingleServerConfiguration>;
     /**
      * A mapping of tags which should be assigned to the SAP Single Node Virtual Instance.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SingleNodeVirtualInstance resource with the given unique name, arguments, and options.
@@ -109,50 +109,50 @@ export class SingleNodeVirtualInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SingleNodeVirtualInstanceState | undefined;
-            resourceInputs["appLocation"] = state ? state.appLocation : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
-            resourceInputs["managedResourcesNetworkAccessType"] = state ? state.managedResourcesNetworkAccessType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sapFqdn"] = state ? state.sapFqdn : undefined;
-            resourceInputs["sapProduct"] = state ? state.sapProduct : undefined;
-            resourceInputs["singleServerConfiguration"] = state ? state.singleServerConfiguration : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["appLocation"] = state?.appLocation;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedResourceGroupName"] = state?.managedResourceGroupName;
+            resourceInputs["managedResourcesNetworkAccessType"] = state?.managedResourcesNetworkAccessType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sapFqdn"] = state?.sapFqdn;
+            resourceInputs["sapProduct"] = state?.sapProduct;
+            resourceInputs["singleServerConfiguration"] = state?.singleServerConfiguration;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SingleNodeVirtualInstanceArgs | undefined;
-            if ((!args || args.appLocation === undefined) && !opts.urn) {
+            if (args?.appLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appLocation'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapFqdn === undefined) && !opts.urn) {
+            if (args?.sapFqdn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapFqdn'");
             }
-            if ((!args || args.sapProduct === undefined) && !opts.urn) {
+            if (args?.sapProduct === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapProduct'");
             }
-            if ((!args || args.singleServerConfiguration === undefined) && !opts.urn) {
+            if (args?.singleServerConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'singleServerConfiguration'");
             }
-            resourceInputs["appLocation"] = args ? args.appLocation : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["managedResourcesNetworkAccessType"] = args ? args.managedResourcesNetworkAccessType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapFqdn"] = args ? args.sapFqdn : undefined;
-            resourceInputs["sapProduct"] = args ? args.sapProduct : undefined;
-            resourceInputs["singleServerConfiguration"] = args ? args.singleServerConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appLocation"] = args?.appLocation;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["managedResourcesNetworkAccessType"] = args?.managedResourcesNetworkAccessType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapFqdn"] = args?.sapFqdn;
+            resourceInputs["sapProduct"] = args?.sapProduct;
+            resourceInputs["singleServerConfiguration"] = args?.singleServerConfiguration;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SingleNodeVirtualInstance.__pulumiType, name, resourceInputs, opts);

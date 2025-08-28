@@ -142,59 +142,59 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
     /**
      * Authenticate to ADB via an access token.
      */
-    public readonly accessToken!: pulumi.Output<string | undefined>;
+    declare public readonly accessToken: pulumi.Output<string | undefined>;
     /**
      * The domain URL of the databricks instance.
      */
-    public readonly adbDomain!: pulumi.Output<string>;
+    declare public readonly adbDomain: pulumi.Output<string>;
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The clusterId of an existing cluster within the linked ADB instance.
      */
-    public readonly existingClusterId!: pulumi.Output<string | undefined>;
+    declare public readonly existingClusterId: pulumi.Output<string | undefined>;
     /**
      * Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
      */
-    public readonly instancePool!: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksInstancePool | undefined>;
+    declare public readonly instancePool: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksInstancePool | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
      * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
      */
-    public readonly keyVaultPassword!: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword | undefined>;
+    declare public readonly keyVaultPassword: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword | undefined>;
     /**
      * Authenticate to ADB via managed service identity.
      */
-    public readonly msiWorkSpaceResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly msiWorkSpaceResourceId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
      */
-    public readonly newClusterConfig!: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksNewClusterConfig | undefined>;
+    declare public readonly newClusterConfig: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksNewClusterConfig | undefined>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LinkedServiceAzureDatabricks resource with the given unique name, arguments, and options.
@@ -209,42 +209,42 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceAzureDatabricksState | undefined;
-            resourceInputs["accessToken"] = state ? state.accessToken : undefined;
-            resourceInputs["adbDomain"] = state ? state.adbDomain : undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["existingClusterId"] = state ? state.existingClusterId : undefined;
-            resourceInputs["instancePool"] = state ? state.instancePool : undefined;
-            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
-            resourceInputs["msiWorkSpaceResourceId"] = state ? state.msiWorkSpaceResourceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["newClusterConfig"] = state ? state.newClusterConfig : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["accessToken"] = state?.accessToken;
+            resourceInputs["adbDomain"] = state?.adbDomain;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["existingClusterId"] = state?.existingClusterId;
+            resourceInputs["instancePool"] = state?.instancePool;
+            resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
+            resourceInputs["keyVaultPassword"] = state?.keyVaultPassword;
+            resourceInputs["msiWorkSpaceResourceId"] = state?.msiWorkSpaceResourceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["newClusterConfig"] = state?.newClusterConfig;
+            resourceInputs["parameters"] = state?.parameters;
         } else {
             const args = argsOrState as LinkedServiceAzureDatabricksArgs | undefined;
-            if ((!args || args.adbDomain === undefined) && !opts.urn) {
+            if (args?.adbDomain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adbDomain'");
             }
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
             resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
-            resourceInputs["adbDomain"] = args ? args.adbDomain : undefined;
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["existingClusterId"] = args ? args.existingClusterId : undefined;
-            resourceInputs["instancePool"] = args ? args.instancePool : undefined;
-            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
-            resourceInputs["msiWorkSpaceResourceId"] = args ? args.msiWorkSpaceResourceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["newClusterConfig"] = args ? args.newClusterConfig : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["adbDomain"] = args?.adbDomain;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["existingClusterId"] = args?.existingClusterId;
+            resourceInputs["instancePool"] = args?.instancePool;
+            resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
+            resourceInputs["keyVaultPassword"] = args?.keyVaultPassword;
+            resourceInputs["msiWorkSpaceResourceId"] = args?.msiWorkSpaceResourceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["newClusterConfig"] = args?.newClusterConfig;
+            resourceInputs["parameters"] = args?.parameters;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accessToken"] };

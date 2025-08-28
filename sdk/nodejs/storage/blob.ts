@@ -77,71 +77,71 @@ export class Blob extends pulumi.CustomResource {
     /**
      * The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
      */
-    public readonly accessTier!: pulumi.Output<string>;
+    declare public readonly accessTier: pulumi.Output<string>;
     /**
      * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
      */
-    public readonly cacheControl!: pulumi.Output<string | undefined>;
+    declare public readonly cacheControl: pulumi.Output<string | undefined>;
     /**
      * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
      */
-    public readonly contentMd5!: pulumi.Output<string | undefined>;
+    declare public readonly contentMd5: pulumi.Output<string | undefined>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
     /**
      * The encryption scope to use for this blob.
      */
-    public readonly encryptionScope!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionScope: pulumi.Output<string | undefined>;
     /**
      * A map of custom blob metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      */
-    public readonly parallelism!: pulumi.Output<number | undefined>;
+    declare public readonly parallelism: pulumi.Output<number | undefined>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
      *
      * > **Note:** `size` is required if `sourceUri` is not set.
      */
-    public readonly size!: pulumi.Output<number | undefined>;
+    declare public readonly size: pulumi.Output<number | undefined>;
     /**
      * An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `sourceContent` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
-    public readonly source!: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
+    declare public readonly source: pulumi.Output<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
     /**
      * The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `sourceUri` is specified. Changing this forces a new resource to be created.
      */
-    public readonly sourceContent!: pulumi.Output<string | undefined>;
+    declare public readonly sourceContent: pulumi.Output<string | undefined>;
     /**
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
      */
-    public readonly sourceUri!: pulumi.Output<string | undefined>;
+    declare public readonly sourceUri: pulumi.Output<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
     /**
      * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      */
-    public readonly storageContainerName!: pulumi.Output<string>;
+    declare public readonly storageContainerName: pulumi.Output<string>;
     /**
      * The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The URL of the blob
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Blob resource with the given unique name, arguments, and options.
@@ -156,48 +156,48 @@ export class Blob extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BlobState | undefined;
-            resourceInputs["accessTier"] = state ? state.accessTier : undefined;
-            resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
-            resourceInputs["contentMd5"] = state ? state.contentMd5 : undefined;
-            resourceInputs["contentType"] = state ? state.contentType : undefined;
-            resourceInputs["encryptionScope"] = state ? state.encryptionScope : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parallelism"] = state ? state.parallelism : undefined;
-            resourceInputs["size"] = state ? state.size : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["sourceContent"] = state ? state.sourceContent : undefined;
-            resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            resourceInputs["storageContainerName"] = state ? state.storageContainerName : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["accessTier"] = state?.accessTier;
+            resourceInputs["cacheControl"] = state?.cacheControl;
+            resourceInputs["contentMd5"] = state?.contentMd5;
+            resourceInputs["contentType"] = state?.contentType;
+            resourceInputs["encryptionScope"] = state?.encryptionScope;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parallelism"] = state?.parallelism;
+            resourceInputs["size"] = state?.size;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["sourceContent"] = state?.sourceContent;
+            resourceInputs["sourceUri"] = state?.sourceUri;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["storageContainerName"] = state?.storageContainerName;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as BlobArgs | undefined;
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.storageContainerName === undefined) && !opts.urn) {
+            if (args?.storageContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
-            resourceInputs["cacheControl"] = args ? args.cacheControl : undefined;
-            resourceInputs["contentMd5"] = args ? args.contentMd5 : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["encryptionScope"] = args ? args.encryptionScope : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parallelism"] = args ? args.parallelism : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceContent"] = args ? args.sourceContent : undefined;
-            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["accessTier"] = args?.accessTier;
+            resourceInputs["cacheControl"] = args?.cacheControl;
+            resourceInputs["contentMd5"] = args?.contentMd5;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["encryptionScope"] = args?.encryptionScope;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parallelism"] = args?.parallelism;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceContent"] = args?.sourceContent;
+            resourceInputs["sourceUri"] = args?.sourceUri;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageContainerName"] = args?.storageContainerName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -82,45 +82,45 @@ export class User extends pulumi.CustomResource {
     /**
      * The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
      */
-    public readonly confirmation!: pulumi.Output<string | undefined>;
+    declare public readonly confirmation: pulumi.Output<string | undefined>;
     /**
      * The email address associated with this user.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * The first name for this user.
      */
-    public readonly firstName!: pulumi.Output<string>;
+    declare public readonly firstName: pulumi.Output<string>;
     /**
      * The last name for this user.
      */
-    public readonly lastName!: pulumi.Output<string>;
+    declare public readonly lastName: pulumi.Output<string>;
     /**
      * A note about this user.
      */
-    public readonly note!: pulumi.Output<string | undefined>;
+    declare public readonly note: pulumi.Output<string | undefined>;
     /**
      * The password associated with this user.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      *
      * > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -135,46 +135,46 @@ export class User extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["confirmation"] = state ? state.confirmation : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["firstName"] = state ? state.firstName : undefined;
-            resourceInputs["lastName"] = state ? state.lastName : undefined;
-            resourceInputs["note"] = state ? state.note : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["confirmation"] = state?.confirmation;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["firstName"] = state?.firstName;
+            resourceInputs["lastName"] = state?.lastName;
+            resourceInputs["note"] = state?.note;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.firstName === undefined) && !opts.urn) {
+            if (args?.firstName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if ((!args || args.lastName === undefined) && !opts.urn) {
+            if (args?.lastName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["confirmation"] = args ? args.confirmation : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
-            resourceInputs["note"] = args ? args.note : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["confirmation"] = args?.confirmation;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["firstName"] = args?.firstName;
+            resourceInputs["lastName"] = args?.lastName;
+            resourceInputs["note"] = args?.note;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

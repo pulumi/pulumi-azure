@@ -97,23 +97,23 @@ export class NetworkManagerManagementGroupConnection extends pulumi.CustomResour
     /**
      * The Connection state of the Network Manager Management Group Connection.
      */
-    public /*out*/ readonly connectionState!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionState: pulumi.Output<string>;
     /**
      * A description of the Network Manager Management Group Connection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the ID of the target Management Group. Changing this forces a new resource to be created.
      */
-    public readonly managementGroupId!: pulumi.Output<string>;
+    declare public readonly managementGroupId: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created.
      */
-    public readonly networkManagerId!: pulumi.Output<string>;
+    declare public readonly networkManagerId: pulumi.Output<string>;
 
     /**
      * Create a NetworkManagerManagementGroupConnection resource with the given unique name, arguments, and options.
@@ -128,23 +128,23 @@ export class NetworkManagerManagementGroupConnection extends pulumi.CustomResour
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerManagementGroupConnectionState | undefined;
-            resourceInputs["connectionState"] = state ? state.connectionState : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkManagerId"] = state ? state.networkManagerId : undefined;
+            resourceInputs["connectionState"] = state?.connectionState;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["managementGroupId"] = state?.managementGroupId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkManagerId"] = state?.networkManagerId;
         } else {
             const args = argsOrState as NetworkManagerManagementGroupConnectionArgs | undefined;
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.networkManagerId === undefined) && !opts.urn) {
+            if (args?.networkManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
             resourceInputs["connectionState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

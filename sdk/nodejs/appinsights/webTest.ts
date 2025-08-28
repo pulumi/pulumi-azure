@@ -91,58 +91,58 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
      */
-    public readonly applicationInsightsId!: pulumi.Output<string>;
+    declare public readonly applicationInsightsId: pulumi.Output<string>;
     /**
      * An XML configuration specification for a WebTest ([see here for more information](https://docs.microsoft.com/rest/api/application-insights/webtests/createorupdate/)).
      */
-    public readonly configuration!: pulumi.Output<string>;
+    declare public readonly configuration: pulumi.Output<string>;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Is the test actively being monitored.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
      */
-    public readonly frequency!: pulumi.Output<number | undefined>;
+    declare public readonly frequency: pulumi.Output<number | undefined>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      *
      * > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
      */
-    public readonly geoLocations!: pulumi.Output<string[]>;
+    declare public readonly geoLocations: pulumi.Output<string[]>;
     /**
      * The kind of web test that this web test watches. Choices are `ping` and `multistep`. Changing this forces a new resource to be created.
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. It needs to correlate with location of parent resource (azurerm_application_insights).
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Application Insights WebTest. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Application Insights WebTest. Changing this forces a new resource
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Allow for retries should this WebTest fail.
      */
-    public readonly retryEnabled!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly syntheticMonitorId!: pulumi.Output<string>;
+    declare public readonly retryEnabled: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly syntheticMonitorId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Seconds until this WebTest will timeout and fail. Default is `30`.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
 
     /**
      * Create a WebTest resource with the given unique name, arguments, and options.
@@ -157,50 +157,50 @@ export class WebTest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebTestState | undefined;
-            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["geoLocations"] = state ? state.geoLocations : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retryEnabled"] = state ? state.retryEnabled : undefined;
-            resourceInputs["syntheticMonitorId"] = state ? state.syntheticMonitorId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["applicationInsightsId"] = state?.applicationInsightsId;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["geoLocations"] = state?.geoLocations;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retryEnabled"] = state?.retryEnabled;
+            resourceInputs["syntheticMonitorId"] = state?.syntheticMonitorId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["timeout"] = state?.timeout;
         } else {
             const args = argsOrState as WebTestArgs | undefined;
-            if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
+            if (args?.applicationInsightsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.geoLocations === undefined) && !opts.urn) {
+            if (args?.geoLocations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'geoLocations'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["geoLocations"] = args ? args.geoLocations : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retryEnabled"] = args ? args.retryEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["applicationInsightsId"] = args?.applicationInsightsId;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["geoLocations"] = args?.geoLocations;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retryEnabled"] = args?.retryEnabled;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
             resourceInputs["syntheticMonitorId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

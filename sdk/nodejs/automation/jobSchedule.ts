@@ -75,37 +75,37 @@ export class JobSchedule extends pulumi.CustomResource {
     /**
      * The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
     /**
      * The UUID identifying the Automation Job Schedule.
      */
-    public readonly jobScheduleId!: pulumi.Output<string>;
+    declare public readonly jobScheduleId: pulumi.Output<string>;
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
      *
      * > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Resource Manager ID of the Automation Job Schedule.
      */
-    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceManagerId: pulumi.Output<string>;
     /**
      * Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
      */
-    public readonly runOn!: pulumi.Output<string | undefined>;
+    declare public readonly runOn: pulumi.Output<string | undefined>;
     /**
      * The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
      */
-    public readonly runbookName!: pulumi.Output<string>;
+    declare public readonly runbookName: pulumi.Output<string>;
     /**
      * The name of the Schedule. Changing this forces a new resource to be created.
      */
-    public readonly scheduleName!: pulumi.Output<string>;
+    declare public readonly scheduleName: pulumi.Output<string>;
 
     /**
      * Create a JobSchedule resource with the given unique name, arguments, and options.
@@ -120,35 +120,35 @@ export class JobSchedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobScheduleState | undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["jobScheduleId"] = state ? state.jobScheduleId : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
-            resourceInputs["runOn"] = state ? state.runOn : undefined;
-            resourceInputs["runbookName"] = state ? state.runbookName : undefined;
-            resourceInputs["scheduleName"] = state ? state.scheduleName : undefined;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["jobScheduleId"] = state?.jobScheduleId;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["resourceManagerId"] = state?.resourceManagerId;
+            resourceInputs["runOn"] = state?.runOn;
+            resourceInputs["runbookName"] = state?.runbookName;
+            resourceInputs["scheduleName"] = state?.scheduleName;
         } else {
             const args = argsOrState as JobScheduleArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runbookName === undefined) && !opts.urn) {
+            if (args?.runbookName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runbookName'");
             }
-            if ((!args || args.scheduleName === undefined) && !opts.urn) {
+            if (args?.scheduleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["jobScheduleId"] = args ? args.jobScheduleId : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runOn"] = args ? args.runOn : undefined;
-            resourceInputs["runbookName"] = args ? args.runbookName : undefined;
-            resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["jobScheduleId"] = args?.jobScheduleId;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runOn"] = args?.runOn;
+            resourceInputs["runbookName"] = args?.runbookName;
+            resourceInputs["scheduleName"] = args?.scheduleName;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

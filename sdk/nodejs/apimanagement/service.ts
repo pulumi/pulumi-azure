@@ -73,119 +73,119 @@ export class Service extends pulumi.CustomResource {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    public readonly additionalLocations!: pulumi.Output<outputs.apimanagement.ServiceAdditionalLocation[] | undefined>;
+    declare public readonly additionalLocations: pulumi.Output<outputs.apimanagement.ServiceAdditionalLocation[] | undefined>;
     /**
      * One or more `certificate` blocks (up to 10) as defined below.
      */
-    public readonly certificates!: pulumi.Output<outputs.apimanagement.ServiceCertificate[] | undefined>;
+    declare public readonly certificates: pulumi.Output<outputs.apimanagement.ServiceCertificate[] | undefined>;
     /**
      * Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
      */
-    public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientCertificateEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `delegation` block as defined below.
      */
-    public readonly delegation!: pulumi.Output<outputs.apimanagement.ServiceDelegation>;
+    declare public readonly delegation: pulumi.Output<outputs.apimanagement.ServiceDelegation>;
     /**
      * The URL for the Developer Portal associated with this API Management service.
      */
-    public /*out*/ readonly developerPortalUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly developerPortalUrl: pulumi.Output<string>;
     /**
      * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
      */
-    public readonly gatewayDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly gatewayDisabled: pulumi.Output<boolean | undefined>;
     /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */
-    public /*out*/ readonly gatewayRegionalUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayRegionalUrl: pulumi.Output<string>;
     /**
      * The URL of the Gateway for the API Management Service.
      */
-    public /*out*/ readonly gatewayUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayUrl: pulumi.Output<string>;
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    public readonly hostnameConfiguration!: pulumi.Output<outputs.apimanagement.ServiceHostnameConfiguration>;
+    declare public readonly hostnameConfiguration: pulumi.Output<outputs.apimanagement.ServiceHostnameConfiguration>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.apimanagement.ServiceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.apimanagement.ServiceIdentity | undefined>;
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The URL for the Management API associated with this API Management service.
      */
-    public /*out*/ readonly managementApiUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementApiUrl: pulumi.Output<string>;
     /**
      * The version which the control plane API calls to API Management service are limited with version equal to or newer than.
      */
-    public readonly minApiVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minApiVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Email address from which the notification will be sent.
      */
-    public readonly notificationSenderEmail!: pulumi.Output<string>;
+    declare public readonly notificationSenderEmail: pulumi.Output<string>;
     /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
-    public /*out*/ readonly portalUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalUrl: pulumi.Output<string>;
     /**
      * The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
      */
-    public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly privateIpAddresses: pulumi.Output<string[]>;
     /**
      * A `protocols` block as defined below.
      */
-    public readonly protocols!: pulumi.Output<outputs.apimanagement.ServiceProtocols>;
+    declare public readonly protocols: pulumi.Output<outputs.apimanagement.ServiceProtocols>;
     /**
      * ID of a standard SKU IPv4 Public IP.
      *
      * > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      */
-    public readonly publicIpAddressId!: pulumi.Output<string | undefined>;
+    declare public readonly publicIpAddressId: pulumi.Output<string | undefined>;
     /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
-    public /*out*/ readonly publicIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly publicIpAddresses: pulumi.Output<string[]>;
     /**
      * Is public access to the service allowed? Defaults to `true`.
      *
      * > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The email of publisher/company.
      */
-    public readonly publisherEmail!: pulumi.Output<string>;
+    declare public readonly publisherEmail: pulumi.Output<string>;
     /**
      * The name of publisher/company.
      */
-    public readonly publisherName!: pulumi.Output<string>;
+    declare public readonly publisherName: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
      */
-    public /*out*/ readonly scmUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly scmUrl: pulumi.Output<string>;
     /**
      * A `security` block as defined below.
      */
-    public readonly security!: pulumi.Output<outputs.apimanagement.ServiceSecurity>;
+    declare public readonly security: pulumi.Output<outputs.apimanagement.ServiceSecurity>;
     /**
      * A `signIn` block as defined below.
      */
-    public readonly signIn!: pulumi.Output<outputs.apimanagement.ServiceSignIn>;
+    declare public readonly signIn: pulumi.Output<outputs.apimanagement.ServiceSignIn>;
     /**
      * A `signUp` block as defined below.
      */
-    public readonly signUp!: pulumi.Output<outputs.apimanagement.ServiceSignUp>;
+    declare public readonly signUp: pulumi.Output<outputs.apimanagement.ServiceSignUp>;
     /**
      * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `BasicV2`, `Standard`, `StandardV2`, `Premium` and `PremiumV2`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      *
@@ -193,31 +193,31 @@ export class Service extends pulumi.CustomResource {
      *
      * > **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `tenantAccess` block as defined below.
      */
-    public readonly tenantAccess!: pulumi.Output<outputs.apimanagement.ServiceTenantAccess>;
+    declare public readonly tenantAccess: pulumi.Output<outputs.apimanagement.ServiceTenantAccess>;
     /**
      * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      */
-    public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.apimanagement.ServiceVirtualNetworkConfiguration | undefined>;
+    declare public readonly virtualNetworkConfiguration: pulumi.Output<outputs.apimanagement.ServiceVirtualNetworkConfiguration | undefined>;
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      *
      * > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      */
-    public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkType: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this API Management service should be located.
      *
      * > **Note:** Availability zones are only supported in the Premium tier.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -232,80 +232,80 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["additionalLocations"] = state ? state.additionalLocations : undefined;
-            resourceInputs["certificates"] = state ? state.certificates : undefined;
-            resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
-            resourceInputs["delegation"] = state ? state.delegation : undefined;
-            resourceInputs["developerPortalUrl"] = state ? state.developerPortalUrl : undefined;
-            resourceInputs["gatewayDisabled"] = state ? state.gatewayDisabled : undefined;
-            resourceInputs["gatewayRegionalUrl"] = state ? state.gatewayRegionalUrl : undefined;
-            resourceInputs["gatewayUrl"] = state ? state.gatewayUrl : undefined;
-            resourceInputs["hostnameConfiguration"] = state ? state.hostnameConfiguration : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managementApiUrl"] = state ? state.managementApiUrl : undefined;
-            resourceInputs["minApiVersion"] = state ? state.minApiVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
-            resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
-            resourceInputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
-            resourceInputs["protocols"] = state ? state.protocols : undefined;
-            resourceInputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
-            resourceInputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["publisherEmail"] = state ? state.publisherEmail : undefined;
-            resourceInputs["publisherName"] = state ? state.publisherName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scmUrl"] = state ? state.scmUrl : undefined;
-            resourceInputs["security"] = state ? state.security : undefined;
-            resourceInputs["signIn"] = state ? state.signIn : undefined;
-            resourceInputs["signUp"] = state ? state.signUp : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantAccess"] = state ? state.tenantAccess : undefined;
-            resourceInputs["virtualNetworkConfiguration"] = state ? state.virtualNetworkConfiguration : undefined;
-            resourceInputs["virtualNetworkType"] = state ? state.virtualNetworkType : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["additionalLocations"] = state?.additionalLocations;
+            resourceInputs["certificates"] = state?.certificates;
+            resourceInputs["clientCertificateEnabled"] = state?.clientCertificateEnabled;
+            resourceInputs["delegation"] = state?.delegation;
+            resourceInputs["developerPortalUrl"] = state?.developerPortalUrl;
+            resourceInputs["gatewayDisabled"] = state?.gatewayDisabled;
+            resourceInputs["gatewayRegionalUrl"] = state?.gatewayRegionalUrl;
+            resourceInputs["gatewayUrl"] = state?.gatewayUrl;
+            resourceInputs["hostnameConfiguration"] = state?.hostnameConfiguration;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managementApiUrl"] = state?.managementApiUrl;
+            resourceInputs["minApiVersion"] = state?.minApiVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationSenderEmail"] = state?.notificationSenderEmail;
+            resourceInputs["portalUrl"] = state?.portalUrl;
+            resourceInputs["privateIpAddresses"] = state?.privateIpAddresses;
+            resourceInputs["protocols"] = state?.protocols;
+            resourceInputs["publicIpAddressId"] = state?.publicIpAddressId;
+            resourceInputs["publicIpAddresses"] = state?.publicIpAddresses;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["publisherEmail"] = state?.publisherEmail;
+            resourceInputs["publisherName"] = state?.publisherName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scmUrl"] = state?.scmUrl;
+            resourceInputs["security"] = state?.security;
+            resourceInputs["signIn"] = state?.signIn;
+            resourceInputs["signUp"] = state?.signUp;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantAccess"] = state?.tenantAccess;
+            resourceInputs["virtualNetworkConfiguration"] = state?.virtualNetworkConfiguration;
+            resourceInputs["virtualNetworkType"] = state?.virtualNetworkType;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.publisherEmail === undefined) && !opts.urn) {
+            if (args?.publisherEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
-            if ((!args || args.publisherName === undefined) && !opts.urn) {
+            if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["additionalLocations"] = args ? args.additionalLocations : undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
-            resourceInputs["delegation"] = args ? args.delegation : undefined;
-            resourceInputs["gatewayDisabled"] = args ? args.gatewayDisabled : undefined;
-            resourceInputs["hostnameConfiguration"] = args ? args.hostnameConfiguration : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minApiVersion"] = args ? args.minApiVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["publisherEmail"] = args ? args.publisherEmail : undefined;
-            resourceInputs["publisherName"] = args ? args.publisherName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["security"] = args ? args.security : undefined;
-            resourceInputs["signIn"] = args ? args.signIn : undefined;
-            resourceInputs["signUp"] = args ? args.signUp : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantAccess"] = args ? args.tenantAccess : undefined;
-            resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            resourceInputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalLocations"] = args?.additionalLocations;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["clientCertificateEnabled"] = args?.clientCertificateEnabled;
+            resourceInputs["delegation"] = args?.delegation;
+            resourceInputs["gatewayDisabled"] = args?.gatewayDisabled;
+            resourceInputs["hostnameConfiguration"] = args?.hostnameConfiguration;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minApiVersion"] = args?.minApiVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationSenderEmail"] = args?.notificationSenderEmail;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["publicIpAddressId"] = args?.publicIpAddressId;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["publisherEmail"] = args?.publisherEmail;
+            resourceInputs["publisherName"] = args?.publisherName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["security"] = args?.security;
+            resourceInputs["signIn"] = args?.signIn;
+            resourceInputs["signUp"] = args?.signUp;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantAccess"] = args?.tenantAccess;
+            resourceInputs["virtualNetworkConfiguration"] = args?.virtualNetworkConfiguration;
+            resourceInputs["virtualNetworkType"] = args?.virtualNetworkType;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["developerPortalUrl"] = undefined /*out*/;
             resourceInputs["gatewayRegionalUrl"] = undefined /*out*/;
             resourceInputs["gatewayUrl"] = undefined /*out*/;

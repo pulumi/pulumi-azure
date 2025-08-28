@@ -103,25 +103,25 @@ export class CassandraTable extends pulumi.CustomResource {
      *
      * > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
      */
-    public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
-    public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.CassandraTableAutoscaleSettings | undefined>;
+    declare public readonly analyticalStorageTtl: pulumi.Output<number | undefined>;
+    declare public readonly autoscaleSettings: pulumi.Output<outputs.cosmosdb.CassandraTableAutoscaleSettings | undefined>;
     /**
      * The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
      */
-    public readonly cassandraKeyspaceId!: pulumi.Output<string>;
+    declare public readonly cassandraKeyspaceId: pulumi.Output<string>;
     /**
      * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
      */
-    public readonly defaultTtl!: pulumi.Output<number | undefined>;
+    declare public readonly defaultTtl: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `schema` block as defined below.
      */
-    public readonly schema!: pulumi.Output<outputs.cosmosdb.CassandraTableSchema>;
-    public readonly throughput!: pulumi.Output<number>;
+    declare public readonly schema: pulumi.Output<outputs.cosmosdb.CassandraTableSchema>;
+    declare public readonly throughput: pulumi.Output<number>;
 
     /**
      * Create a CassandraTable resource with the given unique name, arguments, and options.
@@ -136,28 +136,28 @@ export class CassandraTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CassandraTableState | undefined;
-            resourceInputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
-            resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            resourceInputs["cassandraKeyspaceId"] = state ? state.cassandraKeyspaceId : undefined;
-            resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["analyticalStorageTtl"] = state?.analyticalStorageTtl;
+            resourceInputs["autoscaleSettings"] = state?.autoscaleSettings;
+            resourceInputs["cassandraKeyspaceId"] = state?.cassandraKeyspaceId;
+            resourceInputs["defaultTtl"] = state?.defaultTtl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["throughput"] = state?.throughput;
         } else {
             const args = argsOrState as CassandraTableArgs | undefined;
-            if ((!args || args.cassandraKeyspaceId === undefined) && !opts.urn) {
+            if (args?.cassandraKeyspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cassandraKeyspaceId'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
-            resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            resourceInputs["cassandraKeyspaceId"] = args ? args.cassandraKeyspaceId : undefined;
-            resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["analyticalStorageTtl"] = args?.analyticalStorageTtl;
+            resourceInputs["autoscaleSettings"] = args?.autoscaleSettings;
+            resourceInputs["cassandraKeyspaceId"] = args?.cassandraKeyspaceId;
+            resourceInputs["defaultTtl"] = args?.defaultTtl;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["throughput"] = args?.throughput;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CassandraTable.__pulumiType, name, resourceInputs, opts);

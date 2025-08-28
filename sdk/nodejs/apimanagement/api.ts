@@ -88,111 +88,111 @@ export class Api extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
      */
-    public readonly apiType!: pulumi.Output<string>;
+    declare public readonly apiType: pulumi.Output<string>;
     /**
      * A `contact` block as documented below.
      */
-    public readonly contact!: pulumi.Output<outputs.apimanagement.ApiContact | undefined>;
+    declare public readonly contact: pulumi.Output<outputs.apimanagement.ApiContact | undefined>;
     /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the API.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * A `import` block as documented below.
      *
      * > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
-    public readonly import!: pulumi.Output<outputs.apimanagement.ApiImport | undefined>;
+    declare public readonly import: pulumi.Output<outputs.apimanagement.ApiImport | undefined>;
     /**
      * Is this the current API Revision?
      */
-    public /*out*/ readonly isCurrent!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isCurrent: pulumi.Output<boolean>;
     /**
      * Is this API Revision online/accessible via the Gateway?
      */
-    public /*out*/ readonly isOnline!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isOnline: pulumi.Output<boolean>;
     /**
      * A `license` block as documented below.
      */
-    public readonly license!: pulumi.Output<outputs.apimanagement.ApiLicense | undefined>;
+    declare public readonly license: pulumi.Output<outputs.apimanagement.ApiLicense | undefined>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An `oauth2Authorization` block as documented below.
      */
-    public readonly oauth2Authorization!: pulumi.Output<outputs.apimanagement.ApiOauth2Authorization | undefined>;
+    declare public readonly oauth2Authorization: pulumi.Output<outputs.apimanagement.ApiOauth2Authorization | undefined>;
     /**
      * An `openidAuthentication` block as documented below.
      */
-    public readonly openidAuthentication!: pulumi.Output<outputs.apimanagement.ApiOpenidAuthentication | undefined>;
+    declare public readonly openidAuthentication: pulumi.Output<outputs.apimanagement.ApiOpenidAuthentication | undefined>;
     /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
      */
-    public readonly path!: pulumi.Output<string>;
+    declare public readonly path: pulumi.Output<string>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      *
      * > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      */
-    public readonly protocols!: pulumi.Output<string[]>;
+    declare public readonly protocols: pulumi.Output<string[]>;
     /**
      * The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Revision which used for this API. Changing this forces a new resource to be created.
      */
-    public readonly revision!: pulumi.Output<string>;
+    declare public readonly revision: pulumi.Output<string>;
     /**
      * The description of the API Revision of the API Management API.
      */
-    public readonly revisionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly revisionDescription: pulumi.Output<string | undefined>;
     /**
      * Absolute URL of the backend service implementing this API.
      *
      * > **Note:** The `serviceUrl` is required when `apiType` is specified as `websocket`.
      */
-    public readonly serviceUrl!: pulumi.Output<string>;
+    declare public readonly serviceUrl: pulumi.Output<string>;
     /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      */
-    public readonly sourceApiId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceApiId: pulumi.Output<string | undefined>;
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    public readonly subscriptionKeyParameterNames!: pulumi.Output<outputs.apimanagement.ApiSubscriptionKeyParameterNames>;
+    declare public readonly subscriptionKeyParameterNames: pulumi.Output<outputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
      * Should this API require a subscription key? Defaults to `true`.
      */
-    public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly subscriptionRequired: pulumi.Output<boolean | undefined>;
     /**
      * Absolute URL of the Terms of Service for the API.
      */
-    public readonly termsOfServiceUrl!: pulumi.Output<string | undefined>;
+    declare public readonly termsOfServiceUrl: pulumi.Output<string | undefined>;
     /**
      * The Version number of this API, if this API is versioned.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
     /**
      * The description of the API Version of the API Management API.
      */
-    public readonly versionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly versionDescription: pulumi.Output<string | undefined>;
     /**
      * The ID of the Version Set which this API is associated with.
      *
      * > **Note:** When `version` is set, `versionSetId` must also be specified
      */
-    public readonly versionSetId!: pulumi.Output<string>;
+    declare public readonly versionSetId: pulumi.Output<string>;
 
     /**
      * Create a Api resource with the given unique name, arguments, and options.
@@ -207,65 +207,65 @@ export class Api extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["apiType"] = state ? state.apiType : undefined;
-            resourceInputs["contact"] = state ? state.contact : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["import"] = state ? state.import : undefined;
-            resourceInputs["isCurrent"] = state ? state.isCurrent : undefined;
-            resourceInputs["isOnline"] = state ? state.isOnline : undefined;
-            resourceInputs["license"] = state ? state.license : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["oauth2Authorization"] = state ? state.oauth2Authorization : undefined;
-            resourceInputs["openidAuthentication"] = state ? state.openidAuthentication : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["protocols"] = state ? state.protocols : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["revision"] = state ? state.revision : undefined;
-            resourceInputs["revisionDescription"] = state ? state.revisionDescription : undefined;
-            resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
-            resourceInputs["sourceApiId"] = state ? state.sourceApiId : undefined;
-            resourceInputs["subscriptionKeyParameterNames"] = state ? state.subscriptionKeyParameterNames : undefined;
-            resourceInputs["subscriptionRequired"] = state ? state.subscriptionRequired : undefined;
-            resourceInputs["termsOfServiceUrl"] = state ? state.termsOfServiceUrl : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["versionDescription"] = state ? state.versionDescription : undefined;
-            resourceInputs["versionSetId"] = state ? state.versionSetId : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["apiType"] = state?.apiType;
+            resourceInputs["contact"] = state?.contact;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["import"] = state?.import;
+            resourceInputs["isCurrent"] = state?.isCurrent;
+            resourceInputs["isOnline"] = state?.isOnline;
+            resourceInputs["license"] = state?.license;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["oauth2Authorization"] = state?.oauth2Authorization;
+            resourceInputs["openidAuthentication"] = state?.openidAuthentication;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["protocols"] = state?.protocols;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["revision"] = state?.revision;
+            resourceInputs["revisionDescription"] = state?.revisionDescription;
+            resourceInputs["serviceUrl"] = state?.serviceUrl;
+            resourceInputs["sourceApiId"] = state?.sourceApiId;
+            resourceInputs["subscriptionKeyParameterNames"] = state?.subscriptionKeyParameterNames;
+            resourceInputs["subscriptionRequired"] = state?.subscriptionRequired;
+            resourceInputs["termsOfServiceUrl"] = state?.termsOfServiceUrl;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["versionDescription"] = state?.versionDescription;
+            resourceInputs["versionSetId"] = state?.versionSetId;
         } else {
             const args = argsOrState as ApiArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.revision === undefined) && !opts.urn) {
+            if (args?.revision === undefined && !opts.urn) {
                 throw new Error("Missing required property 'revision'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["apiType"] = args ? args.apiType : undefined;
-            resourceInputs["contact"] = args ? args.contact : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["import"] = args ? args.import : undefined;
-            resourceInputs["license"] = args ? args.license : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["oauth2Authorization"] = args ? args.oauth2Authorization : undefined;
-            resourceInputs["openidAuthentication"] = args ? args.openidAuthentication : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revision"] = args ? args.revision : undefined;
-            resourceInputs["revisionDescription"] = args ? args.revisionDescription : undefined;
-            resourceInputs["serviceUrl"] = args ? args.serviceUrl : undefined;
-            resourceInputs["sourceApiId"] = args ? args.sourceApiId : undefined;
-            resourceInputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
-            resourceInputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
-            resourceInputs["termsOfServiceUrl"] = args ? args.termsOfServiceUrl : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
-            resourceInputs["versionSetId"] = args ? args.versionSetId : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["apiType"] = args?.apiType;
+            resourceInputs["contact"] = args?.contact;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["import"] = args?.import;
+            resourceInputs["license"] = args?.license;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["oauth2Authorization"] = args?.oauth2Authorization;
+            resourceInputs["openidAuthentication"] = args?.openidAuthentication;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["revision"] = args?.revision;
+            resourceInputs["revisionDescription"] = args?.revisionDescription;
+            resourceInputs["serviceUrl"] = args?.serviceUrl;
+            resourceInputs["sourceApiId"] = args?.sourceApiId;
+            resourceInputs["subscriptionKeyParameterNames"] = args?.subscriptionKeyParameterNames;
+            resourceInputs["subscriptionRequired"] = args?.subscriptionRequired;
+            resourceInputs["termsOfServiceUrl"] = args?.termsOfServiceUrl;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["versionDescription"] = args?.versionDescription;
+            resourceInputs["versionSetId"] = args?.versionSetId;
             resourceInputs["isCurrent"] = undefined /*out*/;
             resourceInputs["isOnline"] = undefined /*out*/;
         }

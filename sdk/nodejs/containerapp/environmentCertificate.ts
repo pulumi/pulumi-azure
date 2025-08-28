@@ -87,43 +87,43 @@ export class EnvironmentCertificate extends pulumi.CustomResource {
     /**
      * The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
      */
-    public readonly certificateBlobBase64!: pulumi.Output<string>;
+    declare public readonly certificateBlobBase64: pulumi.Output<string>;
     /**
      * The password for the Certificate. Changing this forces a new resource to be created.
      */
-    public readonly certificatePassword!: pulumi.Output<string>;
+    declare public readonly certificatePassword: pulumi.Output<string>;
     /**
      * The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
      */
-    public readonly containerAppEnvironmentId!: pulumi.Output<string>;
+    declare public readonly containerAppEnvironmentId: pulumi.Output<string>;
     /**
      * The expiration date for the Certificate.
      */
-    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
     /**
      * The date of issue for the Certificate.
      */
-    public /*out*/ readonly issueDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly issueDate: pulumi.Output<string>;
     /**
      * The Certificate Issuer.
      */
-    public /*out*/ readonly issuer!: pulumi.Output<string>;
+    declare public /*out*/ readonly issuer: pulumi.Output<string>;
     /**
      * The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Subject Name for the Certificate.
      */
-    public /*out*/ readonly subjectName!: pulumi.Output<string>;
+    declare public /*out*/ readonly subjectName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Thumbprint of the Certificate.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
 
     /**
      * Create a EnvironmentCertificate resource with the given unique name, arguments, and options.
@@ -138,32 +138,32 @@ export class EnvironmentCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentCertificateState | undefined;
-            resourceInputs["certificateBlobBase64"] = state ? state.certificateBlobBase64 : undefined;
-            resourceInputs["certificatePassword"] = state ? state.certificatePassword : undefined;
-            resourceInputs["containerAppEnvironmentId"] = state ? state.containerAppEnvironmentId : undefined;
-            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
-            resourceInputs["issueDate"] = state ? state.issueDate : undefined;
-            resourceInputs["issuer"] = state ? state.issuer : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["subjectName"] = state ? state.subjectName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["certificateBlobBase64"] = state?.certificateBlobBase64;
+            resourceInputs["certificatePassword"] = state?.certificatePassword;
+            resourceInputs["containerAppEnvironmentId"] = state?.containerAppEnvironmentId;
+            resourceInputs["expirationDate"] = state?.expirationDate;
+            resourceInputs["issueDate"] = state?.issueDate;
+            resourceInputs["issuer"] = state?.issuer;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["subjectName"] = state?.subjectName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as EnvironmentCertificateArgs | undefined;
-            if ((!args || args.certificateBlobBase64 === undefined) && !opts.urn) {
+            if (args?.certificateBlobBase64 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateBlobBase64'");
             }
-            if ((!args || args.certificatePassword === undefined) && !opts.urn) {
+            if (args?.certificatePassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificatePassword'");
             }
-            if ((!args || args.containerAppEnvironmentId === undefined) && !opts.urn) {
+            if (args?.containerAppEnvironmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppEnvironmentId'");
             }
-            resourceInputs["certificateBlobBase64"] = args ? args.certificateBlobBase64 : undefined;
+            resourceInputs["certificateBlobBase64"] = args?.certificateBlobBase64;
             resourceInputs["certificatePassword"] = args?.certificatePassword ? pulumi.secret(args.certificatePassword) : undefined;
-            resourceInputs["containerAppEnvironmentId"] = args ? args.containerAppEnvironmentId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerAppEnvironmentId"] = args?.containerAppEnvironmentId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["issueDate"] = undefined /*out*/;
             resourceInputs["issuer"] = undefined /*out*/;

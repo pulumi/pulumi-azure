@@ -117,27 +117,27 @@ export class FirewallNatRuleCollection extends pulumi.CustomResource {
     /**
      * Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * Specifies the name of the Firewall in which the NAT Rule Collection should be created. Changing this forces a new resource to be created.
      */
-    public readonly azureFirewallName!: pulumi.Output<string>;
+    declare public readonly azureFirewallName: pulumi.Output<string>;
     /**
      * Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * One or more `rule` blocks as defined below.
      */
-    public readonly rules!: pulumi.Output<outputs.network.FirewallNatRuleCollectionRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.network.FirewallNatRuleCollectionRule[]>;
 
     /**
      * Create a FirewallNatRuleCollection resource with the given unique name, arguments, and options.
@@ -152,35 +152,35 @@ export class FirewallNatRuleCollection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallNatRuleCollectionState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["azureFirewallName"] = state ? state.azureFirewallName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["azureFirewallName"] = state?.azureFirewallName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rules"] = state?.rules;
         } else {
             const args = argsOrState as FirewallNatRuleCollectionArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.azureFirewallName === undefined) && !opts.urn) {
+            if (args?.azureFirewallName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureFirewallName'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["azureFirewallName"] = args ? args.azureFirewallName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["azureFirewallName"] = args?.azureFirewallName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rules"] = args?.rules;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FirewallNatRuleCollection.__pulumiType, name, resourceInputs, opts);

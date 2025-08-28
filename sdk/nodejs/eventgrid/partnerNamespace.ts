@@ -77,43 +77,43 @@ export class PartnerNamespace extends pulumi.CustomResource {
     /**
      * The endpoint for the Event Grid Partner Namespace.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.PartnerNamespaceInboundIpRule[] | undefined>;
+    declare public readonly inboundIpRules: pulumi.Output<outputs.eventgrid.PartnerNamespaceInboundIpRule[] | undefined>;
     /**
      * Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
      */
-    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Azure Region where the Event Grid Partner Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Event Grid Partner Namespace. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource Id of the Event Grid Partner Registration that this namespace is associated with. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    public readonly partnerRegistrationId!: pulumi.Output<string>;
+    declare public readonly partnerRegistrationId: pulumi.Output<string>;
     /**
      * The partner topic routing mode. Possible values are `ChannelNameHeader` and `SourceEventAttribute`. Defaults to `ChannelNameHeader`. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    public readonly partnerTopicRoutingMode!: pulumi.Output<string | undefined>;
+    declare public readonly partnerTopicRoutingMode: pulumi.Output<string | undefined>;
     /**
      * Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Event Grid Partner Namespace should exist. Changing this forces a new Event Grid Partner Namespace to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Event Grid Partner Namespace.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PartnerNamespace resource with the given unique name, arguments, and options.
@@ -128,33 +128,33 @@ export class PartnerNamespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PartnerNamespaceState | undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["inboundIpRules"] = state ? state.inboundIpRules : undefined;
-            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partnerRegistrationId"] = state ? state.partnerRegistrationId : undefined;
-            resourceInputs["partnerTopicRoutingMode"] = state ? state.partnerTopicRoutingMode : undefined;
-            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["inboundIpRules"] = state?.inboundIpRules;
+            resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partnerRegistrationId"] = state?.partnerRegistrationId;
+            resourceInputs["partnerTopicRoutingMode"] = state?.partnerTopicRoutingMode;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as PartnerNamespaceArgs | undefined;
-            if ((!args || args.partnerRegistrationId === undefined) && !opts.urn) {
+            if (args?.partnerRegistrationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerRegistrationId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partnerRegistrationId"] = args ? args.partnerRegistrationId : undefined;
-            resourceInputs["partnerTopicRoutingMode"] = args ? args.partnerTopicRoutingMode : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["inboundIpRules"] = args?.inboundIpRules;
+            resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partnerRegistrationId"] = args?.partnerRegistrationId;
+            resourceInputs["partnerTopicRoutingMode"] = args?.partnerTopicRoutingMode;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["endpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

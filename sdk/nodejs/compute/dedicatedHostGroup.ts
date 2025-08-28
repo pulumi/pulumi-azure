@@ -71,31 +71,31 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
      * Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly automaticPlacementEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticPlacementEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created.
      */
-    public readonly platformFaultDomainCount!: pulumi.Output<number>;
+    declare public readonly platformFaultDomainCount: pulumi.Output<number>;
     /**
      * Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    declare public readonly zone: pulumi.Output<string | undefined>;
 
     /**
      * Create a DedicatedHostGroup resource with the given unique name, arguments, and options.
@@ -110,28 +110,28 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedHostGroupState | undefined;
-            resourceInputs["automaticPlacementEnabled"] = state ? state.automaticPlacementEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["automaticPlacementEnabled"] = state?.automaticPlacementEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["platformFaultDomainCount"] = state?.platformFaultDomainCount;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as DedicatedHostGroupArgs | undefined;
-            if ((!args || args.platformFaultDomainCount === undefined) && !opts.urn) {
+            if (args?.platformFaultDomainCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platformFaultDomainCount'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automaticPlacementEnabled"] = args ? args.automaticPlacementEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["automaticPlacementEnabled"] = args?.automaticPlacementEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platformFaultDomainCount"] = args?.platformFaultDomainCount;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zone"] = args?.zone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DedicatedHostGroup.__pulumiType, name, resourceInputs, opts);

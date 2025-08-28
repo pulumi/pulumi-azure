@@ -72,71 +72,71 @@ export class StaticWebApp extends pulumi.CustomResource {
     /**
      * The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
      */
-    public /*out*/ readonly apiKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiKey: pulumi.Output<string>;
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly appSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `basicAuth` block as defined below.
      */
-    public readonly basicAuth!: pulumi.Output<outputs.appservice.StaticWebAppBasicAuth | undefined>;
+    declare public readonly basicAuth: pulumi.Output<outputs.appservice.StaticWebAppBasicAuth | undefined>;
     /**
      * Should changes to the configuration file be permitted. Defaults to `true`.
      */
-    public readonly configurationFileChangesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly configurationFileChangesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The default host name of the Static Web App.
      */
-    public /*out*/ readonly defaultHostName!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultHostName: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.StaticWebAppIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appservice.StaticWebAppIdentity | undefined>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Are Preview (Staging) environments enabled. Defaults to `true`.
      */
-    public readonly previewEnvironmentsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly previewEnvironmentsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should public network access be enabled for the Static Web App. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Repository branch to use for the Static Web App. `repositoryUrl` and `repositoryToken` must also be set.
      */
-    public readonly repositoryBranch!: pulumi.Output<string | undefined>;
+    declare public readonly repositoryBranch: pulumi.Output<string | undefined>;
     /**
      * Repository Token with `admin` privileges to use for the Static Web App. `repositoryBranch` and `repositoryUrl` must also be set.
      */
-    public readonly repositoryToken!: pulumi.Output<string | undefined>;
+    declare public readonly repositoryToken: pulumi.Output<string | undefined>;
     /**
      * Repository URL to use for the Static Web App. `repositoryBranch` and `repositoryToken` must also be set.
      */
-    public readonly repositoryUrl!: pulumi.Output<string | undefined>;
+    declare public readonly repositoryUrl: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      */
-    public readonly skuSize!: pulumi.Output<string | undefined>;
+    declare public readonly skuSize: pulumi.Output<string | undefined>;
     /**
      * Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
      */
-    public readonly skuTier!: pulumi.Output<string | undefined>;
+    declare public readonly skuTier: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a StaticWebApp resource with the given unique name, arguments, and options.
@@ -151,43 +151,43 @@ export class StaticWebApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticWebAppState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
-            resourceInputs["basicAuth"] = state ? state.basicAuth : undefined;
-            resourceInputs["configurationFileChangesEnabled"] = state ? state.configurationFileChangesEnabled : undefined;
-            resourceInputs["defaultHostName"] = state ? state.defaultHostName : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["previewEnvironmentsEnabled"] = state ? state.previewEnvironmentsEnabled : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["repositoryBranch"] = state ? state.repositoryBranch : undefined;
-            resourceInputs["repositoryToken"] = state ? state.repositoryToken : undefined;
-            resourceInputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuSize"] = state ? state.skuSize : undefined;
-            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["appSettings"] = state?.appSettings;
+            resourceInputs["basicAuth"] = state?.basicAuth;
+            resourceInputs["configurationFileChangesEnabled"] = state?.configurationFileChangesEnabled;
+            resourceInputs["defaultHostName"] = state?.defaultHostName;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["previewEnvironmentsEnabled"] = state?.previewEnvironmentsEnabled;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["repositoryBranch"] = state?.repositoryBranch;
+            resourceInputs["repositoryToken"] = state?.repositoryToken;
+            resourceInputs["repositoryUrl"] = state?.repositoryUrl;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuSize"] = state?.skuSize;
+            resourceInputs["skuTier"] = state?.skuTier;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as StaticWebAppArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
+            resourceInputs["appSettings"] = args?.appSettings;
             resourceInputs["basicAuth"] = args?.basicAuth ? pulumi.secret(args.basicAuth) : undefined;
-            resourceInputs["configurationFileChangesEnabled"] = args ? args.configurationFileChangesEnabled : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["previewEnvironmentsEnabled"] = args ? args.previewEnvironmentsEnabled : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["repositoryBranch"] = args ? args.repositoryBranch : undefined;
+            resourceInputs["configurationFileChangesEnabled"] = args?.configurationFileChangesEnabled;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["previewEnvironmentsEnabled"] = args?.previewEnvironmentsEnabled;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["repositoryBranch"] = args?.repositoryBranch;
             resourceInputs["repositoryToken"] = args?.repositoryToken ? pulumi.secret(args.repositoryToken) : undefined;
-            resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuSize"] = args ? args.skuSize : undefined;
-            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["repositoryUrl"] = args?.repositoryUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuSize"] = args?.skuSize;
+            resourceInputs["skuTier"] = args?.skuTier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["apiKey"] = undefined /*out*/;
             resourceInputs["defaultHostName"] = undefined /*out*/;
         }

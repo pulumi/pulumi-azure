@@ -99,27 +99,27 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
      *
      * > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
      */
-    public readonly backendAddressIpConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly backendAddressIpConfigurationId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      */
-    public readonly backendAddressPoolId!: pulumi.Output<string>;
+    declare public readonly backendAddressPoolId: pulumi.Output<string>;
     /**
      * A list of `inboundNatRulePortMapping` block as defined below.
      */
-    public /*out*/ readonly inboundNatRulePortMappings!: pulumi.Output<outputs.lb.BackendAddressPoolAddressInboundNatRulePortMapping[]>;
+    declare public /*out*/ readonly inboundNatRulePortMappings: pulumi.Output<outputs.lb.BackendAddressPoolAddressInboundNatRulePortMapping[]>;
     /**
      * The Static IP Address which should be allocated to this Backend Address Pool.
      */
-    public readonly ipAddress!: pulumi.Output<string | undefined>;
+    declare public readonly ipAddress: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkId: pulumi.Output<string | undefined>;
 
     /**
      * Create a BackendAddressPoolAddress resource with the given unique name, arguments, and options.
@@ -134,22 +134,22 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendAddressPoolAddressState | undefined;
-            resourceInputs["backendAddressIpConfigurationId"] = state ? state.backendAddressIpConfigurationId : undefined;
-            resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
-            resourceInputs["inboundNatRulePortMappings"] = state ? state.inboundNatRulePortMappings : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["backendAddressIpConfigurationId"] = state?.backendAddressIpConfigurationId;
+            resourceInputs["backendAddressPoolId"] = state?.backendAddressPoolId;
+            resourceInputs["inboundNatRulePortMappings"] = state?.inboundNatRulePortMappings;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["virtualNetworkId"] = state?.virtualNetworkId;
         } else {
             const args = argsOrState as BackendAddressPoolAddressArgs | undefined;
-            if ((!args || args.backendAddressPoolId === undefined) && !opts.urn) {
+            if (args?.backendAddressPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backendAddressPoolId'");
             }
-            resourceInputs["backendAddressIpConfigurationId"] = args ? args.backendAddressIpConfigurationId : undefined;
-            resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["backendAddressIpConfigurationId"] = args?.backendAddressIpConfigurationId;
+            resourceInputs["backendAddressPoolId"] = args?.backendAddressPoolId;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
             resourceInputs["inboundNatRulePortMappings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

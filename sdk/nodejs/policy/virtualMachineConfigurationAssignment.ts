@@ -152,19 +152,19 @@ export class VirtualMachineConfigurationAssignment extends pulumi.CustomResource
     /**
      * A `configuration` block as defined below.
      */
-    public readonly configuration!: pulumi.Output<outputs.policy.VirtualMachineConfigurationAssignmentConfiguration>;
+    declare public readonly configuration: pulumi.Output<outputs.policy.VirtualMachineConfigurationAssignmentConfiguration>;
     /**
      * The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineId!: pulumi.Output<string>;
+    declare public readonly virtualMachineId: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineConfigurationAssignment resource with the given unique name, arguments, and options.
@@ -179,22 +179,22 @@ export class VirtualMachineConfigurationAssignment extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineConfigurationAssignmentState | undefined;
-            resourceInputs["configuration"] = state ? state.configuration : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["configuration"] = state?.configuration;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
         } else {
             const args = argsOrState as VirtualMachineConfigurationAssignmentArgs | undefined;
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
+            if (args?.virtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["virtualMachineId"] = args?.virtualMachineId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualMachineConfigurationAssignment.__pulumiType, name, resourceInputs, opts);

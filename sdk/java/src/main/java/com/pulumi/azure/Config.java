@@ -32,16 +32,14 @@ public final class Config {
         return Codegen.stringProp("clientCertificate").config(config).get();
     }
 /**
- * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
- * Certificate
+ * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
  * 
  */
     public Optional<String> clientCertificatePassword() {
         return Codegen.stringProp("clientCertificatePassword").config(config).get();
     }
 /**
- * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
- * Principal using a Client Certificate.
+ * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
  * 
  */
     public Optional<String> clientCertificatePath() {
@@ -69,8 +67,7 @@ public final class Config {
         return Codegen.stringProp("clientSecret").config(config).get();
     }
 /**
- * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
- * using a Client Secret.
+ * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
  * 
  */
     public Optional<String> clientSecretFilePath() {
@@ -87,8 +84,7 @@ public final class Config {
         return Codegen.booleanProp("disableTerraformPartnerId").config(config).get();
     }
 /**
- * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
- * used and should not be specified when `metadata_host` is specified.
+ * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
  * 
  */
     public Optional<String> environment() {
@@ -108,32 +104,28 @@ public final class Config {
         return Codegen.stringProp("metadataHost").config(config).env("ARM_METADATA_HOSTNAME").get();
     }
 /**
- * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
- * the endpoint. e.g. for Azure Container Apps.
+ * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
  * 
  */
     public Optional<String> msiApiVersion() {
         return Codegen.stringProp("msiApiVersion").config(config).get();
     }
 /**
- * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
- * automatically.
+ * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
  * 
  */
     public Optional<String> msiEndpoint() {
         return Codegen.stringProp("msiEndpoint").config(config).get();
     }
 /**
- * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
- * Connect.
+ * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
  * 
  */
     public Optional<String> oidcRequestToken() {
         return Codegen.stringProp("oidcRequestToken").config(config).get();
     }
 /**
- * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
- * using OpenID Connect.
+ * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
  * 
  */
     public Optional<String> oidcRequestUrl() {
@@ -168,16 +160,14 @@ public final class Config {
         return Codegen.stringProp("resourceProviderRegistrations").config(config).get();
     }
 /**
- * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
- * `resource_provider_registrations` property.
+ * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
  * 
  */
     public Optional<List<String>> resourceProvidersToRegisters() {
         return Codegen.objectProp("resourceProvidersToRegisters", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
- * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already
- * registered?
+ * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
  * 
  */
     public Optional<Boolean> skipProviderRegistration() {

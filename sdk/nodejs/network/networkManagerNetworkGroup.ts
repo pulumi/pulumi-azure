@@ -83,15 +83,15 @@ export class NetworkManagerNetworkGroup extends pulumi.CustomResource {
     /**
      * A description of the Network Manager Network Group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created.
      */
-    public readonly networkManagerId!: pulumi.Output<string>;
+    declare public readonly networkManagerId: pulumi.Output<string>;
 
     /**
      * Create a NetworkManagerNetworkGroup resource with the given unique name, arguments, and options.
@@ -106,17 +106,17 @@ export class NetworkManagerNetworkGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerNetworkGroupState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkManagerId"] = state ? state.networkManagerId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkManagerId"] = state?.networkManagerId;
         } else {
             const args = argsOrState as NetworkManagerNetworkGroupArgs | undefined;
-            if ((!args || args.networkManagerId === undefined) && !opts.urn) {
+            if (args?.networkManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerNetworkGroup.__pulumiType, name, resourceInputs, opts);

@@ -107,20 +107,20 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
-    public /*out*/ readonly configurationName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationName: pulumi.Output<string>;
     /**
      * The PowerShell DSC Node Configuration (mof content).
      */
-    public readonly contentEmbedded!: pulumi.Output<string>;
+    declare public readonly contentEmbedded: pulumi.Output<string>;
     /**
      * Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a DscNodeConfiguration resource with the given unique name, arguments, and options.
@@ -135,26 +135,26 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DscNodeConfigurationState | undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["configurationName"] = state ? state.configurationName : undefined;
-            resourceInputs["contentEmbedded"] = state ? state.contentEmbedded : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["configurationName"] = state?.configurationName;
+            resourceInputs["contentEmbedded"] = state?.contentEmbedded;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as DscNodeConfigurationArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentEmbedded === undefined) && !opts.urn) {
+            if (args?.contentEmbedded === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentEmbedded'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["contentEmbedded"] = args ? args.contentEmbedded : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["contentEmbedded"] = args?.contentEmbedded;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["configurationName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

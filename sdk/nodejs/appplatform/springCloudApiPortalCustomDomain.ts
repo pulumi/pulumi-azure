@@ -81,15 +81,15 @@ export class SpringCloudApiPortalCustomDomain extends pulumi.CustomResource {
     /**
      * The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal Domain to be created.
      */
-    public readonly springCloudApiPortalId!: pulumi.Output<string>;
+    declare public readonly springCloudApiPortalId: pulumi.Output<string>;
     /**
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud API Portal Domain.
      */
-    public readonly thumbprint!: pulumi.Output<string | undefined>;
+    declare public readonly thumbprint: pulumi.Output<string | undefined>;
 
     /**
      * Create a SpringCloudApiPortalCustomDomain resource with the given unique name, arguments, and options.
@@ -104,17 +104,17 @@ export class SpringCloudApiPortalCustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudApiPortalCustomDomainState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudApiPortalId"] = state ? state.springCloudApiPortalId : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudApiPortalId"] = state?.springCloudApiPortalId;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as SpringCloudApiPortalCustomDomainArgs | undefined;
-            if ((!args || args.springCloudApiPortalId === undefined) && !opts.urn) {
+            if (args?.springCloudApiPortalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudApiPortalId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudApiPortalId"] = args ? args.springCloudApiPortalId : undefined;
-            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudApiPortalId"] = args?.springCloudApiPortalId;
+            resourceInputs["thumbprint"] = args?.thumbprint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudApiPortalCustomDomain.__pulumiType, name, resourceInputs, opts);

@@ -75,47 +75,47 @@ export class DatasetAzureSqlTable extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Dataset Azure SQL Table.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset Azure SQL Table.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Dataset Azure SQL Table.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<string | undefined>;
+    declare public readonly folder: pulumi.Output<string | undefined>;
     /**
      * The Data Factory Linked Service ID in which to associate the Dataset with.
      */
-    public readonly linkedServiceId!: pulumi.Output<string>;
+    declare public readonly linkedServiceId: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory Dataset Azure SQL Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Dataset Azure SQL Table.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The schema name of the table in the Azure SQL Database.
      */
-    public readonly schema!: pulumi.Output<string | undefined>;
+    declare public readonly schema: pulumi.Output<string | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    public readonly schemaColumns!: pulumi.Output<outputs.datafactory.DatasetAzureSqlTableSchemaColumn[] | undefined>;
+    declare public readonly schemaColumns: pulumi.Output<outputs.datafactory.DatasetAzureSqlTableSchemaColumn[] | undefined>;
     /**
      * The table name of the table in the Azure SQL Database.
      */
-    public readonly table!: pulumi.Output<string | undefined>;
+    declare public readonly table: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatasetAzureSqlTable resource with the given unique name, arguments, and options.
@@ -130,36 +130,36 @@ export class DatasetAzureSqlTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetAzureSqlTableState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["folder"] = state ? state.folder : undefined;
-            resourceInputs["linkedServiceId"] = state ? state.linkedServiceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
-            resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["folder"] = state?.folder;
+            resourceInputs["linkedServiceId"] = state?.linkedServiceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["schema"] = state?.schema;
+            resourceInputs["schemaColumns"] = state?.schemaColumns;
+            resourceInputs["table"] = state?.table;
         } else {
             const args = argsOrState as DatasetAzureSqlTableArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.linkedServiceId === undefined) && !opts.urn) {
+            if (args?.linkedServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceId'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["linkedServiceId"] = args ? args.linkedServiceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["linkedServiceId"] = args?.linkedServiceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["schemaColumns"] = args?.schemaColumns;
+            resourceInputs["table"] = args?.table;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DatasetAzureSqlTable.__pulumiType, name, resourceInputs, opts);

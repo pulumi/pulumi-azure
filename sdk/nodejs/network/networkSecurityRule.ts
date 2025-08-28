@@ -87,79 +87,79 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
     /**
      * Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
      */
-    public readonly access!: pulumi.Output<string>;
+    declare public readonly access: pulumi.Output<string>;
     /**
      * A description for this rule. Restricted to 140 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags).
      */
-    public readonly destinationAddressPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly destinationAddressPrefix: pulumi.Output<string | undefined>;
     /**
      * List of destination address prefixes. Tags may not be used.
      */
-    public readonly destinationAddressPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly destinationAddressPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * A List of destination Application Security Group IDs
      *
      * > **Note:** One of `destinationAddressPrefix`, `destinationAddressPrefixes` or `destinationApplicationSecurityGroupIds` must be specified.
      */
-    public readonly destinationApplicationSecurityGroupIds!: pulumi.Output<string | undefined>;
+    declare public readonly destinationApplicationSecurityGroupIds: pulumi.Output<string | undefined>;
     /**
      * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      */
-    public readonly destinationPortRange!: pulumi.Output<string | undefined>;
+    declare public readonly destinationPortRange: pulumi.Output<string | undefined>;
     /**
      * List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      */
-    public readonly destinationPortRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly destinationPortRanges: pulumi.Output<string[] | undefined>;
     /**
      * The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
      */
-    public readonly direction!: pulumi.Output<string>;
+    declare public readonly direction: pulumi.Output<string>;
     /**
      * The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
      */
-    public readonly networkSecurityGroupName!: pulumi.Output<string>;
+    declare public readonly networkSecurityGroupName: pulumi.Output<string>;
     /**
      * Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used.
      */
-    public readonly sourceAddressPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly sourceAddressPrefix: pulumi.Output<string | undefined>;
     /**
      * List of source address prefixes. Tags may not be used.
      */
-    public readonly sourceAddressPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly sourceAddressPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * A List of source Application Security Group IDs
      *
      * > **Note:** One of `sourceAddressPrefix`, `sourceAddressPrefixes` or `sourceApplicationSecurityGroupIds` must be specified.
      */
-    public readonly sourceApplicationSecurityGroupIds!: pulumi.Output<string | undefined>;
+    declare public readonly sourceApplicationSecurityGroupIds: pulumi.Output<string | undefined>;
     /**
      * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      */
-    public readonly sourcePortRange!: pulumi.Output<string | undefined>;
+    declare public readonly sourcePortRange: pulumi.Output<string | undefined>;
     /**
      * List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      */
-    public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly sourcePortRanges: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a NetworkSecurityRule resource with the given unique name, arguments, and options.
@@ -174,62 +174,62 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkSecurityRuleState | undefined;
-            resourceInputs["access"] = state ? state.access : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destinationAddressPrefix"] = state ? state.destinationAddressPrefix : undefined;
-            resourceInputs["destinationAddressPrefixes"] = state ? state.destinationAddressPrefixes : undefined;
-            resourceInputs["destinationApplicationSecurityGroupIds"] = state ? state.destinationApplicationSecurityGroupIds : undefined;
-            resourceInputs["destinationPortRange"] = state ? state.destinationPortRange : undefined;
-            resourceInputs["destinationPortRanges"] = state ? state.destinationPortRanges : undefined;
-            resourceInputs["direction"] = state ? state.direction : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkSecurityGroupName"] = state ? state.networkSecurityGroupName : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceAddressPrefix"] = state ? state.sourceAddressPrefix : undefined;
-            resourceInputs["sourceAddressPrefixes"] = state ? state.sourceAddressPrefixes : undefined;
-            resourceInputs["sourceApplicationSecurityGroupIds"] = state ? state.sourceApplicationSecurityGroupIds : undefined;
-            resourceInputs["sourcePortRange"] = state ? state.sourcePortRange : undefined;
-            resourceInputs["sourcePortRanges"] = state ? state.sourcePortRanges : undefined;
+            resourceInputs["access"] = state?.access;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destinationAddressPrefix"] = state?.destinationAddressPrefix;
+            resourceInputs["destinationAddressPrefixes"] = state?.destinationAddressPrefixes;
+            resourceInputs["destinationApplicationSecurityGroupIds"] = state?.destinationApplicationSecurityGroupIds;
+            resourceInputs["destinationPortRange"] = state?.destinationPortRange;
+            resourceInputs["destinationPortRanges"] = state?.destinationPortRanges;
+            resourceInputs["direction"] = state?.direction;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkSecurityGroupName"] = state?.networkSecurityGroupName;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceAddressPrefix"] = state?.sourceAddressPrefix;
+            resourceInputs["sourceAddressPrefixes"] = state?.sourceAddressPrefixes;
+            resourceInputs["sourceApplicationSecurityGroupIds"] = state?.sourceApplicationSecurityGroupIds;
+            resourceInputs["sourcePortRange"] = state?.sourcePortRange;
+            resourceInputs["sourcePortRanges"] = state?.sourcePortRanges;
         } else {
             const args = argsOrState as NetworkSecurityRuleArgs | undefined;
-            if ((!args || args.access === undefined) && !opts.urn) {
+            if (args?.access === undefined && !opts.urn) {
                 throw new Error("Missing required property 'access'");
             }
-            if ((!args || args.direction === undefined) && !opts.urn) {
+            if (args?.direction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'direction'");
             }
-            if ((!args || args.networkSecurityGroupName === undefined) && !opts.urn) {
+            if (args?.networkSecurityGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["access"] = args ? args.access : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationAddressPrefix"] = args ? args.destinationAddressPrefix : undefined;
-            resourceInputs["destinationAddressPrefixes"] = args ? args.destinationAddressPrefixes : undefined;
-            resourceInputs["destinationApplicationSecurityGroupIds"] = args ? args.destinationApplicationSecurityGroupIds : undefined;
-            resourceInputs["destinationPortRange"] = args ? args.destinationPortRange : undefined;
-            resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
-            resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceAddressPrefix"] = args ? args.sourceAddressPrefix : undefined;
-            resourceInputs["sourceAddressPrefixes"] = args ? args.sourceAddressPrefixes : undefined;
-            resourceInputs["sourceApplicationSecurityGroupIds"] = args ? args.sourceApplicationSecurityGroupIds : undefined;
-            resourceInputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
-            resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+            resourceInputs["access"] = args?.access;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationAddressPrefix"] = args?.destinationAddressPrefix;
+            resourceInputs["destinationAddressPrefixes"] = args?.destinationAddressPrefixes;
+            resourceInputs["destinationApplicationSecurityGroupIds"] = args?.destinationApplicationSecurityGroupIds;
+            resourceInputs["destinationPortRange"] = args?.destinationPortRange;
+            resourceInputs["destinationPortRanges"] = args?.destinationPortRanges;
+            resourceInputs["direction"] = args?.direction;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkSecurityGroupName"] = args?.networkSecurityGroupName;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceAddressPrefix"] = args?.sourceAddressPrefix;
+            resourceInputs["sourceAddressPrefixes"] = args?.sourceAddressPrefixes;
+            resourceInputs["sourceApplicationSecurityGroupIds"] = args?.sourceApplicationSecurityGroupIds;
+            resourceInputs["sourcePortRange"] = args?.sourcePortRange;
+            resourceInputs["sourcePortRanges"] = args?.sourcePortRanges;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkSecurityRule.__pulumiType, name, resourceInputs, opts);

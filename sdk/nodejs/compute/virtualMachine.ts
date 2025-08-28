@@ -133,101 +133,101 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * An `additionalCapabilities` block as defined below.
      */
-    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.VirtualMachineAdditionalCapabilities | undefined>;
+    declare public readonly additionalCapabilities: pulumi.Output<outputs.compute.VirtualMachineAdditionalCapabilities | undefined>;
     /**
      * The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    public readonly availabilitySetId!: pulumi.Output<string>;
+    declare public readonly availabilitySetId: pulumi.Output<string>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    public readonly bootDiagnostics!: pulumi.Output<outputs.compute.VirtualMachineBootDiagnostics | undefined>;
+    declare public readonly bootDiagnostics: pulumi.Output<outputs.compute.VirtualMachineBootDiagnostics | undefined>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      *
      * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
-    public readonly deleteDataDisksOnTermination!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteDataDisksOnTermination: pulumi.Output<boolean | undefined>;
     /**
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      *
      * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
      */
-    public readonly deleteOsDiskOnTermination!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteOsDiskOnTermination: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.VirtualMachineIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.compute.VirtualMachineIdentity | undefined>;
     /**
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
      */
-    public readonly licenseType!: pulumi.Output<string>;
+    declare public readonly licenseType: pulumi.Output<string>;
     /**
      * Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of Network Interface IDs which should be associated with the Virtual Machine.
      */
-    public readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    declare public readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
      * An `osProfile` block as defined below. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
-    public readonly osProfile!: pulumi.Output<outputs.compute.VirtualMachineOsProfile | undefined>;
+    declare public readonly osProfile: pulumi.Output<outputs.compute.VirtualMachineOsProfile | undefined>;
     /**
      * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
      */
-    public readonly osProfileLinuxConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileLinuxConfig | undefined>;
+    declare public readonly osProfileLinuxConfig: pulumi.Output<outputs.compute.VirtualMachineOsProfileLinuxConfig | undefined>;
     /**
      * One or more `osProfileSecrets` blocks as defined below.
      */
-    public readonly osProfileSecrets!: pulumi.Output<outputs.compute.VirtualMachineOsProfileSecret[] | undefined>;
+    declare public readonly osProfileSecrets: pulumi.Output<outputs.compute.VirtualMachineOsProfileSecret[] | undefined>;
     /**
      * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
      */
-    public readonly osProfileWindowsConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileWindowsConfig | undefined>;
+    declare public readonly osProfileWindowsConfig: pulumi.Output<outputs.compute.VirtualMachineOsProfileWindowsConfig | undefined>;
     /**
      * A `plan` block as defined below.
      */
-    public readonly plan!: pulumi.Output<outputs.compute.VirtualMachinePlan | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.compute.VirtualMachinePlan | undefined>;
     /**
      * The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
      */
-    public readonly primaryNetworkInterfaceId!: pulumi.Output<string | undefined>;
+    declare public readonly primaryNetworkInterfaceId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
      */
-    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly proximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * One or more `storageDataDisk` blocks as defined below.
      *
      * > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      */
-    public readonly storageDataDisks!: pulumi.Output<outputs.compute.VirtualMachineStorageDataDisk[]>;
+    declare public readonly storageDataDisks: pulumi.Output<outputs.compute.VirtualMachineStorageDataDisk[]>;
     /**
      * A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly storageImageReference!: pulumi.Output<outputs.compute.VirtualMachineStorageImageReference>;
+    declare public readonly storageImageReference: pulumi.Output<outputs.compute.VirtualMachineStorageImageReference>;
     /**
      * A `storageOsDisk` block as defined below.
      */
-    public readonly storageOsDisk!: pulumi.Output<outputs.compute.VirtualMachineStorageOsDisk>;
+    declare public readonly storageOsDisk: pulumi.Output<outputs.compute.VirtualMachineStorageOsDisk>;
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
      */
-    public readonly vmSize!: pulumi.Output<string>;
+    declare public readonly vmSize: pulumi.Output<string>;
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      *
@@ -235,7 +235,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      *
      * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      */
-    public readonly zones!: pulumi.Output<string | undefined>;
+    declare public readonly zones: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -250,68 +250,68 @@ export class VirtualMachine extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineState | undefined;
-            resourceInputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
-            resourceInputs["availabilitySetId"] = state ? state.availabilitySetId : undefined;
-            resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
-            resourceInputs["deleteDataDisksOnTermination"] = state ? state.deleteDataDisksOnTermination : undefined;
-            resourceInputs["deleteOsDiskOnTermination"] = state ? state.deleteOsDiskOnTermination : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            resourceInputs["osProfile"] = state ? state.osProfile : undefined;
-            resourceInputs["osProfileLinuxConfig"] = state ? state.osProfileLinuxConfig : undefined;
-            resourceInputs["osProfileSecrets"] = state ? state.osProfileSecrets : undefined;
-            resourceInputs["osProfileWindowsConfig"] = state ? state.osProfileWindowsConfig : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
-            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storageDataDisks"] = state ? state.storageDataDisks : undefined;
-            resourceInputs["storageImageReference"] = state ? state.storageImageReference : undefined;
-            resourceInputs["storageOsDisk"] = state ? state.storageOsDisk : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["vmSize"] = state ? state.vmSize : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["additionalCapabilities"] = state?.additionalCapabilities;
+            resourceInputs["availabilitySetId"] = state?.availabilitySetId;
+            resourceInputs["bootDiagnostics"] = state?.bootDiagnostics;
+            resourceInputs["deleteDataDisksOnTermination"] = state?.deleteDataDisksOnTermination;
+            resourceInputs["deleteOsDiskOnTermination"] = state?.deleteOsDiskOnTermination;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
+            resourceInputs["osProfile"] = state?.osProfile;
+            resourceInputs["osProfileLinuxConfig"] = state?.osProfileLinuxConfig;
+            resourceInputs["osProfileSecrets"] = state?.osProfileSecrets;
+            resourceInputs["osProfileWindowsConfig"] = state?.osProfileWindowsConfig;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["primaryNetworkInterfaceId"] = state?.primaryNetworkInterfaceId;
+            resourceInputs["proximityPlacementGroupId"] = state?.proximityPlacementGroupId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storageDataDisks"] = state?.storageDataDisks;
+            resourceInputs["storageImageReference"] = state?.storageImageReference;
+            resourceInputs["storageOsDisk"] = state?.storageOsDisk;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["vmSize"] = state?.vmSize;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
-            if ((!args || args.networkInterfaceIds === undefined) && !opts.urn) {
+            if (args?.networkInterfaceIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceIds'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageOsDisk === undefined) && !opts.urn) {
+            if (args?.storageOsDisk === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageOsDisk'");
             }
-            if ((!args || args.vmSize === undefined) && !opts.urn) {
+            if (args?.vmSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
-            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            resourceInputs["availabilitySetId"] = args ? args.availabilitySetId : undefined;
-            resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
-            resourceInputs["deleteDataDisksOnTermination"] = args ? args.deleteDataDisksOnTermination : undefined;
-            resourceInputs["deleteOsDiskOnTermination"] = args ? args.deleteOsDiskOnTermination : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkInterfaceIds"] = args ? args.networkInterfaceIds : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["osProfileLinuxConfig"] = args ? args.osProfileLinuxConfig : undefined;
-            resourceInputs["osProfileSecrets"] = args ? args.osProfileSecrets : undefined;
-            resourceInputs["osProfileWindowsConfig"] = args ? args.osProfileWindowsConfig : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["primaryNetworkInterfaceId"] = args ? args.primaryNetworkInterfaceId : undefined;
-            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageDataDisks"] = args ? args.storageDataDisks : undefined;
-            resourceInputs["storageImageReference"] = args ? args.storageImageReference : undefined;
-            resourceInputs["storageOsDisk"] = args ? args.storageOsDisk : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
+            resourceInputs["availabilitySetId"] = args?.availabilitySetId;
+            resourceInputs["bootDiagnostics"] = args?.bootDiagnostics;
+            resourceInputs["deleteDataDisksOnTermination"] = args?.deleteDataDisksOnTermination;
+            resourceInputs["deleteOsDiskOnTermination"] = args?.deleteOsDiskOnTermination;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkInterfaceIds"] = args?.networkInterfaceIds;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["osProfileLinuxConfig"] = args?.osProfileLinuxConfig;
+            resourceInputs["osProfileSecrets"] = args?.osProfileSecrets;
+            resourceInputs["osProfileWindowsConfig"] = args?.osProfileWindowsConfig;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["primaryNetworkInterfaceId"] = args?.primaryNetworkInterfaceId;
+            resourceInputs["proximityPlacementGroupId"] = args?.proximityPlacementGroupId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageDataDisks"] = args?.storageDataDisks;
+            resourceInputs["storageImageReference"] = args?.storageImageReference;
+            resourceInputs["storageOsDisk"] = args?.storageOsDisk;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmSize"] = args?.vmSize;
+            resourceInputs["zones"] = args?.zones;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualMachine.__pulumiType, name, resourceInputs, opts);

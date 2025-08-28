@@ -89,15 +89,15 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
      */
-    public readonly apiManagementId!: pulumi.Output<string>;
+    declare public readonly apiManagementId: pulumi.Output<string>;
     /**
      * The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
      */
-    public readonly xmlContent!: pulumi.Output<string>;
+    declare public readonly xmlContent: pulumi.Output<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    public readonly xmlLink!: pulumi.Output<string | undefined>;
+    declare public readonly xmlLink: pulumi.Output<string | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -112,17 +112,17 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            resourceInputs["xmlContent"] = state ? state.xmlContent : undefined;
-            resourceInputs["xmlLink"] = state ? state.xmlLink : undefined;
+            resourceInputs["apiManagementId"] = state?.apiManagementId;
+            resourceInputs["xmlContent"] = state?.xmlContent;
+            resourceInputs["xmlLink"] = state?.xmlLink;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
+            if (args?.apiManagementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            resourceInputs["xmlContent"] = args ? args.xmlContent : undefined;
-            resourceInputs["xmlLink"] = args ? args.xmlLink : undefined;
+            resourceInputs["apiManagementId"] = args?.apiManagementId;
+            resourceInputs["xmlContent"] = args?.xmlContent;
+            resourceInputs["xmlLink"] = args?.xmlLink;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Policy.__pulumiType, name, resourceInputs, opts);

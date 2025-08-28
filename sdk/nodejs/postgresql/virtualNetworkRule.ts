@@ -101,7 +101,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
      * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled?
      */
-    public readonly ignoreMissingVnetServiceEndpoint!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreMissingVnetServiceEndpoint: pulumi.Output<boolean | undefined>;
     /**
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      *
@@ -111,19 +111,19 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
      * 2. Cannot start with a number or hyphen
      * 3. Cannot end with a hyphen
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the SQL Server to which this PostgreSQL virtual network rule will be applied to. Changing this forces a new resource to be created.
      */
-    public readonly serverName!: pulumi.Output<string>;
+    declare public readonly serverName: pulumi.Output<string>;
     /**
      * The ID of the subnet that the PostgreSQL server will be connected to.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkRule resource with the given unique name, arguments, and options.
@@ -138,27 +138,27 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkRuleState | undefined;
-            resourceInputs["ignoreMissingVnetServiceEndpoint"] = state ? state.ignoreMissingVnetServiceEndpoint : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serverName"] = state ? state.serverName : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["ignoreMissingVnetServiceEndpoint"] = state?.ignoreMissingVnetServiceEndpoint;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serverName"] = state?.serverName;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as VirtualNetworkRuleArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["ignoreMissingVnetServiceEndpoint"] = args?.ignoreMissingVnetServiceEndpoint;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["subnetId"] = args?.subnetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts);

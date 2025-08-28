@@ -94,23 +94,23 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
     /**
      * The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
      */
-    public readonly generation!: pulumi.Output<string | undefined>;
+    declare public readonly generation: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies how often to check repository updates. Minimum value is 0.
      */
-    public readonly refreshIntervalInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly refreshIntervalInSeconds: pulumi.Output<number | undefined>;
     /**
      * One or more `repository` blocks as defined below.
      */
-    public readonly repositories!: pulumi.Output<outputs.appplatform.SpringCloudConfigurationServiceRepository[] | undefined>;
+    declare public readonly repositories: pulumi.Output<outputs.appplatform.SpringCloudConfigurationServiceRepository[] | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudConfigurationService resource with the given unique name, arguments, and options.
@@ -125,21 +125,21 @@ export class SpringCloudConfigurationService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudConfigurationServiceState | undefined;
-            resourceInputs["generation"] = state ? state.generation : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["refreshIntervalInSeconds"] = state ? state.refreshIntervalInSeconds : undefined;
-            resourceInputs["repositories"] = state ? state.repositories : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
+            resourceInputs["generation"] = state?.generation;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["refreshIntervalInSeconds"] = state?.refreshIntervalInSeconds;
+            resourceInputs["repositories"] = state?.repositories;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
         } else {
             const args = argsOrState as SpringCloudConfigurationServiceArgs | undefined;
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            resourceInputs["generation"] = args ? args.generation : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["refreshIntervalInSeconds"] = args ? args.refreshIntervalInSeconds : undefined;
-            resourceInputs["repositories"] = args ? args.repositories : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
+            resourceInputs["generation"] = args?.generation;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["refreshIntervalInSeconds"] = args?.refreshIntervalInSeconds;
+            resourceInputs["repositories"] = args?.repositories;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudConfigurationService.__pulumiType, name, resourceInputs, opts);

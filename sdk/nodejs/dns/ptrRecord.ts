@@ -74,31 +74,31 @@ export class PtrRecord extends pulumi.CustomResource {
     /**
      * The FQDN of the DNS PTR Record.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * The name of the DNS PTR Record. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of Fully Qualified Domain Names.
      */
-    public readonly records!: pulumi.Output<string[]>;
+    declare public readonly records: pulumi.Output<string[]>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
-    public readonly ttl!: pulumi.Output<number>;
+    declare public readonly ttl: pulumi.Output<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly zoneName!: pulumi.Output<string>;
+    declare public readonly zoneName: pulumi.Output<string>;
 
     /**
      * Create a PtrRecord resource with the given unique name, arguments, and options.
@@ -113,33 +113,33 @@ export class PtrRecord extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PtrRecordState | undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["records"] = state ? state.records : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
-            resourceInputs["zoneName"] = state ? state.zoneName : undefined;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["records"] = state?.records;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["zoneName"] = state?.zoneName;
         } else {
             const args = argsOrState as PtrRecordArgs | undefined;
-            if ((!args || args.records === undefined) && !opts.urn) {
+            if (args?.records === undefined && !opts.urn) {
                 throw new Error("Missing required property 'records'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ttl === undefined) && !opts.urn) {
+            if (args?.ttl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ttl'");
             }
-            if ((!args || args.zoneName === undefined) && !opts.urn) {
+            if (args?.zoneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["records"] = args ? args.records : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["records"] = args?.records;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["zoneName"] = args?.zoneName;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

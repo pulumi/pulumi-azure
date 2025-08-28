@@ -82,31 +82,31 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
     /**
      * Base64 encoded value of the certificate. Changing this forces a new resource to be created.
      */
-    public readonly base64!: pulumi.Output<string>;
+    declare public readonly base64: pulumi.Output<string>;
     /**
      * The description of this Automation Certificate.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The is exportable flag of the certificate.
      */
-    public readonly exportable!: pulumi.Output<boolean | undefined>;
+    declare public readonly exportable: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Certificate. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The thumbprint for the certificate.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -121,30 +121,30 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["base64"] = state ? state.base64 : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["exportable"] = state ? state.exportable : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["base64"] = state?.base64;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["exportable"] = state?.exportable;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.base64 === undefined) && !opts.urn) {
+            if (args?.base64 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'base64'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
             resourceInputs["base64"] = args?.base64 ? pulumi.secret(args.base64) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["exportable"] = args ? args.exportable : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["exportable"] = args?.exportable;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["thumbprint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

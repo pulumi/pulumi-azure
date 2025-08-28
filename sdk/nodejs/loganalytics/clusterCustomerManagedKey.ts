@@ -123,11 +123,11 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
     /**
      * The ID of the Key Vault Key to use for encryption.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string>;
     /**
      * The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
      */
-    public readonly logAnalyticsClusterId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsClusterId: pulumi.Output<string>;
 
     /**
      * Create a ClusterCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -142,18 +142,18 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterCustomerManagedKeyState | undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["logAnalyticsClusterId"] = state ? state.logAnalyticsClusterId : undefined;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["logAnalyticsClusterId"] = state?.logAnalyticsClusterId;
         } else {
             const args = argsOrState as ClusterCustomerManagedKeyArgs | undefined;
-            if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
+            if (args?.keyVaultKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            if ((!args || args.logAnalyticsClusterId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsClusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsClusterId'");
             }
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["logAnalyticsClusterId"] = args ? args.logAnalyticsClusterId : undefined;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["logAnalyticsClusterId"] = args?.logAnalyticsClusterId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterCustomerManagedKey.__pulumiType, name, resourceInputs, opts);

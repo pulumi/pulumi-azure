@@ -142,13 +142,13 @@ export class FrontdoorCustomDomainAssociation extends pulumi.CustomResource {
     /**
      * The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
      */
-    public readonly cdnFrontdoorCustomDomainId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorCustomDomainId: pulumi.Output<string>;
     /**
      * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      *
      * > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
      */
-    public readonly cdnFrontdoorRouteIds!: pulumi.Output<string[]>;
+    declare public readonly cdnFrontdoorRouteIds: pulumi.Output<string[]>;
 
     /**
      * Create a FrontdoorCustomDomainAssociation resource with the given unique name, arguments, and options.
@@ -163,18 +163,18 @@ export class FrontdoorCustomDomainAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorCustomDomainAssociationState | undefined;
-            resourceInputs["cdnFrontdoorCustomDomainId"] = state ? state.cdnFrontdoorCustomDomainId : undefined;
-            resourceInputs["cdnFrontdoorRouteIds"] = state ? state.cdnFrontdoorRouteIds : undefined;
+            resourceInputs["cdnFrontdoorCustomDomainId"] = state?.cdnFrontdoorCustomDomainId;
+            resourceInputs["cdnFrontdoorRouteIds"] = state?.cdnFrontdoorRouteIds;
         } else {
             const args = argsOrState as FrontdoorCustomDomainAssociationArgs | undefined;
-            if ((!args || args.cdnFrontdoorCustomDomainId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorCustomDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorCustomDomainId'");
             }
-            if ((!args || args.cdnFrontdoorRouteIds === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorRouteIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorRouteIds'");
             }
-            resourceInputs["cdnFrontdoorCustomDomainId"] = args ? args.cdnFrontdoorCustomDomainId : undefined;
-            resourceInputs["cdnFrontdoorRouteIds"] = args ? args.cdnFrontdoorRouteIds : undefined;
+            resourceInputs["cdnFrontdoorCustomDomainId"] = args?.cdnFrontdoorCustomDomainId;
+            resourceInputs["cdnFrontdoorRouteIds"] = args?.cdnFrontdoorRouteIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FrontdoorCustomDomainAssociation.__pulumiType, name, resourceInputs, opts);

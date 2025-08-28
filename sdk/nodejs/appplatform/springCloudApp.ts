@@ -75,59 +75,59 @@ export class SpringCloudApp extends pulumi.CustomResource {
     /**
      * A JSON object that contains the addon configurations of the Spring Cloud Service.
      */
-    public readonly addonJson!: pulumi.Output<string>;
+    declare public readonly addonJson: pulumi.Output<string>;
     /**
      * A `customPersistentDisk` block as defined below.
      */
-    public readonly customPersistentDisks!: pulumi.Output<outputs.appplatform.SpringCloudAppCustomPersistentDisk[] | undefined>;
+    declare public readonly customPersistentDisks: pulumi.Output<outputs.appplatform.SpringCloudAppCustomPersistentDisk[] | undefined>;
     /**
      * The Fully Qualified DNS Name of the Spring Application in the service.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * Is only HTTPS allowed? Defaults to `false`.
      */
-    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsOnly: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appplatform.SpringCloudAppIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appplatform.SpringCloudAppIdentity | undefined>;
     /**
      * An `ingressSettings` block as defined below.
      */
-    public readonly ingressSettings!: pulumi.Output<outputs.appplatform.SpringCloudAppIngressSettings>;
+    declare public readonly ingressSettings: pulumi.Output<outputs.appplatform.SpringCloudAppIngressSettings>;
     /**
      * Does the Spring Cloud Application have public endpoint? Defaults to `false`.
      */
-    public readonly isPublic!: pulumi.Output<boolean | undefined>;
+    declare public readonly isPublic: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An `persistentDisk` block as defined below.
      */
-    public readonly persistentDisk!: pulumi.Output<outputs.appplatform.SpringCloudAppPersistentDisk>;
+    declare public readonly persistentDisk: pulumi.Output<outputs.appplatform.SpringCloudAppPersistentDisk>;
     /**
      * Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
      */
-    public readonly publicEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicEndpointEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
-    public readonly serviceName!: pulumi.Output<string>;
+    declare public readonly serviceName: pulumi.Output<string>;
     /**
      * Is End to End TLS Enabled? Defaults to `false`.
      */
-    public readonly tlsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tlsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The public endpoint of the Spring Cloud Application.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudApp resource with the given unique name, arguments, and options.
@@ -142,40 +142,40 @@ export class SpringCloudApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppState | undefined;
-            resourceInputs["addonJson"] = state ? state.addonJson : undefined;
-            resourceInputs["customPersistentDisks"] = state ? state.customPersistentDisks : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["ingressSettings"] = state ? state.ingressSettings : undefined;
-            resourceInputs["isPublic"] = state ? state.isPublic : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["persistentDisk"] = state ? state.persistentDisk : undefined;
-            resourceInputs["publicEndpointEnabled"] = state ? state.publicEndpointEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
-            resourceInputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["addonJson"] = state?.addonJson;
+            resourceInputs["customPersistentDisks"] = state?.customPersistentDisks;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["httpsOnly"] = state?.httpsOnly;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["ingressSettings"] = state?.ingressSettings;
+            resourceInputs["isPublic"] = state?.isPublic;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["persistentDisk"] = state?.persistentDisk;
+            resourceInputs["publicEndpointEnabled"] = state?.publicEndpointEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serviceName"] = state?.serviceName;
+            resourceInputs["tlsEnabled"] = state?.tlsEnabled;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as SpringCloudAppArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["addonJson"] = args ? args.addonJson : undefined;
-            resourceInputs["customPersistentDisks"] = args ? args.customPersistentDisks : undefined;
-            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["ingressSettings"] = args ? args.ingressSettings : undefined;
-            resourceInputs["isPublic"] = args ? args.isPublic : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["persistentDisk"] = args ? args.persistentDisk : undefined;
-            resourceInputs["publicEndpointEnabled"] = args ? args.publicEndpointEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
+            resourceInputs["addonJson"] = args?.addonJson;
+            resourceInputs["customPersistentDisks"] = args?.customPersistentDisks;
+            resourceInputs["httpsOnly"] = args?.httpsOnly;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["ingressSettings"] = args?.ingressSettings;
+            resourceInputs["isPublic"] = args?.isPublic;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["persistentDisk"] = args?.persistentDisk;
+            resourceInputs["publicEndpointEnabled"] = args?.publicEndpointEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["tlsEnabled"] = args?.tlsEnabled;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }

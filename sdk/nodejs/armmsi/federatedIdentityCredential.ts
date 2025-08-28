@@ -78,27 +78,27 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
     /**
      * Specifies the audience for this Federated Identity Credential.
      */
-    public readonly audience!: pulumi.Output<string>;
+    declare public readonly audience: pulumi.Output<string>;
     /**
      * Specifies the issuer of this Federated Identity Credential.
      */
-    public readonly issuer!: pulumi.Output<string>;
+    declare public readonly issuer: pulumi.Output<string>;
     /**
      * Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      */
-    public readonly parentId!: pulumi.Output<string>;
+    declare public readonly parentId: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the subject for this Federated Identity Credential.
      */
-    public readonly subject!: pulumi.Output<string>;
+    declare public readonly subject: pulumi.Output<string>;
 
     /**
      * Create a FederatedIdentityCredential resource with the given unique name, arguments, and options.
@@ -113,35 +113,35 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FederatedIdentityCredentialState | undefined;
-            resourceInputs["audience"] = state ? state.audience : undefined;
-            resourceInputs["issuer"] = state ? state.issuer : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentId"] = state ? state.parentId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subject"] = state ? state.subject : undefined;
+            resourceInputs["audience"] = state?.audience;
+            resourceInputs["issuer"] = state?.issuer;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentId"] = state?.parentId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subject"] = state?.subject;
         } else {
             const args = argsOrState as FederatedIdentityCredentialArgs | undefined;
-            if ((!args || args.audience === undefined) && !opts.urn) {
+            if (args?.audience === undefined && !opts.urn) {
                 throw new Error("Missing required property 'audience'");
             }
-            if ((!args || args.issuer === undefined) && !opts.urn) {
+            if (args?.issuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if ((!args || args.parentId === undefined) && !opts.urn) {
+            if (args?.parentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subject === undefined) && !opts.urn) {
+            if (args?.subject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subject'");
             }
-            resourceInputs["audience"] = args ? args.audience : undefined;
-            resourceInputs["issuer"] = args ? args.issuer : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentId"] = args ? args.parentId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subject"] = args ? args.subject : undefined;
+            resourceInputs["audience"] = args?.audience;
+            resourceInputs["issuer"] = args?.issuer;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentId"] = args?.parentId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subject"] = args?.subject;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FederatedIdentityCredential.__pulumiType, name, resourceInputs, opts);

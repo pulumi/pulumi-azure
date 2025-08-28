@@ -90,15 +90,15 @@ export class ApiOperationTag extends pulumi.CustomResource {
     /**
      * The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
      */
-    public readonly apiOperationId!: pulumi.Output<string>;
+    declare public readonly apiOperationId: pulumi.Output<string>;
     /**
      * The display name of the API Management API Operation Tag.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The name which should be used for this API Management API Operation Tag. Changing this forces a new API Management API Operation Tag to be created. The name must be unique in the API Management Service.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ApiOperationTag resource with the given unique name, arguments, and options.
@@ -113,20 +113,20 @@ export class ApiOperationTag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiOperationTagState | undefined;
-            resourceInputs["apiOperationId"] = state ? state.apiOperationId : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiOperationId"] = state?.apiOperationId;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ApiOperationTagArgs | undefined;
-            if ((!args || args.apiOperationId === undefined) && !opts.urn) {
+            if (args?.apiOperationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiOperationId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["apiOperationId"] = args ? args.apiOperationId : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiOperationId"] = args?.apiOperationId;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiOperationTag.__pulumiType, name, resourceInputs, opts);

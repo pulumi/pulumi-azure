@@ -113,71 +113,71 @@ export class SpringCloudGateway extends pulumi.CustomResource {
     /**
      * A `apiMetadata` block as defined below.
      */
-    public readonly apiMetadata!: pulumi.Output<outputs.appplatform.SpringCloudGatewayApiMetadata | undefined>;
+    declare public readonly apiMetadata: pulumi.Output<outputs.appplatform.SpringCloudGatewayApiMetadata | undefined>;
     /**
      * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
      */
-    public readonly applicationPerformanceMonitoringIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly applicationPerformanceMonitoringIds: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
-    public readonly applicationPerformanceMonitoringTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly applicationPerformanceMonitoringTypes: pulumi.Output<string[] | undefined>;
     /**
      * A `clientAuthorization` block as defined below.
      */
-    public readonly clientAuthorization!: pulumi.Output<outputs.appplatform.SpringCloudGatewayClientAuthorization | undefined>;
+    declare public readonly clientAuthorization: pulumi.Output<outputs.appplatform.SpringCloudGatewayClientAuthorization | undefined>;
     /**
      * A `cors` block as defined below.
      */
-    public readonly cors!: pulumi.Output<outputs.appplatform.SpringCloudGatewayCors | undefined>;
+    declare public readonly cors: pulumi.Output<outputs.appplatform.SpringCloudGatewayCors | undefined>;
     /**
      * Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
-    public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * is only https is allowed?
      */
-    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsOnly: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    public readonly instanceCount!: pulumi.Output<number | undefined>;
+    declare public readonly instanceCount: pulumi.Output<number | undefined>;
     /**
      * A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      */
-    public readonly localResponseCachePerInstance!: pulumi.Output<outputs.appplatform.SpringCloudGatewayLocalResponseCachePerInstance | undefined>;
+    declare public readonly localResponseCachePerInstance: pulumi.Output<outputs.appplatform.SpringCloudGatewayLocalResponseCachePerInstance | undefined>;
     /**
      * A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
      */
-    public readonly localResponseCachePerRoute!: pulumi.Output<outputs.appplatform.SpringCloudGatewayLocalResponseCachePerRoute | undefined>;
+    declare public readonly localResponseCachePerRoute: pulumi.Output<outputs.appplatform.SpringCloudGatewayLocalResponseCachePerRoute | undefined>;
     /**
      * The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Indicates whether the Spring Cloud Gateway exposes endpoint.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `quota` block as defined below.
      */
-    public readonly quota!: pulumi.Output<outputs.appplatform.SpringCloudGatewayQuota>;
+    declare public readonly quota: pulumi.Output<outputs.appplatform.SpringCloudGatewayQuota>;
     /**
      * Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs.
      */
-    public readonly sensitiveEnvironmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly sensitiveEnvironmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Gateway to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
     /**
      * A `sso` block as defined below.
      */
-    public readonly sso!: pulumi.Output<outputs.appplatform.SpringCloudGatewaySso | undefined>;
+    declare public readonly sso: pulumi.Output<outputs.appplatform.SpringCloudGatewaySso | undefined>;
     /**
      * URL of the Spring Cloud Gateway, exposed when 'public_network_access_enabled' is true.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudGateway resource with the given unique name, arguments, and options.
@@ -192,44 +192,44 @@ export class SpringCloudGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudGatewayState | undefined;
-            resourceInputs["apiMetadata"] = state ? state.apiMetadata : undefined;
-            resourceInputs["applicationPerformanceMonitoringIds"] = state ? state.applicationPerformanceMonitoringIds : undefined;
-            resourceInputs["applicationPerformanceMonitoringTypes"] = state ? state.applicationPerformanceMonitoringTypes : undefined;
-            resourceInputs["clientAuthorization"] = state ? state.clientAuthorization : undefined;
-            resourceInputs["cors"] = state ? state.cors : undefined;
-            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
-            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
-            resourceInputs["localResponseCachePerInstance"] = state ? state.localResponseCachePerInstance : undefined;
-            resourceInputs["localResponseCachePerRoute"] = state ? state.localResponseCachePerRoute : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["quota"] = state ? state.quota : undefined;
-            resourceInputs["sensitiveEnvironmentVariables"] = state ? state.sensitiveEnvironmentVariables : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
-            resourceInputs["sso"] = state ? state.sso : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["apiMetadata"] = state?.apiMetadata;
+            resourceInputs["applicationPerformanceMonitoringIds"] = state?.applicationPerformanceMonitoringIds;
+            resourceInputs["applicationPerformanceMonitoringTypes"] = state?.applicationPerformanceMonitoringTypes;
+            resourceInputs["clientAuthorization"] = state?.clientAuthorization;
+            resourceInputs["cors"] = state?.cors;
+            resourceInputs["environmentVariables"] = state?.environmentVariables;
+            resourceInputs["httpsOnly"] = state?.httpsOnly;
+            resourceInputs["instanceCount"] = state?.instanceCount;
+            resourceInputs["localResponseCachePerInstance"] = state?.localResponseCachePerInstance;
+            resourceInputs["localResponseCachePerRoute"] = state?.localResponseCachePerRoute;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["quota"] = state?.quota;
+            resourceInputs["sensitiveEnvironmentVariables"] = state?.sensitiveEnvironmentVariables;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
+            resourceInputs["sso"] = state?.sso;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as SpringCloudGatewayArgs | undefined;
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            resourceInputs["apiMetadata"] = args ? args.apiMetadata : undefined;
-            resourceInputs["applicationPerformanceMonitoringIds"] = args ? args.applicationPerformanceMonitoringIds : undefined;
-            resourceInputs["applicationPerformanceMonitoringTypes"] = args ? args.applicationPerformanceMonitoringTypes : undefined;
-            resourceInputs["clientAuthorization"] = args ? args.clientAuthorization : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["localResponseCachePerInstance"] = args ? args.localResponseCachePerInstance : undefined;
-            resourceInputs["localResponseCachePerRoute"] = args ? args.localResponseCachePerRoute : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["quota"] = args ? args.quota : undefined;
+            resourceInputs["apiMetadata"] = args?.apiMetadata;
+            resourceInputs["applicationPerformanceMonitoringIds"] = args?.applicationPerformanceMonitoringIds;
+            resourceInputs["applicationPerformanceMonitoringTypes"] = args?.applicationPerformanceMonitoringTypes;
+            resourceInputs["clientAuthorization"] = args?.clientAuthorization;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["httpsOnly"] = args?.httpsOnly;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["localResponseCachePerInstance"] = args?.localResponseCachePerInstance;
+            resourceInputs["localResponseCachePerRoute"] = args?.localResponseCachePerRoute;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["quota"] = args?.quota;
             resourceInputs["sensitiveEnvironmentVariables"] = args?.sensitiveEnvironmentVariables ? pulumi.secret(args.sensitiveEnvironmentVariables) : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
-            resourceInputs["sso"] = args ? args.sso : undefined;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
+            resourceInputs["sso"] = args?.sso;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

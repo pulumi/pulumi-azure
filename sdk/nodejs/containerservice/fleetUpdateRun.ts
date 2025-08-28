@@ -112,23 +112,23 @@ export class FleetUpdateRun extends pulumi.CustomResource {
     /**
      * The ID of the Fleet Update Strategy. Only one of `fleetUpdateStrategyId` or `stage` can be specified.
      */
-    public readonly fleetUpdateStrategyId!: pulumi.Output<string | undefined>;
+    declare public readonly fleetUpdateStrategyId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
      */
-    public readonly kubernetesFleetManagerId!: pulumi.Output<string>;
+    declare public readonly kubernetesFleetManagerId: pulumi.Output<string>;
     /**
      * A `managedClusterUpdate` block as defined below.
      */
-    public readonly managedClusterUpdate!: pulumi.Output<outputs.containerservice.FleetUpdateRunManagedClusterUpdate>;
+    declare public readonly managedClusterUpdate: pulumi.Output<outputs.containerservice.FleetUpdateRunManagedClusterUpdate>;
     /**
      * The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `stage` blocks as defined below. Only one of `stage` or `fleetUpdateStrategyId` can be specified.
      */
-    public readonly stages!: pulumi.Output<outputs.containerservice.FleetUpdateRunStage[] | undefined>;
+    declare public readonly stages: pulumi.Output<outputs.containerservice.FleetUpdateRunStage[] | undefined>;
 
     /**
      * Create a FleetUpdateRun resource with the given unique name, arguments, and options.
@@ -143,24 +143,24 @@ export class FleetUpdateRun extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetUpdateRunState | undefined;
-            resourceInputs["fleetUpdateStrategyId"] = state ? state.fleetUpdateStrategyId : undefined;
-            resourceInputs["kubernetesFleetManagerId"] = state ? state.kubernetesFleetManagerId : undefined;
-            resourceInputs["managedClusterUpdate"] = state ? state.managedClusterUpdate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["stages"] = state ? state.stages : undefined;
+            resourceInputs["fleetUpdateStrategyId"] = state?.fleetUpdateStrategyId;
+            resourceInputs["kubernetesFleetManagerId"] = state?.kubernetesFleetManagerId;
+            resourceInputs["managedClusterUpdate"] = state?.managedClusterUpdate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["stages"] = state?.stages;
         } else {
             const args = argsOrState as FleetUpdateRunArgs | undefined;
-            if ((!args || args.kubernetesFleetManagerId === undefined) && !opts.urn) {
+            if (args?.kubernetesFleetManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesFleetManagerId'");
             }
-            if ((!args || args.managedClusterUpdate === undefined) && !opts.urn) {
+            if (args?.managedClusterUpdate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedClusterUpdate'");
             }
-            resourceInputs["fleetUpdateStrategyId"] = args ? args.fleetUpdateStrategyId : undefined;
-            resourceInputs["kubernetesFleetManagerId"] = args ? args.kubernetesFleetManagerId : undefined;
-            resourceInputs["managedClusterUpdate"] = args ? args.managedClusterUpdate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
+            resourceInputs["fleetUpdateStrategyId"] = args?.fleetUpdateStrategyId;
+            resourceInputs["kubernetesFleetManagerId"] = args?.kubernetesFleetManagerId;
+            resourceInputs["managedClusterUpdate"] = args?.managedClusterUpdate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stages"] = args?.stages;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FleetUpdateRun.__pulumiType, name, resourceInputs, opts);

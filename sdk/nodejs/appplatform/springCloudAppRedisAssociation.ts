@@ -48,23 +48,23 @@ export class SpringCloudAppRedisAssociation extends pulumi.CustomResource {
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Redis Cache access key.
      */
-    public readonly redisAccessKey!: pulumi.Output<string>;
+    declare public readonly redisAccessKey: pulumi.Output<string>;
     /**
      * Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
      */
-    public readonly redisCacheId!: pulumi.Output<string>;
+    declare public readonly redisCacheId: pulumi.Output<string>;
     /**
      * Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
      */
-    public readonly springCloudAppId!: pulumi.Output<string>;
+    declare public readonly springCloudAppId: pulumi.Output<string>;
     /**
      * Should SSL be used when connecting to Redis? Defaults to `true`.
      */
-    public readonly sslEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sslEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SpringCloudAppRedisAssociation resource with the given unique name, arguments, and options.
@@ -79,27 +79,27 @@ export class SpringCloudAppRedisAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppRedisAssociationState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["redisAccessKey"] = state ? state.redisAccessKey : undefined;
-            resourceInputs["redisCacheId"] = state ? state.redisCacheId : undefined;
-            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
-            resourceInputs["sslEnabled"] = state ? state.sslEnabled : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["redisAccessKey"] = state?.redisAccessKey;
+            resourceInputs["redisCacheId"] = state?.redisCacheId;
+            resourceInputs["springCloudAppId"] = state?.springCloudAppId;
+            resourceInputs["sslEnabled"] = state?.sslEnabled;
         } else {
             const args = argsOrState as SpringCloudAppRedisAssociationArgs | undefined;
-            if ((!args || args.redisAccessKey === undefined) && !opts.urn) {
+            if (args?.redisAccessKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'redisAccessKey'");
             }
-            if ((!args || args.redisCacheId === undefined) && !opts.urn) {
+            if (args?.redisCacheId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'redisCacheId'");
             }
-            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
+            if (args?.springCloudAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["redisAccessKey"] = args ? args.redisAccessKey : undefined;
-            resourceInputs["redisCacheId"] = args ? args.redisCacheId : undefined;
-            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
-            resourceInputs["sslEnabled"] = args ? args.sslEnabled : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["redisAccessKey"] = args?.redisAccessKey;
+            resourceInputs["redisCacheId"] = args?.redisCacheId;
+            resourceInputs["springCloudAppId"] = args?.springCloudAppId;
+            resourceInputs["sslEnabled"] = args?.sslEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudAppRedisAssociation.__pulumiType, name, resourceInputs, opts);

@@ -102,13 +102,13 @@ export class JobStorageAccount extends pulumi.CustomResource {
     /**
      * The authentication mode for the Stream Analytics Job's Storage Account. Possible values are `ConnectionString`, and `Msi`.
      */
-    public readonly authenticationMode!: pulumi.Output<string>;
-    public readonly storageAccountKey!: pulumi.Output<string | undefined>;
-    public readonly storageAccountName!: pulumi.Output<string>;
+    declare public readonly authenticationMode: pulumi.Output<string>;
+    declare public readonly storageAccountKey: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobId!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobId: pulumi.Output<string>;
 
     /**
      * Create a JobStorageAccount resource with the given unique name, arguments, and options.
@@ -123,25 +123,25 @@ export class JobStorageAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobStorageAccountState | undefined;
-            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
-            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            resourceInputs["streamAnalyticsJobId"] = state ? state.streamAnalyticsJobId : undefined;
+            resourceInputs["authenticationMode"] = state?.authenticationMode;
+            resourceInputs["storageAccountKey"] = state?.storageAccountKey;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["streamAnalyticsJobId"] = state?.streamAnalyticsJobId;
         } else {
             const args = argsOrState as JobStorageAccountArgs | undefined;
-            if ((!args || args.authenticationMode === undefined) && !opts.urn) {
+            if (args?.authenticationMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationMode'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.streamAnalyticsJobId === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobId'");
             }
-            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
+            resourceInputs["authenticationMode"] = args?.authenticationMode;
             resourceInputs["storageAccountKey"] = args?.storageAccountKey ? pulumi.secret(args.storageAccountKey) : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["streamAnalyticsJobId"] = args ? args.streamAnalyticsJobId : undefined;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["streamAnalyticsJobId"] = args?.streamAnalyticsJobId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountKey"] };

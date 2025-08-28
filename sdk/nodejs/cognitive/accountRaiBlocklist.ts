@@ -77,15 +77,15 @@ export class AccountRaiBlocklist extends pulumi.CustomResource {
     /**
      * The ID of the Cognitive Services Account. Changing this forces a new Cognitive Account Rai Blocklist to be created.
      */
-    public readonly cognitiveAccountId!: pulumi.Output<string>;
+    declare public readonly cognitiveAccountId: pulumi.Output<string>;
     /**
      * A short description for the Cognitive Account Rai Blocklist.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the Cognitive Account Rai Blocklist. Changing this forces a new Cognitive Account Rai Blocklist to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a AccountRaiBlocklist resource with the given unique name, arguments, and options.
@@ -100,17 +100,17 @@ export class AccountRaiBlocklist extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountRaiBlocklistState | undefined;
-            resourceInputs["cognitiveAccountId"] = state ? state.cognitiveAccountId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["cognitiveAccountId"] = state?.cognitiveAccountId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as AccountRaiBlocklistArgs | undefined;
-            if ((!args || args.cognitiveAccountId === undefined) && !opts.urn) {
+            if (args?.cognitiveAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cognitiveAccountId'");
             }
-            resourceInputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["cognitiveAccountId"] = args?.cognitiveAccountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountRaiBlocklist.__pulumiType, name, resourceInputs, opts);

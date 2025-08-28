@@ -79,81 +79,81 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
      */
-    public readonly autoDeleteOnIdle!: pulumi.Output<string>;
+    declare public readonly autoDeleteOnIdle: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
      */
-    public readonly batchedOperationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly batchedOperationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
      */
-    public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
+    declare public readonly deadLetteringOnMessageExpiration: pulumi.Output<boolean | undefined>;
     /**
      * The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
      */
-    public readonly defaultMessageTtl!: pulumi.Output<string>;
+    declare public readonly defaultMessageTtl: pulumi.Output<string>;
     /**
      * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
      */
-    public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string | undefined>;
+    declare public readonly duplicateDetectionHistoryTimeWindow: pulumi.Output<string | undefined>;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      *
      * > **Note:** Service Bus Premium namespaces do not support Express Entities, so `expressEnabled` MUST be set to `false`.
      */
-    public readonly expressEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly expressEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of a Queue or Topic to automatically forward dead lettered messages to.
      */
-    public readonly forwardDeadLetteredMessagesTo!: pulumi.Output<string | undefined>;
+    declare public readonly forwardDeadLetteredMessagesTo: pulumi.Output<string | undefined>;
     /**
      * The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
      */
-    public readonly forwardTo!: pulumi.Output<string | undefined>;
+    declare public readonly forwardTo: pulumi.Output<string | undefined>;
     /**
      * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to `PT1M` (1 Minute).
      */
-    public readonly lockDuration!: pulumi.Output<string | undefined>;
+    declare public readonly lockDuration: pulumi.Output<string | undefined>;
     /**
      * Integer value which controls when a message is automatically dead lettered. Defaults to `10`.
      */
-    public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
+    declare public readonly maxDeliveryCount: pulumi.Output<number | undefined>;
     /**
      * Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
-    public readonly maxMessageSizeInKilobytes!: pulumi.Output<number>;
+    declare public readonly maxMessageSizeInKilobytes: pulumi.Output<number>;
     /**
      * Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      */
-    public readonly maxSizeInMegabytes!: pulumi.Output<number>;
+    declare public readonly maxSizeInMegabytes: pulumi.Output<number>;
     /**
      * Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      */
-    public readonly namespaceId!: pulumi.Output<string>;
-    public /*out*/ readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceId: pulumi.Output<string>;
+    declare public /*out*/ readonly namespaceName: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      *
      * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
      */
-    public readonly partitioningEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly partitioningEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
      */
-    public readonly requiresDuplicateDetection!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiresDuplicateDetection: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      */
-    public readonly requiresSession!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly requiresSession: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -168,49 +168,49 @@ export class Queue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            resourceInputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
-            resourceInputs["batchedOperationsEnabled"] = state ? state.batchedOperationsEnabled : undefined;
-            resourceInputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
-            resourceInputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
-            resourceInputs["duplicateDetectionHistoryTimeWindow"] = state ? state.duplicateDetectionHistoryTimeWindow : undefined;
-            resourceInputs["expressEnabled"] = state ? state.expressEnabled : undefined;
-            resourceInputs["forwardDeadLetteredMessagesTo"] = state ? state.forwardDeadLetteredMessagesTo : undefined;
-            resourceInputs["forwardTo"] = state ? state.forwardTo : undefined;
-            resourceInputs["lockDuration"] = state ? state.lockDuration : undefined;
-            resourceInputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
-            resourceInputs["maxMessageSizeInKilobytes"] = state ? state.maxMessageSizeInKilobytes : undefined;
-            resourceInputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["partitioningEnabled"] = state ? state.partitioningEnabled : undefined;
-            resourceInputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
-            resourceInputs["requiresSession"] = state ? state.requiresSession : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["autoDeleteOnIdle"] = state?.autoDeleteOnIdle;
+            resourceInputs["batchedOperationsEnabled"] = state?.batchedOperationsEnabled;
+            resourceInputs["deadLetteringOnMessageExpiration"] = state?.deadLetteringOnMessageExpiration;
+            resourceInputs["defaultMessageTtl"] = state?.defaultMessageTtl;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = state?.duplicateDetectionHistoryTimeWindow;
+            resourceInputs["expressEnabled"] = state?.expressEnabled;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = state?.forwardDeadLetteredMessagesTo;
+            resourceInputs["forwardTo"] = state?.forwardTo;
+            resourceInputs["lockDuration"] = state?.lockDuration;
+            resourceInputs["maxDeliveryCount"] = state?.maxDeliveryCount;
+            resourceInputs["maxMessageSizeInKilobytes"] = state?.maxMessageSizeInKilobytes;
+            resourceInputs["maxSizeInMegabytes"] = state?.maxSizeInMegabytes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceId"] = state?.namespaceId;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["partitioningEnabled"] = state?.partitioningEnabled;
+            resourceInputs["requiresDuplicateDetection"] = state?.requiresDuplicateDetection;
+            resourceInputs["requiresSession"] = state?.requiresSession;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as QueueArgs | undefined;
-            if ((!args || args.namespaceId === undefined) && !opts.urn) {
+            if (args?.namespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceId'");
             }
-            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            resourceInputs["batchedOperationsEnabled"] = args ? args.batchedOperationsEnabled : undefined;
-            resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
-            resourceInputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
-            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            resourceInputs["expressEnabled"] = args ? args.expressEnabled : undefined;
-            resourceInputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
-            resourceInputs["forwardTo"] = args ? args.forwardTo : undefined;
-            resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
-            resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
-            resourceInputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
-            resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["partitioningEnabled"] = args ? args.partitioningEnabled : undefined;
-            resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
-            resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["autoDeleteOnIdle"] = args?.autoDeleteOnIdle;
+            resourceInputs["batchedOperationsEnabled"] = args?.batchedOperationsEnabled;
+            resourceInputs["deadLetteringOnMessageExpiration"] = args?.deadLetteringOnMessageExpiration;
+            resourceInputs["defaultMessageTtl"] = args?.defaultMessageTtl;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args?.duplicateDetectionHistoryTimeWindow;
+            resourceInputs["expressEnabled"] = args?.expressEnabled;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = args?.forwardDeadLetteredMessagesTo;
+            resourceInputs["forwardTo"] = args?.forwardTo;
+            resourceInputs["lockDuration"] = args?.lockDuration;
+            resourceInputs["maxDeliveryCount"] = args?.maxDeliveryCount;
+            resourceInputs["maxMessageSizeInKilobytes"] = args?.maxMessageSizeInKilobytes;
+            resourceInputs["maxSizeInMegabytes"] = args?.maxSizeInMegabytes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceId"] = args?.namespaceId;
+            resourceInputs["partitioningEnabled"] = args?.partitioningEnabled;
+            resourceInputs["requiresDuplicateDetection"] = args?.requiresDuplicateDetection;
+            resourceInputs["requiresSession"] = args?.requiresSession;
+            resourceInputs["status"] = args?.status;
             resourceInputs["namespaceName"] = undefined /*out*/;
             resourceInputs["resourceGroupName"] = undefined /*out*/;
         }

@@ -76,31 +76,31 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * Integration runtime description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The primary integration runtime authentication key.
      */
-    public /*out*/ readonly primaryAuthorizationKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAuthorizationKey: pulumi.Output<string>;
     /**
      * A `rbacAuthorization` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly rbacAuthorizations!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization[] | undefined>;
+    declare public readonly rbacAuthorizations: pulumi.Output<outputs.datafactory.IntegrationRuntimeSelfHostedRbacAuthorization[] | undefined>;
     /**
      * The secondary integration runtime authentication key.
      */
-    public /*out*/ readonly secondaryAuthorizationKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAuthorizationKey: pulumi.Output<string>;
     /**
      * Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
      */
-    public readonly selfContainedInteractiveAuthoringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly selfContainedInteractiveAuthoringEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a IntegrationRuntimeSelfHosted resource with the given unique name, arguments, and options.
@@ -115,23 +115,23 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSelfHostedState | undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryAuthorizationKey"] = state ? state.primaryAuthorizationKey : undefined;
-            resourceInputs["rbacAuthorizations"] = state ? state.rbacAuthorizations : undefined;
-            resourceInputs["secondaryAuthorizationKey"] = state ? state.secondaryAuthorizationKey : undefined;
-            resourceInputs["selfContainedInteractiveAuthoringEnabled"] = state ? state.selfContainedInteractiveAuthoringEnabled : undefined;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryAuthorizationKey"] = state?.primaryAuthorizationKey;
+            resourceInputs["rbacAuthorizations"] = state?.rbacAuthorizations;
+            resourceInputs["secondaryAuthorizationKey"] = state?.secondaryAuthorizationKey;
+            resourceInputs["selfContainedInteractiveAuthoringEnabled"] = state?.selfContainedInteractiveAuthoringEnabled;
         } else {
             const args = argsOrState as IntegrationRuntimeSelfHostedArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rbacAuthorizations"] = args ? args.rbacAuthorizations : undefined;
-            resourceInputs["selfContainedInteractiveAuthoringEnabled"] = args ? args.selfContainedInteractiveAuthoringEnabled : undefined;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rbacAuthorizations"] = args?.rbacAuthorizations;
+            resourceInputs["selfContainedInteractiveAuthoringEnabled"] = args?.selfContainedInteractiveAuthoringEnabled;
             resourceInputs["primaryAuthorizationKey"] = undefined /*out*/;
             resourceInputs["secondaryAuthorizationKey"] = undefined /*out*/;
         }

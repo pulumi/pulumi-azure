@@ -90,23 +90,23 @@ export class MoverTargetEndpoint extends pulumi.CustomResource {
     /**
      * Specifies a description for the Storage Mover Target Endpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the storage account for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * Specifies the name of the storage blob container for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly storageContainerName!: pulumi.Output<string>;
+    declare public readonly storageContainerName: pulumi.Output<string>;
     /**
      * Specifies the ID of the storage mover for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly storageMoverId!: pulumi.Output<string>;
+    declare public readonly storageMoverId: pulumi.Output<string>;
 
     /**
      * Create a MoverTargetEndpoint resource with the given unique name, arguments, and options.
@@ -121,27 +121,27 @@ export class MoverTargetEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MoverTargetEndpointState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["storageContainerName"] = state ? state.storageContainerName : undefined;
-            resourceInputs["storageMoverId"] = state ? state.storageMoverId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["storageContainerName"] = state?.storageContainerName;
+            resourceInputs["storageMoverId"] = state?.storageMoverId;
         } else {
             const args = argsOrState as MoverTargetEndpointArgs | undefined;
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            if ((!args || args.storageContainerName === undefined) && !opts.urn) {
+            if (args?.storageContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            if ((!args || args.storageMoverId === undefined) && !opts.urn) {
+            if (args?.storageMoverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageMoverId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
-            resourceInputs["storageMoverId"] = args ? args.storageMoverId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["storageContainerName"] = args?.storageContainerName;
+            resourceInputs["storageMoverId"] = args?.storageMoverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MoverTargetEndpoint.__pulumiType, name, resourceInputs, opts);

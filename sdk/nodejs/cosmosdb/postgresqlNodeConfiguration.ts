@@ -81,15 +81,15 @@ export class PostgresqlNodeConfiguration extends pulumi.CustomResource {
     /**
      * The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * The name of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The value of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a PostgresqlNodeConfiguration resource with the given unique name, arguments, and options.
@@ -104,20 +104,20 @@ export class PostgresqlNodeConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PostgresqlNodeConfigurationState | undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as PostgresqlNodeConfigurationArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PostgresqlNodeConfiguration.__pulumiType, name, resourceInputs, opts);

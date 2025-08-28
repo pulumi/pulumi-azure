@@ -66,55 +66,55 @@ export class WebApp extends pulumi.CustomResource {
     /**
      * The Application Insights API Key to associate with the Web App Bot.
      */
-    public readonly developerAppInsightsApiKey!: pulumi.Output<string | undefined>;
+    declare public readonly developerAppInsightsApiKey: pulumi.Output<string | undefined>;
     /**
      * The Application Insights Application ID to associate with the Web App Bot.
      */
-    public readonly developerAppInsightsApplicationId!: pulumi.Output<string | undefined>;
+    declare public readonly developerAppInsightsApplicationId: pulumi.Output<string | undefined>;
     /**
      * The Application Insights Key to associate with the Web App Bot.
      */
-    public readonly developerAppInsightsKey!: pulumi.Output<string | undefined>;
+    declare public readonly developerAppInsightsKey: pulumi.Output<string | undefined>;
     /**
      * The name of the Web App Bot will be displayed as. This defaults to `name` if not specified.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Web App Bot endpoint.
      */
-    public readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A list of LUIS App IDs to associate with the Web App Bot.
      */
-    public readonly luisAppIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly luisAppIds: pulumi.Output<string[] | undefined>;
     /**
      * The LUIS key to associate with the Web App Bot.
      */
-    public readonly luisKey!: pulumi.Output<string | undefined>;
+    declare public readonly luisKey: pulumi.Output<string | undefined>;
     /**
      * The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
      */
-    public readonly microsoftAppId!: pulumi.Output<string>;
+    declare public readonly microsoftAppId: pulumi.Output<string>;
     /**
      * Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a WebApp resource with the given unique name, arguments, and options.
@@ -129,43 +129,43 @@ export class WebApp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAppState | undefined;
-            resourceInputs["developerAppInsightsApiKey"] = state ? state.developerAppInsightsApiKey : undefined;
-            resourceInputs["developerAppInsightsApplicationId"] = state ? state.developerAppInsightsApplicationId : undefined;
-            resourceInputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["luisAppIds"] = state ? state.luisAppIds : undefined;
-            resourceInputs["luisKey"] = state ? state.luisKey : undefined;
-            resourceInputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["developerAppInsightsApiKey"] = state?.developerAppInsightsApiKey;
+            resourceInputs["developerAppInsightsApplicationId"] = state?.developerAppInsightsApplicationId;
+            resourceInputs["developerAppInsightsKey"] = state?.developerAppInsightsKey;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["luisAppIds"] = state?.luisAppIds;
+            resourceInputs["luisKey"] = state?.luisKey;
+            resourceInputs["microsoftAppId"] = state?.microsoftAppId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as WebAppArgs | undefined;
-            if ((!args || args.microsoftAppId === undefined) && !opts.urn) {
+            if (args?.microsoftAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'microsoftAppId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["developerAppInsightsApiKey"] = args?.developerAppInsightsApiKey ? pulumi.secret(args.developerAppInsightsApiKey) : undefined;
-            resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
-            resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["luisAppIds"] = args ? args.luisAppIds : undefined;
+            resourceInputs["developerAppInsightsApplicationId"] = args?.developerAppInsightsApplicationId;
+            resourceInputs["developerAppInsightsKey"] = args?.developerAppInsightsKey;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["luisAppIds"] = args?.luisAppIds;
             resourceInputs["luisKey"] = args?.luisKey ? pulumi.secret(args.luisKey) : undefined;
-            resourceInputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["microsoftAppId"] = args?.microsoftAppId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["developerAppInsightsApiKey", "luisKey"] };

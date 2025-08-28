@@ -70,23 +70,23 @@ export class ResourceGuard extends pulumi.CustomResource {
     /**
      * The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Resource Guard. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Resource Guard should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Resource Guard.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of the critical operations which are not protected by this Resource Guard.
      */
-    public readonly vaultCriticalOperationExclusionLists!: pulumi.Output<string[] | undefined>;
+    declare public readonly vaultCriticalOperationExclusionLists: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ResourceGuard resource with the given unique name, arguments, and options.
@@ -101,21 +101,21 @@ export class ResourceGuard extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceGuardState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["vaultCriticalOperationExclusionLists"] = state ? state.vaultCriticalOperationExclusionLists : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["vaultCriticalOperationExclusionLists"] = state?.vaultCriticalOperationExclusionLists;
         } else {
             const args = argsOrState as ResourceGuardArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vaultCriticalOperationExclusionLists"] = args ? args.vaultCriticalOperationExclusionLists : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vaultCriticalOperationExclusionLists"] = args?.vaultCriticalOperationExclusionLists;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceGuard.__pulumiType, name, resourceInputs, opts);

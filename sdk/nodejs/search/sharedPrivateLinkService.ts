@@ -85,29 +85,29 @@ export class SharedPrivateLinkService extends pulumi.CustomResource {
     /**
      * Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
      */
-    public readonly requestMessage!: pulumi.Output<string | undefined>;
+    declare public readonly requestMessage: pulumi.Output<string | undefined>;
     /**
      * Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
      */
-    public readonly searchServiceId!: pulumi.Output<string>;
+    declare public readonly searchServiceId: pulumi.Output<string>;
     /**
      * The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      */
-    public readonly subresourceName!: pulumi.Output<string>;
+    declare public readonly subresourceName: pulumi.Output<string>;
     /**
      * Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
      *
      * > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
 
     /**
      * Create a SharedPrivateLinkService resource with the given unique name, arguments, and options.
@@ -122,28 +122,28 @@ export class SharedPrivateLinkService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedPrivateLinkServiceState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["requestMessage"] = state ? state.requestMessage : undefined;
-            resourceInputs["searchServiceId"] = state ? state.searchServiceId : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["subresourceName"] = state ? state.subresourceName : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["requestMessage"] = state?.requestMessage;
+            resourceInputs["searchServiceId"] = state?.searchServiceId;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["subresourceName"] = state?.subresourceName;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
         } else {
             const args = argsOrState as SharedPrivateLinkServiceArgs | undefined;
-            if ((!args || args.searchServiceId === undefined) && !opts.urn) {
+            if (args?.searchServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'searchServiceId'");
             }
-            if ((!args || args.subresourceName === undefined) && !opts.urn) {
+            if (args?.subresourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subresourceName'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
-            resourceInputs["searchServiceId"] = args ? args.searchServiceId : undefined;
-            resourceInputs["subresourceName"] = args ? args.subresourceName : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["requestMessage"] = args?.requestMessage;
+            resourceInputs["searchServiceId"] = args?.searchServiceId;
+            resourceInputs["subresourceName"] = args?.subresourceName;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

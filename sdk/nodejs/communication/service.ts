@@ -70,39 +70,39 @@ export class Service extends pulumi.CustomResource {
     /**
      * The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
      */
-    public readonly dataLocation!: pulumi.Output<string | undefined>;
+    declare public readonly dataLocation: pulumi.Output<string | undefined>;
     /**
      * The hostname of the Communication Service
      */
-    public /*out*/ readonly hostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostname: pulumi.Output<string>;
     /**
      * The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The primary connection string of the Communication Service.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The primary key of the Communication Service.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary connection string of the Communication Service.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The secondary key of the Communication Service.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Communication Service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -117,24 +117,24 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["dataLocation"] = state ? state.dataLocation : undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["dataLocation"] = state?.dataLocation;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataLocation"] = args?.dataLocation;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["hostname"] = undefined /*out*/;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;

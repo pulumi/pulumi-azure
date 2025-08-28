@@ -145,15 +145,15 @@ export class WorkspaceRootDbfsCustomerManagedKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceRootDbfsCustomerManagedKey.__pulumiType;
     }
 
-    public readonly keyVaultId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultId: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the Key Vault Key to be used.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string>;
     /**
      * The resource ID of the Databricks Workspace.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceRootDbfsCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -168,20 +168,20 @@ export class WorkspaceRootDbfsCustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceRootDbfsCustomerManagedKeyState | undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as WorkspaceRootDbfsCustomerManagedKeyArgs | undefined;
-            if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
+            if (args?.keyVaultKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey" }] };

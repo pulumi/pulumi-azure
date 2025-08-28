@@ -120,33 +120,33 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * An `additionalCapabilities` block as defined below.
      */
-    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAdditionalCapabilities | undefined>;
+    declare public readonly additionalCapabilities: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAdditionalCapabilities | undefined>;
     /**
      * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly additionalUnattendContents!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAdditionalUnattendContent[] | undefined>;
+    declare public readonly additionalUnattendContents: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAdditionalUnattendContent[] | undefined>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly adminPassword!: pulumi.Output<string>;
+    declare public readonly adminPassword: pulumi.Output<string>;
     /**
      * The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
      */
-    public readonly adminUsername!: pulumi.Output<string>;
+    declare public readonly adminUsername: pulumi.Output<string>;
     /**
      * An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      *
      * > **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      */
-    public readonly automaticInstanceRepair!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAutomaticInstanceRepair>;
+    declare public readonly automaticInstanceRepair: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
      * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to either `Automatic` or `Rolling`.
      */
-    public readonly automaticOsUpgradePolicy!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
+    declare public readonly automaticOsUpgradePolicy: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    public readonly bootDiagnostics!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics | undefined>;
+    declare public readonly bootDiagnostics: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics | undefined>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      *
@@ -154,218 +154,218 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      *
      * > **Note:** `singlePlacementGroup` must be set to `false` when `capacityReservationGroupId` is specified.
      */
-    public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly capacityReservationGroupId: pulumi.Output<string | undefined>;
     /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      */
-    public readonly computerNamePrefix!: pulumi.Output<string>;
+    declare public readonly computerNamePrefix: pulumi.Output<string>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      *
      * > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      */
-    public readonly customData!: pulumi.Output<string | undefined>;
+    declare public readonly customData: pulumi.Output<string | undefined>;
     /**
      * One or more `dataDisk` blocks as defined below.
      */
-    public readonly dataDisks!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetDataDisk[] | undefined>;
+    declare public readonly dataDisks: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetDataDisk[] | undefined>;
     /**
      * Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
      */
-    public readonly doNotRunExtensionsOnOverprovisionedMachines!: pulumi.Output<boolean | undefined>;
+    declare public readonly doNotRunExtensionsOnOverprovisionedMachines: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
      */
-    public readonly enableAutomaticUpdates!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAutomaticUpdates: pulumi.Output<boolean | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly encryptionAtHostEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
      * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
-    public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly evictionPolicy: pulumi.Output<string | undefined>;
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      *
      * > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      */
-    public readonly extensionOperationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly extensionOperationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `extension` blocks as defined below
      */
-    public readonly extensions!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetExtension[]>;
+    declare public readonly extensions: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetExtension[]>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
-    public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
+    declare public readonly extensionsTimeBudget: pulumi.Output<string | undefined>;
     /**
      * One or more `galleryApplication` blocks as defined below.
      */
-    public readonly galleryApplications!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetGalleryApplication[] | undefined>;
+    declare public readonly galleryApplications: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetGalleryApplication[] | undefined>;
     /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
-    public readonly healthProbeId!: pulumi.Output<string | undefined>;
+    declare public readonly healthProbeId: pulumi.Output<string | undefined>;
     /**
      * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
      */
-    public readonly hostGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly hostGroupId: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetIdentity | undefined>;
     /**
      * The number of Virtual Machines in the Scale Set.
      *
      * > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      */
-    public readonly instances!: pulumi.Output<number>;
+    declare public readonly instances: pulumi.Output<number>;
     /**
      * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      *
      * > **Note:** This can only be configured when `priority` is set to `Spot`.
      */
-    public readonly maxBidPrice!: pulumi.Output<number | undefined>;
+    declare public readonly maxBidPrice: pulumi.Output<number | undefined>;
     /**
      * The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetNetworkInterface[]>;
+    declare public readonly networkInterfaces: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetNetworkInterface[]>;
     /**
      * An `osDisk` block as defined below.
      */
-    public readonly osDisk!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetOsDisk>;
+    declare public readonly osDisk: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetOsDisk>;
     /**
      * Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
      */
-    public readonly overprovision!: pulumi.Output<boolean | undefined>;
+    declare public readonly overprovision: pulumi.Output<boolean | undefined>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** When using an image from Azure Marketplace a `plan` must be specified.
      */
-    public readonly plan!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetPlan | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetPlan | undefined>;
     /**
      * Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
      */
-    public readonly platformFaultDomainCount!: pulumi.Output<number>;
+    declare public readonly platformFaultDomainCount: pulumi.Output<number>;
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      *
      * > **Note:** When `priority` is set to `Spot` an `evictionPolicy` must be specified.
      */
-    public readonly priority!: pulumi.Output<string | undefined>;
+    declare public readonly priority: pulumi.Output<string | undefined>;
     /**
      * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      */
-    public readonly provisionVmAgent!: pulumi.Output<boolean | undefined>;
+    declare public readonly provisionVmAgent: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
      */
-    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly proximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
      */
-    public readonly rollingUpgradePolicy!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
+    declare public readonly rollingUpgradePolicy: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
      * A `scaleIn` block as defined below.
      */
-    public readonly scaleIn!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetScaleIn | undefined>;
+    declare public readonly scaleIn: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetScaleIn | undefined>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    public readonly secrets!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetSecret[] | undefined>;
+    declare public readonly secrets: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetSecret[] | undefined>;
     /**
      * Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly secureBootEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly secureBootEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
      */
-    public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
+    declare public readonly singlePlacementGroup: pulumi.Output<boolean | undefined>;
     /**
      * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      *
      * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    public readonly sourceImageId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceImageId: pulumi.Output<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below.
      *
      * > **Note:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    public readonly sourceImageReference!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetSourceImageReference | undefined>;
+    declare public readonly sourceImageReference: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetSourceImageReference | undefined>;
     /**
      * A `spotRestore` block as defined below.
      */
-    public readonly spotRestore!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetSpotRestore>;
+    declare public readonly spotRestore: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetSpotRestore>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `terminationNotification` block as defined below.
      */
-    public readonly terminationNotification!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetTerminationNotification>;
+    declare public readonly terminationNotification: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetTerminationNotification>;
     /**
      * Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
     /**
      * The Unique ID for this Windows Virtual Machine Scale Set.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
-    public readonly upgradeMode!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
+    declare public readonly upgradeMode: pulumi.Output<string | undefined>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
     /**
      * Specifies if vTPM (Virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly vtpmEnabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly winrmListeners!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetWinrmListener[] | undefined>;
+    declare public readonly winrmListeners: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetWinrmListener[] | undefined>;
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      *
      * > **Note:** This can only be set to `true` when one or more `zones` are configured.
      */
-    public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneBalance: pulumi.Output<boolean | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located.
      *
      * > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a WindowsVirtualMachineScaleSet resource with the given unique name, arguments, and options.
@@ -380,140 +380,140 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WindowsVirtualMachineScaleSetState | undefined;
-            resourceInputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
-            resourceInputs["additionalUnattendContents"] = state ? state.additionalUnattendContents : undefined;
-            resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
-            resourceInputs["adminUsername"] = state ? state.adminUsername : undefined;
-            resourceInputs["automaticInstanceRepair"] = state ? state.automaticInstanceRepair : undefined;
-            resourceInputs["automaticOsUpgradePolicy"] = state ? state.automaticOsUpgradePolicy : undefined;
-            resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
-            resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
-            resourceInputs["computerNamePrefix"] = state ? state.computerNamePrefix : undefined;
-            resourceInputs["customData"] = state ? state.customData : undefined;
-            resourceInputs["dataDisks"] = state ? state.dataDisks : undefined;
-            resourceInputs["doNotRunExtensionsOnOverprovisionedMachines"] = state ? state.doNotRunExtensionsOnOverprovisionedMachines : undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["enableAutomaticUpdates"] = state ? state.enableAutomaticUpdates : undefined;
-            resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
-            resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
-            resourceInputs["extensionOperationsEnabled"] = state ? state.extensionOperationsEnabled : undefined;
-            resourceInputs["extensions"] = state ? state.extensions : undefined;
-            resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
-            resourceInputs["galleryApplications"] = state ? state.galleryApplications : undefined;
-            resourceInputs["healthProbeId"] = state ? state.healthProbeId : undefined;
-            resourceInputs["hostGroupId"] = state ? state.hostGroupId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["instances"] = state ? state.instances : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maxBidPrice"] = state ? state.maxBidPrice : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            resourceInputs["osDisk"] = state ? state.osDisk : undefined;
-            resourceInputs["overprovision"] = state ? state.overprovision : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["provisionVmAgent"] = state ? state.provisionVmAgent : undefined;
-            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
-            resourceInputs["scaleIn"] = state ? state.scaleIn : undefined;
-            resourceInputs["secrets"] = state ? state.secrets : undefined;
-            resourceInputs["secureBootEnabled"] = state ? state.secureBootEnabled : undefined;
-            resourceInputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
-            resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
-            resourceInputs["spotRestore"] = state ? state.spotRestore : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
-            resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
-            resourceInputs["upgradeMode"] = state ? state.upgradeMode : undefined;
-            resourceInputs["userData"] = state ? state.userData : undefined;
-            resourceInputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
-            resourceInputs["winrmListeners"] = state ? state.winrmListeners : undefined;
-            resourceInputs["zoneBalance"] = state ? state.zoneBalance : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["additionalCapabilities"] = state?.additionalCapabilities;
+            resourceInputs["additionalUnattendContents"] = state?.additionalUnattendContents;
+            resourceInputs["adminPassword"] = state?.adminPassword;
+            resourceInputs["adminUsername"] = state?.adminUsername;
+            resourceInputs["automaticInstanceRepair"] = state?.automaticInstanceRepair;
+            resourceInputs["automaticOsUpgradePolicy"] = state?.automaticOsUpgradePolicy;
+            resourceInputs["bootDiagnostics"] = state?.bootDiagnostics;
+            resourceInputs["capacityReservationGroupId"] = state?.capacityReservationGroupId;
+            resourceInputs["computerNamePrefix"] = state?.computerNamePrefix;
+            resourceInputs["customData"] = state?.customData;
+            resourceInputs["dataDisks"] = state?.dataDisks;
+            resourceInputs["doNotRunExtensionsOnOverprovisionedMachines"] = state?.doNotRunExtensionsOnOverprovisionedMachines;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["enableAutomaticUpdates"] = state?.enableAutomaticUpdates;
+            resourceInputs["encryptionAtHostEnabled"] = state?.encryptionAtHostEnabled;
+            resourceInputs["evictionPolicy"] = state?.evictionPolicy;
+            resourceInputs["extensionOperationsEnabled"] = state?.extensionOperationsEnabled;
+            resourceInputs["extensions"] = state?.extensions;
+            resourceInputs["extensionsTimeBudget"] = state?.extensionsTimeBudget;
+            resourceInputs["galleryApplications"] = state?.galleryApplications;
+            resourceInputs["healthProbeId"] = state?.healthProbeId;
+            resourceInputs["hostGroupId"] = state?.hostGroupId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["instances"] = state?.instances;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maxBidPrice"] = state?.maxBidPrice;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkInterfaces"] = state?.networkInterfaces;
+            resourceInputs["osDisk"] = state?.osDisk;
+            resourceInputs["overprovision"] = state?.overprovision;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["platformFaultDomainCount"] = state?.platformFaultDomainCount;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["provisionVmAgent"] = state?.provisionVmAgent;
+            resourceInputs["proximityPlacementGroupId"] = state?.proximityPlacementGroupId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rollingUpgradePolicy"] = state?.rollingUpgradePolicy;
+            resourceInputs["scaleIn"] = state?.scaleIn;
+            resourceInputs["secrets"] = state?.secrets;
+            resourceInputs["secureBootEnabled"] = state?.secureBootEnabled;
+            resourceInputs["singlePlacementGroup"] = state?.singlePlacementGroup;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["sourceImageId"] = state?.sourceImageId;
+            resourceInputs["sourceImageReference"] = state?.sourceImageReference;
+            resourceInputs["spotRestore"] = state?.spotRestore;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["terminationNotification"] = state?.terminationNotification;
+            resourceInputs["timezone"] = state?.timezone;
+            resourceInputs["uniqueId"] = state?.uniqueId;
+            resourceInputs["upgradeMode"] = state?.upgradeMode;
+            resourceInputs["userData"] = state?.userData;
+            resourceInputs["vtpmEnabled"] = state?.vtpmEnabled;
+            resourceInputs["winrmListeners"] = state?.winrmListeners;
+            resourceInputs["zoneBalance"] = state?.zoneBalance;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as WindowsVirtualMachineScaleSetArgs | undefined;
-            if ((!args || args.adminPassword === undefined) && !opts.urn) {
+            if (args?.adminPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminPassword'");
             }
-            if ((!args || args.adminUsername === undefined) && !opts.urn) {
+            if (args?.adminUsername === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUsername'");
             }
-            if ((!args || args.instances === undefined) && !opts.urn) {
+            if (args?.instances === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instances'");
             }
-            if ((!args || args.networkInterfaces === undefined) && !opts.urn) {
+            if (args?.networkInterfaces === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaces'");
             }
-            if ((!args || args.osDisk === undefined) && !opts.urn) {
+            if (args?.osDisk === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osDisk'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            resourceInputs["additionalUnattendContents"] = args ? args.additionalUnattendContents : undefined;
+            resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
+            resourceInputs["additionalUnattendContents"] = args?.additionalUnattendContents;
             resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
-            resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
-            resourceInputs["automaticInstanceRepair"] = args ? args.automaticInstanceRepair : undefined;
-            resourceInputs["automaticOsUpgradePolicy"] = args ? args.automaticOsUpgradePolicy : undefined;
-            resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
-            resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
-            resourceInputs["computerNamePrefix"] = args ? args.computerNamePrefix : undefined;
+            resourceInputs["adminUsername"] = args?.adminUsername;
+            resourceInputs["automaticInstanceRepair"] = args?.automaticInstanceRepair;
+            resourceInputs["automaticOsUpgradePolicy"] = args?.automaticOsUpgradePolicy;
+            resourceInputs["bootDiagnostics"] = args?.bootDiagnostics;
+            resourceInputs["capacityReservationGroupId"] = args?.capacityReservationGroupId;
+            resourceInputs["computerNamePrefix"] = args?.computerNamePrefix;
             resourceInputs["customData"] = args?.customData ? pulumi.secret(args.customData) : undefined;
-            resourceInputs["dataDisks"] = args ? args.dataDisks : undefined;
-            resourceInputs["doNotRunExtensionsOnOverprovisionedMachines"] = args ? args.doNotRunExtensionsOnOverprovisionedMachines : undefined;
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["enableAutomaticUpdates"] = args ? args.enableAutomaticUpdates : undefined;
-            resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            resourceInputs["extensionOperationsEnabled"] = args ? args.extensionOperationsEnabled : undefined;
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
-            resourceInputs["galleryApplications"] = args ? args.galleryApplications : undefined;
-            resourceInputs["healthProbeId"] = args ? args.healthProbeId : undefined;
-            resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxBidPrice"] = args ? args.maxBidPrice : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            resourceInputs["osDisk"] = args ? args.osDisk : undefined;
-            resourceInputs["overprovision"] = args ? args.overprovision : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["provisionVmAgent"] = args ? args.provisionVmAgent : undefined;
-            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
-            resourceInputs["scaleIn"] = args ? args.scaleIn : undefined;
-            resourceInputs["secrets"] = args ? args.secrets : undefined;
-            resourceInputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
-            resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
-            resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
-            resourceInputs["spotRestore"] = args ? args.spotRestore : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
-            resourceInputs["upgradeMode"] = args ? args.upgradeMode : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
-            resourceInputs["winrmListeners"] = args ? args.winrmListeners : undefined;
-            resourceInputs["zoneBalance"] = args ? args.zoneBalance : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["dataDisks"] = args?.dataDisks;
+            resourceInputs["doNotRunExtensionsOnOverprovisionedMachines"] = args?.doNotRunExtensionsOnOverprovisionedMachines;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["enableAutomaticUpdates"] = args?.enableAutomaticUpdates;
+            resourceInputs["encryptionAtHostEnabled"] = args?.encryptionAtHostEnabled;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
+            resourceInputs["extensionOperationsEnabled"] = args?.extensionOperationsEnabled;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["extensionsTimeBudget"] = args?.extensionsTimeBudget;
+            resourceInputs["galleryApplications"] = args?.galleryApplications;
+            resourceInputs["healthProbeId"] = args?.healthProbeId;
+            resourceInputs["hostGroupId"] = args?.hostGroupId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["instances"] = args?.instances;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxBidPrice"] = args?.maxBidPrice;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["osDisk"] = args?.osDisk;
+            resourceInputs["overprovision"] = args?.overprovision;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["platformFaultDomainCount"] = args?.platformFaultDomainCount;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["provisionVmAgent"] = args?.provisionVmAgent;
+            resourceInputs["proximityPlacementGroupId"] = args?.proximityPlacementGroupId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rollingUpgradePolicy"] = args?.rollingUpgradePolicy;
+            resourceInputs["scaleIn"] = args?.scaleIn;
+            resourceInputs["secrets"] = args?.secrets;
+            resourceInputs["secureBootEnabled"] = args?.secureBootEnabled;
+            resourceInputs["singlePlacementGroup"] = args?.singlePlacementGroup;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["sourceImageId"] = args?.sourceImageId;
+            resourceInputs["sourceImageReference"] = args?.sourceImageReference;
+            resourceInputs["spotRestore"] = args?.spotRestore;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminationNotification"] = args?.terminationNotification;
+            resourceInputs["timezone"] = args?.timezone;
+            resourceInputs["upgradeMode"] = args?.upgradeMode;
+            resourceInputs["userData"] = args?.userData;
+            resourceInputs["vtpmEnabled"] = args?.vtpmEnabled;
+            resourceInputs["winrmListeners"] = args?.winrmListeners;
+            resourceInputs["zoneBalance"] = args?.zoneBalance;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -81,27 +81,27 @@ export class ChannelFacebook extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * The Facebook Application ID for the Facebook Channel.
      */
-    public readonly facebookApplicationId!: pulumi.Output<string>;
+    declare public readonly facebookApplicationId: pulumi.Output<string>;
     /**
      * The Facebook Application Secret for the Facebook Channel.
      */
-    public readonly facebookApplicationSecret!: pulumi.Output<string>;
+    declare public readonly facebookApplicationSecret: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * One or more `page` blocks as defined below.
      */
-    public readonly pages!: pulumi.Output<outputs.bot.ChannelFacebookPage[]>;
+    declare public readonly pages: pulumi.Output<outputs.bot.ChannelFacebookPage[]>;
     /**
      * The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ChannelFacebook resource with the given unique name, arguments, and options.
@@ -116,35 +116,35 @@ export class ChannelFacebook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelFacebookState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["facebookApplicationId"] = state ? state.facebookApplicationId : undefined;
-            resourceInputs["facebookApplicationSecret"] = state ? state.facebookApplicationSecret : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["pages"] = state ? state.pages : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["facebookApplicationId"] = state?.facebookApplicationId;
+            resourceInputs["facebookApplicationSecret"] = state?.facebookApplicationSecret;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["pages"] = state?.pages;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ChannelFacebookArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.facebookApplicationId === undefined) && !opts.urn) {
+            if (args?.facebookApplicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'facebookApplicationId'");
             }
-            if ((!args || args.facebookApplicationSecret === undefined) && !opts.urn) {
+            if (args?.facebookApplicationSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'facebookApplicationSecret'");
             }
-            if ((!args || args.pages === undefined) && !opts.urn) {
+            if (args?.pages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pages'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["facebookApplicationId"] = args ? args.facebookApplicationId : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["facebookApplicationId"] = args?.facebookApplicationId;
             resourceInputs["facebookApplicationSecret"] = args?.facebookApplicationSecret ? pulumi.secret(args.facebookApplicationSecret) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["pages"] = args ? args.pages : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["pages"] = args?.pages;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["facebookApplicationSecret"] };

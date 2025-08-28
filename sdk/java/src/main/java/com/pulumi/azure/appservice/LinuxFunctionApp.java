@@ -117,16 +117,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appservice/linuxFunctionApp:LinuxFunctionApp")
 public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
     /**
-     * A map of key-value pairs for [App
-     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
     @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> appSettings;
 
     /**
-     * @return A map of key-value pairs for [App
-     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
     public Output<Optional<Map<String,String>>> appSettings() {

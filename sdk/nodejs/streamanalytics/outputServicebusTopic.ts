@@ -48,49 +48,49 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
     /**
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
-    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationMode: pulumi.Output<string | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of property columns to add to the Service Bus Topic output.
      */
-    public readonly propertyColumns!: pulumi.Output<string[] | undefined>;
+    declare public readonly propertyColumns: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `serialization` block as defined below.
      */
-    public readonly serialization!: pulumi.Output<outputs.streamanalytics.OutputServicebusTopicSerialization>;
+    declare public readonly serialization: pulumi.Output<outputs.streamanalytics.OutputServicebusTopicSerialization>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc.
      */
-    public readonly servicebusNamespace!: pulumi.Output<string>;
+    declare public readonly servicebusNamespace: pulumi.Output<string>;
     /**
      * The shared access policy key for the specified shared access policy. Required if `authenticationMode` is `ConnectionString`.
      */
-    public readonly sharedAccessPolicyKey!: pulumi.Output<string | undefined>;
+    declare public readonly sharedAccessPolicyKey: pulumi.Output<string | undefined>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authenticationMode` is `ConnectionString`.
      */
-    public readonly sharedAccessPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly sharedAccessPolicyName: pulumi.Output<string | undefined>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobName: pulumi.Output<string>;
     /**
      * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
      *
      * > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      */
-    public readonly systemPropertyColumns!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly systemPropertyColumns: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the Service Bus Topic.
      */
-    public readonly topicName!: pulumi.Output<string>;
+    declare public readonly topicName: pulumi.Output<string>;
 
     /**
      * Create a OutputServicebusTopic resource with the given unique name, arguments, and options.
@@ -105,45 +105,45 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputServicebusTopicState | undefined;
-            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["propertyColumns"] = state ? state.propertyColumns : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serialization"] = state ? state.serialization : undefined;
-            resourceInputs["servicebusNamespace"] = state ? state.servicebusNamespace : undefined;
-            resourceInputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
-            resourceInputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            resourceInputs["systemPropertyColumns"] = state ? state.systemPropertyColumns : undefined;
-            resourceInputs["topicName"] = state ? state.topicName : undefined;
+            resourceInputs["authenticationMode"] = state?.authenticationMode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["propertyColumns"] = state?.propertyColumns;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serialization"] = state?.serialization;
+            resourceInputs["servicebusNamespace"] = state?.servicebusNamespace;
+            resourceInputs["sharedAccessPolicyKey"] = state?.sharedAccessPolicyKey;
+            resourceInputs["sharedAccessPolicyName"] = state?.sharedAccessPolicyName;
+            resourceInputs["streamAnalyticsJobName"] = state?.streamAnalyticsJobName;
+            resourceInputs["systemPropertyColumns"] = state?.systemPropertyColumns;
+            resourceInputs["topicName"] = state?.topicName;
         } else {
             const args = argsOrState as OutputServicebusTopicArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialization === undefined) && !opts.urn) {
+            if (args?.serialization === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if ((!args || args.servicebusNamespace === undefined) && !opts.urn) {
+            if (args?.servicebusNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servicebusNamespace'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if ((!args || args.topicName === undefined) && !opts.urn) {
+            if (args?.topicName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["propertyColumns"] = args ? args.propertyColumns : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialization"] = args ? args.serialization : undefined;
-            resourceInputs["servicebusNamespace"] = args ? args.servicebusNamespace : undefined;
+            resourceInputs["authenticationMode"] = args?.authenticationMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["propertyColumns"] = args?.propertyColumns;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialization"] = args?.serialization;
+            resourceInputs["servicebusNamespace"] = args?.servicebusNamespace;
             resourceInputs["sharedAccessPolicyKey"] = args?.sharedAccessPolicyKey ? pulumi.secret(args.sharedAccessPolicyKey) : undefined;
-            resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            resourceInputs["systemPropertyColumns"] = args ? args.systemPropertyColumns : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["sharedAccessPolicyName"] = args?.sharedAccessPolicyName;
+            resourceInputs["streamAnalyticsJobName"] = args?.streamAnalyticsJobName;
+            resourceInputs["systemPropertyColumns"] = args?.systemPropertyColumns;
+            resourceInputs["topicName"] = args?.topicName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sharedAccessPolicyKey"] };

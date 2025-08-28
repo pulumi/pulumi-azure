@@ -94,77 +94,77 @@ export class App extends pulumi.CustomResource {
     /**
      * The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
      */
-    public readonly containerAppEnvironmentId!: pulumi.Output<string>;
+    declare public readonly containerAppEnvironmentId: pulumi.Output<string>;
     /**
      * The ID of the Custom Domain Verification for this Container App.
      */
-    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customDomainVerificationId: pulumi.Output<string>;
     /**
      * A `dapr` block as detailed below.
      */
-    public readonly dapr!: pulumi.Output<outputs.containerapp.AppDapr | undefined>;
+    declare public readonly dapr: pulumi.Output<outputs.containerapp.AppDapr | undefined>;
     /**
      * An `identity` block as detailed below.
      */
-    public readonly identity!: pulumi.Output<outputs.containerapp.AppIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerapp.AppIdentity | undefined>;
     /**
      * An `ingress` block as detailed below.
      */
-    public readonly ingress!: pulumi.Output<outputs.containerapp.AppIngress | undefined>;
+    declare public readonly ingress: pulumi.Output<outputs.containerapp.AppIngress | undefined>;
     /**
      * The FQDN of the Latest Revision of the Container App.
      */
-    public /*out*/ readonly latestRevisionFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly latestRevisionFqdn: pulumi.Output<string>;
     /**
      * The name of the latest Container Revision.
      */
-    public /*out*/ readonly latestRevisionName!: pulumi.Output<string>;
+    declare public /*out*/ readonly latestRevisionName: pulumi.Output<string>;
     /**
      * The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The maximum of inactive revisions allowed for this Container App.
      */
-    public readonly maxInactiveRevisions!: pulumi.Output<number | undefined>;
+    declare public readonly maxInactiveRevisions: pulumi.Output<number | undefined>;
     /**
      * The name for this Container App. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of the Public IP Addresses which the Container App uses for outbound network access.
      */
-    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string[]>;
     /**
      * A `registry` block as detailed below.
      */
-    public readonly registries!: pulumi.Output<outputs.containerapp.AppRegistry[] | undefined>;
+    declare public readonly registries: pulumi.Output<outputs.containerapp.AppRegistry[] | undefined>;
     /**
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `trafficWeight` block in the `ingress` configuration.
      */
-    public readonly revisionMode!: pulumi.Output<string>;
+    declare public readonly revisionMode: pulumi.Output<string>;
     /**
      * One or more `secret` block as detailed below.
      */
-    public readonly secrets!: pulumi.Output<outputs.containerapp.AppSecret[] | undefined>;
+    declare public readonly secrets: pulumi.Output<outputs.containerapp.AppSecret[] | undefined>;
     /**
      * A mapping of tags to assign to the Container App.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `template` block as detailed below.
      */
-    public readonly template!: pulumi.Output<outputs.containerapp.AppTemplate>;
+    declare public readonly template: pulumi.Output<outputs.containerapp.AppTemplate>;
     /**
      * The name of the Workload Profile in the Container App Environment to place this Container App.
      *
      * > **Note:** Omit this value to use the default `Consumption` Workload Profile.
      */
-    public readonly workloadProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly workloadProfileName: pulumi.Output<string | undefined>;
 
     /**
      * Create a App resource with the given unique name, arguments, and options.
@@ -179,51 +179,51 @@ export class App extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppState | undefined;
-            resourceInputs["containerAppEnvironmentId"] = state ? state.containerAppEnvironmentId : undefined;
-            resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
-            resourceInputs["dapr"] = state ? state.dapr : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["ingress"] = state ? state.ingress : undefined;
-            resourceInputs["latestRevisionFqdn"] = state ? state.latestRevisionFqdn : undefined;
-            resourceInputs["latestRevisionName"] = state ? state.latestRevisionName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maxInactiveRevisions"] = state ? state.maxInactiveRevisions : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
-            resourceInputs["registries"] = state ? state.registries : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["revisionMode"] = state ? state.revisionMode : undefined;
-            resourceInputs["secrets"] = state ? state.secrets : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["template"] = state ? state.template : undefined;
-            resourceInputs["workloadProfileName"] = state ? state.workloadProfileName : undefined;
+            resourceInputs["containerAppEnvironmentId"] = state?.containerAppEnvironmentId;
+            resourceInputs["customDomainVerificationId"] = state?.customDomainVerificationId;
+            resourceInputs["dapr"] = state?.dapr;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["ingress"] = state?.ingress;
+            resourceInputs["latestRevisionFqdn"] = state?.latestRevisionFqdn;
+            resourceInputs["latestRevisionName"] = state?.latestRevisionName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maxInactiveRevisions"] = state?.maxInactiveRevisions;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundIpAddresses"] = state?.outboundIpAddresses;
+            resourceInputs["registries"] = state?.registries;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["revisionMode"] = state?.revisionMode;
+            resourceInputs["secrets"] = state?.secrets;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["template"] = state?.template;
+            resourceInputs["workloadProfileName"] = state?.workloadProfileName;
         } else {
             const args = argsOrState as AppArgs | undefined;
-            if ((!args || args.containerAppEnvironmentId === undefined) && !opts.urn) {
+            if (args?.containerAppEnvironmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppEnvironmentId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.revisionMode === undefined) && !opts.urn) {
+            if (args?.revisionMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'revisionMode'");
             }
-            if ((!args || args.template === undefined) && !opts.urn) {
+            if (args?.template === undefined && !opts.urn) {
                 throw new Error("Missing required property 'template'");
             }
-            resourceInputs["containerAppEnvironmentId"] = args ? args.containerAppEnvironmentId : undefined;
-            resourceInputs["dapr"] = args ? args.dapr : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["ingress"] = args ? args.ingress : undefined;
-            resourceInputs["maxInactiveRevisions"] = args ? args.maxInactiveRevisions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["registries"] = args ? args.registries : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revisionMode"] = args ? args.revisionMode : undefined;
+            resourceInputs["containerAppEnvironmentId"] = args?.containerAppEnvironmentId;
+            resourceInputs["dapr"] = args?.dapr;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["ingress"] = args?.ingress;
+            resourceInputs["maxInactiveRevisions"] = args?.maxInactiveRevisions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["registries"] = args?.registries;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["revisionMode"] = args?.revisionMode;
             resourceInputs["secrets"] = args?.secrets ? pulumi.secret(args.secrets) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
-            resourceInputs["workloadProfileName"] = args ? args.workloadProfileName : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["template"] = args?.template;
+            resourceInputs["workloadProfileName"] = args?.workloadProfileName;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["latestRevisionFqdn"] = undefined /*out*/;
             resourceInputs["latestRevisionName"] = undefined /*out*/;

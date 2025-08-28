@@ -115,39 +115,39 @@ export class MoverJobDefinition extends pulumi.CustomResource {
     /**
      * Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
      */
-    public readonly agentName!: pulumi.Output<string | undefined>;
+    declare public readonly agentName: pulumi.Output<string | undefined>;
     /**
      * Specifies the strategy to use for copy. Possible values are `Additive` and `Mirror`.
      */
-    public readonly copyMode!: pulumi.Output<string>;
+    declare public readonly copyMode: pulumi.Output<string>;
     /**
      * Specifies a description for this Storage Mover Job Definition.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Job Definition. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly sourceName!: pulumi.Output<string>;
+    declare public readonly sourceName: pulumi.Output<string>;
     /**
      * Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly sourceSubPath!: pulumi.Output<string | undefined>;
+    declare public readonly sourceSubPath: pulumi.Output<string | undefined>;
     /**
      * Specifies the ID of the Storage Mover Project. Changing this forces a new resource to be created.
      */
-    public readonly storageMoverProjectId!: pulumi.Output<string>;
+    declare public readonly storageMoverProjectId: pulumi.Output<string>;
     /**
      * Specifies the name of the Storage Mover target Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly targetName!: pulumi.Output<string>;
+    declare public readonly targetName: pulumi.Output<string>;
     /**
      * Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly targetSubPath!: pulumi.Output<string | undefined>;
+    declare public readonly targetSubPath: pulumi.Output<string | undefined>;
 
     /**
      * Create a MoverJobDefinition resource with the given unique name, arguments, and options.
@@ -162,38 +162,38 @@ export class MoverJobDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MoverJobDefinitionState | undefined;
-            resourceInputs["agentName"] = state ? state.agentName : undefined;
-            resourceInputs["copyMode"] = state ? state.copyMode : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sourceName"] = state ? state.sourceName : undefined;
-            resourceInputs["sourceSubPath"] = state ? state.sourceSubPath : undefined;
-            resourceInputs["storageMoverProjectId"] = state ? state.storageMoverProjectId : undefined;
-            resourceInputs["targetName"] = state ? state.targetName : undefined;
-            resourceInputs["targetSubPath"] = state ? state.targetSubPath : undefined;
+            resourceInputs["agentName"] = state?.agentName;
+            resourceInputs["copyMode"] = state?.copyMode;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sourceName"] = state?.sourceName;
+            resourceInputs["sourceSubPath"] = state?.sourceSubPath;
+            resourceInputs["storageMoverProjectId"] = state?.storageMoverProjectId;
+            resourceInputs["targetName"] = state?.targetName;
+            resourceInputs["targetSubPath"] = state?.targetSubPath;
         } else {
             const args = argsOrState as MoverJobDefinitionArgs | undefined;
-            if ((!args || args.copyMode === undefined) && !opts.urn) {
+            if (args?.copyMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'copyMode'");
             }
-            if ((!args || args.sourceName === undefined) && !opts.urn) {
+            if (args?.sourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceName'");
             }
-            if ((!args || args.storageMoverProjectId === undefined) && !opts.urn) {
+            if (args?.storageMoverProjectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageMoverProjectId'");
             }
-            if ((!args || args.targetName === undefined) && !opts.urn) {
+            if (args?.targetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
-            resourceInputs["agentName"] = args ? args.agentName : undefined;
-            resourceInputs["copyMode"] = args ? args.copyMode : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sourceName"] = args ? args.sourceName : undefined;
-            resourceInputs["sourceSubPath"] = args ? args.sourceSubPath : undefined;
-            resourceInputs["storageMoverProjectId"] = args ? args.storageMoverProjectId : undefined;
-            resourceInputs["targetName"] = args ? args.targetName : undefined;
-            resourceInputs["targetSubPath"] = args ? args.targetSubPath : undefined;
+            resourceInputs["agentName"] = args?.agentName;
+            resourceInputs["copyMode"] = args?.copyMode;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sourceName"] = args?.sourceName;
+            resourceInputs["sourceSubPath"] = args?.sourceSubPath;
+            resourceInputs["storageMoverProjectId"] = args?.storageMoverProjectId;
+            resourceInputs["targetName"] = args?.targetName;
+            resourceInputs["targetSubPath"] = args?.targetSubPath;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MoverJobDefinition.__pulumiType, name, resourceInputs, opts);

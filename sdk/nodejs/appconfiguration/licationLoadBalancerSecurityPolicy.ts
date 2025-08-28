@@ -91,23 +91,23 @@ export class LicationLoadBalancerSecurityPolicy extends pulumi.CustomResource {
     /**
      * The ID of the Application Load Balancer. Changing this forces a new Application Gateway for Containers Security Policy to be created.
      */
-    public readonly applicationLoadBalancerId!: pulumi.Output<string>;
+    declare public readonly applicationLoadBalancerId: pulumi.Output<string>;
     /**
      * The Azure Region where the Application Load Balancer Security Policy should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Application Load Balancer Security Policy. Changing this forces a new Application Load Balancer Security Policy to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Application Load Balancer Security Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Web Application Firewall Policy. Changing this forces a new Application Load Balancer Security Policy to be created.
      */
-    public readonly webApplicationFirewallPolicyId!: pulumi.Output<string>;
+    declare public readonly webApplicationFirewallPolicyId: pulumi.Output<string>;
 
     /**
      * Create a LicationLoadBalancerSecurityPolicy resource with the given unique name, arguments, and options.
@@ -122,24 +122,24 @@ export class LicationLoadBalancerSecurityPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LicationLoadBalancerSecurityPolicyState | undefined;
-            resourceInputs["applicationLoadBalancerId"] = state ? state.applicationLoadBalancerId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["webApplicationFirewallPolicyId"] = state ? state.webApplicationFirewallPolicyId : undefined;
+            resourceInputs["applicationLoadBalancerId"] = state?.applicationLoadBalancerId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["webApplicationFirewallPolicyId"] = state?.webApplicationFirewallPolicyId;
         } else {
             const args = argsOrState as LicationLoadBalancerSecurityPolicyArgs | undefined;
-            if ((!args || args.applicationLoadBalancerId === undefined) && !opts.urn) {
+            if (args?.applicationLoadBalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationLoadBalancerId'");
             }
-            if ((!args || args.webApplicationFirewallPolicyId === undefined) && !opts.urn) {
+            if (args?.webApplicationFirewallPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webApplicationFirewallPolicyId'");
             }
-            resourceInputs["applicationLoadBalancerId"] = args ? args.applicationLoadBalancerId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["webApplicationFirewallPolicyId"] = args ? args.webApplicationFirewallPolicyId : undefined;
+            resourceInputs["applicationLoadBalancerId"] = args?.applicationLoadBalancerId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["webApplicationFirewallPolicyId"] = args?.webApplicationFirewallPolicyId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LicationLoadBalancerSecurityPolicy.__pulumiType, name, resourceInputs, opts);

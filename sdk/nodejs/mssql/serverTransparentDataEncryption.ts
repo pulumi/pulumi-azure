@@ -174,11 +174,11 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
     /**
      * When enabled, the server will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the server will be automatically rotated to the latest key version within 60 minutes.
      */
-    public readonly autoRotationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoRotationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
     /**
      * To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
      *
@@ -186,11 +186,11 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
      *
      * > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
-    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
 
     /**
      * Create a ServerTransparentDataEncryption resource with the given unique name, arguments, and options.
@@ -205,19 +205,19 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerTransparentDataEncryptionState | undefined;
-            resourceInputs["autoRotationEnabled"] = state ? state.autoRotationEnabled : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["autoRotationEnabled"] = state?.autoRotationEnabled;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
+            resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as ServerTransparentDataEncryptionArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["autoRotationEnabled"] = args ? args.autoRotationEnabled : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["autoRotationEnabled"] = args?.autoRotationEnabled;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
+            resourceInputs["serverId"] = args?.serverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServerTransparentDataEncryption.__pulumiType, name, resourceInputs, opts);

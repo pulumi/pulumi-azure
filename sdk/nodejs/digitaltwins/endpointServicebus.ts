@@ -93,23 +93,23 @@ export class EndpointServicebus extends pulumi.CustomResource {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    public readonly deadLetterStorageSecret!: pulumi.Output<string | undefined>;
+    declare public readonly deadLetterStorageSecret: pulumi.Output<string | undefined>;
     /**
      * The ID of the Digital Twins Instance. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
      */
-    public readonly digitalTwinsId!: pulumi.Output<string>;
+    declare public readonly digitalTwinsId: pulumi.Output<string>;
     /**
      * The name which should be used for this Digital Twins Service Bus Endpoint. Changing this forces a new Digital Twins Service Bus Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The primary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission. .
      */
-    public readonly servicebusPrimaryConnectionString!: pulumi.Output<string>;
+    declare public readonly servicebusPrimaryConnectionString: pulumi.Output<string>;
     /**
      * The secondary connection string of the Service Bus Topic Authorization Rule with a minimum of `send` permission.
      */
-    public readonly servicebusSecondaryConnectionString!: pulumi.Output<string>;
+    declare public readonly servicebusSecondaryConnectionString: pulumi.Output<string>;
 
     /**
      * Create a EndpointServicebus resource with the given unique name, arguments, and options.
@@ -124,25 +124,25 @@ export class EndpointServicebus extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointServicebusState | undefined;
-            resourceInputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
-            resourceInputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["servicebusPrimaryConnectionString"] = state ? state.servicebusPrimaryConnectionString : undefined;
-            resourceInputs["servicebusSecondaryConnectionString"] = state ? state.servicebusSecondaryConnectionString : undefined;
+            resourceInputs["deadLetterStorageSecret"] = state?.deadLetterStorageSecret;
+            resourceInputs["digitalTwinsId"] = state?.digitalTwinsId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["servicebusPrimaryConnectionString"] = state?.servicebusPrimaryConnectionString;
+            resourceInputs["servicebusSecondaryConnectionString"] = state?.servicebusSecondaryConnectionString;
         } else {
             const args = argsOrState as EndpointServicebusArgs | undefined;
-            if ((!args || args.digitalTwinsId === undefined) && !opts.urn) {
+            if (args?.digitalTwinsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'digitalTwinsId'");
             }
-            if ((!args || args.servicebusPrimaryConnectionString === undefined) && !opts.urn) {
+            if (args?.servicebusPrimaryConnectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servicebusPrimaryConnectionString'");
             }
-            if ((!args || args.servicebusSecondaryConnectionString === undefined) && !opts.urn) {
+            if (args?.servicebusSecondaryConnectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servicebusSecondaryConnectionString'");
             }
             resourceInputs["deadLetterStorageSecret"] = args?.deadLetterStorageSecret ? pulumi.secret(args.deadLetterStorageSecret) : undefined;
-            resourceInputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["digitalTwinsId"] = args?.digitalTwinsId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["servicebusPrimaryConnectionString"] = args?.servicebusPrimaryConnectionString ? pulumi.secret(args.servicebusPrimaryConnectionString) : undefined;
             resourceInputs["servicebusSecondaryConnectionString"] = args?.servicebusSecondaryConnectionString ? pulumi.secret(args.servicebusSecondaryConnectionString) : undefined;
         }

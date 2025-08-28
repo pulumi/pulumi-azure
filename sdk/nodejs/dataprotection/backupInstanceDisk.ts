@@ -107,31 +107,31 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
     /**
      * The ID of the Backup Policy.
      */
-    public readonly backupPolicyId!: pulumi.Output<string>;
+    declare public readonly backupPolicyId: pulumi.Output<string>;
     /**
      * The ID of the source Disk. Changing this forces a new Backup Instance Disk to be created.
      */
-    public readonly diskId!: pulumi.Output<string>;
+    declare public readonly diskId: pulumi.Output<string>;
     /**
      * The Azure Region where the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
      */
-    public readonly snapshotResourceGroupName!: pulumi.Output<string>;
+    declare public readonly snapshotResourceGroupName: pulumi.Output<string>;
     /**
      * The subscription ID of the Resource Group where snapshots are stored. The default value is the subscription ID of the Backup Vault. Changing this forces a new Backup Instance Disk to be created.
      */
-    public readonly snapshotSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
      */
-    public readonly vaultId!: pulumi.Output<string>;
+    declare public readonly vaultId: pulumi.Output<string>;
 
     /**
      * Create a BackupInstanceDisk resource with the given unique name, arguments, and options.
@@ -146,34 +146,34 @@ export class BackupInstanceDisk extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupInstanceDiskState | undefined;
-            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            resourceInputs["diskId"] = state ? state.diskId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["snapshotResourceGroupName"] = state ? state.snapshotResourceGroupName : undefined;
-            resourceInputs["snapshotSubscriptionId"] = state ? state.snapshotSubscriptionId : undefined;
-            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = state?.backupPolicyId;
+            resourceInputs["diskId"] = state?.diskId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["snapshotResourceGroupName"] = state?.snapshotResourceGroupName;
+            resourceInputs["snapshotSubscriptionId"] = state?.snapshotSubscriptionId;
+            resourceInputs["vaultId"] = state?.vaultId;
         } else {
             const args = argsOrState as BackupInstanceDiskArgs | undefined;
-            if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
+            if (args?.backupPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyId'");
             }
-            if ((!args || args.diskId === undefined) && !opts.urn) {
+            if (args?.diskId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'diskId'");
             }
-            if ((!args || args.snapshotResourceGroupName === undefined) && !opts.urn) {
+            if (args?.snapshotResourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snapshotResourceGroupName'");
             }
-            if ((!args || args.vaultId === undefined) && !opts.urn) {
+            if (args?.vaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            resourceInputs["diskId"] = args ? args.diskId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["snapshotResourceGroupName"] = args ? args.snapshotResourceGroupName : undefined;
-            resourceInputs["snapshotSubscriptionId"] = args ? args.snapshotSubscriptionId : undefined;
-            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = args?.backupPolicyId;
+            resourceInputs["diskId"] = args?.diskId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["snapshotResourceGroupName"] = args?.snapshotResourceGroupName;
+            resourceInputs["snapshotSubscriptionId"] = args?.snapshotSubscriptionId;
+            resourceInputs["vaultId"] = args?.vaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstanceDisk.__pulumiType, name, resourceInputs, opts);

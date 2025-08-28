@@ -80,31 +80,31 @@ export class Database extends pulumi.CustomResource {
     /**
      * Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      */
-    public readonly hotCachePeriod!: pulumi.Output<string | undefined>;
+    declare public readonly hotCachePeriod: pulumi.Output<string | undefined>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Kusto Database to create. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The size of the database in bytes.
      */
-    public /*out*/ readonly size!: pulumi.Output<number>;
+    declare public /*out*/ readonly size: pulumi.Output<number>;
     /**
      * The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
      */
-    public readonly softDeletePeriod!: pulumi.Output<string | undefined>;
+    declare public readonly softDeletePeriod: pulumi.Output<string | undefined>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -119,27 +119,27 @@ export class Database extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["hotCachePeriod"] = state ? state.hotCachePeriod : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["size"] = state ? state.size : undefined;
-            resourceInputs["softDeletePeriod"] = state ? state.softDeletePeriod : undefined;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["hotCachePeriod"] = state?.hotCachePeriod;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["size"] = state?.size;
+            resourceInputs["softDeletePeriod"] = state?.softDeletePeriod;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["softDeletePeriod"] = args ? args.softDeletePeriod : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["hotCachePeriod"] = args?.hotCachePeriod;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["softDeletePeriod"] = args?.softDeletePeriod;
             resourceInputs["size"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

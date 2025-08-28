@@ -46,41 +46,41 @@ export class ManagedInstanceSecurityAlertPolicy extends pulumi.CustomResource {
     /**
      * Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
      */
-    public readonly disabledAlerts!: pulumi.Output<string[] | undefined>;
+    declare public readonly disabledAlerts: pulumi.Output<string[] | undefined>;
     /**
      * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
      */
-    public readonly emailAccountAdminsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly emailAccountAdminsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */
-    public readonly emailAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly emailAddresses: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    public readonly managedInstanceName!: pulumi.Output<string>;
+    declare public readonly managedInstanceName: pulumi.Output<string>;
     /**
      * The name of the resource group that contains the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
      */
-    public readonly retentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionDays: pulumi.Output<number | undefined>;
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storageEndpoint` to specify a storage account blob endpoint.
      *
      * > **Note:** Please note that storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storageEndpoint` for now.
      */
-    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountAccessKey: pulumi.Output<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
      */
-    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly storageEndpoint: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedInstanceSecurityAlertPolicy resource with the given unique name, arguments, and options.
@@ -95,32 +95,32 @@ export class ManagedInstanceSecurityAlertPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedInstanceSecurityAlertPolicyState | undefined;
-            resourceInputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
-            resourceInputs["emailAccountAdminsEnabled"] = state ? state.emailAccountAdminsEnabled : undefined;
-            resourceInputs["emailAddresses"] = state ? state.emailAddresses : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["managedInstanceName"] = state ? state.managedInstanceName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
-            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
+            resourceInputs["disabledAlerts"] = state?.disabledAlerts;
+            resourceInputs["emailAccountAdminsEnabled"] = state?.emailAccountAdminsEnabled;
+            resourceInputs["emailAddresses"] = state?.emailAddresses;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["managedInstanceName"] = state?.managedInstanceName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionDays"] = state?.retentionDays;
+            resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
+            resourceInputs["storageEndpoint"] = state?.storageEndpoint;
         } else {
             const args = argsOrState as ManagedInstanceSecurityAlertPolicyArgs | undefined;
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            resourceInputs["emailAccountAdminsEnabled"] = args ? args.emailAccountAdminsEnabled : undefined;
-            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["disabledAlerts"] = args?.disabledAlerts;
+            resourceInputs["emailAccountAdminsEnabled"] = args?.emailAccountAdminsEnabled;
+            resourceInputs["emailAddresses"] = args?.emailAddresses;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDays"] = args?.retentionDays;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };

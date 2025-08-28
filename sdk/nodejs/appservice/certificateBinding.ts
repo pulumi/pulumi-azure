@@ -110,27 +110,27 @@ export class CertificateBinding extends pulumi.CustomResource {
     /**
      * The name of the App Service to which the certificate was bound.
      */
-    public /*out*/ readonly appServiceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly appServiceName: pulumi.Output<string>;
     /**
      * The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created.
      */
-    public readonly certificateId!: pulumi.Output<string>;
+    declare public readonly certificateId: pulumi.Output<string>;
     /**
      * The hostname of the bound certificate.
      */
-    public /*out*/ readonly hostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostname: pulumi.Output<string>;
     /**
      * The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
      */
-    public readonly hostnameBindingId!: pulumi.Output<string>;
+    declare public readonly hostnameBindingId: pulumi.Output<string>;
     /**
      * The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
      */
-    public readonly sslState!: pulumi.Output<string>;
+    declare public readonly sslState: pulumi.Output<string>;
     /**
      * The certificate thumbprint.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
 
     /**
      * Create a CertificateBinding resource with the given unique name, arguments, and options.
@@ -145,26 +145,26 @@ export class CertificateBinding extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateBindingState | undefined;
-            resourceInputs["appServiceName"] = state ? state.appServiceName : undefined;
-            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["hostnameBindingId"] = state ? state.hostnameBindingId : undefined;
-            resourceInputs["sslState"] = state ? state.sslState : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["appServiceName"] = state?.appServiceName;
+            resourceInputs["certificateId"] = state?.certificateId;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["hostnameBindingId"] = state?.hostnameBindingId;
+            resourceInputs["sslState"] = state?.sslState;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as CertificateBindingArgs | undefined;
-            if ((!args || args.certificateId === undefined) && !opts.urn) {
+            if (args?.certificateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateId'");
             }
-            if ((!args || args.hostnameBindingId === undefined) && !opts.urn) {
+            if (args?.hostnameBindingId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostnameBindingId'");
             }
-            if ((!args || args.sslState === undefined) && !opts.urn) {
+            if (args?.sslState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sslState'");
             }
-            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
-            resourceInputs["hostnameBindingId"] = args ? args.hostnameBindingId : undefined;
-            resourceInputs["sslState"] = args ? args.sslState : undefined;
+            resourceInputs["certificateId"] = args?.certificateId;
+            resourceInputs["hostnameBindingId"] = args?.hostnameBindingId;
+            resourceInputs["sslState"] = args?.sslState;
             resourceInputs["appServiceName"] = undefined /*out*/;
             resourceInputs["hostname"] = undefined /*out*/;
             resourceInputs["thumbprint"] = undefined /*out*/;

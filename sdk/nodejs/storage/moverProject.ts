@@ -75,15 +75,15 @@ export class MoverProject extends pulumi.CustomResource {
     /**
      * Specifies a description for this Storage Mover Project.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Project. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the storage mover for this Storage Mover Project. Changing this forces a new resource to be created.
      */
-    public readonly storageMoverId!: pulumi.Output<string>;
+    declare public readonly storageMoverId: pulumi.Output<string>;
 
     /**
      * Create a MoverProject resource with the given unique name, arguments, and options.
@@ -98,17 +98,17 @@ export class MoverProject extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MoverProjectState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageMoverId"] = state ? state.storageMoverId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageMoverId"] = state?.storageMoverId;
         } else {
             const args = argsOrState as MoverProjectArgs | undefined;
-            if ((!args || args.storageMoverId === undefined) && !opts.urn) {
+            if (args?.storageMoverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageMoverId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageMoverId"] = args ? args.storageMoverId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageMoverId"] = args?.storageMoverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MoverProject.__pulumiType, name, resourceInputs, opts);

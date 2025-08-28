@@ -83,63 +83,63 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
     /**
      * Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
-    public readonly adminObjectIds!: pulumi.Output<string[]>;
+    declare public readonly adminObjectIds: pulumi.Output<string[]>;
     /**
      * The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys.
      */
-    public /*out*/ readonly hsmUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly hsmUri: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkAcls` block as defined below.
      */
-    public readonly networkAcls!: pulumi.Output<outputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
+    declare public readonly networkAcls: pulumi.Output<outputs.keyvault.ManagedHardwareSecurityModuleNetworkAcls>;
     /**
      * Whether traffic from public networks is permitted. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
      */
-    public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly purgeProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain.
      */
-    public /*out*/ readonly securityDomainEncryptedData!: pulumi.Output<string>;
+    declare public /*out*/ readonly securityDomainEncryptedData: pulumi.Output<string>;
     /**
      * A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
      */
-    public readonly securityDomainKeyVaultCertificateIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly securityDomainKeyVaultCertificateIds: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `securityDomainKeyVaultCertificateIds` is specified. Valid values are between 2 and 10.
      */
-    public readonly securityDomainQuorum!: pulumi.Output<number | undefined>;
+    declare public readonly securityDomainQuorum: pulumi.Output<number | undefined>;
     /**
      * The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created.
      */
-    public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly softDeleteRetentionDays: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a ManagedHardwareSecurityModule resource with the given unique name, arguments, and options.
@@ -154,48 +154,48 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedHardwareSecurityModuleState | undefined;
-            resourceInputs["adminObjectIds"] = state ? state.adminObjectIds : undefined;
-            resourceInputs["hsmUri"] = state ? state.hsmUri : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkAcls"] = state ? state.networkAcls : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["securityDomainEncryptedData"] = state ? state.securityDomainEncryptedData : undefined;
-            resourceInputs["securityDomainKeyVaultCertificateIds"] = state ? state.securityDomainKeyVaultCertificateIds : undefined;
-            resourceInputs["securityDomainQuorum"] = state ? state.securityDomainQuorum : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["adminObjectIds"] = state?.adminObjectIds;
+            resourceInputs["hsmUri"] = state?.hsmUri;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkAcls"] = state?.networkAcls;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["purgeProtectionEnabled"] = state?.purgeProtectionEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["securityDomainEncryptedData"] = state?.securityDomainEncryptedData;
+            resourceInputs["securityDomainKeyVaultCertificateIds"] = state?.securityDomainKeyVaultCertificateIds;
+            resourceInputs["securityDomainQuorum"] = state?.securityDomainQuorum;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["softDeleteRetentionDays"] = state?.softDeleteRetentionDays;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as ManagedHardwareSecurityModuleArgs | undefined;
-            if ((!args || args.adminObjectIds === undefined) && !opts.urn) {
+            if (args?.adminObjectIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminObjectIds'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["adminObjectIds"] = args ? args.adminObjectIds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityDomainKeyVaultCertificateIds"] = args ? args.securityDomainKeyVaultCertificateIds : undefined;
-            resourceInputs["securityDomainQuorum"] = args ? args.securityDomainQuorum : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["adminObjectIds"] = args?.adminObjectIds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["purgeProtectionEnabled"] = args?.purgeProtectionEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityDomainKeyVaultCertificateIds"] = args?.securityDomainKeyVaultCertificateIds;
+            resourceInputs["securityDomainQuorum"] = args?.securityDomainQuorum;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["softDeleteRetentionDays"] = args?.softDeleteRetentionDays;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["hsmUri"] = undefined /*out*/;
             resourceInputs["securityDomainEncryptedData"] = undefined /*out*/;
         }

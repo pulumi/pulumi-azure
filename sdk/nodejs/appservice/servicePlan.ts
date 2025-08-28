@@ -74,43 +74,43 @@ export class ServicePlan extends pulumi.CustomResource {
      *
      * > **Note:** Requires an Isolated SKU for `azure.appservice.EnvironmentV3`, supported values include `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`, `I4v2`, `I4mv2`, `I5v2`, `I5mv2`, and `I6v2`.
      */
-    public readonly appServiceEnvironmentId!: pulumi.Output<string | undefined>;
+    declare public readonly appServiceEnvironmentId: pulumi.Output<string | undefined>;
     /**
      * A string representing the Kind of Service Plan.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * The Azure Region where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The maximum number of workers to use in an Elastic SKU Plan or Premium Plan that have `premiumPlanAutoScaleEnabled` set to `true`. Cannot be set unless using an Elastic or Premium SKU.
      */
-    public readonly maximumElasticWorkerCount!: pulumi.Output<number>;
+    declare public readonly maximumElasticWorkerCount: pulumi.Output<number>;
     /**
      * The name which should be used for this Service Plan. Changing this forces a new Service Plan to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`. Changing this forces a new resource to be created.
      */
-    public readonly osType!: pulumi.Output<string>;
+    declare public readonly osType: pulumi.Output<string>;
     /**
      * Should Per Site Scaling be enabled. Defaults to `false`.
      */
-    public readonly perSiteScalingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly perSiteScalingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should automatic scaling be enabled for the Premium SKU Plan. Defaults to `false`. Cannot be set unless using a Premium SKU.
      */
-    public readonly premiumPlanAutoScaleEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly premiumPlanAutoScaleEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether this is a reserved Service Plan Type. `true` if `osType` is `Linux`, otherwise `false`.
      */
-    public /*out*/ readonly reserved!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly reserved: pulumi.Output<boolean>;
     /**
      * The name of the Resource Group where the Service Plan should exist. Changing this forces a new Service Plan to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I1mv2`, `I2v2`, `I2mv2`, `I3v2`, `I3mv2`, `I4v2`, `I4mv2`, `I5v2`, `I5mv2`, `I6v2`, `P1v2`, `P2v2`, `P3v2`, `P0v3`, `P1v3`, `P2v3`, `P3v3`, `P1mv3`, `P2mv3`, `P3mv3`, `P4mv3`, `P5mv3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `FC1`, `WS1`, `WS2`, `WS3`, and `Y1`.
      *
@@ -118,15 +118,15 @@ export class ServicePlan extends pulumi.CustomResource {
      *
      * > **Note:** Elastic and Consumption SKUs (`Y1`, `FC1`, `EP1`, `EP2`, and `EP3`) are for use with Function Apps.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the AppService.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The number of Workers (instances) to be allocated.
      */
-    public readonly workerCount!: pulumi.Output<number>;
+    declare public readonly workerCount: pulumi.Output<number>;
     /**
      * Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created.
      *
@@ -134,7 +134,7 @@ export class ServicePlan extends pulumi.CustomResource {
      *
      * > **Note:** `zoneBalancingEnabled` can only be set to `true` on Consumption, Premium, Isolated, or Workflow SKUs. It can be disabled. To enable it, the `workerCount` must be greater than `1`, and the Service Plan must support more than one availability zone. In all other cases, changing this forces a new resource to be created. For more information, please see the [Availability Zone Support](https://learn.microsoft.com/en-us/azure/reliability/reliability-app-service?tabs=azurecli&pivots=free-shared-basic#availability-zone-support).
      */
-    public readonly zoneBalancingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneBalancingEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ServicePlan resource with the given unique name, arguments, and options.
@@ -149,43 +149,43 @@ export class ServicePlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServicePlanState | undefined;
-            resourceInputs["appServiceEnvironmentId"] = state ? state.appServiceEnvironmentId : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maximumElasticWorkerCount"] = state ? state.maximumElasticWorkerCount : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["osType"] = state ? state.osType : undefined;
-            resourceInputs["perSiteScalingEnabled"] = state ? state.perSiteScalingEnabled : undefined;
-            resourceInputs["premiumPlanAutoScaleEnabled"] = state ? state.premiumPlanAutoScaleEnabled : undefined;
-            resourceInputs["reserved"] = state ? state.reserved : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workerCount"] = state ? state.workerCount : undefined;
-            resourceInputs["zoneBalancingEnabled"] = state ? state.zoneBalancingEnabled : undefined;
+            resourceInputs["appServiceEnvironmentId"] = state?.appServiceEnvironmentId;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maximumElasticWorkerCount"] = state?.maximumElasticWorkerCount;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["osType"] = state?.osType;
+            resourceInputs["perSiteScalingEnabled"] = state?.perSiteScalingEnabled;
+            resourceInputs["premiumPlanAutoScaleEnabled"] = state?.premiumPlanAutoScaleEnabled;
+            resourceInputs["reserved"] = state?.reserved;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workerCount"] = state?.workerCount;
+            resourceInputs["zoneBalancingEnabled"] = state?.zoneBalancingEnabled;
         } else {
             const args = argsOrState as ServicePlanArgs | undefined;
-            if ((!args || args.osType === undefined) && !opts.urn) {
+            if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["appServiceEnvironmentId"] = args ? args.appServiceEnvironmentId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["perSiteScalingEnabled"] = args ? args.perSiteScalingEnabled : undefined;
-            resourceInputs["premiumPlanAutoScaleEnabled"] = args ? args.premiumPlanAutoScaleEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workerCount"] = args ? args.workerCount : undefined;
-            resourceInputs["zoneBalancingEnabled"] = args ? args.zoneBalancingEnabled : undefined;
+            resourceInputs["appServiceEnvironmentId"] = args?.appServiceEnvironmentId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumElasticWorkerCount"] = args?.maximumElasticWorkerCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["perSiteScalingEnabled"] = args?.perSiteScalingEnabled;
+            resourceInputs["premiumPlanAutoScaleEnabled"] = args?.premiumPlanAutoScaleEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workerCount"] = args?.workerCount;
+            resourceInputs["zoneBalancingEnabled"] = args?.zoneBalancingEnabled;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["reserved"] = undefined /*out*/;
         }

@@ -80,15 +80,15 @@ export class WebAppActiveSlot extends pulumi.CustomResource {
     /**
      * The timestamp of the last successful swap with `Production`.
      */
-    public /*out*/ readonly lastSuccessfulSwap!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSuccessfulSwap: pulumi.Output<string>;
     /**
      * The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    public readonly overwriteNetworkConfig!: pulumi.Output<boolean | undefined>;
+    declare public readonly overwriteNetworkConfig: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Slot to swap with `Production`.
      */
-    public readonly slotId!: pulumi.Output<string>;
+    declare public readonly slotId: pulumi.Output<string>;
 
     /**
      * Create a WebAppActiveSlot resource with the given unique name, arguments, and options.
@@ -103,16 +103,16 @@ export class WebAppActiveSlot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAppActiveSlotState | undefined;
-            resourceInputs["lastSuccessfulSwap"] = state ? state.lastSuccessfulSwap : undefined;
-            resourceInputs["overwriteNetworkConfig"] = state ? state.overwriteNetworkConfig : undefined;
-            resourceInputs["slotId"] = state ? state.slotId : undefined;
+            resourceInputs["lastSuccessfulSwap"] = state?.lastSuccessfulSwap;
+            resourceInputs["overwriteNetworkConfig"] = state?.overwriteNetworkConfig;
+            resourceInputs["slotId"] = state?.slotId;
         } else {
             const args = argsOrState as WebAppActiveSlotArgs | undefined;
-            if ((!args || args.slotId === undefined) && !opts.urn) {
+            if (args?.slotId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slotId'");
             }
-            resourceInputs["overwriteNetworkConfig"] = args ? args.overwriteNetworkConfig : undefined;
-            resourceInputs["slotId"] = args ? args.slotId : undefined;
+            resourceInputs["overwriteNetworkConfig"] = args?.overwriteNetworkConfig;
+            resourceInputs["slotId"] = args?.slotId;
             resourceInputs["lastSuccessfulSwap"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

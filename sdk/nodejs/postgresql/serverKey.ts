@@ -146,11 +146,11 @@ export class ServerKey extends pulumi.CustomResource {
     /**
      * The URL to a Key Vault Key.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string>;
     /**
      * The ID of the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
 
     /**
      * Create a ServerKey resource with the given unique name, arguments, and options.
@@ -165,18 +165,18 @@ export class ServerKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerKeyState | undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as ServerKeyArgs | undefined;
-            if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
+            if (args?.keyVaultKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["serverId"] = args?.serverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServerKey.__pulumiType, name, resourceInputs, opts);

@@ -120,27 +120,27 @@ export class ResolverForwardingRule extends pulumi.CustomResource {
     /**
      * Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
-    public readonly dnsForwardingRulesetId!: pulumi.Output<string>;
+    declare public readonly dnsForwardingRulesetId: pulumi.Output<string>;
     /**
      * Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Metadata attached to the Private DNS Resolver Forwarding Rule.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Can be specified multiple times to define multiple target DNS servers. Each `targetDnsServers` block as defined below.
      */
-    public readonly targetDnsServers!: pulumi.Output<outputs.privatedns.ResolverForwardingRuleTargetDnsServer[]>;
+    declare public readonly targetDnsServers: pulumi.Output<outputs.privatedns.ResolverForwardingRuleTargetDnsServer[]>;
 
     /**
      * Create a ResolverForwardingRule resource with the given unique name, arguments, and options.
@@ -155,29 +155,29 @@ export class ResolverForwardingRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverForwardingRuleState | undefined;
-            resourceInputs["dnsForwardingRulesetId"] = state ? state.dnsForwardingRulesetId : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["targetDnsServers"] = state ? state.targetDnsServers : undefined;
+            resourceInputs["dnsForwardingRulesetId"] = state?.dnsForwardingRulesetId;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["targetDnsServers"] = state?.targetDnsServers;
         } else {
             const args = argsOrState as ResolverForwardingRuleArgs | undefined;
-            if ((!args || args.dnsForwardingRulesetId === undefined) && !opts.urn) {
+            if (args?.dnsForwardingRulesetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsForwardingRulesetId'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.targetDnsServers === undefined) && !opts.urn) {
+            if (args?.targetDnsServers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetDnsServers'");
             }
-            resourceInputs["dnsForwardingRulesetId"] = args ? args.dnsForwardingRulesetId : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["targetDnsServers"] = args ? args.targetDnsServers : undefined;
+            resourceInputs["dnsForwardingRulesetId"] = args?.dnsForwardingRulesetId;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["targetDnsServers"] = args?.targetDnsServers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverForwardingRule.__pulumiType, name, resourceInputs, opts);

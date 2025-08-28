@@ -52,41 +52,41 @@ export class CacheBlobNfsTarget extends pulumi.CustomResource {
     /**
      * The name of the access policy applied to this target. Defaults to `default`.
      */
-    public readonly accessPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly accessPolicyName: pulumi.Output<string | undefined>;
     /**
      * The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to. Changing this forces a new HPC Cache Blob NFS Target to be created.
      */
-    public readonly cacheName!: pulumi.Output<string>;
+    declare public readonly cacheName: pulumi.Output<string>;
     /**
      * The name which should be used for this HPC Cache Blob NFS Target. Changing this forces a new HPC Cache Blob NFS Target to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The client-facing file path of the HPC Cache Blob NFS Target.
      */
-    public readonly namespacePath!: pulumi.Output<string>;
+    declare public readonly namespacePath: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the HPC Cache Blob NFS Target should exist. Changing this forces a new HPC Cache Blob NFS Target to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Resource Manager ID of the Storage Container used as the HPC Cache Blob NFS Target. Changing this forces a new resource to be created.
      *
      * > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resourceManagerId`.
      */
-    public readonly storageContainerId!: pulumi.Output<string>;
+    declare public readonly storageContainerId: pulumi.Output<string>;
     /**
      * The type of usage of the HPC Cache Blob NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
      */
-    public readonly usageModel!: pulumi.Output<string>;
+    declare public readonly usageModel: pulumi.Output<string>;
     /**
      * The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
      */
-    public readonly verificationTimerInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly verificationTimerInSeconds: pulumi.Output<number | undefined>;
     /**
      * The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
      */
-    public readonly writeBackTimerInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly writeBackTimerInSeconds: pulumi.Output<number | undefined>;
 
     /**
      * Create a CacheBlobNfsTarget resource with the given unique name, arguments, and options.
@@ -101,41 +101,41 @@ export class CacheBlobNfsTarget extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheBlobNfsTargetState | undefined;
-            resourceInputs["accessPolicyName"] = state ? state.accessPolicyName : undefined;
-            resourceInputs["cacheName"] = state ? state.cacheName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespacePath"] = state ? state.namespacePath : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storageContainerId"] = state ? state.storageContainerId : undefined;
-            resourceInputs["usageModel"] = state ? state.usageModel : undefined;
-            resourceInputs["verificationTimerInSeconds"] = state ? state.verificationTimerInSeconds : undefined;
-            resourceInputs["writeBackTimerInSeconds"] = state ? state.writeBackTimerInSeconds : undefined;
+            resourceInputs["accessPolicyName"] = state?.accessPolicyName;
+            resourceInputs["cacheName"] = state?.cacheName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespacePath"] = state?.namespacePath;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storageContainerId"] = state?.storageContainerId;
+            resourceInputs["usageModel"] = state?.usageModel;
+            resourceInputs["verificationTimerInSeconds"] = state?.verificationTimerInSeconds;
+            resourceInputs["writeBackTimerInSeconds"] = state?.writeBackTimerInSeconds;
         } else {
             const args = argsOrState as CacheBlobNfsTargetArgs | undefined;
-            if ((!args || args.cacheName === undefined) && !opts.urn) {
+            if (args?.cacheName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.namespacePath === undefined) && !opts.urn) {
+            if (args?.namespacePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespacePath'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageContainerId === undefined) && !opts.urn) {
+            if (args?.storageContainerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerId'");
             }
-            if ((!args || args.usageModel === undefined) && !opts.urn) {
+            if (args?.usageModel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'usageModel'");
             }
-            resourceInputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
-            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespacePath"] = args ? args.namespacePath : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageContainerId"] = args ? args.storageContainerId : undefined;
-            resourceInputs["usageModel"] = args ? args.usageModel : undefined;
-            resourceInputs["verificationTimerInSeconds"] = args ? args.verificationTimerInSeconds : undefined;
-            resourceInputs["writeBackTimerInSeconds"] = args ? args.writeBackTimerInSeconds : undefined;
+            resourceInputs["accessPolicyName"] = args?.accessPolicyName;
+            resourceInputs["cacheName"] = args?.cacheName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespacePath"] = args?.namespacePath;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageContainerId"] = args?.storageContainerId;
+            resourceInputs["usageModel"] = args?.usageModel;
+            resourceInputs["verificationTimerInSeconds"] = args?.verificationTimerInSeconds;
+            resourceInputs["writeBackTimerInSeconds"] = args?.writeBackTimerInSeconds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CacheBlobNfsTarget.__pulumiType, name, resourceInputs, opts);

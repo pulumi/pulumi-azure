@@ -69,31 +69,31 @@ export class DataConnectorOffice365 extends pulumi.CustomResource {
     /**
      * Should the Exchange data connector be enabled? Defaults to `true`.
      */
-    public readonly exchangeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly exchangeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Should the SharePoint data connector be enabled? Defaults to `true`.
      */
-    public readonly sharepointEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sharepointEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should the Microsoft Teams data connector be enabled? Defaults to `true`.
      *
      * > **Note:** At least one of `exchangeEnabled`, `sharedpointEnabled` and `teamsEnabled` has to be specified.
      */
-    public readonly teamsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly teamsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a DataConnectorOffice365 resource with the given unique name, arguments, and options.
@@ -108,23 +108,23 @@ export class DataConnectorOffice365 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorOffice365State | undefined;
-            resourceInputs["exchangeEnabled"] = state ? state.exchangeEnabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sharepointEnabled"] = state ? state.sharepointEnabled : undefined;
-            resourceInputs["teamsEnabled"] = state ? state.teamsEnabled : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["exchangeEnabled"] = state?.exchangeEnabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sharepointEnabled"] = state?.sharepointEnabled;
+            resourceInputs["teamsEnabled"] = state?.teamsEnabled;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as DataConnectorOffice365Args | undefined;
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            resourceInputs["exchangeEnabled"] = args ? args.exchangeEnabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sharepointEnabled"] = args ? args.sharepointEnabled : undefined;
-            resourceInputs["teamsEnabled"] = args ? args.teamsEnabled : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["exchangeEnabled"] = args?.exchangeEnabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sharepointEnabled"] = args?.sharepointEnabled;
+            resourceInputs["teamsEnabled"] = args?.teamsEnabled;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataConnectorOffice365.__pulumiType, name, resourceInputs, opts);

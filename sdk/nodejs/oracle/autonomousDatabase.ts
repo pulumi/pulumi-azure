@@ -48,44 +48,44 @@ export class AutonomousDatabase extends pulumi.CustomResource {
     /**
      * The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly adminPassword!: pulumi.Output<string>;
+    declare public readonly adminPassword: pulumi.Output<string>;
     /**
      * (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
      */
-    public readonly allowedIps!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedIps: pulumi.Output<string[] | undefined>;
     /**
      * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is `true`.
      */
-    public readonly autoScalingEnabled!: pulumi.Output<boolean>;
+    declare public readonly autoScalingEnabled: pulumi.Output<boolean>;
     /**
      * Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `false`.
      */
-    public readonly autoScalingForStorageEnabled!: pulumi.Output<boolean>;
+    declare public readonly autoScalingForStorageEnabled: pulumi.Output<boolean>;
     /**
      * Retention period, in days, for backups.
      */
-    public readonly backupRetentionPeriodInDays!: pulumi.Output<number>;
+    declare public readonly backupRetentionPeriodInDays: pulumi.Output<number>;
     /**
      * The character set for the autonomous database.  The default is `AL32UTF8`. Allowed values are:  `AL32UTF8`, `AR8ADOS710`, `AR8ADOS720`, `AR8APTEC715`, `AR8ARABICMACS`, `AR8ASMO8X`, `AR8ISO8859P6`, `AR8MSWIN1256`, `AR8MUSSAD768`, `AR8NAFITHA711`, `AR8NAFITHA721`, `AR8SAKHR706`, `AR8SAKHR707`, `AZ8ISO8859P9E`, `BG8MSWIN`, `BG8PC437S`, `BLT8CP921`, `BLT8ISO8859P13`, `BLT8MSWIN1257`, `BLT8PC775`, `BN8BSCII`, `CDN8PC863`, `CEL8ISO8859P14`, `CL8ISO8859P5`, `CL8ISOIR111`, `CL8KOI8R`, `CL8KOI8U`, `CL8MACCYRILLICS`, `CL8MSWIN1251`, `EE8ISO8859P2`, `EE8MACCES`, `EE8MACCROATIANS`, `EE8MSWIN1250`, `EE8PC852`, `EL8DEC`, `EL8ISO8859P7`, `EL8MACGREEKS`, `EL8MSWIN1253`, `EL8PC437S`, `EL8PC851`, `EL8PC869`, `ET8MSWIN923`, `HU8ABMOD`, `HU8CWI2`, `IN8ISCII`, `IS8PC861`, `IW8ISO8859P8`, `IW8MACHEBREWS`, `IW8MSWIN1255`, `IW8PC1507`, `JA16EUC`, `JA16EUCTILDE`, `JA16SJIS`, `JA16SJISTILDE`, `JA16VMS`, `KO16KSC5601`, `KO16KSCCS`, `KO16MSWIN949`, `LA8ISO6937`, `LA8PASSPORT`, `LT8MSWIN921`, `LT8PC772`, `LT8PC774`, `LV8PC1117`, `LV8PC8LR`, `LV8RST104090`, `N8PC865`, `NE8ISO8859P10`, `NEE8ISO8859P4`, `RU8BESTA`, `RU8PC855`, `RU8PC866`, `SE8ISO8859P3`, `TH8MACTHAIS`, `TH8TISASCII`, `TR8DEC`, `TR8MACTURKISHS`, `TR8MSWIN1254`, `TR8PC857`, `US7ASCII`, `US8PC437`, `UTF8`, `VN8MSWIN1258`, `VN8VN3`, `WE8DEC`, `WE8DG`, `WE8ISO8859P1`, `WE8ISO8859P15`, `WE8ISO8859P9`, `WE8MACROMAN8S`, `WE8MSWIN1252`, `WE8NCR4970`, `WE8NEXTSTEP`, `WE8PC850`, `WE8PC858`, `WE8PC860`, `WE8ROMAN8`, `ZHS16CGB231280`, `ZHS16GBK`, `ZHT16BIG5`, `ZHT16CCDC`, `ZHT16DBT`, `ZHT16HKSCS`, `ZHT16MSWIN950`, `ZHT32EUC`, `ZHT32SOPS`, `ZHT32TRIS`. Changing this forces a new Autonomous Database to be created
      */
-    public readonly characterSet!: pulumi.Output<string>;
+    declare public readonly characterSet: pulumi.Output<string>;
     /**
      * The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.  For an Autonomous Database Serverless instance, the `ECPU` compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Providing `computeModel` and `computeCount` is the preferred method for both OCPU and ECPU.
      */
-    public readonly computeCount!: pulumi.Output<number>;
+    declare public readonly computeCount: pulumi.Output<number>;
     /**
      * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly computeModel!: pulumi.Output<string>;
-    public readonly customerContacts!: pulumi.Output<string[]>;
+    declare public readonly computeModel: pulumi.Output<string>;
+    declare public readonly customerContacts: pulumi.Output<string[]>;
     /**
      * The maximum storage that can be allocated for the database, in terabytes.
      */
-    public readonly dataStorageSizeInTbs!: pulumi.Output<number>;
+    declare public readonly dataStorageSizeInTbs: pulumi.Output<number>;
     /**
      * A valid Oracle Database version for Autonomous Database. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly dbVersion!: pulumi.Output<string>;
+    declare public readonly dbVersion: pulumi.Output<string>;
     /**
      * The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. The following values are valid:
      * * OLTP - indicates an Autonomous Transaction Processing database
@@ -93,47 +93,47 @@ export class AutonomousDatabase extends pulumi.CustomResource {
      * * AJD - indicates an Autonomous JSON Database
      * * APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
      */
-    public readonly dbWorkload!: pulumi.Output<string>;
+    declare public readonly dbWorkload: pulumi.Output<string>;
     /**
      * The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Oracle license model that applies to the Oracle Autonomous Database. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
      */
-    public readonly licenseModel!: pulumi.Output<string>;
+    declare public readonly licenseModel: pulumi.Output<string>;
     /**
      * The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly location!: pulumi.Output<string>;
-    public readonly longTermBackupSchedule!: pulumi.Output<outputs.oracle.AutonomousDatabaseLongTermBackupSchedule | undefined>;
+    declare public readonly location: pulumi.Output<string>;
+    declare public readonly longTermBackupSchedule: pulumi.Output<outputs.oracle.AutonomousDatabaseLongTermBackupSchedule | undefined>;
     /**
      * Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
      *
      * > **Note:** `mtlsConnectionRequired`  must be set to `true` for all workload types except 'APEX' when creating a database with public access.
      */
-    public readonly mtlsConnectionRequired!: pulumi.Output<boolean>;
+    declare public readonly mtlsConnectionRequired: pulumi.Output<boolean>;
     /**
      * The name which should be used for this Autonomous Database. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The national character set for the autonomous database. Changing this forces a new Autonomous Database to be created. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
      */
-    public readonly nationalCharacterSet!: pulumi.Output<string>;
+    declare public readonly nationalCharacterSet: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the vnet associated with the cloud VM cluster. Changing this forces a new Autonomous Database to be created.
      */
-    public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkId: pulumi.Output<string | undefined>;
 
     /**
      * Create a AutonomousDatabase resource with the given unique name, arguments, and options.
@@ -148,99 +148,99 @@ export class AutonomousDatabase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutonomousDatabaseState | undefined;
-            resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
-            resourceInputs["allowedIps"] = state ? state.allowedIps : undefined;
-            resourceInputs["autoScalingEnabled"] = state ? state.autoScalingEnabled : undefined;
-            resourceInputs["autoScalingForStorageEnabled"] = state ? state.autoScalingForStorageEnabled : undefined;
-            resourceInputs["backupRetentionPeriodInDays"] = state ? state.backupRetentionPeriodInDays : undefined;
-            resourceInputs["characterSet"] = state ? state.characterSet : undefined;
-            resourceInputs["computeCount"] = state ? state.computeCount : undefined;
-            resourceInputs["computeModel"] = state ? state.computeModel : undefined;
-            resourceInputs["customerContacts"] = state ? state.customerContacts : undefined;
-            resourceInputs["dataStorageSizeInTbs"] = state ? state.dataStorageSizeInTbs : undefined;
-            resourceInputs["dbVersion"] = state ? state.dbVersion : undefined;
-            resourceInputs["dbWorkload"] = state ? state.dbWorkload : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["longTermBackupSchedule"] = state ? state.longTermBackupSchedule : undefined;
-            resourceInputs["mtlsConnectionRequired"] = state ? state.mtlsConnectionRequired : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nationalCharacterSet"] = state ? state.nationalCharacterSet : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["adminPassword"] = state?.adminPassword;
+            resourceInputs["allowedIps"] = state?.allowedIps;
+            resourceInputs["autoScalingEnabled"] = state?.autoScalingEnabled;
+            resourceInputs["autoScalingForStorageEnabled"] = state?.autoScalingForStorageEnabled;
+            resourceInputs["backupRetentionPeriodInDays"] = state?.backupRetentionPeriodInDays;
+            resourceInputs["characterSet"] = state?.characterSet;
+            resourceInputs["computeCount"] = state?.computeCount;
+            resourceInputs["computeModel"] = state?.computeModel;
+            resourceInputs["customerContacts"] = state?.customerContacts;
+            resourceInputs["dataStorageSizeInTbs"] = state?.dataStorageSizeInTbs;
+            resourceInputs["dbVersion"] = state?.dbVersion;
+            resourceInputs["dbWorkload"] = state?.dbWorkload;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["licenseModel"] = state?.licenseModel;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["longTermBackupSchedule"] = state?.longTermBackupSchedule;
+            resourceInputs["mtlsConnectionRequired"] = state?.mtlsConnectionRequired;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nationalCharacterSet"] = state?.nationalCharacterSet;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualNetworkId"] = state?.virtualNetworkId;
         } else {
             const args = argsOrState as AutonomousDatabaseArgs | undefined;
-            if ((!args || args.adminPassword === undefined) && !opts.urn) {
+            if (args?.adminPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminPassword'");
             }
-            if ((!args || args.autoScalingEnabled === undefined) && !opts.urn) {
+            if (args?.autoScalingEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingEnabled'");
             }
-            if ((!args || args.autoScalingForStorageEnabled === undefined) && !opts.urn) {
+            if (args?.autoScalingForStorageEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoScalingForStorageEnabled'");
             }
-            if ((!args || args.backupRetentionPeriodInDays === undefined) && !opts.urn) {
+            if (args?.backupRetentionPeriodInDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupRetentionPeriodInDays'");
             }
-            if ((!args || args.characterSet === undefined) && !opts.urn) {
+            if (args?.characterSet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'characterSet'");
             }
-            if ((!args || args.computeCount === undefined) && !opts.urn) {
+            if (args?.computeCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeCount'");
             }
-            if ((!args || args.computeModel === undefined) && !opts.urn) {
+            if (args?.computeModel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeModel'");
             }
-            if ((!args || args.dataStorageSizeInTbs === undefined) && !opts.urn) {
+            if (args?.dataStorageSizeInTbs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataStorageSizeInTbs'");
             }
-            if ((!args || args.dbVersion === undefined) && !opts.urn) {
+            if (args?.dbVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbVersion'");
             }
-            if ((!args || args.dbWorkload === undefined) && !opts.urn) {
+            if (args?.dbWorkload === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dbWorkload'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.licenseModel === undefined) && !opts.urn) {
+            if (args?.licenseModel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseModel'");
             }
-            if ((!args || args.mtlsConnectionRequired === undefined) && !opts.urn) {
+            if (args?.mtlsConnectionRequired === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mtlsConnectionRequired'");
             }
-            if ((!args || args.nationalCharacterSet === undefined) && !opts.urn) {
+            if (args?.nationalCharacterSet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nationalCharacterSet'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
-            resourceInputs["allowedIps"] = args ? args.allowedIps : undefined;
-            resourceInputs["autoScalingEnabled"] = args ? args.autoScalingEnabled : undefined;
-            resourceInputs["autoScalingForStorageEnabled"] = args ? args.autoScalingForStorageEnabled : undefined;
-            resourceInputs["backupRetentionPeriodInDays"] = args ? args.backupRetentionPeriodInDays : undefined;
-            resourceInputs["characterSet"] = args ? args.characterSet : undefined;
-            resourceInputs["computeCount"] = args ? args.computeCount : undefined;
-            resourceInputs["computeModel"] = args ? args.computeModel : undefined;
-            resourceInputs["customerContacts"] = args ? args.customerContacts : undefined;
-            resourceInputs["dataStorageSizeInTbs"] = args ? args.dataStorageSizeInTbs : undefined;
-            resourceInputs["dbVersion"] = args ? args.dbVersion : undefined;
-            resourceInputs["dbWorkload"] = args ? args.dbWorkload : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["licenseModel"] = args ? args.licenseModel : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["longTermBackupSchedule"] = args ? args.longTermBackupSchedule : undefined;
-            resourceInputs["mtlsConnectionRequired"] = args ? args.mtlsConnectionRequired : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nationalCharacterSet"] = args ? args.nationalCharacterSet : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["allowedIps"] = args?.allowedIps;
+            resourceInputs["autoScalingEnabled"] = args?.autoScalingEnabled;
+            resourceInputs["autoScalingForStorageEnabled"] = args?.autoScalingForStorageEnabled;
+            resourceInputs["backupRetentionPeriodInDays"] = args?.backupRetentionPeriodInDays;
+            resourceInputs["characterSet"] = args?.characterSet;
+            resourceInputs["computeCount"] = args?.computeCount;
+            resourceInputs["computeModel"] = args?.computeModel;
+            resourceInputs["customerContacts"] = args?.customerContacts;
+            resourceInputs["dataStorageSizeInTbs"] = args?.dataStorageSizeInTbs;
+            resourceInputs["dbVersion"] = args?.dbVersion;
+            resourceInputs["dbWorkload"] = args?.dbWorkload;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["licenseModel"] = args?.licenseModel;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["longTermBackupSchedule"] = args?.longTermBackupSchedule;
+            resourceInputs["mtlsConnectionRequired"] = args?.mtlsConnectionRequired;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nationalCharacterSet"] = args?.nationalCharacterSet;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminPassword"] };

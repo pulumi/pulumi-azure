@@ -71,27 +71,27 @@ export class DataConnectorMicrosoftCloudAppSecurity extends pulumi.CustomResourc
     /**
      * Should the alerts be enabled? Defaults to `true`.
      */
-    public readonly alertsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly alertsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      *
      * > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      */
-    public readonly discoveryLogsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly discoveryLogsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a DataConnectorMicrosoftCloudAppSecurity resource with the given unique name, arguments, and options.
@@ -106,21 +106,21 @@ export class DataConnectorMicrosoftCloudAppSecurity extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorMicrosoftCloudAppSecurityState | undefined;
-            resourceInputs["alertsEnabled"] = state ? state.alertsEnabled : undefined;
-            resourceInputs["discoveryLogsEnabled"] = state ? state.discoveryLogsEnabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["alertsEnabled"] = state?.alertsEnabled;
+            resourceInputs["discoveryLogsEnabled"] = state?.discoveryLogsEnabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as DataConnectorMicrosoftCloudAppSecurityArgs | undefined;
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            resourceInputs["alertsEnabled"] = args ? args.alertsEnabled : undefined;
-            resourceInputs["discoveryLogsEnabled"] = args ? args.discoveryLogsEnabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["alertsEnabled"] = args?.alertsEnabled;
+            resourceInputs["discoveryLogsEnabled"] = args?.discoveryLogsEnabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataConnectorMicrosoftCloudAppSecurity.__pulumiType, name, resourceInputs, opts);

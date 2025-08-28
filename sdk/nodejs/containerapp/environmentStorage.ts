@@ -98,32 +98,32 @@ export class EnvironmentStorage extends pulumi.CustomResource {
     /**
      * The Storage Account Access Key.
      */
-    public readonly accessKey!: pulumi.Output<string | undefined>;
+    declare public readonly accessKey: pulumi.Output<string | undefined>;
     /**
      * The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
      */
-    public readonly accessMode!: pulumi.Output<string>;
+    declare public readonly accessMode: pulumi.Output<string>;
     /**
      * The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string | undefined>;
+    declare public readonly accountName: pulumi.Output<string | undefined>;
     /**
      * The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
      */
-    public readonly containerAppEnvironmentId!: pulumi.Output<string>;
+    declare public readonly containerAppEnvironmentId: pulumi.Output<string>;
     /**
      * The name for this Container App Environment Storage. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
      * *
      */
-    public readonly nfsServerUrl!: pulumi.Output<string | undefined>;
+    declare public readonly nfsServerUrl: pulumi.Output<string | undefined>;
     /**
      * The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
      */
-    public readonly shareName!: pulumi.Output<string>;
+    declare public readonly shareName: pulumi.Output<string>;
 
     /**
      * Create a EnvironmentStorage resource with the given unique name, arguments, and options.
@@ -138,31 +138,31 @@ export class EnvironmentStorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentStorageState | undefined;
-            resourceInputs["accessKey"] = state ? state.accessKey : undefined;
-            resourceInputs["accessMode"] = state ? state.accessMode : undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["containerAppEnvironmentId"] = state ? state.containerAppEnvironmentId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nfsServerUrl"] = state ? state.nfsServerUrl : undefined;
-            resourceInputs["shareName"] = state ? state.shareName : undefined;
+            resourceInputs["accessKey"] = state?.accessKey;
+            resourceInputs["accessMode"] = state?.accessMode;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["containerAppEnvironmentId"] = state?.containerAppEnvironmentId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nfsServerUrl"] = state?.nfsServerUrl;
+            resourceInputs["shareName"] = state?.shareName;
         } else {
             const args = argsOrState as EnvironmentStorageArgs | undefined;
-            if ((!args || args.accessMode === undefined) && !opts.urn) {
+            if (args?.accessMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessMode'");
             }
-            if ((!args || args.containerAppEnvironmentId === undefined) && !opts.urn) {
+            if (args?.containerAppEnvironmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppEnvironmentId'");
             }
-            if ((!args || args.shareName === undefined) && !opts.urn) {
+            if (args?.shareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
             resourceInputs["accessKey"] = args?.accessKey ? pulumi.secret(args.accessKey) : undefined;
-            resourceInputs["accessMode"] = args ? args.accessMode : undefined;
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["containerAppEnvironmentId"] = args ? args.containerAppEnvironmentId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nfsServerUrl"] = args ? args.nfsServerUrl : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["accessMode"] = args?.accessMode;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["containerAppEnvironmentId"] = args?.containerAppEnvironmentId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nfsServerUrl"] = args?.nfsServerUrl;
+            resourceInputs["shareName"] = args?.shareName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accessKey"] };

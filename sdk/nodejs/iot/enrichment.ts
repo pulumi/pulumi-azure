@@ -111,23 +111,23 @@ export class Enrichment extends pulumi.CustomResource {
     /**
      * The list of endpoints which will be enriched.
      */
-    public readonly endpointNames!: pulumi.Output<string[]>;
+    declare public readonly endpointNames: pulumi.Output<string[]>;
     /**
      * The IoTHub name of the enrichment. Changing this forces a new resource to be created.
      */
-    public readonly iothubName!: pulumi.Output<string>;
+    declare public readonly iothubName: pulumi.Output<string>;
     /**
      * The key of the enrichment. Changing this forces a new resource to be created.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a Enrichment resource with the given unique name, arguments, and options.
@@ -142,33 +142,33 @@ export class Enrichment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnrichmentState | undefined;
-            resourceInputs["endpointNames"] = state ? state.endpointNames : undefined;
-            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["endpointNames"] = state?.endpointNames;
+            resourceInputs["iothubName"] = state?.iothubName;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as EnrichmentArgs | undefined;
-            if ((!args || args.endpointNames === undefined) && !opts.urn) {
+            if (args?.endpointNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointNames'");
             }
-            if ((!args || args.iothubName === undefined) && !opts.urn) {
+            if (args?.iothubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["endpointNames"] = args ? args.endpointNames : undefined;
-            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["endpointNames"] = args?.endpointNames;
+            resourceInputs["iothubName"] = args?.iothubName;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Enrichment.__pulumiType, name, resourceInputs, opts);

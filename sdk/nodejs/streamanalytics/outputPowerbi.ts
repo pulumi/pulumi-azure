@@ -76,35 +76,35 @@ export class OutputPowerbi extends pulumi.CustomResource {
     /**
      * The name of the Power BI dataset.
      */
-    public readonly dataset!: pulumi.Output<string>;
+    declare public readonly dataset: pulumi.Output<string>;
     /**
      * The ID of the Power BI group, this must be a valid UUID.
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobId!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobId: pulumi.Output<string>;
     /**
      * The name of the Power BI table under the specified dataset.
      */
-    public readonly table!: pulumi.Output<string>;
+    declare public readonly table: pulumi.Output<string>;
     /**
      * The user display name of the user that was used to obtain the refresh token.
      */
-    public readonly tokenUserDisplayName!: pulumi.Output<string | undefined>;
+    declare public readonly tokenUserDisplayName: pulumi.Output<string | undefined>;
     /**
      * The user principal name (UPN) of the user that was used to obtain the refresh token.
      */
-    public readonly tokenUserPrincipalName!: pulumi.Output<string | undefined>;
+    declare public readonly tokenUserPrincipalName: pulumi.Output<string | undefined>;
 
     /**
      * Create a OutputPowerbi resource with the given unique name, arguments, and options.
@@ -119,39 +119,39 @@ export class OutputPowerbi extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputPowerbiState | undefined;
-            resourceInputs["dataset"] = state ? state.dataset : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["groupName"] = state ? state.groupName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["streamAnalyticsJobId"] = state ? state.streamAnalyticsJobId : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
-            resourceInputs["tokenUserDisplayName"] = state ? state.tokenUserDisplayName : undefined;
-            resourceInputs["tokenUserPrincipalName"] = state ? state.tokenUserPrincipalName : undefined;
+            resourceInputs["dataset"] = state?.dataset;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["groupName"] = state?.groupName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["streamAnalyticsJobId"] = state?.streamAnalyticsJobId;
+            resourceInputs["table"] = state?.table;
+            resourceInputs["tokenUserDisplayName"] = state?.tokenUserDisplayName;
+            resourceInputs["tokenUserPrincipalName"] = state?.tokenUserPrincipalName;
         } else {
             const args = argsOrState as OutputPowerbiArgs | undefined;
-            if ((!args || args.dataset === undefined) && !opts.urn) {
+            if (args?.dataset === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataset'");
             }
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.streamAnalyticsJobId === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobId'");
             }
-            if ((!args || args.table === undefined) && !opts.urn) {
+            if (args?.table === undefined && !opts.urn) {
                 throw new Error("Missing required property 'table'");
             }
-            resourceInputs["dataset"] = args ? args.dataset : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["streamAnalyticsJobId"] = args ? args.streamAnalyticsJobId : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
-            resourceInputs["tokenUserDisplayName"] = args ? args.tokenUserDisplayName : undefined;
-            resourceInputs["tokenUserPrincipalName"] = args ? args.tokenUserPrincipalName : undefined;
+            resourceInputs["dataset"] = args?.dataset;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["streamAnalyticsJobId"] = args?.streamAnalyticsJobId;
+            resourceInputs["table"] = args?.table;
+            resourceInputs["tokenUserDisplayName"] = args?.tokenUserDisplayName;
+            resourceInputs["tokenUserPrincipalName"] = args?.tokenUserPrincipalName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OutputPowerbi.__pulumiType, name, resourceInputs, opts);

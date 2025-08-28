@@ -217,31 +217,31 @@ export class BackupInstanceKubernetesCluster extends pulumi.CustomResource {
     /**
      * A `backupDatasourceParameters` block as defined below.
      */
-    public readonly backupDatasourceParameters!: pulumi.Output<outputs.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParameters | undefined>;
+    declare public readonly backupDatasourceParameters: pulumi.Output<outputs.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParameters | undefined>;
     /**
      * The ID of the Backup Policy. Changing this forces a new resource to be created.
      */
-    public readonly backupPolicyId!: pulumi.Output<string>;
+    declare public readonly backupPolicyId: pulumi.Output<string>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    public readonly kubernetesClusterId!: pulumi.Output<string>;
+    declare public readonly kubernetesClusterId: pulumi.Output<string>;
     /**
      * The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where snapshots are stored. Changing this forces a new resource to be created.
      */
-    public readonly snapshotResourceGroupName!: pulumi.Output<string>;
+    declare public readonly snapshotResourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Backup Vault within which the Backup Instance Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly vaultId!: pulumi.Output<string>;
+    declare public readonly vaultId: pulumi.Output<string>;
 
     /**
      * Create a BackupInstanceKubernetesCluster resource with the given unique name, arguments, and options.
@@ -256,34 +256,34 @@ export class BackupInstanceKubernetesCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupInstanceKubernetesClusterState | undefined;
-            resourceInputs["backupDatasourceParameters"] = state ? state.backupDatasourceParameters : undefined;
-            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            resourceInputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["snapshotResourceGroupName"] = state ? state.snapshotResourceGroupName : undefined;
-            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupDatasourceParameters"] = state?.backupDatasourceParameters;
+            resourceInputs["backupPolicyId"] = state?.backupPolicyId;
+            resourceInputs["kubernetesClusterId"] = state?.kubernetesClusterId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["snapshotResourceGroupName"] = state?.snapshotResourceGroupName;
+            resourceInputs["vaultId"] = state?.vaultId;
         } else {
             const args = argsOrState as BackupInstanceKubernetesClusterArgs | undefined;
-            if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
+            if (args?.backupPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyId'");
             }
-            if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
+            if (args?.kubernetesClusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterId'");
             }
-            if ((!args || args.snapshotResourceGroupName === undefined) && !opts.urn) {
+            if (args?.snapshotResourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'snapshotResourceGroupName'");
             }
-            if ((!args || args.vaultId === undefined) && !opts.urn) {
+            if (args?.vaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            resourceInputs["backupDatasourceParameters"] = args ? args.backupDatasourceParameters : undefined;
-            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            resourceInputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["snapshotResourceGroupName"] = args ? args.snapshotResourceGroupName : undefined;
-            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupDatasourceParameters"] = args?.backupDatasourceParameters;
+            resourceInputs["backupPolicyId"] = args?.backupPolicyId;
+            resourceInputs["kubernetesClusterId"] = args?.kubernetesClusterId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["snapshotResourceGroupName"] = args?.snapshotResourceGroupName;
+            resourceInputs["vaultId"] = args?.vaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstanceKubernetesCluster.__pulumiType, name, resourceInputs, opts);

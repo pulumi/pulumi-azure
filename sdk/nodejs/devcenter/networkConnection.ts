@@ -84,43 +84,43 @@ export class NetworkConnection extends pulumi.CustomResource {
     /**
      * The Azure Active Directory Join type. Possible values are `AzureADJoin` and `HybridAzureADJoin`. Changing this forces a new resource to be created.
      */
-    public readonly domainJoinType!: pulumi.Output<string>;
+    declare public readonly domainJoinType: pulumi.Output<string>;
     /**
      * The name of the Azure Active Directory domain.
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * The password for the account used to join domain.
      */
-    public readonly domainPassword!: pulumi.Output<string | undefined>;
+    declare public readonly domainPassword: pulumi.Output<string | undefined>;
     /**
      * The username of the Azure Active Directory account (user or service account) that has permissions to create computer objects in Active Directory.
      */
-    public readonly domainUsername!: pulumi.Output<string | undefined>;
+    declare public readonly domainUsername: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Dev Center Network Connection should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Dev Center Network Connection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Azure Active Directory domain Organization Unit (OU).
      */
-    public readonly organizationUnit!: pulumi.Output<string | undefined>;
+    declare public readonly organizationUnit: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center Network Connection should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Subnet that is used to attach Virtual Machines.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Network Connection.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NetworkConnection resource with the given unique name, arguments, and options.
@@ -135,37 +135,37 @@ export class NetworkConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkConnectionState | undefined;
-            resourceInputs["domainJoinType"] = state ? state.domainJoinType : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["domainPassword"] = state ? state.domainPassword : undefined;
-            resourceInputs["domainUsername"] = state ? state.domainUsername : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["organizationUnit"] = state ? state.organizationUnit : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["domainJoinType"] = state?.domainJoinType;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["domainPassword"] = state?.domainPassword;
+            resourceInputs["domainUsername"] = state?.domainUsername;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["organizationUnit"] = state?.organizationUnit;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NetworkConnectionArgs | undefined;
-            if ((!args || args.domainJoinType === undefined) && !opts.urn) {
+            if (args?.domainJoinType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainJoinType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["domainJoinType"] = args ? args.domainJoinType : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainJoinType"] = args?.domainJoinType;
+            resourceInputs["domainName"] = args?.domainName;
             resourceInputs["domainPassword"] = args?.domainPassword ? pulumi.secret(args.domainPassword) : undefined;
-            resourceInputs["domainUsername"] = args ? args.domainUsername : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["organizationUnit"] = args ? args.organizationUnit : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainUsername"] = args?.domainUsername;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["organizationUnit"] = args?.organizationUnit;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["domainPassword"] };

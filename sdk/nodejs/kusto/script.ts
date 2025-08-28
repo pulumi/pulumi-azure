@@ -122,31 +122,31 @@ export class Script extends pulumi.CustomResource {
     /**
      * Flag that indicates whether to continue if one of the command fails.
      */
-    public readonly continueOnErrorsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly continueOnErrorsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Kusto Database. Changing this forces a new Kusto Script to be created.
      */
-    public readonly databaseId!: pulumi.Output<string>;
+    declare public readonly databaseId: pulumi.Output<string>;
     /**
      * A unique string. If changed the script will be applied again.
      */
-    public readonly forceAnUpdateWhenValueChanged!: pulumi.Output<string>;
+    declare public readonly forceAnUpdateWhenValueChanged: pulumi.Output<string>;
     /**
      * The name which should be used for this Kusto Script. Changing this forces a new Kusto Script to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The SAS token used to access the script. Must be provided when using scriptUrl property. Changing this forces a new resource to be created.
      */
-    public readonly sasToken!: pulumi.Output<string | undefined>;
+    declare public readonly sasToken: pulumi.Output<string | undefined>;
     /**
      * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with `url` and `sasToken` properties. Changing this forces a new resource to be created.
      */
-    public readonly scriptContent!: pulumi.Output<string | undefined>;
+    declare public readonly scriptContent: pulumi.Output<string | undefined>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property. Please reference [this documentation](https://docs.microsoft.com/azure/data-explorer/database-script) that describes the commands that are allowed in the script.
      */
-    public readonly url!: pulumi.Output<string | undefined>;
+    declare public readonly url: pulumi.Output<string | undefined>;
 
     /**
      * Create a Script resource with the given unique name, arguments, and options.
@@ -161,25 +161,25 @@ export class Script extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScriptState | undefined;
-            resourceInputs["continueOnErrorsEnabled"] = state ? state.continueOnErrorsEnabled : undefined;
-            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
-            resourceInputs["forceAnUpdateWhenValueChanged"] = state ? state.forceAnUpdateWhenValueChanged : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sasToken"] = state ? state.sasToken : undefined;
-            resourceInputs["scriptContent"] = state ? state.scriptContent : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["continueOnErrorsEnabled"] = state?.continueOnErrorsEnabled;
+            resourceInputs["databaseId"] = state?.databaseId;
+            resourceInputs["forceAnUpdateWhenValueChanged"] = state?.forceAnUpdateWhenValueChanged;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sasToken"] = state?.sasToken;
+            resourceInputs["scriptContent"] = state?.scriptContent;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ScriptArgs | undefined;
-            if ((!args || args.databaseId === undefined) && !opts.urn) {
+            if (args?.databaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
-            resourceInputs["continueOnErrorsEnabled"] = args ? args.continueOnErrorsEnabled : undefined;
-            resourceInputs["databaseId"] = args ? args.databaseId : undefined;
-            resourceInputs["forceAnUpdateWhenValueChanged"] = args ? args.forceAnUpdateWhenValueChanged : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["continueOnErrorsEnabled"] = args?.continueOnErrorsEnabled;
+            resourceInputs["databaseId"] = args?.databaseId;
+            resourceInputs["forceAnUpdateWhenValueChanged"] = args?.forceAnUpdateWhenValueChanged;
+            resourceInputs["name"] = args?.name;
             resourceInputs["sasToken"] = args?.sasToken ? pulumi.secret(args.sasToken) : undefined;
             resourceInputs["scriptContent"] = args?.scriptContent ? pulumi.secret(args.scriptContent) : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["url"] = args?.url;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sasToken", "scriptContent"] };

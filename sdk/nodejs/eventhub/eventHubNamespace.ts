@@ -77,85 +77,85 @@ export class EventHubNamespace extends pulumi.CustomResource {
     /**
      * Is Auto Inflate enabled for the EventHub Namespace?
      */
-    public readonly autoInflateEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoInflateEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
      */
-    public readonly capacity!: pulumi.Output<number | undefined>;
+    declare public readonly capacity: pulumi.Output<number | undefined>;
     /**
      * Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
      */
-    public readonly dedicatedClusterId!: pulumi.Output<string | undefined>;
+    declare public readonly dedicatedClusterId: pulumi.Output<string | undefined>;
     /**
      * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultPrimaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultPrimaryConnectionString: pulumi.Output<string>;
     /**
      * The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      */
-    public /*out*/ readonly defaultPrimaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultPrimaryConnectionStringAlias: pulumi.Output<string>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultPrimaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultPrimaryKey: pulumi.Output<string>;
     /**
      * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultSecondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultSecondaryConnectionString: pulumi.Output<string>;
     /**
      * The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
      */
-    public /*out*/ readonly defaultSecondaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultSecondaryConnectionStringAlias: pulumi.Output<string>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultSecondaryKey: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.eventhub.EventHubNamespaceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.eventhub.EventHubNamespaceIdentity | undefined>;
     /**
      * Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
      */
-    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
      */
-    public readonly maximumThroughputUnits!: pulumi.Output<number | undefined>;
+    declare public readonly maximumThroughputUnits: pulumi.Output<number | undefined>;
     /**
      * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkRulesets` block as defined below.
      */
-    public readonly networkRulesets!: pulumi.Output<outputs.eventhub.EventHubNamespaceNetworkRulesets>;
+    declare public readonly networkRulesets: pulumi.Output<outputs.eventhub.EventHubNamespaceNetworkRulesets>;
     /**
      * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a EventHubNamespace resource with the given unique name, arguments, and options.
@@ -170,48 +170,48 @@ export class EventHubNamespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventHubNamespaceState | undefined;
-            resourceInputs["autoInflateEnabled"] = state ? state.autoInflateEnabled : undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["dedicatedClusterId"] = state ? state.dedicatedClusterId : undefined;
-            resourceInputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
-            resourceInputs["defaultPrimaryConnectionStringAlias"] = state ? state.defaultPrimaryConnectionStringAlias : undefined;
-            resourceInputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
-            resourceInputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
-            resourceInputs["defaultSecondaryConnectionStringAlias"] = state ? state.defaultSecondaryConnectionStringAlias : undefined;
-            resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maximumThroughputUnits"] = state ? state.maximumThroughputUnits : undefined;
-            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkRulesets"] = state ? state.networkRulesets : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoInflateEnabled"] = state?.autoInflateEnabled;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["dedicatedClusterId"] = state?.dedicatedClusterId;
+            resourceInputs["defaultPrimaryConnectionString"] = state?.defaultPrimaryConnectionString;
+            resourceInputs["defaultPrimaryConnectionStringAlias"] = state?.defaultPrimaryConnectionStringAlias;
+            resourceInputs["defaultPrimaryKey"] = state?.defaultPrimaryKey;
+            resourceInputs["defaultSecondaryConnectionString"] = state?.defaultSecondaryConnectionString;
+            resourceInputs["defaultSecondaryConnectionStringAlias"] = state?.defaultSecondaryConnectionStringAlias;
+            resourceInputs["defaultSecondaryKey"] = state?.defaultSecondaryKey;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maximumThroughputUnits"] = state?.maximumThroughputUnits;
+            resourceInputs["minimumTlsVersion"] = state?.minimumTlsVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkRulesets"] = state?.networkRulesets;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as EventHubNamespaceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["autoInflateEnabled"] = args ? args.autoInflateEnabled : undefined;
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["dedicatedClusterId"] = args ? args.dedicatedClusterId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkRulesets"] = args ? args.networkRulesets : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoInflateEnabled"] = args?.autoInflateEnabled;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["dedicatedClusterId"] = args?.dedicatedClusterId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumThroughputUnits"] = args?.maximumThroughputUnits;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkRulesets"] = args?.networkRulesets;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["defaultPrimaryConnectionString"] = undefined /*out*/;
             resourceInputs["defaultPrimaryConnectionStringAlias"] = undefined /*out*/;
             resourceInputs["defaultPrimaryKey"] = undefined /*out*/;

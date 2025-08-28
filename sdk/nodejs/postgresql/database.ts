@@ -84,23 +84,23 @@ export class Database extends pulumi.CustomResource {
     /**
      * Specifies the Charset for the PostgreSQL Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new resource to be created.
      */
-    public readonly charset!: pulumi.Output<string>;
+    declare public readonly charset: pulumi.Output<string>;
     /**
      * Specifies the Collation for the PostgreSQL Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Note that Microsoft uses different [notation](https://msdn.microsoft.com/library/windows/desktop/dd373814.aspx) - en-US instead of en_US. Changing this forces a new resource to be created.
      */
-    public readonly collation!: pulumi.Output<string>;
+    declare public readonly collation: pulumi.Output<string>;
     /**
      * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    public readonly serverName!: pulumi.Output<string>;
+    declare public readonly serverName: pulumi.Output<string>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -115,30 +115,30 @@ export class Database extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseState | undefined;
-            resourceInputs["charset"] = state ? state.charset : undefined;
-            resourceInputs["collation"] = state ? state.collation : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["charset"] = state?.charset;
+            resourceInputs["collation"] = state?.collation;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serverName"] = state?.serverName;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
-            if ((!args || args.charset === undefined) && !opts.urn) {
+            if (args?.charset === undefined && !opts.urn) {
                 throw new Error("Missing required property 'charset'");
             }
-            if ((!args || args.collation === undefined) && !opts.urn) {
+            if (args?.collation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["charset"] = args ? args.charset : undefined;
-            resourceInputs["collation"] = args ? args.collation : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["charset"] = args?.charset;
+            resourceInputs["collation"] = args?.collation;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Database.__pulumiType, name, resourceInputs, opts);

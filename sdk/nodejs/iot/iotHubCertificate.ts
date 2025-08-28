@@ -83,23 +83,23 @@ export class IotHubCertificate extends pulumi.CustomResource {
     /**
      * The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
      */
-    public readonly certificateContent!: pulumi.Output<string>;
+    declare public readonly certificateContent: pulumi.Output<string>;
     /**
      * The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
      */
-    public readonly iotDpsName!: pulumi.Output<string>;
+    declare public readonly iotDpsName: pulumi.Output<string>;
     /**
      * Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly isVerified!: pulumi.Output<boolean | undefined>;
+    declare public readonly isVerified: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IotHubCertificate resource with the given unique name, arguments, and options.
@@ -114,27 +114,27 @@ export class IotHubCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IotHubCertificateState | undefined;
-            resourceInputs["certificateContent"] = state ? state.certificateContent : undefined;
-            resourceInputs["iotDpsName"] = state ? state.iotDpsName : undefined;
-            resourceInputs["isVerified"] = state ? state.isVerified : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["certificateContent"] = state?.certificateContent;
+            resourceInputs["iotDpsName"] = state?.iotDpsName;
+            resourceInputs["isVerified"] = state?.isVerified;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IotHubCertificateArgs | undefined;
-            if ((!args || args.certificateContent === undefined) && !opts.urn) {
+            if (args?.certificateContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateContent'");
             }
-            if ((!args || args.iotDpsName === undefined) && !opts.urn) {
+            if (args?.iotDpsName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iotDpsName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["certificateContent"] = args?.certificateContent ? pulumi.secret(args.certificateContent) : undefined;
-            resourceInputs["iotDpsName"] = args ? args.iotDpsName : undefined;
-            resourceInputs["isVerified"] = args ? args.isVerified : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["iotDpsName"] = args?.iotDpsName;
+            resourceInputs["isVerified"] = args?.isVerified;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["certificateContent"] };

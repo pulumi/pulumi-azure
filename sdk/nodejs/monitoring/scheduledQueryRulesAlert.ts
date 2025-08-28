@@ -50,72 +50,72 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
     /**
      * An `action` block as defined below.
      */
-    public readonly action!: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertAction>;
+    declare public readonly action: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertAction>;
     /**
      * List of Resource IDs referred into query.
      */
-    public readonly authorizedResourceIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly authorizedResourceIds: pulumi.Output<string[] | undefined>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      * > **Note:** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
      */
-    public readonly autoMitigationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoMitigationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
-    public readonly dataSourceId!: pulumi.Output<string>;
+    declare public readonly dataSourceId: pulumi.Output<string>;
     /**
      * The description of the scheduled query rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether this scheduled query rule is enabled. Default is `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
      */
-    public readonly frequency!: pulumi.Output<number>;
+    declare public readonly frequency: pulumi.Output<number>;
     /**
      * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Log search query.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
      */
-    public readonly queryType!: pulumi.Output<string | undefined>;
+    declare public readonly queryType: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Severity of the alert. Possible values include: 0, 1, 2, 3, or 4.
      */
-    public readonly severity!: pulumi.Output<number | undefined>;
+    declare public readonly severity: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
      */
-    public readonly throttling!: pulumi.Output<number | undefined>;
+    declare public readonly throttling: pulumi.Output<number | undefined>;
     /**
      * Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
      */
-    public readonly timeWindow!: pulumi.Output<number>;
+    declare public readonly timeWindow: pulumi.Output<number>;
     /**
      * A `trigger` block as defined below.
      */
-    public readonly trigger!: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertTrigger>;
+    declare public readonly trigger: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertTrigger>;
 
     /**
      * Create a ScheduledQueryRulesAlert resource with the given unique name, arguments, and options.
@@ -130,63 +130,63 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledQueryRulesAlertState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["authorizedResourceIds"] = state ? state.authorizedResourceIds : undefined;
-            resourceInputs["autoMitigationEnabled"] = state ? state.autoMitigationEnabled : undefined;
-            resourceInputs["dataSourceId"] = state ? state.dataSourceId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["queryType"] = state ? state.queryType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["severity"] = state ? state.severity : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["throttling"] = state ? state.throttling : undefined;
-            resourceInputs["timeWindow"] = state ? state.timeWindow : undefined;
-            resourceInputs["trigger"] = state ? state.trigger : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["authorizedResourceIds"] = state?.authorizedResourceIds;
+            resourceInputs["autoMitigationEnabled"] = state?.autoMitigationEnabled;
+            resourceInputs["dataSourceId"] = state?.dataSourceId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["queryType"] = state?.queryType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["severity"] = state?.severity;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["throttling"] = state?.throttling;
+            resourceInputs["timeWindow"] = state?.timeWindow;
+            resourceInputs["trigger"] = state?.trigger;
         } else {
             const args = argsOrState as ScheduledQueryRulesAlertArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.dataSourceId === undefined) && !opts.urn) {
+            if (args?.dataSourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.timeWindow === undefined) && !opts.urn) {
+            if (args?.timeWindow === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeWindow'");
             }
-            if ((!args || args.trigger === undefined) && !opts.urn) {
+            if (args?.trigger === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trigger'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["authorizedResourceIds"] = args ? args.authorizedResourceIds : undefined;
-            resourceInputs["autoMitigationEnabled"] = args ? args.autoMitigationEnabled : undefined;
-            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["queryType"] = args ? args.queryType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throttling"] = args ? args.throttling : undefined;
-            resourceInputs["timeWindow"] = args ? args.timeWindow : undefined;
-            resourceInputs["trigger"] = args ? args.trigger : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["authorizedResourceIds"] = args?.authorizedResourceIds;
+            resourceInputs["autoMitigationEnabled"] = args?.autoMitigationEnabled;
+            resourceInputs["dataSourceId"] = args?.dataSourceId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["queryType"] = args?.queryType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throttling"] = args?.throttling;
+            resourceInputs["timeWindow"] = args?.timeWindow;
+            resourceInputs["trigger"] = args?.trigger;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScheduledQueryRulesAlert.__pulumiType, name, resourceInputs, opts);

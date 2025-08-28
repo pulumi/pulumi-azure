@@ -111,23 +111,23 @@ export class ManagedInstanceActiveDirectoryAdministrator extends pulumi.CustomRe
     /**
      * When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
      */
-    public readonly azureadAuthenticationOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly azureadAuthenticationOnly: pulumi.Output<boolean | undefined>;
     /**
      * The login name of the principal to set as the Managed Instance Administrator.
      */
-    public readonly loginUsername!: pulumi.Output<string>;
+    declare public readonly loginUsername: pulumi.Output<string>;
     /**
      * The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
      */
-    public readonly managedInstanceId!: pulumi.Output<string>;
+    declare public readonly managedInstanceId: pulumi.Output<string>;
     /**
      * The Object ID of the principal to set as the Managed Instance Administrator.
      */
-    public readonly objectId!: pulumi.Output<string>;
+    declare public readonly objectId: pulumi.Output<string>;
     /**
      * The Azure Active Directory Tenant ID.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a ManagedInstanceActiveDirectoryAdministrator resource with the given unique name, arguments, and options.
@@ -142,30 +142,30 @@ export class ManagedInstanceActiveDirectoryAdministrator extends pulumi.CustomRe
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedInstanceActiveDirectoryAdministratorState | undefined;
-            resourceInputs["azureadAuthenticationOnly"] = state ? state.azureadAuthenticationOnly : undefined;
-            resourceInputs["loginUsername"] = state ? state.loginUsername : undefined;
-            resourceInputs["managedInstanceId"] = state ? state.managedInstanceId : undefined;
-            resourceInputs["objectId"] = state ? state.objectId : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["azureadAuthenticationOnly"] = state?.azureadAuthenticationOnly;
+            resourceInputs["loginUsername"] = state?.loginUsername;
+            resourceInputs["managedInstanceId"] = state?.managedInstanceId;
+            resourceInputs["objectId"] = state?.objectId;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as ManagedInstanceActiveDirectoryAdministratorArgs | undefined;
-            if ((!args || args.loginUsername === undefined) && !opts.urn) {
+            if (args?.loginUsername === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loginUsername'");
             }
-            if ((!args || args.managedInstanceId === undefined) && !opts.urn) {
+            if (args?.managedInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceId'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["azureadAuthenticationOnly"] = args ? args.azureadAuthenticationOnly : undefined;
-            resourceInputs["loginUsername"] = args ? args.loginUsername : undefined;
-            resourceInputs["managedInstanceId"] = args ? args.managedInstanceId : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureadAuthenticationOnly"] = args?.azureadAuthenticationOnly;
+            resourceInputs["loginUsername"] = args?.loginUsername;
+            resourceInputs["managedInstanceId"] = args?.managedInstanceId;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator" }] };

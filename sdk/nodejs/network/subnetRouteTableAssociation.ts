@@ -92,11 +92,11 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
     /**
      * The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly routeTableId!: pulumi.Output<string>;
+    declare public readonly routeTableId: pulumi.Output<string>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a SubnetRouteTableAssociation resource with the given unique name, arguments, and options.
@@ -111,18 +111,18 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetRouteTableAssociationState | undefined;
-            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["routeTableId"] = state?.routeTableId;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as SubnetRouteTableAssociationArgs | undefined;
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["routeTableId"] = args?.routeTableId;
+            resourceInputs["subnetId"] = args?.subnetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubnetRouteTableAssociation.__pulumiType, name, resourceInputs, opts);

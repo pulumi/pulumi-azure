@@ -79,59 +79,59 @@ export class VirtualHub extends pulumi.CustomResource {
     /**
      * The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation).
      */
-    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly addressPrefix: pulumi.Output<string | undefined>;
     /**
      * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `false`.
      */
-    public readonly branchToBranchTrafficEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly branchToBranchTrafficEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the default Route Table in the Virtual Hub.
      */
-    public /*out*/ readonly defaultRouteTableId!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultRouteTableId: pulumi.Output<string>;
     /**
      * The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`.
      */
-    public readonly hubRoutingPreference!: pulumi.Output<string | undefined>;
+    declare public readonly hubRoutingPreference: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Virtual Hub. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * One or more `route` blocks as defined below.
      */
-    public readonly routes!: pulumi.Output<outputs.network.VirtualHubRoute[] | undefined>;
+    declare public readonly routes: pulumi.Output<outputs.network.VirtualHubRoute[] | undefined>;
     /**
      * The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the Virtual Hub.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Autonomous System Number of the Virtual Hub BGP router.
      */
-    public /*out*/ readonly virtualRouterAsn!: pulumi.Output<number>;
+    declare public /*out*/ readonly virtualRouterAsn: pulumi.Output<number>;
     /**
      * Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
      */
-    public readonly virtualRouterAutoScaleMinCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly virtualRouterAutoScaleMinCapacity: pulumi.Output<number | undefined>;
     /**
      * The IP addresses of the Virtual Hub BGP router.
      */
-    public /*out*/ readonly virtualRouterIps!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly virtualRouterIps: pulumi.Output<string[]>;
     /**
      * The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
      */
-    public readonly virtualWanId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualWanId: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualHub resource with the given unique name, arguments, and options.
@@ -146,36 +146,36 @@ export class VirtualHub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubState | undefined;
-            resourceInputs["addressPrefix"] = state ? state.addressPrefix : undefined;
-            resourceInputs["branchToBranchTrafficEnabled"] = state ? state.branchToBranchTrafficEnabled : undefined;
-            resourceInputs["defaultRouteTableId"] = state ? state.defaultRouteTableId : undefined;
-            resourceInputs["hubRoutingPreference"] = state ? state.hubRoutingPreference : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routes"] = state ? state.routes : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualRouterAsn"] = state ? state.virtualRouterAsn : undefined;
-            resourceInputs["virtualRouterAutoScaleMinCapacity"] = state ? state.virtualRouterAutoScaleMinCapacity : undefined;
-            resourceInputs["virtualRouterIps"] = state ? state.virtualRouterIps : undefined;
-            resourceInputs["virtualWanId"] = state ? state.virtualWanId : undefined;
+            resourceInputs["addressPrefix"] = state?.addressPrefix;
+            resourceInputs["branchToBranchTrafficEnabled"] = state?.branchToBranchTrafficEnabled;
+            resourceInputs["defaultRouteTableId"] = state?.defaultRouteTableId;
+            resourceInputs["hubRoutingPreference"] = state?.hubRoutingPreference;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routes"] = state?.routes;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualRouterAsn"] = state?.virtualRouterAsn;
+            resourceInputs["virtualRouterAutoScaleMinCapacity"] = state?.virtualRouterAutoScaleMinCapacity;
+            resourceInputs["virtualRouterIps"] = state?.virtualRouterIps;
+            resourceInputs["virtualWanId"] = state?.virtualWanId;
         } else {
             const args = argsOrState as VirtualHubArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["branchToBranchTrafficEnabled"] = args ? args.branchToBranchTrafficEnabled : undefined;
-            resourceInputs["hubRoutingPreference"] = args ? args.hubRoutingPreference : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualRouterAutoScaleMinCapacity"] = args ? args.virtualRouterAutoScaleMinCapacity : undefined;
-            resourceInputs["virtualWanId"] = args ? args.virtualWanId : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["branchToBranchTrafficEnabled"] = args?.branchToBranchTrafficEnabled;
+            resourceInputs["hubRoutingPreference"] = args?.hubRoutingPreference;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualRouterAutoScaleMinCapacity"] = args?.virtualRouterAutoScaleMinCapacity;
+            resourceInputs["virtualWanId"] = args?.virtualWanId;
             resourceInputs["defaultRouteTableId"] = undefined /*out*/;
             resourceInputs["virtualRouterAsn"] = undefined /*out*/;
             resourceInputs["virtualRouterIps"] = undefined /*out*/;

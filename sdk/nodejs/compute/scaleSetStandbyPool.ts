@@ -89,31 +89,31 @@ export class ScaleSetStandbyPool extends pulumi.CustomResource {
     /**
      * Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
      */
-    public readonly attachedVirtualMachineScaleSetId!: pulumi.Output<string>;
+    declare public readonly attachedVirtualMachineScaleSetId: pulumi.Output<string>;
     /**
      * An `elasticityProfile` block as defined below.
      */
-    public readonly elasticityProfile!: pulumi.Output<outputs.compute.ScaleSetStandbyPoolElasticityProfile>;
+    declare public readonly elasticityProfile: pulumi.Output<outputs.compute.ScaleSetStandbyPoolElasticityProfile>;
     /**
      * Specifies the Azure Region where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Standby Pool.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the desired state of virtual machines in the pool. Possible values are `Running` and `Deallocated`.
      */
-    public readonly virtualMachineState!: pulumi.Output<string>;
+    declare public readonly virtualMachineState: pulumi.Output<string>;
 
     /**
      * Create a ScaleSetStandbyPool resource with the given unique name, arguments, and options.
@@ -128,34 +128,34 @@ export class ScaleSetStandbyPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScaleSetStandbyPoolState | undefined;
-            resourceInputs["attachedVirtualMachineScaleSetId"] = state ? state.attachedVirtualMachineScaleSetId : undefined;
-            resourceInputs["elasticityProfile"] = state ? state.elasticityProfile : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualMachineState"] = state ? state.virtualMachineState : undefined;
+            resourceInputs["attachedVirtualMachineScaleSetId"] = state?.attachedVirtualMachineScaleSetId;
+            resourceInputs["elasticityProfile"] = state?.elasticityProfile;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualMachineState"] = state?.virtualMachineState;
         } else {
             const args = argsOrState as ScaleSetStandbyPoolArgs | undefined;
-            if ((!args || args.attachedVirtualMachineScaleSetId === undefined) && !opts.urn) {
+            if (args?.attachedVirtualMachineScaleSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'attachedVirtualMachineScaleSetId'");
             }
-            if ((!args || args.elasticityProfile === undefined) && !opts.urn) {
+            if (args?.elasticityProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticityProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualMachineState === undefined) && !opts.urn) {
+            if (args?.virtualMachineState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineState'");
             }
-            resourceInputs["attachedVirtualMachineScaleSetId"] = args ? args.attachedVirtualMachineScaleSetId : undefined;
-            resourceInputs["elasticityProfile"] = args ? args.elasticityProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMachineState"] = args ? args.virtualMachineState : undefined;
+            resourceInputs["attachedVirtualMachineScaleSetId"] = args?.attachedVirtualMachineScaleSetId;
+            resourceInputs["elasticityProfile"] = args?.elasticityProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMachineState"] = args?.virtualMachineState;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScaleSetStandbyPool.__pulumiType, name, resourceInputs, opts);

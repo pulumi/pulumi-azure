@@ -50,39 +50,39 @@ export class CustomLocation extends pulumi.CustomResource {
     /**
      * An `authentication` block as defined below.
      */
-    public readonly authentication!: pulumi.Output<outputs.extendedlocation.CustomLocationAuthentication | undefined>;
+    declare public readonly authentication: pulumi.Output<outputs.extendedlocation.CustomLocationAuthentication | undefined>;
     /**
      * Specifies the list of Cluster Extension IDs.
      */
-    public readonly clusterExtensionIds!: pulumi.Output<string[]>;
+    declare public readonly clusterExtensionIds: pulumi.Output<string[]>;
     /**
      * Specifies the display name of the Custom Location.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Specifies the host resource ID.
      */
-    public readonly hostResourceId!: pulumi.Output<string>;
+    declare public readonly hostResourceId: pulumi.Output<string>;
     /**
      * Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
      */
-    public readonly hostType!: pulumi.Output<string | undefined>;
+    declare public readonly hostType: pulumi.Output<string | undefined>;
     /**
      * Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Custom Location should exist. Changing this forces a new Custom Location to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a CustomLocation resource with the given unique name, arguments, and options.
@@ -97,38 +97,38 @@ export class CustomLocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomLocationState | undefined;
-            resourceInputs["authentication"] = state ? state.authentication : undefined;
-            resourceInputs["clusterExtensionIds"] = state ? state.clusterExtensionIds : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["hostResourceId"] = state ? state.hostResourceId : undefined;
-            resourceInputs["hostType"] = state ? state.hostType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespace"] = state ? state.namespace : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["authentication"] = state?.authentication;
+            resourceInputs["clusterExtensionIds"] = state?.clusterExtensionIds;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["hostResourceId"] = state?.hostResourceId;
+            resourceInputs["hostType"] = state?.hostType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespace"] = state?.namespace;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as CustomLocationArgs | undefined;
-            if ((!args || args.clusterExtensionIds === undefined) && !opts.urn) {
+            if (args?.clusterExtensionIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterExtensionIds'");
             }
-            if ((!args || args.hostResourceId === undefined) && !opts.urn) {
+            if (args?.hostResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostResourceId'");
             }
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["clusterExtensionIds"] = args ? args.clusterExtensionIds : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hostResourceId"] = args ? args.hostResourceId : undefined;
-            resourceInputs["hostType"] = args ? args.hostType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["clusterExtensionIds"] = args?.clusterExtensionIds;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hostResourceId"] = args?.hostResourceId;
+            resourceInputs["hostType"] = args?.hostType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomLocation.__pulumiType, name, resourceInputs, opts);

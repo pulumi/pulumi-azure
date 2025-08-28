@@ -73,27 +73,27 @@ export class ChannelTeams extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * Specifies the webhook for Microsoft Teams channel calls.
      */
-    public readonly callingWebHook!: pulumi.Output<string>;
+    declare public readonly callingWebHook: pulumi.Output<string>;
     /**
      * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
      */
-    public readonly deploymentEnvironment!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentEnvironment: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      */
-    public readonly enableCalling!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableCalling: pulumi.Output<boolean | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ChannelTeams resource with the given unique name, arguments, and options.
@@ -108,26 +108,26 @@ export class ChannelTeams extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelTeamsState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["callingWebHook"] = state ? state.callingWebHook : undefined;
-            resourceInputs["deploymentEnvironment"] = state ? state.deploymentEnvironment : undefined;
-            resourceInputs["enableCalling"] = state ? state.enableCalling : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["callingWebHook"] = state?.callingWebHook;
+            resourceInputs["deploymentEnvironment"] = state?.deploymentEnvironment;
+            resourceInputs["enableCalling"] = state?.enableCalling;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ChannelTeamsArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["callingWebHook"] = args ? args.callingWebHook : undefined;
-            resourceInputs["deploymentEnvironment"] = args ? args.deploymentEnvironment : undefined;
-            resourceInputs["enableCalling"] = args ? args.enableCalling : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["callingWebHook"] = args?.callingWebHook;
+            resourceInputs["deploymentEnvironment"] = args?.deploymentEnvironment;
+            resourceInputs["enableCalling"] = args?.enableCalling;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ChannelTeams.__pulumiType, name, resourceInputs, opts);

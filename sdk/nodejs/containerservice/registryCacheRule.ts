@@ -81,23 +81,23 @@ export class RegistryCacheRule extends pulumi.CustomResource {
     /**
      * The ID of the Container Registry where the Cache Rule should apply. Changing this forces a new resource to be created.
      */
-    public readonly containerRegistryId!: pulumi.Output<string>;
+    declare public readonly containerRegistryId: pulumi.Output<string>;
     /**
      * The ARM resource ID of the Credential Store which is associated with the Cache Rule.
      */
-    public readonly credentialSetId!: pulumi.Output<string | undefined>;
+    declare public readonly credentialSetId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the source repository path. Changing this forces a new resource to be created.
      */
-    public readonly sourceRepo!: pulumi.Output<string>;
+    declare public readonly sourceRepo: pulumi.Output<string>;
     /**
      * The name of the new repository path to store artifacts. Changing this forces a new resource to be created.
      */
-    public readonly targetRepo!: pulumi.Output<string>;
+    declare public readonly targetRepo: pulumi.Output<string>;
 
     /**
      * Create a RegistryCacheRule resource with the given unique name, arguments, and options.
@@ -112,27 +112,27 @@ export class RegistryCacheRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryCacheRuleState | undefined;
-            resourceInputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
-            resourceInputs["credentialSetId"] = state ? state.credentialSetId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sourceRepo"] = state ? state.sourceRepo : undefined;
-            resourceInputs["targetRepo"] = state ? state.targetRepo : undefined;
+            resourceInputs["containerRegistryId"] = state?.containerRegistryId;
+            resourceInputs["credentialSetId"] = state?.credentialSetId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sourceRepo"] = state?.sourceRepo;
+            resourceInputs["targetRepo"] = state?.targetRepo;
         } else {
             const args = argsOrState as RegistryCacheRuleArgs | undefined;
-            if ((!args || args.containerRegistryId === undefined) && !opts.urn) {
+            if (args?.containerRegistryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryId'");
             }
-            if ((!args || args.sourceRepo === undefined) && !opts.urn) {
+            if (args?.sourceRepo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceRepo'");
             }
-            if ((!args || args.targetRepo === undefined) && !opts.urn) {
+            if (args?.targetRepo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetRepo'");
             }
-            resourceInputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
-            resourceInputs["credentialSetId"] = args ? args.credentialSetId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sourceRepo"] = args ? args.sourceRepo : undefined;
-            resourceInputs["targetRepo"] = args ? args.targetRepo : undefined;
+            resourceInputs["containerRegistryId"] = args?.containerRegistryId;
+            resourceInputs["credentialSetId"] = args?.credentialSetId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sourceRepo"] = args?.sourceRepo;
+            resourceInputs["targetRepo"] = args?.targetRepo;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RegistryCacheRule.__pulumiType, name, resourceInputs, opts);

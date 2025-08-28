@@ -75,23 +75,23 @@ export class LocalRulestackFqdnList extends pulumi.CustomResource {
     /**
      * The comment for Audit purposes.
      */
-    public readonly auditComment!: pulumi.Output<string | undefined>;
+    declare public readonly auditComment: pulumi.Output<string | undefined>;
     /**
      * The description for the FQDN List.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of Fully Qualified Domain Names.
      */
-    public readonly fullyQualifiedDomainNames!: pulumi.Output<string[]>;
+    declare public readonly fullyQualifiedDomainNames: pulumi.Output<string[]>;
     /**
      * The name which should be used for this Palo Alto Local Rulestack FQDN List.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created.
      */
-    public readonly rulestackId!: pulumi.Output<string>;
+    declare public readonly rulestackId: pulumi.Output<string>;
 
     /**
      * Create a LocalRulestackFqdnList resource with the given unique name, arguments, and options.
@@ -106,24 +106,24 @@ export class LocalRulestackFqdnList extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRulestackFqdnListState | undefined;
-            resourceInputs["auditComment"] = state ? state.auditComment : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["fullyQualifiedDomainNames"] = state ? state.fullyQualifiedDomainNames : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rulestackId"] = state ? state.rulestackId : undefined;
+            resourceInputs["auditComment"] = state?.auditComment;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["fullyQualifiedDomainNames"] = state?.fullyQualifiedDomainNames;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rulestackId"] = state?.rulestackId;
         } else {
             const args = argsOrState as LocalRulestackFqdnListArgs | undefined;
-            if ((!args || args.fullyQualifiedDomainNames === undefined) && !opts.urn) {
+            if (args?.fullyQualifiedDomainNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fullyQualifiedDomainNames'");
             }
-            if ((!args || args.rulestackId === undefined) && !opts.urn) {
+            if (args?.rulestackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulestackId'");
             }
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fullyQualifiedDomainNames"] = args ? args.fullyQualifiedDomainNames : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rulestackId"] = args ? args.rulestackId : undefined;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fullyQualifiedDomainNames"] = args?.fullyQualifiedDomainNames;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rulestackId"] = args?.rulestackId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalRulestackFqdnList.__pulumiType, name, resourceInputs, opts);

@@ -76,49 +76,49 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
      *
      * > **Note:** At least one of `registryRead`, `registryWrite`, `serviceConnect`, `deviceConnect` permissions must be set to `true`.
      */
-    public readonly deviceConnect!: pulumi.Output<boolean | undefined>;
+    declare public readonly deviceConnect: pulumi.Output<boolean | undefined>;
     /**
      * The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      */
-    public readonly iothubName!: pulumi.Output<string>;
+    declare public readonly iothubName: pulumi.Output<string>;
     /**
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The primary connection string of the Shared Access Policy.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The primary key used to create the authentication token.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
      */
-    public readonly registryRead!: pulumi.Output<boolean | undefined>;
+    declare public readonly registryRead: pulumi.Output<boolean | undefined>;
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
      *
      * > **Note:** When `registryWrite` is set to `true`, `registryRead` must also be set to true. This is a limitation of the Azure REST API
      */
-    public readonly registryWrite!: pulumi.Output<boolean | undefined>;
+    declare public readonly registryWrite: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary connection string of the Shared Access Policy.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The secondary key used to create the authentication token.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
      */
-    public readonly serviceConnect!: pulumi.Output<boolean | undefined>;
+    declare public readonly serviceConnect: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SharedAccessPolicy resource with the given unique name, arguments, and options.
@@ -133,32 +133,32 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedAccessPolicyState | undefined;
-            resourceInputs["deviceConnect"] = state ? state.deviceConnect : undefined;
-            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["registryRead"] = state ? state.registryRead : undefined;
-            resourceInputs["registryWrite"] = state ? state.registryWrite : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["serviceConnect"] = state ? state.serviceConnect : undefined;
+            resourceInputs["deviceConnect"] = state?.deviceConnect;
+            resourceInputs["iothubName"] = state?.iothubName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["registryRead"] = state?.registryRead;
+            resourceInputs["registryWrite"] = state?.registryWrite;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["serviceConnect"] = state?.serviceConnect;
         } else {
             const args = argsOrState as SharedAccessPolicyArgs | undefined;
-            if ((!args || args.iothubName === undefined) && !opts.urn) {
+            if (args?.iothubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["deviceConnect"] = args ? args.deviceConnect : undefined;
-            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["registryRead"] = args ? args.registryRead : undefined;
-            resourceInputs["registryWrite"] = args ? args.registryWrite : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceConnect"] = args ? args.serviceConnect : undefined;
+            resourceInputs["deviceConnect"] = args?.deviceConnect;
+            resourceInputs["iothubName"] = args?.iothubName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["registryRead"] = args?.registryRead;
+            resourceInputs["registryWrite"] = args?.registryWrite;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceConnect"] = args?.serviceConnect;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["secondaryConnectionString"] = undefined /*out*/;

@@ -161,16 +161,14 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
-     * having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
      * 
      */
     @Import(name="kerberosEnabled")
     private @Nullable Output<Boolean> kerberosEnabled;
 
     /**
-     * @return Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
-     * having a defined AD connection.
+     * @return Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
      * 
      */
     public Optional<Output<Boolean>> kerberosEnabled() {
@@ -762,8 +760,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
-         * having a defined AD connection.
+         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
          * 
          * @return builder
          * 
@@ -774,8 +771,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
-         * having a defined AD connection.
+         * @param kerberosEnabled Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
          * 
          * @return builder
          * 

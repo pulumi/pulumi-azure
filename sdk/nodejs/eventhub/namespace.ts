@@ -79,80 +79,80 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
      */
-    public readonly capacity!: pulumi.Output<number | undefined>;
+    declare public readonly capacity: pulumi.Output<number | undefined>;
     /**
      * An `customerManagedKey` block as defined below.
      */
-    public readonly customerManagedKey!: pulumi.Output<outputs.eventhub.NamespaceCustomerManagedKey | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<outputs.eventhub.NamespaceCustomerManagedKey | undefined>;
     /**
      * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultPrimaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultPrimaryConnectionString: pulumi.Output<string>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultPrimaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultPrimaryKey: pulumi.Output<string>;
     /**
      * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultSecondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultSecondaryConnectionString: pulumi.Output<string>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultSecondaryKey: pulumi.Output<string>;
     /**
      * The URL to access the Service Bus Namespace.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.eventhub.NamespaceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.eventhub.NamespaceIdentity | undefined>;
     /**
      * Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
      */
-    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An `networkRuleSet` block as defined below.
      */
-    public readonly networkRuleSet!: pulumi.Output<outputs.eventhub.NamespaceNetworkRuleSet>;
+    declare public readonly networkRuleSet: pulumi.Output<outputs.eventhub.NamespaceNetworkRuleSet>;
     /**
      * Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
      *
      * > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
      */
-    public readonly premiumMessagingPartitions!: pulumi.Output<number | undefined>;
+    declare public readonly premiumMessagingPartitions: pulumi.Output<number | undefined>;
     /**
      * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to Changing this forces a new resource to be created.
      * create the namespace.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -170,45 +170,45 @@ export class Namespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
-            resourceInputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
-            resourceInputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
-            resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
-            resourceInputs["premiumMessagingPartitions"] = state ? state.premiumMessagingPartitions : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["defaultPrimaryConnectionString"] = state?.defaultPrimaryConnectionString;
+            resourceInputs["defaultPrimaryKey"] = state?.defaultPrimaryKey;
+            resourceInputs["defaultSecondaryConnectionString"] = state?.defaultSecondaryConnectionString;
+            resourceInputs["defaultSecondaryKey"] = state?.defaultSecondaryKey;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["minimumTlsVersion"] = state?.minimumTlsVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkRuleSet"] = state?.networkRuleSet;
+            resourceInputs["premiumMessagingPartitions"] = state?.premiumMessagingPartitions;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
-            resourceInputs["premiumMessagingPartitions"] = args ? args.premiumMessagingPartitions : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkRuleSet"] = args?.networkRuleSet;
+            resourceInputs["premiumMessagingPartitions"] = args?.premiumMessagingPartitions;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["defaultPrimaryConnectionString"] = undefined /*out*/;
             resourceInputs["defaultPrimaryKey"] = undefined /*out*/;
             resourceInputs["defaultSecondaryConnectionString"] = undefined /*out*/;

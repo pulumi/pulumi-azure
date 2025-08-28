@@ -76,23 +76,23 @@ export class MoverAgent extends pulumi.CustomResource {
     /**
      * Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
      */
-    public readonly arcVirtualMachineId!: pulumi.Output<string>;
+    declare public readonly arcVirtualMachineId: pulumi.Output<string>;
     /**
      * Specifies the Hybrid Compute resource's unique SMBIOS ID. Changing this forces a new resource to be created.
      */
-    public readonly arcVirtualMachineUuid!: pulumi.Output<string>;
+    declare public readonly arcVirtualMachineUuid: pulumi.Output<string>;
     /**
      * Specifies a description for this Storage Mover Agent.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly storageMoverId!: pulumi.Output<string>;
+    declare public readonly storageMoverId: pulumi.Output<string>;
 
     /**
      * Create a MoverAgent resource with the given unique name, arguments, and options.
@@ -107,27 +107,27 @@ export class MoverAgent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MoverAgentState | undefined;
-            resourceInputs["arcVirtualMachineId"] = state ? state.arcVirtualMachineId : undefined;
-            resourceInputs["arcVirtualMachineUuid"] = state ? state.arcVirtualMachineUuid : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageMoverId"] = state ? state.storageMoverId : undefined;
+            resourceInputs["arcVirtualMachineId"] = state?.arcVirtualMachineId;
+            resourceInputs["arcVirtualMachineUuid"] = state?.arcVirtualMachineUuid;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageMoverId"] = state?.storageMoverId;
         } else {
             const args = argsOrState as MoverAgentArgs | undefined;
-            if ((!args || args.arcVirtualMachineId === undefined) && !opts.urn) {
+            if (args?.arcVirtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcVirtualMachineId'");
             }
-            if ((!args || args.arcVirtualMachineUuid === undefined) && !opts.urn) {
+            if (args?.arcVirtualMachineUuid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcVirtualMachineUuid'");
             }
-            if ((!args || args.storageMoverId === undefined) && !opts.urn) {
+            if (args?.storageMoverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageMoverId'");
             }
-            resourceInputs["arcVirtualMachineId"] = args ? args.arcVirtualMachineId : undefined;
-            resourceInputs["arcVirtualMachineUuid"] = args ? args.arcVirtualMachineUuid : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageMoverId"] = args ? args.storageMoverId : undefined;
+            resourceInputs["arcVirtualMachineId"] = args?.arcVirtualMachineId;
+            resourceInputs["arcVirtualMachineUuid"] = args?.arcVirtualMachineUuid;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageMoverId"] = args?.storageMoverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MoverAgent.__pulumiType, name, resourceInputs, opts);

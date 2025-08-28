@@ -110,71 +110,71 @@ export class MongoCluster extends pulumi.CustomResource {
     /**
      * The Password associated with the `administratorUsername` for the MongoDB Cluster.
      */
-    public readonly administratorPassword!: pulumi.Output<string | undefined>;
+    declare public readonly administratorPassword: pulumi.Output<string | undefined>;
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
      */
-    public readonly administratorUsername!: pulumi.Output<string | undefined>;
+    declare public readonly administratorUsername: pulumi.Output<string | undefined>;
     /**
      * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      */
-    public readonly computeTier!: pulumi.Output<string | undefined>;
+    declare public readonly computeTier: pulumi.Output<string | undefined>;
     /**
      * The list of `connectionStrings` blocks as defined below.
      */
-    public /*out*/ readonly connectionStrings!: pulumi.Output<outputs.cosmosdb.MongoClusterConnectionString[]>;
+    declare public /*out*/ readonly connectionStrings: pulumi.Output<outputs.cosmosdb.MongoClusterConnectionString[]>;
     /**
      * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
      */
-    public readonly createMode!: pulumi.Output<string | undefined>;
+    declare public readonly createMode: pulumi.Output<string | undefined>;
     /**
      * The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
      */
-    public readonly highAvailabilityMode!: pulumi.Output<string | undefined>;
+    declare public readonly highAvailabilityMode: pulumi.Output<string | undefined>;
     /**
      * The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
      */
-    public readonly previewFeatures!: pulumi.Output<string[] | undefined>;
+    declare public readonly previewFeatures: pulumi.Output<string[] | undefined>;
     /**
      * The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
      */
-    public readonly shardCount!: pulumi.Output<number | undefined>;
+    declare public readonly shardCount: pulumi.Output<number | undefined>;
     /**
      * The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
      */
-    public readonly sourceLocation!: pulumi.Output<string | undefined>;
+    declare public readonly sourceLocation: pulumi.Output<string | undefined>;
     /**
      * The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
      */
-    public readonly sourceServerId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceServerId: pulumi.Output<string | undefined>;
     /**
      * The size of the data disk space for the MongoDB Cluster.
      */
-    public readonly storageSizeInGb!: pulumi.Output<number | undefined>;
+    declare public readonly storageSizeInGb: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the MongoDB Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0`, `7.0` and `8.0`.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a MongoCluster resource with the given unique name, arguments, and options.
@@ -189,44 +189,44 @@ export class MongoCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MongoClusterState | undefined;
-            resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
-            resourceInputs["administratorUsername"] = state ? state.administratorUsername : undefined;
-            resourceInputs["computeTier"] = state ? state.computeTier : undefined;
-            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
-            resourceInputs["createMode"] = state ? state.createMode : undefined;
-            resourceInputs["highAvailabilityMode"] = state ? state.highAvailabilityMode : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["previewFeatures"] = state ? state.previewFeatures : undefined;
-            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["shardCount"] = state ? state.shardCount : undefined;
-            resourceInputs["sourceLocation"] = state ? state.sourceLocation : undefined;
-            resourceInputs["sourceServerId"] = state ? state.sourceServerId : undefined;
-            resourceInputs["storageSizeInGb"] = state ? state.storageSizeInGb : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["administratorPassword"] = state?.administratorPassword;
+            resourceInputs["administratorUsername"] = state?.administratorUsername;
+            resourceInputs["computeTier"] = state?.computeTier;
+            resourceInputs["connectionStrings"] = state?.connectionStrings;
+            resourceInputs["createMode"] = state?.createMode;
+            resourceInputs["highAvailabilityMode"] = state?.highAvailabilityMode;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["previewFeatures"] = state?.previewFeatures;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["shardCount"] = state?.shardCount;
+            resourceInputs["sourceLocation"] = state?.sourceLocation;
+            resourceInputs["sourceServerId"] = state?.sourceServerId;
+            resourceInputs["storageSizeInGb"] = state?.storageSizeInGb;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as MongoClusterArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["administratorPassword"] = args?.administratorPassword ? pulumi.secret(args.administratorPassword) : undefined;
-            resourceInputs["administratorUsername"] = args ? args.administratorUsername : undefined;
-            resourceInputs["computeTier"] = args ? args.computeTier : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["highAvailabilityMode"] = args ? args.highAvailabilityMode : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["previewFeatures"] = args ? args.previewFeatures : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["sourceLocation"] = args ? args.sourceLocation : undefined;
-            resourceInputs["sourceServerId"] = args ? args.sourceServerId : undefined;
-            resourceInputs["storageSizeInGb"] = args ? args.storageSizeInGb : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["administratorUsername"] = args?.administratorUsername;
+            resourceInputs["computeTier"] = args?.computeTier;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["highAvailabilityMode"] = args?.highAvailabilityMode;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["previewFeatures"] = args?.previewFeatures;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["sourceLocation"] = args?.sourceLocation;
+            resourceInputs["sourceServerId"] = args?.sourceServerId;
+            resourceInputs["storageSizeInGb"] = args?.storageSizeInGb;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["connectionStrings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

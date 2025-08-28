@@ -147,39 +147,39 @@ export class InferenceCluster extends pulumi.CustomResource {
      *
      * > **Note:** When creating or attaching a cluster, if the cluster will be used for production (`clusterPurpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
      */
-    public readonly clusterPurpose!: pulumi.Output<string | undefined>;
+    declare public readonly clusterPurpose: pulumi.Output<string | undefined>;
     /**
      * The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearning.InferenceClusterIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.machinelearning.InferenceClusterIdentity | undefined>;
     /**
      * The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    public readonly kubernetesClusterId!: pulumi.Output<string>;
+    declare public readonly kubernetesClusterId: pulumi.Output<string>;
     /**
      * The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    public readonly machineLearningWorkspaceId!: pulumi.Output<string>;
+    declare public readonly machineLearningWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    public readonly ssl!: pulumi.Output<outputs.machinelearning.InferenceClusterSsl | undefined>;
+    declare public readonly ssl: pulumi.Output<outputs.machinelearning.InferenceClusterSsl | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a InferenceCluster resource with the given unique name, arguments, and options.
@@ -194,32 +194,32 @@ export class InferenceCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InferenceClusterState | undefined;
-            resourceInputs["clusterPurpose"] = state ? state.clusterPurpose : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ssl"] = state ? state.ssl : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["clusterPurpose"] = state?.clusterPurpose;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["kubernetesClusterId"] = state?.kubernetesClusterId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["machineLearningWorkspaceId"] = state?.machineLearningWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ssl"] = state?.ssl;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as InferenceClusterArgs | undefined;
-            if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
+            if (args?.kubernetesClusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterId'");
             }
-            if ((!args || args.machineLearningWorkspaceId === undefined) && !opts.urn) {
+            if (args?.machineLearningWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineLearningWorkspaceId'");
             }
-            resourceInputs["clusterPurpose"] = args ? args.clusterPurpose : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ssl"] = args ? args.ssl : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterPurpose"] = args?.clusterPurpose;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kubernetesClusterId"] = args?.kubernetesClusterId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["machineLearningWorkspaceId"] = args?.machineLearningWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ssl"] = args?.ssl;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InferenceCluster.__pulumiType, name, resourceInputs, opts);

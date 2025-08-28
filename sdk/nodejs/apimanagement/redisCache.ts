@@ -46,27 +46,27 @@ export class RedisCache extends pulumi.CustomResource {
     /**
      * The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
      */
-    public readonly apiManagementId!: pulumi.Output<string>;
+    declare public readonly apiManagementId: pulumi.Output<string>;
     /**
      * The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`.
      */
-    public readonly cacheLocation!: pulumi.Output<string | undefined>;
+    declare public readonly cacheLocation: pulumi.Output<string | undefined>;
     /**
      * The connection string to the Cache for Redis.
      */
-    public readonly connectionString!: pulumi.Output<string>;
+    declare public readonly connectionString: pulumi.Output<string>;
     /**
      * The description of the API Management Redis Cache.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the Cache for Redis.
      */
-    public readonly redisCacheId!: pulumi.Output<string | undefined>;
+    declare public readonly redisCacheId: pulumi.Output<string | undefined>;
 
     /**
      * Create a RedisCache resource with the given unique name, arguments, and options.
@@ -81,26 +81,26 @@ export class RedisCache extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RedisCacheState | undefined;
-            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            resourceInputs["cacheLocation"] = state ? state.cacheLocation : undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["redisCacheId"] = state ? state.redisCacheId : undefined;
+            resourceInputs["apiManagementId"] = state?.apiManagementId;
+            resourceInputs["cacheLocation"] = state?.cacheLocation;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["redisCacheId"] = state?.redisCacheId;
         } else {
             const args = argsOrState as RedisCacheArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
+            if (args?.apiManagementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
+            if (args?.connectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            resourceInputs["cacheLocation"] = args ? args.cacheLocation : undefined;
+            resourceInputs["apiManagementId"] = args?.apiManagementId;
+            resourceInputs["cacheLocation"] = args?.cacheLocation;
             resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["redisCacheId"] = args ? args.redisCacheId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["redisCacheId"] = args?.redisCacheId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString"] };

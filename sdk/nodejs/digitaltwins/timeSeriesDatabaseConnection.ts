@@ -145,43 +145,43 @@ export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
     /**
      * The ID of the Digital Twins. Changing this forces a new resource to be created.
      */
-    public readonly digitalTwinsId!: pulumi.Output<string>;
+    declare public readonly digitalTwinsId: pulumi.Output<string>;
     /**
      * Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
      */
-    public readonly eventhubConsumerGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly eventhubConsumerGroupName: pulumi.Output<string | undefined>;
     /**
      * Name of the Event Hub. Changing this forces a new resource to be created.
      */
-    public readonly eventhubName!: pulumi.Output<string>;
+    declare public readonly eventhubName: pulumi.Output<string>;
     /**
      * URI of the Event Hub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly eventhubNamespaceEndpointUri!: pulumi.Output<string>;
+    declare public readonly eventhubNamespaceEndpointUri: pulumi.Output<string>;
     /**
      * The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly eventhubNamespaceId!: pulumi.Output<string>;
+    declare public readonly eventhubNamespaceId: pulumi.Output<string>;
     /**
      * The ID of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    public readonly kustoClusterId!: pulumi.Output<string>;
+    declare public readonly kustoClusterId: pulumi.Output<string>;
     /**
      * URI of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    public readonly kustoClusterUri!: pulumi.Output<string>;
+    declare public readonly kustoClusterUri: pulumi.Output<string>;
     /**
      * Name of the Kusto Database. Changing this forces a new resource to be created.
      */
-    public readonly kustoDatabaseName!: pulumi.Output<string>;
+    declare public readonly kustoDatabaseName: pulumi.Output<string>;
     /**
      * Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
      */
-    public readonly kustoTableName!: pulumi.Output<string | undefined>;
+    declare public readonly kustoTableName: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a TimeSeriesDatabaseConnection resource with the given unique name, arguments, and options.
@@ -196,49 +196,49 @@ export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TimeSeriesDatabaseConnectionState | undefined;
-            resourceInputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
-            resourceInputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
-            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
-            resourceInputs["eventhubNamespaceEndpointUri"] = state ? state.eventhubNamespaceEndpointUri : undefined;
-            resourceInputs["eventhubNamespaceId"] = state ? state.eventhubNamespaceId : undefined;
-            resourceInputs["kustoClusterId"] = state ? state.kustoClusterId : undefined;
-            resourceInputs["kustoClusterUri"] = state ? state.kustoClusterUri : undefined;
-            resourceInputs["kustoDatabaseName"] = state ? state.kustoDatabaseName : undefined;
-            resourceInputs["kustoTableName"] = state ? state.kustoTableName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["digitalTwinsId"] = state?.digitalTwinsId;
+            resourceInputs["eventhubConsumerGroupName"] = state?.eventhubConsumerGroupName;
+            resourceInputs["eventhubName"] = state?.eventhubName;
+            resourceInputs["eventhubNamespaceEndpointUri"] = state?.eventhubNamespaceEndpointUri;
+            resourceInputs["eventhubNamespaceId"] = state?.eventhubNamespaceId;
+            resourceInputs["kustoClusterId"] = state?.kustoClusterId;
+            resourceInputs["kustoClusterUri"] = state?.kustoClusterUri;
+            resourceInputs["kustoDatabaseName"] = state?.kustoDatabaseName;
+            resourceInputs["kustoTableName"] = state?.kustoTableName;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as TimeSeriesDatabaseConnectionArgs | undefined;
-            if ((!args || args.digitalTwinsId === undefined) && !opts.urn) {
+            if (args?.digitalTwinsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'digitalTwinsId'");
             }
-            if ((!args || args.eventhubName === undefined) && !opts.urn) {
+            if (args?.eventhubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if ((!args || args.eventhubNamespaceEndpointUri === undefined) && !opts.urn) {
+            if (args?.eventhubNamespaceEndpointUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubNamespaceEndpointUri'");
             }
-            if ((!args || args.eventhubNamespaceId === undefined) && !opts.urn) {
+            if (args?.eventhubNamespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubNamespaceId'");
             }
-            if ((!args || args.kustoClusterId === undefined) && !opts.urn) {
+            if (args?.kustoClusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoClusterId'");
             }
-            if ((!args || args.kustoClusterUri === undefined) && !opts.urn) {
+            if (args?.kustoClusterUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoClusterUri'");
             }
-            if ((!args || args.kustoDatabaseName === undefined) && !opts.urn) {
+            if (args?.kustoDatabaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoDatabaseName'");
             }
-            resourceInputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
-            resourceInputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
-            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
-            resourceInputs["eventhubNamespaceEndpointUri"] = args ? args.eventhubNamespaceEndpointUri : undefined;
-            resourceInputs["eventhubNamespaceId"] = args ? args.eventhubNamespaceId : undefined;
-            resourceInputs["kustoClusterId"] = args ? args.kustoClusterId : undefined;
-            resourceInputs["kustoClusterUri"] = args ? args.kustoClusterUri : undefined;
-            resourceInputs["kustoDatabaseName"] = args ? args.kustoDatabaseName : undefined;
-            resourceInputs["kustoTableName"] = args ? args.kustoTableName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["digitalTwinsId"] = args?.digitalTwinsId;
+            resourceInputs["eventhubConsumerGroupName"] = args?.eventhubConsumerGroupName;
+            resourceInputs["eventhubName"] = args?.eventhubName;
+            resourceInputs["eventhubNamespaceEndpointUri"] = args?.eventhubNamespaceEndpointUri;
+            resourceInputs["eventhubNamespaceId"] = args?.eventhubNamespaceId;
+            resourceInputs["kustoClusterId"] = args?.kustoClusterId;
+            resourceInputs["kustoClusterUri"] = args?.kustoClusterUri;
+            resourceInputs["kustoDatabaseName"] = args?.kustoDatabaseName;
+            resourceInputs["kustoTableName"] = args?.kustoTableName;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TimeSeriesDatabaseConnection.__pulumiType, name, resourceInputs, opts);

@@ -98,59 +98,59 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
-    public readonly accessPolicyObjectIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly accessPolicyObjectIds: pulumi.Output<string[] | undefined>;
     /**
      * An `authenticationConfiguration` block as defined below.
      */
-    public readonly authenticationConfiguration!: pulumi.Output<outputs.healthcare.ServiceAuthenticationConfiguration>;
+    declare public readonly authenticationConfiguration: pulumi.Output<outputs.healthcare.ServiceAuthenticationConfiguration>;
     /**
      * Specifies the name of the storage account which the operation configuration information is exported to.
      */
-    public readonly configurationExportStorageAccountName!: pulumi.Output<string | undefined>;
+    declare public readonly configurationExportStorageAccountName: pulumi.Output<string | undefined>;
     /**
      * A `corsConfiguration` block as defined below.
      */
-    public readonly corsConfiguration!: pulumi.Output<outputs.healthcare.ServiceCorsConfiguration>;
+    declare public readonly corsConfiguration: pulumi.Output<outputs.healthcare.ServiceCorsConfiguration>;
     /**
      * A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
      *
      * > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
      */
-    public readonly cosmosdbKeyVaultKeyVersionlessId!: pulumi.Output<string | undefined>;
+    declare public readonly cosmosdbKeyVaultKeyVersionlessId: pulumi.Output<string | undefined>;
     /**
      * The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
      */
-    public readonly cosmosdbThroughput!: pulumi.Output<number | undefined>;
+    declare public readonly cosmosdbThroughput: pulumi.Output<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcare.ServiceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.healthcare.ServiceIdentity | undefined>;
     /**
      * The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
      *
      * > **Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -165,37 +165,37 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["accessPolicyObjectIds"] = state ? state.accessPolicyObjectIds : undefined;
-            resourceInputs["authenticationConfiguration"] = state ? state.authenticationConfiguration : undefined;
-            resourceInputs["configurationExportStorageAccountName"] = state ? state.configurationExportStorageAccountName : undefined;
-            resourceInputs["corsConfiguration"] = state ? state.corsConfiguration : undefined;
-            resourceInputs["cosmosdbKeyVaultKeyVersionlessId"] = state ? state.cosmosdbKeyVaultKeyVersionlessId : undefined;
-            resourceInputs["cosmosdbThroughput"] = state ? state.cosmosdbThroughput : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accessPolicyObjectIds"] = state?.accessPolicyObjectIds;
+            resourceInputs["authenticationConfiguration"] = state?.authenticationConfiguration;
+            resourceInputs["configurationExportStorageAccountName"] = state?.configurationExportStorageAccountName;
+            resourceInputs["corsConfiguration"] = state?.corsConfiguration;
+            resourceInputs["cosmosdbKeyVaultKeyVersionlessId"] = state?.cosmosdbKeyVaultKeyVersionlessId;
+            resourceInputs["cosmosdbThroughput"] = state?.cosmosdbThroughput;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessPolicyObjectIds"] = args ? args.accessPolicyObjectIds : undefined;
-            resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
-            resourceInputs["configurationExportStorageAccountName"] = args ? args.configurationExportStorageAccountName : undefined;
-            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            resourceInputs["cosmosdbKeyVaultKeyVersionlessId"] = args ? args.cosmosdbKeyVaultKeyVersionlessId : undefined;
-            resourceInputs["cosmosdbThroughput"] = args ? args.cosmosdbThroughput : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessPolicyObjectIds"] = args?.accessPolicyObjectIds;
+            resourceInputs["authenticationConfiguration"] = args?.authenticationConfiguration;
+            resourceInputs["configurationExportStorageAccountName"] = args?.configurationExportStorageAccountName;
+            resourceInputs["corsConfiguration"] = args?.corsConfiguration;
+            resourceInputs["cosmosdbKeyVaultKeyVersionlessId"] = args?.cosmosdbKeyVaultKeyVersionlessId;
+            resourceInputs["cosmosdbThroughput"] = args?.cosmosdbThroughput;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Service.__pulumiType, name, resourceInputs, opts);

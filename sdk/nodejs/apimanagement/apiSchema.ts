@@ -78,35 +78,35 @@ export class ApiSchema extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiName!: pulumi.Output<string>;
+    declare public readonly apiName: pulumi.Output<string>;
     /**
      * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
      */
-    public readonly components!: pulumi.Output<string | undefined>;
+    declare public readonly components: pulumi.Output<string | undefined>;
     /**
      * The content type of the API Schema.
      */
-    public readonly contentType!: pulumi.Output<string>;
+    declare public readonly contentType: pulumi.Output<string>;
     /**
      * Types definitions. Used for Swagger/OpenAPI v1 schemas only.
      */
-    public readonly definitions!: pulumi.Output<string | undefined>;
+    declare public readonly definitions: pulumi.Output<string | undefined>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A unique identifier for this API Schema. Changing this forces a new resource to be created.
      */
-    public readonly schemaId!: pulumi.Output<string>;
+    declare public readonly schemaId: pulumi.Output<string>;
     /**
      * The JSON escaped string defining the document representing the Schema.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiSchema resource with the given unique name, arguments, and options.
@@ -121,39 +121,39 @@ export class ApiSchema extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiSchemaState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["apiName"] = state ? state.apiName : undefined;
-            resourceInputs["components"] = state ? state.components : undefined;
-            resourceInputs["contentType"] = state ? state.contentType : undefined;
-            resourceInputs["definitions"] = state ? state.definitions : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["schemaId"] = state ? state.schemaId : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["apiName"] = state?.apiName;
+            resourceInputs["components"] = state?.components;
+            resourceInputs["contentType"] = state?.contentType;
+            resourceInputs["definitions"] = state?.definitions;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["schemaId"] = state?.schemaId;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as ApiSchemaArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.apiName === undefined) && !opts.urn) {
+            if (args?.apiName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.contentType === undefined) && !opts.urn) {
+            if (args?.contentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaId === undefined) && !opts.urn) {
+            if (args?.schemaId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaId'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["components"] = args ? args.components : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["definitions"] = args ? args.definitions : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaId"] = args ? args.schemaId : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["components"] = args?.components;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["definitions"] = args?.definitions;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaId"] = args?.schemaId;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiSchema.__pulumiType, name, resourceInputs, opts);

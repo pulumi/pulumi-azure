@@ -70,11 +70,11 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * The ID of the Log Analytics Workspace to save the data in.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);

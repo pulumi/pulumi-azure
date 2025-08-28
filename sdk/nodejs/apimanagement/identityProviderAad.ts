@@ -80,31 +80,31 @@ export class IdentityProviderAad extends pulumi.CustomResource {
     /**
      * List of allowed AAD Tenants.
      */
-    public readonly allowedTenants!: pulumi.Output<string[]>;
+    declare public readonly allowedTenants: pulumi.Output<string[]>;
     /**
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * Client Id of the Application in the AAD Identity Provider.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * The client library to be used in the AAD Identity Provider.
      */
-    public readonly clientLibrary!: pulumi.Output<string | undefined>;
+    declare public readonly clientLibrary: pulumi.Output<string | undefined>;
     /**
      * Client secret of the Application in the AAD Identity Provider.
      */
-    public readonly clientSecret!: pulumi.Output<string>;
+    declare public readonly clientSecret: pulumi.Output<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The AAD Tenant to use instead of Common when logging into Active Directory.
      */
-    public readonly signinTenant!: pulumi.Output<string | undefined>;
+    declare public readonly signinTenant: pulumi.Output<string | undefined>;
 
     /**
      * Create a IdentityProviderAad resource with the given unique name, arguments, and options.
@@ -119,37 +119,37 @@ export class IdentityProviderAad extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderAadState | undefined;
-            resourceInputs["allowedTenants"] = state ? state.allowedTenants : undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientLibrary"] = state ? state.clientLibrary : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["signinTenant"] = state ? state.signinTenant : undefined;
+            resourceInputs["allowedTenants"] = state?.allowedTenants;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientLibrary"] = state?.clientLibrary;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["signinTenant"] = state?.signinTenant;
         } else {
             const args = argsOrState as IdentityProviderAadArgs | undefined;
-            if ((!args || args.allowedTenants === undefined) && !opts.urn) {
+            if (args?.allowedTenants === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowedTenants'");
             }
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !opts.urn) {
+            if (args?.clientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowedTenants"] = args ? args.allowedTenants : undefined;
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientLibrary"] = args ? args.clientLibrary : undefined;
+            resourceInputs["allowedTenants"] = args?.allowedTenants;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientLibrary"] = args?.clientLibrary;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["signinTenant"] = args?.signinTenant;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };

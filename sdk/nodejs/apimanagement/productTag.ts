@@ -92,19 +92,19 @@ export class ProductTag extends pulumi.CustomResource {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The name of the API Management product. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementProductId!: pulumi.Output<string>;
+    declare public readonly apiManagementProductId: pulumi.Output<string>;
     /**
      * The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ProductTag resource with the given unique name, arguments, and options.
@@ -119,25 +119,25 @@ export class ProductTag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductTagState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["apiManagementProductId"] = state ? state.apiManagementProductId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["apiManagementProductId"] = state?.apiManagementProductId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ProductTagArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.apiManagementProductId === undefined) && !opts.urn) {
+            if (args?.apiManagementProductId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementProductId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["apiManagementProductId"] = args ? args.apiManagementProductId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["apiManagementProductId"] = args?.apiManagementProductId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProductTag.__pulumiType, name, resourceInputs, opts);

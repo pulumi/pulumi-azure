@@ -133,15 +133,15 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
     /**
      * A `customHttpsConfiguration` block as defined above.
      */
-    public readonly customHttpsConfiguration!: pulumi.Output<outputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration | undefined>;
+    declare public readonly customHttpsConfiguration: pulumi.Output<outputs.frontdoor.CustomHttpsConfigurationCustomHttpsConfiguration | undefined>;
     /**
      * Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
      */
-    public readonly customHttpsProvisioningEnabled!: pulumi.Output<boolean>;
+    declare public readonly customHttpsProvisioningEnabled: pulumi.Output<boolean>;
     /**
      * The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
      */
-    public readonly frontendEndpointId!: pulumi.Output<string>;
+    declare public readonly frontendEndpointId: pulumi.Output<string>;
 
     /**
      * Create a CustomHttpsConfiguration resource with the given unique name, arguments, and options.
@@ -156,20 +156,20 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomHttpsConfigurationState | undefined;
-            resourceInputs["customHttpsConfiguration"] = state ? state.customHttpsConfiguration : undefined;
-            resourceInputs["customHttpsProvisioningEnabled"] = state ? state.customHttpsProvisioningEnabled : undefined;
-            resourceInputs["frontendEndpointId"] = state ? state.frontendEndpointId : undefined;
+            resourceInputs["customHttpsConfiguration"] = state?.customHttpsConfiguration;
+            resourceInputs["customHttpsProvisioningEnabled"] = state?.customHttpsProvisioningEnabled;
+            resourceInputs["frontendEndpointId"] = state?.frontendEndpointId;
         } else {
             const args = argsOrState as CustomHttpsConfigurationArgs | undefined;
-            if ((!args || args.customHttpsProvisioningEnabled === undefined) && !opts.urn) {
+            if (args?.customHttpsProvisioningEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customHttpsProvisioningEnabled'");
             }
-            if ((!args || args.frontendEndpointId === undefined) && !opts.urn) {
+            if (args?.frontendEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontendEndpointId'");
             }
-            resourceInputs["customHttpsConfiguration"] = args ? args.customHttpsConfiguration : undefined;
-            resourceInputs["customHttpsProvisioningEnabled"] = args ? args.customHttpsProvisioningEnabled : undefined;
-            resourceInputs["frontendEndpointId"] = args ? args.frontendEndpointId : undefined;
+            resourceInputs["customHttpsConfiguration"] = args?.customHttpsConfiguration;
+            resourceInputs["customHttpsProvisioningEnabled"] = args?.customHttpsProvisioningEnabled;
+            resourceInputs["frontendEndpointId"] = args?.frontendEndpointId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomHttpsConfiguration.__pulumiType, name, resourceInputs, opts);

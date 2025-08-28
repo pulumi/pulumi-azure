@@ -99,59 +99,59 @@ export class OutputBlob extends pulumi.CustomResource {
     /**
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
-    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationMode: pulumi.Output<string | undefined>;
     /**
      * The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes.
      */
-    public readonly batchMaxWaitTime!: pulumi.Output<string | undefined>;
+    declare public readonly batchMaxWaitTime: pulumi.Output<string | undefined>;
     /**
      * The minimum number of rows per batch (must be between `0` and `1000000`).
      */
-    public readonly batchMinRows!: pulumi.Output<number | undefined>;
+    declare public readonly batchMinRows: pulumi.Output<number | undefined>;
     /**
      * Determines whether blob blocks are either committed automatically or appended. Possible values are `Append` and `Once`. Defaults to `Append`.
      */
-    public readonly blobWriteMode!: pulumi.Output<string | undefined>;
+    declare public readonly blobWriteMode: pulumi.Output<string | undefined>;
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
-    public readonly dateFormat!: pulumi.Output<string>;
+    declare public readonly dateFormat: pulumi.Output<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
      */
-    public readonly pathPattern!: pulumi.Output<string>;
+    declare public readonly pathPattern: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `serialization` block as defined below.
      */
-    public readonly serialization!: pulumi.Output<outputs.streamanalytics.OutputBlobSerialization>;
+    declare public readonly serialization: pulumi.Output<outputs.streamanalytics.OutputBlobSerialization>;
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
-    public readonly storageAccountKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountKey: pulumi.Output<string | undefined>;
     /**
      * The name of the Storage Account.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
     /**
      * The name of the Container within the Storage Account.
      */
-    public readonly storageContainerName!: pulumi.Output<string>;
+    declare public readonly storageContainerName: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobName: pulumi.Output<string>;
     /**
      * The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      */
-    public readonly timeFormat!: pulumi.Output<string>;
+    declare public readonly timeFormat: pulumi.Output<string>;
 
     /**
      * Create a OutputBlob resource with the given unique name, arguments, and options.
@@ -166,60 +166,60 @@ export class OutputBlob extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputBlobState | undefined;
-            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
-            resourceInputs["batchMaxWaitTime"] = state ? state.batchMaxWaitTime : undefined;
-            resourceInputs["batchMinRows"] = state ? state.batchMinRows : undefined;
-            resourceInputs["blobWriteMode"] = state ? state.blobWriteMode : undefined;
-            resourceInputs["dateFormat"] = state ? state.dateFormat : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pathPattern"] = state ? state.pathPattern : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serialization"] = state ? state.serialization : undefined;
-            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            resourceInputs["storageContainerName"] = state ? state.storageContainerName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            resourceInputs["timeFormat"] = state ? state.timeFormat : undefined;
+            resourceInputs["authenticationMode"] = state?.authenticationMode;
+            resourceInputs["batchMaxWaitTime"] = state?.batchMaxWaitTime;
+            resourceInputs["batchMinRows"] = state?.batchMinRows;
+            resourceInputs["blobWriteMode"] = state?.blobWriteMode;
+            resourceInputs["dateFormat"] = state?.dateFormat;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pathPattern"] = state?.pathPattern;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serialization"] = state?.serialization;
+            resourceInputs["storageAccountKey"] = state?.storageAccountKey;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["storageContainerName"] = state?.storageContainerName;
+            resourceInputs["streamAnalyticsJobName"] = state?.streamAnalyticsJobName;
+            resourceInputs["timeFormat"] = state?.timeFormat;
         } else {
             const args = argsOrState as OutputBlobArgs | undefined;
-            if ((!args || args.dateFormat === undefined) && !opts.urn) {
+            if (args?.dateFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dateFormat'");
             }
-            if ((!args || args.pathPattern === undefined) && !opts.urn) {
+            if (args?.pathPattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pathPattern'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialization === undefined) && !opts.urn) {
+            if (args?.serialization === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.storageContainerName === undefined) && !opts.urn) {
+            if (args?.storageContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if ((!args || args.timeFormat === undefined) && !opts.urn) {
+            if (args?.timeFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeFormat'");
             }
-            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
-            resourceInputs["batchMaxWaitTime"] = args ? args.batchMaxWaitTime : undefined;
-            resourceInputs["batchMinRows"] = args ? args.batchMinRows : undefined;
-            resourceInputs["blobWriteMode"] = args ? args.blobWriteMode : undefined;
-            resourceInputs["dateFormat"] = args ? args.dateFormat : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pathPattern"] = args ? args.pathPattern : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialization"] = args ? args.serialization : undefined;
+            resourceInputs["authenticationMode"] = args?.authenticationMode;
+            resourceInputs["batchMaxWaitTime"] = args?.batchMaxWaitTime;
+            resourceInputs["batchMinRows"] = args?.batchMinRows;
+            resourceInputs["blobWriteMode"] = args?.blobWriteMode;
+            resourceInputs["dateFormat"] = args?.dateFormat;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pathPattern"] = args?.pathPattern;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialization"] = args?.serialization;
             resourceInputs["storageAccountKey"] = args?.storageAccountKey ? pulumi.secret(args.storageAccountKey) : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            resourceInputs["timeFormat"] = args ? args.timeFormat : undefined;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageContainerName"] = args?.storageContainerName;
+            resourceInputs["streamAnalyticsJobName"] = args?.streamAnalyticsJobName;
+            resourceInputs["timeFormat"] = args?.timeFormat;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountKey"] };

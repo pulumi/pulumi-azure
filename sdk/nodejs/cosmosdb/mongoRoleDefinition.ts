@@ -98,21 +98,21 @@ export class MongoRoleDefinition extends pulumi.CustomResource {
     /**
      * The resource ID of the Mongo DB. Changing this forces a new resource to be created.
      */
-    public readonly cosmosMongoDatabaseId!: pulumi.Output<string>;
+    declare public readonly cosmosMongoDatabaseId: pulumi.Output<string>;
     /**
      * A list of Mongo Roles which are inherited to the Mongo Role Definition.
      *
      * > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
      */
-    public readonly inheritedRoleNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly inheritedRoleNames: pulumi.Output<string[] | undefined>;
     /**
      * A `privilege` block as defined below.
      */
-    public readonly privileges!: pulumi.Output<outputs.cosmosdb.MongoRoleDefinitionPrivilege[] | undefined>;
+    declare public readonly privileges: pulumi.Output<outputs.cosmosdb.MongoRoleDefinitionPrivilege[] | undefined>;
     /**
      * The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created.
      */
-    public readonly roleName!: pulumi.Output<string>;
+    declare public readonly roleName: pulumi.Output<string>;
 
     /**
      * Create a MongoRoleDefinition resource with the given unique name, arguments, and options.
@@ -127,22 +127,22 @@ export class MongoRoleDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MongoRoleDefinitionState | undefined;
-            resourceInputs["cosmosMongoDatabaseId"] = state ? state.cosmosMongoDatabaseId : undefined;
-            resourceInputs["inheritedRoleNames"] = state ? state.inheritedRoleNames : undefined;
-            resourceInputs["privileges"] = state ? state.privileges : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
+            resourceInputs["cosmosMongoDatabaseId"] = state?.cosmosMongoDatabaseId;
+            resourceInputs["inheritedRoleNames"] = state?.inheritedRoleNames;
+            resourceInputs["privileges"] = state?.privileges;
+            resourceInputs["roleName"] = state?.roleName;
         } else {
             const args = argsOrState as MongoRoleDefinitionArgs | undefined;
-            if ((!args || args.cosmosMongoDatabaseId === undefined) && !opts.urn) {
+            if (args?.cosmosMongoDatabaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosMongoDatabaseId'");
             }
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            resourceInputs["cosmosMongoDatabaseId"] = args ? args.cosmosMongoDatabaseId : undefined;
-            resourceInputs["inheritedRoleNames"] = args ? args.inheritedRoleNames : undefined;
-            resourceInputs["privileges"] = args ? args.privileges : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["cosmosMongoDatabaseId"] = args?.cosmosMongoDatabaseId;
+            resourceInputs["inheritedRoleNames"] = args?.inheritedRoleNames;
+            resourceInputs["privileges"] = args?.privileges;
+            resourceInputs["roleName"] = args?.roleName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MongoRoleDefinition.__pulumiType, name, resourceInputs, opts);

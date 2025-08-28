@@ -114,8 +114,7 @@ type AppFlexConsumption struct {
 
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies AppFlexConsumptionAlwaysReadyArrayOutput `pulumi:"alwaysReadies"`
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings AppFlexConsumptionAuthSettingsPtrOutput `pulumi:"authSettings"`
@@ -263,8 +262,7 @@ func GetAppFlexConsumption(ctx *pulumi.Context,
 type appFlexConsumptionState struct {
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies []AppFlexConsumptionAlwaysReady `pulumi:"alwaysReadies"`
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *AppFlexConsumptionAuthSettings `pulumi:"authSettings"`
@@ -354,8 +352,7 @@ type appFlexConsumptionState struct {
 type AppFlexConsumptionState struct {
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies AppFlexConsumptionAlwaysReadyArrayInput
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings AppFlexConsumptionAuthSettingsPtrInput
@@ -449,8 +446,7 @@ func (AppFlexConsumptionState) ElementType() reflect.Type {
 type appFlexConsumptionArgs struct {
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies []AppFlexConsumptionAlwaysReady `pulumi:"alwaysReadies"`
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *AppFlexConsumptionAuthSettings `pulumi:"authSettings"`
@@ -523,8 +519,7 @@ type appFlexConsumptionArgs struct {
 type AppFlexConsumptionArgs struct {
 	// One or more `alwaysReady` blocks as defined below.
 	AlwaysReadies AppFlexConsumptionAlwaysReadyArrayInput
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings AppFlexConsumptionAuthSettingsPtrInput
@@ -685,8 +680,7 @@ func (o AppFlexConsumptionOutput) AlwaysReadies() AppFlexConsumptionAlwaysReadyA
 	return o.ApplyT(func(v *AppFlexConsumption) AppFlexConsumptionAlwaysReadyArrayOutput { return v.AlwaysReadies }).(AppFlexConsumptionAlwaysReadyArrayOutput)
 }
 
-// A map of key-value pairs for [App
-// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 func (o AppFlexConsumptionOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppFlexConsumption) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }

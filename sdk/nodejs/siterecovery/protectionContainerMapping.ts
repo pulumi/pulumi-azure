@@ -117,35 +117,35 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
     /**
      * a `automaticUpdate` block defined as below.
      */
-    public readonly automaticUpdate!: pulumi.Output<outputs.siterecovery.ProtectionContainerMappingAutomaticUpdate>;
+    declare public readonly automaticUpdate: pulumi.Output<outputs.siterecovery.ProtectionContainerMappingAutomaticUpdate>;
     /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
      */
-    public readonly recoveryFabricName!: pulumi.Output<string>;
+    declare public readonly recoveryFabricName: pulumi.Output<string>;
     /**
      * Id of the policy to use for this mapping. Changing this forces a new resource to be created.
      */
-    public readonly recoveryReplicationPolicyId!: pulumi.Output<string>;
+    declare public readonly recoveryReplicationPolicyId: pulumi.Output<string>;
     /**
      * Name of the source protection container to map. Changing this forces a new resource to be created.
      */
-    public readonly recoverySourceProtectionContainerName!: pulumi.Output<string>;
+    declare public readonly recoverySourceProtectionContainerName: pulumi.Output<string>;
     /**
      * Id of target protection container to map to. Changing this forces a new resource to be created.
      */
-    public readonly recoveryTargetProtectionContainerId!: pulumi.Output<string>;
+    declare public readonly recoveryTargetProtectionContainerId: pulumi.Output<string>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ProtectionContainerMapping resource with the given unique name, arguments, and options.
@@ -160,42 +160,42 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectionContainerMappingState | undefined;
-            resourceInputs["automaticUpdate"] = state ? state.automaticUpdate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryFabricName"] = state ? state.recoveryFabricName : undefined;
-            resourceInputs["recoveryReplicationPolicyId"] = state ? state.recoveryReplicationPolicyId : undefined;
-            resourceInputs["recoverySourceProtectionContainerName"] = state ? state.recoverySourceProtectionContainerName : undefined;
-            resourceInputs["recoveryTargetProtectionContainerId"] = state ? state.recoveryTargetProtectionContainerId : undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["automaticUpdate"] = state?.automaticUpdate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recoveryFabricName"] = state?.recoveryFabricName;
+            resourceInputs["recoveryReplicationPolicyId"] = state?.recoveryReplicationPolicyId;
+            resourceInputs["recoverySourceProtectionContainerName"] = state?.recoverySourceProtectionContainerName;
+            resourceInputs["recoveryTargetProtectionContainerId"] = state?.recoveryTargetProtectionContainerId;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ProtectionContainerMappingArgs | undefined;
-            if ((!args || args.recoveryFabricName === undefined) && !opts.urn) {
+            if (args?.recoveryFabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryFabricName'");
             }
-            if ((!args || args.recoveryReplicationPolicyId === undefined) && !opts.urn) {
+            if (args?.recoveryReplicationPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryReplicationPolicyId'");
             }
-            if ((!args || args.recoverySourceProtectionContainerName === undefined) && !opts.urn) {
+            if (args?.recoverySourceProtectionContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoverySourceProtectionContainerName'");
             }
-            if ((!args || args.recoveryTargetProtectionContainerId === undefined) && !opts.urn) {
+            if (args?.recoveryTargetProtectionContainerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryTargetProtectionContainerId'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automaticUpdate"] = args ? args.automaticUpdate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryFabricName"] = args ? args.recoveryFabricName : undefined;
-            resourceInputs["recoveryReplicationPolicyId"] = args ? args.recoveryReplicationPolicyId : undefined;
-            resourceInputs["recoverySourceProtectionContainerName"] = args ? args.recoverySourceProtectionContainerName : undefined;
-            resourceInputs["recoveryTargetProtectionContainerId"] = args ? args.recoveryTargetProtectionContainerId : undefined;
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["automaticUpdate"] = args?.automaticUpdate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recoveryFabricName"] = args?.recoveryFabricName;
+            resourceInputs["recoveryReplicationPolicyId"] = args?.recoveryReplicationPolicyId;
+            resourceInputs["recoverySourceProtectionContainerName"] = args?.recoverySourceProtectionContainerName;
+            resourceInputs["recoveryTargetProtectionContainerId"] = args?.recoveryTargetProtectionContainerId;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProtectionContainerMapping.__pulumiType, name, resourceInputs, opts);

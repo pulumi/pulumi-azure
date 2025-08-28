@@ -94,23 +94,23 @@ export class FunctionJavascriptUda extends pulumi.CustomResource {
     /**
      * One or more `input` blocks as defined below.
      */
-    public readonly inputs!: pulumi.Output<outputs.streamanalytics.FunctionJavascriptUdaInput[]>;
+    declare public readonly inputs: pulumi.Output<outputs.streamanalytics.FunctionJavascriptUdaInput[]>;
     /**
      * The name of the JavaScript UDA Function. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An `output` block as defined below.
      */
-    public readonly output!: pulumi.Output<outputs.streamanalytics.FunctionJavascriptUdaOutput>;
+    declare public readonly output: pulumi.Output<outputs.streamanalytics.FunctionJavascriptUdaOutput>;
     /**
      * The JavaScript of this UDA Function.
      */
-    public readonly script!: pulumi.Output<string>;
+    declare public readonly script: pulumi.Output<string>;
     /**
      * The resource ID of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobId!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobId: pulumi.Output<string>;
 
     /**
      * Create a FunctionJavascriptUda resource with the given unique name, arguments, and options.
@@ -125,30 +125,30 @@ export class FunctionJavascriptUda extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionJavascriptUdaState | undefined;
-            resourceInputs["inputs"] = state ? state.inputs : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["output"] = state ? state.output : undefined;
-            resourceInputs["script"] = state ? state.script : undefined;
-            resourceInputs["streamAnalyticsJobId"] = state ? state.streamAnalyticsJobId : undefined;
+            resourceInputs["inputs"] = state?.inputs;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["output"] = state?.output;
+            resourceInputs["script"] = state?.script;
+            resourceInputs["streamAnalyticsJobId"] = state?.streamAnalyticsJobId;
         } else {
             const args = argsOrState as FunctionJavascriptUdaArgs | undefined;
-            if ((!args || args.inputs === undefined) && !opts.urn) {
+            if (args?.inputs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inputs'");
             }
-            if ((!args || args.output === undefined) && !opts.urn) {
+            if (args?.output === undefined && !opts.urn) {
                 throw new Error("Missing required property 'output'");
             }
-            if ((!args || args.script === undefined) && !opts.urn) {
+            if (args?.script === undefined && !opts.urn) {
                 throw new Error("Missing required property 'script'");
             }
-            if ((!args || args.streamAnalyticsJobId === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobId'");
             }
-            resourceInputs["inputs"] = args ? args.inputs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["output"] = args ? args.output : undefined;
-            resourceInputs["script"] = args ? args.script : undefined;
-            resourceInputs["streamAnalyticsJobId"] = args ? args.streamAnalyticsJobId : undefined;
+            resourceInputs["inputs"] = args?.inputs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["output"] = args?.output;
+            resourceInputs["script"] = args?.script;
+            resourceInputs["streamAnalyticsJobId"] = args?.streamAnalyticsJobId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FunctionJavascriptUda.__pulumiType, name, resourceInputs, opts);

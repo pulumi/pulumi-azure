@@ -119,41 +119,41 @@ export class ProjectPool extends pulumi.CustomResource {
     /**
      * The name of the Dev Center Dev Box Definition.
      */
-    public readonly devBoxDefinitionName!: pulumi.Output<string>;
+    declare public readonly devBoxDefinitionName: pulumi.Output<string>;
     /**
      * The name of the Dev Center Attached Network in parent Project of the Dev Center Project Pool.
      */
-    public readonly devCenterAttachedNetworkName!: pulumi.Output<string>;
+    declare public readonly devCenterAttachedNetworkName: pulumi.Output<string>;
     /**
      * The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
      */
-    public readonly devCenterProjectId!: pulumi.Output<string>;
+    declare public readonly devCenterProjectId: pulumi.Output<string>;
     /**
      * Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
      */
-    public readonly localAdministratorEnabled!: pulumi.Output<boolean>;
+    declare public readonly localAdministratorEnabled: pulumi.Output<boolean>;
     /**
      * The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A list of the regions of the managed Virtual Network. When specified, the Dev Center Project Pool will use a Microsoft managed network.
      *
      * > **Note:** Currently only one region can be specified for `managedVirtualNetworkRegions`.
      */
-    public readonly managedVirtualNetworkRegions!: pulumi.Output<string | undefined>;
+    declare public readonly managedVirtualNetworkRegions: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
      */
-    public readonly stopOnDisconnectGracePeriodMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly stopOnDisconnectGracePeriodMinutes: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Project Pool.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ProjectPool resource with the given unique name, arguments, and options.
@@ -168,38 +168,38 @@ export class ProjectPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectPoolState | undefined;
-            resourceInputs["devBoxDefinitionName"] = state ? state.devBoxDefinitionName : undefined;
-            resourceInputs["devCenterAttachedNetworkName"] = state ? state.devCenterAttachedNetworkName : undefined;
-            resourceInputs["devCenterProjectId"] = state ? state.devCenterProjectId : undefined;
-            resourceInputs["localAdministratorEnabled"] = state ? state.localAdministratorEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedVirtualNetworkRegions"] = state ? state.managedVirtualNetworkRegions : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["stopOnDisconnectGracePeriodMinutes"] = state ? state.stopOnDisconnectGracePeriodMinutes : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["devBoxDefinitionName"] = state?.devBoxDefinitionName;
+            resourceInputs["devCenterAttachedNetworkName"] = state?.devCenterAttachedNetworkName;
+            resourceInputs["devCenterProjectId"] = state?.devCenterProjectId;
+            resourceInputs["localAdministratorEnabled"] = state?.localAdministratorEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedVirtualNetworkRegions"] = state?.managedVirtualNetworkRegions;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["stopOnDisconnectGracePeriodMinutes"] = state?.stopOnDisconnectGracePeriodMinutes;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ProjectPoolArgs | undefined;
-            if ((!args || args.devBoxDefinitionName === undefined) && !opts.urn) {
+            if (args?.devBoxDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devBoxDefinitionName'");
             }
-            if ((!args || args.devCenterAttachedNetworkName === undefined) && !opts.urn) {
+            if (args?.devCenterAttachedNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterAttachedNetworkName'");
             }
-            if ((!args || args.devCenterProjectId === undefined) && !opts.urn) {
+            if (args?.devCenterProjectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterProjectId'");
             }
-            if ((!args || args.localAdministratorEnabled === undefined) && !opts.urn) {
+            if (args?.localAdministratorEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localAdministratorEnabled'");
             }
-            resourceInputs["devBoxDefinitionName"] = args ? args.devBoxDefinitionName : undefined;
-            resourceInputs["devCenterAttachedNetworkName"] = args ? args.devCenterAttachedNetworkName : undefined;
-            resourceInputs["devCenterProjectId"] = args ? args.devCenterProjectId : undefined;
-            resourceInputs["localAdministratorEnabled"] = args ? args.localAdministratorEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedVirtualNetworkRegions"] = args ? args.managedVirtualNetworkRegions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stopOnDisconnectGracePeriodMinutes"] = args ? args.stopOnDisconnectGracePeriodMinutes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devBoxDefinitionName"] = args?.devBoxDefinitionName;
+            resourceInputs["devCenterAttachedNetworkName"] = args?.devCenterAttachedNetworkName;
+            resourceInputs["devCenterProjectId"] = args?.devCenterProjectId;
+            resourceInputs["localAdministratorEnabled"] = args?.localAdministratorEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedVirtualNetworkRegions"] = args?.managedVirtualNetworkRegions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stopOnDisconnectGracePeriodMinutes"] = args?.stopOnDisconnectGracePeriodMinutes;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProjectPool.__pulumiType, name, resourceInputs, opts);

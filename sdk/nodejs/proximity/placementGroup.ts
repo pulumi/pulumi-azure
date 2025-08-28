@@ -75,29 +75,29 @@ export class PlacementGroup extends pulumi.CustomResource {
      *
      * > **Note:** Removing `allowedVmSizes` after it is set forces a new resource to be created.
      */
-    public readonly allowedVmSizes!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedVmSizes: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the proximity placement group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created.
      *
      * > **Note:** `allowedVmSizes` must be set when `zone` is specified.
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    declare public readonly zone: pulumi.Output<string | undefined>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -112,23 +112,23 @@ export class PlacementGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlacementGroupState | undefined;
-            resourceInputs["allowedVmSizes"] = state ? state.allowedVmSizes : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["allowedVmSizes"] = state?.allowedVmSizes;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as PlacementGroupArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowedVmSizes"] = args ? args.allowedVmSizes : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["allowedVmSizes"] = args?.allowedVmSizes;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zone"] = args?.zone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PlacementGroup.__pulumiType, name, resourceInputs, opts);

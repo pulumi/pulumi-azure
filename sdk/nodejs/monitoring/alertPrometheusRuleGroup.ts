@@ -135,43 +135,43 @@ export class AlertPrometheusRuleGroup extends pulumi.CustomResource {
     /**
      * Specifies the name of the Managed Kubernetes Cluster.
      */
-    public readonly clusterName!: pulumi.Output<string | undefined>;
+    declare public readonly clusterName: pulumi.Output<string | undefined>;
     /**
      * The description of the Alert Management Prometheus Rule Group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`.
      */
-    public readonly interval!: pulumi.Output<string | undefined>;
+    declare public readonly interval: pulumi.Output<string | undefined>;
     /**
      * Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
      */
-    public readonly ruleGroupEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ruleGroupEnabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `rule` blocks as defined below.
      */
-    public readonly rules!: pulumi.Output<outputs.monitoring.AlertPrometheusRuleGroupRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.monitoring.AlertPrometheusRuleGroupRule[]>;
     /**
      * Specifies the resource ID of the Azure Monitor Workspace.
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the Alert Management Prometheus Rule Group.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AlertPrometheusRuleGroup resource with the given unique name, arguments, and options.
@@ -186,37 +186,37 @@ export class AlertPrometheusRuleGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertPrometheusRuleGroupState | undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["interval"] = state ? state.interval : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["ruleGroupEnabled"] = state ? state.ruleGroupEnabled : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["interval"] = state?.interval;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["ruleGroupEnabled"] = state?.ruleGroupEnabled;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AlertPrometheusRuleGroupArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleGroupEnabled"] = args ? args.ruleGroupEnabled : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleGroupEnabled"] = args?.ruleGroupEnabled;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertPrometheusRuleGroup.__pulumiType, name, resourceInputs, opts);

@@ -74,11 +74,11 @@ export class VaultResourceGuardAssociation extends pulumi.CustomResource {
     /**
      * ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
      */
-    public readonly resourceGuardId!: pulumi.Output<string>;
+    declare public readonly resourceGuardId: pulumi.Output<string>;
     /**
      * ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
      */
-    public readonly vaultId!: pulumi.Output<string>;
+    declare public readonly vaultId: pulumi.Output<string>;
 
     /**
      * Create a VaultResourceGuardAssociation resource with the given unique name, arguments, and options.
@@ -93,18 +93,18 @@ export class VaultResourceGuardAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultResourceGuardAssociationState | undefined;
-            resourceInputs["resourceGuardId"] = state ? state.resourceGuardId : undefined;
-            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["resourceGuardId"] = state?.resourceGuardId;
+            resourceInputs["vaultId"] = state?.vaultId;
         } else {
             const args = argsOrState as VaultResourceGuardAssociationArgs | undefined;
-            if ((!args || args.resourceGuardId === undefined) && !opts.urn) {
+            if (args?.resourceGuardId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGuardId'");
             }
-            if ((!args || args.vaultId === undefined) && !opts.urn) {
+            if (args?.vaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            resourceInputs["resourceGuardId"] = args ? args.resourceGuardId : undefined;
-            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["resourceGuardId"] = args?.resourceGuardId;
+            resourceInputs["vaultId"] = args?.vaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VaultResourceGuardAssociation.__pulumiType, name, resourceInputs, opts);

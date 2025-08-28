@@ -87,31 +87,31 @@ export class DataExportRule extends pulumi.CustomResource {
     /**
      * The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
      */
-    public readonly destinationResourceId!: pulumi.Output<string>;
+    declare public readonly destinationResourceId: pulumi.Output<string>;
     /**
      * Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the created Data Export Rule.
      */
-    public /*out*/ readonly exportRuleId!: pulumi.Output<string>;
+    declare public /*out*/ readonly exportRuleId: pulumi.Output<string>;
     /**
      * The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A list of table names to export to the destination resource, for example: `["Heartbeat", "SecurityEvent"]`.
      */
-    public readonly tableNames!: pulumi.Output<string[]>;
+    declare public readonly tableNames: pulumi.Output<string[]>;
     /**
      * The resource ID of the workspace. Changing this forces a new Log Analytics Data Export Rule to be created.
      */
-    public readonly workspaceResourceId!: pulumi.Output<string>;
+    declare public readonly workspaceResourceId: pulumi.Output<string>;
 
     /**
      * Create a DataExportRule resource with the given unique name, arguments, and options.
@@ -126,33 +126,33 @@ export class DataExportRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataExportRuleState | undefined;
-            resourceInputs["destinationResourceId"] = state ? state.destinationResourceId : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["exportRuleId"] = state ? state.exportRuleId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tableNames"] = state ? state.tableNames : undefined;
-            resourceInputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
+            resourceInputs["destinationResourceId"] = state?.destinationResourceId;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["exportRuleId"] = state?.exportRuleId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tableNames"] = state?.tableNames;
+            resourceInputs["workspaceResourceId"] = state?.workspaceResourceId;
         } else {
             const args = argsOrState as DataExportRuleArgs | undefined;
-            if ((!args || args.destinationResourceId === undefined) && !opts.urn) {
+            if (args?.destinationResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tableNames === undefined) && !opts.urn) {
+            if (args?.tableNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableNames'");
             }
-            if ((!args || args.workspaceResourceId === undefined) && !opts.urn) {
+            if (args?.workspaceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceResourceId'");
             }
-            resourceInputs["destinationResourceId"] = args ? args.destinationResourceId : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tableNames"] = args ? args.tableNames : undefined;
-            resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
+            resourceInputs["destinationResourceId"] = args?.destinationResourceId;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tableNames"] = args?.tableNames;
+            resourceInputs["workspaceResourceId"] = args?.workspaceResourceId;
             resourceInputs["exportRuleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

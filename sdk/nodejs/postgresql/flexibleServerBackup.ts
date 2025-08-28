@@ -79,15 +79,15 @@ export class FlexibleServerBackup extends pulumi.CustomResource {
     /**
      * The Time (ISO8601 format) at which the backup was completed.
      */
-    public /*out*/ readonly completedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly completedTime: pulumi.Output<string>;
     /**
      * Specifies the name of this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Backup. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
 
     /**
      * Create a FlexibleServerBackup resource with the given unique name, arguments, and options.
@@ -102,16 +102,16 @@ export class FlexibleServerBackup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerBackupState | undefined;
-            resourceInputs["completedTime"] = state ? state.completedTime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["completedTime"] = state?.completedTime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as FlexibleServerBackupArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
             resourceInputs["completedTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

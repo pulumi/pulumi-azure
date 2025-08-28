@@ -80,15 +80,15 @@ export class EnvironmentType extends pulumi.CustomResource {
     /**
      * The ID of the associated Dev Center. Changing this forces a new resource to be created.
      */
-    public readonly devCenterId!: pulumi.Output<string>;
+    declare public readonly devCenterId: pulumi.Output<string>;
     /**
      * Specifies the name of this Dev Center Environment Type. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Environment Type.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a EnvironmentType resource with the given unique name, arguments, and options.
@@ -103,17 +103,17 @@ export class EnvironmentType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentTypeState | undefined;
-            resourceInputs["devCenterId"] = state ? state.devCenterId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["devCenterId"] = state?.devCenterId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as EnvironmentTypeArgs | undefined;
-            if ((!args || args.devCenterId === undefined) && !opts.urn) {
+            if (args?.devCenterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterId'");
             }
-            resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devCenterId"] = args?.devCenterId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EnvironmentType.__pulumiType, name, resourceInputs, opts);

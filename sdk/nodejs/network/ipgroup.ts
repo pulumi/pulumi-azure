@@ -75,31 +75,31 @@ export class IPGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === IPGroup.__pulumiType;
     }
 
-    public readonly cidrs!: pulumi.Output<string[] | undefined>;
+    declare public readonly cidrs: pulumi.Output<string[] | undefined>;
     /**
      * A list of ID of Firewall.
      */
-    public /*out*/ readonly firewallIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly firewallIds: pulumi.Output<string[]>;
     /**
      * A list of ID of Firewall Policy`.
      */
-    public /*out*/ readonly firewallPolicyIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly firewallPolicyIds: pulumi.Output<string[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the IP group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IPGroup resource with the given unique name, arguments, and options.
@@ -114,23 +114,23 @@ export class IPGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IPGroupState | undefined;
-            resourceInputs["cidrs"] = state ? state.cidrs : undefined;
-            resourceInputs["firewallIds"] = state ? state.firewallIds : undefined;
-            resourceInputs["firewallPolicyIds"] = state ? state.firewallPolicyIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["cidrs"] = state?.cidrs;
+            resourceInputs["firewallIds"] = state?.firewallIds;
+            resourceInputs["firewallPolicyIds"] = state?.firewallPolicyIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as IPGroupArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cidrs"] = args ? args.cidrs : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cidrs"] = args?.cidrs;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["firewallIds"] = undefined /*out*/;
             resourceInputs["firewallPolicyIds"] = undefined /*out*/;
         }

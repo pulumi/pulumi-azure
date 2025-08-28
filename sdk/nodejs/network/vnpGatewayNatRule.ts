@@ -95,31 +95,31 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
     /**
      * One of more `externalMapping` blocks as defined below.
      */
-    public readonly externalMappings!: pulumi.Output<outputs.network.VnpGatewayNatRuleExternalMapping[] | undefined>;
+    declare public readonly externalMappings: pulumi.Output<outputs.network.VnpGatewayNatRuleExternalMapping[] | undefined>;
     /**
      * One of more `internalMapping` blocks as defined below.
      */
-    public readonly internalMappings!: pulumi.Output<outputs.network.VnpGatewayNatRuleInternalMapping[] | undefined>;
+    declare public readonly internalMappings: pulumi.Output<outputs.network.VnpGatewayNatRuleInternalMapping[] | undefined>;
     /**
      * The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
      */
-    public readonly ipConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly ipConfigurationId: pulumi.Output<string | undefined>;
     /**
      * The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPN Gateway that this VPN Gateway NAT Rule belongs to. Changing this forces a new resource to be created.
      */
-    public readonly vpnGatewayId!: pulumi.Output<string>;
+    declare public readonly vpnGatewayId: pulumi.Output<string>;
 
     /**
      * Create a VnpGatewayNatRule resource with the given unique name, arguments, and options.
@@ -134,25 +134,25 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VnpGatewayNatRuleState | undefined;
-            resourceInputs["externalMappings"] = state ? state.externalMappings : undefined;
-            resourceInputs["internalMappings"] = state ? state.internalMappings : undefined;
-            resourceInputs["ipConfigurationId"] = state ? state.ipConfigurationId : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+            resourceInputs["externalMappings"] = state?.externalMappings;
+            resourceInputs["internalMappings"] = state?.internalMappings;
+            resourceInputs["ipConfigurationId"] = state?.ipConfigurationId;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["vpnGatewayId"] = state?.vpnGatewayId;
         } else {
             const args = argsOrState as VnpGatewayNatRuleArgs | undefined;
-            if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
+            if (args?.vpnGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            resourceInputs["externalMappings"] = args ? args.externalMappings : undefined;
-            resourceInputs["internalMappings"] = args ? args.internalMappings : undefined;
-            resourceInputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["externalMappings"] = args?.externalMappings;
+            resourceInputs["internalMappings"] = args?.internalMappings;
+            resourceInputs["ipConfigurationId"] = args?.ipConfigurationId;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VnpGatewayNatRule.__pulumiType, name, resourceInputs, opts);

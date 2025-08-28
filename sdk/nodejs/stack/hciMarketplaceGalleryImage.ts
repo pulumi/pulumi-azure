@@ -96,43 +96,43 @@ export class HciMarketplaceGalleryImage extends pulumi.CustomResource {
     /**
      * The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
      */
-    public readonly customLocationId!: pulumi.Output<string>;
+    declare public readonly customLocationId: pulumi.Output<string>;
     /**
      * The hypervisor generation of the Azure Stack HCI Marketplace Gallery Image. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    public readonly hypervGeneration!: pulumi.Output<string>;
+    declare public readonly hypervGeneration: pulumi.Output<string>;
     /**
      * An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    public readonly identifier!: pulumi.Output<outputs.stack.HciMarketplaceGalleryImageIdentifier>;
+    declare public readonly identifier: pulumi.Output<outputs.stack.HciMarketplaceGalleryImageIdentifier>;
     /**
      * The Azure Region where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Operating System type of the Azure Stack HCI Marketplace Gallery Image. Possible values are `Windows` and `Linux`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    public readonly osType!: pulumi.Output<string>;
+    declare public readonly osType: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Azure Stack HCI Storage Path used for this Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly storagePathId!: pulumi.Output<string | undefined>;
+    declare public readonly storagePathId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Marketplace Gallery Image.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The version of the Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a HciMarketplaceGalleryImage resource with the given unique name, arguments, and options.
@@ -147,46 +147,46 @@ export class HciMarketplaceGalleryImage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HciMarketplaceGalleryImageState | undefined;
-            resourceInputs["customLocationId"] = state ? state.customLocationId : undefined;
-            resourceInputs["hypervGeneration"] = state ? state.hypervGeneration : undefined;
-            resourceInputs["identifier"] = state ? state.identifier : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["osType"] = state ? state.osType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storagePathId"] = state ? state.storagePathId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["customLocationId"] = state?.customLocationId;
+            resourceInputs["hypervGeneration"] = state?.hypervGeneration;
+            resourceInputs["identifier"] = state?.identifier;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["osType"] = state?.osType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storagePathId"] = state?.storagePathId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as HciMarketplaceGalleryImageArgs | undefined;
-            if ((!args || args.customLocationId === undefined) && !opts.urn) {
+            if (args?.customLocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customLocationId'");
             }
-            if ((!args || args.hypervGeneration === undefined) && !opts.urn) {
+            if (args?.hypervGeneration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hypervGeneration'");
             }
-            if ((!args || args.identifier === undefined) && !opts.urn) {
+            if (args?.identifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.osType === undefined) && !opts.urn) {
+            if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["customLocationId"] = args ? args.customLocationId : undefined;
-            resourceInputs["hypervGeneration"] = args ? args.hypervGeneration : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storagePathId"] = args ? args.storagePathId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["customLocationId"] = args?.customLocationId;
+            resourceInputs["hypervGeneration"] = args?.hypervGeneration;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storagePathId"] = args?.storagePathId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HciMarketplaceGalleryImage.__pulumiType, name, resourceInputs, opts);

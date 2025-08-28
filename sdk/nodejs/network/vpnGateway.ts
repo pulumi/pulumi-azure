@@ -91,43 +91,43 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
      */
-    public readonly bgpRouteTranslationForNatEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly bgpRouteTranslationForNatEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `bgpSettings` block as defined below.
      */
-    public readonly bgpSettings!: pulumi.Output<outputs.network.VpnGatewayBgpSettings>;
+    declare public readonly bgpSettings: pulumi.Output<outputs.network.VpnGatewayBgpSettings>;
     /**
      * An `ipConfiguration` block as defined below.
      */
-    public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.VpnGatewayIpConfiguration[]>;
+    declare public /*out*/ readonly ipConfigurations: pulumi.Output<outputs.network.VpnGatewayIpConfiguration[]>;
     /**
      * The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the [Microsoft Docs](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Defaults to `Microsoft Network`. Changing this forces a new resource to be created.
      */
-    public readonly routingPreference!: pulumi.Output<string | undefined>;
+    declare public readonly routingPreference: pulumi.Output<string | undefined>;
     /**
      * The Scale Unit for this VPN Gateway. Defaults to `1`.
      */
-    public readonly scaleUnit!: pulumi.Output<number | undefined>;
+    declare public readonly scaleUnit: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the VPN Gateway.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
 
     /**
      * Create a VpnGateway resource with the given unique name, arguments, and options.
@@ -142,33 +142,33 @@ export class VpnGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayState | undefined;
-            resourceInputs["bgpRouteTranslationForNatEnabled"] = state ? state.bgpRouteTranslationForNatEnabled : undefined;
-            resourceInputs["bgpSettings"] = state ? state.bgpSettings : undefined;
-            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routingPreference"] = state ? state.routingPreference : undefined;
-            resourceInputs["scaleUnit"] = state ? state.scaleUnit : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["bgpRouteTranslationForNatEnabled"] = state?.bgpRouteTranslationForNatEnabled;
+            resourceInputs["bgpSettings"] = state?.bgpSettings;
+            resourceInputs["ipConfigurations"] = state?.ipConfigurations;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routingPreference"] = state?.routingPreference;
+            resourceInputs["scaleUnit"] = state?.scaleUnit;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
         } else {
             const args = argsOrState as VpnGatewayArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["bgpRouteTranslationForNatEnabled"] = args ? args.bgpRouteTranslationForNatEnabled : undefined;
-            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingPreference"] = args ? args.routingPreference : undefined;
-            resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["bgpRouteTranslationForNatEnabled"] = args?.bgpRouteTranslationForNatEnabled;
+            resourceInputs["bgpSettings"] = args?.bgpSettings;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingPreference"] = args?.routingPreference;
+            resourceInputs["scaleUnit"] = args?.scaleUnit;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -145,59 +145,59 @@ export class Plan extends pulumi.CustomResource {
      *
      * > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
      */
-    public readonly appServiceEnvironmentId!: pulumi.Output<string | undefined>;
+    declare public readonly appServiceEnvironmentId: pulumi.Output<string | undefined>;
     /**
      * Whether to create a xenon App Service Plan.
      */
-    public readonly isXenon!: pulumi.Output<boolean | undefined>;
+    declare public readonly isXenon: pulumi.Output<boolean | undefined>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
      */
-    public readonly maximumElasticWorkerCount!: pulumi.Output<number>;
+    declare public readonly maximumElasticWorkerCount: pulumi.Output<number>;
     /**
      * The maximum number of workers supported with the App Service Plan's sku.
      */
-    public /*out*/ readonly maximumNumberOfWorkers!: pulumi.Output<number>;
+    declare public /*out*/ readonly maximumNumberOfWorkers: pulumi.Output<number>;
     /**
      * Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
      */
-    public readonly perSiteScaling!: pulumi.Output<boolean | undefined>;
+    declare public readonly perSiteScaling: pulumi.Output<boolean | undefined>;
     /**
      * Is this App Service Plan `Reserved`.
      */
-    public readonly reserved!: pulumi.Output<boolean | undefined>;
+    declare public readonly reserved: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `sku` block as documented below.
      */
-    public readonly sku!: pulumi.Output<outputs.appservice.PlanSku>;
+    declare public readonly sku: pulumi.Output<outputs.appservice.PlanSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -212,39 +212,39 @@ export class Plan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PlanState | undefined;
-            resourceInputs["appServiceEnvironmentId"] = state ? state.appServiceEnvironmentId : undefined;
-            resourceInputs["isXenon"] = state ? state.isXenon : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maximumElasticWorkerCount"] = state ? state.maximumElasticWorkerCount : undefined;
-            resourceInputs["maximumNumberOfWorkers"] = state ? state.maximumNumberOfWorkers : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["perSiteScaling"] = state ? state.perSiteScaling : undefined;
-            resourceInputs["reserved"] = state ? state.reserved : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["appServiceEnvironmentId"] = state?.appServiceEnvironmentId;
+            resourceInputs["isXenon"] = state?.isXenon;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maximumElasticWorkerCount"] = state?.maximumElasticWorkerCount;
+            resourceInputs["maximumNumberOfWorkers"] = state?.maximumNumberOfWorkers;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["perSiteScaling"] = state?.perSiteScaling;
+            resourceInputs["reserved"] = state?.reserved;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zoneRedundant"] = state?.zoneRedundant;
         } else {
             const args = argsOrState as PlanArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["appServiceEnvironmentId"] = args ? args.appServiceEnvironmentId : undefined;
-            resourceInputs["isXenon"] = args ? args.isXenon : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
-            resourceInputs["reserved"] = args ? args.reserved : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["appServiceEnvironmentId"] = args?.appServiceEnvironmentId;
+            resourceInputs["isXenon"] = args?.isXenon;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumElasticWorkerCount"] = args?.maximumElasticWorkerCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["perSiteScaling"] = args?.perSiteScaling;
+            resourceInputs["reserved"] = args?.reserved;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

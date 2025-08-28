@@ -87,63 +87,63 @@ export class ProvisionedCluster extends pulumi.CustomResource {
     /**
      * The version of the agent running on the cluster resource.
      */
-    public /*out*/ readonly agentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentVersion: pulumi.Output<string>;
     /**
      * Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
      */
-    public readonly arcAgentAutoUpgradeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly arcAgentAutoUpgradeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The version of the Arc agents to be installed on the cluster.
      */
-    public readonly arcAgentDesiredVersion!: pulumi.Output<string | undefined>;
+    declare public readonly arcAgentDesiredVersion: pulumi.Output<string | undefined>;
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    public readonly azureActiveDirectory!: pulumi.Output<outputs.arckubernetes.ProvisionedClusterAzureActiveDirectory | undefined>;
+    declare public readonly azureActiveDirectory: pulumi.Output<outputs.arckubernetes.ProvisionedClusterAzureActiveDirectory | undefined>;
     /**
      * The distribution running on this Arc Kubernetes Provisioned Cluster.
      */
-    public /*out*/ readonly distribution!: pulumi.Output<string>;
+    declare public /*out*/ readonly distribution: pulumi.Output<string>;
     /**
      * An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.arckubernetes.ProvisionedClusterIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.arckubernetes.ProvisionedClusterIdentity>;
     /**
      * The infrastructure on which the Arc Kubernetes Provisioned Cluster is running on.
      */
-    public /*out*/ readonly infrastructure!: pulumi.Output<string>;
+    declare public /*out*/ readonly infrastructure: pulumi.Output<string>;
     /**
      * The Kubernetes version of the cluster resource.
      */
-    public /*out*/ readonly kubernetesVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly kubernetesVersion: pulumi.Output<string>;
     /**
      * The Azure Region where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Arc Kubernetes Provisioned Cluster. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The cluster offering.
      */
-    public /*out*/ readonly offering!: pulumi.Output<string>;
+    declare public /*out*/ readonly offering: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Arc Kubernetes Provisioned Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The number of CPU cores present in the cluster resource.
      */
-    public /*out*/ readonly totalCoreCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalCoreCount: pulumi.Output<number>;
     /**
      * The number of nodes present in the cluster resource.
      */
-    public /*out*/ readonly totalNodeCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalNodeCount: pulumi.Output<number>;
 
     /**
      * Create a ProvisionedCluster resource with the given unique name, arguments, and options.
@@ -158,37 +158,37 @@ export class ProvisionedCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisionedClusterState | undefined;
-            resourceInputs["agentVersion"] = state ? state.agentVersion : undefined;
-            resourceInputs["arcAgentAutoUpgradeEnabled"] = state ? state.arcAgentAutoUpgradeEnabled : undefined;
-            resourceInputs["arcAgentDesiredVersion"] = state ? state.arcAgentDesiredVersion : undefined;
-            resourceInputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
-            resourceInputs["distribution"] = state ? state.distribution : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["infrastructure"] = state ? state.infrastructure : undefined;
-            resourceInputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["offering"] = state ? state.offering : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["totalCoreCount"] = state ? state.totalCoreCount : undefined;
-            resourceInputs["totalNodeCount"] = state ? state.totalNodeCount : undefined;
+            resourceInputs["agentVersion"] = state?.agentVersion;
+            resourceInputs["arcAgentAutoUpgradeEnabled"] = state?.arcAgentAutoUpgradeEnabled;
+            resourceInputs["arcAgentDesiredVersion"] = state?.arcAgentDesiredVersion;
+            resourceInputs["azureActiveDirectory"] = state?.azureActiveDirectory;
+            resourceInputs["distribution"] = state?.distribution;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["infrastructure"] = state?.infrastructure;
+            resourceInputs["kubernetesVersion"] = state?.kubernetesVersion;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["offering"] = state?.offering;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["totalCoreCount"] = state?.totalCoreCount;
+            resourceInputs["totalNodeCount"] = state?.totalNodeCount;
         } else {
             const args = argsOrState as ProvisionedClusterArgs | undefined;
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["arcAgentAutoUpgradeEnabled"] = args ? args.arcAgentAutoUpgradeEnabled : undefined;
-            resourceInputs["arcAgentDesiredVersion"] = args ? args.arcAgentDesiredVersion : undefined;
-            resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arcAgentAutoUpgradeEnabled"] = args?.arcAgentAutoUpgradeEnabled;
+            resourceInputs["arcAgentDesiredVersion"] = args?.arcAgentDesiredVersion;
+            resourceInputs["azureActiveDirectory"] = args?.azureActiveDirectory;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["distribution"] = undefined /*out*/;
             resourceInputs["infrastructure"] = undefined /*out*/;

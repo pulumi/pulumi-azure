@@ -47,27 +47,27 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
      * The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
      * *
      */
-    public readonly managedHsmId!: pulumi.Output<string>;
+    declare public readonly managedHsmId: pulumi.Output<string>;
     /**
      * The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    public readonly principalId!: pulumi.Output<string>;
+    declare public readonly principalId: pulumi.Output<string>;
     /**
      * (Deprecated) The resource id of created assignment resource.
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    declare public readonly roleDefinitionId: pulumi.Output<string>;
     /**
      * Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
 
     /**
      * Create a ManagedHardwareSecurityModuleRoleAssignment resource with the given unique name, arguments, and options.
@@ -82,31 +82,31 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedHardwareSecurityModuleRoleAssignmentState | undefined;
-            resourceInputs["managedHsmId"] = state ? state.managedHsmId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["principalId"] = state ? state.principalId : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["managedHsmId"] = state?.managedHsmId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["principalId"] = state?.principalId;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["roleDefinitionId"] = state?.roleDefinitionId;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as ManagedHardwareSecurityModuleRoleAssignmentArgs | undefined;
-            if ((!args || args.managedHsmId === undefined) && !opts.urn) {
+            if (args?.managedHsmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedHsmId'");
             }
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
+            if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["managedHsmId"] = args ? args.managedHsmId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["managedHsmId"] = args?.managedHsmId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["resourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

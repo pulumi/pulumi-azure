@@ -174,33 +174,33 @@ export class VolumeGroup extends pulumi.CustomResource {
     /**
      * Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
      */
-    public readonly elasticSanId!: pulumi.Output<string>;
+    declare public readonly elasticSanId: pulumi.Output<string>;
     /**
      * An `encryption` block as defined below.
      *
      * > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
      */
-    public readonly encryption!: pulumi.Output<outputs.elasticsan.VolumeGroupEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.elasticsan.VolumeGroupEncryption | undefined>;
     /**
      * Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
      */
-    public readonly encryptionType!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionType: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
      */
-    public readonly identity!: pulumi.Output<outputs.elasticsan.VolumeGroupIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.elasticsan.VolumeGroupIdentity | undefined>;
     /**
      * Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `networkRule` blocks as defined below.
      */
-    public readonly networkRules!: pulumi.Output<outputs.elasticsan.VolumeGroupNetworkRule[] | undefined>;
+    declare public readonly networkRules: pulumi.Output<outputs.elasticsan.VolumeGroupNetworkRule[] | undefined>;
     /**
      * Specifies the type of the storage target. The only possible value is `Iscsi`. Defaults to `Iscsi`.
      */
-    public readonly protocolType!: pulumi.Output<string | undefined>;
+    declare public readonly protocolType: pulumi.Output<string | undefined>;
 
     /**
      * Create a VolumeGroup resource with the given unique name, arguments, and options.
@@ -215,25 +215,25 @@ export class VolumeGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeGroupState | undefined;
-            resourceInputs["elasticSanId"] = state ? state.elasticSanId : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkRules"] = state ? state.networkRules : undefined;
-            resourceInputs["protocolType"] = state ? state.protocolType : undefined;
+            resourceInputs["elasticSanId"] = state?.elasticSanId;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["encryptionType"] = state?.encryptionType;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkRules"] = state?.networkRules;
+            resourceInputs["protocolType"] = state?.protocolType;
         } else {
             const args = argsOrState as VolumeGroupArgs | undefined;
-            if ((!args || args.elasticSanId === undefined) && !opts.urn) {
+            if (args?.elasticSanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticSanId'");
             }
-            resourceInputs["elasticSanId"] = args ? args.elasticSanId : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkRules"] = args ? args.networkRules : undefined;
-            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
+            resourceInputs["elasticSanId"] = args?.elasticSanId;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["encryptionType"] = args?.encryptionType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkRules"] = args?.networkRules;
+            resourceInputs["protocolType"] = args?.protocolType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VolumeGroup.__pulumiType, name, resourceInputs, opts);

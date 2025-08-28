@@ -86,11 +86,11 @@ export class SubnetNatGatewayAssociation extends pulumi.CustomResource {
     /**
      * The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly natGatewayId!: pulumi.Output<string>;
+    declare public readonly natGatewayId: pulumi.Output<string>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a SubnetNatGatewayAssociation resource with the given unique name, arguments, and options.
@@ -105,18 +105,18 @@ export class SubnetNatGatewayAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetNatGatewayAssociationState | undefined;
-            resourceInputs["natGatewayId"] = state ? state.natGatewayId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["natGatewayId"] = state?.natGatewayId;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as SubnetNatGatewayAssociationArgs | undefined;
-            if ((!args || args.natGatewayId === undefined) && !opts.urn) {
+            if (args?.natGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'natGatewayId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["natGatewayId"] = args?.natGatewayId;
+            resourceInputs["subnetId"] = args?.subnetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubnetNatGatewayAssociation.__pulumiType, name, resourceInputs, opts);

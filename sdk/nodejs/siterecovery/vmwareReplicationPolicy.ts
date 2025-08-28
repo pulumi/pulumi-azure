@@ -79,19 +79,19 @@ export class VMWareReplicationPolicy extends pulumi.CustomResource {
     /**
      * Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
      */
-    public readonly applicationConsistentSnapshotFrequencyInMinutes!: pulumi.Output<number>;
+    declare public readonly applicationConsistentSnapshotFrequencyInMinutes: pulumi.Output<number>;
     /**
      * The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
      */
-    public readonly recoveryPointRetentionInMinutes!: pulumi.Output<number>;
+    declare public readonly recoveryPointRetentionInMinutes: pulumi.Output<number>;
     /**
      * ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
      */
-    public readonly recoveryVaultId!: pulumi.Output<string>;
+    declare public readonly recoveryVaultId: pulumi.Output<string>;
 
     /**
      * Create a VMWareReplicationPolicy resource with the given unique name, arguments, and options.
@@ -106,25 +106,25 @@ export class VMWareReplicationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VMWareReplicationPolicyState | undefined;
-            resourceInputs["applicationConsistentSnapshotFrequencyInMinutes"] = state ? state.applicationConsistentSnapshotFrequencyInMinutes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryPointRetentionInMinutes"] = state ? state.recoveryPointRetentionInMinutes : undefined;
-            resourceInputs["recoveryVaultId"] = state ? state.recoveryVaultId : undefined;
+            resourceInputs["applicationConsistentSnapshotFrequencyInMinutes"] = state?.applicationConsistentSnapshotFrequencyInMinutes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recoveryPointRetentionInMinutes"] = state?.recoveryPointRetentionInMinutes;
+            resourceInputs["recoveryVaultId"] = state?.recoveryVaultId;
         } else {
             const args = argsOrState as VMWareReplicationPolicyArgs | undefined;
-            if ((!args || args.applicationConsistentSnapshotFrequencyInMinutes === undefined) && !opts.urn) {
+            if (args?.applicationConsistentSnapshotFrequencyInMinutes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationConsistentSnapshotFrequencyInMinutes'");
             }
-            if ((!args || args.recoveryPointRetentionInMinutes === undefined) && !opts.urn) {
+            if (args?.recoveryPointRetentionInMinutes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryPointRetentionInMinutes'");
             }
-            if ((!args || args.recoveryVaultId === undefined) && !opts.urn) {
+            if (args?.recoveryVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultId'");
             }
-            resourceInputs["applicationConsistentSnapshotFrequencyInMinutes"] = args ? args.applicationConsistentSnapshotFrequencyInMinutes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryPointRetentionInMinutes"] = args ? args.recoveryPointRetentionInMinutes : undefined;
-            resourceInputs["recoveryVaultId"] = args ? args.recoveryVaultId : undefined;
+            resourceInputs["applicationConsistentSnapshotFrequencyInMinutes"] = args?.applicationConsistentSnapshotFrequencyInMinutes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recoveryPointRetentionInMinutes"] = args?.recoveryPointRetentionInMinutes;
+            resourceInputs["recoveryVaultId"] = args?.recoveryVaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VMWareReplicationPolicy.__pulumiType, name, resourceInputs, opts);

@@ -46,15 +46,15 @@ export class CacheAccessPolicy extends pulumi.CustomResource {
     /**
      * The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Permissions that are going to be assigned to this Redis Cache Access Policy.
      */
-    public readonly permissions!: pulumi.Output<string>;
+    declare public readonly permissions: pulumi.Output<string>;
     /**
      * The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
      */
-    public readonly redisCacheId!: pulumi.Output<string>;
+    declare public readonly redisCacheId: pulumi.Output<string>;
 
     /**
      * Create a CacheAccessPolicy resource with the given unique name, arguments, and options.
@@ -69,20 +69,20 @@ export class CacheAccessPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheAccessPolicyState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["redisCacheId"] = state ? state.redisCacheId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["redisCacheId"] = state?.redisCacheId;
         } else {
             const args = argsOrState as CacheAccessPolicyArgs | undefined;
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.redisCacheId === undefined) && !opts.urn) {
+            if (args?.redisCacheId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'redisCacheId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["redisCacheId"] = args ? args.redisCacheId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["redisCacheId"] = args?.redisCacheId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CacheAccessPolicy.__pulumiType, name, resourceInputs, opts);

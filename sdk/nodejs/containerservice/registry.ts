@@ -162,37 +162,37 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Specifies whether the admin user is enabled. Defaults to `false`.
      */
-    public readonly adminEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly adminEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Password associated with the Container Registry Admin account - if the admin account is enabled.
      */
-    public /*out*/ readonly adminPassword!: pulumi.Output<string>;
+    declare public /*out*/ readonly adminPassword: pulumi.Output<string>;
     /**
      * The Username associated with the Container Registry Admin account - if the admin account is enabled.
      */
-    public /*out*/ readonly adminUsername!: pulumi.Output<string>;
+    declare public /*out*/ readonly adminUsername: pulumi.Output<string>;
     /**
      * Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
      */
-    public readonly anonymousPullEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly anonymousPullEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      */
-    public readonly dataEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataEndpointEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
      */
-    public /*out*/ readonly dataEndpointHostNames!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly dataEndpointHostNames: pulumi.Output<string[]>;
     /**
      * An `encryption` block as documented below.
      */
-    public readonly encryption!: pulumi.Output<outputs.containerservice.RegistryEncryption>;
+    declare public readonly encryption: pulumi.Output<outputs.containerservice.RegistryEncryption>;
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      *
      * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
-    public readonly exportPolicyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly exportPolicyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `georeplications` blocks as documented below.
      *
@@ -202,63 +202,63 @@ export class Registry extends pulumi.CustomResource {
      *
      * > **Note:** If more than one `georeplications` block is specified, they are expected to follow the alphabetic order on the `location` property.
      */
-    public readonly georeplications!: pulumi.Output<outputs.containerservice.RegistryGeoreplication[] | undefined>;
+    declare public readonly georeplications: pulumi.Output<outputs.containerservice.RegistryGeoreplication[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.containerservice.RegistryIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerservice.RegistryIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The URL that can be used to log into the container registry.
      */
-    public /*out*/ readonly loginServer!: pulumi.Output<string>;
+    declare public /*out*/ readonly loginServer: pulumi.Output<string>;
     /**
      * Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
      */
-    public readonly networkRuleBypassOption!: pulumi.Output<string | undefined>;
+    declare public readonly networkRuleBypassOption: pulumi.Output<string | undefined>;
     /**
      * A `networkRuleSet` block as documented below.
      */
-    public readonly networkRuleSet!: pulumi.Output<outputs.containerservice.RegistryNetworkRuleSet>;
+    declare public readonly networkRuleSet: pulumi.Output<outputs.containerservice.RegistryNetworkRuleSet>;
     /**
      * Whether public network access is allowed for the container registry. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Boolean value that indicates whether quarantine policy is enabled.
      */
-    public readonly quarantinePolicyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly quarantinePolicyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The number of days to retain and untagged manifest after which it gets purged. Defaults to `7`.
      */
-    public readonly retentionPolicyInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionPolicyInDays: pulumi.Output<number | undefined>;
     /**
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
      */
-    public readonly trustPolicyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly trustPolicyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      */
-    public readonly zoneRedundancyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundancyEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.
@@ -273,56 +273,56 @@ export class Registry extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryState | undefined;
-            resourceInputs["adminEnabled"] = state ? state.adminEnabled : undefined;
-            resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
-            resourceInputs["adminUsername"] = state ? state.adminUsername : undefined;
-            resourceInputs["anonymousPullEnabled"] = state ? state.anonymousPullEnabled : undefined;
-            resourceInputs["dataEndpointEnabled"] = state ? state.dataEndpointEnabled : undefined;
-            resourceInputs["dataEndpointHostNames"] = state ? state.dataEndpointHostNames : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["exportPolicyEnabled"] = state ? state.exportPolicyEnabled : undefined;
-            resourceInputs["georeplications"] = state ? state.georeplications : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["loginServer"] = state ? state.loginServer : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkRuleBypassOption"] = state ? state.networkRuleBypassOption : undefined;
-            resourceInputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["quarantinePolicyEnabled"] = state ? state.quarantinePolicyEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionPolicyInDays"] = state ? state.retentionPolicyInDays : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["trustPolicyEnabled"] = state ? state.trustPolicyEnabled : undefined;
-            resourceInputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
+            resourceInputs["adminEnabled"] = state?.adminEnabled;
+            resourceInputs["adminPassword"] = state?.adminPassword;
+            resourceInputs["adminUsername"] = state?.adminUsername;
+            resourceInputs["anonymousPullEnabled"] = state?.anonymousPullEnabled;
+            resourceInputs["dataEndpointEnabled"] = state?.dataEndpointEnabled;
+            resourceInputs["dataEndpointHostNames"] = state?.dataEndpointHostNames;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["exportPolicyEnabled"] = state?.exportPolicyEnabled;
+            resourceInputs["georeplications"] = state?.georeplications;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["loginServer"] = state?.loginServer;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkRuleBypassOption"] = state?.networkRuleBypassOption;
+            resourceInputs["networkRuleSet"] = state?.networkRuleSet;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["quarantinePolicyEnabled"] = state?.quarantinePolicyEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionPolicyInDays"] = state?.retentionPolicyInDays;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["trustPolicyEnabled"] = state?.trustPolicyEnabled;
+            resourceInputs["zoneRedundancyEnabled"] = state?.zoneRedundancyEnabled;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["adminEnabled"] = args ? args.adminEnabled : undefined;
-            resourceInputs["anonymousPullEnabled"] = args ? args.anonymousPullEnabled : undefined;
-            resourceInputs["dataEndpointEnabled"] = args ? args.dataEndpointEnabled : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["exportPolicyEnabled"] = args ? args.exportPolicyEnabled : undefined;
-            resourceInputs["georeplications"] = args ? args.georeplications : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkRuleBypassOption"] = args ? args.networkRuleBypassOption : undefined;
-            resourceInputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["quarantinePolicyEnabled"] = args ? args.quarantinePolicyEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionPolicyInDays"] = args ? args.retentionPolicyInDays : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustPolicyEnabled"] = args ? args.trustPolicyEnabled : undefined;
-            resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
+            resourceInputs["adminEnabled"] = args?.adminEnabled;
+            resourceInputs["anonymousPullEnabled"] = args?.anonymousPullEnabled;
+            resourceInputs["dataEndpointEnabled"] = args?.dataEndpointEnabled;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["exportPolicyEnabled"] = args?.exportPolicyEnabled;
+            resourceInputs["georeplications"] = args?.georeplications;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkRuleBypassOption"] = args?.networkRuleBypassOption;
+            resourceInputs["networkRuleSet"] = args?.networkRuleSet;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["quarantinePolicyEnabled"] = args?.quarantinePolicyEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionPolicyInDays"] = args?.retentionPolicyInDays;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustPolicyEnabled"] = args?.trustPolicyEnabled;
+            resourceInputs["zoneRedundancyEnabled"] = args?.zoneRedundancyEnabled;
             resourceInputs["adminPassword"] = undefined /*out*/;
             resourceInputs["adminUsername"] = undefined /*out*/;
             resourceInputs["dataEndpointHostNames"] = undefined /*out*/;

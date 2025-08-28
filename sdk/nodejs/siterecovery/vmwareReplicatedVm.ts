@@ -126,7 +126,7 @@ export class VmwareReplicatedVm extends pulumi.CustomResource {
     /**
      * The name of VMWare appliance which handles the replication. Changing this forces a new resource to be created.
      */
-    public readonly applianceName!: pulumi.Output<string>;
+    declare public readonly applianceName: pulumi.Output<string>;
     /**
      * The ID of the stroage account that should be used for logging during replication. 
      *
@@ -138,7 +138,7 @@ export class VmwareReplicatedVm extends pulumi.CustomResource {
      *
      * > **Note:** When `defaultLogStorageAccountId` co-exist with `managedDisk`, the value of `defaultLogStorageAccountId` must be as same as `logStorageAccountId` of every `managedDisk` or it forces a new resource to be created.
      */
-    public readonly defaultLogStorageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly defaultLogStorageAccountId: pulumi.Output<string | undefined>;
     /**
      * The type of storage account that should be used for recovery disks when a failover is done. Possible values are `Premium_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
      *
@@ -148,7 +148,7 @@ export class VmwareReplicatedVm extends pulumi.CustomResource {
      *
      * > **Note:** When `defaultRecoveryDiskType` co-exist with `managedDisk`, the value of `defaultRecoveryDiskType` must be as same as `targetDiskType` of every `managedDisk` or it forces a new resource to be created.
      */
-    public readonly defaultRecoveryDiskType!: pulumi.Output<string | undefined>;
+    declare public readonly defaultRecoveryDiskType: pulumi.Output<string | undefined>;
     /**
      * The ID of the default Disk Encryption Set that should be used for the disks when a failover is done.
      *
@@ -156,85 +156,85 @@ export class VmwareReplicatedVm extends pulumi.CustomResource {
      *
      * > **Note:** When `defaultTargetDiskEncryptionSetId` co-exist with `managedDisk`, the value of `defaultTargetDiskEncryptionSetId` must be as same as `targetDiskEncryptionSetId` of every `managedDisk` or it forces a new resource to be created.
      */
-    public readonly defaultTargetDiskEncryptionSetId!: pulumi.Output<string | undefined>;
+    declare public readonly defaultTargetDiskEncryptionSetId: pulumi.Output<string | undefined>;
     /**
      * The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * One or more `managedDisk` block as defined below. It's available only if mobility service is already installed on the source VM.
      *
      * > **Note:** A replicated VM could be created without `managedDisk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
      */
-    public readonly managedDisks!: pulumi.Output<outputs.siterecovery.VmwareReplicatedVmManagedDisk[] | undefined>;
+    declare public readonly managedDisks: pulumi.Output<outputs.siterecovery.VmwareReplicatedVmManagedDisk[] | undefined>;
     /**
      * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
      */
-    public readonly multiVmGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly multiVmGroupName: pulumi.Output<string | undefined>;
     /**
      * The name of the replicated VM. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `networkInterface` block as defined below.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.siterecovery.VmwareReplicatedVmNetworkInterface[] | undefined>;
+    declare public readonly networkInterfaces: pulumi.Output<outputs.siterecovery.VmwareReplicatedVmNetworkInterface[] | undefined>;
     /**
      * The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
      */
-    public readonly physicalServerCredentialName!: pulumi.Output<string>;
+    declare public readonly physicalServerCredentialName: pulumi.Output<string>;
     /**
      * The ID of the policy to use for this replicated VM.
      */
-    public readonly recoveryReplicationPolicyId!: pulumi.Output<string>;
+    declare public readonly recoveryReplicationPolicyId: pulumi.Output<string>;
     /**
      * The ID of the Recovery Services Vault where the replicated VM is created.
      */
-    public readonly recoveryVaultId!: pulumi.Output<string>;
+    declare public readonly recoveryVaultId: pulumi.Output<string>;
     /**
      * The name of the source VM in VMWare. Changing this forces a new resource to be created.
      */
-    public readonly sourceVmName!: pulumi.Output<string>;
+    declare public readonly sourceVmName: pulumi.Output<string>;
     /**
      * The ID of availability set that the new VM should belong to when a failover is done.
      */
-    public readonly targetAvailabilitySetId!: pulumi.Output<string | undefined>;
+    declare public readonly targetAvailabilitySetId: pulumi.Output<string | undefined>;
     /**
      * The ID of the storage account that should be used for boot diagnostics when a failover is done.
      */
-    public readonly targetBootDiagnosticsStorageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly targetBootDiagnosticsStorageAccountId: pulumi.Output<string | undefined>;
     /**
      * The ID of network to use when a failover is done.
      *
      * > **Note:** `targetNetworkId` is required when `networkInterface` is specified.
      */
-    public readonly targetNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly targetNetworkId: pulumi.Output<string | undefined>;
     /**
      * The ID of Proximity Placement Group the new VM should belong to when a failover is done.
      *
      * > **Note:** Only one of `targetAvailabilitySetId` or `targetZone` can be specified.
      */
-    public readonly targetProximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly targetProximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
      * The ID of resource group where the VM should be created when a failover is done.
      */
-    public readonly targetResourceGroupId!: pulumi.Output<string>;
+    declare public readonly targetResourceGroupId: pulumi.Output<string>;
     /**
      * Name of the VM that should be created when a failover is done. Changing this forces a new resource to be created.
      */
-    public readonly targetVmName!: pulumi.Output<string>;
+    declare public readonly targetVmName: pulumi.Output<string>;
     /**
      * Size of the VM that should be created when a failover is done, such as `Standard_F2`. If it's not specified, it will automatically be set by detecting the source VM size.
      */
-    public readonly targetVmSize!: pulumi.Output<string | undefined>;
+    declare public readonly targetVmSize: pulumi.Output<string | undefined>;
     /**
      * Specifies the Availability Zone where the Failover VM should exist.
      */
-    public readonly targetZone!: pulumi.Output<string | undefined>;
+    declare public readonly targetZone: pulumi.Output<string | undefined>;
     /**
      * The ID of network to use when a test failover is done.
      */
-    public readonly testNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly testNetworkId: pulumi.Output<string | undefined>;
 
     /**
      * Create a VmwareReplicatedVm resource with the given unique name, arguments, and options.
@@ -249,73 +249,73 @@ export class VmwareReplicatedVm extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VmwareReplicatedVmState | undefined;
-            resourceInputs["applianceName"] = state ? state.applianceName : undefined;
-            resourceInputs["defaultLogStorageAccountId"] = state ? state.defaultLogStorageAccountId : undefined;
-            resourceInputs["defaultRecoveryDiskType"] = state ? state.defaultRecoveryDiskType : undefined;
-            resourceInputs["defaultTargetDiskEncryptionSetId"] = state ? state.defaultTargetDiskEncryptionSetId : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["managedDisks"] = state ? state.managedDisks : undefined;
-            resourceInputs["multiVmGroupName"] = state ? state.multiVmGroupName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            resourceInputs["physicalServerCredentialName"] = state ? state.physicalServerCredentialName : undefined;
-            resourceInputs["recoveryReplicationPolicyId"] = state ? state.recoveryReplicationPolicyId : undefined;
-            resourceInputs["recoveryVaultId"] = state ? state.recoveryVaultId : undefined;
-            resourceInputs["sourceVmName"] = state ? state.sourceVmName : undefined;
-            resourceInputs["targetAvailabilitySetId"] = state ? state.targetAvailabilitySetId : undefined;
-            resourceInputs["targetBootDiagnosticsStorageAccountId"] = state ? state.targetBootDiagnosticsStorageAccountId : undefined;
-            resourceInputs["targetNetworkId"] = state ? state.targetNetworkId : undefined;
-            resourceInputs["targetProximityPlacementGroupId"] = state ? state.targetProximityPlacementGroupId : undefined;
-            resourceInputs["targetResourceGroupId"] = state ? state.targetResourceGroupId : undefined;
-            resourceInputs["targetVmName"] = state ? state.targetVmName : undefined;
-            resourceInputs["targetVmSize"] = state ? state.targetVmSize : undefined;
-            resourceInputs["targetZone"] = state ? state.targetZone : undefined;
-            resourceInputs["testNetworkId"] = state ? state.testNetworkId : undefined;
+            resourceInputs["applianceName"] = state?.applianceName;
+            resourceInputs["defaultLogStorageAccountId"] = state?.defaultLogStorageAccountId;
+            resourceInputs["defaultRecoveryDiskType"] = state?.defaultRecoveryDiskType;
+            resourceInputs["defaultTargetDiskEncryptionSetId"] = state?.defaultTargetDiskEncryptionSetId;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["managedDisks"] = state?.managedDisks;
+            resourceInputs["multiVmGroupName"] = state?.multiVmGroupName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkInterfaces"] = state?.networkInterfaces;
+            resourceInputs["physicalServerCredentialName"] = state?.physicalServerCredentialName;
+            resourceInputs["recoveryReplicationPolicyId"] = state?.recoveryReplicationPolicyId;
+            resourceInputs["recoveryVaultId"] = state?.recoveryVaultId;
+            resourceInputs["sourceVmName"] = state?.sourceVmName;
+            resourceInputs["targetAvailabilitySetId"] = state?.targetAvailabilitySetId;
+            resourceInputs["targetBootDiagnosticsStorageAccountId"] = state?.targetBootDiagnosticsStorageAccountId;
+            resourceInputs["targetNetworkId"] = state?.targetNetworkId;
+            resourceInputs["targetProximityPlacementGroupId"] = state?.targetProximityPlacementGroupId;
+            resourceInputs["targetResourceGroupId"] = state?.targetResourceGroupId;
+            resourceInputs["targetVmName"] = state?.targetVmName;
+            resourceInputs["targetVmSize"] = state?.targetVmSize;
+            resourceInputs["targetZone"] = state?.targetZone;
+            resourceInputs["testNetworkId"] = state?.testNetworkId;
         } else {
             const args = argsOrState as VmwareReplicatedVmArgs | undefined;
-            if ((!args || args.applianceName === undefined) && !opts.urn) {
+            if (args?.applianceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applianceName'");
             }
-            if ((!args || args.physicalServerCredentialName === undefined) && !opts.urn) {
+            if (args?.physicalServerCredentialName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'physicalServerCredentialName'");
             }
-            if ((!args || args.recoveryReplicationPolicyId === undefined) && !opts.urn) {
+            if (args?.recoveryReplicationPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryReplicationPolicyId'");
             }
-            if ((!args || args.recoveryVaultId === undefined) && !opts.urn) {
+            if (args?.recoveryVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultId'");
             }
-            if ((!args || args.sourceVmName === undefined) && !opts.urn) {
+            if (args?.sourceVmName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceVmName'");
             }
-            if ((!args || args.targetResourceGroupId === undefined) && !opts.urn) {
+            if (args?.targetResourceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceGroupId'");
             }
-            if ((!args || args.targetVmName === undefined) && !opts.urn) {
+            if (args?.targetVmName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetVmName'");
             }
-            resourceInputs["applianceName"] = args ? args.applianceName : undefined;
-            resourceInputs["defaultLogStorageAccountId"] = args ? args.defaultLogStorageAccountId : undefined;
-            resourceInputs["defaultRecoveryDiskType"] = args ? args.defaultRecoveryDiskType : undefined;
-            resourceInputs["defaultTargetDiskEncryptionSetId"] = args ? args.defaultTargetDiskEncryptionSetId : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["managedDisks"] = args ? args.managedDisks : undefined;
-            resourceInputs["multiVmGroupName"] = args ? args.multiVmGroupName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            resourceInputs["physicalServerCredentialName"] = args ? args.physicalServerCredentialName : undefined;
-            resourceInputs["recoveryReplicationPolicyId"] = args ? args.recoveryReplicationPolicyId : undefined;
-            resourceInputs["recoveryVaultId"] = args ? args.recoveryVaultId : undefined;
-            resourceInputs["sourceVmName"] = args ? args.sourceVmName : undefined;
-            resourceInputs["targetAvailabilitySetId"] = args ? args.targetAvailabilitySetId : undefined;
-            resourceInputs["targetBootDiagnosticsStorageAccountId"] = args ? args.targetBootDiagnosticsStorageAccountId : undefined;
-            resourceInputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
-            resourceInputs["targetProximityPlacementGroupId"] = args ? args.targetProximityPlacementGroupId : undefined;
-            resourceInputs["targetResourceGroupId"] = args ? args.targetResourceGroupId : undefined;
-            resourceInputs["targetVmName"] = args ? args.targetVmName : undefined;
-            resourceInputs["targetVmSize"] = args ? args.targetVmSize : undefined;
-            resourceInputs["targetZone"] = args ? args.targetZone : undefined;
-            resourceInputs["testNetworkId"] = args ? args.testNetworkId : undefined;
+            resourceInputs["applianceName"] = args?.applianceName;
+            resourceInputs["defaultLogStorageAccountId"] = args?.defaultLogStorageAccountId;
+            resourceInputs["defaultRecoveryDiskType"] = args?.defaultRecoveryDiskType;
+            resourceInputs["defaultTargetDiskEncryptionSetId"] = args?.defaultTargetDiskEncryptionSetId;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["managedDisks"] = args?.managedDisks;
+            resourceInputs["multiVmGroupName"] = args?.multiVmGroupName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["physicalServerCredentialName"] = args?.physicalServerCredentialName;
+            resourceInputs["recoveryReplicationPolicyId"] = args?.recoveryReplicationPolicyId;
+            resourceInputs["recoveryVaultId"] = args?.recoveryVaultId;
+            resourceInputs["sourceVmName"] = args?.sourceVmName;
+            resourceInputs["targetAvailabilitySetId"] = args?.targetAvailabilitySetId;
+            resourceInputs["targetBootDiagnosticsStorageAccountId"] = args?.targetBootDiagnosticsStorageAccountId;
+            resourceInputs["targetNetworkId"] = args?.targetNetworkId;
+            resourceInputs["targetProximityPlacementGroupId"] = args?.targetProximityPlacementGroupId;
+            resourceInputs["targetResourceGroupId"] = args?.targetResourceGroupId;
+            resourceInputs["targetVmName"] = args?.targetVmName;
+            resourceInputs["targetVmSize"] = args?.targetVmSize;
+            resourceInputs["targetZone"] = args?.targetZone;
+            resourceInputs["testNetworkId"] = args?.testNetworkId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VmwareReplicatedVm.__pulumiType, name, resourceInputs, opts);

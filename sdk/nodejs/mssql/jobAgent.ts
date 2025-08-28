@@ -86,27 +86,27 @@ export class JobAgent extends pulumi.CustomResource {
     /**
      * The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
-    public readonly databaseId!: pulumi.Output<string>;
+    declare public readonly databaseId: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.mssql.JobAgentIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.mssql.JobAgentIdentity | undefined>;
     /**
      * The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to this Elastic Job Agent.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a JobAgent resource with the given unique name, arguments, and options.
@@ -121,23 +121,23 @@ export class JobAgent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobAgentState | undefined;
-            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["databaseId"] = state?.databaseId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as JobAgentArgs | undefined;
-            if ((!args || args.databaseId === undefined) && !opts.urn) {
+            if (args?.databaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
-            resourceInputs["databaseId"] = args ? args.databaseId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["databaseId"] = args?.databaseId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(JobAgent.__pulumiType, name, resourceInputs, opts);

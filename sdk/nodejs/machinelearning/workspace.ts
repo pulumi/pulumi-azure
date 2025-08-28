@@ -339,105 +339,105 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    public readonly applicationInsightsId!: pulumi.Output<string>;
+    declare public readonly applicationInsightsId: pulumi.Output<string>;
     /**
      * The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      *
      * > **Note:** The `adminEnabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
      */
-    public readonly containerRegistryId!: pulumi.Output<string | undefined>;
+    declare public readonly containerRegistryId: pulumi.Output<string | undefined>;
     /**
      * The description of this Machine Learning Workspace.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The url for the discovery service to identify regional endpoints for machine learning experimentation services.
      */
-    public /*out*/ readonly discoveryUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly discoveryUrl: pulumi.Output<string>;
     /**
      * An `encryption` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly encryption!: pulumi.Output<outputs.machinelearning.WorkspaceEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.machinelearning.WorkspaceEncryption | undefined>;
     /**
      * A `featureStore` block as defined below.
      */
-    public readonly featureStore!: pulumi.Output<outputs.machinelearning.WorkspaceFeatureStore | undefined>;
+    declare public readonly featureStore: pulumi.Output<outputs.machinelearning.WorkspaceFeatureStore | undefined>;
     /**
      * Display name for this Machine Learning Workspace.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      */
-    public readonly highBusinessImpact!: pulumi.Output<boolean | undefined>;
+    declare public readonly highBusinessImpact: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearning.WorkspaceIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.machinelearning.WorkspaceIdentity>;
     /**
      * The compute name for image build of the Machine Learning Workspace.
      */
-    public readonly imageBuildComputeName!: pulumi.Output<string | undefined>;
+    declare public readonly imageBuildComputeName: pulumi.Output<string | undefined>;
     /**
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string>;
     /**
      * The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `managedNetwork` block as defined below.
      */
-    public readonly managedNetwork!: pulumi.Output<outputs.machinelearning.WorkspaceManagedNetwork>;
+    declare public readonly managedNetwork: pulumi.Output<outputs.machinelearning.WorkspaceManagedNetwork>;
     /**
      * Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The user assigned identity id that represents the workspace identity.
      */
-    public readonly primaryUserAssignedIdentity!: pulumi.Output<string | undefined>;
+    declare public readonly primaryUserAssignedIdentity: pulumi.Output<string | undefined>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
      *
      * > **Note:** `publicAccessBehindVirtualNetworkEnabled` is deprecated and will be removed in favour of the property `publicNetworkAccessEnabled`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `serverlessCompute` block as defined below.
      */
-    public readonly serverlessCompute!: pulumi.Output<outputs.machinelearning.WorkspaceServerlessCompute | undefined>;
+    declare public readonly serverlessCompute: pulumi.Output<outputs.machinelearning.WorkspaceServerlessCompute | undefined>;
     /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
-    public readonly skuName!: pulumi.Output<string | undefined>;
+    declare public readonly skuName: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      *
      * > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
      */
-    public readonly v1LegacyModeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly v1LegacyModeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The immutable id associated with this workspace.
      */
-    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -452,69 +452,69 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            resourceInputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["discoveryUrl"] = state ? state.discoveryUrl : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["featureStore"] = state ? state.featureStore : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["highBusinessImpact"] = state ? state.highBusinessImpact : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["imageBuildComputeName"] = state ? state.imageBuildComputeName : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedNetwork"] = state ? state.managedNetwork : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryUserAssignedIdentity"] = state ? state.primaryUserAssignedIdentity : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serverlessCompute"] = state ? state.serverlessCompute : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["v1LegacyModeEnabled"] = state ? state.v1LegacyModeEnabled : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["applicationInsightsId"] = state?.applicationInsightsId;
+            resourceInputs["containerRegistryId"] = state?.containerRegistryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["discoveryUrl"] = state?.discoveryUrl;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["featureStore"] = state?.featureStore;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["highBusinessImpact"] = state?.highBusinessImpact;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["imageBuildComputeName"] = state?.imageBuildComputeName;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedNetwork"] = state?.managedNetwork;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryUserAssignedIdentity"] = state?.primaryUserAssignedIdentity;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serverlessCompute"] = state?.serverlessCompute;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["v1LegacyModeEnabled"] = state?.v1LegacyModeEnabled;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
+            if (args?.applicationInsightsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
+            if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            resourceInputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["featureStore"] = args ? args.featureStore : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["highBusinessImpact"] = args ? args.highBusinessImpact : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["imageBuildComputeName"] = args ? args.imageBuildComputeName : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedNetwork"] = args ? args.managedNetwork : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverlessCompute"] = args ? args.serverlessCompute : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["v1LegacyModeEnabled"] = args ? args.v1LegacyModeEnabled : undefined;
+            resourceInputs["applicationInsightsId"] = args?.applicationInsightsId;
+            resourceInputs["containerRegistryId"] = args?.containerRegistryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["featureStore"] = args?.featureStore;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["highBusinessImpact"] = args?.highBusinessImpact;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["imageBuildComputeName"] = args?.imageBuildComputeName;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedNetwork"] = args?.managedNetwork;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["primaryUserAssignedIdentity"] = args?.primaryUserAssignedIdentity;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverlessCompute"] = args?.serverlessCompute;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["v1LegacyModeEnabled"] = args?.v1LegacyModeEnabled;
             resourceInputs["discoveryUrl"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
         }

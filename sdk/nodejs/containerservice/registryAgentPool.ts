@@ -77,35 +77,35 @@ export class RegistryAgentPool extends pulumi.CustomResource {
     /**
      * Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    public readonly containerRegistryName!: pulumi.Output<string>;
+    declare public readonly containerRegistryName: pulumi.Output<string>;
     /**
      * VMSS instance count. Defaults to `1`.
      */
-    public readonly instanceCount!: pulumi.Output<number | undefined>;
+    declare public readonly instanceCount: pulumi.Output<number | undefined>;
     /**
      * The Azure Region where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Azure Container Registry Agent Pool. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Azure Container Registry Agent Pool.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    public readonly tier!: pulumi.Output<string | undefined>;
+    declare public readonly tier: pulumi.Output<string | undefined>;
     /**
      * The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created.
      */
-    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
 
     /**
      * Create a RegistryAgentPool resource with the given unique name, arguments, and options.
@@ -120,30 +120,30 @@ export class RegistryAgentPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryAgentPoolState | undefined;
-            resourceInputs["containerRegistryName"] = state ? state.containerRegistryName : undefined;
-            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tier"] = state ? state.tier : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
+            resourceInputs["containerRegistryName"] = state?.containerRegistryName;
+            resourceInputs["instanceCount"] = state?.instanceCount;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tier"] = state?.tier;
+            resourceInputs["virtualNetworkSubnetId"] = state?.virtualNetworkSubnetId;
         } else {
             const args = argsOrState as RegistryAgentPoolArgs | undefined;
-            if ((!args || args.containerRegistryName === undefined) && !opts.urn) {
+            if (args?.containerRegistryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["containerRegistryName"] = args ? args.containerRegistryName : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["containerRegistryName"] = args?.containerRegistryName;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["virtualNetworkSubnetId"] = args?.virtualNetworkSubnetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RegistryAgentPool.__pulumiType, name, resourceInputs, opts);

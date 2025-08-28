@@ -91,19 +91,19 @@ export class AlertRuleThreatIntelligence extends pulumi.CustomResource {
     /**
      * The GUID of the alert rule template which is used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
      */
-    public readonly alertRuleTemplateGuid!: pulumi.Output<string>;
+    declare public readonly alertRuleTemplateGuid: pulumi.Output<string>;
     /**
      * Whether the Threat Intelligence Alert rule enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Threat Intelligence Alert Rule belongs to. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a AlertRuleThreatIntelligence resource with the given unique name, arguments, and options.
@@ -118,22 +118,22 @@ export class AlertRuleThreatIntelligence extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertRuleThreatIntelligenceState | undefined;
-            resourceInputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = state?.alertRuleTemplateGuid;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as AlertRuleThreatIntelligenceArgs | undefined;
-            if ((!args || args.alertRuleTemplateGuid === undefined) && !opts.urn) {
+            if (args?.alertRuleTemplateGuid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertRuleTemplateGuid'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            resourceInputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = args?.alertRuleTemplateGuid;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertRuleThreatIntelligence.__pulumiType, name, resourceInputs, opts);

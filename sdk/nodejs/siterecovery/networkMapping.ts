@@ -110,31 +110,31 @@ export class NetworkMapping extends pulumi.CustomResource {
     /**
      * The name of the network mapping. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The id of the primary network. Changing this forces a new resource to be created.
      */
-    public readonly sourceNetworkId!: pulumi.Output<string>;
+    declare public readonly sourceNetworkId: pulumi.Output<string>;
     /**
      * Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created.
      */
-    public readonly sourceRecoveryFabricName!: pulumi.Output<string>;
+    declare public readonly sourceRecoveryFabricName: pulumi.Output<string>;
     /**
      * The id of the recovery network. Changing this forces a new resource to be created.
      */
-    public readonly targetNetworkId!: pulumi.Output<string>;
+    declare public readonly targetNetworkId: pulumi.Output<string>;
     /**
      * The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created.
      */
-    public readonly targetRecoveryFabricName!: pulumi.Output<string>;
+    declare public readonly targetRecoveryFabricName: pulumi.Output<string>;
 
     /**
      * Create a NetworkMapping resource with the given unique name, arguments, and options.
@@ -149,40 +149,40 @@ export class NetworkMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkMappingState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceNetworkId"] = state ? state.sourceNetworkId : undefined;
-            resourceInputs["sourceRecoveryFabricName"] = state ? state.sourceRecoveryFabricName : undefined;
-            resourceInputs["targetNetworkId"] = state ? state.targetNetworkId : undefined;
-            resourceInputs["targetRecoveryFabricName"] = state ? state.targetRecoveryFabricName : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceNetworkId"] = state?.sourceNetworkId;
+            resourceInputs["sourceRecoveryFabricName"] = state?.sourceRecoveryFabricName;
+            resourceInputs["targetNetworkId"] = state?.targetNetworkId;
+            resourceInputs["targetRecoveryFabricName"] = state?.targetRecoveryFabricName;
         } else {
             const args = argsOrState as NetworkMappingArgs | undefined;
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceNetworkId === undefined) && !opts.urn) {
+            if (args?.sourceNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceNetworkId'");
             }
-            if ((!args || args.sourceRecoveryFabricName === undefined) && !opts.urn) {
+            if (args?.sourceRecoveryFabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceRecoveryFabricName'");
             }
-            if ((!args || args.targetNetworkId === undefined) && !opts.urn) {
+            if (args?.targetNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetNetworkId'");
             }
-            if ((!args || args.targetRecoveryFabricName === undefined) && !opts.urn) {
+            if (args?.targetRecoveryFabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetRecoveryFabricName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceNetworkId"] = args ? args.sourceNetworkId : undefined;
-            resourceInputs["sourceRecoveryFabricName"] = args ? args.sourceRecoveryFabricName : undefined;
-            resourceInputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
-            resourceInputs["targetRecoveryFabricName"] = args ? args.targetRecoveryFabricName : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceNetworkId"] = args?.sourceNetworkId;
+            resourceInputs["sourceRecoveryFabricName"] = args?.sourceRecoveryFabricName;
+            resourceInputs["targetNetworkId"] = args?.targetNetworkId;
+            resourceInputs["targetRecoveryFabricName"] = args?.targetRecoveryFabricName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkMapping.__pulumiType, name, resourceInputs, opts);

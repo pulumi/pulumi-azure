@@ -91,19 +91,19 @@ export class SecurityDeviceGroup extends pulumi.CustomResource {
     /**
      * an `allowRule` blocks as defined below.
      */
-    public readonly allowRule!: pulumi.Output<outputs.iot.SecurityDeviceGroupAllowRule | undefined>;
+    declare public readonly allowRule: pulumi.Output<outputs.iot.SecurityDeviceGroupAllowRule | undefined>;
     /**
      * The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
      */
-    public readonly iothubId!: pulumi.Output<string>;
+    declare public readonly iothubId: pulumi.Output<string>;
     /**
      * Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `rangeRule` blocks as defined below.
      */
-    public readonly rangeRules!: pulumi.Output<outputs.iot.SecurityDeviceGroupRangeRule[] | undefined>;
+    declare public readonly rangeRules: pulumi.Output<outputs.iot.SecurityDeviceGroupRangeRule[] | undefined>;
 
     /**
      * Create a SecurityDeviceGroup resource with the given unique name, arguments, and options.
@@ -118,19 +118,19 @@ export class SecurityDeviceGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityDeviceGroupState | undefined;
-            resourceInputs["allowRule"] = state ? state.allowRule : undefined;
-            resourceInputs["iothubId"] = state ? state.iothubId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rangeRules"] = state ? state.rangeRules : undefined;
+            resourceInputs["allowRule"] = state?.allowRule;
+            resourceInputs["iothubId"] = state?.iothubId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rangeRules"] = state?.rangeRules;
         } else {
             const args = argsOrState as SecurityDeviceGroupArgs | undefined;
-            if ((!args || args.iothubId === undefined) && !opts.urn) {
+            if (args?.iothubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubId'");
             }
-            resourceInputs["allowRule"] = args ? args.allowRule : undefined;
-            resourceInputs["iothubId"] = args ? args.iothubId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rangeRules"] = args ? args.rangeRules : undefined;
+            resourceInputs["allowRule"] = args?.allowRule;
+            resourceInputs["iothubId"] = args?.iothubId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rangeRules"] = args?.rangeRules;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecurityDeviceGroup.__pulumiType, name, resourceInputs, opts);

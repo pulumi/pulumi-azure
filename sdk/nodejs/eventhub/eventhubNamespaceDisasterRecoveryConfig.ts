@@ -83,19 +83,19 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
     /**
      * Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * The ID of the EventHub Namespace to replicate to.
      */
-    public readonly partnerNamespaceId!: pulumi.Output<string>;
+    declare public readonly partnerNamespaceId: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a EventhubNamespaceDisasterRecoveryConfig resource with the given unique name, arguments, and options.
@@ -110,25 +110,25 @@ export class EventhubNamespaceDisasterRecoveryConfig extends pulumi.CustomResour
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventhubNamespaceDisasterRecoveryConfigState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["partnerNamespaceId"] = state ? state.partnerNamespaceId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["partnerNamespaceId"] = state?.partnerNamespaceId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as EventhubNamespaceDisasterRecoveryConfigArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.partnerNamespaceId === undefined) && !opts.urn) {
+            if (args?.partnerNamespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerNamespaceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["partnerNamespaceId"] = args ? args.partnerNamespaceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["partnerNamespaceId"] = args?.partnerNamespaceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventhubNamespaceDisasterRecoveryConfig.__pulumiType, name, resourceInputs, opts);

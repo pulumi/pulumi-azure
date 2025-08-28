@@ -81,27 +81,27 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
     /**
      * The content of the Logic App Integration Account Map.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Map to be created.
      */
-    public readonly integrationAccountName!: pulumi.Output<string>;
+    declare public readonly integrationAccountName: pulumi.Output<string>;
     /**
      * The type of the Logic App Integration Account Map. Possible values are `Liquid`, `NotSpecified`, `Xslt`, `Xslt30` and `Xslt20`.
      */
-    public readonly mapType!: pulumi.Output<string>;
+    declare public readonly mapType: pulumi.Output<string>;
     /**
      * The metadata of the Logic App Integration Account Map.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Map. Changing this forces a new Logic App Integration Account Map to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Map should exist. Changing this forces a new Logic App Integration Account Map to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAccountMap resource with the given unique name, arguments, and options.
@@ -116,32 +116,32 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountMapState | undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            resourceInputs["mapType"] = state ? state.mapType : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["integrationAccountName"] = state?.integrationAccountName;
+            resourceInputs["mapType"] = state?.mapType;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IntegrationAccountMapArgs | undefined;
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.mapType === undefined) && !opts.urn) {
+            if (args?.mapType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mapType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["mapType"] = args ? args.mapType : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["mapType"] = args?.mapType;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAccountMap.__pulumiType, name, resourceInputs, opts);

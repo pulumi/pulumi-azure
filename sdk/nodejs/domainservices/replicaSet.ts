@@ -290,27 +290,27 @@ export class ReplicaSet extends pulumi.CustomResource {
     /**
      * A list of subnet IP addresses for the domain controllers in this Replica Set, typically two.
      */
-    public /*out*/ readonly domainControllerIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly domainControllerIpAddresses: pulumi.Output<string[]>;
     /**
      * The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
      */
-    public readonly domainServiceId!: pulumi.Output<string>;
+    declare public readonly domainServiceId: pulumi.Output<string>;
     /**
      * The publicly routable IP address for the domain controllers in this Replica Set.
      */
-    public /*out*/ readonly externalAccessIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly externalAccessIpAddress: pulumi.Output<string>;
     /**
      * The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The current service status for the replica set.
      */
-    public /*out*/ readonly serviceStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceStatus: pulumi.Output<string>;
     /**
      * The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a ReplicaSet resource with the given unique name, arguments, and options.
@@ -325,23 +325,23 @@ export class ReplicaSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicaSetState | undefined;
-            resourceInputs["domainControllerIpAddresses"] = state ? state.domainControllerIpAddresses : undefined;
-            resourceInputs["domainServiceId"] = state ? state.domainServiceId : undefined;
-            resourceInputs["externalAccessIpAddress"] = state ? state.externalAccessIpAddress : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["serviceStatus"] = state ? state.serviceStatus : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["domainControllerIpAddresses"] = state?.domainControllerIpAddresses;
+            resourceInputs["domainServiceId"] = state?.domainServiceId;
+            resourceInputs["externalAccessIpAddress"] = state?.externalAccessIpAddress;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["serviceStatus"] = state?.serviceStatus;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as ReplicaSetArgs | undefined;
-            if ((!args || args.domainServiceId === undefined) && !opts.urn) {
+            if (args?.domainServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainServiceId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["domainServiceId"] = args ? args.domainServiceId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["domainServiceId"] = args?.domainServiceId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["domainControllerIpAddresses"] = undefined /*out*/;
             resourceInputs["externalAccessIpAddress"] = undefined /*out*/;
             resourceInputs["serviceStatus"] = undefined /*out*/;

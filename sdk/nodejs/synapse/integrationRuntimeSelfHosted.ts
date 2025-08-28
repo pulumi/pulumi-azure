@@ -96,23 +96,23 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
     /**
      * The primary integration runtime authentication key.
      */
-    public /*out*/ readonly authorizationKeyPrimary!: pulumi.Output<string>;
+    declare public /*out*/ readonly authorizationKeyPrimary: pulumi.Output<string>;
     /**
      * The secondary integration runtime authentication key.
      */
-    public /*out*/ readonly authorizationKeySecondary!: pulumi.Output<string>;
+    declare public /*out*/ readonly authorizationKeySecondary: pulumi.Output<string>;
     /**
      * Integration runtime description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Synapse Self-hosted Integration Runtime. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string>;
 
     /**
      * Create a IntegrationRuntimeSelfHosted resource with the given unique name, arguments, and options.
@@ -127,19 +127,19 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSelfHostedState | undefined;
-            resourceInputs["authorizationKeyPrimary"] = state ? state.authorizationKeyPrimary : undefined;
-            resourceInputs["authorizationKeySecondary"] = state ? state.authorizationKeySecondary : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["authorizationKeyPrimary"] = state?.authorizationKeyPrimary;
+            resourceInputs["authorizationKeySecondary"] = state?.authorizationKeySecondary;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
         } else {
             const args = argsOrState as IntegrationRuntimeSelfHostedArgs | undefined;
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
+            if (args?.synapseWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
             resourceInputs["authorizationKeyPrimary"] = undefined /*out*/;
             resourceInputs["authorizationKeySecondary"] = undefined /*out*/;
         }

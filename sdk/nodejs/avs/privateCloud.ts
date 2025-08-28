@@ -82,81 +82,81 @@ export class PrivateCloud extends pulumi.CustomResource {
     /**
      * A `circuit` block as defined below.
      */
-    public /*out*/ readonly circuits!: pulumi.Output<outputs.avs.PrivateCloudCircuit[]>;
+    declare public /*out*/ readonly circuits: pulumi.Output<outputs.avs.PrivateCloudCircuit[]>;
     /**
      * The endpoint for the VMware HCX Cloud Manager.
      */
-    public /*out*/ readonly hcxCloudManagerEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly hcxCloudManagerEndpoint: pulumi.Output<string>;
     /**
      * Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
      * > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
-    public readonly internetConnectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internetConnectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `managementCluster` block as defined below.
      * > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
-    public readonly managementCluster!: pulumi.Output<outputs.avs.PrivateCloudManagementCluster>;
+    declare public readonly managementCluster: pulumi.Output<outputs.avs.PrivateCloudManagementCluster>;
     /**
      * The network used to access VMware vCenter Server and NSX Manager.
      */
-    public /*out*/ readonly managementSubnetCidr!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementSubnetCidr: pulumi.Output<string>;
     /**
      * The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      */
-    public readonly networkSubnetCidr!: pulumi.Output<string>;
+    declare public readonly networkSubnetCidr: pulumi.Output<string>;
     /**
      * The thumbprint of the VMware NSX Manager SSL certificate.
      */
-    public /*out*/ readonly nsxtCertificateThumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly nsxtCertificateThumbprint: pulumi.Output<string>;
     /**
      * The endpoint for the VMware NSX Manager.
      */
-    public /*out*/ readonly nsxtManagerEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly nsxtManagerEndpoint: pulumi.Output<string>;
     /**
      * The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      */
-    public readonly nsxtPassword!: pulumi.Output<string | undefined>;
+    declare public readonly nsxtPassword: pulumi.Output<string | undefined>;
     /**
      * The network which is used for virtual machine cold migration, cloning, and snapshot migration.
      */
-    public /*out*/ readonly provisioningSubnetCidr!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningSubnetCidr: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The thumbprint of the VMware vCenter Server SSL certificate.
      */
-    public /*out*/ readonly vcenterCertificateThumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly vcenterCertificateThumbprint: pulumi.Output<string>;
     /**
      * The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
      */
-    public readonly vcenterPassword!: pulumi.Output<string | undefined>;
+    declare public readonly vcenterPassword: pulumi.Output<string | undefined>;
     /**
      * The endpoint for VMware vCenter Server Appliance.
      */
-    public /*out*/ readonly vcsaEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly vcsaEndpoint: pulumi.Output<string>;
     /**
      * The network which is used for live migration of virtual machines.
      */
-    public /*out*/ readonly vmotionSubnetCidr!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmotionSubnetCidr: pulumi.Output<string>;
 
     /**
      * Create a PrivateCloud resource with the given unique name, arguments, and options.
@@ -171,48 +171,48 @@ export class PrivateCloud extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateCloudState | undefined;
-            resourceInputs["circuits"] = state ? state.circuits : undefined;
-            resourceInputs["hcxCloudManagerEndpoint"] = state ? state.hcxCloudManagerEndpoint : undefined;
-            resourceInputs["internetConnectionEnabled"] = state ? state.internetConnectionEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managementCluster"] = state ? state.managementCluster : undefined;
-            resourceInputs["managementSubnetCidr"] = state ? state.managementSubnetCidr : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkSubnetCidr"] = state ? state.networkSubnetCidr : undefined;
-            resourceInputs["nsxtCertificateThumbprint"] = state ? state.nsxtCertificateThumbprint : undefined;
-            resourceInputs["nsxtManagerEndpoint"] = state ? state.nsxtManagerEndpoint : undefined;
-            resourceInputs["nsxtPassword"] = state ? state.nsxtPassword : undefined;
-            resourceInputs["provisioningSubnetCidr"] = state ? state.provisioningSubnetCidr : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["vcenterCertificateThumbprint"] = state ? state.vcenterCertificateThumbprint : undefined;
-            resourceInputs["vcenterPassword"] = state ? state.vcenterPassword : undefined;
-            resourceInputs["vcsaEndpoint"] = state ? state.vcsaEndpoint : undefined;
-            resourceInputs["vmotionSubnetCidr"] = state ? state.vmotionSubnetCidr : undefined;
+            resourceInputs["circuits"] = state?.circuits;
+            resourceInputs["hcxCloudManagerEndpoint"] = state?.hcxCloudManagerEndpoint;
+            resourceInputs["internetConnectionEnabled"] = state?.internetConnectionEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managementCluster"] = state?.managementCluster;
+            resourceInputs["managementSubnetCidr"] = state?.managementSubnetCidr;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkSubnetCidr"] = state?.networkSubnetCidr;
+            resourceInputs["nsxtCertificateThumbprint"] = state?.nsxtCertificateThumbprint;
+            resourceInputs["nsxtManagerEndpoint"] = state?.nsxtManagerEndpoint;
+            resourceInputs["nsxtPassword"] = state?.nsxtPassword;
+            resourceInputs["provisioningSubnetCidr"] = state?.provisioningSubnetCidr;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["vcenterCertificateThumbprint"] = state?.vcenterCertificateThumbprint;
+            resourceInputs["vcenterPassword"] = state?.vcenterPassword;
+            resourceInputs["vcsaEndpoint"] = state?.vcsaEndpoint;
+            resourceInputs["vmotionSubnetCidr"] = state?.vmotionSubnetCidr;
         } else {
             const args = argsOrState as PrivateCloudArgs | undefined;
-            if ((!args || args.managementCluster === undefined) && !opts.urn) {
+            if (args?.managementCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementCluster'");
             }
-            if ((!args || args.networkSubnetCidr === undefined) && !opts.urn) {
+            if (args?.networkSubnetCidr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSubnetCidr'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["internetConnectionEnabled"] = args ? args.internetConnectionEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementCluster"] = args ? args.managementCluster : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkSubnetCidr"] = args ? args.networkSubnetCidr : undefined;
+            resourceInputs["internetConnectionEnabled"] = args?.internetConnectionEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementCluster"] = args?.managementCluster;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkSubnetCidr"] = args?.networkSubnetCidr;
             resourceInputs["nsxtPassword"] = args?.nsxtPassword ? pulumi.secret(args.nsxtPassword) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["vcenterPassword"] = args?.vcenterPassword ? pulumi.secret(args.vcenterPassword) : undefined;
             resourceInputs["circuits"] = undefined /*out*/;
             resourceInputs["hcxCloudManagerEndpoint"] = undefined /*out*/;

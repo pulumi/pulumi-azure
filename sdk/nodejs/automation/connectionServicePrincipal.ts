@@ -84,35 +84,35 @@ export class ConnectionServicePrincipal extends pulumi.CustomResource {
     /**
      * The (Client) ID of the Service Principal.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
     /**
      * The thumbprint of the Service Principal Certificate.
      */
-    public readonly certificateThumbprint!: pulumi.Output<string>;
+    declare public readonly certificateThumbprint: pulumi.Output<string>;
     /**
      * A description for this Connection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Connection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The subscription GUID.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
     /**
      * The ID of the Tenant the Service Principal is assigned in.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a ConnectionServicePrincipal resource with the given unique name, arguments, and options.
@@ -127,42 +127,42 @@ export class ConnectionServicePrincipal extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionServicePrincipalState | undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["certificateThumbprint"] = state ? state.certificateThumbprint : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["certificateThumbprint"] = state?.certificateThumbprint;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as ConnectionServicePrincipalArgs | undefined;
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
+            if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.certificateThumbprint === undefined) && !opts.urn) {
+            if (args?.certificateThumbprint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateThumbprint'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["certificateThumbprint"] = args ? args.certificateThumbprint : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["certificateThumbprint"] = args?.certificateThumbprint;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConnectionServicePrincipal.__pulumiType, name, resourceInputs, opts);

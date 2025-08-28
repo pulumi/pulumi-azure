@@ -98,23 +98,23 @@ export class EndpointEventHub extends pulumi.CustomResource {
     /**
      * The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
      */
-    public readonly deadLetterStorageSecret!: pulumi.Output<string | undefined>;
+    declare public readonly deadLetterStorageSecret: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the Digital Twins Instance. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
      */
-    public readonly digitalTwinsId!: pulumi.Output<string>;
+    declare public readonly digitalTwinsId: pulumi.Output<string>;
     /**
      * The primary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
      */
-    public readonly eventhubPrimaryConnectionString!: pulumi.Output<string>;
+    declare public readonly eventhubPrimaryConnectionString: pulumi.Output<string>;
     /**
      * The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
      */
-    public readonly eventhubSecondaryConnectionString!: pulumi.Output<string>;
+    declare public readonly eventhubSecondaryConnectionString: pulumi.Output<string>;
     /**
      * The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a EndpointEventHub resource with the given unique name, arguments, and options.
@@ -129,27 +129,27 @@ export class EndpointEventHub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointEventHubState | undefined;
-            resourceInputs["deadLetterStorageSecret"] = state ? state.deadLetterStorageSecret : undefined;
-            resourceInputs["digitalTwinsId"] = state ? state.digitalTwinsId : undefined;
-            resourceInputs["eventhubPrimaryConnectionString"] = state ? state.eventhubPrimaryConnectionString : undefined;
-            resourceInputs["eventhubSecondaryConnectionString"] = state ? state.eventhubSecondaryConnectionString : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["deadLetterStorageSecret"] = state?.deadLetterStorageSecret;
+            resourceInputs["digitalTwinsId"] = state?.digitalTwinsId;
+            resourceInputs["eventhubPrimaryConnectionString"] = state?.eventhubPrimaryConnectionString;
+            resourceInputs["eventhubSecondaryConnectionString"] = state?.eventhubSecondaryConnectionString;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as EndpointEventHubArgs | undefined;
-            if ((!args || args.digitalTwinsId === undefined) && !opts.urn) {
+            if (args?.digitalTwinsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'digitalTwinsId'");
             }
-            if ((!args || args.eventhubPrimaryConnectionString === undefined) && !opts.urn) {
+            if (args?.eventhubPrimaryConnectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubPrimaryConnectionString'");
             }
-            if ((!args || args.eventhubSecondaryConnectionString === undefined) && !opts.urn) {
+            if (args?.eventhubSecondaryConnectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubSecondaryConnectionString'");
             }
             resourceInputs["deadLetterStorageSecret"] = args?.deadLetterStorageSecret ? pulumi.secret(args.deadLetterStorageSecret) : undefined;
-            resourceInputs["digitalTwinsId"] = args ? args.digitalTwinsId : undefined;
+            resourceInputs["digitalTwinsId"] = args?.digitalTwinsId;
             resourceInputs["eventhubPrimaryConnectionString"] = args?.eventhubPrimaryConnectionString ? pulumi.secret(args.eventhubPrimaryConnectionString) : undefined;
             resourceInputs["eventhubSecondaryConnectionString"] = args?.eventhubSecondaryConnectionString ? pulumi.secret(args.eventhubSecondaryConnectionString) : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["deadLetterStorageSecret", "eventhubPrimaryConnectionString", "eventhubSecondaryConnectionString"] };

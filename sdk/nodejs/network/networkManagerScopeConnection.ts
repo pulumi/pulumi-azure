@@ -86,27 +86,27 @@ export class NetworkManagerScopeConnection extends pulumi.CustomResource {
     /**
      * The Connection state of the Network Manager Scope Connection.
      */
-    public /*out*/ readonly connectionState!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionState: pulumi.Output<string>;
     /**
      * A description of the Network Manager Scope Connection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
      */
-    public readonly networkManagerId!: pulumi.Output<string>;
+    declare public readonly networkManagerId: pulumi.Output<string>;
     /**
      * Specifies the Resource ID of the target scope which the Network Manager is connected to. It should be either Subscription ID or Management Group ID.
      */
-    public readonly targetScopeId!: pulumi.Output<string>;
+    declare public readonly targetScopeId: pulumi.Output<string>;
     /**
      * Specifies the Tenant ID of the Resource which the Network Manager is connected to.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a NetworkManagerScopeConnection resource with the given unique name, arguments, and options.
@@ -121,28 +121,28 @@ export class NetworkManagerScopeConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerScopeConnectionState | undefined;
-            resourceInputs["connectionState"] = state ? state.connectionState : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkManagerId"] = state ? state.networkManagerId : undefined;
-            resourceInputs["targetScopeId"] = state ? state.targetScopeId : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["connectionState"] = state?.connectionState;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkManagerId"] = state?.networkManagerId;
+            resourceInputs["targetScopeId"] = state?.targetScopeId;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as NetworkManagerScopeConnectionArgs | undefined;
-            if ((!args || args.networkManagerId === undefined) && !opts.urn) {
+            if (args?.networkManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerId'");
             }
-            if ((!args || args.targetScopeId === undefined) && !opts.urn) {
+            if (args?.targetScopeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetScopeId'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
-            resourceInputs["targetScopeId"] = args ? args.targetScopeId : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
+            resourceInputs["targetScopeId"] = args?.targetScopeId;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["connectionState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

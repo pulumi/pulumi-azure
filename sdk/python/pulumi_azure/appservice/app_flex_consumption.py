@@ -63,8 +63,7 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input[_builtins.str] storage_container_endpoint: The backend storage container endpoint which will be used by this Function App.
         :param pulumi.Input[_builtins.str] storage_container_type: The storage container type used for the Function App. The current supported type is `blobContainer`.
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]] always_readies: One or more `always_ready` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -261,8 +260,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of key-value pairs for [App
-        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -574,8 +572,7 @@ class _AppFlexConsumptionState:
         """
         Input properties used for looking up and filtering AppFlexConsumption resources.
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionAlwaysReadyArgs']]] always_readies: One or more `always_ready` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['AppFlexConsumptionAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -719,8 +716,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of key-value pairs for [App
-        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1294,8 +1290,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]] always_readies: One or more `always_ready` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -1573,8 +1568,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]] always_readies: One or more `always_ready` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
@@ -1679,8 +1673,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of key-value pairs for [App
-        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 

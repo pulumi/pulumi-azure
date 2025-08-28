@@ -77,15 +77,15 @@ export class ServerDnsAlias extends pulumi.CustomResource {
     /**
      * The fully qualified DNS record for alias.
      */
-    public /*out*/ readonly dnsRecord!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsRecord: pulumi.Output<string>;
     /**
      * The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
      */
-    public readonly mssqlServerId!: pulumi.Output<string>;
+    declare public readonly mssqlServerId: pulumi.Output<string>;
     /**
      * The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ServerDnsAlias resource with the given unique name, arguments, and options.
@@ -100,16 +100,16 @@ export class ServerDnsAlias extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerDnsAliasState | undefined;
-            resourceInputs["dnsRecord"] = state ? state.dnsRecord : undefined;
-            resourceInputs["mssqlServerId"] = state ? state.mssqlServerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["dnsRecord"] = state?.dnsRecord;
+            resourceInputs["mssqlServerId"] = state?.mssqlServerId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ServerDnsAliasArgs | undefined;
-            if ((!args || args.mssqlServerId === undefined) && !opts.urn) {
+            if (args?.mssqlServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mssqlServerId'");
             }
-            resourceInputs["mssqlServerId"] = args ? args.mssqlServerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["mssqlServerId"] = args?.mssqlServerId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["dnsRecord"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

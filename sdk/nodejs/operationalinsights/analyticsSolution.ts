@@ -91,31 +91,31 @@ export class AnalyticsSolution extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `plan` block as documented below.
      */
-    public readonly plan!: pulumi.Output<outputs.operationalinsights.AnalyticsSolutionPlan>;
+    declare public readonly plan: pulumi.Output<outputs.operationalinsights.AnalyticsSolutionPlan>;
     /**
      * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      */
-    public readonly solutionName!: pulumi.Output<string>;
+    declare public readonly solutionName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
      */
-    public readonly workspaceName!: pulumi.Output<string>;
+    declare public readonly workspaceName: pulumi.Output<string>;
     /**
      * The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
      */
-    public readonly workspaceResourceId!: pulumi.Output<string>;
+    declare public readonly workspaceResourceId: pulumi.Output<string>;
 
     /**
      * Create a AnalyticsSolution resource with the given unique name, arguments, and options.
@@ -130,37 +130,37 @@ export class AnalyticsSolution extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsSolutionState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["solutionName"] = state ? state.solutionName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceName"] = state ? state.workspaceName : undefined;
-            resourceInputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["solutionName"] = state?.solutionName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceName"] = state?.workspaceName;
+            resourceInputs["workspaceResourceId"] = state?.workspaceResourceId;
         } else {
             const args = argsOrState as AnalyticsSolutionArgs | undefined;
-            if ((!args || args.plan === undefined) && !opts.urn) {
+            if (args?.plan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'plan'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.solutionName === undefined) && !opts.urn) {
+            if (args?.solutionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'solutionName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            if ((!args || args.workspaceResourceId === undefined) && !opts.urn) {
+            if (args?.workspaceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceResourceId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["solutionName"] = args ? args.solutionName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["solutionName"] = args?.solutionName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
+            resourceInputs["workspaceResourceId"] = args?.workspaceResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AnalyticsSolution.__pulumiType, name, resourceInputs, opts);

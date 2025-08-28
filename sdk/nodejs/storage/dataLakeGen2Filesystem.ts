@@ -78,33 +78,33 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
     /**
      * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
      */
-    public readonly aces!: pulumi.Output<outputs.storage.DataLakeGen2FilesystemAce[]>;
+    declare public readonly aces: pulumi.Output<outputs.storage.DataLakeGen2FilesystemAce[]>;
     /**
      * The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
      */
-    public readonly defaultEncryptionScope!: pulumi.Output<string>;
+    declare public readonly defaultEncryptionScope: pulumi.Output<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      *
      * > **Note:** The Storage Account requires `accountKind` to be either `StorageV2` or `BlobStorage`. In addition, `isHnsEnabled` has to be set to `true`.
      */
-    public readonly group!: pulumi.Output<string>;
+    declare public readonly group: pulumi.Output<string>;
     /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
      */
-    public readonly owner!: pulumi.Output<string>;
+    declare public readonly owner: pulumi.Output<string>;
     /**
      * A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly properties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a DataLakeGen2Filesystem resource with the given unique name, arguments, and options.
@@ -119,25 +119,25 @@ export class DataLakeGen2Filesystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataLakeGen2FilesystemState | undefined;
-            resourceInputs["aces"] = state ? state.aces : undefined;
-            resourceInputs["defaultEncryptionScope"] = state ? state.defaultEncryptionScope : undefined;
-            resourceInputs["group"] = state ? state.group : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["aces"] = state?.aces;
+            resourceInputs["defaultEncryptionScope"] = state?.defaultEncryptionScope;
+            resourceInputs["group"] = state?.group;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as DataLakeGen2FilesystemArgs | undefined;
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["aces"] = args ? args.aces : undefined;
-            resourceInputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
-            resourceInputs["group"] = args ? args.group : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["aces"] = args?.aces;
+            resourceInputs["defaultEncryptionScope"] = args?.defaultEncryptionScope;
+            resourceInputs["group"] = args?.group;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataLakeGen2Filesystem.__pulumiType, name, resourceInputs, opts);

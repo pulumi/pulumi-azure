@@ -177,39 +177,39 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
     /**
      * A `endpoint` block as defined below.
      */
-    public readonly endpoints!: pulumi.Output<outputs.network.NetworkConnectionMonitorEndpoint[]>;
+    declare public readonly endpoints: pulumi.Output<outputs.network.NetworkConnectionMonitorEndpoint[]>;
     /**
      * The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    public readonly networkWatcherId!: pulumi.Output<string>;
+    declare public readonly networkWatcherId: pulumi.Output<string>;
     /**
      * The description of the Network Connection Monitor.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
      */
-    public readonly outputWorkspaceResourceIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly outputWorkspaceResourceIds: pulumi.Output<string[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Connection Monitor.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `testConfiguration` block as defined below.
      */
-    public readonly testConfigurations!: pulumi.Output<outputs.network.NetworkConnectionMonitorTestConfiguration[]>;
+    declare public readonly testConfigurations: pulumi.Output<outputs.network.NetworkConnectionMonitorTestConfiguration[]>;
     /**
      * A `testGroup` block as defined below.
      */
-    public readonly testGroups!: pulumi.Output<outputs.network.NetworkConnectionMonitorTestGroup[]>;
+    declare public readonly testGroups: pulumi.Output<outputs.network.NetworkConnectionMonitorTestGroup[]>;
 
     /**
      * Create a NetworkConnectionMonitor resource with the given unique name, arguments, and options.
@@ -224,38 +224,38 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkConnectionMonitorState | undefined;
-            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkWatcherId"] = state ? state.networkWatcherId : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["outputWorkspaceResourceIds"] = state ? state.outputWorkspaceResourceIds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["testConfigurations"] = state ? state.testConfigurations : undefined;
-            resourceInputs["testGroups"] = state ? state.testGroups : undefined;
+            resourceInputs["endpoints"] = state?.endpoints;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkWatcherId"] = state?.networkWatcherId;
+            resourceInputs["notes"] = state?.notes;
+            resourceInputs["outputWorkspaceResourceIds"] = state?.outputWorkspaceResourceIds;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["testConfigurations"] = state?.testConfigurations;
+            resourceInputs["testGroups"] = state?.testGroups;
         } else {
             const args = argsOrState as NetworkConnectionMonitorArgs | undefined;
-            if ((!args || args.endpoints === undefined) && !opts.urn) {
+            if (args?.endpoints === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpoints'");
             }
-            if ((!args || args.networkWatcherId === undefined) && !opts.urn) {
+            if (args?.networkWatcherId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherId'");
             }
-            if ((!args || args.testConfigurations === undefined) && !opts.urn) {
+            if (args?.testConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testConfigurations'");
             }
-            if ((!args || args.testGroups === undefined) && !opts.urn) {
+            if (args?.testGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testGroups'");
             }
-            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkWatcherId"] = args ? args.networkWatcherId : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["outputWorkspaceResourceIds"] = args ? args.outputWorkspaceResourceIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["testConfigurations"] = args ? args.testConfigurations : undefined;
-            resourceInputs["testGroups"] = args ? args.testGroups : undefined;
+            resourceInputs["endpoints"] = args?.endpoints;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkWatcherId"] = args?.networkWatcherId;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["outputWorkspaceResourceIds"] = args?.outputWorkspaceResourceIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["testConfigurations"] = args?.testConfigurations;
+            resourceInputs["testGroups"] = args?.testGroups;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkConnectionMonitor.__pulumiType, name, resourceInputs, opts);

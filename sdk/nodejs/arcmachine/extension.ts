@@ -76,7 +76,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    public readonly arcMachineId!: pulumi.Output<string>;
+    declare public readonly arcMachineId: pulumi.Output<string>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
      *
@@ -84,45 +84,45 @@ export class Extension extends pulumi.CustomResource {
      *
      * > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
      */
-    public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticUpgradeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
-    public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
+    declare public readonly forceUpdateTag: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Hybrid Compute Machine Extension should exist. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Json formatted protected settings for the extension.
      */
-    public readonly protectedSettings!: pulumi.Output<string | undefined>;
+    declare public readonly protectedSettings: pulumi.Output<string | undefined>;
     /**
      * The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    public readonly publisher!: pulumi.Output<string>;
+    declare public readonly publisher: pulumi.Output<string>;
     /**
      * Json formatted public settings for the extension.
      */
-    public readonly settings!: pulumi.Output<string | undefined>;
+    declare public readonly settings: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Hybrid Compute Machine Extension.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new Hybrid Compute Machine Extension to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Specifies the version of the script handler.
      *
      * > **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
      */
-    public readonly typeHandlerVersion!: pulumi.Output<string | undefined>;
+    declare public readonly typeHandlerVersion: pulumi.Output<string | undefined>;
 
     /**
      * Create a Extension resource with the given unique name, arguments, and options.
@@ -137,39 +137,39 @@ export class Extension extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExtensionState | undefined;
-            resourceInputs["arcMachineId"] = state ? state.arcMachineId : undefined;
-            resourceInputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
-            resourceInputs["forceUpdateTag"] = state ? state.forceUpdateTag : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
-            resourceInputs["publisher"] = state ? state.publisher : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["typeHandlerVersion"] = state ? state.typeHandlerVersion : undefined;
+            resourceInputs["arcMachineId"] = state?.arcMachineId;
+            resourceInputs["automaticUpgradeEnabled"] = state?.automaticUpgradeEnabled;
+            resourceInputs["forceUpdateTag"] = state?.forceUpdateTag;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protectedSettings"] = state?.protectedSettings;
+            resourceInputs["publisher"] = state?.publisher;
+            resourceInputs["settings"] = state?.settings;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["typeHandlerVersion"] = state?.typeHandlerVersion;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
-            if ((!args || args.arcMachineId === undefined) && !opts.urn) {
+            if (args?.arcMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcMachineId'");
             }
-            if ((!args || args.publisher === undefined) && !opts.urn) {
+            if (args?.publisher === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisher'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["arcMachineId"] = args ? args.arcMachineId : undefined;
-            resourceInputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arcMachineId"] = args?.arcMachineId;
+            resourceInputs["automaticUpgradeEnabled"] = args?.automaticUpgradeEnabled;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
             resourceInputs["protectedSettings"] = args?.protectedSettings ? pulumi.secret(args.protectedSettings) : undefined;
-            resourceInputs["publisher"] = args ? args.publisher : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            resourceInputs["publisher"] = args?.publisher;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeHandlerVersion"] = args?.typeHandlerVersion;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["protectedSettings"] };

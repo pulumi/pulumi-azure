@@ -97,44 +97,44 @@ export class RouteServer extends pulumi.CustomResource {
     /**
      * Whether to enable route exchange between Azure Route Server and the gateway(s).
      */
-    public readonly branchToBranchTrafficEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly branchToBranchTrafficEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The hub routing preference. Valid values are `ASPath`, `ExpressRoute` or `VpnGateway`. Defaults to `ExpressRoute`.
      */
-    public readonly hubRoutingPreference!: pulumi.Output<string | undefined>;
+    declare public readonly hubRoutingPreference: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Route Server. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
-    public readonly publicIpAddressId!: pulumi.Output<string>;
+    declare public readonly publicIpAddressId: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    public /*out*/ readonly routingState!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
+    declare public /*out*/ readonly routingState: pulumi.Output<string>;
     /**
      * The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly virtualRouterAsn!: pulumi.Output<number>;
-    public /*out*/ readonly virtualRouterIps!: pulumi.Output<string[]>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly virtualRouterAsn: pulumi.Output<number>;
+    declare public /*out*/ readonly virtualRouterIps: pulumi.Output<string[]>;
 
     /**
      * Create a RouteServer resource with the given unique name, arguments, and options.
@@ -149,41 +149,41 @@ export class RouteServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteServerState | undefined;
-            resourceInputs["branchToBranchTrafficEnabled"] = state ? state.branchToBranchTrafficEnabled : undefined;
-            resourceInputs["hubRoutingPreference"] = state ? state.hubRoutingPreference : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routingState"] = state ? state.routingState : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualRouterAsn"] = state ? state.virtualRouterAsn : undefined;
-            resourceInputs["virtualRouterIps"] = state ? state.virtualRouterIps : undefined;
+            resourceInputs["branchToBranchTrafficEnabled"] = state?.branchToBranchTrafficEnabled;
+            resourceInputs["hubRoutingPreference"] = state?.hubRoutingPreference;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicIpAddressId"] = state?.publicIpAddressId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routingState"] = state?.routingState;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualRouterAsn"] = state?.virtualRouterAsn;
+            resourceInputs["virtualRouterIps"] = state?.virtualRouterIps;
         } else {
             const args = argsOrState as RouteServerArgs | undefined;
-            if ((!args || args.publicIpAddressId === undefined) && !opts.urn) {
+            if (args?.publicIpAddressId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicIpAddressId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["branchToBranchTrafficEnabled"] = args ? args.branchToBranchTrafficEnabled : undefined;
-            resourceInputs["hubRoutingPreference"] = args ? args.hubRoutingPreference : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["branchToBranchTrafficEnabled"] = args?.branchToBranchTrafficEnabled;
+            resourceInputs["hubRoutingPreference"] = args?.hubRoutingPreference;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicIpAddressId"] = args?.publicIpAddressId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["routingState"] = undefined /*out*/;
             resourceInputs["virtualRouterAsn"] = undefined /*out*/;
             resourceInputs["virtualRouterIps"] = undefined /*out*/;

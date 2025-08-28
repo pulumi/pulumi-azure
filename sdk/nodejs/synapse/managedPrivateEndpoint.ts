@@ -105,23 +105,23 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      *
      * > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
      */
-    public readonly subresourceName!: pulumi.Output<string>;
+    declare public readonly subresourceName: pulumi.Output<string>;
     /**
      * The ID of the Synapse Workspace on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
      *
      * > **Note:** A Synapse firewall rule including local IP is needed for managing current resource.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string>;
     /**
      * The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
 
     /**
      * Create a ManagedPrivateEndpoint resource with the given unique name, arguments, and options.
@@ -136,25 +136,25 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrivateEndpointState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["subresourceName"] = state ? state.subresourceName : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["subresourceName"] = state?.subresourceName;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
         } else {
             const args = argsOrState as ManagedPrivateEndpointArgs | undefined;
-            if ((!args || args.subresourceName === undefined) && !opts.urn) {
+            if (args?.subresourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subresourceName'");
             }
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
+            if (args?.synapseWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["subresourceName"] = args ? args.subresourceName : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["subresourceName"] = args?.subresourceName;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);

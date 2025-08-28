@@ -117,43 +117,43 @@ export class ContactProfile extends pulumi.CustomResource {
     /**
      * Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
      */
-    public readonly autoTracking!: pulumi.Output<string>;
+    declare public readonly autoTracking: pulumi.Output<string>;
     /**
      * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
-    public readonly eventHubUri!: pulumi.Output<string | undefined>;
+    declare public readonly eventHubUri: pulumi.Output<string | undefined>;
     /**
      * A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly links!: pulumi.Output<outputs.orbital.ContactProfileLink[]>;
+    declare public readonly links: pulumi.Output<outputs.orbital.ContactProfileLink[]>;
     /**
      * The location where the contact profile exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Maximum elevation of the antenna during the contact in decimal degrees.
      */
-    public readonly minimumElevationDegrees!: pulumi.Output<number | undefined>;
+    declare public readonly minimumElevationDegrees: pulumi.Output<number | undefined>;
     /**
      * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
-    public readonly minimumVariableContactDuration!: pulumi.Output<string>;
+    declare public readonly minimumVariableContactDuration: pulumi.Output<string>;
     /**
      * The name of the contact profile. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
      */
-    public readonly networkConfigurationSubnetId!: pulumi.Output<string>;
+    declare public readonly networkConfigurationSubnetId: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ContactProfile resource with the given unique name, arguments, and options.
@@ -168,43 +168,43 @@ export class ContactProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactProfileState | undefined;
-            resourceInputs["autoTracking"] = state ? state.autoTracking : undefined;
-            resourceInputs["eventHubUri"] = state ? state.eventHubUri : undefined;
-            resourceInputs["links"] = state ? state.links : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["minimumElevationDegrees"] = state ? state.minimumElevationDegrees : undefined;
-            resourceInputs["minimumVariableContactDuration"] = state ? state.minimumVariableContactDuration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConfigurationSubnetId"] = state ? state.networkConfigurationSubnetId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoTracking"] = state?.autoTracking;
+            resourceInputs["eventHubUri"] = state?.eventHubUri;
+            resourceInputs["links"] = state?.links;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["minimumElevationDegrees"] = state?.minimumElevationDegrees;
+            resourceInputs["minimumVariableContactDuration"] = state?.minimumVariableContactDuration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConfigurationSubnetId"] = state?.networkConfigurationSubnetId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ContactProfileArgs | undefined;
-            if ((!args || args.autoTracking === undefined) && !opts.urn) {
+            if (args?.autoTracking === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoTracking'");
             }
-            if ((!args || args.links === undefined) && !opts.urn) {
+            if (args?.links === undefined && !opts.urn) {
                 throw new Error("Missing required property 'links'");
             }
-            if ((!args || args.minimumVariableContactDuration === undefined) && !opts.urn) {
+            if (args?.minimumVariableContactDuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minimumVariableContactDuration'");
             }
-            if ((!args || args.networkConfigurationSubnetId === undefined) && !opts.urn) {
+            if (args?.networkConfigurationSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfigurationSubnetId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoTracking"] = args ? args.autoTracking : undefined;
-            resourceInputs["eventHubUri"] = args ? args.eventHubUri : undefined;
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumElevationDegrees"] = args ? args.minimumElevationDegrees : undefined;
-            resourceInputs["minimumVariableContactDuration"] = args ? args.minimumVariableContactDuration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConfigurationSubnetId"] = args ? args.networkConfigurationSubnetId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoTracking"] = args?.autoTracking;
+            resourceInputs["eventHubUri"] = args?.eventHubUri;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumElevationDegrees"] = args?.minimumElevationDegrees;
+            resourceInputs["minimumVariableContactDuration"] = args?.minimumVariableContactDuration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConfigurationSubnetId"] = args?.networkConfigurationSubnetId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ContactProfile.__pulumiType, name, resourceInputs, opts);

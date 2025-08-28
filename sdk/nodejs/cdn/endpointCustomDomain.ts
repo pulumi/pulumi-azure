@@ -105,25 +105,25 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
     /**
      * The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
-    public readonly cdnEndpointId!: pulumi.Output<string>;
+    declare public readonly cdnEndpointId: pulumi.Output<string>;
     /**
      * A `cdnManagedHttps` block as defined below.
      */
-    public readonly cdnManagedHttps!: pulumi.Output<outputs.cdn.EndpointCustomDomainCdnManagedHttps | undefined>;
+    declare public readonly cdnManagedHttps: pulumi.Output<outputs.cdn.EndpointCustomDomainCdnManagedHttps | undefined>;
     /**
      * The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
-    public readonly hostName!: pulumi.Output<string>;
+    declare public readonly hostName: pulumi.Output<string>;
     /**
      * The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `userManagedHttps` block as defined below.
      *
      * > **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
      */
-    public readonly userManagedHttps!: pulumi.Output<outputs.cdn.EndpointCustomDomainUserManagedHttps | undefined>;
+    declare public readonly userManagedHttps: pulumi.Output<outputs.cdn.EndpointCustomDomainUserManagedHttps | undefined>;
 
     /**
      * Create a EndpointCustomDomain resource with the given unique name, arguments, and options.
@@ -138,24 +138,24 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointCustomDomainState | undefined;
-            resourceInputs["cdnEndpointId"] = state ? state.cdnEndpointId : undefined;
-            resourceInputs["cdnManagedHttps"] = state ? state.cdnManagedHttps : undefined;
-            resourceInputs["hostName"] = state ? state.hostName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["userManagedHttps"] = state ? state.userManagedHttps : undefined;
+            resourceInputs["cdnEndpointId"] = state?.cdnEndpointId;
+            resourceInputs["cdnManagedHttps"] = state?.cdnManagedHttps;
+            resourceInputs["hostName"] = state?.hostName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["userManagedHttps"] = state?.userManagedHttps;
         } else {
             const args = argsOrState as EndpointCustomDomainArgs | undefined;
-            if ((!args || args.cdnEndpointId === undefined) && !opts.urn) {
+            if (args?.cdnEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnEndpointId'");
             }
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            resourceInputs["cdnEndpointId"] = args ? args.cdnEndpointId : undefined;
-            resourceInputs["cdnManagedHttps"] = args ? args.cdnManagedHttps : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["userManagedHttps"] = args ? args.userManagedHttps : undefined;
+            resourceInputs["cdnEndpointId"] = args?.cdnEndpointId;
+            resourceInputs["cdnManagedHttps"] = args?.cdnManagedHttps;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["userManagedHttps"] = args?.userManagedHttps;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EndpointCustomDomain.__pulumiType, name, resourceInputs, opts);

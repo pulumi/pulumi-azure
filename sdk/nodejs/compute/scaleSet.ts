@@ -286,119 +286,119 @@ export class ScaleSet extends pulumi.CustomResource {
     /**
      * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
      */
-    public readonly automaticOsUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticOsUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * A `bootDiagnostics` block as referenced below.
      */
-    public readonly bootDiagnostics!: pulumi.Output<outputs.compute.ScaleSetBootDiagnostics | undefined>;
+    declare public readonly bootDiagnostics: pulumi.Output<outputs.compute.ScaleSetBootDiagnostics | undefined>;
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      */
-    public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly evictionPolicy: pulumi.Output<string | undefined>;
     /**
      * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
      */
-    public readonly extensions!: pulumi.Output<outputs.compute.ScaleSetExtension[] | undefined>;
+    declare public readonly extensions: pulumi.Output<outputs.compute.ScaleSetExtension[] | undefined>;
     /**
      * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      */
-    public readonly healthProbeId!: pulumi.Output<string | undefined>;
+    declare public readonly healthProbeId: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.ScaleSetIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.compute.ScaleSetIdentity | undefined>;
     /**
      * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      */
-    public readonly licenseType!: pulumi.Output<string>;
+    declare public readonly licenseType: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A collection of `networkProfile` blocks as documented below.
      */
-    public readonly networkProfiles!: pulumi.Output<outputs.compute.ScaleSetNetworkProfile[]>;
+    declare public readonly networkProfiles: pulumi.Output<outputs.compute.ScaleSetNetworkProfile[]>;
     /**
      * A `osProfile` block as documented below.
      */
-    public readonly osProfile!: pulumi.Output<outputs.compute.ScaleSetOsProfile>;
+    declare public readonly osProfile: pulumi.Output<outputs.compute.ScaleSetOsProfile>;
     /**
      * A `osProfileLinuxConfig` block as documented below.
      */
-    public readonly osProfileLinuxConfig!: pulumi.Output<outputs.compute.ScaleSetOsProfileLinuxConfig>;
+    declare public readonly osProfileLinuxConfig: pulumi.Output<outputs.compute.ScaleSetOsProfileLinuxConfig>;
     /**
      * A collection of `osProfileSecrets` blocks as documented below.
      */
-    public readonly osProfileSecrets!: pulumi.Output<outputs.compute.ScaleSetOsProfileSecret[] | undefined>;
+    declare public readonly osProfileSecrets: pulumi.Output<outputs.compute.ScaleSetOsProfileSecret[] | undefined>;
     /**
      * A `osProfileWindowsConfig` block as documented below.
      */
-    public readonly osProfileWindowsConfig!: pulumi.Output<outputs.compute.ScaleSetOsProfileWindowsConfig | undefined>;
+    declare public readonly osProfileWindowsConfig: pulumi.Output<outputs.compute.ScaleSetOsProfileWindowsConfig | undefined>;
     /**
      * Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
      */
-    public readonly overprovision!: pulumi.Output<boolean | undefined>;
+    declare public readonly overprovision: pulumi.Output<boolean | undefined>;
     /**
      * A `plan` block as documented below.
      */
-    public readonly plan!: pulumi.Output<outputs.compute.ScaleSetPlan | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.compute.ScaleSetPlan | undefined>;
     /**
      * Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
      */
-    public readonly priority!: pulumi.Output<string | undefined>;
+    declare public readonly priority: pulumi.Output<string | undefined>;
     /**
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
      */
-    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly proximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
      */
-    public readonly rollingUpgradePolicy!: pulumi.Output<outputs.compute.ScaleSetRollingUpgradePolicy | undefined>;
+    declare public readonly rollingUpgradePolicy: pulumi.Output<outputs.compute.ScaleSetRollingUpgradePolicy | undefined>;
     /**
      * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
      */
-    public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
+    declare public readonly singlePlacementGroup: pulumi.Output<boolean | undefined>;
     /**
      * A `sku` block as documented below.
      */
-    public readonly sku!: pulumi.Output<outputs.compute.ScaleSetSku>;
+    declare public readonly sku: pulumi.Output<outputs.compute.ScaleSetSku>;
     /**
      * A `storageProfileDataDisk` block as documented below.
      */
-    public readonly storageProfileDataDisks!: pulumi.Output<outputs.compute.ScaleSetStorageProfileDataDisk[] | undefined>;
+    declare public readonly storageProfileDataDisks: pulumi.Output<outputs.compute.ScaleSetStorageProfileDataDisk[] | undefined>;
     /**
      * A `storageProfileImageReference` block as documented below.
      */
-    public readonly storageProfileImageReference!: pulumi.Output<outputs.compute.ScaleSetStorageProfileImageReference>;
+    declare public readonly storageProfileImageReference: pulumi.Output<outputs.compute.ScaleSetStorageProfileImageReference>;
     /**
      * A `storageProfileOsDisk` block as documented below.
      */
-    public readonly storageProfileOsDisk!: pulumi.Output<outputs.compute.ScaleSetStorageProfileOsDisk>;
+    declare public readonly storageProfileOsDisk: pulumi.Output<outputs.compute.ScaleSetStorageProfileOsDisk>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
      */
-    public readonly upgradePolicyMode!: pulumi.Output<string>;
+    declare public readonly upgradePolicyMode: pulumi.Output<string>;
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ScaleSet resource with the given unique name, arguments, and options.
@@ -413,82 +413,82 @@ export class ScaleSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScaleSetState | undefined;
-            resourceInputs["automaticOsUpgrade"] = state ? state.automaticOsUpgrade : undefined;
-            resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
-            resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
-            resourceInputs["extensions"] = state ? state.extensions : undefined;
-            resourceInputs["healthProbeId"] = state ? state.healthProbeId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkProfiles"] = state ? state.networkProfiles : undefined;
-            resourceInputs["osProfile"] = state ? state.osProfile : undefined;
-            resourceInputs["osProfileLinuxConfig"] = state ? state.osProfileLinuxConfig : undefined;
-            resourceInputs["osProfileSecrets"] = state ? state.osProfileSecrets : undefined;
-            resourceInputs["osProfileWindowsConfig"] = state ? state.osProfileWindowsConfig : undefined;
-            resourceInputs["overprovision"] = state ? state.overprovision : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
-            resourceInputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["storageProfileDataDisks"] = state ? state.storageProfileDataDisks : undefined;
-            resourceInputs["storageProfileImageReference"] = state ? state.storageProfileImageReference : undefined;
-            resourceInputs["storageProfileOsDisk"] = state ? state.storageProfileOsDisk : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["upgradePolicyMode"] = state ? state.upgradePolicyMode : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["automaticOsUpgrade"] = state?.automaticOsUpgrade;
+            resourceInputs["bootDiagnostics"] = state?.bootDiagnostics;
+            resourceInputs["evictionPolicy"] = state?.evictionPolicy;
+            resourceInputs["extensions"] = state?.extensions;
+            resourceInputs["healthProbeId"] = state?.healthProbeId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkProfiles"] = state?.networkProfiles;
+            resourceInputs["osProfile"] = state?.osProfile;
+            resourceInputs["osProfileLinuxConfig"] = state?.osProfileLinuxConfig;
+            resourceInputs["osProfileSecrets"] = state?.osProfileSecrets;
+            resourceInputs["osProfileWindowsConfig"] = state?.osProfileWindowsConfig;
+            resourceInputs["overprovision"] = state?.overprovision;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["proximityPlacementGroupId"] = state?.proximityPlacementGroupId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rollingUpgradePolicy"] = state?.rollingUpgradePolicy;
+            resourceInputs["singlePlacementGroup"] = state?.singlePlacementGroup;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["storageProfileDataDisks"] = state?.storageProfileDataDisks;
+            resourceInputs["storageProfileImageReference"] = state?.storageProfileImageReference;
+            resourceInputs["storageProfileOsDisk"] = state?.storageProfileOsDisk;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["upgradePolicyMode"] = state?.upgradePolicyMode;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as ScaleSetArgs | undefined;
-            if ((!args || args.networkProfiles === undefined) && !opts.urn) {
+            if (args?.networkProfiles === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkProfiles'");
             }
-            if ((!args || args.osProfile === undefined) && !opts.urn) {
+            if (args?.osProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.storageProfileOsDisk === undefined) && !opts.urn) {
+            if (args?.storageProfileOsDisk === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageProfileOsDisk'");
             }
-            if ((!args || args.upgradePolicyMode === undefined) && !opts.urn) {
+            if (args?.upgradePolicyMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'upgradePolicyMode'");
             }
-            resourceInputs["automaticOsUpgrade"] = args ? args.automaticOsUpgrade : undefined;
-            resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["healthProbeId"] = args ? args.healthProbeId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfiles"] = args ? args.networkProfiles : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["osProfileLinuxConfig"] = args ? args.osProfileLinuxConfig : undefined;
-            resourceInputs["osProfileSecrets"] = args ? args.osProfileSecrets : undefined;
-            resourceInputs["osProfileWindowsConfig"] = args ? args.osProfileWindowsConfig : undefined;
-            resourceInputs["overprovision"] = args ? args.overprovision : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
-            resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageProfileDataDisks"] = args ? args.storageProfileDataDisks : undefined;
-            resourceInputs["storageProfileImageReference"] = args ? args.storageProfileImageReference : undefined;
-            resourceInputs["storageProfileOsDisk"] = args ? args.storageProfileOsDisk : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradePolicyMode"] = args ? args.upgradePolicyMode : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["automaticOsUpgrade"] = args?.automaticOsUpgrade;
+            resourceInputs["bootDiagnostics"] = args?.bootDiagnostics;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["healthProbeId"] = args?.healthProbeId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkProfiles"] = args?.networkProfiles;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["osProfileLinuxConfig"] = args?.osProfileLinuxConfig;
+            resourceInputs["osProfileSecrets"] = args?.osProfileSecrets;
+            resourceInputs["osProfileWindowsConfig"] = args?.osProfileWindowsConfig;
+            resourceInputs["overprovision"] = args?.overprovision;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["proximityPlacementGroupId"] = args?.proximityPlacementGroupId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rollingUpgradePolicy"] = args?.rollingUpgradePolicy;
+            resourceInputs["singlePlacementGroup"] = args?.singlePlacementGroup;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageProfileDataDisks"] = args?.storageProfileDataDisks;
+            resourceInputs["storageProfileImageReference"] = args?.storageProfileImageReference;
+            resourceInputs["storageProfileOsDisk"] = args?.storageProfileOsDisk;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradePolicyMode"] = args?.upgradePolicyMode;
+            resourceInputs["zones"] = args?.zones;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScaleSet.__pulumiType, name, resourceInputs, opts);

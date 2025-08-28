@@ -79,19 +79,19 @@ export class IdentityProviderFacebook extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * App ID for Facebook.
      */
-    public readonly appId!: pulumi.Output<string>;
+    declare public readonly appId: pulumi.Output<string>;
     /**
      * App Secret for Facebook.
      */
-    public readonly appSecret!: pulumi.Output<string>;
+    declare public readonly appSecret: pulumi.Output<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IdentityProviderFacebook resource with the given unique name, arguments, and options.
@@ -106,28 +106,28 @@ export class IdentityProviderFacebook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderFacebookState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["appSecret"] = state ? state.appSecret : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["appSecret"] = state?.appSecret;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IdentityProviderFacebookArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.appId === undefined) && !opts.urn) {
+            if (args?.appId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appId'");
             }
-            if ((!args || args.appSecret === undefined) && !opts.urn) {
+            if (args?.appSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["appId"] = args?.appId;
             resourceInputs["appSecret"] = args?.appSecret ? pulumi.secret(args.appSecret) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["appSecret"] };

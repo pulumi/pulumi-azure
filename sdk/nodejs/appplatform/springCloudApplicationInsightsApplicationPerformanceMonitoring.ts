@@ -91,35 +91,35 @@ export class SpringCloudApplicationInsightsApplicationPerformanceMonitoring exte
     /**
      * The instrumentation key used to push data to Application Insights.
      */
-    public readonly connectionString!: pulumi.Output<string | undefined>;
+    declare public readonly connectionString: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    public readonly globallyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly globallyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for Application Insights. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the cloud role instance.
      */
-    public readonly roleInstance!: pulumi.Output<string | undefined>;
+    declare public readonly roleInstance: pulumi.Output<string | undefined>;
     /**
      * Specifies the cloud role name used to label the component on the application map.
      */
-    public readonly roleName!: pulumi.Output<string | undefined>;
+    declare public readonly roleName: pulumi.Output<string | undefined>;
     /**
      * Specifies the percentage for fixed-percentage sampling.
      */
-    public readonly samplingPercentage!: pulumi.Output<number | undefined>;
+    declare public readonly samplingPercentage: pulumi.Output<number | undefined>;
     /**
      * Specifies the number of requests per second for the rate-limited sampling.
      */
-    public readonly samplingRequestsPerSecond!: pulumi.Output<number | undefined>;
+    declare public readonly samplingRequestsPerSecond: pulumi.Output<number | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudApplicationInsightsApplicationPerformanceMonitoring resource with the given unique name, arguments, and options.
@@ -134,27 +134,27 @@ export class SpringCloudApplicationInsightsApplicationPerformanceMonitoring exte
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudApplicationInsightsApplicationPerformanceMonitoringState | undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["globallyEnabled"] = state ? state.globallyEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["roleInstance"] = state ? state.roleInstance : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
-            resourceInputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
-            resourceInputs["samplingRequestsPerSecond"] = state ? state.samplingRequestsPerSecond : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["globallyEnabled"] = state?.globallyEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["roleInstance"] = state?.roleInstance;
+            resourceInputs["roleName"] = state?.roleName;
+            resourceInputs["samplingPercentage"] = state?.samplingPercentage;
+            resourceInputs["samplingRequestsPerSecond"] = state?.samplingRequestsPerSecond;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
         } else {
             const args = argsOrState as SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs | undefined;
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
-            resourceInputs["globallyEnabled"] = args ? args.globallyEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roleInstance"] = args ? args.roleInstance : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
-            resourceInputs["samplingRequestsPerSecond"] = args ? args.samplingRequestsPerSecond : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
+            resourceInputs["connectionString"] = args?.connectionString;
+            resourceInputs["globallyEnabled"] = args?.globallyEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roleInstance"] = args?.roleInstance;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["samplingPercentage"] = args?.samplingPercentage;
+            resourceInputs["samplingRequestsPerSecond"] = args?.samplingRequestsPerSecond;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudApplicationInsightsApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts);

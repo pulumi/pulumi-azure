@@ -95,31 +95,31 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
     /**
      * One or more `enabledLog` blocks as defined below.
      */
-    public readonly enabledLogs!: pulumi.Output<outputs.monitoring.AadDiagnosticSettingEnabledLog[] | undefined>;
+    declare public readonly enabledLogs: pulumi.Output<outputs.monitoring.AadDiagnosticSettingEnabledLog[] | undefined>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      *
      * > **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      */
-    public readonly eventhubAuthorizationRuleId!: pulumi.Output<string | undefined>;
+    declare public readonly eventhubAuthorizationRuleId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
      */
-    public readonly eventhubName!: pulumi.Output<string | undefined>;
+    declare public readonly eventhubName: pulumi.Output<string | undefined>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created.
      *
      * > **Note:** One of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId` and `storageAccountId` must be specified.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
 
     /**
      * Create a AadDiagnosticSetting resource with the given unique name, arguments, and options.
@@ -134,20 +134,20 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AadDiagnosticSettingState | undefined;
-            resourceInputs["enabledLogs"] = state ? state.enabledLogs : undefined;
-            resourceInputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
-            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["enabledLogs"] = state?.enabledLogs;
+            resourceInputs["eventhubAuthorizationRuleId"] = state?.eventhubAuthorizationRuleId;
+            resourceInputs["eventhubName"] = state?.eventhubName;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as AadDiagnosticSettingArgs | undefined;
-            resourceInputs["enabledLogs"] = args ? args.enabledLogs : undefined;
-            resourceInputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
-            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["enabledLogs"] = args?.enabledLogs;
+            resourceInputs["eventhubAuthorizationRuleId"] = args?.eventhubAuthorizationRuleId;
+            resourceInputs["eventhubName"] = args?.eventhubName;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AadDiagnosticSetting.__pulumiType, name, resourceInputs, opts);

@@ -74,59 +74,59 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
      *
      * The following supported arguments are specific to Data Lake Storage Gen2 Linked Service:
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storageAccountKey` and `useManagedIdentity`.
      */
-    public readonly servicePrincipalId!: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalId: pulumi.Output<string | undefined>;
     /**
      * The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
      */
-    public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalKey: pulumi.Output<string | undefined>;
     /**
      * The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `useManagedIdentity`.
      */
-    public readonly storageAccountKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountKey: pulumi.Output<string | undefined>;
     /**
      * The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
      *
      * > **Note:** If `servicePrincipalId` is used, `servicePrincipalKey` and `tenant` are also required.
      */
-    public readonly tenant!: pulumi.Output<string | undefined>;
+    declare public readonly tenant: pulumi.Output<string | undefined>;
     /**
      * The endpoint for the Azure Data Lake Storage Gen2 service.
      *
      * > **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
     /**
      * Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `servicePrincipalId`, `servicePrincipalKey`, `tenant` and `storageAccountKey`.
      */
-    public readonly useManagedIdentity!: pulumi.Output<boolean | undefined>;
+    declare public readonly useManagedIdentity: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LinkedServiceDataLakeStorageGen2 resource with the given unique name, arguments, and options.
@@ -141,40 +141,40 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceDataLakeStorageGen2State | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
-            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            resourceInputs["tenant"] = state ? state.tenant : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
-            resourceInputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["servicePrincipalId"] = state?.servicePrincipalId;
+            resourceInputs["servicePrincipalKey"] = state?.servicePrincipalKey;
+            resourceInputs["storageAccountKey"] = state?.storageAccountKey;
+            resourceInputs["tenant"] = state?.tenant;
+            resourceInputs["url"] = state?.url;
+            resourceInputs["useManagedIdentity"] = state?.useManagedIdentity;
         } else {
             const args = argsOrState as LinkedServiceDataLakeStorageGen2Args | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
-            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
-            resourceInputs["tenant"] = args ? args.tenant : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["servicePrincipalId"] = args?.servicePrincipalId;
+            resourceInputs["servicePrincipalKey"] = args?.servicePrincipalKey;
+            resourceInputs["storageAccountKey"] = args?.storageAccountKey;
+            resourceInputs["tenant"] = args?.tenant;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["useManagedIdentity"] = args?.useManagedIdentity;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedServiceDataLakeStorageGen2.__pulumiType, name, resourceInputs, opts);

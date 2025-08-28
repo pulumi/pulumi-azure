@@ -83,39 +83,39 @@ export class SubscriptionPolicyRemediation extends pulumi.CustomResource {
     /**
      * A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
      */
-    public readonly failurePercentage!: pulumi.Output<number | undefined>;
+    declare public readonly failurePercentage: pulumi.Output<number | undefined>;
     /**
      * A list of the resource locations that will be remediated.
      */
-    public readonly locationFilters!: pulumi.Output<string[] | undefined>;
+    declare public readonly locationFilters: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Policy Remediation. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
      */
-    public readonly parallelDeployments!: pulumi.Output<number | undefined>;
+    declare public readonly parallelDeployments: pulumi.Output<number | undefined>;
     /**
      * The ID of the Policy Assignment that should be remediated.
      */
-    public readonly policyAssignmentId!: pulumi.Output<string>;
+    declare public readonly policyAssignmentId: pulumi.Output<string>;
     /**
      * The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
-    public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
+    declare public readonly policyDefinitionReferenceId: pulumi.Output<string | undefined>;
     /**
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */
-    public readonly resourceCount!: pulumi.Output<number | undefined>;
+    declare public readonly resourceCount: pulumi.Output<number | undefined>;
     /**
      * The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
      */
-    public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
+    declare public readonly resourceDiscoveryMode: pulumi.Output<string | undefined>;
     /**
      * The Subscription ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionPolicyRemediation resource with the given unique name, arguments, and options.
@@ -130,32 +130,32 @@ export class SubscriptionPolicyRemediation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionPolicyRemediationState | undefined;
-            resourceInputs["failurePercentage"] = state ? state.failurePercentage : undefined;
-            resourceInputs["locationFilters"] = state ? state.locationFilters : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parallelDeployments"] = state ? state.parallelDeployments : undefined;
-            resourceInputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceId"] = state ? state.policyDefinitionReferenceId : undefined;
-            resourceInputs["resourceCount"] = state ? state.resourceCount : undefined;
-            resourceInputs["resourceDiscoveryMode"] = state ? state.resourceDiscoveryMode : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["failurePercentage"] = state?.failurePercentage;
+            resourceInputs["locationFilters"] = state?.locationFilters;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parallelDeployments"] = state?.parallelDeployments;
+            resourceInputs["policyAssignmentId"] = state?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceId"] = state?.policyDefinitionReferenceId;
+            resourceInputs["resourceCount"] = state?.resourceCount;
+            resourceInputs["resourceDiscoveryMode"] = state?.resourceDiscoveryMode;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
         } else {
             const args = argsOrState as SubscriptionPolicyRemediationArgs | undefined;
-            if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
+            if (args?.policyAssignmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            resourceInputs["failurePercentage"] = args ? args.failurePercentage : undefined;
-            resourceInputs["locationFilters"] = args ? args.locationFilters : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
-            resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["failurePercentage"] = args?.failurePercentage;
+            resourceInputs["locationFilters"] = args?.locationFilters;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parallelDeployments"] = args?.parallelDeployments;
+            resourceInputs["policyAssignmentId"] = args?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceId"] = args?.policyDefinitionReferenceId;
+            resourceInputs["resourceCount"] = args?.resourceCount;
+            resourceInputs["resourceDiscoveryMode"] = args?.resourceDiscoveryMode;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubscriptionPolicyRemediation.__pulumiType, name, resourceInputs, opts);

@@ -196,61 +196,61 @@ export class FunctionAppFunction extends pulumi.CustomResource {
     /**
      * The config for this Function in JSON format.
      */
-    public readonly configJson!: pulumi.Output<string>;
+    declare public readonly configJson: pulumi.Output<string>;
     /**
      * The URL of the configuration JSON.
      */
-    public /*out*/ readonly configUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly configUrl: pulumi.Output<string>;
     /**
      * Should this function be enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * A `file` block as detailed below. Changing this forces a new resource to be created.
      */
-    public readonly files!: pulumi.Output<outputs.appservice.FunctionAppFunctionFile[] | undefined>;
+    declare public readonly files: pulumi.Output<outputs.appservice.FunctionAppFunctionFile[] | undefined>;
     /**
      * The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
      */
-    public readonly functionAppId!: pulumi.Output<string>;
+    declare public readonly functionAppId: pulumi.Output<string>;
     /**
      * The invocation URL.
      */
-    public /*out*/ readonly invocationUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly invocationUrl: pulumi.Output<string>;
     /**
      * The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
      *
      * > **Note:** when using `Custom` language, you must specify the code handler in the `host.json` file for your function. See the [official docs](https://docs.microsoft.com/azure/azure-functions/functions-custom-handlers#hostjson) for more information.
      */
-    public readonly language!: pulumi.Output<string | undefined>;
+    declare public readonly language: pulumi.Output<string | undefined>;
     /**
      * The name of the function. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Script root path URL.
      */
-    public /*out*/ readonly scriptRootPathUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly scriptRootPathUrl: pulumi.Output<string>;
     /**
      * The script URL.
      */
-    public /*out*/ readonly scriptUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly scriptUrl: pulumi.Output<string>;
     /**
      * The URL for the Secrets File.
      */
-    public /*out*/ readonly secretsFileUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly secretsFileUrl: pulumi.Output<string>;
     /**
      * The test data for the function.
      */
-    public readonly testData!: pulumi.Output<string | undefined>;
+    declare public readonly testData: pulumi.Output<string | undefined>;
     /**
      * The Test data URL.
      */
-    public /*out*/ readonly testDataUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly testDataUrl: pulumi.Output<string>;
     /**
      * The function URL.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a FunctionAppFunction resource with the given unique name, arguments, and options.
@@ -265,35 +265,35 @@ export class FunctionAppFunction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionAppFunctionState | undefined;
-            resourceInputs["configJson"] = state ? state.configJson : undefined;
-            resourceInputs["configUrl"] = state ? state.configUrl : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["files"] = state ? state.files : undefined;
-            resourceInputs["functionAppId"] = state ? state.functionAppId : undefined;
-            resourceInputs["invocationUrl"] = state ? state.invocationUrl : undefined;
-            resourceInputs["language"] = state ? state.language : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["scriptRootPathUrl"] = state ? state.scriptRootPathUrl : undefined;
-            resourceInputs["scriptUrl"] = state ? state.scriptUrl : undefined;
-            resourceInputs["secretsFileUrl"] = state ? state.secretsFileUrl : undefined;
-            resourceInputs["testData"] = state ? state.testData : undefined;
-            resourceInputs["testDataUrl"] = state ? state.testDataUrl : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["configJson"] = state?.configJson;
+            resourceInputs["configUrl"] = state?.configUrl;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["files"] = state?.files;
+            resourceInputs["functionAppId"] = state?.functionAppId;
+            resourceInputs["invocationUrl"] = state?.invocationUrl;
+            resourceInputs["language"] = state?.language;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["scriptRootPathUrl"] = state?.scriptRootPathUrl;
+            resourceInputs["scriptUrl"] = state?.scriptUrl;
+            resourceInputs["secretsFileUrl"] = state?.secretsFileUrl;
+            resourceInputs["testData"] = state?.testData;
+            resourceInputs["testDataUrl"] = state?.testDataUrl;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as FunctionAppFunctionArgs | undefined;
-            if ((!args || args.configJson === undefined) && !opts.urn) {
+            if (args?.configJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configJson'");
             }
-            if ((!args || args.functionAppId === undefined) && !opts.urn) {
+            if (args?.functionAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionAppId'");
             }
-            resourceInputs["configJson"] = args ? args.configJson : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["files"] = args ? args.files : undefined;
-            resourceInputs["functionAppId"] = args ? args.functionAppId : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["testData"] = args ? args.testData : undefined;
+            resourceInputs["configJson"] = args?.configJson;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["files"] = args?.files;
+            resourceInputs["functionAppId"] = args?.functionAppId;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["testData"] = args?.testData;
             resourceInputs["configUrl"] = undefined /*out*/;
             resourceInputs["invocationUrl"] = undefined /*out*/;
             resourceInputs["scriptRootPathUrl"] = undefined /*out*/;

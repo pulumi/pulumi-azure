@@ -122,31 +122,31 @@ export class CredentialServicePrincipal extends pulumi.CustomResource {
     /**
      * List of tags that can be used for describing the Data Factory Credential.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Credential.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Client ID of the Service Principal.
      */
-    public readonly servicePrincipalId!: pulumi.Output<string>;
+    declare public readonly servicePrincipalId: pulumi.Output<string>;
     /**
      * A `servicePrincipalKey` block as defined below.
      */
-    public readonly servicePrincipalKey!: pulumi.Output<outputs.datafactory.CredentialServicePrincipalServicePrincipalKey | undefined>;
+    declare public readonly servicePrincipalKey: pulumi.Output<outputs.datafactory.CredentialServicePrincipalServicePrincipalKey | undefined>;
     /**
      * The Tenant ID of the Service Principal.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a CredentialServicePrincipal resource with the given unique name, arguments, and options.
@@ -161,31 +161,31 @@ export class CredentialServicePrincipal extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CredentialServicePrincipalState | undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["servicePrincipalId"] = state?.servicePrincipalId;
+            resourceInputs["servicePrincipalKey"] = state?.servicePrincipalKey;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as CredentialServicePrincipalArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.servicePrincipalId === undefined) && !opts.urn) {
+            if (args?.servicePrincipalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servicePrincipalId'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["servicePrincipalId"] = args?.servicePrincipalId;
+            resourceInputs["servicePrincipalKey"] = args?.servicePrincipalKey;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CredentialServicePrincipal.__pulumiType, name, resourceInputs, opts);

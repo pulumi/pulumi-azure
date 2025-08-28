@@ -80,23 +80,23 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
      */
-    public readonly capacityReservationGroupId!: pulumi.Output<string>;
+    declare public readonly capacityReservationGroupId: pulumi.Output<string>;
     /**
      * Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<outputs.compute.CapacityReservationSku>;
+    declare public readonly sku: pulumi.Output<outputs.compute.CapacityReservationSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    declare public readonly zone: pulumi.Output<string | undefined>;
 
     /**
      * Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -111,24 +111,24 @@ export class CapacityReservation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CapacityReservationState | undefined;
-            resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["capacityReservationGroupId"] = state?.capacityReservationGroupId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as CapacityReservationArgs | undefined;
-            if ((!args || args.capacityReservationGroupId === undefined) && !opts.urn) {
+            if (args?.capacityReservationGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityReservationGroupId'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["capacityReservationGroupId"] = args?.capacityReservationGroupId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zone"] = args?.zone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CapacityReservation.__pulumiType, name, resourceInputs, opts);

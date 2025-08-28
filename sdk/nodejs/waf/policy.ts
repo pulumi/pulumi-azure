@@ -156,39 +156,39 @@ export class Policy extends pulumi.CustomResource {
     /**
      * One or more `customRules` blocks as defined below.
      */
-    public readonly customRules!: pulumi.Output<outputs.waf.PolicyCustomRule[] | undefined>;
+    declare public readonly customRules: pulumi.Output<outputs.waf.PolicyCustomRule[] | undefined>;
     /**
      * A list of HTTP Listener IDs from an `azure.network.ApplicationGateway`.
      */
-    public /*out*/ readonly httpListenerIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly httpListenerIds: pulumi.Output<string[]>;
     /**
      * Resource location. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `managedRules` blocks as defined below.
      */
-    public readonly managedRules!: pulumi.Output<outputs.waf.PolicyManagedRules>;
+    declare public readonly managedRules: pulumi.Output<outputs.waf.PolicyManagedRules>;
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of URL Path Map Path Rule IDs from an `azure.network.ApplicationGateway`.
      */
-    public /*out*/ readonly pathBasedRuleIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly pathBasedRuleIds: pulumi.Output<string[]>;
     /**
      * A `policySettings` block as defined below.
      */
-    public readonly policySettings!: pulumi.Output<outputs.waf.PolicyPolicySettings | undefined>;
+    declare public readonly policySettings: pulumi.Output<outputs.waf.PolicyPolicySettings | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -203,30 +203,30 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["customRules"] = state ? state.customRules : undefined;
-            resourceInputs["httpListenerIds"] = state ? state.httpListenerIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedRules"] = state ? state.managedRules : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pathBasedRuleIds"] = state ? state.pathBasedRuleIds : undefined;
-            resourceInputs["policySettings"] = state ? state.policySettings : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customRules"] = state?.customRules;
+            resourceInputs["httpListenerIds"] = state?.httpListenerIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedRules"] = state?.managedRules;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pathBasedRuleIds"] = state?.pathBasedRuleIds;
+            resourceInputs["policySettings"] = state?.policySettings;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.managedRules === undefined) && !opts.urn) {
+            if (args?.managedRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policySettings"] = args ? args.policySettings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customRules"] = args?.customRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedRules"] = args?.managedRules;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policySettings"] = args?.policySettings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["httpListenerIds"] = undefined /*out*/;
             resourceInputs["pathBasedRuleIds"] = undefined /*out*/;
         }

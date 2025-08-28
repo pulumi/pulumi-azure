@@ -95,35 +95,35 @@ export class SpringCloudCustomizedAccelerator extends pulumi.CustomResource {
     /**
      * Specifies a list of accelerator tags.
      */
-    public readonly acceleratorTags!: pulumi.Output<string[] | undefined>;
+    declare public readonly acceleratorTags: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
      */
-    public readonly acceleratorType!: pulumi.Output<string | undefined>;
+    declare public readonly acceleratorType: pulumi.Output<string | undefined>;
     /**
      * Specifies the description of the Spring Cloud Customized Accelerator.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the display name of the Spring Cloud Customized Accelerator..
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * A `gitRepository` block as defined below.
      */
-    public readonly gitRepository!: pulumi.Output<outputs.appplatform.SpringCloudCustomizedAcceleratorGitRepository>;
+    declare public readonly gitRepository: pulumi.Output<outputs.appplatform.SpringCloudCustomizedAcceleratorGitRepository>;
     /**
      * Specifies the icon URL of the Spring Cloud Customized Accelerator..
      */
-    public readonly iconUrl!: pulumi.Output<string | undefined>;
+    declare public readonly iconUrl: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      */
-    public readonly springCloudAcceleratorId!: pulumi.Output<string>;
+    declare public readonly springCloudAcceleratorId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudCustomizedAccelerator resource with the given unique name, arguments, and options.
@@ -138,30 +138,30 @@ export class SpringCloudCustomizedAccelerator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudCustomizedAcceleratorState | undefined;
-            resourceInputs["acceleratorTags"] = state ? state.acceleratorTags : undefined;
-            resourceInputs["acceleratorType"] = state ? state.acceleratorType : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["gitRepository"] = state ? state.gitRepository : undefined;
-            resourceInputs["iconUrl"] = state ? state.iconUrl : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudAcceleratorId"] = state ? state.springCloudAcceleratorId : undefined;
+            resourceInputs["acceleratorTags"] = state?.acceleratorTags;
+            resourceInputs["acceleratorType"] = state?.acceleratorType;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["gitRepository"] = state?.gitRepository;
+            resourceInputs["iconUrl"] = state?.iconUrl;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudAcceleratorId"] = state?.springCloudAcceleratorId;
         } else {
             const args = argsOrState as SpringCloudCustomizedAcceleratorArgs | undefined;
-            if ((!args || args.gitRepository === undefined) && !opts.urn) {
+            if (args?.gitRepository === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gitRepository'");
             }
-            if ((!args || args.springCloudAcceleratorId === undefined) && !opts.urn) {
+            if (args?.springCloudAcceleratorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAcceleratorId'");
             }
-            resourceInputs["acceleratorTags"] = args ? args.acceleratorTags : undefined;
-            resourceInputs["acceleratorType"] = args ? args.acceleratorType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["gitRepository"] = args ? args.gitRepository : undefined;
-            resourceInputs["iconUrl"] = args ? args.iconUrl : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudAcceleratorId"] = args ? args.springCloudAcceleratorId : undefined;
+            resourceInputs["acceleratorTags"] = args?.acceleratorTags;
+            resourceInputs["acceleratorType"] = args?.acceleratorType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["gitRepository"] = args?.gitRepository;
+            resourceInputs["iconUrl"] = args?.iconUrl;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudAcceleratorId"] = args?.springCloudAcceleratorId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudCustomizedAccelerator.__pulumiType, name, resourceInputs, opts);

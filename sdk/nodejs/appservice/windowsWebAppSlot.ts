@@ -86,143 +86,143 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
     /**
      * The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
      */
-    public readonly appServiceId!: pulumi.Output<string>;
+    declare public readonly appServiceId: pulumi.Output<string>;
     /**
      * A map of key-value pairs of App Settings.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly appSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * An `authSettings` block as defined below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.WindowsWebAppSlotAuthSettings | undefined>;
+    declare public readonly authSettings: pulumi.Output<outputs.appservice.WindowsWebAppSlotAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    public readonly authSettingsV2!: pulumi.Output<outputs.appservice.WindowsWebAppSlotAuthSettingsV2 | undefined>;
+    declare public readonly authSettingsV2: pulumi.Output<outputs.appservice.WindowsWebAppSlotAuthSettingsV2 | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    public readonly backup!: pulumi.Output<outputs.appservice.WindowsWebAppSlotBackup | undefined>;
+    declare public readonly backup: pulumi.Output<outputs.appservice.WindowsWebAppSlotBackup | undefined>;
     /**
      * Should Client Affinity be enabled?
      */
-    public readonly clientAffinityEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientAffinityEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should Client Certificates be enabled?
      */
-    public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientCertificateEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    public readonly clientCertificateExclusionPaths!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificateExclusionPaths: pulumi.Output<string | undefined>;
     /**
      * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      */
-    public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificateMode: pulumi.Output<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    public readonly connectionStrings!: pulumi.Output<outputs.appservice.WindowsWebAppSlotConnectionString[] | undefined>;
+    declare public readonly connectionStrings: pulumi.Output<outputs.appservice.WindowsWebAppSlotConnectionString[] | undefined>;
     /**
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customDomainVerificationId: pulumi.Output<string>;
     /**
      * The default hostname of the Windows Web App Slot.
      */
-    public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultHostname: pulumi.Output<string>;
     /**
      * Should the Windows Web App Slot be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
      */
-    public readonly ftpPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ftpPublishBasicAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the App Service Environment used by App Service Slot.
      */
-    public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostingEnvironmentId: pulumi.Output<string>;
     /**
      * Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
      */
-    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsOnly: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.WindowsWebAppSlotIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appservice.WindowsWebAppSlotIdentity | undefined>;
     /**
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
-    public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
+    declare public readonly keyVaultReferenceIdentityId: pulumi.Output<string>;
     /**
      * The Kind value for this Windows Web App Slot.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * A `logs` block as defined below.
      */
-    public readonly logs!: pulumi.Output<outputs.appservice.WindowsWebAppSlotLogs | undefined>;
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly logs: pulumi.Output<outputs.appservice.WindowsWebAppSlotLogs | undefined>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
      */
-    public /*out*/ readonly outboundIpAddressLists!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundIpAddressLists: pulumi.Output<string[]>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      */
-    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
     /**
      * A list of possible outbound ip address.
      */
-    public /*out*/ readonly possibleOutboundIpAddressLists!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly possibleOutboundIpAddressLists: pulumi.Output<string[]>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
-    public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
     /**
      * Should public network access be enabled for the Web App. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
      *
      * > **Note:** `servicePlanId` should only be specified if it differs from the Service Plan of the associated Windows Web App.
      */
-    public readonly servicePlanId!: pulumi.Output<string | undefined>;
+    declare public readonly servicePlanId: pulumi.Output<string | undefined>;
     /**
      * A `siteConfig` block as defined below.
      */
-    public readonly siteConfig!: pulumi.Output<outputs.appservice.WindowsWebAppSlotSiteConfig>;
+    declare public readonly siteConfig: pulumi.Output<outputs.appservice.WindowsWebAppSlotSiteConfig>;
     /**
      * A `siteCredential` block as defined below.
      */
-    public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.WindowsWebAppSlotSiteCredential[]>;
+    declare public /*out*/ readonly siteCredentials: pulumi.Output<outputs.appservice.WindowsWebAppSlotSiteCredential[]>;
     /**
      * One or more `storageAccount` blocks as defined below.
      *
      * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.appservice.WindowsWebAppSlotStorageAccount[] | undefined>;
+    declare public readonly storageAccounts: pulumi.Output<outputs.appservice.WindowsWebAppSlotStorageAccount[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Windows Web App Slot.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
-    public readonly virtualNetworkBackupRestoreEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkBackupRestoreEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly webdeployPublishBasicAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      */
-    public readonly zipDeployFile!: pulumi.Output<string>;
+    declare public readonly zipDeployFile: pulumi.Output<string>;
 
     /**
      * Create a WindowsWebAppSlot resource with the given unique name, arguments, and options.
@@ -237,75 +237,75 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WindowsWebAppSlotState | undefined;
-            resourceInputs["appServiceId"] = state ? state.appServiceId : undefined;
-            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
-            resourceInputs["authSettings"] = state ? state.authSettings : undefined;
-            resourceInputs["authSettingsV2"] = state ? state.authSettingsV2 : undefined;
-            resourceInputs["backup"] = state ? state.backup : undefined;
-            resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
-            resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
-            resourceInputs["clientCertificateExclusionPaths"] = state ? state.clientCertificateExclusionPaths : undefined;
-            resourceInputs["clientCertificateMode"] = state ? state.clientCertificateMode : undefined;
-            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
-            resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
-            resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state ? state.ftpPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
-            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["logs"] = state ? state.logs : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundIpAddressLists"] = state ? state.outboundIpAddressLists : undefined;
-            resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
-            resourceInputs["possibleOutboundIpAddressLists"] = state ? state.possibleOutboundIpAddressLists : undefined;
-            resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["servicePlanId"] = state ? state.servicePlanId : undefined;
-            resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
-            resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
-            resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualNetworkBackupRestoreEnabled"] = state ? state.virtualNetworkBackupRestoreEnabled : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
-            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
+            resourceInputs["appServiceId"] = state?.appServiceId;
+            resourceInputs["appSettings"] = state?.appSettings;
+            resourceInputs["authSettings"] = state?.authSettings;
+            resourceInputs["authSettingsV2"] = state?.authSettingsV2;
+            resourceInputs["backup"] = state?.backup;
+            resourceInputs["clientAffinityEnabled"] = state?.clientAffinityEnabled;
+            resourceInputs["clientCertificateEnabled"] = state?.clientCertificateEnabled;
+            resourceInputs["clientCertificateExclusionPaths"] = state?.clientCertificateExclusionPaths;
+            resourceInputs["clientCertificateMode"] = state?.clientCertificateMode;
+            resourceInputs["connectionStrings"] = state?.connectionStrings;
+            resourceInputs["customDomainVerificationId"] = state?.customDomainVerificationId;
+            resourceInputs["defaultHostname"] = state?.defaultHostname;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state?.ftpPublishBasicAuthenticationEnabled;
+            resourceInputs["hostingEnvironmentId"] = state?.hostingEnvironmentId;
+            resourceInputs["httpsOnly"] = state?.httpsOnly;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = state?.keyVaultReferenceIdentityId;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["logs"] = state?.logs;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundIpAddressLists"] = state?.outboundIpAddressLists;
+            resourceInputs["outboundIpAddresses"] = state?.outboundIpAddresses;
+            resourceInputs["possibleOutboundIpAddressLists"] = state?.possibleOutboundIpAddressLists;
+            resourceInputs["possibleOutboundIpAddresses"] = state?.possibleOutboundIpAddresses;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["servicePlanId"] = state?.servicePlanId;
+            resourceInputs["siteConfig"] = state?.siteConfig;
+            resourceInputs["siteCredentials"] = state?.siteCredentials;
+            resourceInputs["storageAccounts"] = state?.storageAccounts;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = state?.virtualNetworkBackupRestoreEnabled;
+            resourceInputs["virtualNetworkSubnetId"] = state?.virtualNetworkSubnetId;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state?.webdeployPublishBasicAuthenticationEnabled;
+            resourceInputs["zipDeployFile"] = state?.zipDeployFile;
         } else {
             const args = argsOrState as WindowsWebAppSlotArgs | undefined;
-            if ((!args || args.appServiceId === undefined) && !opts.urn) {
+            if (args?.appServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServiceId'");
             }
-            if ((!args || args.siteConfig === undefined) && !opts.urn) {
+            if (args?.siteConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteConfig'");
             }
-            resourceInputs["appServiceId"] = args ? args.appServiceId : undefined;
-            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
-            resourceInputs["authSettings"] = args ? args.authSettings : undefined;
-            resourceInputs["authSettingsV2"] = args ? args.authSettingsV2 : undefined;
-            resourceInputs["backup"] = args ? args.backup : undefined;
-            resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
-            resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
-            resourceInputs["clientCertificateExclusionPaths"] = args ? args.clientCertificateExclusionPaths : undefined;
-            resourceInputs["clientCertificateMode"] = args ? args.clientCertificateMode : undefined;
-            resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args ? args.ftpPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["servicePlanId"] = args ? args.servicePlanId : undefined;
-            resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
-            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkBackupRestoreEnabled"] = args ? args.virtualNetworkBackupRestoreEnabled : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
-            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
+            resourceInputs["appServiceId"] = args?.appServiceId;
+            resourceInputs["appSettings"] = args?.appSettings;
+            resourceInputs["authSettings"] = args?.authSettings;
+            resourceInputs["authSettingsV2"] = args?.authSettingsV2;
+            resourceInputs["backup"] = args?.backup;
+            resourceInputs["clientAffinityEnabled"] = args?.clientAffinityEnabled;
+            resourceInputs["clientCertificateEnabled"] = args?.clientCertificateEnabled;
+            resourceInputs["clientCertificateExclusionPaths"] = args?.clientCertificateExclusionPaths;
+            resourceInputs["clientCertificateMode"] = args?.clientCertificateMode;
+            resourceInputs["connectionStrings"] = args?.connectionStrings;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args?.ftpPublishBasicAuthenticationEnabled;
+            resourceInputs["httpsOnly"] = args?.httpsOnly;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = args?.keyVaultReferenceIdentityId;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["servicePlanId"] = args?.servicePlanId;
+            resourceInputs["siteConfig"] = args?.siteConfig;
+            resourceInputs["storageAccounts"] = args?.storageAccounts;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = args?.virtualNetworkBackupRestoreEnabled;
+            resourceInputs["virtualNetworkSubnetId"] = args?.virtualNetworkSubnetId;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args?.webdeployPublishBasicAuthenticationEnabled;
+            resourceInputs["zipDeployFile"] = args?.zipDeployFile;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["hostingEnvironmentId"] = undefined /*out*/;

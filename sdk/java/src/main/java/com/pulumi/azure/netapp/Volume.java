@@ -167,16 +167,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.exportPolicyRules);
     }
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
-     * having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
      * 
      */
     @Export(name="kerberosEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> kerberosEnabled;
 
     /**
-     * @return Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
-     * having a defined AD connection.
+     * @return Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
      * 
      */
     public Output<Optional<Boolean>> kerberosEnabled() {

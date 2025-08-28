@@ -191,23 +191,23 @@ export class NetworkManagerDeployment extends pulumi.CustomResource {
     /**
      * A list of Network Manager Configuration IDs which should be aligned with `scopeAccess`.
      */
-    public readonly configurationIds!: pulumi.Output<string[]>;
+    declare public readonly configurationIds: pulumi.Output<string[]>;
     /**
      * Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
      */
-    public readonly networkManagerId!: pulumi.Output<string>;
+    declare public readonly networkManagerId: pulumi.Output<string>;
     /**
      * Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
      */
-    public readonly scopeAccess!: pulumi.Output<string>;
+    declare public readonly scopeAccess: pulumi.Output<string>;
     /**
      * A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
      */
-    public readonly triggers!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly triggers: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NetworkManagerDeployment resource with the given unique name, arguments, and options.
@@ -222,27 +222,27 @@ export class NetworkManagerDeployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerDeploymentState | undefined;
-            resourceInputs["configurationIds"] = state ? state.configurationIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["networkManagerId"] = state ? state.networkManagerId : undefined;
-            resourceInputs["scopeAccess"] = state ? state.scopeAccess : undefined;
-            resourceInputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["configurationIds"] = state?.configurationIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["networkManagerId"] = state?.networkManagerId;
+            resourceInputs["scopeAccess"] = state?.scopeAccess;
+            resourceInputs["triggers"] = state?.triggers;
         } else {
             const args = argsOrState as NetworkManagerDeploymentArgs | undefined;
-            if ((!args || args.configurationIds === undefined) && !opts.urn) {
+            if (args?.configurationIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationIds'");
             }
-            if ((!args || args.networkManagerId === undefined) && !opts.urn) {
+            if (args?.networkManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerId'");
             }
-            if ((!args || args.scopeAccess === undefined) && !opts.urn) {
+            if (args?.scopeAccess === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopeAccess'");
             }
-            resourceInputs["configurationIds"] = args ? args.configurationIds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
-            resourceInputs["scopeAccess"] = args ? args.scopeAccess : undefined;
-            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["configurationIds"] = args?.configurationIds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
+            resourceInputs["scopeAccess"] = args?.scopeAccess;
+            resourceInputs["triggers"] = args?.triggers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerDeployment.__pulumiType, name, resourceInputs, opts);

@@ -84,51 +84,51 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
     /**
      * A description for this Schedule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The end time of the schedule.
      */
-    public readonly expiryTime!: pulumi.Output<string>;
+    declare public readonly expiryTime: pulumi.Output<string>;
     /**
      * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
      */
-    public readonly frequency!: pulumi.Output<string>;
+    declare public readonly frequency: pulumi.Output<string>;
     /**
      * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
      */
-    public readonly interval!: pulumi.Output<number>;
+    declare public readonly interval: pulumi.Output<number>;
     /**
      * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
      */
-    public readonly monthDays!: pulumi.Output<number[] | undefined>;
+    declare public readonly monthDays: pulumi.Output<number[] | undefined>;
     /**
      * One `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
-    public readonly monthlyOccurrence!: pulumi.Output<outputs.automation.ScheduleMonthlyOccurrence | undefined>;
+    declare public readonly monthlyOccurrence: pulumi.Output<outputs.automation.ScheduleMonthlyOccurrence | undefined>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
     /**
      * The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
     /**
      * List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      */
-    public readonly weekDays!: pulumi.Output<string[] | undefined>;
+    declare public readonly weekDays: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -143,41 +143,41 @@ export class Schedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["expiryTime"] = state ? state.expiryTime : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["interval"] = state ? state.interval : undefined;
-            resourceInputs["monthDays"] = state ? state.monthDays : undefined;
-            resourceInputs["monthlyOccurrence"] = state ? state.monthlyOccurrence : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
-            resourceInputs["weekDays"] = state ? state.weekDays : undefined;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["expiryTime"] = state?.expiryTime;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["interval"] = state?.interval;
+            resourceInputs["monthDays"] = state?.monthDays;
+            resourceInputs["monthlyOccurrence"] = state?.monthlyOccurrence;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["timezone"] = state?.timezone;
+            resourceInputs["weekDays"] = state?.weekDays;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["expiryTime"] = args ? args.expiryTime : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["monthDays"] = args ? args.monthDays : undefined;
-            resourceInputs["monthlyOccurrence"] = args ? args.monthlyOccurrence : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
-            resourceInputs["weekDays"] = args ? args.weekDays : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["expiryTime"] = args?.expiryTime;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["monthDays"] = args?.monthDays;
+            resourceInputs["monthlyOccurrence"] = args?.monthlyOccurrence;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["timezone"] = args?.timezone;
+            resourceInputs["weekDays"] = args?.weekDays;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);

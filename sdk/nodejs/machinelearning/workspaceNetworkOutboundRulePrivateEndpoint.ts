@@ -113,17 +113,17 @@ export class WorkspaceNetworkOutboundRulePrivateEndpoint extends pulumi.CustomRe
     /**
      * Specifies the name of the Machine Learning Workspace Network Outbound Rule Private Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      *
      * > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      */
-    public readonly serviceResourceId!: pulumi.Output<string>;
+    declare public readonly serviceResourceId: pulumi.Output<string>;
     /**
      * Whether to enable an additional private endpoint to be used by jobs running on Spark. Changing this forces a new resource to be created.
      */
-    public readonly sparkEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sparkEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Sub Resource of the service resource to connect to. Possible values are `vault`,`amlworkspace`,`blob`,`table`,`queue`,`file`,`web`,`dfs`, `redisCache`. Changing this forces a new resource to be created.
      *
@@ -134,11 +134,11 @@ export class WorkspaceNetworkOutboundRulePrivateEndpoint extends pulumi.CustomRe
      * | Storage Account            | `blob`,`table`,`queue`,`file`,`web`,`dfs` |
      * | Key Vault                  | `vault`                                   |
      */
-    public readonly subResourceTarget!: pulumi.Output<string>;
+    declare public readonly subResourceTarget: pulumi.Output<string>;
     /**
      * Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceNetworkOutboundRulePrivateEndpoint resource with the given unique name, arguments, and options.
@@ -153,27 +153,27 @@ export class WorkspaceNetworkOutboundRulePrivateEndpoint extends pulumi.CustomRe
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceNetworkOutboundRulePrivateEndpointState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serviceResourceId"] = state ? state.serviceResourceId : undefined;
-            resourceInputs["sparkEnabled"] = state ? state.sparkEnabled : undefined;
-            resourceInputs["subResourceTarget"] = state ? state.subResourceTarget : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serviceResourceId"] = state?.serviceResourceId;
+            resourceInputs["sparkEnabled"] = state?.sparkEnabled;
+            resourceInputs["subResourceTarget"] = state?.subResourceTarget;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as WorkspaceNetworkOutboundRulePrivateEndpointArgs | undefined;
-            if ((!args || args.serviceResourceId === undefined) && !opts.urn) {
+            if (args?.serviceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceResourceId'");
             }
-            if ((!args || args.subResourceTarget === undefined) && !opts.urn) {
+            if (args?.subResourceTarget === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subResourceTarget'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceResourceId"] = args ? args.serviceResourceId : undefined;
-            resourceInputs["sparkEnabled"] = args ? args.sparkEnabled : undefined;
-            resourceInputs["subResourceTarget"] = args ? args.subResourceTarget : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceResourceId"] = args?.serviceResourceId;
+            resourceInputs["sparkEnabled"] = args?.sparkEnabled;
+            resourceInputs["subResourceTarget"] = args?.subResourceTarget;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkspaceNetworkOutboundRulePrivateEndpoint.__pulumiType, name, resourceInputs, opts);

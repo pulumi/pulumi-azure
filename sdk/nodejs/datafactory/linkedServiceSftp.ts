@@ -76,89 +76,89 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
      *
      * The following supported arguments are specific to SFTP Linked Service:
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
      */
-    public readonly authenticationType!: pulumi.Output<string>;
+    declare public readonly authenticationType: pulumi.Output<string>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The SFTP server hostname.
      */
-    public readonly host!: pulumi.Output<string>;
+    declare public readonly host: pulumi.Output<string>;
     /**
      * The host key fingerprint of the SFTP server.
      */
-    public readonly hostKeyFingerprint!: pulumi.Output<string | undefined>;
+    declare public readonly hostKeyFingerprint: pulumi.Output<string | undefined>;
     /**
      * The name of the integration runtime to associate with the Data Factory Linked Service.
      */
-    public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
      * A `keyVaultPassword` block as defined below.
      *
      * > **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
      */
-    public readonly keyVaultPasswords!: pulumi.Output<outputs.datafactory.LinkedServiceSftpKeyVaultPassword[] | undefined>;
+    declare public readonly keyVaultPasswords: pulumi.Output<outputs.datafactory.LinkedServiceSftpKeyVaultPassword[] | undefined>;
     /**
      * A `keyVaultPrivateKeyContentBase64` block as defined below.
      */
-    public readonly keyVaultPrivateKeyContentBase64!: pulumi.Output<outputs.datafactory.LinkedServiceSftpKeyVaultPrivateKeyContentBase64 | undefined>;
+    declare public readonly keyVaultPrivateKeyContentBase64: pulumi.Output<outputs.datafactory.LinkedServiceSftpKeyVaultPrivateKeyContentBase64 | undefined>;
     /**
      * A `keyVaultPrivateKeyPassphrase` block as defined below.
      *
      * > **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
      */
-    public readonly keyVaultPrivateKeyPassphrase!: pulumi.Output<outputs.datafactory.LinkedServiceSftpKeyVaultPrivateKeyPassphrase | undefined>;
+    declare public readonly keyVaultPrivateKeyPassphrase: pulumi.Output<outputs.datafactory.LinkedServiceSftpKeyVaultPrivateKeyPassphrase | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Password to log on to the SFTP Server for Basic Authentication.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
      */
-    public readonly privateKeyContentBase64!: pulumi.Output<string | undefined>;
+    declare public readonly privateKeyContentBase64: pulumi.Output<string | undefined>;
     /**
      * The passphrase for the private key if the key is encrypted.
      */
-    public readonly privateKeyPassphrase!: pulumi.Output<string | undefined>;
+    declare public readonly privateKeyPassphrase: pulumi.Output<string | undefined>;
     /**
      * The absolute path to the private key file that the self-hosted integration runtime can access.
      *
      * > **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
      */
-    public readonly privateKeyPath!: pulumi.Output<string | undefined>;
+    declare public readonly privateKeyPath: pulumi.Output<string | undefined>;
     /**
      * Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
      */
-    public readonly skipHostKeyValidation!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipHostKeyValidation: pulumi.Output<boolean | undefined>;
     /**
      * The username used to log on to the SFTP server.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a LinkedServiceSftp resource with the given unique name, arguments, and options.
@@ -173,63 +173,63 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceSftpState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["hostKeyFingerprint"] = state ? state.hostKeyFingerprint : undefined;
-            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultPasswords"] = state ? state.keyVaultPasswords : undefined;
-            resourceInputs["keyVaultPrivateKeyContentBase64"] = state ? state.keyVaultPrivateKeyContentBase64 : undefined;
-            resourceInputs["keyVaultPrivateKeyPassphrase"] = state ? state.keyVaultPrivateKeyPassphrase : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["privateKeyContentBase64"] = state ? state.privateKeyContentBase64 : undefined;
-            resourceInputs["privateKeyPassphrase"] = state ? state.privateKeyPassphrase : undefined;
-            resourceInputs["privateKeyPath"] = state ? state.privateKeyPath : undefined;
-            resourceInputs["skipHostKeyValidation"] = state ? state.skipHostKeyValidation : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["authenticationType"] = state?.authenticationType;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["host"] = state?.host;
+            resourceInputs["hostKeyFingerprint"] = state?.hostKeyFingerprint;
+            resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
+            resourceInputs["keyVaultPasswords"] = state?.keyVaultPasswords;
+            resourceInputs["keyVaultPrivateKeyContentBase64"] = state?.keyVaultPrivateKeyContentBase64;
+            resourceInputs["keyVaultPrivateKeyPassphrase"] = state?.keyVaultPrivateKeyPassphrase;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["privateKeyContentBase64"] = state?.privateKeyContentBase64;
+            resourceInputs["privateKeyPassphrase"] = state?.privateKeyPassphrase;
+            resourceInputs["privateKeyPath"] = state?.privateKeyPath;
+            resourceInputs["skipHostKeyValidation"] = state?.skipHostKeyValidation;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as LinkedServiceSftpArgs | undefined;
-            if ((!args || args.authenticationType === undefined) && !opts.urn) {
+            if (args?.authenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationType'");
             }
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.host === undefined) && !opts.urn) {
+            if (args?.host === undefined && !opts.urn) {
                 throw new Error("Missing required property 'host'");
             }
-            if ((!args || args.port === undefined) && !opts.urn) {
+            if (args?.port === undefined && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["hostKeyFingerprint"] = args ? args.hostKeyFingerprint : undefined;
-            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultPasswords"] = args ? args.keyVaultPasswords : undefined;
-            resourceInputs["keyVaultPrivateKeyContentBase64"] = args ? args.keyVaultPrivateKeyContentBase64 : undefined;
-            resourceInputs["keyVaultPrivateKeyPassphrase"] = args ? args.keyVaultPrivateKeyPassphrase : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["hostKeyFingerprint"] = args?.hostKeyFingerprint;
+            resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
+            resourceInputs["keyVaultPasswords"] = args?.keyVaultPasswords;
+            resourceInputs["keyVaultPrivateKeyContentBase64"] = args?.keyVaultPrivateKeyContentBase64;
+            resourceInputs["keyVaultPrivateKeyPassphrase"] = args?.keyVaultPrivateKeyPassphrase;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["port"] = args?.port;
             resourceInputs["privateKeyContentBase64"] = args?.privateKeyContentBase64 ? pulumi.secret(args.privateKeyContentBase64) : undefined;
             resourceInputs["privateKeyPassphrase"] = args?.privateKeyPassphrase ? pulumi.secret(args.privateKeyPassphrase) : undefined;
-            resourceInputs["privateKeyPath"] = args ? args.privateKeyPath : undefined;
-            resourceInputs["skipHostKeyValidation"] = args ? args.skipHostKeyValidation : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["privateKeyPath"] = args?.privateKeyPath;
+            resourceInputs["skipHostKeyValidation"] = args?.skipHostKeyValidation;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password", "privateKeyContentBase64", "privateKeyPassphrase"] };

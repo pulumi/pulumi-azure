@@ -56,19 +56,19 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of the resource or application that manages this Resource Group.
      */
-    public readonly managedBy!: pulumi.Output<string | undefined>;
+    declare public readonly managedBy: pulumi.Output<string | undefined>;
     /**
      * The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Resource Group.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ResourceGroup resource with the given unique name, arguments, and options.
@@ -83,16 +83,16 @@ export class ResourceGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceGroupState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedBy"] = state ? state.managedBy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedBy"] = state?.managedBy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ResourceGroupArgs | undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceGroup.__pulumiType, name, resourceInputs, opts);

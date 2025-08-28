@@ -84,65 +84,65 @@ export class Snapshot extends pulumi.CustomResource {
      *
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
      */
-    public readonly createOption!: pulumi.Output<string>;
+    declare public readonly createOption: pulumi.Output<string>;
     /**
      * Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `networkAccessPolicy` to `AllowPrivate`.
      */
-    public readonly diskAccessId!: pulumi.Output<string | undefined>;
+    declare public readonly diskAccessId: pulumi.Output<string | undefined>;
     /**
      * The size of the Snapshotted Disk in GB.
      */
-    public readonly diskSizeGb!: pulumi.Output<number>;
+    declare public readonly diskSizeGb: pulumi.Output<number>;
     /**
      * A `encryptionSettings` block as defined below.
      *
      * > **Note:** Removing `encryptionSettings` forces a new resource to be created.
      */
-    public readonly encryptionSettings!: pulumi.Output<outputs.compute.SnapshotEncryptionSettings | undefined>;
+    declare public readonly encryptionSettings: pulumi.Output<outputs.compute.SnapshotEncryptionSettings | undefined>;
     /**
      * Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      */
-    public readonly incrementalEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly incrementalEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
      */
-    public readonly networkAccessPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly networkAccessPolicy: pulumi.Output<string | undefined>;
     /**
      * Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      */
-    public readonly sourceResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceResourceId: pulumi.Output<string | undefined>;
     /**
      * Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
      */
-    public readonly sourceUri!: pulumi.Output<string | undefined>;
+    declare public readonly sourceUri: pulumi.Output<string | undefined>;
     /**
      * Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether Trusted Launch is enabled for the Snapshot.
      */
-    public /*out*/ readonly trustedLaunchEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly trustedLaunchEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -157,43 +157,43 @@ export class Snapshot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotState | undefined;
-            resourceInputs["createOption"] = state ? state.createOption : undefined;
-            resourceInputs["diskAccessId"] = state ? state.diskAccessId : undefined;
-            resourceInputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
-            resourceInputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
-            resourceInputs["incrementalEnabled"] = state ? state.incrementalEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
-            resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
+            resourceInputs["createOption"] = state?.createOption;
+            resourceInputs["diskAccessId"] = state?.diskAccessId;
+            resourceInputs["diskSizeGb"] = state?.diskSizeGb;
+            resourceInputs["encryptionSettings"] = state?.encryptionSettings;
+            resourceInputs["incrementalEnabled"] = state?.incrementalEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkAccessPolicy"] = state?.networkAccessPolicy;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceResourceId"] = state?.sourceResourceId;
+            resourceInputs["sourceUri"] = state?.sourceUri;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["trustedLaunchEnabled"] = state?.trustedLaunchEnabled;
         } else {
             const args = argsOrState as SnapshotArgs | undefined;
-            if ((!args || args.createOption === undefined) && !opts.urn) {
+            if (args?.createOption === undefined && !opts.urn) {
                 throw new Error("Missing required property 'createOption'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["createOption"] = args ? args.createOption : undefined;
-            resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
-            resourceInputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
-            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            resourceInputs["incrementalEnabled"] = args ? args.incrementalEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createOption"] = args?.createOption;
+            resourceInputs["diskAccessId"] = args?.diskAccessId;
+            resourceInputs["diskSizeGb"] = args?.diskSizeGb;
+            resourceInputs["encryptionSettings"] = args?.encryptionSettings;
+            resourceInputs["incrementalEnabled"] = args?.incrementalEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkAccessPolicy"] = args?.networkAccessPolicy;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["sourceUri"] = args?.sourceUri;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["trustedLaunchEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
