@@ -78,67 +78,67 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
      */
-    public readonly autoCreateTopicWithFirstSubscription!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoCreateTopicWithFirstSubscription: pulumi.Output<boolean | undefined>;
     /**
      * Whether to delete the domain topic when the last event subscription at the scope of the domain topic is deleted. Defaults to `true`.
      */
-    public readonly autoDeleteTopicWithLastSubscription!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoDeleteTopicWithLastSubscription: pulumi.Output<boolean | undefined>;
     /**
      * The Endpoint associated with the EventGrid Domain.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.eventhub.DomainIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.eventhub.DomainIdentity | undefined>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    public readonly inboundIpRules!: pulumi.Output<outputs.eventhub.DomainInboundIpRule[] | undefined>;
+    declare public readonly inboundIpRules: pulumi.Output<outputs.eventhub.DomainInboundIpRule[] | undefined>;
     /**
      * A `inputMappingDefaultValues` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly inputMappingDefaultValues!: pulumi.Output<outputs.eventhub.DomainInputMappingDefaultValues | undefined>;
+    declare public readonly inputMappingDefaultValues: pulumi.Output<outputs.eventhub.DomainInputMappingDefaultValues | undefined>;
     /**
      * A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly inputMappingFields!: pulumi.Output<outputs.eventhub.DomainInputMappingFields | undefined>;
+    declare public readonly inputMappingFields: pulumi.Output<outputs.eventhub.DomainInputMappingFields | undefined>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
-    public readonly inputSchema!: pulumi.Output<string | undefined>;
+    declare public readonly inputSchema: pulumi.Output<string | undefined>;
     /**
      * Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
      */
-    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Primary Shared Access Key associated with the EventGrid Domain.
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Secondary Shared Access Key associated with the EventGrid Domain.
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -156,40 +156,40 @@ export class Domain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            resourceInputs["autoCreateTopicWithFirstSubscription"] = state ? state.autoCreateTopicWithFirstSubscription : undefined;
-            resourceInputs["autoDeleteTopicWithLastSubscription"] = state ? state.autoDeleteTopicWithLastSubscription : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["inboundIpRules"] = state ? state.inboundIpRules : undefined;
-            resourceInputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
-            resourceInputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;
-            resourceInputs["inputSchema"] = state ? state.inputSchema : undefined;
-            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoCreateTopicWithFirstSubscription"] = state?.autoCreateTopicWithFirstSubscription;
+            resourceInputs["autoDeleteTopicWithLastSubscription"] = state?.autoDeleteTopicWithLastSubscription;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["inboundIpRules"] = state?.inboundIpRules;
+            resourceInputs["inputMappingDefaultValues"] = state?.inputMappingDefaultValues;
+            resourceInputs["inputMappingFields"] = state?.inputMappingFields;
+            resourceInputs["inputSchema"] = state?.inputSchema;
+            resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoCreateTopicWithFirstSubscription"] = args ? args.autoCreateTopicWithFirstSubscription : undefined;
-            resourceInputs["autoDeleteTopicWithLastSubscription"] = args ? args.autoDeleteTopicWithLastSubscription : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            resourceInputs["inputMappingDefaultValues"] = args ? args.inputMappingDefaultValues : undefined;
-            resourceInputs["inputMappingFields"] = args ? args.inputMappingFields : undefined;
-            resourceInputs["inputSchema"] = args ? args.inputSchema : undefined;
-            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoCreateTopicWithFirstSubscription"] = args?.autoCreateTopicWithFirstSubscription;
+            resourceInputs["autoDeleteTopicWithLastSubscription"] = args?.autoDeleteTopicWithLastSubscription;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inboundIpRules"] = args?.inboundIpRules;
+            resourceInputs["inputMappingDefaultValues"] = args?.inputMappingDefaultValues;
+            resourceInputs["inputMappingFields"] = args?.inputMappingFields;
+            resourceInputs["inputSchema"] = args?.inputSchema;
+            resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;

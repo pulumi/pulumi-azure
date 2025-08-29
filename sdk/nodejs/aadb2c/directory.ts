@@ -69,43 +69,43 @@ export class Directory extends pulumi.CustomResource {
     /**
      * The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
      */
-    public /*out*/ readonly billingType!: pulumi.Output<string>;
+    declare public /*out*/ readonly billingType: pulumi.Output<string>;
     /**
      * Country code of the B2C tenant. The `countryCode` should be valid for the specified `dataResidencyLocation`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
-    public readonly countryCode!: pulumi.Output<string>;
+    declare public readonly countryCode: pulumi.Output<string>;
     /**
      * Location in which the B2C tenant is hosted and data resides. The `dataResidencyLocation` should be valid for the specified `countryCode`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
      */
-    public readonly dataResidencyLocation!: pulumi.Output<string>;
+    declare public readonly dataResidencyLocation: pulumi.Output<string>;
     /**
      * The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The date from which the billing type took effect. May not be populated until after the first billing cycle.
      */
-    public /*out*/ readonly effectiveStartDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly effectiveStartDate: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Billing SKU for the B2C tenant. Must be one of: `PremiumP1` or `PremiumP2` (`Standard` is not supported). See [official docs](https://aka.ms/b2cBilling) for more information.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the AAD B2C Directory.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Tenant ID for the AAD B2C tenant.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a Directory resource with the given unique name, arguments, and options.
@@ -120,37 +120,37 @@ export class Directory extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryState | undefined;
-            resourceInputs["billingType"] = state ? state.billingType : undefined;
-            resourceInputs["countryCode"] = state ? state.countryCode : undefined;
-            resourceInputs["dataResidencyLocation"] = state ? state.dataResidencyLocation : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["effectiveStartDate"] = state ? state.effectiveStartDate : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["billingType"] = state?.billingType;
+            resourceInputs["countryCode"] = state?.countryCode;
+            resourceInputs["dataResidencyLocation"] = state?.dataResidencyLocation;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["effectiveStartDate"] = state?.effectiveStartDate;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
-            if ((!args || args.dataResidencyLocation === undefined) && !opts.urn) {
+            if (args?.dataResidencyLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataResidencyLocation'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
-            resourceInputs["dataResidencyLocation"] = args ? args.dataResidencyLocation : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["countryCode"] = args?.countryCode;
+            resourceInputs["dataResidencyLocation"] = args?.dataResidencyLocation;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["billingType"] = undefined /*out*/;
             resourceInputs["effectiveStartDate"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;

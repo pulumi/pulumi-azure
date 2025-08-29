@@ -97,31 +97,31 @@ export class IntegrationRuntimeAzure extends pulumi.CustomResource {
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
-    public readonly computeType!: pulumi.Output<string | undefined>;
+    declare public readonly computeType: pulumi.Output<string | undefined>;
     /**
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      */
-    public readonly coreCount!: pulumi.Output<number | undefined>;
+    declare public readonly coreCount: pulumi.Output<number | undefined>;
     /**
      * Integration runtime description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Synapse Azure Integration Runtime should exist. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Azure Integration Runtime to be created.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
-    public readonly timeToLiveMin!: pulumi.Output<number | undefined>;
+    declare public readonly timeToLiveMin: pulumi.Output<number | undefined>;
 
     /**
      * Create a IntegrationRuntimeAzure resource with the given unique name, arguments, and options.
@@ -136,25 +136,25 @@ export class IntegrationRuntimeAzure extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeAzureState | undefined;
-            resourceInputs["computeType"] = state ? state.computeType : undefined;
-            resourceInputs["coreCount"] = state ? state.coreCount : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            resourceInputs["timeToLiveMin"] = state ? state.timeToLiveMin : undefined;
+            resourceInputs["computeType"] = state?.computeType;
+            resourceInputs["coreCount"] = state?.coreCount;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
+            resourceInputs["timeToLiveMin"] = state?.timeToLiveMin;
         } else {
             const args = argsOrState as IntegrationRuntimeAzureArgs | undefined;
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
+            if (args?.synapseWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            resourceInputs["computeType"] = args ? args.computeType : undefined;
-            resourceInputs["coreCount"] = args ? args.coreCount : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            resourceInputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
+            resourceInputs["computeType"] = args?.computeType;
+            resourceInputs["coreCount"] = args?.coreCount;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
+            resourceInputs["timeToLiveMin"] = args?.timeToLiveMin;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationRuntimeAzure.__pulumiType, name, resourceInputs, opts);

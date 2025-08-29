@@ -79,15 +79,15 @@ export class EmailServiceDomainSenderUsername extends pulumi.CustomResource {
     /**
      * The display name for the Email Communication Service Domain Sender Username resource.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The ID of the Email Communication Service Domain resource. Changing this forces a new resource to be created.
      */
-    public readonly emailServiceDomainId!: pulumi.Output<string>;
+    declare public readonly emailServiceDomainId: pulumi.Output<string>;
     /**
      * The name of the Email Communication Service Domain Sender Username resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a EmailServiceDomainSenderUsername resource with the given unique name, arguments, and options.
@@ -102,17 +102,17 @@ export class EmailServiceDomainSenderUsername extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailServiceDomainSenderUsernameState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["emailServiceDomainId"] = state ? state.emailServiceDomainId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["emailServiceDomainId"] = state?.emailServiceDomainId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as EmailServiceDomainSenderUsernameArgs | undefined;
-            if ((!args || args.emailServiceDomainId === undefined) && !opts.urn) {
+            if (args?.emailServiceDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailServiceDomainId'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["emailServiceDomainId"] = args ? args.emailServiceDomainId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["emailServiceDomainId"] = args?.emailServiceDomainId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailServiceDomainSenderUsername.__pulumiType, name, resourceInputs, opts);

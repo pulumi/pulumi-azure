@@ -55,35 +55,25 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[_builtins.str] ado_pipeline_service_connection_id: The Azure DevOps Pipeline Service Connection ID.
         :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
-        :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-               Certificate
-        :param pulumi.Input[_builtins.str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-               Principal using a Client Certificate.
+        :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        :param pulumi.Input[_builtins.str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         :param pulumi.Input[_builtins.str] client_id: The Client ID which should be used.
         :param pulumi.Input[_builtins.str] client_id_file_path: The path to a file containing the Client ID which should be used.
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
-        :param pulumi.Input[_builtins.str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-               using a Client Secret.
+        :param pulumi.Input[_builtins.str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[_builtins.bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
-        :param pulumi.Input[_builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-               used and should not be specified when `metadata_host` is specified.
+        :param pulumi.Input[_builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[_builtins.str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
-        :param pulumi.Input[_builtins.str] msi_api_version: The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-               the endpoint. e.g. for Azure Container Apps.
-        :param pulumi.Input[_builtins.str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-               automatically.
-        :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-               Connect.
-        :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-               using OpenID Connect.
+        :param pulumi.Input[_builtins.str] msi_api_version: The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
+        :param pulumi.Input[_builtins.str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
+        :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
+        :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[_builtins.str] oidc_token: The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[_builtins.str] oidc_token_file_path: The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[_builtins.str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[_builtins.str] resource_provider_registrations: The set of Resource Providers which should be automatically registered for the subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_providers_to_registers: A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-               `resource_provider_registrations` property.
-        :param pulumi.Input[_builtins.bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
-               registered?
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_providers_to_registers: A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
+        :param pulumi.Input[_builtins.bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
         :param pulumi.Input[_builtins.bool] storage_use_azuread: Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         :param pulumi.Input[_builtins.str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID which should be used.
@@ -205,8 +195,7 @@ class ProviderArgs:
     @pulumi.getter(name="clientCertificatePassword")
     def client_certificate_password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-        Certificate
+        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         """
         return pulumi.get(self, "client_certificate_password")
 
@@ -218,8 +207,7 @@ class ProviderArgs:
     @pulumi.getter(name="clientCertificatePath")
     def client_certificate_path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-        Principal using a Client Certificate.
+        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         """
         return pulumi.get(self, "client_certificate_path")
 
@@ -267,8 +255,7 @@ class ProviderArgs:
     @pulumi.getter(name="clientSecretFilePath")
     def client_secret_file_path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-        using a Client Secret.
+        The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         """
         return pulumi.get(self, "client_secret_file_path")
 
@@ -301,8 +288,7 @@ class ProviderArgs:
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-        used and should not be specified when `metadata_host` is specified.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
         """
         return pulumi.get(self, "environment")
 
@@ -335,8 +321,7 @@ class ProviderArgs:
     @pulumi.getter(name="msiApiVersion")
     def msi_api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-        the endpoint. e.g. for Azure Container Apps.
+        The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
         """
         return pulumi.get(self, "msi_api_version")
 
@@ -348,8 +333,7 @@ class ProviderArgs:
     @pulumi.getter(name="msiEndpoint")
     def msi_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-        automatically.
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         """
         return pulumi.get(self, "msi_endpoint")
 
@@ -361,8 +345,7 @@ class ProviderArgs:
     @pulumi.getter(name="oidcRequestToken")
     def oidc_request_token(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-        Connect.
+        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return pulumi.get(self, "oidc_request_token")
 
@@ -374,8 +357,7 @@ class ProviderArgs:
     @pulumi.getter(name="oidcRequestUrl")
     def oidc_request_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-        using OpenID Connect.
+        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return pulumi.get(self, "oidc_request_url")
 
@@ -435,8 +417,7 @@ class ProviderArgs:
     @pulumi.getter(name="resourceProvidersToRegisters")
     def resource_providers_to_registers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-        `resource_provider_registrations` property.
+        A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
         """
         return pulumi.get(self, "resource_providers_to_registers")
 
@@ -449,8 +430,7 @@ class ProviderArgs:
     @_utilities.deprecated("""This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.""")
     def skip_provider_registration(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
-        registered?
+        Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
         """
         return pulumi.get(self, "skip_provider_registration")
 
@@ -591,35 +571,25 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] ado_pipeline_service_connection_id: The Azure DevOps Pipeline Service Connection ID.
         :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
-        :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-               Certificate
-        :param pulumi.Input[_builtins.str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-               Principal using a Client Certificate.
+        :param pulumi.Input[_builtins.str] client_certificate_password: The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
+        :param pulumi.Input[_builtins.str] client_certificate_path: The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         :param pulumi.Input[_builtins.str] client_id: The Client ID which should be used.
         :param pulumi.Input[_builtins.str] client_id_file_path: The path to a file containing the Client ID which should be used.
         :param pulumi.Input[_builtins.str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
-        :param pulumi.Input[_builtins.str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-               using a Client Secret.
+        :param pulumi.Input[_builtins.str] client_secret_file_path: The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[_builtins.bool] disable_correlation_request_id: This will disable the x-ms-correlation-request-id header.
-        :param pulumi.Input[_builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-               used and should not be specified when `metadata_host` is specified.
+        :param pulumi.Input[_builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
         :param pulumi.Input[_builtins.str] metadata_host: The Hostname which should be used for the Azure Metadata Service.
-        :param pulumi.Input[_builtins.str] msi_api_version: The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-               the endpoint. e.g. for Azure Container Apps.
-        :param pulumi.Input[_builtins.str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-               automatically.
-        :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-               Connect.
-        :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-               using OpenID Connect.
+        :param pulumi.Input[_builtins.str] msi_api_version: The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
+        :param pulumi.Input[_builtins.str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
+        :param pulumi.Input[_builtins.str] oidc_request_token: The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
+        :param pulumi.Input[_builtins.str] oidc_request_url: The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[_builtins.str] oidc_token: The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[_builtins.str] oidc_token_file_path: The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
         :param pulumi.Input[_builtins.str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[_builtins.str] resource_provider_registrations: The set of Resource Providers which should be automatically registered for the subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_providers_to_registers: A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-               `resource_provider_registrations` property.
-        :param pulumi.Input[_builtins.bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
-               registered?
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_providers_to_registers: A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
+        :param pulumi.Input[_builtins.bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
         :param pulumi.Input[_builtins.bool] storage_use_azuread: Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         :param pulumi.Input[_builtins.str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID which should be used.
@@ -764,8 +734,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="clientCertificatePassword")
     def client_certificate_password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-        Certificate
+        The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         """
         return pulumi.get(self, "client_certificate_password")
 
@@ -773,8 +742,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="clientCertificatePath")
     def client_certificate_path(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-        Principal using a Client Certificate.
+        The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
         """
         return pulumi.get(self, "client_certificate_path")
 
@@ -806,8 +774,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="clientSecretFilePath")
     def client_secret_file_path(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-        using a Client Secret.
+        The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         """
         return pulumi.get(self, "client_secret_file_path")
 
@@ -815,8 +782,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def environment(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-        used and should not be specified when `metadata_host` is specified.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
         """
         return pulumi.get(self, "environment")
 
@@ -832,8 +798,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="msiApiVersion")
     def msi_api_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-        the endpoint. e.g. for Azure Container Apps.
+        The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
         """
         return pulumi.get(self, "msi_api_version")
 
@@ -841,8 +806,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="msiEndpoint")
     def msi_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-        automatically.
+        The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
         """
         return pulumi.get(self, "msi_endpoint")
 
@@ -850,8 +814,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="oidcRequestToken")
     def oidc_request_token(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-        Connect.
+        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return pulumi.get(self, "oidc_request_token")
 
@@ -859,8 +822,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="oidcRequestUrl")
     def oidc_request_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-        using OpenID Connect.
+        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
         """
         return pulumi.get(self, "oidc_request_url")
 

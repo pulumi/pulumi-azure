@@ -97,15 +97,15 @@ export class AttachedNetwork extends pulumi.CustomResource {
     /**
      * The ID of the associated Dev Center. Changing this forces a new resource to be created.
      */
-    public readonly devCenterId!: pulumi.Output<string>;
+    declare public readonly devCenterId: pulumi.Output<string>;
     /**
      * Specifies the name of this Dev Center Attached Network. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Dev Center Network Connection you want to attach. Changing this forces a new resource to be created.
      */
-    public readonly networkConnectionId!: pulumi.Output<string>;
+    declare public readonly networkConnectionId: pulumi.Output<string>;
 
     /**
      * Create a AttachedNetwork resource with the given unique name, arguments, and options.
@@ -120,20 +120,20 @@ export class AttachedNetwork extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AttachedNetworkState | undefined;
-            resourceInputs["devCenterId"] = state ? state.devCenterId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkConnectionId"] = state ? state.networkConnectionId : undefined;
+            resourceInputs["devCenterId"] = state?.devCenterId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkConnectionId"] = state?.networkConnectionId;
         } else {
             const args = argsOrState as AttachedNetworkArgs | undefined;
-            if ((!args || args.devCenterId === undefined) && !opts.urn) {
+            if (args?.devCenterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterId'");
             }
-            if ((!args || args.networkConnectionId === undefined) && !opts.urn) {
+            if (args?.networkConnectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConnectionId'");
             }
-            resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkConnectionId"] = args ? args.networkConnectionId : undefined;
+            resourceInputs["devCenterId"] = args?.devCenterId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkConnectionId"] = args?.networkConnectionId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AttachedNetwork.__pulumiType, name, resourceInputs, opts);

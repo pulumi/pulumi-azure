@@ -81,27 +81,27 @@ export class Route extends pulumi.CustomResource {
     /**
      * The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
      */
-    public readonly addressPrefix!: pulumi.Output<string>;
+    declare public readonly addressPrefix: pulumi.Output<string>;
     /**
      * The name of the route. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
      */
-    public readonly nextHopInIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly nextHopInIpAddress: pulumi.Output<string | undefined>;
     /**
      * The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
      */
-    public readonly nextHopType!: pulumi.Output<string>;
+    declare public readonly nextHopType: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the route. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the route table within which create the route. Changing this forces a new resource to be created.
      */
-    public readonly routeTableName!: pulumi.Output<string>;
+    declare public readonly routeTableName: pulumi.Output<string>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -116,32 +116,32 @@ export class Route extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            resourceInputs["addressPrefix"] = state ? state.addressPrefix : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nextHopInIpAddress"] = state ? state.nextHopInIpAddress : undefined;
-            resourceInputs["nextHopType"] = state ? state.nextHopType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routeTableName"] = state ? state.routeTableName : undefined;
+            resourceInputs["addressPrefix"] = state?.addressPrefix;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nextHopInIpAddress"] = state?.nextHopInIpAddress;
+            resourceInputs["nextHopType"] = state?.nextHopType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routeTableName"] = state?.routeTableName;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if ((!args || args.addressPrefix === undefined) && !opts.urn) {
+            if (args?.addressPrefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressPrefix'");
             }
-            if ((!args || args.nextHopType === undefined) && !opts.urn) {
+            if (args?.nextHopType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nextHopType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeTableName === undefined) && !opts.urn) {
+            if (args?.routeTableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nextHopInIpAddress"] = args ? args.nextHopInIpAddress : undefined;
-            resourceInputs["nextHopType"] = args ? args.nextHopType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nextHopInIpAddress"] = args?.nextHopInIpAddress;
+            resourceInputs["nextHopType"] = args?.nextHopType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeTableName"] = args?.routeTableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Route.__pulumiType, name, resourceInputs, opts);

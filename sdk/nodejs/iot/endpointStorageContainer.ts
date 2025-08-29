@@ -92,53 +92,53 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
     /**
      * Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      */
-    public readonly authenticationType!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationType: pulumi.Output<string | undefined>;
     /**
      * Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
      */
-    public readonly batchFrequencyInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly batchFrequencyInSeconds: pulumi.Output<number | undefined>;
     /**
      * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      */
-    public readonly connectionString!: pulumi.Output<string | undefined>;
+    declare public readonly connectionString: pulumi.Output<string | undefined>;
     /**
      * The name of storage container in the storage account.
      */
-    public readonly containerName!: pulumi.Output<string>;
+    declare public readonly containerName: pulumi.Output<string>;
     /**
      * Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
      */
-    public readonly encoding!: pulumi.Output<string | undefined>;
+    declare public readonly encoding: pulumi.Output<string | undefined>;
     /**
      * URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      */
-    public readonly endpointUri!: pulumi.Output<string | undefined>;
+    declare public readonly endpointUri: pulumi.Output<string | undefined>;
     /**
      * File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      */
-    public readonly fileNameFormat!: pulumi.Output<string | undefined>;
+    declare public readonly fileNameFormat: pulumi.Output<string | undefined>;
     /**
      * ID of the User Managed Identity used to authenticate against the storage endpoint.
      *
      * > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      */
-    public readonly identityId!: pulumi.Output<string | undefined>;
+    declare public readonly identityId: pulumi.Output<string | undefined>;
     /**
      * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      */
-    public readonly iothubId!: pulumi.Output<string>;
+    declare public readonly iothubId: pulumi.Output<string>;
     /**
      * Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
      */
-    public readonly maxChunkSizeInBytes!: pulumi.Output<number | undefined>;
+    declare public readonly maxChunkSizeInBytes: pulumi.Output<number | undefined>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a EndpointStorageContainer resource with the given unique name, arguments, and options.
@@ -153,41 +153,41 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointStorageContainerState | undefined;
-            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
-            resourceInputs["batchFrequencyInSeconds"] = state ? state.batchFrequencyInSeconds : undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["containerName"] = state ? state.containerName : undefined;
-            resourceInputs["encoding"] = state ? state.encoding : undefined;
-            resourceInputs["endpointUri"] = state ? state.endpointUri : undefined;
-            resourceInputs["fileNameFormat"] = state ? state.fileNameFormat : undefined;
-            resourceInputs["identityId"] = state ? state.identityId : undefined;
-            resourceInputs["iothubId"] = state ? state.iothubId : undefined;
-            resourceInputs["maxChunkSizeInBytes"] = state ? state.maxChunkSizeInBytes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["authenticationType"] = state?.authenticationType;
+            resourceInputs["batchFrequencyInSeconds"] = state?.batchFrequencyInSeconds;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["containerName"] = state?.containerName;
+            resourceInputs["encoding"] = state?.encoding;
+            resourceInputs["endpointUri"] = state?.endpointUri;
+            resourceInputs["fileNameFormat"] = state?.fileNameFormat;
+            resourceInputs["identityId"] = state?.identityId;
+            resourceInputs["iothubId"] = state?.iothubId;
+            resourceInputs["maxChunkSizeInBytes"] = state?.maxChunkSizeInBytes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as EndpointStorageContainerArgs | undefined;
-            if ((!args || args.containerName === undefined) && !opts.urn) {
+            if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.iothubId === undefined) && !opts.urn) {
+            if (args?.iothubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
-            resourceInputs["batchFrequencyInSeconds"] = args ? args.batchFrequencyInSeconds : undefined;
+            resourceInputs["authenticationType"] = args?.authenticationType;
+            resourceInputs["batchFrequencyInSeconds"] = args?.batchFrequencyInSeconds;
             resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["encoding"] = args ? args.encoding : undefined;
-            resourceInputs["endpointUri"] = args ? args.endpointUri : undefined;
-            resourceInputs["fileNameFormat"] = args ? args.fileNameFormat : undefined;
-            resourceInputs["identityId"] = args ? args.identityId : undefined;
-            resourceInputs["iothubId"] = args ? args.iothubId : undefined;
-            resourceInputs["maxChunkSizeInBytes"] = args ? args.maxChunkSizeInBytes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["encoding"] = args?.encoding;
+            resourceInputs["endpointUri"] = args?.endpointUri;
+            resourceInputs["fileNameFormat"] = args?.fileNameFormat;
+            resourceInputs["identityId"] = args?.identityId;
+            resourceInputs["iothubId"] = args?.iothubId;
+            resourceInputs["maxChunkSizeInBytes"] = args?.maxChunkSizeInBytes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString"] };

@@ -77,19 +77,19 @@ export class TableEntity extends pulumi.CustomResource {
     /**
      * A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
      */
-    public readonly entity!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly entity: pulumi.Output<{[key: string]: string}>;
     /**
      * The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
-    public readonly partitionKey!: pulumi.Output<string>;
+    declare public readonly partitionKey: pulumi.Output<string>;
     /**
      * The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
      */
-    public readonly rowKey!: pulumi.Output<string>;
+    declare public readonly rowKey: pulumi.Output<string>;
     /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    public readonly storageTableId!: pulumi.Output<string>;
+    declare public readonly storageTableId: pulumi.Output<string>;
 
     /**
      * Create a TableEntity resource with the given unique name, arguments, and options.
@@ -104,28 +104,28 @@ export class TableEntity extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableEntityState | undefined;
-            resourceInputs["entity"] = state ? state.entity : undefined;
-            resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
-            resourceInputs["rowKey"] = state ? state.rowKey : undefined;
-            resourceInputs["storageTableId"] = state ? state.storageTableId : undefined;
+            resourceInputs["entity"] = state?.entity;
+            resourceInputs["partitionKey"] = state?.partitionKey;
+            resourceInputs["rowKey"] = state?.rowKey;
+            resourceInputs["storageTableId"] = state?.storageTableId;
         } else {
             const args = argsOrState as TableEntityArgs | undefined;
-            if ((!args || args.entity === undefined) && !opts.urn) {
+            if (args?.entity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entity'");
             }
-            if ((!args || args.partitionKey === undefined) && !opts.urn) {
+            if (args?.partitionKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionKey'");
             }
-            if ((!args || args.rowKey === undefined) && !opts.urn) {
+            if (args?.rowKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rowKey'");
             }
-            if ((!args || args.storageTableId === undefined) && !opts.urn) {
+            if (args?.storageTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageTableId'");
             }
-            resourceInputs["entity"] = args ? args.entity : undefined;
-            resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
-            resourceInputs["rowKey"] = args ? args.rowKey : undefined;
-            resourceInputs["storageTableId"] = args ? args.storageTableId : undefined;
+            resourceInputs["entity"] = args?.entity;
+            resourceInputs["partitionKey"] = args?.partitionKey;
+            resourceInputs["rowKey"] = args?.rowKey;
+            resourceInputs["storageTableId"] = args?.storageTableId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TableEntity.__pulumiType, name, resourceInputs, opts);

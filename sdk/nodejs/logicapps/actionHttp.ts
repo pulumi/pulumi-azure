@@ -71,37 +71,37 @@ export class ActionHttp extends pulumi.CustomResource {
     /**
      * Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    public readonly body!: pulumi.Output<string | undefined>;
+    declare public readonly body: pulumi.Output<string | undefined>;
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    public readonly headers!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly headers: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly logicAppId!: pulumi.Output<string>;
+    declare public readonly logicAppId: pulumi.Output<string>;
     /**
      * Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
      */
-    public readonly method!: pulumi.Output<string>;
+    declare public readonly method: pulumi.Output<string>;
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    public readonly queries!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly queries: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `runAfter` block is as defined below.
      */
-    public readonly runAfters!: pulumi.Output<outputs.logicapps.ActionHttpRunAfter[] | undefined>;
+    declare public readonly runAfters: pulumi.Output<outputs.logicapps.ActionHttpRunAfter[] | undefined>;
     /**
      * Specifies the URI which will be called when this HTTP Action is triggered.
      */
-    public readonly uri!: pulumi.Output<string>;
+    declare public readonly uri: pulumi.Output<string>;
 
     /**
      * Create a ActionHttp resource with the given unique name, arguments, and options.
@@ -116,33 +116,33 @@ export class ActionHttp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionHttpState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["headers"] = state ? state.headers : undefined;
-            resourceInputs["logicAppId"] = state ? state.logicAppId : undefined;
-            resourceInputs["method"] = state ? state.method : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queries"] = state ? state.queries : undefined;
-            resourceInputs["runAfters"] = state ? state.runAfters : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["headers"] = state?.headers;
+            resourceInputs["logicAppId"] = state?.logicAppId;
+            resourceInputs["method"] = state?.method;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queries"] = state?.queries;
+            resourceInputs["runAfters"] = state?.runAfters;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as ActionHttpArgs | undefined;
-            if ((!args || args.logicAppId === undefined) && !opts.urn) {
+            if (args?.logicAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            if ((!args || args.method === undefined) && !opts.urn) {
+            if (args?.method === undefined && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.uri === undefined) && !opts.urn) {
+            if (args?.uri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'uri'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["headers"] = args ? args.headers : undefined;
-            resourceInputs["logicAppId"] = args ? args.logicAppId : undefined;
-            resourceInputs["method"] = args ? args.method : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queries"] = args ? args.queries : undefined;
-            resourceInputs["runAfters"] = args ? args.runAfters : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["headers"] = args?.headers;
+            resourceInputs["logicAppId"] = args?.logicAppId;
+            resourceInputs["method"] = args?.method;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queries"] = args?.queries;
+            resourceInputs["runAfters"] = args?.runAfters;
+            resourceInputs["uri"] = args?.uri;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionHttp.__pulumiType, name, resourceInputs, opts);

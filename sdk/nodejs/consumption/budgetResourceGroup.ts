@@ -118,35 +118,35 @@ export class BudgetResourceGroup extends pulumi.CustomResource {
     /**
      * The total amount of cost to track with the budget.
      */
-    public readonly amount!: pulumi.Output<number>;
+    declare public readonly amount: pulumi.Output<number>;
     /**
      * (Optional) The ETag of the Resource Group Consumption Budget
      */
-    public readonly etag!: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * A `filter` block as defined below.
      */
-    public readonly filter!: pulumi.Output<outputs.consumption.BudgetResourceGroupFilter | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.consumption.BudgetResourceGroupFilter | undefined>;
     /**
      * The name which should be used for this Resource Group Consumption Budget. Changing this forces a new Resource Group Consumption Budget to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    public readonly notifications!: pulumi.Output<outputs.consumption.BudgetResourceGroupNotification[]>;
+    declare public readonly notifications: pulumi.Output<outputs.consumption.BudgetResourceGroupNotification[]>;
     /**
      * The ID of the Resource Group to create the consumption budget for in the form of /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1. Changing this forces a new Resource Group Consumption Budget to be created.
      */
-    public readonly resourceGroupId!: pulumi.Output<string>;
+    declare public readonly resourceGroupId: pulumi.Output<string>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
      */
-    public readonly timeGrain!: pulumi.Output<string | undefined>;
+    declare public readonly timeGrain: pulumi.Output<string | undefined>;
     /**
      * A `timePeriod` block as defined below.
      */
-    public readonly timePeriod!: pulumi.Output<outputs.consumption.BudgetResourceGroupTimePeriod>;
+    declare public readonly timePeriod: pulumi.Output<outputs.consumption.BudgetResourceGroupTimePeriod>;
 
     /**
      * Create a BudgetResourceGroup resource with the given unique name, arguments, and options.
@@ -161,36 +161,36 @@ export class BudgetResourceGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BudgetResourceGroupState | undefined;
-            resourceInputs["amount"] = state ? state.amount : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifications"] = state ? state.notifications : undefined;
-            resourceInputs["resourceGroupId"] = state ? state.resourceGroupId : undefined;
-            resourceInputs["timeGrain"] = state ? state.timeGrain : undefined;
-            resourceInputs["timePeriod"] = state ? state.timePeriod : undefined;
+            resourceInputs["amount"] = state?.amount;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifications"] = state?.notifications;
+            resourceInputs["resourceGroupId"] = state?.resourceGroupId;
+            resourceInputs["timeGrain"] = state?.timeGrain;
+            resourceInputs["timePeriod"] = state?.timePeriod;
         } else {
             const args = argsOrState as BudgetResourceGroupArgs | undefined;
-            if ((!args || args.amount === undefined) && !opts.urn) {
+            if (args?.amount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amount'");
             }
-            if ((!args || args.notifications === undefined) && !opts.urn) {
+            if (args?.notifications === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notifications'");
             }
-            if ((!args || args.resourceGroupId === undefined) && !opts.urn) {
+            if (args?.resourceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupId'");
             }
-            if ((!args || args.timePeriod === undefined) && !opts.urn) {
+            if (args?.timePeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
-            resourceInputs["amount"] = args ? args.amount : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
-            resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
-            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["amount"] = args?.amount;
+            resourceInputs["etag"] = args?.etag;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["resourceGroupId"] = args?.resourceGroupId;
+            resourceInputs["timeGrain"] = args?.timeGrain;
+            resourceInputs["timePeriod"] = args?.timePeriod;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BudgetResourceGroup.__pulumiType, name, resourceInputs, opts);

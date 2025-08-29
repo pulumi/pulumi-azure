@@ -79,27 +79,27 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
      */
-    public readonly integrationAccountName!: pulumi.Output<string>;
+    declare public readonly integrationAccountName: pulumi.Output<string>;
     /**
      * A `keyVaultKey` block as documented below.
      */
-    public readonly keyVaultKey!: pulumi.Output<outputs.logicapps.IntegrationAccountCertificateKeyVaultKey | undefined>;
+    declare public readonly keyVaultKey: pulumi.Output<outputs.logicapps.IntegrationAccountCertificateKeyVaultKey | undefined>;
     /**
      * A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
      */
-    public readonly metadata!: pulumi.Output<string | undefined>;
+    declare public readonly metadata: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The public certificate for the Logic App Integration Account Certificate.
      */
-    public readonly publicCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly publicCertificate: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAccountCertificate resource with the given unique name, arguments, and options.
@@ -114,26 +114,26 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountCertificateState | undefined;
-            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            resourceInputs["keyVaultKey"] = state ? state.keyVaultKey : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicCertificate"] = state ? state.publicCertificate : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["integrationAccountName"] = state?.integrationAccountName;
+            resourceInputs["keyVaultKey"] = state?.keyVaultKey;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicCertificate"] = state?.publicCertificate;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IntegrationAccountCertificateArgs | undefined;
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["keyVaultKey"] = args ? args.keyVaultKey : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicCertificate"] = args ? args.publicCertificate : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["keyVaultKey"] = args?.keyVaultKey;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicCertificate"] = args?.publicCertificate;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAccountCertificate.__pulumiType, name, resourceInputs, opts);

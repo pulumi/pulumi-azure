@@ -105,11 +105,11 @@ export class AccountNetworkRules extends pulumi.CustomResource {
      *
      * > **Note:** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      */
-    public readonly bypasses!: pulumi.Output<string[]>;
+    declare public readonly bypasses: pulumi.Output<string[]>;
     /**
      * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
      */
-    public readonly defaultAction!: pulumi.Output<string>;
+    declare public readonly defaultAction: pulumi.Output<string>;
     /**
      * List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
      *
@@ -119,21 +119,21 @@ export class AccountNetworkRules extends pulumi.CustomResource {
      *
      * > **Note:** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
      */
-    public readonly ipRules!: pulumi.Output<string[] | undefined>;
+    declare public readonly ipRules: pulumi.Output<string[] | undefined>;
     /**
      * One or more `privateLinkAccess` block as defined below.
      */
-    public readonly privateLinkAccessRules!: pulumi.Output<outputs.storage.AccountNetworkRulesPrivateLinkAccessRule[] | undefined>;
+    declare public readonly privateLinkAccessRules: pulumi.Output<outputs.storage.AccountNetworkRulesPrivateLinkAccessRule[] | undefined>;
     /**
      * Specifies the ID of the storage account. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * A list of virtual network subnet ids to secure the storage account.
      *
      * > **Note:** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
      */
-    public readonly virtualNetworkSubnetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly virtualNetworkSubnetIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a AccountNetworkRules resource with the given unique name, arguments, and options.
@@ -148,26 +148,26 @@ export class AccountNetworkRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountNetworkRulesState | undefined;
-            resourceInputs["bypasses"] = state ? state.bypasses : undefined;
-            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
-            resourceInputs["ipRules"] = state ? state.ipRules : undefined;
-            resourceInputs["privateLinkAccessRules"] = state ? state.privateLinkAccessRules : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["virtualNetworkSubnetIds"] = state ? state.virtualNetworkSubnetIds : undefined;
+            resourceInputs["bypasses"] = state?.bypasses;
+            resourceInputs["defaultAction"] = state?.defaultAction;
+            resourceInputs["ipRules"] = state?.ipRules;
+            resourceInputs["privateLinkAccessRules"] = state?.privateLinkAccessRules;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["virtualNetworkSubnetIds"] = state?.virtualNetworkSubnetIds;
         } else {
             const args = argsOrState as AccountNetworkRulesArgs | undefined;
-            if ((!args || args.defaultAction === undefined) && !opts.urn) {
+            if (args?.defaultAction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAction'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["bypasses"] = args ? args.bypasses : undefined;
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["ipRules"] = args ? args.ipRules : undefined;
-            resourceInputs["privateLinkAccessRules"] = args ? args.privateLinkAccessRules : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["virtualNetworkSubnetIds"] = args ? args.virtualNetworkSubnetIds : undefined;
+            resourceInputs["bypasses"] = args?.bypasses;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["ipRules"] = args?.ipRules;
+            resourceInputs["privateLinkAccessRules"] = args?.privateLinkAccessRules;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["virtualNetworkSubnetIds"] = args?.virtualNetworkSubnetIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountNetworkRules.__pulumiType, name, resourceInputs, opts);

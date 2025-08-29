@@ -75,43 +75,43 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
      */
-    public readonly capacity!: pulumi.Output<number | undefined>;
+    declare public readonly capacity: pulumi.Output<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.eventgrid.NamespaceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.eventgrid.NamespaceIdentity | undefined>;
     /**
      * One or more `inboundIpRule` blocks as defined below.
      */
-    public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.NamespaceInboundIpRule[] | undefined>;
+    declare public readonly inboundIpRules: pulumi.Output<outputs.eventgrid.NamespaceInboundIpRule[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `Enabled`.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `topicSpacesConfiguration` block as defined below.
      */
-    public readonly topicSpacesConfigurations!: pulumi.Output<outputs.eventgrid.NamespaceTopicSpacesConfiguration[] | undefined>;
+    declare public readonly topicSpacesConfigurations: pulumi.Output<outputs.eventgrid.NamespaceTopicSpacesConfiguration[] | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -126,31 +126,31 @@ export class Namespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["inboundIpRules"] = state ? state.inboundIpRules : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["topicSpacesConfigurations"] = state ? state.topicSpacesConfigurations : undefined;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["inboundIpRules"] = state?.inboundIpRules;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["topicSpacesConfigurations"] = state?.topicSpacesConfigurations;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicSpacesConfigurations"] = args ? args.topicSpacesConfigurations : undefined;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inboundIpRules"] = args?.inboundIpRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicSpacesConfigurations"] = args?.topicSpacesConfigurations;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);

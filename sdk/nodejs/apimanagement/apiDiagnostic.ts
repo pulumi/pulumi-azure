@@ -146,63 +146,63 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     /**
      * Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
      */
-    public readonly alwaysLogErrors!: pulumi.Output<boolean>;
+    declare public readonly alwaysLogErrors: pulumi.Output<boolean>;
     /**
      * The ID (name) of the Diagnostics Logger.
      */
-    public readonly apiManagementLoggerId!: pulumi.Output<string>;
+    declare public readonly apiManagementLoggerId: pulumi.Output<string>;
     /**
      * The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
-    public readonly apiName!: pulumi.Output<string>;
+    declare public readonly apiName: pulumi.Output<string>;
     /**
      * A `backendRequest` block as defined below.
      */
-    public readonly backendRequest!: pulumi.Output<outputs.apimanagement.ApiDiagnosticBackendRequest>;
+    declare public readonly backendRequest: pulumi.Output<outputs.apimanagement.ApiDiagnosticBackendRequest>;
     /**
      * A `backendResponse` block as defined below.
      */
-    public readonly backendResponse!: pulumi.Output<outputs.apimanagement.ApiDiagnosticBackendResponse>;
+    declare public readonly backendResponse: pulumi.Output<outputs.apimanagement.ApiDiagnosticBackendResponse>;
     /**
      * A `frontendRequest` block as defined below.
      */
-    public readonly frontendRequest!: pulumi.Output<outputs.apimanagement.ApiDiagnosticFrontendRequest>;
+    declare public readonly frontendRequest: pulumi.Output<outputs.apimanagement.ApiDiagnosticFrontendRequest>;
     /**
      * A `frontendResponse` block as defined below.
      */
-    public readonly frontendResponse!: pulumi.Output<outputs.apimanagement.ApiDiagnosticFrontendResponse>;
+    declare public readonly frontendResponse: pulumi.Output<outputs.apimanagement.ApiDiagnosticFrontendResponse>;
     /**
      * The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
      */
-    public readonly httpCorrelationProtocol!: pulumi.Output<string>;
+    declare public readonly httpCorrelationProtocol: pulumi.Output<string>;
     /**
      * Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
-    public readonly identifier!: pulumi.Output<string>;
+    declare public readonly identifier: pulumi.Output<string>;
     /**
      * Log client IP address.
      */
-    public readonly logClientIp!: pulumi.Output<boolean>;
+    declare public readonly logClientIp: pulumi.Output<boolean>;
     /**
      * The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`.
      */
-    public readonly operationNameFormat!: pulumi.Output<string | undefined>;
+    declare public readonly operationNameFormat: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`.
      */
-    public readonly samplingPercentage!: pulumi.Output<number>;
+    declare public readonly samplingPercentage: pulumi.Output<number>;
     /**
      * Logging verbosity. Possible values are `verbose`, `information` or `error`.
      */
-    public readonly verbosity!: pulumi.Output<string>;
+    declare public readonly verbosity: pulumi.Output<string>;
 
     /**
      * Create a ApiDiagnostic resource with the given unique name, arguments, and options.
@@ -217,53 +217,53 @@ export class ApiDiagnostic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiDiagnosticState | undefined;
-            resourceInputs["alwaysLogErrors"] = state ? state.alwaysLogErrors : undefined;
-            resourceInputs["apiManagementLoggerId"] = state ? state.apiManagementLoggerId : undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["apiName"] = state ? state.apiName : undefined;
-            resourceInputs["backendRequest"] = state ? state.backendRequest : undefined;
-            resourceInputs["backendResponse"] = state ? state.backendResponse : undefined;
-            resourceInputs["frontendRequest"] = state ? state.frontendRequest : undefined;
-            resourceInputs["frontendResponse"] = state ? state.frontendResponse : undefined;
-            resourceInputs["httpCorrelationProtocol"] = state ? state.httpCorrelationProtocol : undefined;
-            resourceInputs["identifier"] = state ? state.identifier : undefined;
-            resourceInputs["logClientIp"] = state ? state.logClientIp : undefined;
-            resourceInputs["operationNameFormat"] = state ? state.operationNameFormat : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
-            resourceInputs["verbosity"] = state ? state.verbosity : undefined;
+            resourceInputs["alwaysLogErrors"] = state?.alwaysLogErrors;
+            resourceInputs["apiManagementLoggerId"] = state?.apiManagementLoggerId;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["apiName"] = state?.apiName;
+            resourceInputs["backendRequest"] = state?.backendRequest;
+            resourceInputs["backendResponse"] = state?.backendResponse;
+            resourceInputs["frontendRequest"] = state?.frontendRequest;
+            resourceInputs["frontendResponse"] = state?.frontendResponse;
+            resourceInputs["httpCorrelationProtocol"] = state?.httpCorrelationProtocol;
+            resourceInputs["identifier"] = state?.identifier;
+            resourceInputs["logClientIp"] = state?.logClientIp;
+            resourceInputs["operationNameFormat"] = state?.operationNameFormat;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["samplingPercentage"] = state?.samplingPercentage;
+            resourceInputs["verbosity"] = state?.verbosity;
         } else {
             const args = argsOrState as ApiDiagnosticArgs | undefined;
-            if ((!args || args.apiManagementLoggerId === undefined) && !opts.urn) {
+            if (args?.apiManagementLoggerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementLoggerId'");
             }
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.apiName === undefined) && !opts.urn) {
+            if (args?.apiName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.identifier === undefined) && !opts.urn) {
+            if (args?.identifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["alwaysLogErrors"] = args ? args.alwaysLogErrors : undefined;
-            resourceInputs["apiManagementLoggerId"] = args ? args.apiManagementLoggerId : undefined;
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["backendRequest"] = args ? args.backendRequest : undefined;
-            resourceInputs["backendResponse"] = args ? args.backendResponse : undefined;
-            resourceInputs["frontendRequest"] = args ? args.frontendRequest : undefined;
-            resourceInputs["frontendResponse"] = args ? args.frontendResponse : undefined;
-            resourceInputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["logClientIp"] = args ? args.logClientIp : undefined;
-            resourceInputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
-            resourceInputs["verbosity"] = args ? args.verbosity : undefined;
+            resourceInputs["alwaysLogErrors"] = args?.alwaysLogErrors;
+            resourceInputs["apiManagementLoggerId"] = args?.apiManagementLoggerId;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["backendRequest"] = args?.backendRequest;
+            resourceInputs["backendResponse"] = args?.backendResponse;
+            resourceInputs["frontendRequest"] = args?.frontendRequest;
+            resourceInputs["frontendResponse"] = args?.frontendResponse;
+            resourceInputs["httpCorrelationProtocol"] = args?.httpCorrelationProtocol;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["logClientIp"] = args?.logClientIp;
+            resourceInputs["operationNameFormat"] = args?.operationNameFormat;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["samplingPercentage"] = args?.samplingPercentage;
+            resourceInputs["verbosity"] = args?.verbosity;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiDiagnostic.__pulumiType, name, resourceInputs, opts);

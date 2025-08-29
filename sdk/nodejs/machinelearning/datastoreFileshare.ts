@@ -110,39 +110,39 @@ export class DatastoreFileshare extends pulumi.CustomResource {
     /**
      * The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
      */
-    public readonly accountKey!: pulumi.Output<string | undefined>;
+    declare public readonly accountKey: pulumi.Output<string | undefined>;
     /**
      * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicate whether this Machines Learning DataStore is the default for the Workspace.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
      */
-    public readonly serviceDataIdentity!: pulumi.Output<string | undefined>;
+    declare public readonly serviceDataIdentity: pulumi.Output<string | undefined>;
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `accountKey`.
      */
-    public readonly sharedAccessSignature!: pulumi.Output<string | undefined>;
+    declare public readonly sharedAccessSignature: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account File Share. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly storageFileshareId!: pulumi.Output<string>;
+    declare public readonly storageFileshareId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a DatastoreFileshare resource with the given unique name, arguments, and options.
@@ -157,31 +157,31 @@ export class DatastoreFileshare extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatastoreFileshareState | undefined;
-            resourceInputs["accountKey"] = state ? state.accountKey : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serviceDataIdentity"] = state ? state.serviceDataIdentity : undefined;
-            resourceInputs["sharedAccessSignature"] = state ? state.sharedAccessSignature : undefined;
-            resourceInputs["storageFileshareId"] = state ? state.storageFileshareId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["accountKey"] = state?.accountKey;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serviceDataIdentity"] = state?.serviceDataIdentity;
+            resourceInputs["sharedAccessSignature"] = state?.sharedAccessSignature;
+            resourceInputs["storageFileshareId"] = state?.storageFileshareId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as DatastoreFileshareArgs | undefined;
-            if ((!args || args.storageFileshareId === undefined) && !opts.urn) {
+            if (args?.storageFileshareId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageFileshareId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
             resourceInputs["accountKey"] = args?.accountKey ? pulumi.secret(args.accountKey) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceDataIdentity"] = args ? args.serviceDataIdentity : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceDataIdentity"] = args?.serviceDataIdentity;
             resourceInputs["sharedAccessSignature"] = args?.sharedAccessSignature ? pulumi.secret(args.sharedAccessSignature) : undefined;
-            resourceInputs["storageFileshareId"] = args ? args.storageFileshareId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["storageFileshareId"] = args?.storageFileshareId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["isDefault"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

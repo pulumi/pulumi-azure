@@ -78,81 +78,81 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
     /**
      * A `catalogInfo` block as defined below.
      */
-    public readonly catalogInfo!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCatalogInfo | undefined>;
+    declare public readonly catalogInfo: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCatalogInfo | undefined>;
     /**
      * One `copyComputeScale` block as defined below.
      */
-    public readonly copyComputeScale!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCopyComputeScale | undefined>;
+    declare public readonly copyComputeScale: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCopyComputeScale | undefined>;
     /**
      * The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
      *
      * > **Note:** If `credentialName` is omitted, the integration runtime will use the Data Factory assigned identity.
      */
-    public readonly credentialName!: pulumi.Output<string | undefined>;
+    declare public readonly credentialName: pulumi.Output<string | undefined>;
     /**
      * A `customSetupScript` block as defined below.
      */
-    public readonly customSetupScript!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCustomSetupScript | undefined>;
+    declare public readonly customSetupScript: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisCustomSetupScript | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * Integration runtime description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
      */
-    public readonly edition!: pulumi.Output<string | undefined>;
+    declare public readonly edition: pulumi.Output<string | undefined>;
     /**
      * An `expressCustomSetup` block as defined below.
      */
-    public readonly expressCustomSetup!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup | undefined>;
+    declare public readonly expressCustomSetup: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup | undefined>;
     /**
      * A `expressVnetIntegration` block as defined below.
      */
-    public readonly expressVnetIntegration!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisExpressVnetIntegration | undefined>;
+    declare public readonly expressVnetIntegration: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisExpressVnetIntegration | undefined>;
     /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      */
-    public readonly maxParallelExecutionsPerNode!: pulumi.Output<number | undefined>;
+    declare public readonly maxParallelExecutionsPerNode: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
      */
-    public readonly nodeSize!: pulumi.Output<string>;
+    declare public readonly nodeSize: pulumi.Output<string>;
     /**
      * Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
      */
-    public readonly numberOfNodes!: pulumi.Output<number | undefined>;
+    declare public readonly numberOfNodes: pulumi.Output<number | undefined>;
     /**
      * One or more `packageStore` block as defined below.
      */
-    public readonly packageStores!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisPackageStore[] | undefined>;
+    declare public readonly packageStores: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisPackageStore[] | undefined>;
     /**
      * One `pipelineExternalComputeScale` block as defined below.
      */
-    public readonly pipelineExternalComputeScale!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisPipelineExternalComputeScale | undefined>;
+    declare public readonly pipelineExternalComputeScale: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisPipelineExternalComputeScale | undefined>;
     /**
      * A `proxy` block as defined below.
      */
-    public readonly proxy!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisProxy | undefined>;
+    declare public readonly proxy: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisProxy | undefined>;
     /**
      * A `vnetIntegration` block as defined below.
      */
-    public readonly vnetIntegration!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisVnetIntegration | undefined>;
+    declare public readonly vnetIntegration: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisVnetIntegration | undefined>;
 
     /**
      * Create a IntegrationRuntimeSsis resource with the given unique name, arguments, and options.
@@ -167,52 +167,52 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeSsisState | undefined;
-            resourceInputs["catalogInfo"] = state ? state.catalogInfo : undefined;
-            resourceInputs["copyComputeScale"] = state ? state.copyComputeScale : undefined;
-            resourceInputs["credentialName"] = state ? state.credentialName : undefined;
-            resourceInputs["customSetupScript"] = state ? state.customSetupScript : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["edition"] = state ? state.edition : undefined;
-            resourceInputs["expressCustomSetup"] = state ? state.expressCustomSetup : undefined;
-            resourceInputs["expressVnetIntegration"] = state ? state.expressVnetIntegration : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maxParallelExecutionsPerNode"] = state ? state.maxParallelExecutionsPerNode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeSize"] = state ? state.nodeSize : undefined;
-            resourceInputs["numberOfNodes"] = state ? state.numberOfNodes : undefined;
-            resourceInputs["packageStores"] = state ? state.packageStores : undefined;
-            resourceInputs["pipelineExternalComputeScale"] = state ? state.pipelineExternalComputeScale : undefined;
-            resourceInputs["proxy"] = state ? state.proxy : undefined;
-            resourceInputs["vnetIntegration"] = state ? state.vnetIntegration : undefined;
+            resourceInputs["catalogInfo"] = state?.catalogInfo;
+            resourceInputs["copyComputeScale"] = state?.copyComputeScale;
+            resourceInputs["credentialName"] = state?.credentialName;
+            resourceInputs["customSetupScript"] = state?.customSetupScript;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["edition"] = state?.edition;
+            resourceInputs["expressCustomSetup"] = state?.expressCustomSetup;
+            resourceInputs["expressVnetIntegration"] = state?.expressVnetIntegration;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maxParallelExecutionsPerNode"] = state?.maxParallelExecutionsPerNode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeSize"] = state?.nodeSize;
+            resourceInputs["numberOfNodes"] = state?.numberOfNodes;
+            resourceInputs["packageStores"] = state?.packageStores;
+            resourceInputs["pipelineExternalComputeScale"] = state?.pipelineExternalComputeScale;
+            resourceInputs["proxy"] = state?.proxy;
+            resourceInputs["vnetIntegration"] = state?.vnetIntegration;
         } else {
             const args = argsOrState as IntegrationRuntimeSsisArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.nodeSize === undefined) && !opts.urn) {
+            if (args?.nodeSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeSize'");
             }
-            resourceInputs["catalogInfo"] = args ? args.catalogInfo : undefined;
-            resourceInputs["copyComputeScale"] = args ? args.copyComputeScale : undefined;
-            resourceInputs["credentialName"] = args ? args.credentialName : undefined;
-            resourceInputs["customSetupScript"] = args ? args.customSetupScript : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["edition"] = args ? args.edition : undefined;
-            resourceInputs["expressCustomSetup"] = args ? args.expressCustomSetup : undefined;
-            resourceInputs["expressVnetIntegration"] = args ? args.expressVnetIntegration : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxParallelExecutionsPerNode"] = args ? args.maxParallelExecutionsPerNode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodeSize"] = args ? args.nodeSize : undefined;
-            resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
-            resourceInputs["packageStores"] = args ? args.packageStores : undefined;
-            resourceInputs["pipelineExternalComputeScale"] = args ? args.pipelineExternalComputeScale : undefined;
-            resourceInputs["proxy"] = args ? args.proxy : undefined;
-            resourceInputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
+            resourceInputs["catalogInfo"] = args?.catalogInfo;
+            resourceInputs["copyComputeScale"] = args?.copyComputeScale;
+            resourceInputs["credentialName"] = args?.credentialName;
+            resourceInputs["customSetupScript"] = args?.customSetupScript;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["edition"] = args?.edition;
+            resourceInputs["expressCustomSetup"] = args?.expressCustomSetup;
+            resourceInputs["expressVnetIntegration"] = args?.expressVnetIntegration;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxParallelExecutionsPerNode"] = args?.maxParallelExecutionsPerNode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodeSize"] = args?.nodeSize;
+            resourceInputs["numberOfNodes"] = args?.numberOfNodes;
+            resourceInputs["packageStores"] = args?.packageStores;
+            resourceInputs["pipelineExternalComputeScale"] = args?.pipelineExternalComputeScale;
+            resourceInputs["proxy"] = args?.proxy;
+            resourceInputs["vnetIntegration"] = args?.vnetIntegration;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged" }] };

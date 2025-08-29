@@ -75,39 +75,39 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this connection will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * The Client ID that will be used to authenticate with the service provider.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * The Client Secret that will be used to authenticate with the service provider.
      */
-    public readonly clientSecret!: pulumi.Output<string>;
+    declare public readonly clientSecret: pulumi.Output<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Bot Connection. Changing this forces a new resource to be created. Must be globally unique.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of additional parameters to apply to the connection.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource group in which to create the Bot Connection. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Scopes at which the connection should be applied.
      */
-    public readonly scopes!: pulumi.Output<string | undefined>;
+    declare public readonly scopes: pulumi.Output<string | undefined>;
     /**
      * The name of the service provider that will be associated with this connection. Changing this forces a new resource to be created.
      */
-    public readonly serviceProviderName!: pulumi.Output<string>;
+    declare public readonly serviceProviderName: pulumi.Output<string>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -122,41 +122,41 @@ export class Connection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["serviceProviderName"] = state?.serviceProviderName;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !opts.urn) {
+            if (args?.clientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceProviderName === undefined) && !opts.urn) {
+            if (args?.serviceProviderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceProviderName'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["serviceProviderName"] = args?.serviceProviderName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };

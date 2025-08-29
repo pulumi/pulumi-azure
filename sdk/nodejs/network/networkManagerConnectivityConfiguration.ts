@@ -117,35 +117,35 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
     /**
      * One or more `appliesToGroup` blocks as defined below.
      */
-    public readonly appliesToGroups!: pulumi.Output<outputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup[]>;
+    declare public readonly appliesToGroups: pulumi.Output<outputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup[]>;
     /**
      * Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
      */
-    public readonly connectivityTopology!: pulumi.Output<string>;
+    declare public readonly connectivityTopology: pulumi.Output<string>;
     /**
      * Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
      */
-    public readonly deleteExistingPeeringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deleteExistingPeeringEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A description of the Connectivity Configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to global mesh is supported. Possible values are `true` and `false`.
      */
-    public readonly globalMeshEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly globalMeshEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `hub` block as defined below.
      */
-    public readonly hub!: pulumi.Output<outputs.network.NetworkManagerConnectivityConfigurationHub | undefined>;
+    declare public readonly hub: pulumi.Output<outputs.network.NetworkManagerConnectivityConfigurationHub | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
      */
-    public readonly networkManagerId!: pulumi.Output<string>;
+    declare public readonly networkManagerId: pulumi.Output<string>;
 
     /**
      * Create a NetworkManagerConnectivityConfiguration resource with the given unique name, arguments, and options.
@@ -160,33 +160,33 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerConnectivityConfigurationState | undefined;
-            resourceInputs["appliesToGroups"] = state ? state.appliesToGroups : undefined;
-            resourceInputs["connectivityTopology"] = state ? state.connectivityTopology : undefined;
-            resourceInputs["deleteExistingPeeringEnabled"] = state ? state.deleteExistingPeeringEnabled : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["globalMeshEnabled"] = state ? state.globalMeshEnabled : undefined;
-            resourceInputs["hub"] = state ? state.hub : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkManagerId"] = state ? state.networkManagerId : undefined;
+            resourceInputs["appliesToGroups"] = state?.appliesToGroups;
+            resourceInputs["connectivityTopology"] = state?.connectivityTopology;
+            resourceInputs["deleteExistingPeeringEnabled"] = state?.deleteExistingPeeringEnabled;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["globalMeshEnabled"] = state?.globalMeshEnabled;
+            resourceInputs["hub"] = state?.hub;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkManagerId"] = state?.networkManagerId;
         } else {
             const args = argsOrState as NetworkManagerConnectivityConfigurationArgs | undefined;
-            if ((!args || args.appliesToGroups === undefined) && !opts.urn) {
+            if (args?.appliesToGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appliesToGroups'");
             }
-            if ((!args || args.connectivityTopology === undefined) && !opts.urn) {
+            if (args?.connectivityTopology === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectivityTopology'");
             }
-            if ((!args || args.networkManagerId === undefined) && !opts.urn) {
+            if (args?.networkManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerId'");
             }
-            resourceInputs["appliesToGroups"] = args ? args.appliesToGroups : undefined;
-            resourceInputs["connectivityTopology"] = args ? args.connectivityTopology : undefined;
-            resourceInputs["deleteExistingPeeringEnabled"] = args ? args.deleteExistingPeeringEnabled : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["globalMeshEnabled"] = args ? args.globalMeshEnabled : undefined;
-            resourceInputs["hub"] = args ? args.hub : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
+            resourceInputs["appliesToGroups"] = args?.appliesToGroups;
+            resourceInputs["connectivityTopology"] = args?.connectivityTopology;
+            resourceInputs["deleteExistingPeeringEnabled"] = args?.deleteExistingPeeringEnabled;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["globalMeshEnabled"] = args?.globalMeshEnabled;
+            resourceInputs["hub"] = args?.hub;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerConnectivityConfiguration.__pulumiType, name, resourceInputs, opts);

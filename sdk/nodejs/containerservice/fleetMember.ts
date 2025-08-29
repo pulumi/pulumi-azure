@@ -95,19 +95,19 @@ export class FleetMember extends pulumi.CustomResource {
     /**
      * The group this member belongs to for multi-cluster update management.
      */
-    public readonly group!: pulumi.Output<string | undefined>;
+    declare public readonly group: pulumi.Output<string | undefined>;
     /**
      * The ARM resource ID of the cluster that joins the Fleet. Changing this forces a new Kubernetes Fleet Member to be created.
      */
-    public readonly kubernetesClusterId!: pulumi.Output<string>;
+    declare public readonly kubernetesClusterId: pulumi.Output<string>;
     /**
      * Specifies the Kubernetes Fleet Id within which this Kubernetes Fleet Member should exist. Changing this forces a new Kubernetes Fleet Member to be created.
      */
-    public readonly kubernetesFleetId!: pulumi.Output<string>;
+    declare public readonly kubernetesFleetId: pulumi.Output<string>;
     /**
      * Specifies the name of this Kubernetes Fleet Member. Changing this forces a new Kubernetes Fleet Member to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a FleetMember resource with the given unique name, arguments, and options.
@@ -122,22 +122,22 @@ export class FleetMember extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetMemberState | undefined;
-            resourceInputs["group"] = state ? state.group : undefined;
-            resourceInputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
-            resourceInputs["kubernetesFleetId"] = state ? state.kubernetesFleetId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["group"] = state?.group;
+            resourceInputs["kubernetesClusterId"] = state?.kubernetesClusterId;
+            resourceInputs["kubernetesFleetId"] = state?.kubernetesFleetId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as FleetMemberArgs | undefined;
-            if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
+            if (args?.kubernetesClusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterId'");
             }
-            if ((!args || args.kubernetesFleetId === undefined) && !opts.urn) {
+            if (args?.kubernetesFleetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesFleetId'");
             }
-            resourceInputs["group"] = args ? args.group : undefined;
-            resourceInputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
-            resourceInputs["kubernetesFleetId"] = args ? args.kubernetesFleetId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["group"] = args?.group;
+            resourceInputs["kubernetesClusterId"] = args?.kubernetesClusterId;
+            resourceInputs["kubernetesFleetId"] = args?.kubernetesFleetId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FleetMember.__pulumiType, name, resourceInputs, opts);

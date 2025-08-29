@@ -134,29 +134,29 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
     /**
      * The ID of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * The name of Key Vault Key.
      */
-    public readonly keyName!: pulumi.Output<string | undefined>;
+    declare public readonly keyName: pulumi.Output<string | undefined>;
     /**
      * The ID of the Key Vault for CMK encryption.
      */
-    public readonly keyVaultId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultId: pulumi.Output<string | undefined>;
     /**
      * The version of Key Vault Key.
      */
-    public readonly keyVersion!: pulumi.Output<string | undefined>;
+    declare public readonly keyVersion: pulumi.Output<string | undefined>;
     /**
      * The Managed HSM Key ID for CMK encryption.
      *
      * > **Note:** Exactly one of `managedHsmKeyId` or `keyVaultId` must be specified.
      */
-    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
      */
-    public readonly userIdentity!: pulumi.Output<string | undefined>;
+    declare public readonly userIdentity: pulumi.Output<string | undefined>;
 
     /**
      * Create a ClusterCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -171,23 +171,23 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterCustomerManagedKeyState | undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["keyName"] = state ? state.keyName : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["keyVersion"] = state ? state.keyVersion : undefined;
-            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
-            resourceInputs["userIdentity"] = state ? state.userIdentity : undefined;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["keyName"] = state?.keyName;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["keyVersion"] = state?.keyVersion;
+            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
+            resourceInputs["userIdentity"] = state?.userIdentity;
         } else {
             const args = argsOrState as ClusterCustomerManagedKeyArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["keyVersion"] = args ? args.keyVersion : undefined;
-            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
-            resourceInputs["userIdentity"] = args ? args.userIdentity : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["keyVersion"] = args?.keyVersion;
+            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
+            resourceInputs["userIdentity"] = args?.userIdentity;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterCustomerManagedKey.__pulumiType, name, resourceInputs, opts);

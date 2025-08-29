@@ -82,17 +82,17 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
      */
-    public readonly allowClassicOperations!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowClassicOperations: pulumi.Output<boolean | undefined>;
     /**
      * The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
      */
-    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      *
      * > **Note:** The `expressRoutePortId` and the `bandwidthInGbps` should be set together and they conflict with `serviceProviderName`, `peeringLocation` and `bandwidthInMbps`.
      */
-    public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
+    declare public readonly bandwidthInGbps: pulumi.Output<number | undefined>;
     /**
      * The bandwidth in Mbps of the circuit being created on the Service Provider.
      *
@@ -100,51 +100,51 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      *
      * > **Note:** The `serviceProviderName`, the `peeringLocation` and the `bandwidthInMbps` should be set together and they conflict with `expressRoutePortId` and `bandwidthInGbps`.
      */
-    public readonly bandwidthInMbps!: pulumi.Output<number | undefined>;
+    declare public readonly bandwidthInMbps: pulumi.Output<number | undefined>;
     /**
      * The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
      */
-    public readonly expressRoutePortId!: pulumi.Output<string | undefined>;
+    declare public readonly expressRoutePortId: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created.
      */
-    public readonly peeringLocation!: pulumi.Output<string | undefined>;
+    declare public readonly peeringLocation: pulumi.Output<string | undefined>;
     /**
      * Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
      */
-    public readonly rateLimitingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly rateLimitingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The string needed by the service provider to provision the ExpressRoute circuit.
      */
-    public /*out*/ readonly serviceKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceKey: pulumi.Output<string>;
     /**
      * The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
      */
-    public readonly serviceProviderName!: pulumi.Output<string | undefined>;
+    declare public readonly serviceProviderName: pulumi.Output<string | undefined>;
     /**
      * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
      */
-    public /*out*/ readonly serviceProviderProvisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceProviderProvisioningState: pulumi.Output<string>;
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
-    public readonly sku!: pulumi.Output<outputs.network.ExpressRouteCircuitSku>;
+    declare public readonly sku: pulumi.Output<outputs.network.ExpressRouteCircuitSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ExpressRouteCircuit resource with the given unique name, arguments, and options.
@@ -159,42 +159,42 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitState | undefined;
-            resourceInputs["allowClassicOperations"] = state ? state.allowClassicOperations : undefined;
-            resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
-            resourceInputs["bandwidthInGbps"] = state ? state.bandwidthInGbps : undefined;
-            resourceInputs["bandwidthInMbps"] = state ? state.bandwidthInMbps : undefined;
-            resourceInputs["expressRoutePortId"] = state ? state.expressRoutePortId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["peeringLocation"] = state ? state.peeringLocation : undefined;
-            resourceInputs["rateLimitingEnabled"] = state ? state.rateLimitingEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serviceKey"] = state ? state.serviceKey : undefined;
-            resourceInputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
-            resourceInputs["serviceProviderProvisioningState"] = state ? state.serviceProviderProvisioningState : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["allowClassicOperations"] = state?.allowClassicOperations;
+            resourceInputs["authorizationKey"] = state?.authorizationKey;
+            resourceInputs["bandwidthInGbps"] = state?.bandwidthInGbps;
+            resourceInputs["bandwidthInMbps"] = state?.bandwidthInMbps;
+            resourceInputs["expressRoutePortId"] = state?.expressRoutePortId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["peeringLocation"] = state?.peeringLocation;
+            resourceInputs["rateLimitingEnabled"] = state?.rateLimitingEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serviceKey"] = state?.serviceKey;
+            resourceInputs["serviceProviderName"] = state?.serviceProviderName;
+            resourceInputs["serviceProviderProvisioningState"] = state?.serviceProviderProvisioningState;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ExpressRouteCircuitArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
+            resourceInputs["allowClassicOperations"] = args?.allowClassicOperations;
             resourceInputs["authorizationKey"] = args?.authorizationKey ? pulumi.secret(args.authorizationKey) : undefined;
-            resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
-            resourceInputs["bandwidthInMbps"] = args ? args.bandwidthInMbps : undefined;
-            resourceInputs["expressRoutePortId"] = args ? args.expressRoutePortId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peeringLocation"] = args ? args.peeringLocation : undefined;
-            resourceInputs["rateLimitingEnabled"] = args ? args.rateLimitingEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bandwidthInGbps"] = args?.bandwidthInGbps;
+            resourceInputs["bandwidthInMbps"] = args?.bandwidthInMbps;
+            resourceInputs["expressRoutePortId"] = args?.expressRoutePortId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peeringLocation"] = args?.peeringLocation;
+            resourceInputs["rateLimitingEnabled"] = args?.rateLimitingEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceProviderName"] = args?.serviceProviderName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["serviceKey"] = undefined /*out*/;
             resourceInputs["serviceProviderProvisioningState"] = undefined /*out*/;
         }

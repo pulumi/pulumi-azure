@@ -48,19 +48,19 @@ export class TagRules extends pulumi.CustomResource {
     /**
      * Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
      */
-    public readonly logRule!: pulumi.Output<outputs.dynatrace.TagRulesLogRule | undefined>;
+    declare public readonly logRule: pulumi.Output<outputs.dynatrace.TagRulesLogRule | undefined>;
     /**
      * Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
      */
-    public readonly metricRule!: pulumi.Output<outputs.dynatrace.TagRulesMetricRule | undefined>;
+    declare public readonly metricRule: pulumi.Output<outputs.dynatrace.TagRulesMetricRule | undefined>;
     /**
      * Name of the Dynatrace monitor. Changing this forces a new resource to be created.
      */
-    public readonly monitorId!: pulumi.Output<string>;
+    declare public readonly monitorId: pulumi.Output<string>;
     /**
      * Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a TagRules resource with the given unique name, arguments, and options.
@@ -75,19 +75,19 @@ export class TagRules extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagRulesState | undefined;
-            resourceInputs["logRule"] = state ? state.logRule : undefined;
-            resourceInputs["metricRule"] = state ? state.metricRule : undefined;
-            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["logRule"] = state?.logRule;
+            resourceInputs["metricRule"] = state?.metricRule;
+            resourceInputs["monitorId"] = state?.monitorId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as TagRulesArgs | undefined;
-            if ((!args || args.monitorId === undefined) && !opts.urn) {
+            if (args?.monitorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorId'");
             }
-            resourceInputs["logRule"] = args ? args.logRule : undefined;
-            resourceInputs["metricRule"] = args ? args.metricRule : undefined;
-            resourceInputs["monitorId"] = args ? args.monitorId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["logRule"] = args?.logRule;
+            resourceInputs["metricRule"] = args?.metricRule;
+            resourceInputs["monitorId"] = args?.monitorId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TagRules.__pulumiType, name, resourceInputs, opts);

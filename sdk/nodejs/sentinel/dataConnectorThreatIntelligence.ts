@@ -69,21 +69,21 @@ export class DataConnectorThreatIntelligence extends pulumi.CustomResource {
     /**
      * The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
      */
-    public readonly lookbackDate!: pulumi.Output<string | undefined>;
+    declare public readonly lookbackDate: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a DataConnectorThreatIntelligence resource with the given unique name, arguments, and options.
@@ -98,19 +98,19 @@ export class DataConnectorThreatIntelligence extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorThreatIntelligenceState | undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["lookbackDate"] = state ? state.lookbackDate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["lookbackDate"] = state?.lookbackDate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as DataConnectorThreatIntelligenceArgs | undefined;
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["lookbackDate"] = args ? args.lookbackDate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["lookbackDate"] = args?.lookbackDate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataConnectorThreatIntelligence.__pulumiType, name, resourceInputs, opts);

@@ -104,47 +104,47 @@ export class Watcher extends pulumi.CustomResource {
     /**
      * The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
      */
-    public readonly automationAccountId!: pulumi.Output<string>;
+    declare public readonly automationAccountId: pulumi.Output<string>;
     /**
      * A description of this Automation Watcher.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A string of etag assigned to this Automation Watcher.
      */
-    public readonly etag!: pulumi.Output<string | undefined>;
+    declare public readonly etag: pulumi.Output<string | undefined>;
     /**
      * Specify the frequency at which the watcher is invoked.
      */
-    public readonly executionFrequencyInSeconds!: pulumi.Output<number>;
+    declare public readonly executionFrequencyInSeconds: pulumi.Output<number>;
     /**
      * The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
      */
-    public readonly scriptName!: pulumi.Output<string>;
+    declare public readonly scriptName: pulumi.Output<string>;
     /**
      * Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
      */
-    public readonly scriptParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly scriptParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specify the name of the Hybrid work group the watcher will run on.
      */
-    public readonly scriptRunOn!: pulumi.Output<string>;
+    declare public readonly scriptRunOn: pulumi.Output<string>;
     /**
      * The current status of the Automation Watcher.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Automation Watcher.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Watcher resource with the given unique name, arguments, and options.
@@ -159,41 +159,41 @@ export class Watcher extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WatcherState | undefined;
-            resourceInputs["automationAccountId"] = state ? state.automationAccountId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["executionFrequencyInSeconds"] = state ? state.executionFrequencyInSeconds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["scriptName"] = state ? state.scriptName : undefined;
-            resourceInputs["scriptParameters"] = state ? state.scriptParameters : undefined;
-            resourceInputs["scriptRunOn"] = state ? state.scriptRunOn : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["automationAccountId"] = state?.automationAccountId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["executionFrequencyInSeconds"] = state?.executionFrequencyInSeconds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["scriptName"] = state?.scriptName;
+            resourceInputs["scriptParameters"] = state?.scriptParameters;
+            resourceInputs["scriptRunOn"] = state?.scriptRunOn;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as WatcherArgs | undefined;
-            if ((!args || args.automationAccountId === undefined) && !opts.urn) {
+            if (args?.automationAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountId'");
             }
-            if ((!args || args.executionFrequencyInSeconds === undefined) && !opts.urn) {
+            if (args?.executionFrequencyInSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionFrequencyInSeconds'");
             }
-            if ((!args || args.scriptName === undefined) && !opts.urn) {
+            if (args?.scriptName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scriptName'");
             }
-            if ((!args || args.scriptRunOn === undefined) && !opts.urn) {
+            if (args?.scriptRunOn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scriptRunOn'");
             }
-            resourceInputs["automationAccountId"] = args ? args.automationAccountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
-            resourceInputs["executionFrequencyInSeconds"] = args ? args.executionFrequencyInSeconds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scriptName"] = args ? args.scriptName : undefined;
-            resourceInputs["scriptParameters"] = args ? args.scriptParameters : undefined;
-            resourceInputs["scriptRunOn"] = args ? args.scriptRunOn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["automationAccountId"] = args?.automationAccountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["etag"] = args?.etag;
+            resourceInputs["executionFrequencyInSeconds"] = args?.executionFrequencyInSeconds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scriptName"] = args?.scriptName;
+            resourceInputs["scriptParameters"] = args?.scriptParameters;
+            resourceInputs["scriptRunOn"] = args?.scriptRunOn;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

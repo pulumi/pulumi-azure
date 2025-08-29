@@ -119,41 +119,41 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
     /**
      * The condition that limits the resources that the role can be assigned to. See the [official conditions documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview#what-are-role-assignment-conditions) for details. Changing this forces a new resource to be created.
      */
-    public readonly condition!: pulumi.Output<string | undefined>;
+    declare public readonly condition: pulumi.Output<string | undefined>;
     /**
      * The version of the condition. Supported values include `2.0`. Changing this forces a new resource to be created.
      *
      * > **Note:** `conditionVersion` is required when specifying `condition` and vice versa.
      */
-    public readonly conditionVersion!: pulumi.Output<string | undefined>;
+    declare public readonly conditionVersion: pulumi.Output<string | undefined>;
     /**
      * The justification of the role assignment. Changing this forces a new resource to be created.
      */
-    public readonly justification!: pulumi.Output<string>;
+    declare public readonly justification: pulumi.Output<string>;
     /**
      * Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
      */
-    public readonly principalId!: pulumi.Output<string>;
+    declare public readonly principalId: pulumi.Output<string>;
     /**
      * Type of principal to which the role will be assigned.
      */
-    public /*out*/ readonly principalType!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalType: pulumi.Output<string>;
     /**
      * The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    declare public readonly roleDefinitionId: pulumi.Output<string>;
     /**
      * A `schedule` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly schedule!: pulumi.Output<outputs.pim.EligibleRoleAssignmentSchedule>;
+    declare public readonly schedule: pulumi.Output<outputs.pim.EligibleRoleAssignmentSchedule>;
     /**
      * The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ticket!: pulumi.Output<outputs.pim.EligibleRoleAssignmentTicket>;
+    declare public readonly ticket: pulumi.Output<outputs.pim.EligibleRoleAssignmentTicket>;
 
     /**
      * Create a EligibleRoleAssignment resource with the given unique name, arguments, and options.
@@ -168,34 +168,34 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EligibleRoleAssignmentState | undefined;
-            resourceInputs["condition"] = state ? state.condition : undefined;
-            resourceInputs["conditionVersion"] = state ? state.conditionVersion : undefined;
-            resourceInputs["justification"] = state ? state.justification : undefined;
-            resourceInputs["principalId"] = state ? state.principalId : undefined;
-            resourceInputs["principalType"] = state ? state.principalType : undefined;
-            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["ticket"] = state ? state.ticket : undefined;
+            resourceInputs["condition"] = state?.condition;
+            resourceInputs["conditionVersion"] = state?.conditionVersion;
+            resourceInputs["justification"] = state?.justification;
+            resourceInputs["principalId"] = state?.principalId;
+            resourceInputs["principalType"] = state?.principalType;
+            resourceInputs["roleDefinitionId"] = state?.roleDefinitionId;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["ticket"] = state?.ticket;
         } else {
             const args = argsOrState as EligibleRoleAssignmentArgs | undefined;
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
+            if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["conditionVersion"] = args ? args.conditionVersion : undefined;
-            resourceInputs["justification"] = args ? args.justification : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["ticket"] = args ? args.ticket : undefined;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["conditionVersion"] = args?.conditionVersion;
+            resourceInputs["justification"] = args?.justification;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["ticket"] = args?.ticket;
             resourceInputs["principalType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

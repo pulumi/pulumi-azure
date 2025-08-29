@@ -77,35 +77,35 @@ export class Definition extends pulumi.CustomResource {
     /**
      * An `authorization` block as defined below.
      */
-    public readonly authorizations!: pulumi.Output<outputs.lighthouse.DefinitionAuthorization[]>;
+    declare public readonly authorizations: pulumi.Output<outputs.lighthouse.DefinitionAuthorization[]>;
     /**
      * A description of the Lighthouse Definition.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An `eligibleAuthorization` block as defined below.
      */
-    public readonly eligibleAuthorizations!: pulumi.Output<outputs.lighthouse.DefinitionEligibleAuthorization[] | undefined>;
+    declare public readonly eligibleAuthorizations: pulumi.Output<outputs.lighthouse.DefinitionEligibleAuthorization[] | undefined>;
     /**
      * A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    public readonly lighthouseDefinitionId!: pulumi.Output<string>;
+    declare public readonly lighthouseDefinitionId: pulumi.Output<string>;
     /**
      * The ID of the managing tenant. Changing this forces a new resource to be created.
      */
-    public readonly managingTenantId!: pulumi.Output<string>;
+    declare public readonly managingTenantId: pulumi.Output<string>;
     /**
      * The name of the Lighthouse Definition. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `plan` block as defined below.
      */
-    public readonly plan!: pulumi.Output<outputs.lighthouse.DefinitionPlan | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.lighthouse.DefinitionPlan | undefined>;
     /**
      * The ID of the managed subscription. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
 
     /**
      * Create a Definition resource with the given unique name, arguments, and options.
@@ -120,33 +120,33 @@ export class Definition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefinitionState | undefined;
-            resourceInputs["authorizations"] = state ? state.authorizations : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["eligibleAuthorizations"] = state ? state.eligibleAuthorizations : undefined;
-            resourceInputs["lighthouseDefinitionId"] = state ? state.lighthouseDefinitionId : undefined;
-            resourceInputs["managingTenantId"] = state ? state.managingTenantId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["authorizations"] = state?.authorizations;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["eligibleAuthorizations"] = state?.eligibleAuthorizations;
+            resourceInputs["lighthouseDefinitionId"] = state?.lighthouseDefinitionId;
+            resourceInputs["managingTenantId"] = state?.managingTenantId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if ((!args || args.authorizations === undefined) && !opts.urn) {
+            if (args?.authorizations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizations'");
             }
-            if ((!args || args.managingTenantId === undefined) && !opts.urn) {
+            if (args?.managingTenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managingTenantId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eligibleAuthorizations"] = args ? args.eligibleAuthorizations : undefined;
-            resourceInputs["lighthouseDefinitionId"] = args ? args.lighthouseDefinitionId : undefined;
-            resourceInputs["managingTenantId"] = args ? args.managingTenantId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["authorizations"] = args?.authorizations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eligibleAuthorizations"] = args?.eligibleAuthorizations;
+            resourceInputs["lighthouseDefinitionId"] = args?.lighthouseDefinitionId;
+            resourceInputs["managingTenantId"] = args?.managingTenantId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["scope"] = args?.scope;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Definition.__pulumiType, name, resourceInputs, opts);

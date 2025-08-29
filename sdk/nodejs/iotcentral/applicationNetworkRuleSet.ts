@@ -91,19 +91,19 @@ export class ApplicationNetworkRuleSet extends pulumi.CustomResource {
     /**
      * Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
      */
-    public readonly applyToDevice!: pulumi.Output<boolean | undefined>;
+    declare public readonly applyToDevice: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      */
-    public readonly defaultAction!: pulumi.Output<string | undefined>;
+    declare public readonly defaultAction: pulumi.Output<string | undefined>;
     /**
      * The ID of the IoT Central Application. Changing this forces a new resource to be created.
      */
-    public readonly iotcentralApplicationId!: pulumi.Output<string>;
+    declare public readonly iotcentralApplicationId: pulumi.Output<string>;
     /**
      * One or more `ipRule` blocks as defined below.
      */
-    public readonly ipRules!: pulumi.Output<outputs.iotcentral.ApplicationNetworkRuleSetIpRule[] | undefined>;
+    declare public readonly ipRules: pulumi.Output<outputs.iotcentral.ApplicationNetworkRuleSetIpRule[] | undefined>;
 
     /**
      * Create a ApplicationNetworkRuleSet resource with the given unique name, arguments, and options.
@@ -118,19 +118,19 @@ export class ApplicationNetworkRuleSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationNetworkRuleSetState | undefined;
-            resourceInputs["applyToDevice"] = state ? state.applyToDevice : undefined;
-            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
-            resourceInputs["iotcentralApplicationId"] = state ? state.iotcentralApplicationId : undefined;
-            resourceInputs["ipRules"] = state ? state.ipRules : undefined;
+            resourceInputs["applyToDevice"] = state?.applyToDevice;
+            resourceInputs["defaultAction"] = state?.defaultAction;
+            resourceInputs["iotcentralApplicationId"] = state?.iotcentralApplicationId;
+            resourceInputs["ipRules"] = state?.ipRules;
         } else {
             const args = argsOrState as ApplicationNetworkRuleSetArgs | undefined;
-            if ((!args || args.iotcentralApplicationId === undefined) && !opts.urn) {
+            if (args?.iotcentralApplicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iotcentralApplicationId'");
             }
-            resourceInputs["applyToDevice"] = args ? args.applyToDevice : undefined;
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["iotcentralApplicationId"] = args ? args.iotcentralApplicationId : undefined;
-            resourceInputs["ipRules"] = args ? args.ipRules : undefined;
+            resourceInputs["applyToDevice"] = args?.applyToDevice;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["iotcentralApplicationId"] = args?.iotcentralApplicationId;
+            resourceInputs["ipRules"] = args?.ipRules;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApplicationNetworkRuleSet.__pulumiType, name, resourceInputs, opts);

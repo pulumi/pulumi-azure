@@ -189,87 +189,87 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * An `azureDevopsRepo` block as defined below.
      */
-    public readonly azureDevopsRepo!: pulumi.Output<outputs.synapse.WorkspaceAzureDevopsRepo | undefined>;
+    declare public readonly azureDevopsRepo: pulumi.Output<outputs.synapse.WorkspaceAzureDevopsRepo | undefined>;
     /**
      * Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
      */
-    public readonly azureadAuthenticationOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly azureadAuthenticationOnly: pulumi.Output<boolean | undefined>;
     /**
      * Subnet ID used for computes in workspace Changing this forces a new resource to be created.
      */
-    public readonly computeSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly computeSubnetId: pulumi.Output<string | undefined>;
     /**
      * A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
      */
-    public /*out*/ readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly connectivityEndpoints: pulumi.Output<{[key: string]: string}>;
     /**
      * A `customerManagedKey` block as defined below.
      */
-    public readonly customerManagedKey!: pulumi.Output<outputs.synapse.WorkspaceCustomerManagedKey | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<outputs.synapse.WorkspaceCustomerManagedKey | undefined>;
     /**
      * Is data exfiltration protection enabled in this workspace? If set to `true`, `managedVirtualNetworkEnabled` must also be set to `true`. Changing this forces a new resource to be created.
      */
-    public readonly dataExfiltrationProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataExfiltrationProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `githubRepo` block as defined below.
      */
-    public readonly githubRepo!: pulumi.Output<outputs.synapse.WorkspaceGithubRepo | undefined>;
+    declare public readonly githubRepo: pulumi.Output<outputs.synapse.WorkspaceGithubRepo | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.synapse.WorkspaceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.synapse.WorkspaceIdentity | undefined>;
     /**
      * Allowed AAD Tenant Ids For Linking.
      */
-    public readonly linkingAllowedForAadTenantIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly linkingAllowedForAadTenantIds: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Workspace managed resource group. Changing this forces a new resource to be created.
      */
-    public readonly managedResourceGroupName!: pulumi.Output<string>;
+    declare public readonly managedResourceGroupName: pulumi.Output<string>;
     /**
      * Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
      */
-    public readonly managedVirtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly managedVirtualNetworkEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of purview account.
      */
-    public readonly purviewId!: pulumi.Output<string | undefined>;
+    declare public readonly purviewId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customerManagedKey` must be provided.
      */
-    public readonly sqlAdministratorLogin!: pulumi.Output<string | undefined>;
+    declare public readonly sqlAdministratorLogin: pulumi.Output<string | undefined>;
     /**
      * The Password associated with the `sqlAdministratorLogin` for the SQL administrator. If this is not provided `customerManagedKey` must be provided.
      */
-    public readonly sqlAdministratorLoginPassword!: pulumi.Output<string | undefined>;
+    declare public readonly sqlAdministratorLoginPassword: pulumi.Output<string | undefined>;
     /**
      * Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
      */
-    public readonly sqlIdentityControlEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sqlIdentityControlEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
      */
-    public readonly storageDataLakeGen2FilesystemId!: pulumi.Output<string>;
+    declare public readonly storageDataLakeGen2FilesystemId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Synapse Workspace.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -284,55 +284,55 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            resourceInputs["azureDevopsRepo"] = state ? state.azureDevopsRepo : undefined;
-            resourceInputs["azureadAuthenticationOnly"] = state ? state.azureadAuthenticationOnly : undefined;
-            resourceInputs["computeSubnetId"] = state ? state.computeSubnetId : undefined;
-            resourceInputs["connectivityEndpoints"] = state ? state.connectivityEndpoints : undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["dataExfiltrationProtectionEnabled"] = state ? state.dataExfiltrationProtectionEnabled : undefined;
-            resourceInputs["githubRepo"] = state ? state.githubRepo : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["linkingAllowedForAadTenantIds"] = state ? state.linkingAllowedForAadTenantIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
-            resourceInputs["managedVirtualNetworkEnabled"] = state ? state.managedVirtualNetworkEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["purviewId"] = state ? state.purviewId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sqlAdministratorLogin"] = state ? state.sqlAdministratorLogin : undefined;
-            resourceInputs["sqlAdministratorLoginPassword"] = state ? state.sqlAdministratorLoginPassword : undefined;
-            resourceInputs["sqlIdentityControlEnabled"] = state ? state.sqlIdentityControlEnabled : undefined;
-            resourceInputs["storageDataLakeGen2FilesystemId"] = state ? state.storageDataLakeGen2FilesystemId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["azureDevopsRepo"] = state?.azureDevopsRepo;
+            resourceInputs["azureadAuthenticationOnly"] = state?.azureadAuthenticationOnly;
+            resourceInputs["computeSubnetId"] = state?.computeSubnetId;
+            resourceInputs["connectivityEndpoints"] = state?.connectivityEndpoints;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["dataExfiltrationProtectionEnabled"] = state?.dataExfiltrationProtectionEnabled;
+            resourceInputs["githubRepo"] = state?.githubRepo;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["linkingAllowedForAadTenantIds"] = state?.linkingAllowedForAadTenantIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedResourceGroupName"] = state?.managedResourceGroupName;
+            resourceInputs["managedVirtualNetworkEnabled"] = state?.managedVirtualNetworkEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["purviewId"] = state?.purviewId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sqlAdministratorLogin"] = state?.sqlAdministratorLogin;
+            resourceInputs["sqlAdministratorLoginPassword"] = state?.sqlAdministratorLoginPassword;
+            resourceInputs["sqlIdentityControlEnabled"] = state?.sqlIdentityControlEnabled;
+            resourceInputs["storageDataLakeGen2FilesystemId"] = state?.storageDataLakeGen2FilesystemId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageDataLakeGen2FilesystemId === undefined) && !opts.urn) {
+            if (args?.storageDataLakeGen2FilesystemId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageDataLakeGen2FilesystemId'");
             }
-            resourceInputs["azureDevopsRepo"] = args ? args.azureDevopsRepo : undefined;
-            resourceInputs["azureadAuthenticationOnly"] = args ? args.azureadAuthenticationOnly : undefined;
-            resourceInputs["computeSubnetId"] = args ? args.computeSubnetId : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["dataExfiltrationProtectionEnabled"] = args ? args.dataExfiltrationProtectionEnabled : undefined;
-            resourceInputs["githubRepo"] = args ? args.githubRepo : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["linkingAllowedForAadTenantIds"] = args ? args.linkingAllowedForAadTenantIds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["managedVirtualNetworkEnabled"] = args ? args.managedVirtualNetworkEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["purviewId"] = args ? args.purviewId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
+            resourceInputs["azureDevopsRepo"] = args?.azureDevopsRepo;
+            resourceInputs["azureadAuthenticationOnly"] = args?.azureadAuthenticationOnly;
+            resourceInputs["computeSubnetId"] = args?.computeSubnetId;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["dataExfiltrationProtectionEnabled"] = args?.dataExfiltrationProtectionEnabled;
+            resourceInputs["githubRepo"] = args?.githubRepo;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["linkingAllowedForAadTenantIds"] = args?.linkingAllowedForAadTenantIds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["managedVirtualNetworkEnabled"] = args?.managedVirtualNetworkEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["purviewId"] = args?.purviewId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlAdministratorLogin"] = args?.sqlAdministratorLogin;
             resourceInputs["sqlAdministratorLoginPassword"] = args?.sqlAdministratorLoginPassword ? pulumi.secret(args.sqlAdministratorLoginPassword) : undefined;
-            resourceInputs["sqlIdentityControlEnabled"] = args ? args.sqlIdentityControlEnabled : undefined;
-            resourceInputs["storageDataLakeGen2FilesystemId"] = args ? args.storageDataLakeGen2FilesystemId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["sqlIdentityControlEnabled"] = args?.sqlIdentityControlEnabled;
+            resourceInputs["storageDataLakeGen2FilesystemId"] = args?.storageDataLakeGen2FilesystemId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["connectivityEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

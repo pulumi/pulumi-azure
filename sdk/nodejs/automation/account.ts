@@ -76,56 +76,56 @@ export class Account extends pulumi.CustomResource {
     /**
      * The Primary Access Key for the DSC Endpoint associated with this Automation Account.
      */
-    public /*out*/ readonly dscPrimaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly dscPrimaryAccessKey: pulumi.Output<string>;
     /**
      * The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
      */
-    public /*out*/ readonly dscSecondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly dscSecondaryAccessKey: pulumi.Output<string>;
     /**
      * The DSC Server Endpoint associated with this Automation Account.
      */
-    public /*out*/ readonly dscServerEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly dscServerEndpoint: pulumi.Output<string>;
     /**
      * An `encryption` block as defined below.
      */
-    public readonly encryptions!: pulumi.Output<outputs.automation.AccountEncryption[] | undefined>;
+    declare public readonly encryptions: pulumi.Output<outputs.automation.AccountEncryption[] | undefined>;
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
      */
-    public /*out*/ readonly hybridServiceUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly hybridServiceUrl: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.automation.AccountIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.automation.AccountIdentity | undefined>;
     /**
      * Whether requests using non-AAD authentication are blocked. Defaults to `true`.
      */
-    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Automation Account. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.automation.AccountPrivateEndpointConnection[]>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.automation.AccountPrivateEndpointConnection[]>;
     /**
      * Whether public network access is allowed for the automation account. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU of the account. Possible values are `Basic` and `Free`.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -140,37 +140,37 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["dscPrimaryAccessKey"] = state ? state.dscPrimaryAccessKey : undefined;
-            resourceInputs["dscSecondaryAccessKey"] = state ? state.dscSecondaryAccessKey : undefined;
-            resourceInputs["dscServerEndpoint"] = state ? state.dscServerEndpoint : undefined;
-            resourceInputs["encryptions"] = state ? state.encryptions : undefined;
-            resourceInputs["hybridServiceUrl"] = state ? state.hybridServiceUrl : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateEndpointConnections"] = state ? state.privateEndpointConnections : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["dscPrimaryAccessKey"] = state?.dscPrimaryAccessKey;
+            resourceInputs["dscSecondaryAccessKey"] = state?.dscSecondaryAccessKey;
+            resourceInputs["dscServerEndpoint"] = state?.dscServerEndpoint;
+            resourceInputs["encryptions"] = state?.encryptions;
+            resourceInputs["hybridServiceUrl"] = state?.hybridServiceUrl;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateEndpointConnections"] = state?.privateEndpointConnections;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["encryptions"] = args ? args.encryptions : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryptions"] = args?.encryptions;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dscPrimaryAccessKey"] = undefined /*out*/;
             resourceInputs["dscSecondaryAccessKey"] = undefined /*out*/;
             resourceInputs["dscServerEndpoint"] = undefined /*out*/;

@@ -76,53 +76,53 @@ export class BackupVault extends pulumi.CustomResource {
      *
      * > **Note:** The `crossRegionRestoreEnabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `crossRegionRestoreEnabled` is enabled, it cannot be disabled.
      */
-    public readonly crossRegionRestoreEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly crossRegionRestoreEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
      */
-    public readonly datastoreType!: pulumi.Output<string>;
+    declare public readonly datastoreType: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.dataprotection.BackupVaultIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.dataprotection.BackupVaultIdentity | undefined>;
     /**
      * The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`. Changing this from `Locked` to anything else forces a new Backup Vault to be created.
      */
-    public readonly immutability!: pulumi.Output<string | undefined>;
+    declare public readonly immutability: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
      */
-    public readonly redundancy!: pulumi.Output<string>;
+    declare public readonly redundancy: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
      *
      * > **Note:** The `retentionDurationInDays` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retentionDurationInDays` is required when the `softDelete` is set to `On`.
      */
-    public readonly retentionDurationInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionDurationInDays: pulumi.Output<number | undefined>;
     /**
      * The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off`, and `On`. Defaults to `On`.
      *
      * > **Note:** Once the `softDelete` is set to `AlwaysOn`, the setting cannot be changed.
      */
-    public readonly softDelete!: pulumi.Output<string | undefined>;
+    declare public readonly softDelete: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Backup Vault.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a BackupVault resource with the given unique name, arguments, and options.
@@ -137,39 +137,39 @@ export class BackupVault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupVaultState | undefined;
-            resourceInputs["crossRegionRestoreEnabled"] = state ? state.crossRegionRestoreEnabled : undefined;
-            resourceInputs["datastoreType"] = state ? state.datastoreType : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["immutability"] = state ? state.immutability : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["redundancy"] = state ? state.redundancy : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionDurationInDays"] = state ? state.retentionDurationInDays : undefined;
-            resourceInputs["softDelete"] = state ? state.softDelete : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["crossRegionRestoreEnabled"] = state?.crossRegionRestoreEnabled;
+            resourceInputs["datastoreType"] = state?.datastoreType;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["immutability"] = state?.immutability;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["redundancy"] = state?.redundancy;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionDurationInDays"] = state?.retentionDurationInDays;
+            resourceInputs["softDelete"] = state?.softDelete;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as BackupVaultArgs | undefined;
-            if ((!args || args.datastoreType === undefined) && !opts.urn) {
+            if (args?.datastoreType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datastoreType'");
             }
-            if ((!args || args.redundancy === undefined) && !opts.urn) {
+            if (args?.redundancy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'redundancy'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["crossRegionRestoreEnabled"] = args ? args.crossRegionRestoreEnabled : undefined;
-            resourceInputs["datastoreType"] = args ? args.datastoreType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["immutability"] = args ? args.immutability : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["redundancy"] = args ? args.redundancy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDurationInDays"] = args ? args.retentionDurationInDays : undefined;
-            resourceInputs["softDelete"] = args ? args.softDelete : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["crossRegionRestoreEnabled"] = args?.crossRegionRestoreEnabled;
+            resourceInputs["datastoreType"] = args?.datastoreType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["immutability"] = args?.immutability;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["redundancy"] = args?.redundancy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDurationInDays"] = args?.retentionDurationInDays;
+            resourceInputs["softDelete"] = args?.softDelete;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupVault.__pulumiType, name, resourceInputs, opts);

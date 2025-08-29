@@ -114,31 +114,31 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
     /**
      * The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    public readonly containerName!: pulumi.Output<string>;
+    declare public readonly containerName: pulumi.Output<string>;
     /**
      * The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    public readonly dataShareId!: pulumi.Output<string>;
+    declare public readonly dataShareId: pulumi.Output<string>;
     /**
      * The name of the Data Share Dataset.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    public readonly filePath!: pulumi.Output<string | undefined>;
+    declare public readonly filePath: pulumi.Output<string | undefined>;
     /**
      * The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    public readonly folderPath!: pulumi.Output<string | undefined>;
+    declare public readonly folderPath: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `storageAccount` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly storageAccount!: pulumi.Output<outputs.datashare.DatasetBlobStorageStorageAccount>;
+    declare public readonly storageAccount: pulumi.Output<outputs.datashare.DatasetBlobStorageStorageAccount>;
 
     /**
      * Create a DatasetBlobStorage resource with the given unique name, arguments, and options.
@@ -153,30 +153,30 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetBlobStorageState | undefined;
-            resourceInputs["containerName"] = state ? state.containerName : undefined;
-            resourceInputs["dataShareId"] = state ? state.dataShareId : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["filePath"] = state ? state.filePath : undefined;
-            resourceInputs["folderPath"] = state ? state.folderPath : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageAccount"] = state ? state.storageAccount : undefined;
+            resourceInputs["containerName"] = state?.containerName;
+            resourceInputs["dataShareId"] = state?.dataShareId;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["filePath"] = state?.filePath;
+            resourceInputs["folderPath"] = state?.folderPath;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageAccount"] = state?.storageAccount;
         } else {
             const args = argsOrState as DatasetBlobStorageArgs | undefined;
-            if ((!args || args.containerName === undefined) && !opts.urn) {
+            if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.dataShareId === undefined) && !opts.urn) {
+            if (args?.dataShareId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataShareId'");
             }
-            if ((!args || args.storageAccount === undefined) && !opts.urn) {
+            if (args?.storageAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["dataShareId"] = args ? args.dataShareId : undefined;
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["dataShareId"] = args?.dataShareId;
+            resourceInputs["filePath"] = args?.filePath;
+            resourceInputs["folderPath"] = args?.folderPath;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageAccount"] = args?.storageAccount;
             resourceInputs["displayName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

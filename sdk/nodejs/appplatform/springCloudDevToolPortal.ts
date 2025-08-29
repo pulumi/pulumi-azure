@@ -88,27 +88,27 @@ export class SpringCloudDevToolPortal extends pulumi.CustomResource {
     /**
      * Should the Accelerator plugin be enabled?
      */
-    public readonly applicationAcceleratorEnabled!: pulumi.Output<boolean>;
+    declare public readonly applicationAcceleratorEnabled: pulumi.Output<boolean>;
     /**
      * Should the Application Live View be enabled?
      */
-    public readonly applicationLiveViewEnabled!: pulumi.Output<boolean>;
+    declare public readonly applicationLiveViewEnabled: pulumi.Output<boolean>;
     /**
      * The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Is public network access enabled?
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
     /**
      * A `sso` block as defined below.
      */
-    public readonly sso!: pulumi.Output<outputs.appplatform.SpringCloudDevToolPortalSso | undefined>;
+    declare public readonly sso: pulumi.Output<outputs.appplatform.SpringCloudDevToolPortalSso | undefined>;
 
     /**
      * Create a SpringCloudDevToolPortal resource with the given unique name, arguments, and options.
@@ -123,23 +123,23 @@ export class SpringCloudDevToolPortal extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudDevToolPortalState | undefined;
-            resourceInputs["applicationAcceleratorEnabled"] = state ? state.applicationAcceleratorEnabled : undefined;
-            resourceInputs["applicationLiveViewEnabled"] = state ? state.applicationLiveViewEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
-            resourceInputs["sso"] = state ? state.sso : undefined;
+            resourceInputs["applicationAcceleratorEnabled"] = state?.applicationAcceleratorEnabled;
+            resourceInputs["applicationLiveViewEnabled"] = state?.applicationLiveViewEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
+            resourceInputs["sso"] = state?.sso;
         } else {
             const args = argsOrState as SpringCloudDevToolPortalArgs | undefined;
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            resourceInputs["applicationAcceleratorEnabled"] = args ? args.applicationAcceleratorEnabled : undefined;
-            resourceInputs["applicationLiveViewEnabled"] = args ? args.applicationLiveViewEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
-            resourceInputs["sso"] = args ? args.sso : undefined;
+            resourceInputs["applicationAcceleratorEnabled"] = args?.applicationAcceleratorEnabled;
+            resourceInputs["applicationLiveViewEnabled"] = args?.applicationLiveViewEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
+            resourceInputs["sso"] = args?.sso;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudDevToolPortal.__pulumiType, name, resourceInputs, opts);

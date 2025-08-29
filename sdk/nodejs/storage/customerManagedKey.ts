@@ -144,32 +144,32 @@ export class CustomerManagedKey extends pulumi.CustomResource {
     /**
      * The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
      */
-    public readonly federatedIdentityClientId!: pulumi.Output<string | undefined>;
+    declare public readonly federatedIdentityClientId: pulumi.Output<string | undefined>;
     /**
      * The name of Key Vault Key.
      */
-    public readonly keyName!: pulumi.Output<string>;
-    public readonly keyVaultId!: pulumi.Output<string | undefined>;
+    declare public readonly keyName: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string | undefined>;
     /**
      * URI pointing at the Key Vault. Required when using `federatedIdentityClientId`. Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      */
-    public readonly keyVaultUri!: pulumi.Output<string>;
+    declare public readonly keyVaultUri: pulumi.Output<string>;
     /**
      * The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation.
      */
-    public readonly keyVersion!: pulumi.Output<string | undefined>;
+    declare public readonly keyVersion: pulumi.Output<string | undefined>;
     /**
      * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultId`, or `keyVaultUri` must be specified.
      */
-    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * The ID of a user assigned identity.
      */
-    public readonly userAssignedIdentityId!: pulumi.Output<string | undefined>;
+    declare public readonly userAssignedIdentityId: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomerManagedKey resource with the given unique name, arguments, and options.
@@ -184,30 +184,30 @@ export class CustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomerManagedKeyState | undefined;
-            resourceInputs["federatedIdentityClientId"] = state ? state.federatedIdentityClientId : undefined;
-            resourceInputs["keyName"] = state ? state.keyName : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["keyVaultUri"] = state ? state.keyVaultUri : undefined;
-            resourceInputs["keyVersion"] = state ? state.keyVersion : undefined;
-            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["userAssignedIdentityId"] = state ? state.userAssignedIdentityId : undefined;
+            resourceInputs["federatedIdentityClientId"] = state?.federatedIdentityClientId;
+            resourceInputs["keyName"] = state?.keyName;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["keyVaultUri"] = state?.keyVaultUri;
+            resourceInputs["keyVersion"] = state?.keyVersion;
+            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["userAssignedIdentityId"] = state?.userAssignedIdentityId;
         } else {
             const args = argsOrState as CustomerManagedKeyArgs | undefined;
-            if ((!args || args.keyName === undefined) && !opts.urn) {
+            if (args?.keyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["federatedIdentityClientId"] = args ? args.federatedIdentityClientId : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["keyVaultUri"] = args ? args.keyVaultUri : undefined;
-            resourceInputs["keyVersion"] = args ? args.keyVersion : undefined;
-            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
+            resourceInputs["federatedIdentityClientId"] = args?.federatedIdentityClientId;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["keyVaultUri"] = args?.keyVaultUri;
+            resourceInputs["keyVersion"] = args?.keyVersion;
+            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["userAssignedIdentityId"] = args?.userAssignedIdentityId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomerManagedKey.__pulumiType, name, resourceInputs, opts);

@@ -136,49 +136,49 @@ export class NextGenerationFirewallVirtualNetworkPanorama extends pulumi.CustomR
     /**
      * One or more `destinationNat` blocks as defined below.
      */
-    public readonly destinationNats!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaDestinationNat[] | undefined>;
+    declare public readonly destinationNats: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaDestinationNat[] | undefined>;
     /**
      * A `dnsSettings` block as defined below.
      */
-    public readonly dnsSettings!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaDnsSettings | undefined>;
+    declare public readonly dnsSettings: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaDnsSettings | undefined>;
     /**
      * The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      */
-    public readonly marketplaceOfferId!: pulumi.Output<string | undefined>;
+    declare public readonly marketplaceOfferId: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkProfile` block as defined below.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile>;
+    declare public readonly networkProfile: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile>;
     /**
      * The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group.
      */
-    public readonly panoramaBase64Config!: pulumi.Output<string>;
+    declare public readonly panoramaBase64Config: pulumi.Output<string>;
     /**
      * A `panorama` block as defined below.
      */
-    public /*out*/ readonly panoramas!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaPanorama[]>;
+    declare public /*out*/ readonly panoramas: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkPanoramaPanorama[]>;
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      *
      * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
-    public readonly planId!: pulumi.Output<string | undefined>;
+    declare public readonly planId: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NextGenerationFirewallVirtualNetworkPanorama resource with the given unique name, arguments, and options.
@@ -193,38 +193,38 @@ export class NextGenerationFirewallVirtualNetworkPanorama extends pulumi.CustomR
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NextGenerationFirewallVirtualNetworkPanoramaState | undefined;
-            resourceInputs["destinationNats"] = state ? state.destinationNats : undefined;
-            resourceInputs["dnsSettings"] = state ? state.dnsSettings : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["marketplaceOfferId"] = state ? state.marketplaceOfferId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
-            resourceInputs["panoramaBase64Config"] = state ? state.panoramaBase64Config : undefined;
-            resourceInputs["panoramas"] = state ? state.panoramas : undefined;
-            resourceInputs["planId"] = state ? state.planId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["destinationNats"] = state?.destinationNats;
+            resourceInputs["dnsSettings"] = state?.dnsSettings;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["marketplaceOfferId"] = state?.marketplaceOfferId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkProfile"] = state?.networkProfile;
+            resourceInputs["panoramaBase64Config"] = state?.panoramaBase64Config;
+            resourceInputs["panoramas"] = state?.panoramas;
+            resourceInputs["planId"] = state?.planId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NextGenerationFirewallVirtualNetworkPanoramaArgs | undefined;
-            if ((!args || args.networkProfile === undefined) && !opts.urn) {
+            if (args?.networkProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkProfile'");
             }
-            if ((!args || args.panoramaBase64Config === undefined) && !opts.urn) {
+            if (args?.panoramaBase64Config === undefined && !opts.urn) {
                 throw new Error("Missing required property 'panoramaBase64Config'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["destinationNats"] = args ? args.destinationNats : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["marketplaceOfferId"] = args ? args.marketplaceOfferId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["panoramaBase64Config"] = args ? args.panoramaBase64Config : undefined;
-            resourceInputs["planId"] = args ? args.planId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationNats"] = args?.destinationNats;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["marketplaceOfferId"] = args?.marketplaceOfferId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["panoramaBase64Config"] = args?.panoramaBase64Config;
+            resourceInputs["planId"] = args?.planId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["panoramas"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

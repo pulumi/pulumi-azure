@@ -94,35 +94,35 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
     /**
      * The Shared access policies used to access the connection string for the alias.
      */
-    public readonly aliasAuthorizationRuleId!: pulumi.Output<string | undefined>;
+    declare public readonly aliasAuthorizationRuleId: pulumi.Output<string | undefined>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultPrimaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultPrimaryKey: pulumi.Output<string>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultSecondaryKey: pulumi.Output<string>;
     /**
      * Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Service Bus Namespace to replicate to.
      */
-    public readonly partnerNamespaceId!: pulumi.Output<string>;
+    declare public readonly partnerNamespaceId: pulumi.Output<string>;
     /**
      * The alias Primary Connection String for the ServiceBus Namespace.
      */
-    public /*out*/ readonly primaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionStringAlias: pulumi.Output<string>;
     /**
      * The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
      */
-    public readonly primaryNamespaceId!: pulumi.Output<string>;
+    declare public readonly primaryNamespaceId: pulumi.Output<string>;
     /**
      * The alias Secondary Connection String for the ServiceBus Namespace
      */
-    public /*out*/ readonly secondaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionStringAlias: pulumi.Output<string>;
 
     /**
      * Create a NamespaceDisasterRecoveryConfig resource with the given unique name, arguments, and options.
@@ -137,26 +137,26 @@ export class NamespaceDisasterRecoveryConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceDisasterRecoveryConfigState | undefined;
-            resourceInputs["aliasAuthorizationRuleId"] = state ? state.aliasAuthorizationRuleId : undefined;
-            resourceInputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
-            resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partnerNamespaceId"] = state ? state.partnerNamespaceId : undefined;
-            resourceInputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
-            resourceInputs["primaryNamespaceId"] = state ? state.primaryNamespaceId : undefined;
-            resourceInputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
+            resourceInputs["aliasAuthorizationRuleId"] = state?.aliasAuthorizationRuleId;
+            resourceInputs["defaultPrimaryKey"] = state?.defaultPrimaryKey;
+            resourceInputs["defaultSecondaryKey"] = state?.defaultSecondaryKey;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partnerNamespaceId"] = state?.partnerNamespaceId;
+            resourceInputs["primaryConnectionStringAlias"] = state?.primaryConnectionStringAlias;
+            resourceInputs["primaryNamespaceId"] = state?.primaryNamespaceId;
+            resourceInputs["secondaryConnectionStringAlias"] = state?.secondaryConnectionStringAlias;
         } else {
             const args = argsOrState as NamespaceDisasterRecoveryConfigArgs | undefined;
-            if ((!args || args.partnerNamespaceId === undefined) && !opts.urn) {
+            if (args?.partnerNamespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerNamespaceId'");
             }
-            if ((!args || args.primaryNamespaceId === undefined) && !opts.urn) {
+            if (args?.primaryNamespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryNamespaceId'");
             }
-            resourceInputs["aliasAuthorizationRuleId"] = args ? args.aliasAuthorizationRuleId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partnerNamespaceId"] = args ? args.partnerNamespaceId : undefined;
-            resourceInputs["primaryNamespaceId"] = args ? args.primaryNamespaceId : undefined;
+            resourceInputs["aliasAuthorizationRuleId"] = args?.aliasAuthorizationRuleId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partnerNamespaceId"] = args?.partnerNamespaceId;
+            resourceInputs["primaryNamespaceId"] = args?.primaryNamespaceId;
             resourceInputs["defaultPrimaryKey"] = undefined /*out*/;
             resourceInputs["defaultSecondaryKey"] = undefined /*out*/;
             resourceInputs["primaryConnectionStringAlias"] = undefined /*out*/;

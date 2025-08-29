@@ -238,53 +238,53 @@ export class FrontdoorOrigin extends pulumi.CustomResource {
     /**
      * The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
      */
-    public readonly cdnFrontdoorOriginGroupId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorOriginGroupId: pulumi.Output<string>;
     /**
      * Specifies whether certificate name checks are enabled for this origin.
      */
-    public readonly certificateNameCheckEnabled!: pulumi.Output<boolean>;
+    declare public readonly certificateNameCheckEnabled: pulumi.Output<boolean>;
     /**
      * Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      *
      * !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      */
-    public readonly hostName!: pulumi.Output<string>;
+    declare public readonly hostName: pulumi.Output<string>;
     /**
      * The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
      */
-    public readonly httpPort!: pulumi.Output<number | undefined>;
+    declare public readonly httpPort: pulumi.Output<number | undefined>;
     /**
      * The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
      */
-    public readonly httpsPort!: pulumi.Output<number | undefined>;
+    declare public readonly httpsPort: pulumi.Output<number | undefined>;
     /**
      * The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
      *
      * > **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
      */
-    public readonly originHostHeader!: pulumi.Output<string | undefined>;
+    declare public readonly originHostHeader: pulumi.Output<string | undefined>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * A `privateLink` block as defined below.
      *
      * > **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificateNameCheckEnabled` field is set to `true`.
      */
-    public readonly privateLink!: pulumi.Output<outputs.cdn.FrontdoorOriginPrivateLink | undefined>;
+    declare public readonly privateLink: pulumi.Output<outputs.cdn.FrontdoorOriginPrivateLink | undefined>;
     /**
      * The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
      */
-    public readonly weight!: pulumi.Output<number | undefined>;
+    declare public readonly weight: pulumi.Output<number | undefined>;
 
     /**
      * Create a FrontdoorOrigin resource with the given unique name, arguments, and options.
@@ -299,39 +299,39 @@ export class FrontdoorOrigin extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorOriginState | undefined;
-            resourceInputs["cdnFrontdoorOriginGroupId"] = state ? state.cdnFrontdoorOriginGroupId : undefined;
-            resourceInputs["certificateNameCheckEnabled"] = state ? state.certificateNameCheckEnabled : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["hostName"] = state ? state.hostName : undefined;
-            resourceInputs["httpPort"] = state ? state.httpPort : undefined;
-            resourceInputs["httpsPort"] = state ? state.httpsPort : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["originHostHeader"] = state ? state.originHostHeader : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["privateLink"] = state ? state.privateLink : undefined;
-            resourceInputs["weight"] = state ? state.weight : undefined;
+            resourceInputs["cdnFrontdoorOriginGroupId"] = state?.cdnFrontdoorOriginGroupId;
+            resourceInputs["certificateNameCheckEnabled"] = state?.certificateNameCheckEnabled;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["hostName"] = state?.hostName;
+            resourceInputs["httpPort"] = state?.httpPort;
+            resourceInputs["httpsPort"] = state?.httpsPort;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["originHostHeader"] = state?.originHostHeader;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["privateLink"] = state?.privateLink;
+            resourceInputs["weight"] = state?.weight;
         } else {
             const args = argsOrState as FrontdoorOriginArgs | undefined;
-            if ((!args || args.cdnFrontdoorOriginGroupId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorOriginGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorOriginGroupId'");
             }
-            if ((!args || args.certificateNameCheckEnabled === undefined) && !opts.urn) {
+            if (args?.certificateNameCheckEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateNameCheckEnabled'");
             }
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            resourceInputs["cdnFrontdoorOriginGroupId"] = args ? args.cdnFrontdoorOriginGroupId : undefined;
-            resourceInputs["certificateNameCheckEnabled"] = args ? args.certificateNameCheckEnabled : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["httpPort"] = args ? args.httpPort : undefined;
-            resourceInputs["httpsPort"] = args ? args.httpsPort : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["privateLink"] = args ? args.privateLink : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["cdnFrontdoorOriginGroupId"] = args?.cdnFrontdoorOriginGroupId;
+            resourceInputs["certificateNameCheckEnabled"] = args?.certificateNameCheckEnabled;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["httpPort"] = args?.httpPort;
+            resourceInputs["httpsPort"] = args?.httpsPort;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["originHostHeader"] = args?.originHostHeader;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["privateLink"] = args?.privateLink;
+            resourceInputs["weight"] = args?.weight;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FrontdoorOrigin.__pulumiType, name, resourceInputs, opts);

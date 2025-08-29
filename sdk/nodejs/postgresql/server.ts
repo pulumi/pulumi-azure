@@ -85,101 +85,101 @@ export class Server extends pulumi.CustomResource {
     /**
      * The Administrator login for the PostgreSQL Server. Required when `createMode` is `Default`. Changing this forces a new resource to be created.
      */
-    public readonly administratorLogin!: pulumi.Output<string>;
+    declare public readonly administratorLogin: pulumi.Output<string>;
     /**
      * The Password associated with the `administratorLogin` for the PostgreSQL Server.
      */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    declare public readonly administratorLoginPassword: pulumi.Output<string | undefined>;
     /**
      * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
      */
-    public readonly administratorLoginPasswordWoVersion!: pulumi.Output<number | undefined>;
+    declare public readonly administratorLoginPasswordWoVersion: pulumi.Output<number | undefined>;
     /**
      * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      */
-    public readonly autoGrowEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoGrowEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Backup retention days for the server, supported values are between `7` and `35` days.
      */
-    public readonly backupRetentionDays!: pulumi.Output<number>;
+    declare public readonly backupRetentionDays: pulumi.Output<number>;
     /**
      * The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
      */
-    public readonly createMode!: pulumi.Output<string | undefined>;
+    declare public readonly createMode: pulumi.Output<string | undefined>;
     /**
      * For creation modes other than `Default`, the source server ID to use.
      */
-    public readonly creationSourceServerId!: pulumi.Output<string | undefined>;
+    declare public readonly creationSourceServerId: pulumi.Output<string | undefined>;
     /**
      * The FQDN of the PostgreSQL Server.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
      */
-    public readonly geoRedundantBackupEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly geoRedundantBackupEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.postgresql.ServerIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.postgresql.ServerIdentity | undefined>;
     /**
      * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      *
      * > **Note:** This property is currently still in development and not supported by Microsoft. If the `infrastructureEncryptionEnabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
      */
-    public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly infrastructureEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether or not public network access is allowed for this server. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * When `createMode` is `PointInTimeRestore` the point in time to restore from `creationSourceServerId`. It should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`.
      */
-    public readonly restorePointInTime!: pulumi.Output<string | undefined>;
+    declare public readonly restorePointInTime: pulumi.Output<string | undefined>;
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      *
      * > **Note:** When replication is set up and `skuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      *
      * > **Note:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
      */
-    public readonly sslEnforcementEnabled!: pulumi.Output<boolean>;
+    declare public readonly sslEnforcementEnabled: pulumi.Output<boolean>;
     /**
      * The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
      */
-    public readonly sslMinimalTlsVersionEnforced!: pulumi.Output<string | undefined>;
+    declare public readonly sslMinimalTlsVersionEnforced: pulumi.Output<string | undefined>;
     /**
      * Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
      */
-    public readonly storageMb!: pulumi.Output<number>;
+    declare public readonly storageMb: pulumi.Output<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threatDetectionPolicy` block supports fields documented below.
      */
-    public readonly threatDetectionPolicy!: pulumi.Output<outputs.postgresql.ServerThreatDetectionPolicy | undefined>;
+    declare public readonly threatDetectionPolicy: pulumi.Output<outputs.postgresql.ServerThreatDetectionPolicy | undefined>;
     /**
      * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -194,65 +194,65 @@ export class Server extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
-            resourceInputs["administratorLoginPasswordWoVersion"] = state ? state.administratorLoginPasswordWoVersion : undefined;
-            resourceInputs["autoGrowEnabled"] = state ? state.autoGrowEnabled : undefined;
-            resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
-            resourceInputs["createMode"] = state ? state.createMode : undefined;
-            resourceInputs["creationSourceServerId"] = state ? state.creationSourceServerId : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["geoRedundantBackupEnabled"] = state ? state.geoRedundantBackupEnabled : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["restorePointInTime"] = state ? state.restorePointInTime : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["sslEnforcementEnabled"] = state ? state.sslEnforcementEnabled : undefined;
-            resourceInputs["sslMinimalTlsVersionEnforced"] = state ? state.sslMinimalTlsVersionEnforced : undefined;
-            resourceInputs["storageMb"] = state ? state.storageMb : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["administratorLogin"] = state?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = state?.administratorLoginPassword;
+            resourceInputs["administratorLoginPasswordWoVersion"] = state?.administratorLoginPasswordWoVersion;
+            resourceInputs["autoGrowEnabled"] = state?.autoGrowEnabled;
+            resourceInputs["backupRetentionDays"] = state?.backupRetentionDays;
+            resourceInputs["createMode"] = state?.createMode;
+            resourceInputs["creationSourceServerId"] = state?.creationSourceServerId;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["geoRedundantBackupEnabled"] = state?.geoRedundantBackupEnabled;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["infrastructureEncryptionEnabled"] = state?.infrastructureEncryptionEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["restorePointInTime"] = state?.restorePointInTime;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["sslEnforcementEnabled"] = state?.sslEnforcementEnabled;
+            resourceInputs["sslMinimalTlsVersionEnforced"] = state?.sslMinimalTlsVersionEnforced;
+            resourceInputs["storageMb"] = state?.storageMb;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["threatDetectionPolicy"] = state?.threatDetectionPolicy;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.sslEnforcementEnabled === undefined) && !opts.urn) {
+            if (args?.sslEnforcementEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sslEnforcementEnabled'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
-            resourceInputs["administratorLoginPasswordWoVersion"] = args ? args.administratorLoginPasswordWoVersion : undefined;
-            resourceInputs["autoGrowEnabled"] = args ? args.autoGrowEnabled : undefined;
-            resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["creationSourceServerId"] = args ? args.creationSourceServerId : undefined;
-            resourceInputs["geoRedundantBackupEnabled"] = args ? args.geoRedundantBackupEnabled : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["sslEnforcementEnabled"] = args ? args.sslEnforcementEnabled : undefined;
-            resourceInputs["sslMinimalTlsVersionEnforced"] = args ? args.sslMinimalTlsVersionEnforced : undefined;
-            resourceInputs["storageMb"] = args ? args.storageMb : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["administratorLoginPasswordWoVersion"] = args?.administratorLoginPasswordWoVersion;
+            resourceInputs["autoGrowEnabled"] = args?.autoGrowEnabled;
+            resourceInputs["backupRetentionDays"] = args?.backupRetentionDays;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["creationSourceServerId"] = args?.creationSourceServerId;
+            resourceInputs["geoRedundantBackupEnabled"] = args?.geoRedundantBackupEnabled;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["infrastructureEncryptionEnabled"] = args?.infrastructureEncryptionEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restorePointInTime"] = args?.restorePointInTime;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["sslEnforcementEnabled"] = args?.sslEnforcementEnabled;
+            resourceInputs["sslMinimalTlsVersionEnforced"] = args?.sslMinimalTlsVersionEnforced;
+            resourceInputs["storageMb"] = args?.storageMb;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threatDetectionPolicy"] = args?.threatDetectionPolicy;
+            resourceInputs["version"] = args?.version;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

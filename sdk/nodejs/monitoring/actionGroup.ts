@@ -149,71 +149,71 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * One or more `armRoleReceiver` blocks as defined below.
      */
-    public readonly armRoleReceivers!: pulumi.Output<outputs.monitoring.ActionGroupArmRoleReceiver[] | undefined>;
+    declare public readonly armRoleReceivers: pulumi.Output<outputs.monitoring.ActionGroupArmRoleReceiver[] | undefined>;
     /**
      * One or more `automationRunbookReceiver` blocks as defined below.
      */
-    public readonly automationRunbookReceivers!: pulumi.Output<outputs.monitoring.ActionGroupAutomationRunbookReceiver[] | undefined>;
+    declare public readonly automationRunbookReceivers: pulumi.Output<outputs.monitoring.ActionGroupAutomationRunbookReceiver[] | undefined>;
     /**
      * One or more `azureAppPushReceiver` blocks as defined below.
      */
-    public readonly azureAppPushReceivers!: pulumi.Output<outputs.monitoring.ActionGroupAzureAppPushReceiver[] | undefined>;
+    declare public readonly azureAppPushReceivers: pulumi.Output<outputs.monitoring.ActionGroupAzureAppPushReceiver[] | undefined>;
     /**
      * One or more `azureFunctionReceiver` blocks as defined below.
      */
-    public readonly azureFunctionReceivers!: pulumi.Output<outputs.monitoring.ActionGroupAzureFunctionReceiver[] | undefined>;
+    declare public readonly azureFunctionReceivers: pulumi.Output<outputs.monitoring.ActionGroupAzureFunctionReceiver[] | undefined>;
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    public readonly emailReceivers!: pulumi.Output<outputs.monitoring.ActionGroupEmailReceiver[] | undefined>;
+    declare public readonly emailReceivers: pulumi.Output<outputs.monitoring.ActionGroupEmailReceiver[] | undefined>;
     /**
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `eventHubReceiver` blocks as defined below.
      */
-    public readonly eventHubReceivers!: pulumi.Output<outputs.monitoring.ActionGroupEventHubReceiver[] | undefined>;
+    declare public readonly eventHubReceivers: pulumi.Output<outputs.monitoring.ActionGroupEventHubReceiver[] | undefined>;
     /**
      * One or more `itsmReceiver` blocks as defined below.
      */
-    public readonly itsmReceivers!: pulumi.Output<outputs.monitoring.ActionGroupItsmReceiver[] | undefined>;
+    declare public readonly itsmReceivers: pulumi.Output<outputs.monitoring.ActionGroupItsmReceiver[] | undefined>;
     /**
      * The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * One or more `logicAppReceiver` blocks as defined below.
      */
-    public readonly logicAppReceivers!: pulumi.Output<outputs.monitoring.ActionGroupLogicAppReceiver[] | undefined>;
+    declare public readonly logicAppReceivers: pulumi.Output<outputs.monitoring.ActionGroupLogicAppReceiver[] | undefined>;
     /**
      * The name of the Action Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
-    public readonly shortName!: pulumi.Output<string>;
+    declare public readonly shortName: pulumi.Output<string>;
     /**
      * One or more `smsReceiver` blocks as defined below.
      */
-    public readonly smsReceivers!: pulumi.Output<outputs.monitoring.ActionGroupSmsReceiver[] | undefined>;
+    declare public readonly smsReceivers: pulumi.Output<outputs.monitoring.ActionGroupSmsReceiver[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `voiceReceiver` blocks as defined below.
      */
-    public readonly voiceReceivers!: pulumi.Output<outputs.monitoring.ActionGroupVoiceReceiver[] | undefined>;
+    declare public readonly voiceReceivers: pulumi.Output<outputs.monitoring.ActionGroupVoiceReceiver[] | undefined>;
     /**
      * One or more `webhookReceiver` blocks as defined below.
      */
-    public readonly webhookReceivers!: pulumi.Output<outputs.monitoring.ActionGroupWebhookReceiver[] | undefined>;
+    declare public readonly webhookReceivers: pulumi.Output<outputs.monitoring.ActionGroupWebhookReceiver[] | undefined>;
 
     /**
      * Create a ActionGroup resource with the given unique name, arguments, and options.
@@ -228,48 +228,48 @@ export class ActionGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActionGroupState | undefined;
-            resourceInputs["armRoleReceivers"] = state ? state.armRoleReceivers : undefined;
-            resourceInputs["automationRunbookReceivers"] = state ? state.automationRunbookReceivers : undefined;
-            resourceInputs["azureAppPushReceivers"] = state ? state.azureAppPushReceivers : undefined;
-            resourceInputs["azureFunctionReceivers"] = state ? state.azureFunctionReceivers : undefined;
-            resourceInputs["emailReceivers"] = state ? state.emailReceivers : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["eventHubReceivers"] = state ? state.eventHubReceivers : undefined;
-            resourceInputs["itsmReceivers"] = state ? state.itsmReceivers : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logicAppReceivers"] = state ? state.logicAppReceivers : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["shortName"] = state ? state.shortName : undefined;
-            resourceInputs["smsReceivers"] = state ? state.smsReceivers : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["voiceReceivers"] = state ? state.voiceReceivers : undefined;
-            resourceInputs["webhookReceivers"] = state ? state.webhookReceivers : undefined;
+            resourceInputs["armRoleReceivers"] = state?.armRoleReceivers;
+            resourceInputs["automationRunbookReceivers"] = state?.automationRunbookReceivers;
+            resourceInputs["azureAppPushReceivers"] = state?.azureAppPushReceivers;
+            resourceInputs["azureFunctionReceivers"] = state?.azureFunctionReceivers;
+            resourceInputs["emailReceivers"] = state?.emailReceivers;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["eventHubReceivers"] = state?.eventHubReceivers;
+            resourceInputs["itsmReceivers"] = state?.itsmReceivers;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logicAppReceivers"] = state?.logicAppReceivers;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["shortName"] = state?.shortName;
+            resourceInputs["smsReceivers"] = state?.smsReceivers;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["voiceReceivers"] = state?.voiceReceivers;
+            resourceInputs["webhookReceivers"] = state?.webhookReceivers;
         } else {
             const args = argsOrState as ActionGroupArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shortName === undefined) && !opts.urn) {
+            if (args?.shortName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shortName'");
             }
-            resourceInputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;
-            resourceInputs["automationRunbookReceivers"] = args ? args.automationRunbookReceivers : undefined;
-            resourceInputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
-            resourceInputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
-            resourceInputs["emailReceivers"] = args ? args.emailReceivers : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventHubReceivers"] = args ? args.eventHubReceivers : undefined;
-            resourceInputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shortName"] = args ? args.shortName : undefined;
-            resourceInputs["smsReceivers"] = args ? args.smsReceivers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
-            resourceInputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
+            resourceInputs["armRoleReceivers"] = args?.armRoleReceivers;
+            resourceInputs["automationRunbookReceivers"] = args?.automationRunbookReceivers;
+            resourceInputs["azureAppPushReceivers"] = args?.azureAppPushReceivers;
+            resourceInputs["azureFunctionReceivers"] = args?.azureFunctionReceivers;
+            resourceInputs["emailReceivers"] = args?.emailReceivers;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventHubReceivers"] = args?.eventHubReceivers;
+            resourceInputs["itsmReceivers"] = args?.itsmReceivers;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logicAppReceivers"] = args?.logicAppReceivers;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shortName"] = args?.shortName;
+            resourceInputs["smsReceivers"] = args?.smsReceivers;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["voiceReceivers"] = args?.voiceReceivers;
+            resourceInputs["webhookReceivers"] = args?.webhookReceivers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActionGroup.__pulumiType, name, resourceInputs, opts);

@@ -83,86 +83,86 @@ export class Service extends pulumi.CustomResource {
     /**
      * Whether to enable AAD auth? Defaults to `true`.
      */
-    public readonly aadAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly aadAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
      *
      * > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
      */
-    public readonly capacity!: pulumi.Output<number | undefined>;
+    declare public readonly capacity: pulumi.Output<number | undefined>;
     /**
      * The publicly accessible IP of the Web PubSub service.
      */
-    public /*out*/ readonly externalIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly externalIp: pulumi.Output<string>;
     /**
      * The FQDN of the Web PubSub service.
      */
-    public /*out*/ readonly hostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostname: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.webpubsub.ServiceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.webpubsub.ServiceIdentity | undefined>;
     /**
      * A `liveTrace` block as defined below.
      */
-    public readonly liveTrace!: pulumi.Output<outputs.webpubsub.ServiceLiveTrace | undefined>;
+    declare public readonly liveTrace: pulumi.Output<outputs.webpubsub.ServiceLiveTrace | undefined>;
     /**
      * Whether to enable local auth? Defaults to `true`.
      */
-    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Web PubSub service. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The primary access key for the Web PubSub service.
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * The primary connection string for the Web PubSub service.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * Whether to enable public network access? Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The publicly accessible port of the Web PubSub service which is designed for browser/client use.
      */
-    public /*out*/ readonly publicPort!: pulumi.Output<number>;
+    declare public /*out*/ readonly publicPort: pulumi.Output<number>;
     /**
      * The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary access key for the Web PubSub service.
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * The secondary connection string for the Web PubSub service.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The publicly accessible port of the Web PubSub service which is designed for customer server side use.
      */
-    public /*out*/ readonly serverPort!: pulumi.Output<number>;
+    declare public /*out*/ readonly serverPort: pulumi.Output<number>;
     /**
      * Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      */
-    public readonly tlsClientCertEnabled!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public readonly tlsClientCertEnabled: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -177,47 +177,47 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["aadAuthEnabled"] = state ? state.aadAuthEnabled : undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["externalIp"] = state ? state.externalIp : undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["liveTrace"] = state ? state.liveTrace : undefined;
-            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["publicPort"] = state ? state.publicPort : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["serverPort"] = state ? state.serverPort : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tlsClientCertEnabled"] = state ? state.tlsClientCertEnabled : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["aadAuthEnabled"] = state?.aadAuthEnabled;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["externalIp"] = state?.externalIp;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["liveTrace"] = state?.liveTrace;
+            resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["publicPort"] = state?.publicPort;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["serverPort"] = state?.serverPort;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tlsClientCertEnabled"] = state?.tlsClientCertEnabled;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["aadAuthEnabled"] = args ? args.aadAuthEnabled : undefined;
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["liveTrace"] = args ? args.liveTrace : undefined;
-            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsClientCertEnabled"] = args ? args.tlsClientCertEnabled : undefined;
+            resourceInputs["aadAuthEnabled"] = args?.aadAuthEnabled;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["liveTrace"] = args?.liveTrace;
+            resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsClientCertEnabled"] = args?.tlsClientCertEnabled;
             resourceInputs["externalIp"] = undefined /*out*/;
             resourceInputs["hostname"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;

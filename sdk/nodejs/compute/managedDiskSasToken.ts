@@ -87,19 +87,19 @@ export class ManagedDiskSasToken extends pulumi.CustomResource {
      * Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
      * for additional details on the fields above.
      */
-    public readonly accessLevel!: pulumi.Output<string>;
+    declare public readonly accessLevel: pulumi.Output<string>;
     /**
      * The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
      */
-    public readonly durationInSeconds!: pulumi.Output<number>;
+    declare public readonly durationInSeconds: pulumi.Output<number>;
     /**
      * The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
      */
-    public readonly managedDiskId!: pulumi.Output<string>;
+    declare public readonly managedDiskId: pulumi.Output<string>;
     /**
      * The computed Shared Access Signature (SAS) of the Managed Disk.
      */
-    public /*out*/ readonly sasUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly sasUrl: pulumi.Output<string>;
 
     /**
      * Create a ManagedDiskSasToken resource with the given unique name, arguments, and options.
@@ -114,24 +114,24 @@ export class ManagedDiskSasToken extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedDiskSasTokenState | undefined;
-            resourceInputs["accessLevel"] = state ? state.accessLevel : undefined;
-            resourceInputs["durationInSeconds"] = state ? state.durationInSeconds : undefined;
-            resourceInputs["managedDiskId"] = state ? state.managedDiskId : undefined;
-            resourceInputs["sasUrl"] = state ? state.sasUrl : undefined;
+            resourceInputs["accessLevel"] = state?.accessLevel;
+            resourceInputs["durationInSeconds"] = state?.durationInSeconds;
+            resourceInputs["managedDiskId"] = state?.managedDiskId;
+            resourceInputs["sasUrl"] = state?.sasUrl;
         } else {
             const args = argsOrState as ManagedDiskSasTokenArgs | undefined;
-            if ((!args || args.accessLevel === undefined) && !opts.urn) {
+            if (args?.accessLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessLevel'");
             }
-            if ((!args || args.durationInSeconds === undefined) && !opts.urn) {
+            if (args?.durationInSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'durationInSeconds'");
             }
-            if ((!args || args.managedDiskId === undefined) && !opts.urn) {
+            if (args?.managedDiskId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedDiskId'");
             }
-            resourceInputs["accessLevel"] = args ? args.accessLevel : undefined;
-            resourceInputs["durationInSeconds"] = args ? args.durationInSeconds : undefined;
-            resourceInputs["managedDiskId"] = args ? args.managedDiskId : undefined;
+            resourceInputs["accessLevel"] = args?.accessLevel;
+            resourceInputs["durationInSeconds"] = args?.durationInSeconds;
+            resourceInputs["managedDiskId"] = args?.managedDiskId;
             resourceInputs["sasUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

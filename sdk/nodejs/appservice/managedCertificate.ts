@@ -115,43 +115,43 @@ export class ManagedCertificate extends pulumi.CustomResource {
     /**
      * The Canonical Name of the Certificate.
      */
-    public /*out*/ readonly canonicalName!: pulumi.Output<string>;
+    declare public /*out*/ readonly canonicalName: pulumi.Output<string>;
     /**
      * The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
      */
-    public readonly customHostnameBindingId!: pulumi.Output<string>;
+    declare public readonly customHostnameBindingId: pulumi.Output<string>;
     /**
      * The expiration date of the Certificate.
      */
-    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
     /**
      * The friendly name of the Certificate.
      */
-    public /*out*/ readonly friendlyName!: pulumi.Output<string>;
+    declare public /*out*/ readonly friendlyName: pulumi.Output<string>;
     /**
      * The list of Host Names for the Certificate.
      */
-    public /*out*/ readonly hostNames!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly hostNames: pulumi.Output<string[]>;
     /**
      * The Start date for the Certificate.
      */
-    public /*out*/ readonly issueDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly issueDate: pulumi.Output<string>;
     /**
      * The issuer of the Certificate.
      */
-    public /*out*/ readonly issuer!: pulumi.Output<string>;
+    declare public /*out*/ readonly issuer: pulumi.Output<string>;
     /**
      * The Subject Name for the Certificate.
      */
-    public /*out*/ readonly subjectName!: pulumi.Output<string>;
+    declare public /*out*/ readonly subjectName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the App Service Managed Certificate.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Certificate Thumbprint.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
 
     /**
      * Create a ManagedCertificate resource with the given unique name, arguments, and options.
@@ -166,23 +166,23 @@ export class ManagedCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedCertificateState | undefined;
-            resourceInputs["canonicalName"] = state ? state.canonicalName : undefined;
-            resourceInputs["customHostnameBindingId"] = state ? state.customHostnameBindingId : undefined;
-            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["hostNames"] = state ? state.hostNames : undefined;
-            resourceInputs["issueDate"] = state ? state.issueDate : undefined;
-            resourceInputs["issuer"] = state ? state.issuer : undefined;
-            resourceInputs["subjectName"] = state ? state.subjectName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["canonicalName"] = state?.canonicalName;
+            resourceInputs["customHostnameBindingId"] = state?.customHostnameBindingId;
+            resourceInputs["expirationDate"] = state?.expirationDate;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["hostNames"] = state?.hostNames;
+            resourceInputs["issueDate"] = state?.issueDate;
+            resourceInputs["issuer"] = state?.issuer;
+            resourceInputs["subjectName"] = state?.subjectName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as ManagedCertificateArgs | undefined;
-            if ((!args || args.customHostnameBindingId === undefined) && !opts.urn) {
+            if (args?.customHostnameBindingId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customHostnameBindingId'");
             }
-            resourceInputs["customHostnameBindingId"] = args ? args.customHostnameBindingId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customHostnameBindingId"] = args?.customHostnameBindingId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["canonicalName"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;

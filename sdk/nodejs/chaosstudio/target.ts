@@ -86,15 +86,15 @@ export class Target extends pulumi.CustomResource {
     /**
      * The Azure Region where the Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the Target Resource Id within which this Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * The name of the Chaos Studio Target. This has the format of [publisher]-[targetType] e.g. `Microsoft-StorageAccount`. For supported values please see this Target Type column in [this table](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-providers). Changing this forces a new Chaos Studio Target to be created.
      */
-    public readonly targetType!: pulumi.Output<string>;
+    declare public readonly targetType: pulumi.Output<string>;
 
     /**
      * Create a Target resource with the given unique name, arguments, and options.
@@ -109,20 +109,20 @@ export class Target extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TargetState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["targetType"] = state ? state.targetType : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["targetType"] = state?.targetType;
         } else {
             const args = argsOrState as TargetArgs | undefined;
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["targetType"] = args?.targetType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Target.__pulumiType, name, resourceInputs, opts);

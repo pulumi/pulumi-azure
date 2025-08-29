@@ -102,41 +102,41 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
     /**
      * Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level.
      */
-    public readonly filters!: pulumi.Output<string[] | undefined>;
+    declare public readonly filters: pulumi.Output<string[] | undefined>;
     /**
      * The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `openApi` blocks as defined below.
      */
-    public readonly openApi!: pulumi.Output<outputs.appplatform.SpringCloudGatewayRouteConfigOpenApi | undefined>;
+    declare public readonly openApi: pulumi.Output<outputs.appplatform.SpringCloudGatewayRouteConfigOpenApi | undefined>;
     /**
      * Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
      */
-    public readonly predicates!: pulumi.Output<string[] | undefined>;
+    declare public readonly predicates: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`.
      *
      * > **Note:** You likely want to use `HTTPS` in a production environment, since `HTTP` offers no encryption.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * One or more `route` blocks as defined below.
      */
-    public readonly routes!: pulumi.Output<outputs.appplatform.SpringCloudGatewayRouteConfigRoute[] | undefined>;
+    declare public readonly routes: pulumi.Output<outputs.appplatform.SpringCloudGatewayRouteConfigRoute[] | undefined>;
     /**
      * The ID of the Spring Cloud App.
      */
-    public readonly springCloudAppId!: pulumi.Output<string | undefined>;
+    declare public readonly springCloudAppId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
      */
-    public readonly springCloudGatewayId!: pulumi.Output<string>;
+    declare public readonly springCloudGatewayId: pulumi.Output<string>;
     /**
      * Should the sso validation be enabled in app level?
      */
-    public readonly ssoValidationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ssoValidationEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SpringCloudGatewayRouteConfig resource with the given unique name, arguments, and options.
@@ -151,32 +151,32 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudGatewayRouteConfigState | undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["openApi"] = state ? state.openApi : undefined;
-            resourceInputs["predicates"] = state ? state.predicates : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["routes"] = state ? state.routes : undefined;
-            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
-            resourceInputs["springCloudGatewayId"] = state ? state.springCloudGatewayId : undefined;
-            resourceInputs["ssoValidationEnabled"] = state ? state.ssoValidationEnabled : undefined;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["openApi"] = state?.openApi;
+            resourceInputs["predicates"] = state?.predicates;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["routes"] = state?.routes;
+            resourceInputs["springCloudAppId"] = state?.springCloudAppId;
+            resourceInputs["springCloudGatewayId"] = state?.springCloudGatewayId;
+            resourceInputs["ssoValidationEnabled"] = state?.ssoValidationEnabled;
         } else {
             const args = argsOrState as SpringCloudGatewayRouteConfigArgs | undefined;
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.springCloudGatewayId === undefined) && !opts.urn) {
+            if (args?.springCloudGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudGatewayId'");
             }
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["openApi"] = args ? args.openApi : undefined;
-            resourceInputs["predicates"] = args ? args.predicates : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
-            resourceInputs["springCloudGatewayId"] = args ? args.springCloudGatewayId : undefined;
-            resourceInputs["ssoValidationEnabled"] = args ? args.ssoValidationEnabled : undefined;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["openApi"] = args?.openApi;
+            resourceInputs["predicates"] = args?.predicates;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["springCloudAppId"] = args?.springCloudAppId;
+            resourceInputs["springCloudGatewayId"] = args?.springCloudGatewayId;
+            resourceInputs["ssoValidationEnabled"] = args?.ssoValidationEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudGatewayRouteConfig.__pulumiType, name, resourceInputs, opts);

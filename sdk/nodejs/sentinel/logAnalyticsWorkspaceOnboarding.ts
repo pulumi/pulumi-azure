@@ -79,11 +79,11 @@ export class LogAnalyticsWorkspaceOnboarding extends pulumi.CustomResource {
      *
      * > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customerManagedKeyEnabled` set to true, it will not be able to be onboarded again with `customerManagedKeyEnabled` set to false.
      */
-    public readonly customerManagedKeyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly customerManagedKeyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a LogAnalyticsWorkspaceOnboarding resource with the given unique name, arguments, and options.
@@ -98,15 +98,15 @@ export class LogAnalyticsWorkspaceOnboarding extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogAnalyticsWorkspaceOnboardingState | undefined;
-            resourceInputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["customerManagedKeyEnabled"] = state?.customerManagedKeyEnabled;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as LogAnalyticsWorkspaceOnboardingArgs | undefined;
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["customerManagedKeyEnabled"] = args ? args.customerManagedKeyEnabled : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["customerManagedKeyEnabled"] = args?.customerManagedKeyEnabled;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogAnalyticsWorkspaceOnboarding.__pulumiType, name, resourceInputs, opts);

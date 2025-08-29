@@ -72,55 +72,55 @@ export class Server extends pulumi.CustomResource {
     /**
      * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly customerManagedKey!: pulumi.Output<outputs.fluidrelay.ServerCustomerManagedKey | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<outputs.fluidrelay.ServerCustomerManagedKey | undefined>;
     /**
      * The Fluid tenantId for this server.
      */
-    public /*out*/ readonly frsTenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly frsTenantId: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.fluidrelay.ServerIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.fluidrelay.ServerIdentity | undefined>;
     /**
      * The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      */
-    public /*out*/ readonly ordererEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ordererEndpoints: pulumi.Output<string[]>;
     /**
      * The primary key for this server.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary key for this server.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * An array of service endpoints for this Fluid Relay Server.
      */
-    public /*out*/ readonly serviceEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly serviceEndpoints: pulumi.Output<string[]>;
     /**
      * An array of storage endpoints for this Fluid Relay Server. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).
      */
-    public /*out*/ readonly storageEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly storageEndpoints: pulumi.Output<string[]>;
     /**
      * Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created.
      */
-    public readonly storageSku!: pulumi.Output<string>;
+    declare public readonly storageSku: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Fluid Relay Server.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -135,31 +135,31 @@ export class Server extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["frsTenantId"] = state ? state.frsTenantId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ordererEndpoints"] = state ? state.ordererEndpoints : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["serviceEndpoints"] = state ? state.serviceEndpoints : undefined;
-            resourceInputs["storageEndpoints"] = state ? state.storageEndpoints : undefined;
-            resourceInputs["storageSku"] = state ? state.storageSku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["frsTenantId"] = state?.frsTenantId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ordererEndpoints"] = state?.ordererEndpoints;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["serviceEndpoints"] = state?.serviceEndpoints;
+            resourceInputs["storageEndpoints"] = state?.storageEndpoints;
+            resourceInputs["storageSku"] = state?.storageSku;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageSku"] = args ? args.storageSku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageSku"] = args?.storageSku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["frsTenantId"] = undefined /*out*/;
             resourceInputs["ordererEndpoints"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;

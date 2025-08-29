@@ -105,41 +105,41 @@ export class PolicyFileShare extends pulumi.CustomResource {
     /**
      * Configures the Policy backup frequency and times as documented in the `backup` block below.
      */
-    public readonly backup!: pulumi.Output<outputs.backup.PolicyFileShareBackup>;
+    declare public readonly backup: pulumi.Output<outputs.backup.PolicyFileShareBackup>;
     /**
      * Specifies the name of the policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below.
      */
-    public readonly retentionDaily!: pulumi.Output<outputs.backup.PolicyFileShareRetentionDaily>;
+    declare public readonly retentionDaily: pulumi.Output<outputs.backup.PolicyFileShareRetentionDaily>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    public readonly retentionMonthly!: pulumi.Output<outputs.backup.PolicyFileShareRetentionMonthly | undefined>;
+    declare public readonly retentionMonthly: pulumi.Output<outputs.backup.PolicyFileShareRetentionMonthly | undefined>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below.
      */
-    public readonly retentionWeekly!: pulumi.Output<outputs.backup.PolicyFileShareRetentionWeekly | undefined>;
+    declare public readonly retentionWeekly: pulumi.Output<outputs.backup.PolicyFileShareRetentionWeekly | undefined>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    public readonly retentionYearly!: pulumi.Output<outputs.backup.PolicyFileShareRetentionYearly | undefined>;
+    declare public readonly retentionYearly: pulumi.Output<outputs.backup.PolicyFileShareRetentionYearly | undefined>;
     /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      *
      * > **Note:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a PolicyFileShare resource with the given unique name, arguments, and options.
@@ -154,38 +154,38 @@ export class PolicyFileShare extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyFileShareState | undefined;
-            resourceInputs["backup"] = state ? state.backup : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionDaily"] = state ? state.retentionDaily : undefined;
-            resourceInputs["retentionMonthly"] = state ? state.retentionMonthly : undefined;
-            resourceInputs["retentionWeekly"] = state ? state.retentionWeekly : undefined;
-            resourceInputs["retentionYearly"] = state ? state.retentionYearly : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["backup"] = state?.backup;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionDaily"] = state?.retentionDaily;
+            resourceInputs["retentionMonthly"] = state?.retentionMonthly;
+            resourceInputs["retentionWeekly"] = state?.retentionWeekly;
+            resourceInputs["retentionYearly"] = state?.retentionYearly;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as PolicyFileShareArgs | undefined;
-            if ((!args || args.backup === undefined) && !opts.urn) {
+            if (args?.backup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backup'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.retentionDaily === undefined) && !opts.urn) {
+            if (args?.retentionDaily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionDaily'");
             }
-            resourceInputs["backup"] = args ? args.backup : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDaily"] = args ? args.retentionDaily : undefined;
-            resourceInputs["retentionMonthly"] = args ? args.retentionMonthly : undefined;
-            resourceInputs["retentionWeekly"] = args ? args.retentionWeekly : undefined;
-            resourceInputs["retentionYearly"] = args ? args.retentionYearly : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["backup"] = args?.backup;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDaily"] = args?.retentionDaily;
+            resourceInputs["retentionMonthly"] = args?.retentionMonthly;
+            resourceInputs["retentionWeekly"] = args?.retentionWeekly;
+            resourceInputs["retentionYearly"] = args?.retentionYearly;
+            resourceInputs["timezone"] = args?.timezone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PolicyFileShare.__pulumiType, name, resourceInputs, opts);

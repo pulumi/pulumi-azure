@@ -86,27 +86,27 @@ export class NetworkSlice extends pulumi.CustomResource {
     /**
      * A description for this Mobile Network Slice.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the Azure Region where the Mobile Network Slice should exist. Changing this forces a new Mobile Network Slice to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of Mobile Network which the Mobile Network Slice belongs to. Changing this forces a new Mobile Network Slice to be created.
      */
-    public readonly mobileNetworkId!: pulumi.Output<string>;
+    declare public readonly mobileNetworkId: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `singleNetworkSliceSelectionAssistanceInformation` block as defined below. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
      */
-    public readonly singleNetworkSliceSelectionAssistanceInformation!: pulumi.Output<outputs.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformation>;
+    declare public readonly singleNetworkSliceSelectionAssistanceInformation: pulumi.Output<outputs.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformation>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Slice.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NetworkSlice resource with the given unique name, arguments, and options.
@@ -121,26 +121,26 @@ export class NetworkSlice extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkSliceState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mobileNetworkId"] = state ? state.mobileNetworkId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["singleNetworkSliceSelectionAssistanceInformation"] = state ? state.singleNetworkSliceSelectionAssistanceInformation : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mobileNetworkId"] = state?.mobileNetworkId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["singleNetworkSliceSelectionAssistanceInformation"] = state?.singleNetworkSliceSelectionAssistanceInformation;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NetworkSliceArgs | undefined;
-            if ((!args || args.mobileNetworkId === undefined) && !opts.urn) {
+            if (args?.mobileNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkId'");
             }
-            if ((!args || args.singleNetworkSliceSelectionAssistanceInformation === undefined) && !opts.urn) {
+            if (args?.singleNetworkSliceSelectionAssistanceInformation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'singleNetworkSliceSelectionAssistanceInformation'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkId"] = args ? args.mobileNetworkId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["singleNetworkSliceSelectionAssistanceInformation"] = args ? args.singleNetworkSliceSelectionAssistanceInformation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkId"] = args?.mobileNetworkId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["singleNetworkSliceSelectionAssistanceInformation"] = args?.singleNetworkSliceSelectionAssistanceInformation;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkSlice.__pulumiType, name, resourceInputs, opts);

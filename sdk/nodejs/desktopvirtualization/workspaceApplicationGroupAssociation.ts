@@ -88,11 +88,11 @@ export class WorkspaceApplicationGroupAssociation extends pulumi.CustomResource 
     /**
      * The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
-    public readonly applicationGroupId!: pulumi.Output<string>;
+    declare public readonly applicationGroupId: pulumi.Output<string>;
     /**
      * The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceApplicationGroupAssociation resource with the given unique name, arguments, and options.
@@ -107,18 +107,18 @@ export class WorkspaceApplicationGroupAssociation extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceApplicationGroupAssociationState | undefined;
-            resourceInputs["applicationGroupId"] = state ? state.applicationGroupId : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["applicationGroupId"] = state?.applicationGroupId;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as WorkspaceApplicationGroupAssociationArgs | undefined;
-            if ((!args || args.applicationGroupId === undefined) && !opts.urn) {
+            if (args?.applicationGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationGroupId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["applicationGroupId"] = args ? args.applicationGroupId : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["applicationGroupId"] = args?.applicationGroupId;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkspaceApplicationGroupAssociation.__pulumiType, name, resourceInputs, opts);

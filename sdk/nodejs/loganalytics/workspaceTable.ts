@@ -72,17 +72,17 @@ export class WorkspaceTable extends pulumi.CustomResource {
     /**
      * Specifies the name of a table in a Log Analytics Workspace.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specify the system how to handle and charge the logs ingested to the table. Possible values are `Analytics` and `Basic`. Defaults to `Analytics`.
      *
      * > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-azure-tables).
      */
-    public readonly plan!: pulumi.Output<string | undefined>;
+    declare public readonly plan: pulumi.Output<string | undefined>;
     /**
      * The table's retention in days. Possible values are either `8` (Basic Tier only) or range between `4` and `730`.
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
      * The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
      *
@@ -90,11 +90,11 @@ export class WorkspaceTable extends pulumi.CustomResource {
      *
      * > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      */
-    public readonly totalRetentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly totalRetentionInDays: pulumi.Output<number | undefined>;
     /**
      * The object ID of the Log Analytics Workspace that contains the table.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceTable resource with the given unique name, arguments, and options.
@@ -109,21 +109,21 @@ export class WorkspaceTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceTableState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            resourceInputs["totalRetentionInDays"] = state ? state.totalRetentionInDays : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["retentionInDays"] = state?.retentionInDays;
+            resourceInputs["totalRetentionInDays"] = state?.totalRetentionInDays;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as WorkspaceTableArgs | undefined;
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["totalRetentionInDays"] = args ? args.totalRetentionInDays : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["totalRetentionInDays"] = args?.totalRetentionInDays;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkspaceTable.__pulumiType, name, resourceInputs, opts);

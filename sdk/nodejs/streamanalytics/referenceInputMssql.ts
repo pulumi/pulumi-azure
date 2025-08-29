@@ -96,51 +96,51 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
     /**
      * The MS SQL database name where the reference data exists.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refreshType` is `Static`.
      */
-    public readonly deltaSnapshotQuery!: pulumi.Output<string | undefined>;
+    declare public readonly deltaSnapshotQuery: pulumi.Output<string | undefined>;
     /**
      * The query used to retrieve the reference data from the MS SQL database.
      */
-    public readonly fullSnapshotQuery!: pulumi.Output<string>;
+    declare public readonly fullSnapshotQuery: pulumi.Output<string>;
     /**
      * The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password to connect to the MS SQL database.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
      */
-    public readonly refreshIntervalDuration!: pulumi.Output<string | undefined>;
+    declare public readonly refreshIntervalDuration: pulumi.Output<string | undefined>;
     /**
      * Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
      */
-    public readonly refreshType!: pulumi.Output<string>;
+    declare public readonly refreshType: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The fully qualified domain name of the MS SQL server.
      */
-    public readonly server!: pulumi.Output<string>;
+    declare public readonly server: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobName: pulumi.Output<string>;
     /**
      * The name of the table in the Azure SQL database.
      */
-    public readonly table!: pulumi.Output<string | undefined>;
+    declare public readonly table: pulumi.Output<string | undefined>;
     /**
      * The username to connect to the MS SQL database.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a ReferenceInputMssql resource with the given unique name, arguments, and options.
@@ -155,56 +155,56 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReferenceInputMssqlState | undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["deltaSnapshotQuery"] = state ? state.deltaSnapshotQuery : undefined;
-            resourceInputs["fullSnapshotQuery"] = state ? state.fullSnapshotQuery : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["refreshIntervalDuration"] = state ? state.refreshIntervalDuration : undefined;
-            resourceInputs["refreshType"] = state ? state.refreshType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["server"] = state ? state.server : undefined;
-            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["deltaSnapshotQuery"] = state?.deltaSnapshotQuery;
+            resourceInputs["fullSnapshotQuery"] = state?.fullSnapshotQuery;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["refreshIntervalDuration"] = state?.refreshIntervalDuration;
+            resourceInputs["refreshType"] = state?.refreshType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["server"] = state?.server;
+            resourceInputs["streamAnalyticsJobName"] = state?.streamAnalyticsJobName;
+            resourceInputs["table"] = state?.table;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as ReferenceInputMssqlArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.fullSnapshotQuery === undefined) && !opts.urn) {
+            if (args?.fullSnapshotQuery === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fullSnapshotQuery'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.refreshType === undefined) && !opts.urn) {
+            if (args?.refreshType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'refreshType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.server === undefined) && !opts.urn) {
+            if (args?.server === undefined && !opts.urn) {
                 throw new Error("Missing required property 'server'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["deltaSnapshotQuery"] = args ? args.deltaSnapshotQuery : undefined;
-            resourceInputs["fullSnapshotQuery"] = args ? args.fullSnapshotQuery : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["deltaSnapshotQuery"] = args?.deltaSnapshotQuery;
+            resourceInputs["fullSnapshotQuery"] = args?.fullSnapshotQuery;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["refreshIntervalDuration"] = args ? args.refreshIntervalDuration : undefined;
-            resourceInputs["refreshType"] = args ? args.refreshType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["server"] = args ? args.server : undefined;
-            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["refreshIntervalDuration"] = args?.refreshIntervalDuration;
+            resourceInputs["refreshType"] = args?.refreshType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["server"] = args?.server;
+            resourceInputs["streamAnalyticsJobName"] = args?.streamAnalyticsJobName;
+            resourceInputs["table"] = args?.table;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

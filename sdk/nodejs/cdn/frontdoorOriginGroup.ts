@@ -82,29 +82,29 @@ export class FrontdoorOriginGroup extends pulumi.CustomResource {
     /**
      * The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
      */
-    public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorProfileId: pulumi.Output<string>;
     /**
      * A `healthProbe` block as defined below.
      */
-    public readonly healthProbe!: pulumi.Output<outputs.cdn.FrontdoorOriginGroupHealthProbe | undefined>;
+    declare public readonly healthProbe: pulumi.Output<outputs.cdn.FrontdoorOriginGroupHealthProbe | undefined>;
     /**
      * A `loadBalancing` block as defined below.
      */
-    public readonly loadBalancing!: pulumi.Output<outputs.cdn.FrontdoorOriginGroupLoadBalancing>;
+    declare public readonly loadBalancing: pulumi.Output<outputs.cdn.FrontdoorOriginGroupLoadBalancing>;
     /**
      * The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
      *
      * > **Note:** This property is currently not used, but will be in the near future.
      */
-    public readonly restoreTrafficTimeToHealedOrNewEndpointInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly restoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Output<number | undefined>;
     /**
      * Specifies whether session affinity should be enabled on this host. Defaults to `true`.
      */
-    public readonly sessionAffinityEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sessionAffinityEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a FrontdoorOriginGroup resource with the given unique name, arguments, and options.
@@ -119,26 +119,26 @@ export class FrontdoorOriginGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorOriginGroupState | undefined;
-            resourceInputs["cdnFrontdoorProfileId"] = state ? state.cdnFrontdoorProfileId : undefined;
-            resourceInputs["healthProbe"] = state ? state.healthProbe : undefined;
-            resourceInputs["loadBalancing"] = state ? state.loadBalancing : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["restoreTrafficTimeToHealedOrNewEndpointInMinutes"] = state ? state.restoreTrafficTimeToHealedOrNewEndpointInMinutes : undefined;
-            resourceInputs["sessionAffinityEnabled"] = state ? state.sessionAffinityEnabled : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = state?.cdnFrontdoorProfileId;
+            resourceInputs["healthProbe"] = state?.healthProbe;
+            resourceInputs["loadBalancing"] = state?.loadBalancing;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["restoreTrafficTimeToHealedOrNewEndpointInMinutes"] = state?.restoreTrafficTimeToHealedOrNewEndpointInMinutes;
+            resourceInputs["sessionAffinityEnabled"] = state?.sessionAffinityEnabled;
         } else {
             const args = argsOrState as FrontdoorOriginGroupArgs | undefined;
-            if ((!args || args.cdnFrontdoorProfileId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorProfileId'");
             }
-            if ((!args || args.loadBalancing === undefined) && !opts.urn) {
+            if (args?.loadBalancing === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancing'");
             }
-            resourceInputs["cdnFrontdoorProfileId"] = args ? args.cdnFrontdoorProfileId : undefined;
-            resourceInputs["healthProbe"] = args ? args.healthProbe : undefined;
-            resourceInputs["loadBalancing"] = args ? args.loadBalancing : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["restoreTrafficTimeToHealedOrNewEndpointInMinutes"] = args ? args.restoreTrafficTimeToHealedOrNewEndpointInMinutes : undefined;
-            resourceInputs["sessionAffinityEnabled"] = args ? args.sessionAffinityEnabled : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = args?.cdnFrontdoorProfileId;
+            resourceInputs["healthProbe"] = args?.healthProbe;
+            resourceInputs["loadBalancing"] = args?.loadBalancing;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["restoreTrafficTimeToHealedOrNewEndpointInMinutes"] = args?.restoreTrafficTimeToHealedOrNewEndpointInMinutes;
+            resourceInputs["sessionAffinityEnabled"] = args?.sessionAffinityEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FrontdoorOriginGroup.__pulumiType, name, resourceInputs, opts);

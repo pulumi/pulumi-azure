@@ -84,81 +84,81 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
      */
-    public readonly contentTypesToCompresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly contentTypesToCompresses: pulumi.Output<string[] | undefined>;
     /**
      * Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
      */
-    public readonly deliveryRules!: pulumi.Output<outputs.cdn.EndpointDeliveryRule[] | undefined>;
+    declare public readonly deliveryRules: pulumi.Output<outputs.cdn.EndpointDeliveryRule[] | undefined>;
     /**
      * The Fully Qualified Domain Name of the CDN Endpoint.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
-    public readonly geoFilters!: pulumi.Output<outputs.cdn.EndpointGeoFilter[] | undefined>;
+    declare public readonly geoFilters: pulumi.Output<outputs.cdn.EndpointGeoFilter[] | undefined>;
     /**
      * Actions that are valid for all resources regardless of any conditions. A `globalDeliveryRule` block as defined below.
      */
-    public readonly globalDeliveryRule!: pulumi.Output<outputs.cdn.EndpointGlobalDeliveryRule | undefined>;
+    declare public readonly globalDeliveryRule: pulumi.Output<outputs.cdn.EndpointGlobalDeliveryRule | undefined>;
     /**
      * Indicates whether compression is to be enabled.
      */
-    public readonly isCompressionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isCompressionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies if http allowed. Defaults to `true`.
      */
-    public readonly isHttpAllowed!: pulumi.Output<boolean | undefined>;
+    declare public readonly isHttpAllowed: pulumi.Output<boolean | undefined>;
     /**
      * Specifies if https allowed. Defaults to `true`.
      */
-    public readonly isHttpsAllowed!: pulumi.Output<boolean | undefined>;
+    declare public readonly isHttpsAllowed: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
      */
-    public readonly optimizationType!: pulumi.Output<string | undefined>;
+    declare public readonly optimizationType: pulumi.Output<string | undefined>;
     /**
      * The host header CDN provider will send along with content requests to origins.
      */
-    public readonly originHostHeader!: pulumi.Output<string | undefined>;
+    declare public readonly originHostHeader: pulumi.Output<string | undefined>;
     /**
      * The path used at for origin requests.
      */
-    public readonly originPath!: pulumi.Output<string | undefined>;
+    declare public readonly originPath: pulumi.Output<string | undefined>;
     /**
      * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
      */
-    public readonly origins!: pulumi.Output<outputs.cdn.EndpointOrigin[]>;
+    declare public readonly origins: pulumi.Output<outputs.cdn.EndpointOrigin[]>;
     /**
      * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      *
      * > **Note:** `globalDeliveryRule` and `deliveryRule` are currently only available for `Microsoft_Standard` CDN profiles.
      */
-    public readonly probePath!: pulumi.Output<string | undefined>;
+    declare public readonly probePath: pulumi.Output<string | undefined>;
     /**
      * The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly profileName!: pulumi.Output<string>;
+    declare public readonly profileName: pulumi.Output<string>;
     /**
      * Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. `NotSet` value can be used for `Premium Verizon` CDN profile. Defaults to `IgnoreQueryString`.
      */
-    public readonly querystringCachingBehaviour!: pulumi.Output<string | undefined>;
+    declare public readonly querystringCachingBehaviour: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -173,54 +173,54 @@ export class Endpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            resourceInputs["contentTypesToCompresses"] = state ? state.contentTypesToCompresses : undefined;
-            resourceInputs["deliveryRules"] = state ? state.deliveryRules : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["geoFilters"] = state ? state.geoFilters : undefined;
-            resourceInputs["globalDeliveryRule"] = state ? state.globalDeliveryRule : undefined;
-            resourceInputs["isCompressionEnabled"] = state ? state.isCompressionEnabled : undefined;
-            resourceInputs["isHttpAllowed"] = state ? state.isHttpAllowed : undefined;
-            resourceInputs["isHttpsAllowed"] = state ? state.isHttpsAllowed : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["optimizationType"] = state ? state.optimizationType : undefined;
-            resourceInputs["originHostHeader"] = state ? state.originHostHeader : undefined;
-            resourceInputs["originPath"] = state ? state.originPath : undefined;
-            resourceInputs["origins"] = state ? state.origins : undefined;
-            resourceInputs["probePath"] = state ? state.probePath : undefined;
-            resourceInputs["profileName"] = state ? state.profileName : undefined;
-            resourceInputs["querystringCachingBehaviour"] = state ? state.querystringCachingBehaviour : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["contentTypesToCompresses"] = state?.contentTypesToCompresses;
+            resourceInputs["deliveryRules"] = state?.deliveryRules;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["geoFilters"] = state?.geoFilters;
+            resourceInputs["globalDeliveryRule"] = state?.globalDeliveryRule;
+            resourceInputs["isCompressionEnabled"] = state?.isCompressionEnabled;
+            resourceInputs["isHttpAllowed"] = state?.isHttpAllowed;
+            resourceInputs["isHttpsAllowed"] = state?.isHttpsAllowed;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["optimizationType"] = state?.optimizationType;
+            resourceInputs["originHostHeader"] = state?.originHostHeader;
+            resourceInputs["originPath"] = state?.originPath;
+            resourceInputs["origins"] = state?.origins;
+            resourceInputs["probePath"] = state?.probePath;
+            resourceInputs["profileName"] = state?.profileName;
+            resourceInputs["querystringCachingBehaviour"] = state?.querystringCachingBehaviour;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if ((!args || args.origins === undefined) && !opts.urn) {
+            if (args?.origins === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["contentTypesToCompresses"] = args ? args.contentTypesToCompresses : undefined;
-            resourceInputs["deliveryRules"] = args ? args.deliveryRules : undefined;
-            resourceInputs["geoFilters"] = args ? args.geoFilters : undefined;
-            resourceInputs["globalDeliveryRule"] = args ? args.globalDeliveryRule : undefined;
-            resourceInputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
-            resourceInputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
-            resourceInputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["optimizationType"] = args ? args.optimizationType : undefined;
-            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            resourceInputs["originPath"] = args ? args.originPath : undefined;
-            resourceInputs["origins"] = args ? args.origins : undefined;
-            resourceInputs["probePath"] = args ? args.probePath : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["querystringCachingBehaviour"] = args ? args.querystringCachingBehaviour : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["contentTypesToCompresses"] = args?.contentTypesToCompresses;
+            resourceInputs["deliveryRules"] = args?.deliveryRules;
+            resourceInputs["geoFilters"] = args?.geoFilters;
+            resourceInputs["globalDeliveryRule"] = args?.globalDeliveryRule;
+            resourceInputs["isCompressionEnabled"] = args?.isCompressionEnabled;
+            resourceInputs["isHttpAllowed"] = args?.isHttpAllowed;
+            resourceInputs["isHttpsAllowed"] = args?.isHttpsAllowed;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["optimizationType"] = args?.optimizationType;
+            resourceInputs["originHostHeader"] = args?.originHostHeader;
+            resourceInputs["originPath"] = args?.originPath;
+            resourceInputs["origins"] = args?.origins;
+            resourceInputs["probePath"] = args?.probePath;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["querystringCachingBehaviour"] = args?.querystringCachingBehaviour;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

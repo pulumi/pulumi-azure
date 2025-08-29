@@ -88,41 +88,41 @@ export class BackendAddressPool extends pulumi.CustomResource {
     /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
-    public /*out*/ readonly backendIpConfigurations!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly backendIpConfigurations: pulumi.Output<string[]>;
     /**
      * An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool.
      */
-    public /*out*/ readonly inboundNatRules!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly inboundNatRules: pulumi.Output<string[]>;
     /**
      * The Load Balancing Rules associated with this Backend Address Pool.
      */
-    public /*out*/ readonly loadBalancingRules!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly loadBalancingRules: pulumi.Output<string[]>;
     /**
      * The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
      */
-    public readonly loadbalancerId!: pulumi.Output<string>;
+    declare public readonly loadbalancerId: pulumi.Output<string>;
     /**
      * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
      */
-    public /*out*/ readonly outboundRules!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundRules: pulumi.Output<string[]>;
     /**
      * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      */
-    public readonly synchronousMode!: pulumi.Output<string | undefined>;
+    declare public readonly synchronousMode: pulumi.Output<string | undefined>;
     /**
      * One or more `tunnelInterface` blocks as defined below.
      */
-    public readonly tunnelInterfaces!: pulumi.Output<outputs.lb.BackendAddressPoolTunnelInterface[] | undefined>;
+    declare public readonly tunnelInterfaces: pulumi.Output<outputs.lb.BackendAddressPoolTunnelInterface[] | undefined>;
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkId: pulumi.Output<string | undefined>;
 
     /**
      * Create a BackendAddressPool resource with the given unique name, arguments, and options.
@@ -137,25 +137,25 @@ export class BackendAddressPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendAddressPoolState | undefined;
-            resourceInputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
-            resourceInputs["inboundNatRules"] = state ? state.inboundNatRules : undefined;
-            resourceInputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
-            resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundRules"] = state ? state.outboundRules : undefined;
-            resourceInputs["synchronousMode"] = state ? state.synchronousMode : undefined;
-            resourceInputs["tunnelInterfaces"] = state ? state.tunnelInterfaces : undefined;
-            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["backendIpConfigurations"] = state?.backendIpConfigurations;
+            resourceInputs["inboundNatRules"] = state?.inboundNatRules;
+            resourceInputs["loadBalancingRules"] = state?.loadBalancingRules;
+            resourceInputs["loadbalancerId"] = state?.loadbalancerId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundRules"] = state?.outboundRules;
+            resourceInputs["synchronousMode"] = state?.synchronousMode;
+            resourceInputs["tunnelInterfaces"] = state?.tunnelInterfaces;
+            resourceInputs["virtualNetworkId"] = state?.virtualNetworkId;
         } else {
             const args = argsOrState as BackendAddressPoolArgs | undefined;
-            if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
+            if (args?.loadbalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["synchronousMode"] = args ? args.synchronousMode : undefined;
-            resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["loadbalancerId"] = args?.loadbalancerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["synchronousMode"] = args?.synchronousMode;
+            resourceInputs["tunnelInterfaces"] = args?.tunnelInterfaces;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
             resourceInputs["backendIpConfigurations"] = undefined /*out*/;
             resourceInputs["inboundNatRules"] = undefined /*out*/;
             resourceInputs["loadBalancingRules"] = undefined /*out*/;

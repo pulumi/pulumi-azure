@@ -50,59 +50,59 @@ export class FileSystem extends pulumi.CustomResource {
      *
      * > **Note:** Removing `encryptionKey` forces a new resource to be created.
      */
-    public readonly encryptionKey!: pulumi.Output<outputs.managedlustre.FileSystemEncryptionKey | undefined>;
+    declare public readonly encryptionKey: pulumi.Output<outputs.managedlustre.FileSystemEncryptionKey | undefined>;
     /**
      * A `hsmSetting` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly hsmSetting!: pulumi.Output<outputs.managedlustre.FileSystemHsmSetting | undefined>;
+    declare public readonly hsmSetting: pulumi.Output<outputs.managedlustre.FileSystemHsmSetting | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.managedlustre.FileSystemIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.managedlustre.FileSystemIdentity | undefined>;
     /**
      * The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
-    public readonly maintenanceWindow!: pulumi.Output<outputs.managedlustre.FileSystemMaintenanceWindow>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.managedlustre.FileSystemMaintenanceWindow>;
     /**
      * IP Address of Managed Lustre File System Services.
      */
-    public /*out*/ readonly mgsAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly mgsAddress: pulumi.Output<string>;
     /**
      * The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `rootSquash` block as defined below.
      */
-    public readonly rootSquash!: pulumi.Output<outputs.managedlustre.FileSystemRootSquash | undefined>;
+    declare public readonly rootSquash: pulumi.Output<outputs.managedlustre.FileSystemRootSquash | undefined>;
     /**
      * The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      */
-    public readonly storageCapacityInTb!: pulumi.Output<number>;
+    declare public readonly storageCapacityInTb: pulumi.Output<number>;
     /**
      * The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Azure Managed Lustre File System.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    declare public readonly zones: pulumi.Output<string[]>;
 
     /**
      * Create a FileSystem resource with the given unique name, arguments, and options.
@@ -117,53 +117,53 @@ export class FileSystem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FileSystemState | undefined;
-            resourceInputs["encryptionKey"] = state ? state.encryptionKey : undefined;
-            resourceInputs["hsmSetting"] = state ? state.hsmSetting : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            resourceInputs["mgsAddress"] = state ? state.mgsAddress : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rootSquash"] = state ? state.rootSquash : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["storageCapacityInTb"] = state ? state.storageCapacityInTb : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["encryptionKey"] = state?.encryptionKey;
+            resourceInputs["hsmSetting"] = state?.hsmSetting;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maintenanceWindow"] = state?.maintenanceWindow;
+            resourceInputs["mgsAddress"] = state?.mgsAddress;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rootSquash"] = state?.rootSquash;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["storageCapacityInTb"] = state?.storageCapacityInTb;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as FileSystemArgs | undefined;
-            if ((!args || args.maintenanceWindow === undefined) && !opts.urn) {
+            if (args?.maintenanceWindow === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maintenanceWindow'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.storageCapacityInTb === undefined) && !opts.urn) {
+            if (args?.storageCapacityInTb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageCapacityInTb'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.zones === undefined) && !opts.urn) {
+            if (args?.zones === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zones'");
             }
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["hsmSetting"] = args ? args.hsmSetting : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rootSquash"] = args ? args.rootSquash : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["storageCapacityInTb"] = args ? args.storageCapacityInTb : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["hsmSetting"] = args?.hsmSetting;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rootSquash"] = args?.rootSquash;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["storageCapacityInTb"] = args?.storageCapacityInTb;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["mgsAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

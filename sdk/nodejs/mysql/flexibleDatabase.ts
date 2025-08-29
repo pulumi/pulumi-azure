@@ -80,23 +80,23 @@ export class FlexibleDatabase extends pulumi.CustomResource {
     /**
      * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
      */
-    public readonly charset!: pulumi.Output<string>;
+    declare public readonly charset: pulumi.Output<string>;
     /**
      * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
      */
-    public readonly collation!: pulumi.Output<string>;
+    declare public readonly collation: pulumi.Output<string>;
     /**
      * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
      */
-    public readonly serverName!: pulumi.Output<string>;
+    declare public readonly serverName: pulumi.Output<string>;
 
     /**
      * Create a FlexibleDatabase resource with the given unique name, arguments, and options.
@@ -111,30 +111,30 @@ export class FlexibleDatabase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleDatabaseState | undefined;
-            resourceInputs["charset"] = state ? state.charset : undefined;
-            resourceInputs["collation"] = state ? state.collation : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["charset"] = state?.charset;
+            resourceInputs["collation"] = state?.collation;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serverName"] = state?.serverName;
         } else {
             const args = argsOrState as FlexibleDatabaseArgs | undefined;
-            if ((!args || args.charset === undefined) && !opts.urn) {
+            if (args?.charset === undefined && !opts.urn) {
                 throw new Error("Missing required property 'charset'");
             }
-            if ((!args || args.collation === undefined) && !opts.urn) {
+            if (args?.collation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["charset"] = args ? args.charset : undefined;
-            resourceInputs["collation"] = args ? args.collation : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["charset"] = args?.charset;
+            resourceInputs["collation"] = args?.collation;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FlexibleDatabase.__pulumiType, name, resourceInputs, opts);

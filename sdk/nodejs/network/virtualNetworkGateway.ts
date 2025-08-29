@@ -134,76 +134,76 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
      */
-    public readonly activeActive!: pulumi.Output<boolean>;
+    declare public readonly activeActive: pulumi.Output<boolean>;
     /**
      * Is BGP Route Translation for NAT enabled? Defaults to `false`.
      */
-    public readonly bgpRouteTranslationForNatEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly bgpRouteTranslationForNatEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
      */
-    public readonly bgpSettings!: pulumi.Output<outputs.network.VirtualNetworkGatewayBgpSettings>;
+    declare public readonly bgpSettings: pulumi.Output<outputs.network.VirtualNetworkGatewayBgpSettings>;
     /**
      * A `customRoute` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
      */
-    public readonly customRoute!: pulumi.Output<outputs.network.VirtualNetworkGatewayCustomRoute | undefined>;
+    declare public readonly customRoute: pulumi.Output<outputs.network.VirtualNetworkGatewayCustomRoute | undefined>;
     /**
      * The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
      */
-    public readonly defaultLocalNetworkGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly defaultLocalNetworkGatewayId: pulumi.Output<string | undefined>;
     /**
      * Is DNS forwarding enabled?
      */
-    public readonly dnsForwardingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dnsForwardingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
      */
-    public readonly enableBgp!: pulumi.Output<boolean>;
+    declare public readonly enableBgp: pulumi.Output<boolean>;
     /**
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      *
      * > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
      */
-    public readonly generation!: pulumi.Output<string>;
+    declare public readonly generation: pulumi.Output<string>;
     /**
      * One or more (up to 3) `ipConfiguration` blocks documented below. Changing this forces a new resource to be created. 
      * An active-standby gateway requires exactly one `ipConfiguration` block,
      * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
      * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.VirtualNetworkGatewayIpConfiguration[]>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.network.VirtualNetworkGatewayIpConfiguration[]>;
     /**
      * Is IP Sec Replay Protection enabled? Defaults to `true`.
      */
-    public readonly ipSecReplayProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ipSecReplayProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `policyGroup` blocks as defined below.
      */
-    public readonly policyGroups!: pulumi.Output<outputs.network.VirtualNetworkGatewayPolicyGroup[] | undefined>;
+    declare public readonly policyGroups: pulumi.Output<outputs.network.VirtualNetworkGatewayPolicyGroup[] | undefined>;
     /**
      * Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
      */
-    public readonly privateIpAddressEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly privateIpAddressEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
      */
-    public readonly remoteVnetTrafficEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly remoteVnetTrafficEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpnType` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
      *
@@ -211,27 +211,27 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      *
      * > **Note:** Not all SKUs (e.g. `ErGw1AZ`) are available in all regions. If you see `StatusCode=400 -- Original Error: Code="InvalidGatewaySkuSpecifiedForGatewayDeploymentType"` please try another region.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
      */
-    public readonly virtualWanTrafficEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly virtualWanTrafficEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `vpnClientConfiguration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
      */
-    public readonly vpnClientConfiguration!: pulumi.Output<outputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
+    declare public readonly vpnClientConfiguration: pulumi.Output<outputs.network.VirtualNetworkGatewayVpnClientConfiguration | undefined>;
     /**
      * The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
      */
-    public readonly vpnType!: pulumi.Output<string | undefined>;
+    declare public readonly vpnType: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualNetworkGateway resource with the given unique name, arguments, and options.
@@ -246,66 +246,66 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayState | undefined;
-            resourceInputs["activeActive"] = state ? state.activeActive : undefined;
-            resourceInputs["bgpRouteTranslationForNatEnabled"] = state ? state.bgpRouteTranslationForNatEnabled : undefined;
-            resourceInputs["bgpSettings"] = state ? state.bgpSettings : undefined;
-            resourceInputs["customRoute"] = state ? state.customRoute : undefined;
-            resourceInputs["defaultLocalNetworkGatewayId"] = state ? state.defaultLocalNetworkGatewayId : undefined;
-            resourceInputs["dnsForwardingEnabled"] = state ? state.dnsForwardingEnabled : undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["enableBgp"] = state ? state.enableBgp : undefined;
-            resourceInputs["generation"] = state ? state.generation : undefined;
-            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
-            resourceInputs["ipSecReplayProtectionEnabled"] = state ? state.ipSecReplayProtectionEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyGroups"] = state ? state.policyGroups : undefined;
-            resourceInputs["privateIpAddressEnabled"] = state ? state.privateIpAddressEnabled : undefined;
-            resourceInputs["remoteVnetTrafficEnabled"] = state ? state.remoteVnetTrafficEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["virtualWanTrafficEnabled"] = state ? state.virtualWanTrafficEnabled : undefined;
-            resourceInputs["vpnClientConfiguration"] = state ? state.vpnClientConfiguration : undefined;
-            resourceInputs["vpnType"] = state ? state.vpnType : undefined;
+            resourceInputs["activeActive"] = state?.activeActive;
+            resourceInputs["bgpRouteTranslationForNatEnabled"] = state?.bgpRouteTranslationForNatEnabled;
+            resourceInputs["bgpSettings"] = state?.bgpSettings;
+            resourceInputs["customRoute"] = state?.customRoute;
+            resourceInputs["defaultLocalNetworkGatewayId"] = state?.defaultLocalNetworkGatewayId;
+            resourceInputs["dnsForwardingEnabled"] = state?.dnsForwardingEnabled;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["enableBgp"] = state?.enableBgp;
+            resourceInputs["generation"] = state?.generation;
+            resourceInputs["ipConfigurations"] = state?.ipConfigurations;
+            resourceInputs["ipSecReplayProtectionEnabled"] = state?.ipSecReplayProtectionEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyGroups"] = state?.policyGroups;
+            resourceInputs["privateIpAddressEnabled"] = state?.privateIpAddressEnabled;
+            resourceInputs["remoteVnetTrafficEnabled"] = state?.remoteVnetTrafficEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["virtualWanTrafficEnabled"] = state?.virtualWanTrafficEnabled;
+            resourceInputs["vpnClientConfiguration"] = state?.vpnClientConfiguration;
+            resourceInputs["vpnType"] = state?.vpnType;
         } else {
             const args = argsOrState as VirtualNetworkGatewayArgs | undefined;
-            if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
+            if (args?.ipConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["activeActive"] = args ? args.activeActive : undefined;
-            resourceInputs["bgpRouteTranslationForNatEnabled"] = args ? args.bgpRouteTranslationForNatEnabled : undefined;
-            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            resourceInputs["customRoute"] = args ? args.customRoute : undefined;
-            resourceInputs["defaultLocalNetworkGatewayId"] = args ? args.defaultLocalNetworkGatewayId : undefined;
-            resourceInputs["dnsForwardingEnabled"] = args ? args.dnsForwardingEnabled : undefined;
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["generation"] = args ? args.generation : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["ipSecReplayProtectionEnabled"] = args ? args.ipSecReplayProtectionEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyGroups"] = args ? args.policyGroups : undefined;
-            resourceInputs["privateIpAddressEnabled"] = args ? args.privateIpAddressEnabled : undefined;
-            resourceInputs["remoteVnetTrafficEnabled"] = args ? args.remoteVnetTrafficEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["virtualWanTrafficEnabled"] = args ? args.virtualWanTrafficEnabled : undefined;
-            resourceInputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
-            resourceInputs["vpnType"] = args ? args.vpnType : undefined;
+            resourceInputs["activeActive"] = args?.activeActive;
+            resourceInputs["bgpRouteTranslationForNatEnabled"] = args?.bgpRouteTranslationForNatEnabled;
+            resourceInputs["bgpSettings"] = args?.bgpSettings;
+            resourceInputs["customRoute"] = args?.customRoute;
+            resourceInputs["defaultLocalNetworkGatewayId"] = args?.defaultLocalNetworkGatewayId;
+            resourceInputs["dnsForwardingEnabled"] = args?.dnsForwardingEnabled;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["enableBgp"] = args?.enableBgp;
+            resourceInputs["generation"] = args?.generation;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["ipSecReplayProtectionEnabled"] = args?.ipSecReplayProtectionEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyGroups"] = args?.policyGroups;
+            resourceInputs["privateIpAddressEnabled"] = args?.privateIpAddressEnabled;
+            resourceInputs["remoteVnetTrafficEnabled"] = args?.remoteVnetTrafficEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["virtualWanTrafficEnabled"] = args?.virtualWanTrafficEnabled;
+            resourceInputs["vpnClientConfiguration"] = args?.vpnClientConfiguration;
+            resourceInputs["vpnType"] = args?.vpnType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualNetworkGateway.__pulumiType, name, resourceInputs, opts);

@@ -85,31 +85,31 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
     /**
      * The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
      */
-    public readonly appServiceName!: pulumi.Output<string>;
+    declare public readonly appServiceName: pulumi.Output<string>;
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      *
      * > **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      */
-    public readonly hostname!: pulumi.Output<string>;
+    declare public readonly hostname: pulumi.Output<string>;
     /**
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
      */
-    public readonly sslState!: pulumi.Output<string>;
+    declare public readonly sslState: pulumi.Output<string>;
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      *
      * > **Note:** `thumbprint` must be specified when `sslState` is set.
      */
-    public readonly thumbprint!: pulumi.Output<string>;
+    declare public readonly thumbprint: pulumi.Output<string>;
     /**
      * The virtual IP address assigned to the hostname if IP based SSL is enabled.
      */
-    public /*out*/ readonly virtualIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualIp: pulumi.Output<string>;
 
     /**
      * Create a CustomHostnameBinding resource with the given unique name, arguments, and options.
@@ -124,28 +124,28 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomHostnameBindingState | undefined;
-            resourceInputs["appServiceName"] = state ? state.appServiceName : undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sslState"] = state ? state.sslState : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
-            resourceInputs["virtualIp"] = state ? state.virtualIp : undefined;
+            resourceInputs["appServiceName"] = state?.appServiceName;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sslState"] = state?.sslState;
+            resourceInputs["thumbprint"] = state?.thumbprint;
+            resourceInputs["virtualIp"] = state?.virtualIp;
         } else {
             const args = argsOrState as CustomHostnameBindingArgs | undefined;
-            if ((!args || args.appServiceName === undefined) && !opts.urn) {
+            if (args?.appServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServiceName'");
             }
-            if ((!args || args.hostname === undefined) && !opts.urn) {
+            if (args?.hostname === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostname'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appServiceName"] = args ? args.appServiceName : undefined;
-            resourceInputs["hostname"] = args ? args.hostname : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sslState"] = args ? args.sslState : undefined;
-            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["appServiceName"] = args?.appServiceName;
+            resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sslState"] = args?.sslState;
+            resourceInputs["thumbprint"] = args?.thumbprint;
             resourceInputs["virtualIp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

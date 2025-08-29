@@ -72,7 +72,7 @@ export class PortalTenantConfiguration extends pulumi.CustomResource {
      *
      * > **Note:** When `privateMarkdownStorageEnforced` is set to `true`, only external storage configuration (URI) is allowed for Markdown tiles. Inline content configuration will be prohibited.
      */
-    public readonly privateMarkdownStorageEnforced!: pulumi.Output<boolean>;
+    declare public readonly privateMarkdownStorageEnforced: pulumi.Output<boolean>;
 
     /**
      * Create a PortalTenantConfiguration resource with the given unique name, arguments, and options.
@@ -87,13 +87,13 @@ export class PortalTenantConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PortalTenantConfigurationState | undefined;
-            resourceInputs["privateMarkdownStorageEnforced"] = state ? state.privateMarkdownStorageEnforced : undefined;
+            resourceInputs["privateMarkdownStorageEnforced"] = state?.privateMarkdownStorageEnforced;
         } else {
             const args = argsOrState as PortalTenantConfigurationArgs | undefined;
-            if ((!args || args.privateMarkdownStorageEnforced === undefined) && !opts.urn) {
+            if (args?.privateMarkdownStorageEnforced === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateMarkdownStorageEnforced'");
             }
-            resourceInputs["privateMarkdownStorageEnforced"] = args ? args.privateMarkdownStorageEnforced : undefined;
+            resourceInputs["privateMarkdownStorageEnforced"] = args?.privateMarkdownStorageEnforced;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PortalTenantConfiguration.__pulumiType, name, resourceInputs, opts);

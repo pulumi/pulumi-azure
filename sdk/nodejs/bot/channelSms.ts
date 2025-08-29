@@ -76,27 +76,27 @@ export class ChannelSms extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The phone number for the SMS Channel.
      */
-    public readonly phoneNumber!: pulumi.Output<string>;
+    declare public readonly phoneNumber: pulumi.Output<string>;
     /**
      * The name of the resource group where the SMS Channel should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The account security identifier (SID) for the SMS Channel.
      */
-    public readonly smsChannelAccountSecurityId!: pulumi.Output<string>;
+    declare public readonly smsChannelAccountSecurityId: pulumi.Output<string>;
     /**
      * The authorization token for the SMS Channel.
      */
-    public readonly smsChannelAuthToken!: pulumi.Output<string>;
+    declare public readonly smsChannelAuthToken: pulumi.Output<string>;
 
     /**
      * Create a ChannelSms resource with the given unique name, arguments, and options.
@@ -111,34 +111,34 @@ export class ChannelSms extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelSmsState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["smsChannelAccountSecurityId"] = state ? state.smsChannelAccountSecurityId : undefined;
-            resourceInputs["smsChannelAuthToken"] = state ? state.smsChannelAuthToken : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["phoneNumber"] = state?.phoneNumber;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["smsChannelAccountSecurityId"] = state?.smsChannelAccountSecurityId;
+            resourceInputs["smsChannelAuthToken"] = state?.smsChannelAuthToken;
         } else {
             const args = argsOrState as ChannelSmsArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.phoneNumber === undefined) && !opts.urn) {
+            if (args?.phoneNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phoneNumber'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.smsChannelAccountSecurityId === undefined) && !opts.urn) {
+            if (args?.smsChannelAccountSecurityId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'smsChannelAccountSecurityId'");
             }
-            if ((!args || args.smsChannelAuthToken === undefined) && !opts.urn) {
+            if (args?.smsChannelAuthToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'smsChannelAuthToken'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["smsChannelAccountSecurityId"] = args ? args.smsChannelAccountSecurityId : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["phoneNumber"] = args?.phoneNumber;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["smsChannelAccountSecurityId"] = args?.smsChannelAccountSecurityId;
             resourceInputs["smsChannelAuthToken"] = args?.smsChannelAuthToken ? pulumi.secret(args.smsChannelAuthToken) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

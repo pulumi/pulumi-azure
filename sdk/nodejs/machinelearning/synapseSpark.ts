@@ -134,35 +134,35 @@ export class SynapseSpark extends pulumi.CustomResource {
     /**
      * The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearning.SynapseSparkIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.machinelearning.SynapseSparkIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    public readonly machineLearningWorkspaceId!: pulumi.Output<string>;
+    declare public readonly machineLearningWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    public readonly synapseSparkPoolId!: pulumi.Output<string>;
+    declare public readonly synapseSparkPoolId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SynapseSpark resource with the given unique name, arguments, and options.
@@ -177,30 +177,30 @@ export class SynapseSpark extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SynapseSparkState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["synapseSparkPoolId"] = state ? state.synapseSparkPoolId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["machineLearningWorkspaceId"] = state?.machineLearningWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["synapseSparkPoolId"] = state?.synapseSparkPoolId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SynapseSparkArgs | undefined;
-            if ((!args || args.machineLearningWorkspaceId === undefined) && !opts.urn) {
+            if (args?.machineLearningWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineLearningWorkspaceId'");
             }
-            if ((!args || args.synapseSparkPoolId === undefined) && !opts.urn) {
+            if (args?.synapseSparkPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseSparkPoolId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["synapseSparkPoolId"] = args ? args.synapseSparkPoolId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["machineLearningWorkspaceId"] = args?.machineLearningWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["synapseSparkPoolId"] = args?.synapseSparkPoolId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SynapseSpark.__pulumiType, name, resourceInputs, opts);

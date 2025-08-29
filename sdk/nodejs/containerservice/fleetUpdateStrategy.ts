@@ -83,15 +83,15 @@ export class FleetUpdateStrategy extends pulumi.CustomResource {
     /**
      * The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
      */
-    public readonly kubernetesFleetManagerId!: pulumi.Output<string>;
+    declare public readonly kubernetesFleetManagerId: pulumi.Output<string>;
     /**
      * The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `stage` blocks as defined below.
      */
-    public readonly stages!: pulumi.Output<outputs.containerservice.FleetUpdateStrategyStage[]>;
+    declare public readonly stages: pulumi.Output<outputs.containerservice.FleetUpdateStrategyStage[]>;
 
     /**
      * Create a FleetUpdateStrategy resource with the given unique name, arguments, and options.
@@ -106,20 +106,20 @@ export class FleetUpdateStrategy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetUpdateStrategyState | undefined;
-            resourceInputs["kubernetesFleetManagerId"] = state ? state.kubernetesFleetManagerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["stages"] = state ? state.stages : undefined;
+            resourceInputs["kubernetesFleetManagerId"] = state?.kubernetesFleetManagerId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["stages"] = state?.stages;
         } else {
             const args = argsOrState as FleetUpdateStrategyArgs | undefined;
-            if ((!args || args.kubernetesFleetManagerId === undefined) && !opts.urn) {
+            if (args?.kubernetesFleetManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesFleetManagerId'");
             }
-            if ((!args || args.stages === undefined) && !opts.urn) {
+            if (args?.stages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            resourceInputs["kubernetesFleetManagerId"] = args ? args.kubernetesFleetManagerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
+            resourceInputs["kubernetesFleetManagerId"] = args?.kubernetesFleetManagerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["stages"] = args?.stages;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FleetUpdateStrategy.__pulumiType, name, resourceInputs, opts);

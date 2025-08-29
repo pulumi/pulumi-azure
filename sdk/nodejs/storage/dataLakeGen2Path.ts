@@ -81,31 +81,31 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
     /**
      * One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
      */
-    public readonly aces!: pulumi.Output<outputs.storage.DataLakeGen2PathAce[]>;
+    declare public readonly aces: pulumi.Output<outputs.storage.DataLakeGen2PathAce[]>;
     /**
      * The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
-    public readonly filesystemName!: pulumi.Output<string>;
+    declare public readonly filesystemName: pulumi.Output<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
      */
-    public readonly group!: pulumi.Output<string>;
+    declare public readonly group: pulumi.Output<string>;
     /**
      * Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
      */
-    public readonly owner!: pulumi.Output<string>;
+    declare public readonly owner: pulumi.Output<string>;
     /**
      * The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
      */
-    public readonly path!: pulumi.Output<string>;
+    declare public readonly path: pulumi.Output<string>;
     /**
      * Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
      */
-    public readonly resource!: pulumi.Output<string>;
+    declare public readonly resource: pulumi.Output<string>;
     /**
      * Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a DataLakeGen2Path resource with the given unique name, arguments, and options.
@@ -120,34 +120,34 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataLakeGen2PathState | undefined;
-            resourceInputs["aces"] = state ? state.aces : undefined;
-            resourceInputs["filesystemName"] = state ? state.filesystemName : undefined;
-            resourceInputs["group"] = state ? state.group : undefined;
-            resourceInputs["owner"] = state ? state.owner : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["resource"] = state ? state.resource : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["aces"] = state?.aces;
+            resourceInputs["filesystemName"] = state?.filesystemName;
+            resourceInputs["group"] = state?.group;
+            resourceInputs["owner"] = state?.owner;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["resource"] = state?.resource;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as DataLakeGen2PathArgs | undefined;
-            if ((!args || args.filesystemName === undefined) && !opts.urn) {
+            if (args?.filesystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filesystemName'");
             }
-            if ((!args || args.path === undefined) && !opts.urn) {
+            if (args?.path === undefined && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["aces"] = args ? args.aces : undefined;
-            resourceInputs["filesystemName"] = args ? args.filesystemName : undefined;
-            resourceInputs["group"] = args ? args.group : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["aces"] = args?.aces;
+            resourceInputs["filesystemName"] = args?.filesystemName;
+            resourceInputs["group"] = args?.group;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["resource"] = args?.resource;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataLakeGen2Path.__pulumiType, name, resourceInputs, opts);

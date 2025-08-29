@@ -75,29 +75,29 @@ export class LocalRulestackCertificate extends pulumi.CustomResource {
     /**
      * The comment for Audit purposes.
      */
-    public readonly auditComment!: pulumi.Output<string | undefined>;
+    declare public readonly auditComment: pulumi.Output<string | undefined>;
     /**
      * The description for the Certificate.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The `versionlesId` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      */
-    public readonly keyVaultCertificateId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultCertificateId: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Networks Rulestack Certificate.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      */
-    public readonly rulestackId!: pulumi.Output<string>;
+    declare public readonly rulestackId: pulumi.Output<string>;
     /**
      * Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created.
      *
      * > **Note:** One and only one of `selfSigned` or `keyVaultCertificateId` must be specified.
      */
-    public readonly selfSigned!: pulumi.Output<boolean | undefined>;
+    declare public readonly selfSigned: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LocalRulestackCertificate resource with the given unique name, arguments, and options.
@@ -112,23 +112,23 @@ export class LocalRulestackCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRulestackCertificateState | undefined;
-            resourceInputs["auditComment"] = state ? state.auditComment : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["keyVaultCertificateId"] = state ? state.keyVaultCertificateId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rulestackId"] = state ? state.rulestackId : undefined;
-            resourceInputs["selfSigned"] = state ? state.selfSigned : undefined;
+            resourceInputs["auditComment"] = state?.auditComment;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["keyVaultCertificateId"] = state?.keyVaultCertificateId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rulestackId"] = state?.rulestackId;
+            resourceInputs["selfSigned"] = state?.selfSigned;
         } else {
             const args = argsOrState as LocalRulestackCertificateArgs | undefined;
-            if ((!args || args.rulestackId === undefined) && !opts.urn) {
+            if (args?.rulestackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulestackId'");
             }
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["keyVaultCertificateId"] = args ? args.keyVaultCertificateId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rulestackId"] = args ? args.rulestackId : undefined;
-            resourceInputs["selfSigned"] = args ? args.selfSigned : undefined;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["keyVaultCertificateId"] = args?.keyVaultCertificateId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rulestackId"] = args?.rulestackId;
+            resourceInputs["selfSigned"] = args?.selfSigned;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalRulestackCertificate.__pulumiType, name, resourceInputs, opts);

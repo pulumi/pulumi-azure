@@ -148,35 +148,35 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly filters!: pulumi.Output<outputs.compute.PacketCaptureFilter[] | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.compute.PacketCaptureFilter[] | undefined>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
-    public readonly maximumBytesPerPacket!: pulumi.Output<number | undefined>;
+    declare public readonly maximumBytesPerPacket: pulumi.Output<number | undefined>;
     /**
      * Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
      */
-    public readonly maximumBytesPerSession!: pulumi.Output<number | undefined>;
+    declare public readonly maximumBytesPerSession: pulumi.Output<number | undefined>;
     /**
      * The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
      */
-    public readonly maximumCaptureDurationInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly maximumCaptureDurationInSeconds: pulumi.Output<number | undefined>;
     /**
      * The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    public readonly networkWatcherId!: pulumi.Output<string>;
+    declare public readonly networkWatcherId: pulumi.Output<string>;
     /**
      * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly storageLocation!: pulumi.Output<outputs.compute.PacketCaptureStorageLocation>;
+    declare public readonly storageLocation: pulumi.Output<outputs.compute.PacketCaptureStorageLocation>;
     /**
      * The resource ID of the target Virtual Machine to capture packets from. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineId!: pulumi.Output<string>;
+    declare public readonly virtualMachineId: pulumi.Output<string>;
 
     /**
      * Create a PacketCapture resource with the given unique name, arguments, and options.
@@ -191,33 +191,33 @@ export class PacketCapture extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PacketCaptureState | undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["maximumBytesPerPacket"] = state ? state.maximumBytesPerPacket : undefined;
-            resourceInputs["maximumBytesPerSession"] = state ? state.maximumBytesPerSession : undefined;
-            resourceInputs["maximumCaptureDurationInSeconds"] = state ? state.maximumCaptureDurationInSeconds : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkWatcherId"] = state ? state.networkWatcherId : undefined;
-            resourceInputs["storageLocation"] = state ? state.storageLocation : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["maximumBytesPerPacket"] = state?.maximumBytesPerPacket;
+            resourceInputs["maximumBytesPerSession"] = state?.maximumBytesPerSession;
+            resourceInputs["maximumCaptureDurationInSeconds"] = state?.maximumCaptureDurationInSeconds;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkWatcherId"] = state?.networkWatcherId;
+            resourceInputs["storageLocation"] = state?.storageLocation;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
         } else {
             const args = argsOrState as PacketCaptureArgs | undefined;
-            if ((!args || args.networkWatcherId === undefined) && !opts.urn) {
+            if (args?.networkWatcherId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherId'");
             }
-            if ((!args || args.storageLocation === undefined) && !opts.urn) {
+            if (args?.storageLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
+            if (args?.virtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["maximumBytesPerPacket"] = args ? args.maximumBytesPerPacket : undefined;
-            resourceInputs["maximumBytesPerSession"] = args ? args.maximumBytesPerSession : undefined;
-            resourceInputs["maximumCaptureDurationInSeconds"] = args ? args.maximumCaptureDurationInSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkWatcherId"] = args ? args.networkWatcherId : undefined;
-            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
-            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["maximumBytesPerPacket"] = args?.maximumBytesPerPacket;
+            resourceInputs["maximumBytesPerSession"] = args?.maximumBytesPerSession;
+            resourceInputs["maximumCaptureDurationInSeconds"] = args?.maximumCaptureDurationInSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkWatcherId"] = args?.networkWatcherId;
+            resourceInputs["storageLocation"] = args?.storageLocation;
+            resourceInputs["virtualMachineId"] = args?.virtualMachineId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PacketCapture.__pulumiType, name, resourceInputs, opts);

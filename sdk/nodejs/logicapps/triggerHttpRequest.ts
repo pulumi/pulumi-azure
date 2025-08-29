@@ -76,31 +76,31 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
     /**
      * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      */
-    public /*out*/ readonly callbackUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly callbackUrl: pulumi.Output<string>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly logicAppId!: pulumi.Output<string>;
+    declare public readonly logicAppId: pulumi.Output<string>;
     /**
      * Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
      */
-    public readonly method!: pulumi.Output<string | undefined>;
+    declare public readonly method: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Relative Path used for this Request.
      *
      * > **NOTE:** When `relativePath` is set a `method` must also be set.
      */
-    public readonly relativePath!: pulumi.Output<string | undefined>;
+    declare public readonly relativePath: pulumi.Output<string | undefined>;
     /**
      * A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
      */
-    public readonly schema!: pulumi.Output<string>;
+    declare public readonly schema: pulumi.Output<string>;
 
     /**
      * Create a TriggerHttpRequest resource with the given unique name, arguments, and options.
@@ -115,25 +115,25 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerHttpRequestState | undefined;
-            resourceInputs["callbackUrl"] = state ? state.callbackUrl : undefined;
-            resourceInputs["logicAppId"] = state ? state.logicAppId : undefined;
-            resourceInputs["method"] = state ? state.method : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["relativePath"] = state ? state.relativePath : undefined;
-            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["callbackUrl"] = state?.callbackUrl;
+            resourceInputs["logicAppId"] = state?.logicAppId;
+            resourceInputs["method"] = state?.method;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["relativePath"] = state?.relativePath;
+            resourceInputs["schema"] = state?.schema;
         } else {
             const args = argsOrState as TriggerHttpRequestArgs | undefined;
-            if ((!args || args.logicAppId === undefined) && !opts.urn) {
+            if (args?.logicAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            if ((!args || args.schema === undefined) && !opts.urn) {
+            if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
             }
-            resourceInputs["logicAppId"] = args ? args.logicAppId : undefined;
-            resourceInputs["method"] = args ? args.method : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["relativePath"] = args ? args.relativePath : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["logicAppId"] = args?.logicAppId;
+            resourceInputs["method"] = args?.method;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["relativePath"] = args?.relativePath;
+            resourceInputs["schema"] = args?.schema;
             resourceInputs["callbackUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

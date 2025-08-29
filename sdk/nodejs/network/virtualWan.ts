@@ -70,35 +70,35 @@ export class VirtualWan extends pulumi.CustomResource {
     /**
      * Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
      */
-    public readonly allowBranchToBranchTraffic!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowBranchToBranchTraffic: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
      */
-    public readonly disableVpnEncryption!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableVpnEncryption: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
      */
-    public readonly office365LocalBreakoutCategory!: pulumi.Output<string | undefined>;
+    declare public readonly office365LocalBreakoutCategory: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Virtual WAN.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -113,27 +113,27 @@ export class VirtualWan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualWanState | undefined;
-            resourceInputs["allowBranchToBranchTraffic"] = state ? state.allowBranchToBranchTraffic : undefined;
-            resourceInputs["disableVpnEncryption"] = state ? state.disableVpnEncryption : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["office365LocalBreakoutCategory"] = state ? state.office365LocalBreakoutCategory : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["allowBranchToBranchTraffic"] = state?.allowBranchToBranchTraffic;
+            resourceInputs["disableVpnEncryption"] = state?.disableVpnEncryption;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["office365LocalBreakoutCategory"] = state?.office365LocalBreakoutCategory;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as VirtualWanArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
-            resourceInputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["allowBranchToBranchTraffic"] = args?.allowBranchToBranchTraffic;
+            resourceInputs["disableVpnEncryption"] = args?.disableVpnEncryption;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["office365LocalBreakoutCategory"] = args?.office365LocalBreakoutCategory;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualWan.__pulumiType, name, resourceInputs, opts);

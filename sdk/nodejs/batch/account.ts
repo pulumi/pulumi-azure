@@ -85,43 +85,43 @@ export class Account extends pulumi.CustomResource {
     /**
      * The account endpoint used to interact with the Batch service.
      */
-    public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountEndpoint: pulumi.Output<string>;
     /**
      * Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
      */
-    public readonly allowedAuthenticationModes!: pulumi.Output<string[]>;
+    declare public readonly allowedAuthenticationModes: pulumi.Output<string[]>;
     /**
      * Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
      */
-    public readonly encryption!: pulumi.Output<outputs.batch.AccountEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.batch.AccountEncryption | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.batch.AccountIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.batch.AccountIdentity | undefined>;
     /**
      * A `keyVaultReference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      */
-    public readonly keyVaultReference!: pulumi.Output<outputs.batch.AccountKeyVaultReference | undefined>;
+    declare public readonly keyVaultReference: pulumi.Output<outputs.batch.AccountKeyVaultReference | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkProfile` block as defined below.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.batch.AccountNetworkProfile | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.batch.AccountNetworkProfile | undefined>;
     /**
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
      */
-    public readonly poolAllocationMode!: pulumi.Output<string | undefined>;
+    declare public readonly poolAllocationMode: pulumi.Output<string | undefined>;
     /**
      * The Batch account primary access key.
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * Whether public network access is allowed for this server. Defaults to `true`.
      *
@@ -129,37 +129,37 @@ export class Account extends pulumi.CustomResource {
      *
      * > **NOTE:** When using `UserSubscription` mode, the `Microsoft Azure Batch` service principal has to have `Contributor` role on your subscription scope, as documented [here](https://docs.microsoft.com/azure/batch/batch-account-create-portal#additional-configuration-for-user-subscription-mode).
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      *
      * > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Batch account secondary access key.
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
      *
      * > **NOTE:** When using `BatchAccountManagedIdentity` mod, the `identity.type` must set to `UserAssigned` or `SystemAssigned`.
      */
-    public readonly storageAccountAuthenticationMode!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountAuthenticationMode: pulumi.Output<string | undefined>;
     /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      *
      * > **NOTE:** When using `storageAccountId`, the `storageAccountAuthenticationMode` must be specified as well.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * Specifies the user assigned identity for the storage account.
      */
-    public readonly storageAccountNodeIdentity!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountNodeIdentity: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -174,42 +174,42 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["accountEndpoint"] = state ? state.accountEndpoint : undefined;
-            resourceInputs["allowedAuthenticationModes"] = state ? state.allowedAuthenticationModes : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["keyVaultReference"] = state ? state.keyVaultReference : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
-            resourceInputs["poolAllocationMode"] = state ? state.poolAllocationMode : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            resourceInputs["storageAccountAuthenticationMode"] = state ? state.storageAccountAuthenticationMode : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["storageAccountNodeIdentity"] = state ? state.storageAccountNodeIdentity : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accountEndpoint"] = state?.accountEndpoint;
+            resourceInputs["allowedAuthenticationModes"] = state?.allowedAuthenticationModes;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["keyVaultReference"] = state?.keyVaultReference;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkProfile"] = state?.networkProfile;
+            resourceInputs["poolAllocationMode"] = state?.poolAllocationMode;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
+            resourceInputs["storageAccountAuthenticationMode"] = state?.storageAccountAuthenticationMode;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["storageAccountNodeIdentity"] = state?.storageAccountNodeIdentity;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowedAuthenticationModes"] = args ? args.allowedAuthenticationModes : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountAuthenticationMode"] = args ? args.storageAccountAuthenticationMode : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["storageAccountNodeIdentity"] = args ? args.storageAccountNodeIdentity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedAuthenticationModes"] = args?.allowedAuthenticationModes;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultReference"] = args?.keyVaultReference;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["poolAllocationMode"] = args?.poolAllocationMode;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountAuthenticationMode"] = args?.storageAccountAuthenticationMode;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["storageAccountNodeIdentity"] = args?.storageAccountNodeIdentity;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountEndpoint"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;

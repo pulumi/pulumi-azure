@@ -78,23 +78,23 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
     /**
      * Specifies the name of the Windows Event Log to collect events from.
      */
-    public readonly eventLogName!: pulumi.Output<string>;
+    declare public readonly eventLogName: pulumi.Output<string>;
     /**
      * Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`.
      */
-    public readonly eventTypes!: pulumi.Output<string[]>;
+    declare public readonly eventTypes: pulumi.Output<string[]>;
     /**
      * The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created.
      */
-    public readonly workspaceName!: pulumi.Output<string>;
+    declare public readonly workspaceName: pulumi.Output<string>;
 
     /**
      * Create a DataSourceWindowsEvent resource with the given unique name, arguments, and options.
@@ -109,30 +109,30 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSourceWindowsEventState | undefined;
-            resourceInputs["eventLogName"] = state ? state.eventLogName : undefined;
-            resourceInputs["eventTypes"] = state ? state.eventTypes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = state ? state.workspaceName : undefined;
+            resourceInputs["eventLogName"] = state?.eventLogName;
+            resourceInputs["eventTypes"] = state?.eventTypes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["workspaceName"] = state?.workspaceName;
         } else {
             const args = argsOrState as DataSourceWindowsEventArgs | undefined;
-            if ((!args || args.eventLogName === undefined) && !opts.urn) {
+            if (args?.eventLogName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventLogName'");
             }
-            if ((!args || args.eventTypes === undefined) && !opts.urn) {
+            if (args?.eventTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["eventLogName"] = args ? args.eventLogName : undefined;
-            resourceInputs["eventTypes"] = args ? args.eventTypes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["eventLogName"] = args?.eventLogName;
+            resourceInputs["eventTypes"] = args?.eventTypes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataSourceWindowsEvent.__pulumiType, name, resourceInputs, opts);

@@ -149,35 +149,35 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
     /**
      * An `activationRules` block as defined below.
      */
-    public readonly activationRules!: pulumi.Output<outputs.pim.RoleManagementPolicyActivationRules>;
+    declare public readonly activationRules: pulumi.Output<outputs.pim.RoleManagementPolicyActivationRules>;
     /**
      * An `activeAssignmentRules` block as defined below.
      */
-    public readonly activeAssignmentRules!: pulumi.Output<outputs.pim.RoleManagementPolicyActiveAssignmentRules>;
+    declare public readonly activeAssignmentRules: pulumi.Output<outputs.pim.RoleManagementPolicyActiveAssignmentRules>;
     /**
      * (String) The description of this policy.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * An `eligibleAssignmentRules` block as defined below.
      */
-    public readonly eligibleAssignmentRules!: pulumi.Output<outputs.pim.RoleManagementPolicyEligibleAssignmentRules>;
+    declare public readonly eligibleAssignmentRules: pulumi.Output<outputs.pim.RoleManagementPolicyEligibleAssignmentRules>;
     /**
      * (String) The name of this policy, which is typically a UUID and may change over time.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A `notificationRules` block as defined below.
      */
-    public readonly notificationRules!: pulumi.Output<outputs.pim.RoleManagementPolicyNotificationRules>;
+    declare public readonly notificationRules: pulumi.Output<outputs.pim.RoleManagementPolicyNotificationRules>;
     /**
      * The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    declare public readonly roleDefinitionId: pulumi.Output<string>;
     /**
      * The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
 
     /**
      * Create a RoleManagementPolicy resource with the given unique name, arguments, and options.
@@ -192,28 +192,28 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleManagementPolicyState | undefined;
-            resourceInputs["activationRules"] = state ? state.activationRules : undefined;
-            resourceInputs["activeAssignmentRules"] = state ? state.activeAssignmentRules : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["eligibleAssignmentRules"] = state ? state.eligibleAssignmentRules : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationRules"] = state ? state.notificationRules : undefined;
-            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["activationRules"] = state?.activationRules;
+            resourceInputs["activeAssignmentRules"] = state?.activeAssignmentRules;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["eligibleAssignmentRules"] = state?.eligibleAssignmentRules;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationRules"] = state?.notificationRules;
+            resourceInputs["roleDefinitionId"] = state?.roleDefinitionId;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as RoleManagementPolicyArgs | undefined;
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
+            if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["activationRules"] = args ? args.activationRules : undefined;
-            resourceInputs["activeAssignmentRules"] = args ? args.activeAssignmentRules : undefined;
-            resourceInputs["eligibleAssignmentRules"] = args ? args.eligibleAssignmentRules : undefined;
-            resourceInputs["notificationRules"] = args ? args.notificationRules : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["activationRules"] = args?.activationRules;
+            resourceInputs["activeAssignmentRules"] = args?.activeAssignmentRules;
+            resourceInputs["eligibleAssignmentRules"] = args?.eligibleAssignmentRules;
+            resourceInputs["notificationRules"] = args?.notificationRules;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }

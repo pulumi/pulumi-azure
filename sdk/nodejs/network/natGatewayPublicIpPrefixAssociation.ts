@@ -82,11 +82,11 @@ export class NatGatewayPublicIpPrefixAssociation extends pulumi.CustomResource {
     /**
      * The ID of the NAT Gateway. Changing this forces a new resource to be created.
      */
-    public readonly natGatewayId!: pulumi.Output<string>;
+    declare public readonly natGatewayId: pulumi.Output<string>;
     /**
      * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly publicIpPrefixId!: pulumi.Output<string>;
+    declare public readonly publicIpPrefixId: pulumi.Output<string>;
 
     /**
      * Create a NatGatewayPublicIpPrefixAssociation resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class NatGatewayPublicIpPrefixAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatGatewayPublicIpPrefixAssociationState | undefined;
-            resourceInputs["natGatewayId"] = state ? state.natGatewayId : undefined;
-            resourceInputs["publicIpPrefixId"] = state ? state.publicIpPrefixId : undefined;
+            resourceInputs["natGatewayId"] = state?.natGatewayId;
+            resourceInputs["publicIpPrefixId"] = state?.publicIpPrefixId;
         } else {
             const args = argsOrState as NatGatewayPublicIpPrefixAssociationArgs | undefined;
-            if ((!args || args.natGatewayId === undefined) && !opts.urn) {
+            if (args?.natGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'natGatewayId'");
             }
-            if ((!args || args.publicIpPrefixId === undefined) && !opts.urn) {
+            if (args?.publicIpPrefixId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicIpPrefixId'");
             }
-            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            resourceInputs["publicIpPrefixId"] = args ? args.publicIpPrefixId : undefined;
+            resourceInputs["natGatewayId"] = args?.natGatewayId;
+            resourceInputs["publicIpPrefixId"] = args?.publicIpPrefixId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NatGatewayPublicIpPrefixAssociation.__pulumiType, name, resourceInputs, opts);

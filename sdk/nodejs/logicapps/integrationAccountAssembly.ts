@@ -81,35 +81,35 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
     /**
      * The name of the Logic App Integration Account Assembly.
      */
-    public readonly assemblyName!: pulumi.Output<string>;
+    declare public readonly assemblyName: pulumi.Output<string>;
     /**
      * The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
      */
-    public readonly assemblyVersion!: pulumi.Output<string | undefined>;
+    declare public readonly assemblyVersion: pulumi.Output<string | undefined>;
     /**
      * The content of the Logic App Integration Account Assembly.
      */
-    public readonly content!: pulumi.Output<string | undefined>;
+    declare public readonly content: pulumi.Output<string | undefined>;
     /**
      * The content link URI of the Logic App Integration Account Assembly.
      */
-    public readonly contentLinkUri!: pulumi.Output<string | undefined>;
+    declare public readonly contentLinkUri: pulumi.Output<string | undefined>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      */
-    public readonly integrationAccountName!: pulumi.Output<string>;
+    declare public readonly integrationAccountName: pulumi.Output<string>;
     /**
      * The metadata of the Logic App Integration Account Assembly.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAccountAssembly resource with the given unique name, arguments, and options.
@@ -124,33 +124,33 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountAssemblyState | undefined;
-            resourceInputs["assemblyName"] = state ? state.assemblyName : undefined;
-            resourceInputs["assemblyVersion"] = state ? state.assemblyVersion : undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["contentLinkUri"] = state ? state.contentLinkUri : undefined;
-            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["assemblyName"] = state?.assemblyName;
+            resourceInputs["assemblyVersion"] = state?.assemblyVersion;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["contentLinkUri"] = state?.contentLinkUri;
+            resourceInputs["integrationAccountName"] = state?.integrationAccountName;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IntegrationAccountAssemblyArgs | undefined;
-            if ((!args || args.assemblyName === undefined) && !opts.urn) {
+            if (args?.assemblyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assemblyName'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assemblyName"] = args ? args.assemblyName : undefined;
-            resourceInputs["assemblyVersion"] = args ? args.assemblyVersion : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentLinkUri"] = args ? args.contentLinkUri : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["assemblyName"] = args?.assemblyName;
+            resourceInputs["assemblyVersion"] = args?.assemblyVersion;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentLinkUri"] = args?.contentLinkUri;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAccountAssembly.__pulumiType, name, resourceInputs, opts);

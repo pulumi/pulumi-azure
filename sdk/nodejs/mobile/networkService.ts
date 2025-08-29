@@ -119,31 +119,31 @@ export class NetworkService extends pulumi.CustomResource {
     /**
      * Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the ID of the Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
      */
-    public readonly mobileNetworkId!: pulumi.Output<string>;
+    declare public readonly mobileNetworkId: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `pccRule` block as defined below. The set of PCC Rules that make up this service.
      */
-    public readonly pccRules!: pulumi.Output<outputs.mobile.NetworkServicePccRule[]>;
+    declare public readonly pccRules: pulumi.Output<outputs.mobile.NetworkServicePccRule[]>;
     /**
      * A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network. Must be between `0` and `255`.
      */
-    public readonly servicePrecedence!: pulumi.Output<number>;
+    declare public readonly servicePrecedence: pulumi.Output<number>;
     /**
      * A `serviceQosPolicy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pccRule`. If this field is not specified then the `simPolicy` of User Equipment (UE) will define the QoS settings.
      */
-    public readonly serviceQosPolicy!: pulumi.Output<outputs.mobile.NetworkServiceServiceQosPolicy | undefined>;
+    declare public readonly serviceQosPolicy: pulumi.Output<outputs.mobile.NetworkServiceServiceQosPolicy | undefined>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NetworkService resource with the given unique name, arguments, and options.
@@ -158,31 +158,31 @@ export class NetworkService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkServiceState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mobileNetworkId"] = state ? state.mobileNetworkId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pccRules"] = state ? state.pccRules : undefined;
-            resourceInputs["servicePrecedence"] = state ? state.servicePrecedence : undefined;
-            resourceInputs["serviceQosPolicy"] = state ? state.serviceQosPolicy : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mobileNetworkId"] = state?.mobileNetworkId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pccRules"] = state?.pccRules;
+            resourceInputs["servicePrecedence"] = state?.servicePrecedence;
+            resourceInputs["serviceQosPolicy"] = state?.serviceQosPolicy;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NetworkServiceArgs | undefined;
-            if ((!args || args.mobileNetworkId === undefined) && !opts.urn) {
+            if (args?.mobileNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkId'");
             }
-            if ((!args || args.pccRules === undefined) && !opts.urn) {
+            if (args?.pccRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pccRules'");
             }
-            if ((!args || args.servicePrecedence === undefined) && !opts.urn) {
+            if (args?.servicePrecedence === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servicePrecedence'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkId"] = args ? args.mobileNetworkId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pccRules"] = args ? args.pccRules : undefined;
-            resourceInputs["servicePrecedence"] = args ? args.servicePrecedence : undefined;
-            resourceInputs["serviceQosPolicy"] = args ? args.serviceQosPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkId"] = args?.mobileNetworkId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pccRules"] = args?.pccRules;
+            resourceInputs["servicePrecedence"] = args?.servicePrecedence;
+            resourceInputs["serviceQosPolicy"] = args?.serviceQosPolicy;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkService.__pulumiType, name, resourceInputs, opts);

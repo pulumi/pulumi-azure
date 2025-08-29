@@ -116,43 +116,43 @@ export class Project extends pulumi.CustomResource {
     /**
      * The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
      */
-    public readonly aiServicesHubId!: pulumi.Output<string>;
+    declare public readonly aiServicesHubId: pulumi.Output<string>;
     /**
      * The description of this AI Foundry Project.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of this AI Foundry Project.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
      */
-    public readonly highBusinessImpactEnabled!: pulumi.Output<boolean>;
+    declare public readonly highBusinessImpactEnabled: pulumi.Output<boolean>;
     /**
      * A `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.aifoundry.ProjectIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.aifoundry.ProjectIdentity | undefined>;
     /**
      * The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
      */
-    public readonly primaryUserAssignedIdentity!: pulumi.Output<string | undefined>;
+    declare public readonly primaryUserAssignedIdentity: pulumi.Output<string | undefined>;
     /**
      * The immutable project ID associated with this AI Foundry Project.
      */
-    public /*out*/ readonly projectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly projectId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the AI Foundry Project.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -167,30 +167,30 @@ export class Project extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            resourceInputs["aiServicesHubId"] = state ? state.aiServicesHubId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["highBusinessImpactEnabled"] = state ? state.highBusinessImpactEnabled : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryUserAssignedIdentity"] = state ? state.primaryUserAssignedIdentity : undefined;
-            resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["aiServicesHubId"] = state?.aiServicesHubId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["highBusinessImpactEnabled"] = state?.highBusinessImpactEnabled;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryUserAssignedIdentity"] = state?.primaryUserAssignedIdentity;
+            resourceInputs["projectId"] = state?.projectId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            if ((!args || args.aiServicesHubId === undefined) && !opts.urn) {
+            if (args?.aiServicesHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aiServicesHubId'");
             }
-            resourceInputs["aiServicesHubId"] = args ? args.aiServicesHubId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["highBusinessImpactEnabled"] = args ? args.highBusinessImpactEnabled : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aiServicesHubId"] = args?.aiServicesHubId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["highBusinessImpactEnabled"] = args?.highBusinessImpactEnabled;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["primaryUserAssignedIdentity"] = args?.primaryUserAssignedIdentity;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["projectId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -83,27 +83,27 @@ export class Job extends pulumi.CustomResource {
     /**
      * The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
      */
-    public readonly batchPoolId!: pulumi.Output<string>;
+    declare public readonly batchPoolId: pulumi.Output<string>;
     /**
      * Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created.
      */
-    public readonly commonEnvironmentProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly commonEnvironmentProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The display name of this Batch Job. Changing this forces a new Batch Job to be created.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
      */
-    public readonly taskRetryMaximum!: pulumi.Output<number | undefined>;
+    declare public readonly taskRetryMaximum: pulumi.Output<number | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -118,23 +118,23 @@ export class Job extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
-            resourceInputs["batchPoolId"] = state ? state.batchPoolId : undefined;
-            resourceInputs["commonEnvironmentProperties"] = state ? state.commonEnvironmentProperties : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["taskRetryMaximum"] = state ? state.taskRetryMaximum : undefined;
+            resourceInputs["batchPoolId"] = state?.batchPoolId;
+            resourceInputs["commonEnvironmentProperties"] = state?.commonEnvironmentProperties;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["taskRetryMaximum"] = state?.taskRetryMaximum;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if ((!args || args.batchPoolId === undefined) && !opts.urn) {
+            if (args?.batchPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'batchPoolId'");
             }
-            resourceInputs["batchPoolId"] = args ? args.batchPoolId : undefined;
-            resourceInputs["commonEnvironmentProperties"] = args ? args.commonEnvironmentProperties : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["taskRetryMaximum"] = args ? args.taskRetryMaximum : undefined;
+            resourceInputs["batchPoolId"] = args?.batchPoolId;
+            resourceInputs["commonEnvironmentProperties"] = args?.commonEnvironmentProperties;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["taskRetryMaximum"] = args?.taskRetryMaximum;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Job.__pulumiType, name, resourceInputs, opts);

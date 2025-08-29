@@ -46,35 +46,35 @@ export class OutputCosmosdb extends pulumi.CustomResource {
     /**
      * The authentication mode for the CosmosDB database. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
      */
-    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationMode: pulumi.Output<string | undefined>;
     /**
      * The name of the CosmosDB container.
      */
-    public readonly containerName!: pulumi.Output<string>;
+    declare public readonly containerName: pulumi.Output<string>;
     /**
      * The account key for the CosmosDB database.
      */
-    public readonly cosmosdbAccountKey!: pulumi.Output<string>;
+    declare public readonly cosmosdbAccountKey: pulumi.Output<string>;
     /**
      * The ID of the CosmosDB database.
      */
-    public readonly cosmosdbSqlDatabaseId!: pulumi.Output<string>;
+    declare public readonly cosmosdbSqlDatabaseId: pulumi.Output<string>;
     /**
      * The name of the field in output events used to specify the primary key which insert or update operations are based on.
      */
-    public readonly documentId!: pulumi.Output<string | undefined>;
+    declare public readonly documentId: pulumi.Output<string | undefined>;
     /**
      * The name of the Stream Analytics Output. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
      */
-    public readonly partitionKey!: pulumi.Output<string | undefined>;
+    declare public readonly partitionKey: pulumi.Output<string | undefined>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobId!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobId: pulumi.Output<string>;
 
     /**
      * Create a OutputCosmosdb resource with the given unique name, arguments, and options.
@@ -89,36 +89,36 @@ export class OutputCosmosdb extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputCosmosdbState | undefined;
-            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
-            resourceInputs["containerName"] = state ? state.containerName : undefined;
-            resourceInputs["cosmosdbAccountKey"] = state ? state.cosmosdbAccountKey : undefined;
-            resourceInputs["cosmosdbSqlDatabaseId"] = state ? state.cosmosdbSqlDatabaseId : undefined;
-            resourceInputs["documentId"] = state ? state.documentId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
-            resourceInputs["streamAnalyticsJobId"] = state ? state.streamAnalyticsJobId : undefined;
+            resourceInputs["authenticationMode"] = state?.authenticationMode;
+            resourceInputs["containerName"] = state?.containerName;
+            resourceInputs["cosmosdbAccountKey"] = state?.cosmosdbAccountKey;
+            resourceInputs["cosmosdbSqlDatabaseId"] = state?.cosmosdbSqlDatabaseId;
+            resourceInputs["documentId"] = state?.documentId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partitionKey"] = state?.partitionKey;
+            resourceInputs["streamAnalyticsJobId"] = state?.streamAnalyticsJobId;
         } else {
             const args = argsOrState as OutputCosmosdbArgs | undefined;
-            if ((!args || args.containerName === undefined) && !opts.urn) {
+            if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.cosmosdbAccountKey === undefined) && !opts.urn) {
+            if (args?.cosmosdbAccountKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosdbAccountKey'");
             }
-            if ((!args || args.cosmosdbSqlDatabaseId === undefined) && !opts.urn) {
+            if (args?.cosmosdbSqlDatabaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosdbSqlDatabaseId'");
             }
-            if ((!args || args.streamAnalyticsJobId === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobId'");
             }
-            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["authenticationMode"] = args?.authenticationMode;
+            resourceInputs["containerName"] = args?.containerName;
             resourceInputs["cosmosdbAccountKey"] = args?.cosmosdbAccountKey ? pulumi.secret(args.cosmosdbAccountKey) : undefined;
-            resourceInputs["cosmosdbSqlDatabaseId"] = args ? args.cosmosdbSqlDatabaseId : undefined;
-            resourceInputs["documentId"] = args ? args.documentId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
-            resourceInputs["streamAnalyticsJobId"] = args ? args.streamAnalyticsJobId : undefined;
+            resourceInputs["cosmosdbSqlDatabaseId"] = args?.cosmosdbSqlDatabaseId;
+            resourceInputs["documentId"] = args?.documentId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partitionKey"] = args?.partitionKey;
+            resourceInputs["streamAnalyticsJobId"] = args?.streamAnalyticsJobId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["cosmosdbAccountKey"] };

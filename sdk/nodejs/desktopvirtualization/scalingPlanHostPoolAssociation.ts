@@ -125,15 +125,15 @@ export class ScalingPlanHostPoolAssociation extends pulumi.CustomResource {
     /**
      * Should the Scaling Plan be enabled on this Host Pool.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The resource ID for the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
      */
-    public readonly hostPoolId!: pulumi.Output<string>;
+    declare public readonly hostPoolId: pulumi.Output<string>;
     /**
      * The resource ID for the Virtual Desktop Scaling Plan. Changing this forces a new resource to be created.
      */
-    public readonly scalingPlanId!: pulumi.Output<string>;
+    declare public readonly scalingPlanId: pulumi.Output<string>;
 
     /**
      * Create a ScalingPlanHostPoolAssociation resource with the given unique name, arguments, and options.
@@ -148,23 +148,23 @@ export class ScalingPlanHostPoolAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScalingPlanHostPoolAssociationState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["hostPoolId"] = state ? state.hostPoolId : undefined;
-            resourceInputs["scalingPlanId"] = state ? state.scalingPlanId : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["hostPoolId"] = state?.hostPoolId;
+            resourceInputs["scalingPlanId"] = state?.scalingPlanId;
         } else {
             const args = argsOrState as ScalingPlanHostPoolAssociationArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.hostPoolId === undefined) && !opts.urn) {
+            if (args?.hostPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolId'");
             }
-            if ((!args || args.scalingPlanId === undefined) && !opts.urn) {
+            if (args?.scalingPlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalingPlanId'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["hostPoolId"] = args ? args.hostPoolId : undefined;
-            resourceInputs["scalingPlanId"] = args ? args.scalingPlanId : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["hostPoolId"] = args?.hostPoolId;
+            resourceInputs["scalingPlanId"] = args?.scalingPlanId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScalingPlanHostPoolAssociation.__pulumiType, name, resourceInputs, opts);

@@ -77,41 +77,41 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * The name of the NetApp account in which the NetApp Policy should be created under. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
      */
-    public readonly dailyBackupsToKeep!: pulumi.Output<number | undefined>;
+    declare public readonly dailyBackupsToKeep: pulumi.Output<number | undefined>;
     /**
      * Whether the Backup Policy is enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Provides the number of monthly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      *
      * > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
      */
-    public readonly monthlyBackupsToKeep!: pulumi.Output<number | undefined>;
+    declare public readonly monthlyBackupsToKeep: pulumi.Output<number | undefined>;
     /**
      * The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Provides the number of weekly backups to keep, defaults to `1`. The minimum is `0` and the maximum is `1019`.
      */
-    public readonly weeklyBackupsToKeep!: pulumi.Output<number | undefined>;
+    declare public readonly weeklyBackupsToKeep: pulumi.Output<number | undefined>;
 
     /**
      * Create a BackupPolicy resource with the given unique name, arguments, and options.
@@ -126,32 +126,32 @@ export class BackupPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupPolicyState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["dailyBackupsToKeep"] = state ? state.dailyBackupsToKeep : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["monthlyBackupsToKeep"] = state ? state.monthlyBackupsToKeep : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["weeklyBackupsToKeep"] = state ? state.weeklyBackupsToKeep : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["dailyBackupsToKeep"] = state?.dailyBackupsToKeep;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["monthlyBackupsToKeep"] = state?.monthlyBackupsToKeep;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["weeklyBackupsToKeep"] = state?.weeklyBackupsToKeep;
         } else {
             const args = argsOrState as BackupPolicyArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dailyBackupsToKeep"] = args ? args.dailyBackupsToKeep : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monthlyBackupsToKeep"] = args ? args.monthlyBackupsToKeep : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["weeklyBackupsToKeep"] = args ? args.weeklyBackupsToKeep : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dailyBackupsToKeep"] = args?.dailyBackupsToKeep;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["monthlyBackupsToKeep"] = args?.monthlyBackupsToKeep;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["weeklyBackupsToKeep"] = args?.weeklyBackupsToKeep;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupPolicy.__pulumiType, name, resourceInputs, opts);

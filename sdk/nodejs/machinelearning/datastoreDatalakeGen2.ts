@@ -107,47 +107,47 @@ export class DatastoreDatalakeGen2 extends pulumi.CustomResource {
     /**
      * An URL used for authentication.
      */
-    public readonly authorityUrl!: pulumi.Output<string | undefined>;
+    declare public readonly authorityUrl: pulumi.Output<string | undefined>;
     /**
      * The object ID of the Service Principal.
      */
-    public readonly clientId!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string | undefined>;
     /**
      * The secret of the Service Principal.
      */
-    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
     /**
      * Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this Machines Learning DataStore is the default for the Workspace.
      */
-    public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
      * The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
      */
-    public readonly serviceDataIdentity!: pulumi.Output<string | undefined>;
+    declare public readonly serviceDataIdentity: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly storageContainerId!: pulumi.Output<string>;
+    declare public readonly storageContainerId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Tenant which the Service Principal belongs to.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a DatastoreDatalakeGen2 resource with the given unique name, arguments, and options.
@@ -162,35 +162,35 @@ export class DatastoreDatalakeGen2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatastoreDatalakeGen2State | undefined;
-            resourceInputs["authorityUrl"] = state ? state.authorityUrl : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serviceDataIdentity"] = state ? state.serviceDataIdentity : undefined;
-            resourceInputs["storageContainerId"] = state ? state.storageContainerId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["authorityUrl"] = state?.authorityUrl;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serviceDataIdentity"] = state?.serviceDataIdentity;
+            resourceInputs["storageContainerId"] = state?.storageContainerId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as DatastoreDatalakeGen2Args | undefined;
-            if ((!args || args.storageContainerId === undefined) && !opts.urn) {
+            if (args?.storageContainerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["authorityUrl"] = args ? args.authorityUrl : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["authorityUrl"] = args?.authorityUrl;
+            resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceDataIdentity"] = args ? args.serviceDataIdentity : undefined;
-            resourceInputs["storageContainerId"] = args ? args.storageContainerId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceDataIdentity"] = args?.serviceDataIdentity;
+            resourceInputs["storageContainerId"] = args?.storageContainerId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["isDefault"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -72,15 +72,15 @@ export class ShareDirectory extends pulumi.CustomResource {
     /**
      * A mapping of metadata to assign to this Directory.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    public readonly storageShareId!: pulumi.Output<string>;
+    declare public readonly storageShareId: pulumi.Output<string>;
 
     /**
      * Create a ShareDirectory resource with the given unique name, arguments, and options.
@@ -95,17 +95,17 @@ export class ShareDirectory extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareDirectoryState | undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageShareId"] = state ? state.storageShareId : undefined;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageShareId"] = state?.storageShareId;
         } else {
             const args = argsOrState as ShareDirectoryArgs | undefined;
-            if ((!args || args.storageShareId === undefined) && !opts.urn) {
+            if (args?.storageShareId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageShareId'");
             }
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageShareId"] = args ? args.storageShareId : undefined;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageShareId"] = args?.storageShareId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ShareDirectory.__pulumiType, name, resourceInputs, opts);

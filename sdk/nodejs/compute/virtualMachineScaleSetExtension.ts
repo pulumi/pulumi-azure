@@ -103,55 +103,55 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**
      * Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
      */
-    public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoUpgradeMinorVersion: pulumi.Output<boolean | undefined>;
     /**
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      */
-    public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticUpgradeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      *
      * > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
-    public readonly failureSuppressionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly failureSuppressionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
      */
-    public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
+    declare public readonly forceUpdateTag: pulumi.Output<string | undefined>;
     /**
      * The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      *
      * > **Note:** Keys within the `protectedSettings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
      */
-    public readonly protectedSettings!: pulumi.Output<string | undefined>;
+    declare public readonly protectedSettings: pulumi.Output<string | undefined>;
     /**
      * A `protectedSettingsFromKeyVault` block as defined below.
      *
      * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
-    public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault | undefined>;
+    declare public readonly protectedSettingsFromKeyVault: pulumi.Output<outputs.compute.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault | undefined>;
     /**
      * An ordered list of Extension names which this should be provisioned after.
      */
-    public readonly provisionAfterExtensions!: pulumi.Output<string[] | undefined>;
+    declare public readonly provisionAfterExtensions: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the Publisher of the Extension. Changing this forces a new resource to be created.
      */
-    public readonly publisher!: pulumi.Output<string>;
+    declare public readonly publisher: pulumi.Output<string>;
     /**
      * A JSON String which specifies Settings for the Extension.
      *
      * > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
      */
-    public readonly settings!: pulumi.Output<string | undefined>;
+    declare public readonly settings: pulumi.Output<string | undefined>;
     /**
      * Specifies the Type of the Extension. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      *
@@ -161,13 +161,13 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * az vmss extension image list --location westus -o table
      * ```
      */
-    public readonly typeHandlerVersion!: pulumi.Output<string>;
+    declare public readonly typeHandlerVersion: pulumi.Output<string>;
     /**
      * The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
      *
      * > **Note:** This should be the ID from the `azure.compute.LinuxVirtualMachineScaleSet` or `azure.compute.WindowsVirtualMachineScaleSet` resource - when using the older `azure.compute.ScaleSet` resource extensions should instead be defined inline.
      */
-    public readonly virtualMachineScaleSetId!: pulumi.Output<string>;
+    declare public readonly virtualMachineScaleSetId: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineScaleSetExtension resource with the given unique name, arguments, and options.
@@ -182,46 +182,46 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineScaleSetExtensionState | undefined;
-            resourceInputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
-            resourceInputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
-            resourceInputs["failureSuppressionEnabled"] = state ? state.failureSuppressionEnabled : undefined;
-            resourceInputs["forceUpdateTag"] = state ? state.forceUpdateTag : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
-            resourceInputs["protectedSettingsFromKeyVault"] = state ? state.protectedSettingsFromKeyVault : undefined;
-            resourceInputs["provisionAfterExtensions"] = state ? state.provisionAfterExtensions : undefined;
-            resourceInputs["publisher"] = state ? state.publisher : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["typeHandlerVersion"] = state ? state.typeHandlerVersion : undefined;
-            resourceInputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = state?.autoUpgradeMinorVersion;
+            resourceInputs["automaticUpgradeEnabled"] = state?.automaticUpgradeEnabled;
+            resourceInputs["failureSuppressionEnabled"] = state?.failureSuppressionEnabled;
+            resourceInputs["forceUpdateTag"] = state?.forceUpdateTag;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protectedSettings"] = state?.protectedSettings;
+            resourceInputs["protectedSettingsFromKeyVault"] = state?.protectedSettingsFromKeyVault;
+            resourceInputs["provisionAfterExtensions"] = state?.provisionAfterExtensions;
+            resourceInputs["publisher"] = state?.publisher;
+            resourceInputs["settings"] = state?.settings;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["typeHandlerVersion"] = state?.typeHandlerVersion;
+            resourceInputs["virtualMachineScaleSetId"] = state?.virtualMachineScaleSetId;
         } else {
             const args = argsOrState as VirtualMachineScaleSetExtensionArgs | undefined;
-            if ((!args || args.publisher === undefined) && !opts.urn) {
+            if (args?.publisher === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisher'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.typeHandlerVersion === undefined) && !opts.urn) {
+            if (args?.typeHandlerVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeHandlerVersion'");
             }
-            if ((!args || args.virtualMachineScaleSetId === undefined) && !opts.urn) {
+            if (args?.virtualMachineScaleSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineScaleSetId'");
             }
-            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
-            resourceInputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
-            resourceInputs["failureSuppressionEnabled"] = args ? args.failureSuppressionEnabled : undefined;
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = args?.autoUpgradeMinorVersion;
+            resourceInputs["automaticUpgradeEnabled"] = args?.automaticUpgradeEnabled;
+            resourceInputs["failureSuppressionEnabled"] = args?.failureSuppressionEnabled;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["name"] = args?.name;
             resourceInputs["protectedSettings"] = args?.protectedSettings ? pulumi.secret(args.protectedSettings) : undefined;
-            resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
-            resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
-            resourceInputs["publisher"] = args ? args.publisher : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
-            resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
+            resourceInputs["protectedSettingsFromKeyVault"] = args?.protectedSettingsFromKeyVault;
+            resourceInputs["provisionAfterExtensions"] = args?.provisionAfterExtensions;
+            resourceInputs["publisher"] = args?.publisher;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeHandlerVersion"] = args?.typeHandlerVersion;
+            resourceInputs["virtualMachineScaleSetId"] = args?.virtualMachineScaleSetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["protectedSettings"] };

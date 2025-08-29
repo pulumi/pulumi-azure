@@ -152,23 +152,23 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Specify the path to the certificate file of this certificate.
      */
-    public readonly certificateVirtualPath!: pulumi.Output<string>;
+    declare public readonly certificateVirtualPath: pulumi.Output<string>;
     /**
      * Specify the ID of the Key Vault Secret for this certificate.
      */
-    public readonly keyVaultSecretId!: pulumi.Output<string>;
+    declare public readonly keyVaultSecretId: pulumi.Output<string>;
     /**
      * Specify the path to the key file of this certificate.
      */
-    public readonly keyVirtualPath!: pulumi.Output<string>;
+    declare public readonly keyVirtualPath: pulumi.Output<string>;
     /**
      * The name which should be used for this NGINX Certificate. Changing this forces a new NGINX Certificate to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the NGINX Deployment that this Certificate should be associated with. Changing this forces a new NGINX Certificate to be created.
      */
-    public readonly nginxDeploymentId!: pulumi.Output<string>;
+    declare public readonly nginxDeploymentId: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -183,30 +183,30 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["certificateVirtualPath"] = state ? state.certificateVirtualPath : undefined;
-            resourceInputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
-            resourceInputs["keyVirtualPath"] = state ? state.keyVirtualPath : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nginxDeploymentId"] = state ? state.nginxDeploymentId : undefined;
+            resourceInputs["certificateVirtualPath"] = state?.certificateVirtualPath;
+            resourceInputs["keyVaultSecretId"] = state?.keyVaultSecretId;
+            resourceInputs["keyVirtualPath"] = state?.keyVirtualPath;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nginxDeploymentId"] = state?.nginxDeploymentId;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.certificateVirtualPath === undefined) && !opts.urn) {
+            if (args?.certificateVirtualPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateVirtualPath'");
             }
-            if ((!args || args.keyVaultSecretId === undefined) && !opts.urn) {
+            if (args?.keyVaultSecretId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultSecretId'");
             }
-            if ((!args || args.keyVirtualPath === undefined) && !opts.urn) {
+            if (args?.keyVirtualPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVirtualPath'");
             }
-            if ((!args || args.nginxDeploymentId === undefined) && !opts.urn) {
+            if (args?.nginxDeploymentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nginxDeploymentId'");
             }
-            resourceInputs["certificateVirtualPath"] = args ? args.certificateVirtualPath : undefined;
-            resourceInputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
-            resourceInputs["keyVirtualPath"] = args ? args.keyVirtualPath : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nginxDeploymentId"] = args ? args.nginxDeploymentId : undefined;
+            resourceInputs["certificateVirtualPath"] = args?.certificateVirtualPath;
+            resourceInputs["keyVaultSecretId"] = args?.keyVaultSecretId;
+            resourceInputs["keyVirtualPath"] = args?.keyVirtualPath;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nginxDeploymentId"] = args?.nginxDeploymentId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);

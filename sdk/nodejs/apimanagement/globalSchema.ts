@@ -83,27 +83,27 @@ export class GlobalSchema extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The description of the schema.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A unique identifier for this Schema. Changing this forces a new resource to be created.
      */
-    public readonly schemaId!: pulumi.Output<string>;
+    declare public readonly schemaId: pulumi.Output<string>;
     /**
      * The content type of the Schema. Possible values are `xml` and `json`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The string defining the document representing the Schema.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a GlobalSchema resource with the given unique name, arguments, and options.
@@ -118,35 +118,35 @@ export class GlobalSchema extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GlobalSchemaState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["schemaId"] = state ? state.schemaId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["schemaId"] = state?.schemaId;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as GlobalSchemaArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaId === undefined) && !opts.urn) {
+            if (args?.schemaId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaId"] = args ? args.schemaId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaId"] = args?.schemaId;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GlobalSchema.__pulumiType, name, resourceInputs, opts);

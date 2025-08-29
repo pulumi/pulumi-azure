@@ -195,15 +195,15 @@ export class AssignmentVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
      */
-    public readonly maintenanceConfigurationId!: pulumi.Output<string>;
+    declare public readonly maintenanceConfigurationId: pulumi.Output<string>;
     /**
      * Specifies the Virtual Machine Scale Set ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineScaleSetId!: pulumi.Output<string>;
+    declare public readonly virtualMachineScaleSetId: pulumi.Output<string>;
 
     /**
      * Create a AssignmentVirtualMachineScaleSet resource with the given unique name, arguments, and options.
@@ -218,20 +218,20 @@ export class AssignmentVirtualMachineScaleSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentVirtualMachineScaleSetState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = state ? state.maintenanceConfigurationId : undefined;
-            resourceInputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maintenanceConfigurationId"] = state?.maintenanceConfigurationId;
+            resourceInputs["virtualMachineScaleSetId"] = state?.virtualMachineScaleSetId;
         } else {
             const args = argsOrState as AssignmentVirtualMachineScaleSetArgs | undefined;
-            if ((!args || args.maintenanceConfigurationId === undefined) && !opts.urn) {
+            if (args?.maintenanceConfigurationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maintenanceConfigurationId'");
             }
-            if ((!args || args.virtualMachineScaleSetId === undefined) && !opts.urn) {
+            if (args?.virtualMachineScaleSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineScaleSetId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
+            resourceInputs["virtualMachineScaleSetId"] = args?.virtualMachineScaleSetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AssignmentVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);

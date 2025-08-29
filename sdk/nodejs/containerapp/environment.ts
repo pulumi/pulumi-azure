@@ -83,95 +83,95 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The ID of the Custom Domain Verification for this Container App Environment.
      */
-    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customDomainVerificationId: pulumi.Output<string>;
     /**
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      */
-    public readonly daprApplicationInsightsConnectionString!: pulumi.Output<string | undefined>;
+    declare public readonly daprApplicationInsightsConnectionString: pulumi.Output<string | undefined>;
     /**
      * The default, publicly resolvable, name of this Container App Environment.
      */
-    public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultDomain: pulumi.Output<string>;
     /**
      * The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
      */
-    public /*out*/ readonly dockerBridgeCidr!: pulumi.Output<string>;
+    declare public /*out*/ readonly dockerBridgeCidr: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.containerapp.EnvironmentIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerapp.EnvironmentIdentity | undefined>;
     /**
      * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
      *
      * > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
      */
-    public readonly infrastructureResourceGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly infrastructureResourceGroupName: pulumi.Output<string | undefined>;
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
      *
      * > **Note:** The Subnet must have a `/21` or larger address space.
      */
-    public readonly infrastructureSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly infrastructureSubnetId: pulumi.Output<string | undefined>;
     /**
      * Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
      *
      * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
      */
-    public readonly internalLoadBalancerEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internalLoadBalancerEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
      *
      * > **Note:** required if `logsDestination` is set to `log-analytics`. Cannot be set if `logsDestination` is set to `azure-monitor`.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string | undefined>;
     /**
      * Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
      */
-    public readonly logsDestination!: pulumi.Output<string>;
+    declare public readonly logsDestination: pulumi.Output<string>;
     /**
      * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
      *
      * > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
      */
-    public readonly mutualTlsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly mutualTlsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses.
      */
-    public /*out*/ readonly platformReservedCidr!: pulumi.Output<string>;
+    declare public /*out*/ readonly platformReservedCidr: pulumi.Output<string>;
     /**
      * The IP address from the IP range defined by `platformReservedCidr` that is reserved for the internal DNS server.
      */
-    public /*out*/ readonly platformReservedDnsIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly platformReservedDnsIpAddress: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Static IP address of the Environment.
      */
-    public /*out*/ readonly staticIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly staticIpAddress: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `workloadProfile` blocks as defined below.
      */
-    public readonly workloadProfiles!: pulumi.Output<outputs.containerapp.EnvironmentWorkloadProfile[] | undefined>;
+    declare public readonly workloadProfiles: pulumi.Output<outputs.containerapp.EnvironmentWorkloadProfile[] | undefined>;
     /**
      * Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
      * > **Note:** can only be set to `true` if `infrastructureSubnetId` is specified.
      */
-    public readonly zoneRedundancyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundancyEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -186,45 +186,45 @@ export class Environment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentState | undefined;
-            resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
-            resourceInputs["daprApplicationInsightsConnectionString"] = state ? state.daprApplicationInsightsConnectionString : undefined;
-            resourceInputs["defaultDomain"] = state ? state.defaultDomain : undefined;
-            resourceInputs["dockerBridgeCidr"] = state ? state.dockerBridgeCidr : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["infrastructureResourceGroupName"] = state ? state.infrastructureResourceGroupName : undefined;
-            resourceInputs["infrastructureSubnetId"] = state ? state.infrastructureSubnetId : undefined;
-            resourceInputs["internalLoadBalancerEnabled"] = state ? state.internalLoadBalancerEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["logsDestination"] = state ? state.logsDestination : undefined;
-            resourceInputs["mutualTlsEnabled"] = state ? state.mutualTlsEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["platformReservedCidr"] = state ? state.platformReservedCidr : undefined;
-            resourceInputs["platformReservedDnsIpAddress"] = state ? state.platformReservedDnsIpAddress : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["staticIpAddress"] = state ? state.staticIpAddress : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workloadProfiles"] = state ? state.workloadProfiles : undefined;
-            resourceInputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
+            resourceInputs["customDomainVerificationId"] = state?.customDomainVerificationId;
+            resourceInputs["daprApplicationInsightsConnectionString"] = state?.daprApplicationInsightsConnectionString;
+            resourceInputs["defaultDomain"] = state?.defaultDomain;
+            resourceInputs["dockerBridgeCidr"] = state?.dockerBridgeCidr;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["infrastructureResourceGroupName"] = state?.infrastructureResourceGroupName;
+            resourceInputs["infrastructureSubnetId"] = state?.infrastructureSubnetId;
+            resourceInputs["internalLoadBalancerEnabled"] = state?.internalLoadBalancerEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["logsDestination"] = state?.logsDestination;
+            resourceInputs["mutualTlsEnabled"] = state?.mutualTlsEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["platformReservedCidr"] = state?.platformReservedCidr;
+            resourceInputs["platformReservedDnsIpAddress"] = state?.platformReservedDnsIpAddress;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["staticIpAddress"] = state?.staticIpAddress;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workloadProfiles"] = state?.workloadProfiles;
+            resourceInputs["zoneRedundancyEnabled"] = state?.zoneRedundancyEnabled;
         } else {
             const args = argsOrState as EnvironmentArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["daprApplicationInsightsConnectionString"] = args?.daprApplicationInsightsConnectionString ? pulumi.secret(args.daprApplicationInsightsConnectionString) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["infrastructureResourceGroupName"] = args ? args.infrastructureResourceGroupName : undefined;
-            resourceInputs["infrastructureSubnetId"] = args ? args.infrastructureSubnetId : undefined;
-            resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["logsDestination"] = args ? args.logsDestination : undefined;
-            resourceInputs["mutualTlsEnabled"] = args ? args.mutualTlsEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workloadProfiles"] = args ? args.workloadProfiles : undefined;
-            resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["infrastructureResourceGroupName"] = args?.infrastructureResourceGroupName;
+            resourceInputs["infrastructureSubnetId"] = args?.infrastructureSubnetId;
+            resourceInputs["internalLoadBalancerEnabled"] = args?.internalLoadBalancerEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["logsDestination"] = args?.logsDestination;
+            resourceInputs["mutualTlsEnabled"] = args?.mutualTlsEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workloadProfiles"] = args?.workloadProfiles;
+            resourceInputs["zoneRedundancyEnabled"] = args?.zoneRedundancyEnabled;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["dockerBridgeCidr"] = undefined /*out*/;

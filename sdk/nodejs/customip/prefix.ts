@@ -108,53 +108,53 @@ export class Prefix extends pulumi.CustomResource {
     /**
      * The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
      */
-    public readonly cidr!: pulumi.Output<string>;
+    declare public readonly cidr: pulumi.Output<string>;
     /**
      * Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
      *
      * !> **Note:** Changing the value of `commissioningEnabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      */
-    public readonly commissioningEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly commissioningEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
      *
      * !> **Note:** Changing the value of `internetAdvertisingDisabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
      */
-    public readonly internetAdvertisingDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internetAdvertisingDisabled: pulumi.Output<boolean | undefined>;
     /**
      * The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Custom IP Prefix. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
      */
-    public readonly parentCustomIpPrefixId!: pulumi.Output<string | undefined>;
+    declare public readonly parentCustomIpPrefixId: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which to create the Custom IP Prefix. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The expiration date of the Route Origin Authorization (ROA) document which has been filed with the Routing Internet Registry (RIR) for this prefix. The expected format is `YYYY-MM-DD`. Required when provisioning an IPv4 prefix or IPv6 global prefix. Changing this forces a new resource to be created.
      */
-    public readonly roaValidityEndDate!: pulumi.Output<string | undefined>;
+    declare public readonly roaValidityEndDate: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the Custom IP Prefix.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
      */
-    public readonly wanValidationSignedMessage!: pulumi.Output<string | undefined>;
+    declare public readonly wanValidationSignedMessage: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created.
      *
      * > **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Prefix resource with the given unique name, arguments, and options.
@@ -169,36 +169,36 @@ export class Prefix extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrefixState | undefined;
-            resourceInputs["cidr"] = state ? state.cidr : undefined;
-            resourceInputs["commissioningEnabled"] = state ? state.commissioningEnabled : undefined;
-            resourceInputs["internetAdvertisingDisabled"] = state ? state.internetAdvertisingDisabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentCustomIpPrefixId"] = state ? state.parentCustomIpPrefixId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["roaValidityEndDate"] = state ? state.roaValidityEndDate : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["wanValidationSignedMessage"] = state ? state.wanValidationSignedMessage : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["cidr"] = state?.cidr;
+            resourceInputs["commissioningEnabled"] = state?.commissioningEnabled;
+            resourceInputs["internetAdvertisingDisabled"] = state?.internetAdvertisingDisabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentCustomIpPrefixId"] = state?.parentCustomIpPrefixId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["roaValidityEndDate"] = state?.roaValidityEndDate;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["wanValidationSignedMessage"] = state?.wanValidationSignedMessage;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as PrefixArgs | undefined;
-            if ((!args || args.cidr === undefined) && !opts.urn) {
+            if (args?.cidr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cidr'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cidr"] = args ? args.cidr : undefined;
-            resourceInputs["commissioningEnabled"] = args ? args.commissioningEnabled : undefined;
-            resourceInputs["internetAdvertisingDisabled"] = args ? args.internetAdvertisingDisabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentCustomIpPrefixId"] = args ? args.parentCustomIpPrefixId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roaValidityEndDate"] = args ? args.roaValidityEndDate : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["wanValidationSignedMessage"] = args ? args.wanValidationSignedMessage : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["cidr"] = args?.cidr;
+            resourceInputs["commissioningEnabled"] = args?.commissioningEnabled;
+            resourceInputs["internetAdvertisingDisabled"] = args?.internetAdvertisingDisabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentCustomIpPrefixId"] = args?.parentCustomIpPrefixId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roaValidityEndDate"] = args?.roaValidityEndDate;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["wanValidationSignedMessage"] = args?.wanValidationSignedMessage;
+            resourceInputs["zones"] = args?.zones;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Prefix.__pulumiType, name, resourceInputs, opts);

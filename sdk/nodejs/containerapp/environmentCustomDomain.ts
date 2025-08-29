@@ -89,19 +89,19 @@ export class EnvironmentCustomDomain extends pulumi.CustomResource {
     /**
      * The bundle of Private Key and Certificate for the Custom DNS Suffix as a base64 encoded PFX or PEM.
      */
-    public readonly certificateBlobBase64!: pulumi.Output<string>;
+    declare public readonly certificateBlobBase64: pulumi.Output<string>;
     /**
      * The password for the Certificate bundle.
      */
-    public readonly certificatePassword!: pulumi.Output<string>;
+    declare public readonly certificatePassword: pulumi.Output<string>;
     /**
      * The ID of the Container Apps Managed Environment. Changing this forces a new resource to be created.
      */
-    public readonly containerAppEnvironmentId!: pulumi.Output<string>;
+    declare public readonly containerAppEnvironmentId: pulumi.Output<string>;
     /**
      * Custom DNS Suffix for the Container App Environment.
      */
-    public readonly dnsSuffix!: pulumi.Output<string>;
+    declare public readonly dnsSuffix: pulumi.Output<string>;
 
     /**
      * Create a EnvironmentCustomDomain resource with the given unique name, arguments, and options.
@@ -116,28 +116,28 @@ export class EnvironmentCustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentCustomDomainState | undefined;
-            resourceInputs["certificateBlobBase64"] = state ? state.certificateBlobBase64 : undefined;
-            resourceInputs["certificatePassword"] = state ? state.certificatePassword : undefined;
-            resourceInputs["containerAppEnvironmentId"] = state ? state.containerAppEnvironmentId : undefined;
-            resourceInputs["dnsSuffix"] = state ? state.dnsSuffix : undefined;
+            resourceInputs["certificateBlobBase64"] = state?.certificateBlobBase64;
+            resourceInputs["certificatePassword"] = state?.certificatePassword;
+            resourceInputs["containerAppEnvironmentId"] = state?.containerAppEnvironmentId;
+            resourceInputs["dnsSuffix"] = state?.dnsSuffix;
         } else {
             const args = argsOrState as EnvironmentCustomDomainArgs | undefined;
-            if ((!args || args.certificateBlobBase64 === undefined) && !opts.urn) {
+            if (args?.certificateBlobBase64 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateBlobBase64'");
             }
-            if ((!args || args.certificatePassword === undefined) && !opts.urn) {
+            if (args?.certificatePassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificatePassword'");
             }
-            if ((!args || args.containerAppEnvironmentId === undefined) && !opts.urn) {
+            if (args?.containerAppEnvironmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppEnvironmentId'");
             }
-            if ((!args || args.dnsSuffix === undefined) && !opts.urn) {
+            if (args?.dnsSuffix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsSuffix'");
             }
-            resourceInputs["certificateBlobBase64"] = args ? args.certificateBlobBase64 : undefined;
+            resourceInputs["certificateBlobBase64"] = args?.certificateBlobBase64;
             resourceInputs["certificatePassword"] = args?.certificatePassword ? pulumi.secret(args.certificatePassword) : undefined;
-            resourceInputs["containerAppEnvironmentId"] = args ? args.containerAppEnvironmentId : undefined;
-            resourceInputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
+            resourceInputs["containerAppEnvironmentId"] = args?.containerAppEnvironmentId;
+            resourceInputs["dnsSuffix"] = args?.dnsSuffix;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["certificatePassword"] };

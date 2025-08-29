@@ -101,29 +101,29 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
     /**
      * The ID of the Backup Policy.
      */
-    public readonly backupPolicyId!: pulumi.Output<string>;
+    declare public readonly backupPolicyId: pulumi.Output<string>;
     /**
      * The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The list of the container names of the source Storage Account.
      *
      * > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
      */
-    public readonly storageAccountContainerNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly storageAccountContainerNames: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
      */
-    public readonly vaultId!: pulumi.Output<string>;
+    declare public readonly vaultId: pulumi.Output<string>;
 
     /**
      * Create a BackupInstanceBlogStorage resource with the given unique name, arguments, and options.
@@ -138,29 +138,29 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupInstanceBlogStorageState | undefined;
-            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageAccountContainerNames"] = state ? state.storageAccountContainerNames : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = state?.backupPolicyId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageAccountContainerNames"] = state?.storageAccountContainerNames;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["vaultId"] = state?.vaultId;
         } else {
             const args = argsOrState as BackupInstanceBlogStorageArgs | undefined;
-            if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
+            if (args?.backupPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyId'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            if ((!args || args.vaultId === undefined) && !opts.urn) {
+            if (args?.vaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageAccountContainerNames"] = args ? args.storageAccountContainerNames : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = args?.backupPolicyId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageAccountContainerNames"] = args?.storageAccountContainerNames;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["vaultId"] = args?.vaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstanceBlogStorage.__pulumiType, name, resourceInputs, opts);

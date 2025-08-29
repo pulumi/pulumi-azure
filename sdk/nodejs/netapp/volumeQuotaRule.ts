@@ -146,15 +146,15 @@ export class VolumeQuotaRule extends pulumi.CustomResource {
     /**
      * The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Quota size in kibibytes.
      */
-    public readonly quotaSizeInKib!: pulumi.Output<number>;
+    declare public readonly quotaSizeInKib: pulumi.Output<number>;
     /**
      * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      *
@@ -162,15 +162,15 @@ export class VolumeQuotaRule extends pulumi.CustomResource {
      *
      * > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      */
-    public readonly quotaTarget!: pulumi.Output<string | undefined>;
+    declare public readonly quotaTarget: pulumi.Output<string | undefined>;
     /**
      * Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
      */
-    public readonly quotaType!: pulumi.Output<string>;
+    declare public readonly quotaType: pulumi.Output<string>;
     /**
      * The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
      */
-    public readonly volumeId!: pulumi.Output<string>;
+    declare public readonly volumeId: pulumi.Output<string>;
 
     /**
      * Create a VolumeQuotaRule resource with the given unique name, arguments, and options.
@@ -185,29 +185,29 @@ export class VolumeQuotaRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeQuotaRuleState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["quotaSizeInKib"] = state ? state.quotaSizeInKib : undefined;
-            resourceInputs["quotaTarget"] = state ? state.quotaTarget : undefined;
-            resourceInputs["quotaType"] = state ? state.quotaType : undefined;
-            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["quotaSizeInKib"] = state?.quotaSizeInKib;
+            resourceInputs["quotaTarget"] = state?.quotaTarget;
+            resourceInputs["quotaType"] = state?.quotaType;
+            resourceInputs["volumeId"] = state?.volumeId;
         } else {
             const args = argsOrState as VolumeQuotaRuleArgs | undefined;
-            if ((!args || args.quotaSizeInKib === undefined) && !opts.urn) {
+            if (args?.quotaSizeInKib === undefined && !opts.urn) {
                 throw new Error("Missing required property 'quotaSizeInKib'");
             }
-            if ((!args || args.quotaType === undefined) && !opts.urn) {
+            if (args?.quotaType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'quotaType'");
             }
-            if ((!args || args.volumeId === undefined) && !opts.urn) {
+            if (args?.volumeId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["quotaSizeInKib"] = args ? args.quotaSizeInKib : undefined;
-            resourceInputs["quotaTarget"] = args ? args.quotaTarget : undefined;
-            resourceInputs["quotaType"] = args ? args.quotaType : undefined;
-            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["quotaSizeInKib"] = args?.quotaSizeInKib;
+            resourceInputs["quotaTarget"] = args?.quotaTarget;
+            resourceInputs["quotaType"] = args?.quotaType;
+            resourceInputs["volumeId"] = args?.volumeId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VolumeQuotaRule.__pulumiType, name, resourceInputs, opts);

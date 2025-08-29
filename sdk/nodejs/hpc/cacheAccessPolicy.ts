@@ -97,15 +97,15 @@ export class CacheAccessPolicy extends pulumi.CustomResource {
     /**
      * One or more `accessRule` blocks (up to three) as defined below.
      */
-    public readonly accessRules!: pulumi.Output<outputs.hpc.CacheAccessPolicyAccessRule[]>;
+    declare public readonly accessRules: pulumi.Output<outputs.hpc.CacheAccessPolicyAccessRule[]>;
     /**
      * The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
      */
-    public readonly hpcCacheId!: pulumi.Output<string>;
+    declare public readonly hpcCacheId: pulumi.Output<string>;
     /**
      * The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a CacheAccessPolicy resource with the given unique name, arguments, and options.
@@ -120,20 +120,20 @@ export class CacheAccessPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheAccessPolicyState | undefined;
-            resourceInputs["accessRules"] = state ? state.accessRules : undefined;
-            resourceInputs["hpcCacheId"] = state ? state.hpcCacheId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["accessRules"] = state?.accessRules;
+            resourceInputs["hpcCacheId"] = state?.hpcCacheId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as CacheAccessPolicyArgs | undefined;
-            if ((!args || args.accessRules === undefined) && !opts.urn) {
+            if (args?.accessRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessRules'");
             }
-            if ((!args || args.hpcCacheId === undefined) && !opts.urn) {
+            if (args?.hpcCacheId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hpcCacheId'");
             }
-            resourceInputs["accessRules"] = args ? args.accessRules : undefined;
-            resourceInputs["hpcCacheId"] = args ? args.hpcCacheId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["accessRules"] = args?.accessRules;
+            resourceInputs["hpcCacheId"] = args?.hpcCacheId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CacheAccessPolicy.__pulumiType, name, resourceInputs, opts);

@@ -68,7 +68,7 @@ export class LocalRulestackOutboundUntrustCertificateAssociation extends pulumi.
     /**
      * The ID of the Certificate to use as the Outbound Untrust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Untrust Certificate Association to be created.
      */
-    public readonly certificateId!: pulumi.Output<string>;
+    declare public readonly certificateId: pulumi.Output<string>;
 
     /**
      * Create a LocalRulestackOutboundUntrustCertificateAssociation resource with the given unique name, arguments, and options.
@@ -83,13 +83,13 @@ export class LocalRulestackOutboundUntrustCertificateAssociation extends pulumi.
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRulestackOutboundUntrustCertificateAssociationState | undefined;
-            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
+            resourceInputs["certificateId"] = state?.certificateId;
         } else {
             const args = argsOrState as LocalRulestackOutboundUntrustCertificateAssociationArgs | undefined;
-            if ((!args || args.certificateId === undefined) && !opts.urn) {
+            if (args?.certificateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateId'");
             }
-            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
+            resourceInputs["certificateId"] = args?.certificateId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalRulestackOutboundUntrustCertificateAssociation.__pulumiType, name, resourceInputs, opts);

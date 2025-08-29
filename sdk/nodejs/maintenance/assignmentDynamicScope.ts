@@ -50,17 +50,17 @@ export class AssignmentDynamicScope extends pulumi.CustomResource {
     /**
      * A `filter` block as defined below.
      */
-    public readonly filter!: pulumi.Output<outputs.maintenance.AssignmentDynamicScopeFilter>;
+    declare public readonly filter: pulumi.Output<outputs.maintenance.AssignmentDynamicScopeFilter>;
     /**
      * The ID of the Maintenance Configuration Resource. Changing this forces a new Dynamic Maintenance Assignment to be created.
      */
-    public readonly maintenanceConfigurationId!: pulumi.Output<string>;
+    declare public readonly maintenanceConfigurationId: pulumi.Output<string>;
     /**
      * The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
      *
      * > **Note:** The `name` must be unique per subscription.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a AssignmentDynamicScope resource with the given unique name, arguments, and options.
@@ -75,20 +75,20 @@ export class AssignmentDynamicScope extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentDynamicScopeState | undefined;
-            resourceInputs["filter"] = state ? state.filter : undefined;
-            resourceInputs["maintenanceConfigurationId"] = state ? state.maintenanceConfigurationId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["filter"] = state?.filter;
+            resourceInputs["maintenanceConfigurationId"] = state?.maintenanceConfigurationId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as AssignmentDynamicScopeArgs | undefined;
-            if ((!args || args.filter === undefined) && !opts.urn) {
+            if (args?.filter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filter'");
             }
-            if ((!args || args.maintenanceConfigurationId === undefined) && !opts.urn) {
+            if (args?.maintenanceConfigurationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maintenanceConfigurationId'");
             }
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AssignmentDynamicScope.__pulumiType, name, resourceInputs, opts);

@@ -128,64 +128,64 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * A `additionalCapabilities` block as defined below.
      */
-    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.LinuxVirtualMachineAdditionalCapabilities | undefined>;
+    declare public readonly additionalCapabilities: pulumi.Output<outputs.compute.LinuxVirtualMachineAdditionalCapabilities | undefined>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    public readonly adminPassword!: pulumi.Output<string | undefined>;
+    declare public readonly adminPassword: pulumi.Output<string | undefined>;
     /**
      * One or more `adminSshKey` blocks as defined below. Changing this forces a new resource to be created.
      *
      * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
-    public readonly adminSshKeys!: pulumi.Output<outputs.compute.LinuxVirtualMachineAdminSshKey[] | undefined>;
+    declare public readonly adminSshKeys: pulumi.Output<outputs.compute.LinuxVirtualMachineAdminSshKey[] | undefined>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly adminUsername!: pulumi.Output<string>;
+    declare public readonly adminUsername: pulumi.Output<string>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
-    public readonly allowExtensionOperations!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowExtensionOperations: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    public readonly availabilitySetId!: pulumi.Output<string | undefined>;
+    declare public readonly availabilitySetId: pulumi.Output<string | undefined>;
     /**
      * A `bootDiagnostics` block as defined below.
      */
-    public readonly bootDiagnostics!: pulumi.Output<outputs.compute.LinuxVirtualMachineBootDiagnostics | undefined>;
+    declare public readonly bootDiagnostics: pulumi.Output<outputs.compute.LinuxVirtualMachineBootDiagnostics | undefined>;
     /**
      * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
      *
      * > **NOTE:** `bypassPlatformSafetyChecksOnUserScheduleEnabled` can only be set to `true` when `patchMode` is set to `AutomaticByPlatform`.
      */
-    public readonly bypassPlatformSafetyChecksOnUserScheduleEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly bypassPlatformSafetyChecksOnUserScheduleEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      *
      * > **NOTE:** `capacityReservationGroupId` cannot be used with `availabilitySetId` or `proximityPlacementGroupId`
      */
-    public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly capacityReservationGroupId: pulumi.Output<string | undefined>;
     /**
      * Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerName`, then you must specify `computerName`. Changing this forces a new resource to be created.
      */
-    public readonly computerName!: pulumi.Output<string>;
+    declare public readonly computerName: pulumi.Output<string>;
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly customData!: pulumi.Output<string | undefined>;
+    declare public readonly customData: pulumi.Output<string | undefined>;
     /**
      * The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicatedHostId`.
      */
-    public readonly dedicatedHostGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly dedicatedHostGroupId: pulumi.Output<string | undefined>;
     /**
      * The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicatedHostGroupId`.
      */
-    public readonly dedicatedHostId!: pulumi.Output<string | undefined>;
+    declare public readonly dedicatedHostId: pulumi.Output<string | undefined>;
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
@@ -193,169 +193,169 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
-    public readonly disablePasswordAuthentication!: pulumi.Output<boolean | undefined>;
+    declare public readonly disablePasswordAuthentication: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
      */
-    public readonly diskControllerType!: pulumi.Output<string>;
+    declare public readonly diskControllerType: pulumi.Output<string>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
-    public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly encryptionAtHostEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
-    public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly evictionPolicy: pulumi.Output<string | undefined>;
     /**
      * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
-    public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
+    declare public readonly extensionsTimeBudget: pulumi.Output<string | undefined>;
     /**
      * One or more `galleryApplication` blocks as defined below.
      *
      * > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignoreChanges` for the `galleryApplication` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      */
-    public readonly galleryApplications!: pulumi.Output<outputs.compute.LinuxVirtualMachineGalleryApplication[] | undefined>;
+    declare public readonly galleryApplications: pulumi.Output<outputs.compute.LinuxVirtualMachineGalleryApplication[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.LinuxVirtualMachineIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.compute.LinuxVirtualMachineIdentity | undefined>;
     /**
      * Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      *
      * > **NOTE:** This can only be configured when `priority` is set to `Spot`.
      */
-    public readonly maxBidPrice!: pulumi.Output<number | undefined>;
+    declare public readonly maxBidPrice: pulumi.Output<number | undefined>;
     /**
      * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
      */
-    public readonly networkInterfaceIds!: pulumi.Output<string[]>;
+    declare public readonly networkInterfaceIds: pulumi.Output<string[]>;
     /**
      * A `osDisk` block as defined below.
      */
-    public readonly osDisk!: pulumi.Output<outputs.compute.LinuxVirtualMachineOsDisk>;
+    declare public readonly osDisk: pulumi.Output<outputs.compute.LinuxVirtualMachineOsDisk>;
     /**
      * A `osImageNotification` block as defined below.
      */
-    public readonly osImageNotification!: pulumi.Output<outputs.compute.LinuxVirtualMachineOsImageNotification | undefined>;
+    declare public readonly osImageNotification: pulumi.Output<outputs.compute.LinuxVirtualMachineOsImageNotification | undefined>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
      * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
-    public readonly patchAssessmentMode!: pulumi.Output<string | undefined>;
+    declare public readonly patchAssessmentMode: pulumi.Output<string | undefined>;
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      *
      * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
      */
-    public readonly patchMode!: pulumi.Output<string | undefined>;
+    declare public readonly patchMode: pulumi.Output<string | undefined>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly plan!: pulumi.Output<outputs.compute.LinuxVirtualMachinePlan | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.compute.LinuxVirtualMachinePlan | undefined>;
     /**
      * Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
      */
-    public readonly platformFaultDomain!: pulumi.Output<number | undefined>;
+    declare public readonly platformFaultDomain: pulumi.Output<number | undefined>;
     /**
      * Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      */
-    public readonly priority!: pulumi.Output<string | undefined>;
+    declare public readonly priority: pulumi.Output<string | undefined>;
     /**
      * The Primary Private IP Address assigned to this Virtual Machine.
      */
-    public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateIpAddress: pulumi.Output<string>;
     /**
      * A list of Private IP Addresses assigned to this Virtual Machine.
      */
-    public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly privateIpAddresses: pulumi.Output<string[]>;
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
-    public readonly provisionVmAgent!: pulumi.Output<boolean | undefined>;
+    declare public readonly provisionVmAgent: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
-    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly proximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
      * The Primary Public IP Address assigned to this Virtual Machine.
      */
-    public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicIpAddress: pulumi.Output<string>;
     /**
      * A list of the Public IP Addresses assigned to this Virtual Machine.
      */
-    public /*out*/ readonly publicIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly publicIpAddresses: pulumi.Output<string[]>;
     /**
      * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
      *
      * > **NOTE:** `rebootSetting` can only be set when `patchMode` is set to `AutomaticByPlatform`.
      */
-    public readonly rebootSetting!: pulumi.Output<string | undefined>;
+    declare public readonly rebootSetting: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    public readonly secrets!: pulumi.Output<outputs.compute.LinuxVirtualMachineSecret[] | undefined>;
+    declare public readonly secrets: pulumi.Output<outputs.compute.LinuxVirtualMachineSecret[] | undefined>;
     /**
      * Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    public readonly secureBootEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly secureBootEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
      */
-    public readonly size!: pulumi.Output<string>;
+    declare public readonly size: pulumi.Output<string>;
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      *
      * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    public readonly sourceImageId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceImageId: pulumi.Output<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
      *
      * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
-    public readonly sourceImageReference!: pulumi.Output<outputs.compute.LinuxVirtualMachineSourceImageReference | undefined>;
+    declare public readonly sourceImageReference: pulumi.Output<outputs.compute.LinuxVirtualMachineSourceImageReference | undefined>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `terminationNotification` block as defined below.
      */
-    public readonly terminationNotification!: pulumi.Output<outputs.compute.LinuxVirtualMachineTerminationNotification>;
+    declare public readonly terminationNotification: pulumi.Output<outputs.compute.LinuxVirtualMachineTerminationNotification>;
     /**
      * The Base64-Encoded User Data which should be used for this Virtual Machine.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
     /**
      * A 128-bit identifier which uniquely identifies this Virtual Machine.
      */
-    public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualMachineId: pulumi.Output<string>;
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
      *
@@ -365,21 +365,21 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      *
      * > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      */
-    public readonly virtualMachineScaleSetId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualMachineScaleSetId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      *
      * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
-    public readonly vmAgentPlatformUpdatesEnabled!: pulumi.Output<boolean>;
+    declare public readonly vmAgentPlatformUpdatesEnabled: pulumi.Output<boolean>;
     /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      */
-    public readonly vtpmEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly vtpmEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    declare public readonly zone: pulumi.Output<string | undefined>;
 
     /**
      * Create a LinuxVirtualMachine resource with the given unique name, arguments, and options.
@@ -394,126 +394,126 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinuxVirtualMachineState | undefined;
-            resourceInputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
-            resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
-            resourceInputs["adminSshKeys"] = state ? state.adminSshKeys : undefined;
-            resourceInputs["adminUsername"] = state ? state.adminUsername : undefined;
-            resourceInputs["allowExtensionOperations"] = state ? state.allowExtensionOperations : undefined;
-            resourceInputs["availabilitySetId"] = state ? state.availabilitySetId : undefined;
-            resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
-            resourceInputs["bypassPlatformSafetyChecksOnUserScheduleEnabled"] = state ? state.bypassPlatformSafetyChecksOnUserScheduleEnabled : undefined;
-            resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
-            resourceInputs["computerName"] = state ? state.computerName : undefined;
-            resourceInputs["customData"] = state ? state.customData : undefined;
-            resourceInputs["dedicatedHostGroupId"] = state ? state.dedicatedHostGroupId : undefined;
-            resourceInputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
-            resourceInputs["disablePasswordAuthentication"] = state ? state.disablePasswordAuthentication : undefined;
-            resourceInputs["diskControllerType"] = state ? state.diskControllerType : undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
-            resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
-            resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
-            resourceInputs["galleryApplications"] = state ? state.galleryApplications : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maxBidPrice"] = state ? state.maxBidPrice : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            resourceInputs["osDisk"] = state ? state.osDisk : undefined;
-            resourceInputs["osImageNotification"] = state ? state.osImageNotification : undefined;
-            resourceInputs["patchAssessmentMode"] = state ? state.patchAssessmentMode : undefined;
-            resourceInputs["patchMode"] = state ? state.patchMode : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["platformFaultDomain"] = state ? state.platformFaultDomain : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            resourceInputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
-            resourceInputs["provisionVmAgent"] = state ? state.provisionVmAgent : undefined;
-            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            resourceInputs["publicIpAddress"] = state ? state.publicIpAddress : undefined;
-            resourceInputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
-            resourceInputs["rebootSetting"] = state ? state.rebootSetting : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secrets"] = state ? state.secrets : undefined;
-            resourceInputs["secureBootEnabled"] = state ? state.secureBootEnabled : undefined;
-            resourceInputs["size"] = state ? state.size : undefined;
-            resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
-            resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
-            resourceInputs["userData"] = state ? state.userData : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
-            resourceInputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
-            resourceInputs["vmAgentPlatformUpdatesEnabled"] = state ? state.vmAgentPlatformUpdatesEnabled : undefined;
-            resourceInputs["vtpmEnabled"] = state ? state.vtpmEnabled : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["additionalCapabilities"] = state?.additionalCapabilities;
+            resourceInputs["adminPassword"] = state?.adminPassword;
+            resourceInputs["adminSshKeys"] = state?.adminSshKeys;
+            resourceInputs["adminUsername"] = state?.adminUsername;
+            resourceInputs["allowExtensionOperations"] = state?.allowExtensionOperations;
+            resourceInputs["availabilitySetId"] = state?.availabilitySetId;
+            resourceInputs["bootDiagnostics"] = state?.bootDiagnostics;
+            resourceInputs["bypassPlatformSafetyChecksOnUserScheduleEnabled"] = state?.bypassPlatformSafetyChecksOnUserScheduleEnabled;
+            resourceInputs["capacityReservationGroupId"] = state?.capacityReservationGroupId;
+            resourceInputs["computerName"] = state?.computerName;
+            resourceInputs["customData"] = state?.customData;
+            resourceInputs["dedicatedHostGroupId"] = state?.dedicatedHostGroupId;
+            resourceInputs["dedicatedHostId"] = state?.dedicatedHostId;
+            resourceInputs["disablePasswordAuthentication"] = state?.disablePasswordAuthentication;
+            resourceInputs["diskControllerType"] = state?.diskControllerType;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["encryptionAtHostEnabled"] = state?.encryptionAtHostEnabled;
+            resourceInputs["evictionPolicy"] = state?.evictionPolicy;
+            resourceInputs["extensionsTimeBudget"] = state?.extensionsTimeBudget;
+            resourceInputs["galleryApplications"] = state?.galleryApplications;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maxBidPrice"] = state?.maxBidPrice;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
+            resourceInputs["osDisk"] = state?.osDisk;
+            resourceInputs["osImageNotification"] = state?.osImageNotification;
+            resourceInputs["patchAssessmentMode"] = state?.patchAssessmentMode;
+            resourceInputs["patchMode"] = state?.patchMode;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["platformFaultDomain"] = state?.platformFaultDomain;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["privateIpAddress"] = state?.privateIpAddress;
+            resourceInputs["privateIpAddresses"] = state?.privateIpAddresses;
+            resourceInputs["provisionVmAgent"] = state?.provisionVmAgent;
+            resourceInputs["proximityPlacementGroupId"] = state?.proximityPlacementGroupId;
+            resourceInputs["publicIpAddress"] = state?.publicIpAddress;
+            resourceInputs["publicIpAddresses"] = state?.publicIpAddresses;
+            resourceInputs["rebootSetting"] = state?.rebootSetting;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secrets"] = state?.secrets;
+            resourceInputs["secureBootEnabled"] = state?.secureBootEnabled;
+            resourceInputs["size"] = state?.size;
+            resourceInputs["sourceImageId"] = state?.sourceImageId;
+            resourceInputs["sourceImageReference"] = state?.sourceImageReference;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["terminationNotification"] = state?.terminationNotification;
+            resourceInputs["userData"] = state?.userData;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
+            resourceInputs["virtualMachineScaleSetId"] = state?.virtualMachineScaleSetId;
+            resourceInputs["vmAgentPlatformUpdatesEnabled"] = state?.vmAgentPlatformUpdatesEnabled;
+            resourceInputs["vtpmEnabled"] = state?.vtpmEnabled;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as LinuxVirtualMachineArgs | undefined;
-            if ((!args || args.adminUsername === undefined) && !opts.urn) {
+            if (args?.adminUsername === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUsername'");
             }
-            if ((!args || args.networkInterfaceIds === undefined) && !opts.urn) {
+            if (args?.networkInterfaceIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceIds'");
             }
-            if ((!args || args.osDisk === undefined) && !opts.urn) {
+            if (args?.osDisk === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osDisk'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
+            resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
             resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
-            resourceInputs["adminSshKeys"] = args ? args.adminSshKeys : undefined;
-            resourceInputs["adminUsername"] = args ? args.adminUsername : undefined;
-            resourceInputs["allowExtensionOperations"] = args ? args.allowExtensionOperations : undefined;
-            resourceInputs["availabilitySetId"] = args ? args.availabilitySetId : undefined;
-            resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
-            resourceInputs["bypassPlatformSafetyChecksOnUserScheduleEnabled"] = args ? args.bypassPlatformSafetyChecksOnUserScheduleEnabled : undefined;
-            resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
-            resourceInputs["computerName"] = args ? args.computerName : undefined;
+            resourceInputs["adminSshKeys"] = args?.adminSshKeys;
+            resourceInputs["adminUsername"] = args?.adminUsername;
+            resourceInputs["allowExtensionOperations"] = args?.allowExtensionOperations;
+            resourceInputs["availabilitySetId"] = args?.availabilitySetId;
+            resourceInputs["bootDiagnostics"] = args?.bootDiagnostics;
+            resourceInputs["bypassPlatformSafetyChecksOnUserScheduleEnabled"] = args?.bypassPlatformSafetyChecksOnUserScheduleEnabled;
+            resourceInputs["capacityReservationGroupId"] = args?.capacityReservationGroupId;
+            resourceInputs["computerName"] = args?.computerName;
             resourceInputs["customData"] = args?.customData ? pulumi.secret(args.customData) : undefined;
-            resourceInputs["dedicatedHostGroupId"] = args ? args.dedicatedHostGroupId : undefined;
-            resourceInputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
-            resourceInputs["disablePasswordAuthentication"] = args ? args.disablePasswordAuthentication : undefined;
-            resourceInputs["diskControllerType"] = args ? args.diskControllerType : undefined;
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
-            resourceInputs["galleryApplications"] = args ? args.galleryApplications : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxBidPrice"] = args ? args.maxBidPrice : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkInterfaceIds"] = args ? args.networkInterfaceIds : undefined;
-            resourceInputs["osDisk"] = args ? args.osDisk : undefined;
-            resourceInputs["osImageNotification"] = args ? args.osImageNotification : undefined;
-            resourceInputs["patchAssessmentMode"] = args ? args.patchAssessmentMode : undefined;
-            resourceInputs["patchMode"] = args ? args.patchMode : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["provisionVmAgent"] = args ? args.provisionVmAgent : undefined;
-            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            resourceInputs["rebootSetting"] = args ? args.rebootSetting : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secrets"] = args ? args.secrets : undefined;
-            resourceInputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
-            resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
-            resourceInputs["vmAgentPlatformUpdatesEnabled"] = args ? args.vmAgentPlatformUpdatesEnabled : undefined;
-            resourceInputs["vtpmEnabled"] = args ? args.vtpmEnabled : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["dedicatedHostGroupId"] = args?.dedicatedHostGroupId;
+            resourceInputs["dedicatedHostId"] = args?.dedicatedHostId;
+            resourceInputs["disablePasswordAuthentication"] = args?.disablePasswordAuthentication;
+            resourceInputs["diskControllerType"] = args?.diskControllerType;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["encryptionAtHostEnabled"] = args?.encryptionAtHostEnabled;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
+            resourceInputs["extensionsTimeBudget"] = args?.extensionsTimeBudget;
+            resourceInputs["galleryApplications"] = args?.galleryApplications;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxBidPrice"] = args?.maxBidPrice;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkInterfaceIds"] = args?.networkInterfaceIds;
+            resourceInputs["osDisk"] = args?.osDisk;
+            resourceInputs["osImageNotification"] = args?.osImageNotification;
+            resourceInputs["patchAssessmentMode"] = args?.patchAssessmentMode;
+            resourceInputs["patchMode"] = args?.patchMode;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["platformFaultDomain"] = args?.platformFaultDomain;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["provisionVmAgent"] = args?.provisionVmAgent;
+            resourceInputs["proximityPlacementGroupId"] = args?.proximityPlacementGroupId;
+            resourceInputs["rebootSetting"] = args?.rebootSetting;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secrets"] = args?.secrets;
+            resourceInputs["secureBootEnabled"] = args?.secureBootEnabled;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["sourceImageId"] = args?.sourceImageId;
+            resourceInputs["sourceImageReference"] = args?.sourceImageReference;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminationNotification"] = args?.terminationNotification;
+            resourceInputs["userData"] = args?.userData;
+            resourceInputs["virtualMachineScaleSetId"] = args?.virtualMachineScaleSetId;
+            resourceInputs["vmAgentPlatformUpdatesEnabled"] = args?.vmAgentPlatformUpdatesEnabled;
+            resourceInputs["vtpmEnabled"] = args?.vtpmEnabled;
+            resourceInputs["zone"] = args?.zone;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
             resourceInputs["privateIpAddresses"] = undefined /*out*/;
             resourceInputs["publicIpAddress"] = undefined /*out*/;

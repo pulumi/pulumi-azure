@@ -75,31 +75,31 @@ export class Network extends pulumi.CustomResource {
     /**
      * Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
      */
-    public readonly mobileCountryCode!: pulumi.Output<string>;
+    declare public readonly mobileCountryCode: pulumi.Output<string>;
     /**
      * Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
      */
-    public readonly mobileNetworkCode!: pulumi.Output<string>;
+    declare public readonly mobileNetworkCode: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The mobile network resource identifier.
      */
-    public /*out*/ readonly serviceKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceKey: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Network resource with the given unique name, arguments, and options.
@@ -114,30 +114,30 @@ export class Network extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mobileCountryCode"] = state ? state.mobileCountryCode : undefined;
-            resourceInputs["mobileNetworkCode"] = state ? state.mobileNetworkCode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serviceKey"] = state ? state.serviceKey : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mobileCountryCode"] = state?.mobileCountryCode;
+            resourceInputs["mobileNetworkCode"] = state?.mobileNetworkCode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serviceKey"] = state?.serviceKey;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NetworkArgs | undefined;
-            if ((!args || args.mobileCountryCode === undefined) && !opts.urn) {
+            if (args?.mobileCountryCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileCountryCode'");
             }
-            if ((!args || args.mobileNetworkCode === undefined) && !opts.urn) {
+            if (args?.mobileNetworkCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkCode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileCountryCode"] = args ? args.mobileCountryCode : undefined;
-            resourceInputs["mobileNetworkCode"] = args ? args.mobileNetworkCode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileCountryCode"] = args?.mobileCountryCode;
+            resourceInputs["mobileNetworkCode"] = args?.mobileNetworkCode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["serviceKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

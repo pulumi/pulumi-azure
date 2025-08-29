@@ -122,39 +122,39 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
     /**
      * A list of IDs of Resources referred into query.
      */
-    public readonly authorizedResourceIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly authorizedResourceIds: pulumi.Output<string[] | undefined>;
     /**
      * A `criteria` block as defined below.
      */
-    public readonly criteria!: pulumi.Output<outputs.monitoring.ScheduledQueryRulesLogCriteria>;
+    declare public readonly criteria: pulumi.Output<outputs.monitoring.ScheduledQueryRulesLogCriteria>;
     /**
      * The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
      */
-    public readonly dataSourceId!: pulumi.Output<string>;
+    declare public readonly dataSourceId: pulumi.Output<string>;
     /**
      * The description of the scheduled query rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether this scheduled query rule is enabled. Default is `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the scheduled query rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ScheduledQueryRulesLog resource with the given unique name, arguments, and options.
@@ -169,35 +169,35 @@ export class ScheduledQueryRulesLog extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledQueryRulesLogState | undefined;
-            resourceInputs["authorizedResourceIds"] = state ? state.authorizedResourceIds : undefined;
-            resourceInputs["criteria"] = state ? state.criteria : undefined;
-            resourceInputs["dataSourceId"] = state ? state.dataSourceId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["authorizedResourceIds"] = state?.authorizedResourceIds;
+            resourceInputs["criteria"] = state?.criteria;
+            resourceInputs["dataSourceId"] = state?.dataSourceId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ScheduledQueryRulesLogArgs | undefined;
-            if ((!args || args.criteria === undefined) && !opts.urn) {
+            if (args?.criteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'criteria'");
             }
-            if ((!args || args.dataSourceId === undefined) && !opts.urn) {
+            if (args?.dataSourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizedResourceIds"] = args ? args.authorizedResourceIds : undefined;
-            resourceInputs["criteria"] = args ? args.criteria : undefined;
-            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorizedResourceIds"] = args?.authorizedResourceIds;
+            resourceInputs["criteria"] = args?.criteria;
+            resourceInputs["dataSourceId"] = args?.dataSourceId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScheduledQueryRulesLog.__pulumiType, name, resourceInputs, opts);

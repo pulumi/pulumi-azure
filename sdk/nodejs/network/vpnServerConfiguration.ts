@@ -94,38 +94,38 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpnServerConfiguration.__pulumiType;
     }
 
-    public readonly azureActiveDirectoryAuthentications!: pulumi.Output<outputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication[] | undefined>;
-    public readonly clientRevokedCertificates!: pulumi.Output<outputs.network.VpnServerConfigurationClientRevokedCertificate[] | undefined>;
-    public readonly clientRootCertificates!: pulumi.Output<outputs.network.VpnServerConfigurationClientRootCertificate[] | undefined>;
+    declare public readonly azureActiveDirectoryAuthentications: pulumi.Output<outputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication[] | undefined>;
+    declare public readonly clientRevokedCertificates: pulumi.Output<outputs.network.VpnServerConfigurationClientRevokedCertificate[] | undefined>;
+    declare public readonly clientRootCertificates: pulumi.Output<outputs.network.VpnServerConfigurationClientRootCertificate[] | undefined>;
     /**
      * A `ipsecPolicy` block as defined below.
      */
-    public readonly ipsecPolicy!: pulumi.Output<outputs.network.VpnServerConfigurationIpsecPolicy | undefined>;
+    declare public readonly ipsecPolicy: pulumi.Output<outputs.network.VpnServerConfigurationIpsecPolicy | undefined>;
     /**
      * The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly radius!: pulumi.Output<outputs.network.VpnServerConfigurationRadius | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly radius: pulumi.Output<outputs.network.VpnServerConfigurationRadius | undefined>;
     /**
      * The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
      */
-    public readonly vpnAuthenticationTypes!: pulumi.Output<string[]>;
+    declare public readonly vpnAuthenticationTypes: pulumi.Output<string[]>;
     /**
      * A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
      */
-    public readonly vpnProtocols!: pulumi.Output<string[]>;
+    declare public readonly vpnProtocols: pulumi.Output<string[]>;
 
     /**
      * Create a VpnServerConfiguration resource with the given unique name, arguments, and options.
@@ -140,36 +140,36 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnServerConfigurationState | undefined;
-            resourceInputs["azureActiveDirectoryAuthentications"] = state ? state.azureActiveDirectoryAuthentications : undefined;
-            resourceInputs["clientRevokedCertificates"] = state ? state.clientRevokedCertificates : undefined;
-            resourceInputs["clientRootCertificates"] = state ? state.clientRootCertificates : undefined;
-            resourceInputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["radius"] = state ? state.radius : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["vpnAuthenticationTypes"] = state ? state.vpnAuthenticationTypes : undefined;
-            resourceInputs["vpnProtocols"] = state ? state.vpnProtocols : undefined;
+            resourceInputs["azureActiveDirectoryAuthentications"] = state?.azureActiveDirectoryAuthentications;
+            resourceInputs["clientRevokedCertificates"] = state?.clientRevokedCertificates;
+            resourceInputs["clientRootCertificates"] = state?.clientRootCertificates;
+            resourceInputs["ipsecPolicy"] = state?.ipsecPolicy;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["radius"] = state?.radius;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["vpnAuthenticationTypes"] = state?.vpnAuthenticationTypes;
+            resourceInputs["vpnProtocols"] = state?.vpnProtocols;
         } else {
             const args = argsOrState as VpnServerConfigurationArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vpnAuthenticationTypes === undefined) && !opts.urn) {
+            if (args?.vpnAuthenticationTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnAuthenticationTypes'");
             }
-            resourceInputs["azureActiveDirectoryAuthentications"] = args ? args.azureActiveDirectoryAuthentications : undefined;
-            resourceInputs["clientRevokedCertificates"] = args ? args.clientRevokedCertificates : undefined;
-            resourceInputs["clientRootCertificates"] = args ? args.clientRootCertificates : undefined;
-            resourceInputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["radius"] = args ? args.radius : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vpnAuthenticationTypes"] = args ? args.vpnAuthenticationTypes : undefined;
-            resourceInputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
+            resourceInputs["azureActiveDirectoryAuthentications"] = args?.azureActiveDirectoryAuthentications;
+            resourceInputs["clientRevokedCertificates"] = args?.clientRevokedCertificates;
+            resourceInputs["clientRootCertificates"] = args?.clientRootCertificates;
+            resourceInputs["ipsecPolicy"] = args?.ipsecPolicy;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["radius"] = args?.radius;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vpnAuthenticationTypes"] = args?.vpnAuthenticationTypes;
+            resourceInputs["vpnProtocols"] = args?.vpnProtocols;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpnServerConfiguration.__pulumiType, name, resourceInputs, opts);

@@ -78,23 +78,23 @@ export class HyperVReplicationPolicy extends pulumi.CustomResource {
     /**
      * Specifies the frequency at which to create application consistent recovery points.
      */
-    public readonly applicationConsistentSnapshotFrequencyInHours!: pulumi.Output<number>;
+    declare public readonly applicationConsistentSnapshotFrequencyInHours: pulumi.Output<number>;
     /**
      * The name of the replication policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The duration in hours for which the recovery points need to be stored.
      */
-    public readonly recoveryPointRetentionInHours!: pulumi.Output<number>;
+    declare public readonly recoveryPointRetentionInHours: pulumi.Output<number>;
     /**
      * The id of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultId!: pulumi.Output<string>;
+    declare public readonly recoveryVaultId: pulumi.Output<string>;
     /**
      * Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
      */
-    public readonly replicationIntervalInSeconds!: pulumi.Output<number>;
+    declare public readonly replicationIntervalInSeconds: pulumi.Output<number>;
 
     /**
      * Create a HyperVReplicationPolicy resource with the given unique name, arguments, and options.
@@ -109,30 +109,30 @@ export class HyperVReplicationPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HyperVReplicationPolicyState | undefined;
-            resourceInputs["applicationConsistentSnapshotFrequencyInHours"] = state ? state.applicationConsistentSnapshotFrequencyInHours : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryPointRetentionInHours"] = state ? state.recoveryPointRetentionInHours : undefined;
-            resourceInputs["recoveryVaultId"] = state ? state.recoveryVaultId : undefined;
-            resourceInputs["replicationIntervalInSeconds"] = state ? state.replicationIntervalInSeconds : undefined;
+            resourceInputs["applicationConsistentSnapshotFrequencyInHours"] = state?.applicationConsistentSnapshotFrequencyInHours;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recoveryPointRetentionInHours"] = state?.recoveryPointRetentionInHours;
+            resourceInputs["recoveryVaultId"] = state?.recoveryVaultId;
+            resourceInputs["replicationIntervalInSeconds"] = state?.replicationIntervalInSeconds;
         } else {
             const args = argsOrState as HyperVReplicationPolicyArgs | undefined;
-            if ((!args || args.applicationConsistentSnapshotFrequencyInHours === undefined) && !opts.urn) {
+            if (args?.applicationConsistentSnapshotFrequencyInHours === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationConsistentSnapshotFrequencyInHours'");
             }
-            if ((!args || args.recoveryPointRetentionInHours === undefined) && !opts.urn) {
+            if (args?.recoveryPointRetentionInHours === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryPointRetentionInHours'");
             }
-            if ((!args || args.recoveryVaultId === undefined) && !opts.urn) {
+            if (args?.recoveryVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultId'");
             }
-            if ((!args || args.replicationIntervalInSeconds === undefined) && !opts.urn) {
+            if (args?.replicationIntervalInSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicationIntervalInSeconds'");
             }
-            resourceInputs["applicationConsistentSnapshotFrequencyInHours"] = args ? args.applicationConsistentSnapshotFrequencyInHours : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryPointRetentionInHours"] = args ? args.recoveryPointRetentionInHours : undefined;
-            resourceInputs["recoveryVaultId"] = args ? args.recoveryVaultId : undefined;
-            resourceInputs["replicationIntervalInSeconds"] = args ? args.replicationIntervalInSeconds : undefined;
+            resourceInputs["applicationConsistentSnapshotFrequencyInHours"] = args?.applicationConsistentSnapshotFrequencyInHours;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recoveryPointRetentionInHours"] = args?.recoveryPointRetentionInHours;
+            resourceInputs["recoveryVaultId"] = args?.recoveryVaultId;
+            resourceInputs["replicationIntervalInSeconds"] = args?.replicationIntervalInSeconds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HyperVReplicationPolicy.__pulumiType, name, resourceInputs, opts);

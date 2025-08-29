@@ -74,51 +74,51 @@ export class Provider extends pulumi.CustomResource {
     /**
      * The URI of the Attestation Service.
      */
-    public /*out*/ readonly attestationUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly attestationUri: pulumi.Output<string>;
     /**
      * The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
-    public readonly openEnclavePolicyBase64!: pulumi.Output<string | undefined>;
+    declare public readonly openEnclavePolicyBase64: pulumi.Output<string | undefined>;
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      *
      * > **Note:** If the `policySigningCertificateData` argument contains more than one valid X.509 certificate only the first certificate will be used.
      */
-    public readonly policySigningCertificateData!: pulumi.Output<string | undefined>;
+    declare public readonly policySigningCertificateData: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      *
      * > **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      */
-    public readonly sevSnpPolicyBase64!: pulumi.Output<string | undefined>;
+    declare public readonly sevSnpPolicyBase64: pulumi.Output<string | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
-    public readonly sgxEnclavePolicyBase64!: pulumi.Output<string | undefined>;
+    declare public readonly sgxEnclavePolicyBase64: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Attestation Provider.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      */
-    public readonly tpmPolicyBase64!: pulumi.Output<string | undefined>;
+    declare public readonly tpmPolicyBase64: pulumi.Output<string | undefined>;
     /**
      * Trust model used for the Attestation Service.
      */
-    public /*out*/ readonly trustModel!: pulumi.Output<string>;
+    declare public /*out*/ readonly trustModel: pulumi.Output<string>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -133,31 +133,31 @@ export class Provider extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProviderState | undefined;
-            resourceInputs["attestationUri"] = state ? state.attestationUri : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["openEnclavePolicyBase64"] = state ? state.openEnclavePolicyBase64 : undefined;
-            resourceInputs["policySigningCertificateData"] = state ? state.policySigningCertificateData : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sevSnpPolicyBase64"] = state ? state.sevSnpPolicyBase64 : undefined;
-            resourceInputs["sgxEnclavePolicyBase64"] = state ? state.sgxEnclavePolicyBase64 : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tpmPolicyBase64"] = state ? state.tpmPolicyBase64 : undefined;
-            resourceInputs["trustModel"] = state ? state.trustModel : undefined;
+            resourceInputs["attestationUri"] = state?.attestationUri;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["openEnclavePolicyBase64"] = state?.openEnclavePolicyBase64;
+            resourceInputs["policySigningCertificateData"] = state?.policySigningCertificateData;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sevSnpPolicyBase64"] = state?.sevSnpPolicyBase64;
+            resourceInputs["sgxEnclavePolicyBase64"] = state?.sgxEnclavePolicyBase64;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tpmPolicyBase64"] = state?.tpmPolicyBase64;
+            resourceInputs["trustModel"] = state?.trustModel;
         } else {
             const args = argsOrState as ProviderArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["openEnclavePolicyBase64"] = args ? args.openEnclavePolicyBase64 : undefined;
-            resourceInputs["policySigningCertificateData"] = args ? args.policySigningCertificateData : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sevSnpPolicyBase64"] = args ? args.sevSnpPolicyBase64 : undefined;
-            resourceInputs["sgxEnclavePolicyBase64"] = args ? args.sgxEnclavePolicyBase64 : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tpmPolicyBase64"] = args ? args.tpmPolicyBase64 : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["openEnclavePolicyBase64"] = args?.openEnclavePolicyBase64;
+            resourceInputs["policySigningCertificateData"] = args?.policySigningCertificateData;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sevSnpPolicyBase64"] = args?.sevSnpPolicyBase64;
+            resourceInputs["sgxEnclavePolicyBase64"] = args?.sgxEnclavePolicyBase64;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tpmPolicyBase64"] = args?.tpmPolicyBase64;
             resourceInputs["attestationUri"] = undefined /*out*/;
             resourceInputs["trustModel"] = undefined /*out*/;
         }

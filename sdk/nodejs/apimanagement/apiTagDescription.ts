@@ -46,19 +46,19 @@ export class ApiTagDescription extends pulumi.CustomResource {
     /**
      * The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
      */
-    public readonly apiTagId!: pulumi.Output<string>;
+    declare public readonly apiTagId: pulumi.Output<string>;
     /**
      * The description of the Tag.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The description of the external documentation resources describing the tag.
      */
-    public readonly externalDocumentationDescription!: pulumi.Output<string | undefined>;
+    declare public readonly externalDocumentationDescription: pulumi.Output<string | undefined>;
     /**
      * The URL of external documentation resources describing the tag.
      */
-    public readonly externalDocumentationUrl!: pulumi.Output<string | undefined>;
+    declare public readonly externalDocumentationUrl: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiTagDescription resource with the given unique name, arguments, and options.
@@ -73,19 +73,19 @@ export class ApiTagDescription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiTagDescriptionState | undefined;
-            resourceInputs["apiTagId"] = state ? state.apiTagId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["externalDocumentationDescription"] = state ? state.externalDocumentationDescription : undefined;
-            resourceInputs["externalDocumentationUrl"] = state ? state.externalDocumentationUrl : undefined;
+            resourceInputs["apiTagId"] = state?.apiTagId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["externalDocumentationDescription"] = state?.externalDocumentationDescription;
+            resourceInputs["externalDocumentationUrl"] = state?.externalDocumentationUrl;
         } else {
             const args = argsOrState as ApiTagDescriptionArgs | undefined;
-            if ((!args || args.apiTagId === undefined) && !opts.urn) {
+            if (args?.apiTagId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiTagId'");
             }
-            resourceInputs["apiTagId"] = args ? args.apiTagId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["externalDocumentationDescription"] = args ? args.externalDocumentationDescription : undefined;
-            resourceInputs["externalDocumentationUrl"] = args ? args.externalDocumentationUrl : undefined;
+            resourceInputs["apiTagId"] = args?.apiTagId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["externalDocumentationDescription"] = args?.externalDocumentationDescription;
+            resourceInputs["externalDocumentationUrl"] = args?.externalDocumentationUrl;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiTagDescription.__pulumiType, name, resourceInputs, opts);

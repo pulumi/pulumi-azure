@@ -84,7 +84,7 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
      *
      * > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
      */
-    public readonly managementGroupId!: pulumi.Output<string>;
+    declare public readonly managementGroupId: pulumi.Output<string>;
     /**
      * Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
      *
@@ -99,19 +99,19 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
      * });
      * ```
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean>;
     /**
      * The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
      */
-    public readonly resourceManagementPrivateLinkId!: pulumi.Output<string>;
+    declare public readonly resourceManagementPrivateLinkId: pulumi.Output<string>;
     /**
      * The Tenant ID.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a PrivateLinkAssociation resource with the given unique name, arguments, and options.
@@ -126,26 +126,26 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateLinkAssociationState | undefined;
-            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceManagementPrivateLinkId"] = state ? state.resourceManagementPrivateLinkId : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["managementGroupId"] = state?.managementGroupId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceManagementPrivateLinkId"] = state?.resourceManagementPrivateLinkId;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as PrivateLinkAssociationArgs | undefined;
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.publicNetworkAccessEnabled === undefined) && !opts.urn) {
+            if (args?.publicNetworkAccessEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicNetworkAccessEnabled'");
             }
-            if ((!args || args.resourceManagementPrivateLinkId === undefined) && !opts.urn) {
+            if (args?.resourceManagementPrivateLinkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceManagementPrivateLinkId'");
             }
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceManagementPrivateLinkId"] = args ? args.resourceManagementPrivateLinkId : undefined;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceManagementPrivateLinkId"] = args?.resourceManagementPrivateLinkId;
             resourceInputs["tenantId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

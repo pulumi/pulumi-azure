@@ -78,37 +78,37 @@ export class Pool extends pulumi.CustomResource {
     /**
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
      *
      * > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
      */
-    public readonly coolAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly coolAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
      */
-    public readonly encryptionType!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionType: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the NetApp Pool. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * QoS Type of the pool. Valid values include `Auto` or `Manual`. Defaults to `Auto`.
      */
-    public readonly qosType!: pulumi.Output<string | undefined>;
+    declare public readonly qosType: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
      */
-    public readonly serviceLevel!: pulumi.Output<string>;
+    declare public readonly serviceLevel: pulumi.Output<string>;
     /**
      * Provisioned size of the pool in TB. Value must be between `1` and `2048`.
      *
@@ -116,11 +116,11 @@ export class Pool extends pulumi.CustomResource {
      *
      * > **Note:** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
      */
-    public readonly sizeInTb!: pulumi.Output<number>;
+    declare public readonly sizeInTb: pulumi.Output<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -135,40 +135,40 @@ export class Pool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["coolAccessEnabled"] = state ? state.coolAccessEnabled : undefined;
-            resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["qosType"] = state ? state.qosType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serviceLevel"] = state ? state.serviceLevel : undefined;
-            resourceInputs["sizeInTb"] = state ? state.sizeInTb : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["coolAccessEnabled"] = state?.coolAccessEnabled;
+            resourceInputs["encryptionType"] = state?.encryptionType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["qosType"] = state?.qosType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serviceLevel"] = state?.serviceLevel;
+            resourceInputs["sizeInTb"] = state?.sizeInTb;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceLevel === undefined) && !opts.urn) {
+            if (args?.serviceLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceLevel'");
             }
-            if ((!args || args.sizeInTb === undefined) && !opts.urn) {
+            if (args?.sizeInTb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sizeInTb'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["coolAccessEnabled"] = args ? args.coolAccessEnabled : undefined;
-            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["qosType"] = args ? args.qosType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
-            resourceInputs["sizeInTb"] = args ? args.sizeInTb : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["coolAccessEnabled"] = args?.coolAccessEnabled;
+            resourceInputs["encryptionType"] = args?.encryptionType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["qosType"] = args?.qosType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceLevel"] = args?.serviceLevel;
+            resourceInputs["sizeInTb"] = args?.sizeInTb;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Pool.__pulumiType, name, resourceInputs, opts);

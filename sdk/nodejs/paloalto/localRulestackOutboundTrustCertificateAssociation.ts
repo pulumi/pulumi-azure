@@ -68,7 +68,7 @@ export class LocalRulestackOutboundTrustCertificateAssociation extends pulumi.Cu
     /**
      * The ID of the Certificate to use as the Outbound Trust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Trust Certificate Association to be created.
      */
-    public readonly certificateId!: pulumi.Output<string>;
+    declare public readonly certificateId: pulumi.Output<string>;
 
     /**
      * Create a LocalRulestackOutboundTrustCertificateAssociation resource with the given unique name, arguments, and options.
@@ -83,13 +83,13 @@ export class LocalRulestackOutboundTrustCertificateAssociation extends pulumi.Cu
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRulestackOutboundTrustCertificateAssociationState | undefined;
-            resourceInputs["certificateId"] = state ? state.certificateId : undefined;
+            resourceInputs["certificateId"] = state?.certificateId;
         } else {
             const args = argsOrState as LocalRulestackOutboundTrustCertificateAssociationArgs | undefined;
-            if ((!args || args.certificateId === undefined) && !opts.urn) {
+            if (args?.certificateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateId'");
             }
-            resourceInputs["certificateId"] = args ? args.certificateId : undefined;
+            resourceInputs["certificateId"] = args?.certificateId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalRulestackOutboundTrustCertificateAssociation.__pulumiType, name, resourceInputs, opts);

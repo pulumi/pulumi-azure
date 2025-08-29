@@ -78,23 +78,23 @@ export class ApiPolicy extends pulumi.CustomResource {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiName!: pulumi.Output<string>;
+    declare public readonly apiName: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The XML Content for this Policy as a string.
      */
-    public readonly xmlContent!: pulumi.Output<string>;
+    declare public readonly xmlContent: pulumi.Output<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
      */
-    public readonly xmlLink!: pulumi.Output<string | undefined>;
+    declare public readonly xmlLink: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiPolicy resource with the given unique name, arguments, and options.
@@ -109,27 +109,27 @@ export class ApiPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiPolicyState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["apiName"] = state ? state.apiName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["xmlContent"] = state ? state.xmlContent : undefined;
-            resourceInputs["xmlLink"] = state ? state.xmlLink : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["apiName"] = state?.apiName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["xmlContent"] = state?.xmlContent;
+            resourceInputs["xmlLink"] = state?.xmlLink;
         } else {
             const args = argsOrState as ApiPolicyArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.apiName === undefined) && !opts.urn) {
+            if (args?.apiName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["xmlContent"] = args ? args.xmlContent : undefined;
-            resourceInputs["xmlLink"] = args ? args.xmlLink : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["xmlContent"] = args?.xmlContent;
+            resourceInputs["xmlLink"] = args?.xmlLink;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiPolicy.__pulumiType, name, resourceInputs, opts);

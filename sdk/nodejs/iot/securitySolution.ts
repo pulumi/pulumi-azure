@@ -76,63 +76,63 @@ export class SecuritySolution extends pulumi.CustomResource {
     /**
      * A `additionalWorkspace` block as defined below.
      */
-    public readonly additionalWorkspaces!: pulumi.Output<outputs.iot.SecuritySolutionAdditionalWorkspace[] | undefined>;
+    declare public readonly additionalWorkspaces: pulumi.Output<outputs.iot.SecuritySolutionAdditionalWorkspace[] | undefined>;
     /**
      * A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
      */
-    public readonly disabledDataSources!: pulumi.Output<string[] | undefined>;
+    declare public readonly disabledDataSources: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the Display Name for this Iot Security Solution.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Is the Iot Security Solution enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
      */
-    public readonly eventsToExports!: pulumi.Output<string[] | undefined>;
+    declare public readonly eventsToExports: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
      */
-    public readonly iothubIds!: pulumi.Output<string[]>;
+    declare public readonly iothubIds: pulumi.Output<string[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the Log Analytics Workspace ID to which the security data will be sent.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string | undefined>;
     /**
      * Should IP addressed be unmasked in the log? Defaults to `false`.
      */
-    public readonly logUnmaskedIpsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly logUnmaskedIpsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An Azure Resource Graph query used to set the resources monitored.
      */
-    public readonly queryForResources!: pulumi.Output<string>;
+    declare public readonly queryForResources: pulumi.Output<string>;
     /**
      * A list of subscription Ids on which the user defined resources query should be executed.
      */
-    public readonly querySubscriptionIds!: pulumi.Output<string[]>;
+    declare public readonly querySubscriptionIds: pulumi.Output<string[]>;
     /**
      * A `recommendationsEnabled` block of options to enable or disable as defined below.
      */
-    public readonly recommendationsEnabled!: pulumi.Output<outputs.iot.SecuritySolutionRecommendationsEnabled>;
+    declare public readonly recommendationsEnabled: pulumi.Output<outputs.iot.SecuritySolutionRecommendationsEnabled>;
     /**
      * Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SecuritySolution resource with the given unique name, arguments, and options.
@@ -147,47 +147,47 @@ export class SecuritySolution extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecuritySolutionState | undefined;
-            resourceInputs["additionalWorkspaces"] = state ? state.additionalWorkspaces : undefined;
-            resourceInputs["disabledDataSources"] = state ? state.disabledDataSources : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["eventsToExports"] = state ? state.eventsToExports : undefined;
-            resourceInputs["iothubIds"] = state ? state.iothubIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["logUnmaskedIpsEnabled"] = state ? state.logUnmaskedIpsEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queryForResources"] = state ? state.queryForResources : undefined;
-            resourceInputs["querySubscriptionIds"] = state ? state.querySubscriptionIds : undefined;
-            resourceInputs["recommendationsEnabled"] = state ? state.recommendationsEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["additionalWorkspaces"] = state?.additionalWorkspaces;
+            resourceInputs["disabledDataSources"] = state?.disabledDataSources;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["eventsToExports"] = state?.eventsToExports;
+            resourceInputs["iothubIds"] = state?.iothubIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["logUnmaskedIpsEnabled"] = state?.logUnmaskedIpsEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queryForResources"] = state?.queryForResources;
+            resourceInputs["querySubscriptionIds"] = state?.querySubscriptionIds;
+            resourceInputs["recommendationsEnabled"] = state?.recommendationsEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SecuritySolutionArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.iothubIds === undefined) && !opts.urn) {
+            if (args?.iothubIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubIds'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalWorkspaces"] = args ? args.additionalWorkspaces : undefined;
-            resourceInputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["eventsToExports"] = args ? args.eventsToExports : undefined;
-            resourceInputs["iothubIds"] = args ? args.iothubIds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["logUnmaskedIpsEnabled"] = args ? args.logUnmaskedIpsEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryForResources"] = args ? args.queryForResources : undefined;
-            resourceInputs["querySubscriptionIds"] = args ? args.querySubscriptionIds : undefined;
-            resourceInputs["recommendationsEnabled"] = args ? args.recommendationsEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalWorkspaces"] = args?.additionalWorkspaces;
+            resourceInputs["disabledDataSources"] = args?.disabledDataSources;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["eventsToExports"] = args?.eventsToExports;
+            resourceInputs["iothubIds"] = args?.iothubIds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["logUnmaskedIpsEnabled"] = args?.logUnmaskedIpsEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryForResources"] = args?.queryForResources;
+            resourceInputs["querySubscriptionIds"] = args?.querySubscriptionIds;
+            resourceInputs["recommendationsEnabled"] = args?.recommendationsEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SecuritySolution.__pulumiType, name, resourceInputs, opts);

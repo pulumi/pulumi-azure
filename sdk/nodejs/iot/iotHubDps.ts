@@ -77,55 +77,55 @@ export class IotHubDps extends pulumi.CustomResource {
     /**
      * The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
      */
-    public readonly allocationPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly allocationPolicy: pulumi.Output<string | undefined>;
     /**
      * Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly dataResidencyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataResidencyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The device endpoint of the IoT Device Provisioning Service.
      */
-    public /*out*/ readonly deviceProvisioningHostName!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceProvisioningHostName: pulumi.Output<string>;
     /**
      * The unique identifier of the IoT Device Provisioning Service.
      */
-    public /*out*/ readonly idScope!: pulumi.Output<string>;
+    declare public /*out*/ readonly idScope: pulumi.Output<string>;
     /**
      * An `ipFilterRule` block as defined below.
      */
-    public readonly ipFilterRules!: pulumi.Output<outputs.iot.IotHubDpsIpFilterRule[] | undefined>;
+    declare public readonly ipFilterRules: pulumi.Output<outputs.iot.IotHubDpsIpFilterRule[] | undefined>;
     /**
      * A `linkedHub` block as defined below.
      */
-    public readonly linkedHubs!: pulumi.Output<outputs.iot.IotHubDpsLinkedHub[] | undefined>;
+    declare public readonly linkedHubs: pulumi.Output<outputs.iot.IotHubDpsLinkedHub[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether requests from Public Network are allowed. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The service endpoint of the IoT Device Provisioning Service.
      */
-    public /*out*/ readonly serviceOperationsHostName!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceOperationsHostName: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<outputs.iot.IotHubDpsSku>;
+    declare public readonly sku: pulumi.Output<outputs.iot.IotHubDpsSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IotHubDps resource with the given unique name, arguments, and options.
@@ -140,37 +140,37 @@ export class IotHubDps extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IotHubDpsState | undefined;
-            resourceInputs["allocationPolicy"] = state ? state.allocationPolicy : undefined;
-            resourceInputs["dataResidencyEnabled"] = state ? state.dataResidencyEnabled : undefined;
-            resourceInputs["deviceProvisioningHostName"] = state ? state.deviceProvisioningHostName : undefined;
-            resourceInputs["idScope"] = state ? state.idScope : undefined;
-            resourceInputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
-            resourceInputs["linkedHubs"] = state ? state.linkedHubs : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serviceOperationsHostName"] = state ? state.serviceOperationsHostName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["allocationPolicy"] = state?.allocationPolicy;
+            resourceInputs["dataResidencyEnabled"] = state?.dataResidencyEnabled;
+            resourceInputs["deviceProvisioningHostName"] = state?.deviceProvisioningHostName;
+            resourceInputs["idScope"] = state?.idScope;
+            resourceInputs["ipFilterRules"] = state?.ipFilterRules;
+            resourceInputs["linkedHubs"] = state?.linkedHubs;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serviceOperationsHostName"] = state?.serviceOperationsHostName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as IotHubDpsArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["allocationPolicy"] = args ? args.allocationPolicy : undefined;
-            resourceInputs["dataResidencyEnabled"] = args ? args.dataResidencyEnabled : undefined;
-            resourceInputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
-            resourceInputs["linkedHubs"] = args ? args.linkedHubs : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allocationPolicy"] = args?.allocationPolicy;
+            resourceInputs["dataResidencyEnabled"] = args?.dataResidencyEnabled;
+            resourceInputs["ipFilterRules"] = args?.ipFilterRules;
+            resourceInputs["linkedHubs"] = args?.linkedHubs;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["deviceProvisioningHostName"] = undefined /*out*/;
             resourceInputs["idScope"] = undefined /*out*/;
             resourceInputs["serviceOperationsHostName"] = undefined /*out*/;

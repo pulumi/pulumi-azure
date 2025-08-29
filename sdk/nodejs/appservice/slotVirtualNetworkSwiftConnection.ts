@@ -104,15 +104,15 @@ export class SlotVirtualNetworkSwiftConnection extends pulumi.CustomResource {
     /**
      * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      */
-    public readonly appServiceId!: pulumi.Output<string>;
+    declare public readonly appServiceId: pulumi.Output<string>;
     /**
      * The name of the App Service Slot or Function App Slot. Changing this forces a new resource to be created.
      */
-    public readonly slotName!: pulumi.Output<string>;
+    declare public readonly slotName: pulumi.Output<string>;
     /**
      * The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a SlotVirtualNetworkSwiftConnection resource with the given unique name, arguments, and options.
@@ -127,23 +127,23 @@ export class SlotVirtualNetworkSwiftConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlotVirtualNetworkSwiftConnectionState | undefined;
-            resourceInputs["appServiceId"] = state ? state.appServiceId : undefined;
-            resourceInputs["slotName"] = state ? state.slotName : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["appServiceId"] = state?.appServiceId;
+            resourceInputs["slotName"] = state?.slotName;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as SlotVirtualNetworkSwiftConnectionArgs | undefined;
-            if ((!args || args.appServiceId === undefined) && !opts.urn) {
+            if (args?.appServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServiceId'");
             }
-            if ((!args || args.slotName === undefined) && !opts.urn) {
+            if (args?.slotName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slotName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["appServiceId"] = args ? args.appServiceId : undefined;
-            resourceInputs["slotName"] = args ? args.slotName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["appServiceId"] = args?.appServiceId;
+            resourceInputs["slotName"] = args?.slotName;
+            resourceInputs["subnetId"] = args?.subnetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SlotVirtualNetworkSwiftConnection.__pulumiType, name, resourceInputs, opts);

@@ -98,25 +98,25 @@ export class AccountQueueProperties extends pulumi.CustomResource {
     /**
      * A `corsRule` block as defined above.
      */
-    public readonly corsRules!: pulumi.Output<outputs.storage.AccountQueuePropertiesCorsRule[] | undefined>;
+    declare public readonly corsRules: pulumi.Output<outputs.storage.AccountQueuePropertiesCorsRule[] | undefined>;
     /**
      * A `hourMetrics` block as defined below.
      *
      * > **Note:** At least one of `corsRule`, `logging`, `minuteMetrics`, or `hourMetrics` must be specified.
      */
-    public readonly hourMetrics!: pulumi.Output<outputs.storage.AccountQueuePropertiesHourMetrics>;
+    declare public readonly hourMetrics: pulumi.Output<outputs.storage.AccountQueuePropertiesHourMetrics>;
     /**
      * A `logging` block as defined below.
      */
-    public readonly logging!: pulumi.Output<outputs.storage.AccountQueuePropertiesLogging>;
+    declare public readonly logging: pulumi.Output<outputs.storage.AccountQueuePropertiesLogging>;
     /**
      * A `minuteMetrics` block as defined below.
      */
-    public readonly minuteMetrics!: pulumi.Output<outputs.storage.AccountQueuePropertiesMinuteMetrics>;
+    declare public readonly minuteMetrics: pulumi.Output<outputs.storage.AccountQueuePropertiesMinuteMetrics>;
     /**
      * The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a AccountQueueProperties resource with the given unique name, arguments, and options.
@@ -131,21 +131,21 @@ export class AccountQueueProperties extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountQueuePropertiesState | undefined;
-            resourceInputs["corsRules"] = state ? state.corsRules : undefined;
-            resourceInputs["hourMetrics"] = state ? state.hourMetrics : undefined;
-            resourceInputs["logging"] = state ? state.logging : undefined;
-            resourceInputs["minuteMetrics"] = state ? state.minuteMetrics : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["corsRules"] = state?.corsRules;
+            resourceInputs["hourMetrics"] = state?.hourMetrics;
+            resourceInputs["logging"] = state?.logging;
+            resourceInputs["minuteMetrics"] = state?.minuteMetrics;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as AccountQueuePropertiesArgs | undefined;
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["corsRules"] = args ? args.corsRules : undefined;
-            resourceInputs["hourMetrics"] = args ? args.hourMetrics : undefined;
-            resourceInputs["logging"] = args ? args.logging : undefined;
-            resourceInputs["minuteMetrics"] = args ? args.minuteMetrics : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["corsRules"] = args?.corsRules;
+            resourceInputs["hourMetrics"] = args?.hourMetrics;
+            resourceInputs["logging"] = args?.logging;
+            resourceInputs["minuteMetrics"] = args?.minuteMetrics;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountQueueProperties.__pulumiType, name, resourceInputs, opts);

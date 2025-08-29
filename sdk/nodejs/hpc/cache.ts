@@ -91,81 +91,81 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
      */
-    public readonly automaticallyRotateKeyToLatestEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticallyRotateKeyToLatestEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      */
-    public readonly cacheSizeInGb!: pulumi.Output<number>;
+    declare public readonly cacheSizeInGb: pulumi.Output<number>;
     /**
      * A `defaultAccessPolicy` block as defined below.
      */
-    public readonly defaultAccessPolicy!: pulumi.Output<outputs.hpc.CacheDefaultAccessPolicy>;
+    declare public readonly defaultAccessPolicy: pulumi.Output<outputs.hpc.CacheDefaultAccessPolicy>;
     /**
      * A `directoryActiveDirectory` block as defined below.
      */
-    public readonly directoryActiveDirectory!: pulumi.Output<outputs.hpc.CacheDirectoryActiveDirectory | undefined>;
+    declare public readonly directoryActiveDirectory: pulumi.Output<outputs.hpc.CacheDirectoryActiveDirectory | undefined>;
     /**
      * A `directoryFlatFile` block as defined below.
      */
-    public readonly directoryFlatFile!: pulumi.Output<outputs.hpc.CacheDirectoryFlatFile | undefined>;
+    declare public readonly directoryFlatFile: pulumi.Output<outputs.hpc.CacheDirectoryFlatFile | undefined>;
     /**
      * A `directoryLdap` block as defined below.
      *
      * > **Note:** Only one of `directoryActiveDirectory`, `directoryFlatFile` and `directoryLdap` can be set.
      */
-    public readonly directoryLdap!: pulumi.Output<outputs.hpc.CacheDirectoryLdap | undefined>;
+    declare public readonly directoryLdap: pulumi.Output<outputs.hpc.CacheDirectoryLdap | undefined>;
     /**
      * A `dns` block as defined below.
      */
-    public readonly dns!: pulumi.Output<outputs.hpc.CacheDns | undefined>;
+    declare public readonly dns: pulumi.Output<outputs.hpc.CacheDns | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.hpc.CacheIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.hpc.CacheIdentity | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A list of IP Addresses where the HPC Cache can be mounted.
      */
-    public /*out*/ readonly mountAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly mountAddresses: pulumi.Output<string[]>;
     /**
      * The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
      */
-    public readonly mtu!: pulumi.Output<number | undefined>;
+    declare public readonly mtu: pulumi.Output<number | undefined>;
     /**
      * The name of the HPC Cache. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`.
      */
-    public readonly ntpServer!: pulumi.Output<string | undefined>;
+    declare public readonly ntpServer: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      *
      * > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the HPC Cache.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -180,55 +180,55 @@ export class Cache extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheState | undefined;
-            resourceInputs["automaticallyRotateKeyToLatestEnabled"] = state ? state.automaticallyRotateKeyToLatestEnabled : undefined;
-            resourceInputs["cacheSizeInGb"] = state ? state.cacheSizeInGb : undefined;
-            resourceInputs["defaultAccessPolicy"] = state ? state.defaultAccessPolicy : undefined;
-            resourceInputs["directoryActiveDirectory"] = state ? state.directoryActiveDirectory : undefined;
-            resourceInputs["directoryFlatFile"] = state ? state.directoryFlatFile : undefined;
-            resourceInputs["directoryLdap"] = state ? state.directoryLdap : undefined;
-            resourceInputs["dns"] = state ? state.dns : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mountAddresses"] = state ? state.mountAddresses : undefined;
-            resourceInputs["mtu"] = state ? state.mtu : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ntpServer"] = state ? state.ntpServer : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["automaticallyRotateKeyToLatestEnabled"] = state?.automaticallyRotateKeyToLatestEnabled;
+            resourceInputs["cacheSizeInGb"] = state?.cacheSizeInGb;
+            resourceInputs["defaultAccessPolicy"] = state?.defaultAccessPolicy;
+            resourceInputs["directoryActiveDirectory"] = state?.directoryActiveDirectory;
+            resourceInputs["directoryFlatFile"] = state?.directoryFlatFile;
+            resourceInputs["directoryLdap"] = state?.directoryLdap;
+            resourceInputs["dns"] = state?.dns;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mountAddresses"] = state?.mountAddresses;
+            resourceInputs["mtu"] = state?.mtu;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ntpServer"] = state?.ntpServer;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as CacheArgs | undefined;
-            if ((!args || args.cacheSizeInGb === undefined) && !opts.urn) {
+            if (args?.cacheSizeInGb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cacheSizeInGb'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["automaticallyRotateKeyToLatestEnabled"] = args ? args.automaticallyRotateKeyToLatestEnabled : undefined;
-            resourceInputs["cacheSizeInGb"] = args ? args.cacheSizeInGb : undefined;
-            resourceInputs["defaultAccessPolicy"] = args ? args.defaultAccessPolicy : undefined;
-            resourceInputs["directoryActiveDirectory"] = args ? args.directoryActiveDirectory : undefined;
-            resourceInputs["directoryFlatFile"] = args ? args.directoryFlatFile : undefined;
-            resourceInputs["directoryLdap"] = args ? args.directoryLdap : undefined;
-            resourceInputs["dns"] = args ? args.dns : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mtu"] = args ? args.mtu : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ntpServer"] = args ? args.ntpServer : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["automaticallyRotateKeyToLatestEnabled"] = args?.automaticallyRotateKeyToLatestEnabled;
+            resourceInputs["cacheSizeInGb"] = args?.cacheSizeInGb;
+            resourceInputs["defaultAccessPolicy"] = args?.defaultAccessPolicy;
+            resourceInputs["directoryActiveDirectory"] = args?.directoryActiveDirectory;
+            resourceInputs["directoryFlatFile"] = args?.directoryFlatFile;
+            resourceInputs["directoryLdap"] = args?.directoryLdap;
+            resourceInputs["dns"] = args?.dns;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mtu"] = args?.mtu;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ntpServer"] = args?.ntpServer;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["mountAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -46,23 +46,23 @@ export class CacheAccessPolicyAssignment extends pulumi.CustomResource {
     /**
      * The name of the Access Policy to be assigned. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    public readonly accessPolicyName!: pulumi.Output<string>;
+    declare public readonly accessPolicyName: pulumi.Output<string>;
     /**
      * The name of the Redis Cache Access Policy Assignment. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The principal ID to be assigned the Access Policy. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    public readonly objectId!: pulumi.Output<string>;
+    declare public readonly objectId: pulumi.Output<string>;
     /**
      * The alias of the principal ID. User-friendly name for object ID. Also represents username for token based authentication. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    public readonly objectIdAlias!: pulumi.Output<string>;
+    declare public readonly objectIdAlias: pulumi.Output<string>;
     /**
      * The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy Assignment to be created.
      */
-    public readonly redisCacheId!: pulumi.Output<string>;
+    declare public readonly redisCacheId: pulumi.Output<string>;
 
     /**
      * Create a CacheAccessPolicyAssignment resource with the given unique name, arguments, and options.
@@ -77,30 +77,30 @@ export class CacheAccessPolicyAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheAccessPolicyAssignmentState | undefined;
-            resourceInputs["accessPolicyName"] = state ? state.accessPolicyName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["objectId"] = state ? state.objectId : undefined;
-            resourceInputs["objectIdAlias"] = state ? state.objectIdAlias : undefined;
-            resourceInputs["redisCacheId"] = state ? state.redisCacheId : undefined;
+            resourceInputs["accessPolicyName"] = state?.accessPolicyName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["objectId"] = state?.objectId;
+            resourceInputs["objectIdAlias"] = state?.objectIdAlias;
+            resourceInputs["redisCacheId"] = state?.redisCacheId;
         } else {
             const args = argsOrState as CacheAccessPolicyAssignmentArgs | undefined;
-            if ((!args || args.accessPolicyName === undefined) && !opts.urn) {
+            if (args?.accessPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyName'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.objectIdAlias === undefined) && !opts.urn) {
+            if (args?.objectIdAlias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectIdAlias'");
             }
-            if ((!args || args.redisCacheId === undefined) && !opts.urn) {
+            if (args?.redisCacheId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'redisCacheId'");
             }
-            resourceInputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["objectIdAlias"] = args ? args.objectIdAlias : undefined;
-            resourceInputs["redisCacheId"] = args ? args.redisCacheId : undefined;
+            resourceInputs["accessPolicyName"] = args?.accessPolicyName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["objectIdAlias"] = args?.objectIdAlias;
+            resourceInputs["redisCacheId"] = args?.redisCacheId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CacheAccessPolicyAssignment.__pulumiType, name, resourceInputs, opts);

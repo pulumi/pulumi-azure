@@ -69,19 +69,19 @@ export class PartnerRegistration extends pulumi.CustomResource {
     /**
      * The name which should be used for this EventGrid Partner Registration. Changing this forces a new EventGrid Partner Registration to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The immutable id of the corresponding partner registration.
      */
-    public /*out*/ readonly partnerRegistrationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly partnerRegistrationId: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the EventGrid Partner Registration should exist. Changing this forces a new EventGrid Partner Registration to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the EventGrid Partner Registration.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PartnerRegistration resource with the given unique name, arguments, and options.
@@ -96,18 +96,18 @@ export class PartnerRegistration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PartnerRegistrationState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partnerRegistrationId"] = state ? state.partnerRegistrationId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partnerRegistrationId"] = state?.partnerRegistrationId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as PartnerRegistrationArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["partnerRegistrationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

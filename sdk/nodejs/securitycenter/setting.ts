@@ -69,11 +69,11 @@ export class Setting extends pulumi.CustomResource {
     /**
      * Boolean flag to enable/disable data access.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION` and `Sentinel`. Changing this forces a new resource to be created.
      */
-    public readonly settingName!: pulumi.Output<string>;
+    declare public readonly settingName: pulumi.Output<string>;
 
     /**
      * Create a Setting resource with the given unique name, arguments, and options.
@@ -88,18 +88,18 @@ export class Setting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SettingState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["settingName"] = state ? state.settingName : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["settingName"] = state?.settingName;
         } else {
             const args = argsOrState as SettingArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.settingName === undefined) && !opts.urn) {
+            if (args?.settingName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'settingName'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["settingName"] = args ? args.settingName : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["settingName"] = args?.settingName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Setting.__pulumiType, name, resourceInputs, opts);

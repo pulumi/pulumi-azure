@@ -122,19 +122,19 @@ export class RestorePoint extends pulumi.CustomResource {
     /**
      * Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly crashConsistencyModeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly crashConsistencyModeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
      */
-    public readonly excludedDisks!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedDisks: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineRestorePointCollectionId!: pulumi.Output<string>;
+    declare public readonly virtualMachineRestorePointCollectionId: pulumi.Output<string>;
 
     /**
      * Create a RestorePoint resource with the given unique name, arguments, and options.
@@ -149,19 +149,19 @@ export class RestorePoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestorePointState | undefined;
-            resourceInputs["crashConsistencyModeEnabled"] = state ? state.crashConsistencyModeEnabled : undefined;
-            resourceInputs["excludedDisks"] = state ? state.excludedDisks : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["virtualMachineRestorePointCollectionId"] = state ? state.virtualMachineRestorePointCollectionId : undefined;
+            resourceInputs["crashConsistencyModeEnabled"] = state?.crashConsistencyModeEnabled;
+            resourceInputs["excludedDisks"] = state?.excludedDisks;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["virtualMachineRestorePointCollectionId"] = state?.virtualMachineRestorePointCollectionId;
         } else {
             const args = argsOrState as RestorePointArgs | undefined;
-            if ((!args || args.virtualMachineRestorePointCollectionId === undefined) && !opts.urn) {
+            if (args?.virtualMachineRestorePointCollectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineRestorePointCollectionId'");
             }
-            resourceInputs["crashConsistencyModeEnabled"] = args ? args.crashConsistencyModeEnabled : undefined;
-            resourceInputs["excludedDisks"] = args ? args.excludedDisks : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["virtualMachineRestorePointCollectionId"] = args ? args.virtualMachineRestorePointCollectionId : undefined;
+            resourceInputs["crashConsistencyModeEnabled"] = args?.crashConsistencyModeEnabled;
+            resourceInputs["excludedDisks"] = args?.excludedDisks;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["virtualMachineRestorePointCollectionId"] = args?.virtualMachineRestorePointCollectionId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RestorePoint.__pulumiType, name, resourceInputs, opts);

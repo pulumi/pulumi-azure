@@ -77,12 +77,12 @@ export class IPGroupCIDR extends pulumi.CustomResource {
         return obj['__pulumiType'] === IPGroupCIDR.__pulumiType;
     }
 
-    public readonly cidr!: pulumi.Output<string>;
+    declare public readonly cidr: pulumi.Output<string>;
     /**
      * The ID of the destination IP Group.
      * Changing this forces a new IP Group CIDR to be created.
      */
-    public readonly ipGroupId!: pulumi.Output<string>;
+    declare public readonly ipGroupId: pulumi.Output<string>;
 
     /**
      * Create a IPGroupCIDR resource with the given unique name, arguments, and options.
@@ -97,18 +97,18 @@ export class IPGroupCIDR extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IPGroupCIDRState | undefined;
-            resourceInputs["cidr"] = state ? state.cidr : undefined;
-            resourceInputs["ipGroupId"] = state ? state.ipGroupId : undefined;
+            resourceInputs["cidr"] = state?.cidr;
+            resourceInputs["ipGroupId"] = state?.ipGroupId;
         } else {
             const args = argsOrState as IPGroupCIDRArgs | undefined;
-            if ((!args || args.cidr === undefined) && !opts.urn) {
+            if (args?.cidr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cidr'");
             }
-            if ((!args || args.ipGroupId === undefined) && !opts.urn) {
+            if (args?.ipGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipGroupId'");
             }
-            resourceInputs["cidr"] = args ? args.cidr : undefined;
-            resourceInputs["ipGroupId"] = args ? args.ipGroupId : undefined;
+            resourceInputs["cidr"] = args?.cidr;
+            resourceInputs["ipGroupId"] = args?.ipGroupId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IPGroupCIDR.__pulumiType, name, resourceInputs, opts);

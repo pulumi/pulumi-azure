@@ -87,15 +87,15 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
     /**
      * The ID of the API Management Service from which to create this Notification Recipient User. Changing this forces a new API Management Notification Recipient User to be created.
      */
-    public readonly apiManagementId!: pulumi.Output<string>;
+    declare public readonly apiManagementId: pulumi.Output<string>;
     /**
      * The Notification Name to be received. Changing this forces a new API Management Notification Recipient User to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
      */
-    public readonly notificationType!: pulumi.Output<string>;
+    declare public readonly notificationType: pulumi.Output<string>;
     /**
      * The recipient user ID. Changing this forces a new API Management Notification Recipient User to be created.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a NotificationRecipientUser resource with the given unique name, arguments, and options.
@@ -110,23 +110,23 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotificationRecipientUserState | undefined;
-            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["apiManagementId"] = state?.apiManagementId;
+            resourceInputs["notificationType"] = state?.notificationType;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as NotificationRecipientUserArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
+            if (args?.apiManagementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            if ((!args || args.notificationType === undefined) && !opts.urn) {
+            if (args?.notificationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationType'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            resourceInputs["notificationType"] = args ? args.notificationType : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["apiManagementId"] = args?.apiManagementId;
+            resourceInputs["notificationType"] = args?.notificationType;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NotificationRecipientUser.__pulumiType, name, resourceInputs, opts);

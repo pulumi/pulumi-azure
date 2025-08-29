@@ -75,21 +75,21 @@ export class TriggerCustom extends pulumi.CustomResource {
     /**
      * Specifies the JSON Blob defining the Body of this Custom Trigger.
      */
-    public readonly body!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string>;
     /**
      * The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
      */
-    public /*out*/ readonly callbackUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly callbackUrl: pulumi.Output<string>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly logicAppId!: pulumi.Output<string>;
+    declare public readonly logicAppId: pulumi.Output<string>;
     /**
      * Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a TriggerCustom resource with the given unique name, arguments, and options.
@@ -104,21 +104,21 @@ export class TriggerCustom extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerCustomState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["callbackUrl"] = state ? state.callbackUrl : undefined;
-            resourceInputs["logicAppId"] = state ? state.logicAppId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["callbackUrl"] = state?.callbackUrl;
+            resourceInputs["logicAppId"] = state?.logicAppId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as TriggerCustomArgs | undefined;
-            if ((!args || args.body === undefined) && !opts.urn) {
+            if (args?.body === undefined && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.logicAppId === undefined) && !opts.urn) {
+            if (args?.logicAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["logicAppId"] = args ? args.logicAppId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["logicAppId"] = args?.logicAppId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["callbackUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

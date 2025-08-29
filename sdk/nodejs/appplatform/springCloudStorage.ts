@@ -78,19 +78,19 @@ export class SpringCloudStorage extends pulumi.CustomResource {
     /**
      * The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Service where the Spring Cloud Storage should exist. Changing this forces a new Spring Cloud Storage to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
     /**
      * The access key of the Azure Storage Account.
      */
-    public readonly storageAccountKey!: pulumi.Output<string>;
+    declare public readonly storageAccountKey: pulumi.Output<string>;
     /**
      * The account name of the Azure Storage Account.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudStorage resource with the given unique name, arguments, and options.
@@ -105,25 +105,25 @@ export class SpringCloudStorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudStorageState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
-            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
+            resourceInputs["storageAccountKey"] = state?.storageAccountKey;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
         } else {
             const args = argsOrState as SpringCloudStorageArgs | undefined;
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            if ((!args || args.storageAccountKey === undefined) && !opts.urn) {
+            if (args?.storageAccountKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountKey'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
-            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
+            resourceInputs["storageAccountKey"] = args?.storageAccountKey;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudStorage.__pulumiType, name, resourceInputs, opts);

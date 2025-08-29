@@ -84,53 +84,53 @@ export class DatasetJson extends pulumi.CustomResource {
      *
      * The following supported arguments are specific to JSON Dataset:
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      *
      * The following supported arguments are specific to Delimited Text Dataset:
      */
-    public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetJsonAzureBlobStorageLocation | undefined>;
+    declare public readonly azureBlobStorageLocation: pulumi.Output<outputs.datafactory.DatasetJsonAzureBlobStorageLocation | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Dataset.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The encoding format for the file.
      */
-    public readonly encoding!: pulumi.Output<string | undefined>;
+    declare public readonly encoding: pulumi.Output<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<string | undefined>;
+    declare public readonly folder: pulumi.Output<string | undefined>;
     /**
      * A `httpServerLocation` block as defined below.
      */
-    public readonly httpServerLocation!: pulumi.Output<outputs.datafactory.DatasetJsonHttpServerLocation | undefined>;
+    declare public readonly httpServerLocation: pulumi.Output<outputs.datafactory.DatasetJsonHttpServerLocation | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    public readonly linkedServiceName!: pulumi.Output<string>;
+    declare public readonly linkedServiceName: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    public readonly schemaColumns!: pulumi.Output<outputs.datafactory.DatasetJsonSchemaColumn[] | undefined>;
+    declare public readonly schemaColumns: pulumi.Output<outputs.datafactory.DatasetJsonSchemaColumn[] | undefined>;
 
     /**
      * Create a DatasetJson resource with the given unique name, arguments, and options.
@@ -145,38 +145,38 @@ export class DatasetJson extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetJsonState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["encoding"] = state ? state.encoding : undefined;
-            resourceInputs["folder"] = state ? state.folder : undefined;
-            resourceInputs["httpServerLocation"] = state ? state.httpServerLocation : undefined;
-            resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["azureBlobStorageLocation"] = state?.azureBlobStorageLocation;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["encoding"] = state?.encoding;
+            resourceInputs["folder"] = state?.folder;
+            resourceInputs["httpServerLocation"] = state?.httpServerLocation;
+            resourceInputs["linkedServiceName"] = state?.linkedServiceName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["schemaColumns"] = state?.schemaColumns;
         } else {
             const args = argsOrState as DatasetJsonArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
+            if (args?.linkedServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encoding"] = args ? args.encoding : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["httpServerLocation"] = args ? args.httpServerLocation : undefined;
-            resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["azureBlobStorageLocation"] = args?.azureBlobStorageLocation;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encoding"] = args?.encoding;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["httpServerLocation"] = args?.httpServerLocation;
+            resourceInputs["linkedServiceName"] = args?.linkedServiceName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["schemaColumns"] = args?.schemaColumns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DatasetJson.__pulumiType, name, resourceInputs, opts);

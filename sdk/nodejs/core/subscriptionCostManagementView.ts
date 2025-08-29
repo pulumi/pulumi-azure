@@ -93,43 +93,43 @@ export class SubscriptionCostManagementView extends pulumi.CustomResource {
     /**
      * Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
      */
-    public readonly accumulated!: pulumi.Output<boolean>;
+    declare public readonly accumulated: pulumi.Output<boolean>;
     /**
      * Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
      */
-    public readonly chartType!: pulumi.Output<string>;
+    declare public readonly chartType: pulumi.Output<string>;
     /**
      * A `dataset` block as defined below.
      */
-    public readonly dataset!: pulumi.Output<outputs.core.SubscriptionCostManagementViewDataset>;
+    declare public readonly dataset: pulumi.Output<outputs.core.SubscriptionCostManagementViewDataset>;
     /**
      * User visible input name of the Cost Management View.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
      */
-    public readonly kpis!: pulumi.Output<outputs.core.SubscriptionCostManagementViewKpi[] | undefined>;
+    declare public readonly kpis: pulumi.Output<outputs.core.SubscriptionCostManagementViewKpi[] | undefined>;
     /**
      * The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
      */
-    public readonly pivots!: pulumi.Output<outputs.core.SubscriptionCostManagementViewPivot[] | undefined>;
+    declare public readonly pivots: pulumi.Output<outputs.core.SubscriptionCostManagementViewPivot[] | undefined>;
     /**
      * The type of the report. The only possible value is `Usage`.
      */
-    public readonly reportType!: pulumi.Output<string>;
+    declare public readonly reportType: pulumi.Output<string>;
     /**
      * The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
     /**
      * The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
      */
-    public readonly timeframe!: pulumi.Output<string>;
+    declare public readonly timeframe: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionCostManagementView resource with the given unique name, arguments, and options.
@@ -144,49 +144,49 @@ export class SubscriptionCostManagementView extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionCostManagementViewState | undefined;
-            resourceInputs["accumulated"] = state ? state.accumulated : undefined;
-            resourceInputs["chartType"] = state ? state.chartType : undefined;
-            resourceInputs["dataset"] = state ? state.dataset : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["kpis"] = state ? state.kpis : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pivots"] = state ? state.pivots : undefined;
-            resourceInputs["reportType"] = state ? state.reportType : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            resourceInputs["timeframe"] = state ? state.timeframe : undefined;
+            resourceInputs["accumulated"] = state?.accumulated;
+            resourceInputs["chartType"] = state?.chartType;
+            resourceInputs["dataset"] = state?.dataset;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["kpis"] = state?.kpis;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pivots"] = state?.pivots;
+            resourceInputs["reportType"] = state?.reportType;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
+            resourceInputs["timeframe"] = state?.timeframe;
         } else {
             const args = argsOrState as SubscriptionCostManagementViewArgs | undefined;
-            if ((!args || args.accumulated === undefined) && !opts.urn) {
+            if (args?.accumulated === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accumulated'");
             }
-            if ((!args || args.chartType === undefined) && !opts.urn) {
+            if (args?.chartType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'chartType'");
             }
-            if ((!args || args.dataset === undefined) && !opts.urn) {
+            if (args?.dataset === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataset'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.reportType === undefined) && !opts.urn) {
+            if (args?.reportType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportType'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            if ((!args || args.timeframe === undefined) && !opts.urn) {
+            if (args?.timeframe === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeframe'");
             }
-            resourceInputs["accumulated"] = args ? args.accumulated : undefined;
-            resourceInputs["chartType"] = args ? args.chartType : undefined;
-            resourceInputs["dataset"] = args ? args.dataset : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["kpis"] = args ? args.kpis : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pivots"] = args ? args.pivots : undefined;
-            resourceInputs["reportType"] = args ? args.reportType : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["timeframe"] = args ? args.timeframe : undefined;
+            resourceInputs["accumulated"] = args?.accumulated;
+            resourceInputs["chartType"] = args?.chartType;
+            resourceInputs["dataset"] = args?.dataset;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["kpis"] = args?.kpis;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pivots"] = args?.pivots;
+            resourceInputs["reportType"] = args?.reportType;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["timeframe"] = args?.timeframe;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubscriptionCostManagementView.__pulumiType, name, resourceInputs, opts);

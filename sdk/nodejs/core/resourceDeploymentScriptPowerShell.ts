@@ -96,75 +96,75 @@ export class ResourceDeploymentScriptPowerShell extends pulumi.CustomResource {
     /**
      * Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly cleanupPreference!: pulumi.Output<string | undefined>;
+    declare public readonly cleanupPreference: pulumi.Output<string | undefined>;
     /**
      * Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly commandLine!: pulumi.Output<string | undefined>;
+    declare public readonly commandLine: pulumi.Output<string | undefined>;
     /**
      * A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly container!: pulumi.Output<outputs.core.ResourceDeploymentScriptPowerShellContainer | undefined>;
+    declare public readonly container: pulumi.Output<outputs.core.ResourceDeploymentScriptPowerShellContainer | undefined>;
     /**
      * An `environmentVariable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly environmentVariables!: pulumi.Output<outputs.core.ResourceDeploymentScriptPowerShellEnvironmentVariable[] | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<outputs.core.ResourceDeploymentScriptPowerShellEnvironmentVariable[] | undefined>;
     /**
      * Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
+    declare public readonly forceUpdateTag: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.core.ResourceDeploymentScriptPowerShellIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.core.ResourceDeploymentScriptPowerShellIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of script outputs.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<string>;
+    declare public /*out*/ readonly outputs: pulumi.Output<string>;
     /**
      * Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly primaryScriptUri!: pulumi.Output<string | undefined>;
+    declare public readonly primaryScriptUri: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly retentionInterval!: pulumi.Output<string>;
+    declare public readonly retentionInterval: pulumi.Output<string>;
     /**
      * Script body. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly scriptContent!: pulumi.Output<string | undefined>;
+    declare public readonly scriptContent: pulumi.Output<string | undefined>;
     /**
      * A `storageAccount` block as defined below. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly storageAccount!: pulumi.Output<outputs.core.ResourceDeploymentScriptPowerShellStorageAccount | undefined>;
+    declare public readonly storageAccount: pulumi.Output<outputs.core.ResourceDeploymentScriptPowerShellStorageAccount | undefined>;
     /**
      * Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly supportingScriptUris!: pulumi.Output<string[] | undefined>;
+    declare public readonly supportingScriptUris: pulumi.Output<string[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Resource Deployment Script.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly timeout!: pulumi.Output<string | undefined>;
+    declare public readonly timeout: pulumi.Output<string | undefined>;
     /**
      * Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a ResourceDeploymentScriptPowerShell resource with the given unique name, arguments, and options.
@@ -179,52 +179,52 @@ export class ResourceDeploymentScriptPowerShell extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceDeploymentScriptPowerShellState | undefined;
-            resourceInputs["cleanupPreference"] = state ? state.cleanupPreference : undefined;
-            resourceInputs["commandLine"] = state ? state.commandLine : undefined;
-            resourceInputs["container"] = state ? state.container : undefined;
-            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
-            resourceInputs["forceUpdateTag"] = state ? state.forceUpdateTag : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputs"] = state ? state.outputs : undefined;
-            resourceInputs["primaryScriptUri"] = state ? state.primaryScriptUri : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionInterval"] = state ? state.retentionInterval : undefined;
-            resourceInputs["scriptContent"] = state ? state.scriptContent : undefined;
-            resourceInputs["storageAccount"] = state ? state.storageAccount : undefined;
-            resourceInputs["supportingScriptUris"] = state ? state.supportingScriptUris : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["timeout"] = state ? state.timeout : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["cleanupPreference"] = state?.cleanupPreference;
+            resourceInputs["commandLine"] = state?.commandLine;
+            resourceInputs["container"] = state?.container;
+            resourceInputs["environmentVariables"] = state?.environmentVariables;
+            resourceInputs["forceUpdateTag"] = state?.forceUpdateTag;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputs"] = state?.outputs;
+            resourceInputs["primaryScriptUri"] = state?.primaryScriptUri;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionInterval"] = state?.retentionInterval;
+            resourceInputs["scriptContent"] = state?.scriptContent;
+            resourceInputs["storageAccount"] = state?.storageAccount;
+            resourceInputs["supportingScriptUris"] = state?.supportingScriptUris;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["timeout"] = state?.timeout;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ResourceDeploymentScriptPowerShellArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.retentionInterval === undefined) && !opts.urn) {
+            if (args?.retentionInterval === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionInterval'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["cleanupPreference"] = args ? args.cleanupPreference : undefined;
-            resourceInputs["commandLine"] = args ? args.commandLine : undefined;
-            resourceInputs["container"] = args ? args.container : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["primaryScriptUri"] = args ? args.primaryScriptUri : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionInterval"] = args ? args.retentionInterval : undefined;
-            resourceInputs["scriptContent"] = args ? args.scriptContent : undefined;
-            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
-            resourceInputs["supportingScriptUris"] = args ? args.supportingScriptUris : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["cleanupPreference"] = args?.cleanupPreference;
+            resourceInputs["commandLine"] = args?.commandLine;
+            resourceInputs["container"] = args?.container;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["primaryScriptUri"] = args?.primaryScriptUri;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionInterval"] = args?.retentionInterval;
+            resourceInputs["scriptContent"] = args?.scriptContent;
+            resourceInputs["storageAccount"] = args?.storageAccount;
+            resourceInputs["supportingScriptUris"] = args?.supportingScriptUris;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = args?.timeout;
+            resourceInputs["version"] = args?.version;
             resourceInputs["outputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

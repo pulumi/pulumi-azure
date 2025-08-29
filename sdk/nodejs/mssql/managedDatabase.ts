@@ -93,27 +93,27 @@ export class ManagedDatabase extends pulumi.CustomResource {
     /**
      * A `longTermRetentionPolicy` block as defined below.
      */
-    public readonly longTermRetentionPolicy!: pulumi.Output<outputs.mssql.ManagedDatabaseLongTermRetentionPolicy>;
+    declare public readonly longTermRetentionPolicy: pulumi.Output<outputs.mssql.ManagedDatabaseLongTermRetentionPolicy>;
     /**
      * The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created.
      */
-    public readonly managedInstanceId!: pulumi.Output<string>;
+    declare public readonly managedInstanceId: pulumi.Output<string>;
     /**
      * The name of the Managed Database to create. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `pointInTimeRestore` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly pointInTimeRestore!: pulumi.Output<outputs.mssql.ManagedDatabasePointInTimeRestore | undefined>;
+    declare public readonly pointInTimeRestore: pulumi.Output<outputs.mssql.ManagedDatabasePointInTimeRestore | undefined>;
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
-    public readonly shortTermRetentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly shortTermRetentionDays: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ManagedDatabase resource with the given unique name, arguments, and options.
@@ -128,23 +128,23 @@ export class ManagedDatabase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedDatabaseState | undefined;
-            resourceInputs["longTermRetentionPolicy"] = state ? state.longTermRetentionPolicy : undefined;
-            resourceInputs["managedInstanceId"] = state ? state.managedInstanceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pointInTimeRestore"] = state ? state.pointInTimeRestore : undefined;
-            resourceInputs["shortTermRetentionDays"] = state ? state.shortTermRetentionDays : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["longTermRetentionPolicy"] = state?.longTermRetentionPolicy;
+            resourceInputs["managedInstanceId"] = state?.managedInstanceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pointInTimeRestore"] = state?.pointInTimeRestore;
+            resourceInputs["shortTermRetentionDays"] = state?.shortTermRetentionDays;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ManagedDatabaseArgs | undefined;
-            if ((!args || args.managedInstanceId === undefined) && !opts.urn) {
+            if (args?.managedInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceId'");
             }
-            resourceInputs["longTermRetentionPolicy"] = args ? args.longTermRetentionPolicy : undefined;
-            resourceInputs["managedInstanceId"] = args ? args.managedInstanceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pointInTimeRestore"] = args ? args.pointInTimeRestore : undefined;
-            resourceInputs["shortTermRetentionDays"] = args ? args.shortTermRetentionDays : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["longTermRetentionPolicy"] = args?.longTermRetentionPolicy;
+            resourceInputs["managedInstanceId"] = args?.managedInstanceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pointInTimeRestore"] = args?.pointInTimeRestore;
+            resourceInputs["shortTermRetentionDays"] = args?.shortTermRetentionDays;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:sql/managedDatabase:ManagedDatabase" }] };

@@ -73,27 +73,27 @@ export class Sync extends pulumi.CustomResource {
     /**
      * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      */
-    public readonly incomingTrafficPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly incomingTrafficPolicy: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of registered servers owned by this Storage Sync.
      */
-    public /*out*/ readonly registeredServers!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly registeredServers: pulumi.Output<string[]>;
     /**
      * The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Storage Sync.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Sync resource with the given unique name, arguments, and options.
@@ -108,22 +108,22 @@ export class Sync extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyncState | undefined;
-            resourceInputs["incomingTrafficPolicy"] = state ? state.incomingTrafficPolicy : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["registeredServers"] = state ? state.registeredServers : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["incomingTrafficPolicy"] = state?.incomingTrafficPolicy;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["registeredServers"] = state?.registeredServers;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SyncArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["incomingTrafficPolicy"] = args ? args.incomingTrafficPolicy : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["incomingTrafficPolicy"] = args?.incomingTrafficPolicy;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["registeredServers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

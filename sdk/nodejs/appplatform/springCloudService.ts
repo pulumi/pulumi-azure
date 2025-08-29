@@ -89,83 +89,83 @@ export class SpringCloudService extends pulumi.CustomResource {
     /**
      * Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
-    public readonly buildAgentPoolSize!: pulumi.Output<string | undefined>;
+    declare public readonly buildAgentPoolSize: pulumi.Output<string | undefined>;
     /**
      * A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      */
-    public readonly configServerGitSetting!: pulumi.Output<outputs.appplatform.SpringCloudServiceConfigServerGitSetting | undefined>;
+    declare public readonly configServerGitSetting: pulumi.Output<outputs.appplatform.SpringCloudServiceConfigServerGitSetting | undefined>;
     /**
      * One or more `containerRegistry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
-    public readonly containerRegistries!: pulumi.Output<outputs.appplatform.SpringCloudServiceContainerRegistry[] | undefined>;
+    declare public readonly containerRegistries: pulumi.Output<outputs.appplatform.SpringCloudServiceContainerRegistry[] | undefined>;
     /**
      * A `defaultBuildService` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
-    public readonly defaultBuildService!: pulumi.Output<outputs.appplatform.SpringCloudServiceDefaultBuildService | undefined>;
+    declare public readonly defaultBuildService: pulumi.Output<outputs.appplatform.SpringCloudServiceDefaultBuildService | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Should the log stream in vnet injection instance could be accessed from Internet?
      */
-    public readonly logStreamPublicEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly logStreamPublicEndpointEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `skuTier` is set to `StandardGen2`.
      */
-    public readonly managedEnvironmentId!: pulumi.Output<string | undefined>;
+    declare public readonly managedEnvironmentId: pulumi.Output<string | undefined>;
     /**
      * A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
      */
-    public readonly marketplace!: pulumi.Output<outputs.appplatform.SpringCloudServiceMarketplace>;
+    declare public readonly marketplace: pulumi.Output<outputs.appplatform.SpringCloudServiceMarketplace>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `network` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly network!: pulumi.Output<outputs.appplatform.SpringCloudServiceNetwork | undefined>;
+    declare public readonly network: pulumi.Output<outputs.appplatform.SpringCloudServiceNetwork | undefined>;
     /**
      * A list of the outbound Public IP Addresses used by this Spring Cloud Service.
      */
-    public /*out*/ readonly outboundPublicIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundPublicIpAddresses: pulumi.Output<string[]>;
     /**
      * A list of `requiredNetworkTrafficRules` blocks as defined below.
      */
-    public /*out*/ readonly requiredNetworkTrafficRules!: pulumi.Output<outputs.appplatform.SpringCloudServiceRequiredNetworkTrafficRule[]>;
+    declare public /*out*/ readonly requiredNetworkTrafficRules: pulumi.Output<outputs.appplatform.SpringCloudServiceRequiredNetworkTrafficRule[]>;
     /**
      * Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
      */
-    public readonly serviceRegistryEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly serviceRegistryEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Spring Cloud Service Registry.
      */
-    public /*out*/ readonly serviceRegistryId!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceRegistryId: pulumi.Output<string>;
     /**
      * Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
      */
-    public readonly skuName!: pulumi.Output<string | undefined>;
+    declare public readonly skuName: pulumi.Output<string | undefined>;
     /**
      * Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managedEnvironmentId` is defined. Changing this forces a new resource to be created.
      */
-    public readonly skuTier!: pulumi.Output<string>;
+    declare public readonly skuTier: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `trace` block as defined below.
      */
-    public readonly trace!: pulumi.Output<outputs.appplatform.SpringCloudServiceTrace | undefined>;
+    declare public readonly trace: pulumi.Output<outputs.appplatform.SpringCloudServiceTrace | undefined>;
     /**
      * Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SpringCloudService resource with the given unique name, arguments, and options.
@@ -180,48 +180,48 @@ export class SpringCloudService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudServiceState | undefined;
-            resourceInputs["buildAgentPoolSize"] = state ? state.buildAgentPoolSize : undefined;
-            resourceInputs["configServerGitSetting"] = state ? state.configServerGitSetting : undefined;
-            resourceInputs["containerRegistries"] = state ? state.containerRegistries : undefined;
-            resourceInputs["defaultBuildService"] = state ? state.defaultBuildService : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logStreamPublicEndpointEnabled"] = state ? state.logStreamPublicEndpointEnabled : undefined;
-            resourceInputs["managedEnvironmentId"] = state ? state.managedEnvironmentId : undefined;
-            resourceInputs["marketplace"] = state ? state.marketplace : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["network"] = state ? state.network : undefined;
-            resourceInputs["outboundPublicIpAddresses"] = state ? state.outboundPublicIpAddresses : undefined;
-            resourceInputs["requiredNetworkTrafficRules"] = state ? state.requiredNetworkTrafficRules : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serviceRegistryEnabled"] = state ? state.serviceRegistryEnabled : undefined;
-            resourceInputs["serviceRegistryId"] = state ? state.serviceRegistryId : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["trace"] = state ? state.trace : undefined;
-            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["buildAgentPoolSize"] = state?.buildAgentPoolSize;
+            resourceInputs["configServerGitSetting"] = state?.configServerGitSetting;
+            resourceInputs["containerRegistries"] = state?.containerRegistries;
+            resourceInputs["defaultBuildService"] = state?.defaultBuildService;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logStreamPublicEndpointEnabled"] = state?.logStreamPublicEndpointEnabled;
+            resourceInputs["managedEnvironmentId"] = state?.managedEnvironmentId;
+            resourceInputs["marketplace"] = state?.marketplace;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["network"] = state?.network;
+            resourceInputs["outboundPublicIpAddresses"] = state?.outboundPublicIpAddresses;
+            resourceInputs["requiredNetworkTrafficRules"] = state?.requiredNetworkTrafficRules;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serviceRegistryEnabled"] = state?.serviceRegistryEnabled;
+            resourceInputs["serviceRegistryId"] = state?.serviceRegistryId;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["skuTier"] = state?.skuTier;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["trace"] = state?.trace;
+            resourceInputs["zoneRedundant"] = state?.zoneRedundant;
         } else {
             const args = argsOrState as SpringCloudServiceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["buildAgentPoolSize"] = args ? args.buildAgentPoolSize : undefined;
-            resourceInputs["configServerGitSetting"] = args ? args.configServerGitSetting : undefined;
-            resourceInputs["containerRegistries"] = args ? args.containerRegistries : undefined;
-            resourceInputs["defaultBuildService"] = args ? args.defaultBuildService : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logStreamPublicEndpointEnabled"] = args ? args.logStreamPublicEndpointEnabled : undefined;
-            resourceInputs["managedEnvironmentId"] = args ? args.managedEnvironmentId : undefined;
-            resourceInputs["marketplace"] = args ? args.marketplace : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceRegistryEnabled"] = args ? args.serviceRegistryEnabled : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trace"] = args ? args.trace : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["buildAgentPoolSize"] = args?.buildAgentPoolSize;
+            resourceInputs["configServerGitSetting"] = args?.configServerGitSetting;
+            resourceInputs["containerRegistries"] = args?.containerRegistries;
+            resourceInputs["defaultBuildService"] = args?.defaultBuildService;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logStreamPublicEndpointEnabled"] = args?.logStreamPublicEndpointEnabled;
+            resourceInputs["managedEnvironmentId"] = args?.managedEnvironmentId;
+            resourceInputs["marketplace"] = args?.marketplace;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["network"] = args?.network;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceRegistryEnabled"] = args?.serviceRegistryEnabled;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["skuTier"] = args?.skuTier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trace"] = args?.trace;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["outboundPublicIpAddresses"] = undefined /*out*/;
             resourceInputs["requiredNetworkTrafficRules"] = undefined /*out*/;
             resourceInputs["serviceRegistryId"] = undefined /*out*/;

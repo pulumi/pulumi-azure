@@ -144,19 +144,19 @@ export class WorkspaceKey extends pulumi.CustomResource {
      *
      * > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
      */
-    public readonly active!: pulumi.Output<boolean>;
+    declare public readonly active: pulumi.Output<boolean>;
     /**
      * Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
      */
-    public readonly customerManagedKeyName!: pulumi.Output<string>;
+    declare public readonly customerManagedKeyName: pulumi.Output<string>;
     /**
      * The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
      */
-    public readonly customerManagedKeyVersionlessId!: pulumi.Output<string | undefined>;
+    declare public readonly customerManagedKeyVersionlessId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Synapse Workspace where the encryption key should be configured.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceKey resource with the given unique name, arguments, and options.
@@ -171,25 +171,25 @@ export class WorkspaceKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceKeyState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["customerManagedKeyName"] = state ? state.customerManagedKeyName : undefined;
-            resourceInputs["customerManagedKeyVersionlessId"] = state ? state.customerManagedKeyVersionlessId : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["customerManagedKeyName"] = state?.customerManagedKeyName;
+            resourceInputs["customerManagedKeyVersionlessId"] = state?.customerManagedKeyVersionlessId;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
         } else {
             const args = argsOrState as WorkspaceKeyArgs | undefined;
-            if ((!args || args.active === undefined) && !opts.urn) {
+            if (args?.active === undefined && !opts.urn) {
                 throw new Error("Missing required property 'active'");
             }
-            if ((!args || args.customerManagedKeyName === undefined) && !opts.urn) {
+            if (args?.customerManagedKeyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerManagedKeyName'");
             }
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
+            if (args?.synapseWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["customerManagedKeyName"] = args ? args.customerManagedKeyName : undefined;
-            resourceInputs["customerManagedKeyVersionlessId"] = args ? args.customerManagedKeyVersionlessId : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["customerManagedKeyName"] = args?.customerManagedKeyName;
+            resourceInputs["customerManagedKeyVersionlessId"] = args?.customerManagedKeyVersionlessId;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkspaceKey.__pulumiType, name, resourceInputs, opts);

@@ -72,27 +72,27 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * The Binding type. Possible values include `Disabled` and `SniEnabled`.
      */
-    public readonly certificateBindingType!: pulumi.Output<string | undefined>;
+    declare public readonly certificateBindingType: pulumi.Output<string | undefined>;
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      *
      * > **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      */
-    public readonly containerAppEnvironmentCertificateId!: pulumi.Output<string | undefined>;
+    declare public readonly containerAppEnvironmentCertificateId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Container App Environment Managed Certificate to use.
      */
-    public /*out*/ readonly containerAppEnvironmentManagedCertificateId!: pulumi.Output<string>;
+    declare public /*out*/ readonly containerAppEnvironmentManagedCertificateId: pulumi.Output<string>;
     /**
      * The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
      */
-    public readonly containerAppId!: pulumi.Output<string>;
+    declare public readonly containerAppId: pulumi.Output<string>;
     /**
      * The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `containerAppEnvironmentCertificateId`. Changing this forces a new resource to be created.
      *
      * > **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a CustomDomain resource with the given unique name, arguments, and options.
@@ -107,20 +107,20 @@ export class CustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomDomainState | undefined;
-            resourceInputs["certificateBindingType"] = state ? state.certificateBindingType : undefined;
-            resourceInputs["containerAppEnvironmentCertificateId"] = state ? state.containerAppEnvironmentCertificateId : undefined;
-            resourceInputs["containerAppEnvironmentManagedCertificateId"] = state ? state.containerAppEnvironmentManagedCertificateId : undefined;
-            resourceInputs["containerAppId"] = state ? state.containerAppId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["certificateBindingType"] = state?.certificateBindingType;
+            resourceInputs["containerAppEnvironmentCertificateId"] = state?.containerAppEnvironmentCertificateId;
+            resourceInputs["containerAppEnvironmentManagedCertificateId"] = state?.containerAppEnvironmentManagedCertificateId;
+            resourceInputs["containerAppId"] = state?.containerAppId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as CustomDomainArgs | undefined;
-            if ((!args || args.containerAppId === undefined) && !opts.urn) {
+            if (args?.containerAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppId'");
             }
-            resourceInputs["certificateBindingType"] = args ? args.certificateBindingType : undefined;
-            resourceInputs["containerAppEnvironmentCertificateId"] = args ? args.containerAppEnvironmentCertificateId : undefined;
-            resourceInputs["containerAppId"] = args ? args.containerAppId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["certificateBindingType"] = args?.certificateBindingType;
+            resourceInputs["containerAppEnvironmentCertificateId"] = args?.containerAppEnvironmentCertificateId;
+            resourceInputs["containerAppId"] = args?.containerAppId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["containerAppEnvironmentManagedCertificateId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

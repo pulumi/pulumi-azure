@@ -97,15 +97,15 @@ export class RouteMap extends pulumi.CustomResource {
     /**
      * The name which should be used for this Route Map. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `rule` block as defined below.
      */
-    public readonly rules!: pulumi.Output<outputs.network.RouteMapRule[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.network.RouteMapRule[] | undefined>;
     /**
      * The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
 
     /**
      * Create a RouteMap resource with the given unique name, arguments, and options.
@@ -120,17 +120,17 @@ export class RouteMap extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteMapState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
         } else {
             const args = argsOrState as RouteMapArgs | undefined;
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RouteMap.__pulumiType, name, resourceInputs, opts);

@@ -101,63 +101,63 @@ export class SqlContainer extends pulumi.CustomResource {
     /**
      * The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
+    declare public readonly analyticalStorageTtl: pulumi.Output<number | undefined>;
     /**
      * An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      *
      * > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
      */
-    public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
+    declare public readonly autoscaleSettings: pulumi.Output<outputs.cosmosdb.SqlContainerAutoscaleSettings | undefined>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly conflictResolutionPolicy!: pulumi.Output<outputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
+    declare public readonly conflictResolutionPolicy: pulumi.Output<outputs.cosmosdb.SqlContainerConflictResolutionPolicy>;
     /**
      * The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    public readonly defaultTtl!: pulumi.Output<number | undefined>;
+    declare public readonly defaultTtl: pulumi.Output<number | undefined>;
     /**
      * An `indexingPolicy` block as defined below.
      */
-    public readonly indexingPolicy!: pulumi.Output<outputs.cosmosdb.SqlContainerIndexingPolicy>;
+    declare public readonly indexingPolicy: pulumi.Output<outputs.cosmosdb.SqlContainerIndexingPolicy>;
     /**
      * Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
      */
-    public readonly partitionKeyKind!: pulumi.Output<string | undefined>;
+    declare public readonly partitionKeyKind: pulumi.Output<string | undefined>;
     /**
      * A list of partition key paths. Changing this forces a new resource to be created.
      */
-    public readonly partitionKeyPaths!: pulumi.Output<string[]>;
+    declare public readonly partitionKeyPaths: pulumi.Output<string[]>;
     /**
      * Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      *
      * > **Note:** If `partitionKeyVersion` is not specified when creating a new resource, you can update `partitionKeyVersion` to `1`, updating to `2` forces a new resource to be created.
      */
-    public readonly partitionKeyVersion!: pulumi.Output<number | undefined>;
+    declare public readonly partitionKeyVersion: pulumi.Output<number | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
      */
-    public readonly throughput!: pulumi.Output<number>;
+    declare public readonly throughput: pulumi.Output<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly uniqueKeys!: pulumi.Output<outputs.cosmosdb.SqlContainerUniqueKey[] | undefined>;
+    declare public readonly uniqueKeys: pulumi.Output<outputs.cosmosdb.SqlContainerUniqueKey[] | undefined>;
 
     /**
      * Create a SqlContainer resource with the given unique name, arguments, and options.
@@ -172,48 +172,48 @@ export class SqlContainer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlContainerState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
-            resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            resourceInputs["conflictResolutionPolicy"] = state ? state.conflictResolutionPolicy : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
-            resourceInputs["indexingPolicy"] = state ? state.indexingPolicy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partitionKeyKind"] = state ? state.partitionKeyKind : undefined;
-            resourceInputs["partitionKeyPaths"] = state ? state.partitionKeyPaths : undefined;
-            resourceInputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["throughput"] = state ? state.throughput : undefined;
-            resourceInputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["analyticalStorageTtl"] = state?.analyticalStorageTtl;
+            resourceInputs["autoscaleSettings"] = state?.autoscaleSettings;
+            resourceInputs["conflictResolutionPolicy"] = state?.conflictResolutionPolicy;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["defaultTtl"] = state?.defaultTtl;
+            resourceInputs["indexingPolicy"] = state?.indexingPolicy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partitionKeyKind"] = state?.partitionKeyKind;
+            resourceInputs["partitionKeyPaths"] = state?.partitionKeyPaths;
+            resourceInputs["partitionKeyVersion"] = state?.partitionKeyVersion;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["throughput"] = state?.throughput;
+            resourceInputs["uniqueKeys"] = state?.uniqueKeys;
         } else {
             const args = argsOrState as SqlContainerArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.partitionKeyPaths === undefined) && !opts.urn) {
+            if (args?.partitionKeyPaths === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionKeyPaths'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
-            resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            resourceInputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            resourceInputs["indexingPolicy"] = args ? args.indexingPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partitionKeyKind"] = args ? args.partitionKeyKind : undefined;
-            resourceInputs["partitionKeyPaths"] = args ? args.partitionKeyPaths : undefined;
-            resourceInputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["throughput"] = args ? args.throughput : undefined;
-            resourceInputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["analyticalStorageTtl"] = args?.analyticalStorageTtl;
+            resourceInputs["autoscaleSettings"] = args?.autoscaleSettings;
+            resourceInputs["conflictResolutionPolicy"] = args?.conflictResolutionPolicy;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["defaultTtl"] = args?.defaultTtl;
+            resourceInputs["indexingPolicy"] = args?.indexingPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partitionKeyKind"] = args?.partitionKeyKind;
+            resourceInputs["partitionKeyPaths"] = args?.partitionKeyPaths;
+            resourceInputs["partitionKeyVersion"] = args?.partitionKeyVersion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["throughput"] = args?.throughput;
+            resourceInputs["uniqueKeys"] = args?.uniqueKeys;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SqlContainer.__pulumiType, name, resourceInputs, opts);

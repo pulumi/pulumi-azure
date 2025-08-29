@@ -143,32 +143,32 @@ export class ImplicitDataDiskFromSource extends pulumi.CustomResource {
     /**
      * Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
      */
-    public readonly caching!: pulumi.Output<string | undefined>;
+    declare public readonly caching: pulumi.Output<string | undefined>;
     /**
      * Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
      */
-    public readonly createOption!: pulumi.Output<string>;
-    public readonly diskSizeGb!: pulumi.Output<number>;
+    declare public readonly createOption: pulumi.Output<string>;
+    declare public readonly diskSizeGb: pulumi.Output<number>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly lun!: pulumi.Output<number>;
+    declare public readonly lun: pulumi.Output<number>;
     /**
      * Specifies the name of this Data Disk. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
      */
-    public readonly sourceResourceId!: pulumi.Output<string>;
+    declare public readonly sourceResourceId: pulumi.Output<string>;
     /**
      * The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineId!: pulumi.Output<string>;
+    declare public readonly virtualMachineId: pulumi.Output<string>;
     /**
      * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      */
-    public readonly writeAcceleratorEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly writeAcceleratorEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ImplicitDataDiskFromSource resource with the given unique name, arguments, and options.
@@ -183,39 +183,39 @@ export class ImplicitDataDiskFromSource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImplicitDataDiskFromSourceState | undefined;
-            resourceInputs["caching"] = state ? state.caching : undefined;
-            resourceInputs["createOption"] = state ? state.createOption : undefined;
-            resourceInputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
-            resourceInputs["lun"] = state ? state.lun : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
-            resourceInputs["writeAcceleratorEnabled"] = state ? state.writeAcceleratorEnabled : undefined;
+            resourceInputs["caching"] = state?.caching;
+            resourceInputs["createOption"] = state?.createOption;
+            resourceInputs["diskSizeGb"] = state?.diskSizeGb;
+            resourceInputs["lun"] = state?.lun;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sourceResourceId"] = state?.sourceResourceId;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
+            resourceInputs["writeAcceleratorEnabled"] = state?.writeAcceleratorEnabled;
         } else {
             const args = argsOrState as ImplicitDataDiskFromSourceArgs | undefined;
-            if ((!args || args.createOption === undefined) && !opts.urn) {
+            if (args?.createOption === undefined && !opts.urn) {
                 throw new Error("Missing required property 'createOption'");
             }
-            if ((!args || args.diskSizeGb === undefined) && !opts.urn) {
+            if (args?.diskSizeGb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'diskSizeGb'");
             }
-            if ((!args || args.lun === undefined) && !opts.urn) {
+            if (args?.lun === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lun'");
             }
-            if ((!args || args.sourceResourceId === undefined) && !opts.urn) {
+            if (args?.sourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceId'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
+            if (args?.virtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            resourceInputs["caching"] = args ? args.caching : undefined;
-            resourceInputs["createOption"] = args ? args.createOption : undefined;
-            resourceInputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
-            resourceInputs["lun"] = args ? args.lun : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
-            resourceInputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
+            resourceInputs["caching"] = args?.caching;
+            resourceInputs["createOption"] = args?.createOption;
+            resourceInputs["diskSizeGb"] = args?.diskSizeGb;
+            resourceInputs["lun"] = args?.lun;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["virtualMachineId"] = args?.virtualMachineId;
+            resourceInputs["writeAcceleratorEnabled"] = args?.writeAcceleratorEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ImplicitDataDiskFromSource.__pulumiType, name, resourceInputs, opts);

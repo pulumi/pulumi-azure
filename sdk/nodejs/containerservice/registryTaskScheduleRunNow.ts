@@ -77,7 +77,7 @@ export class RegistryTaskScheduleRunNow extends pulumi.CustomResource {
     /**
      * The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
      */
-    public readonly containerRegistryTaskId!: pulumi.Output<string>;
+    declare public readonly containerRegistryTaskId: pulumi.Output<string>;
 
     /**
      * Create a RegistryTaskScheduleRunNow resource with the given unique name, arguments, and options.
@@ -92,13 +92,13 @@ export class RegistryTaskScheduleRunNow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryTaskScheduleRunNowState | undefined;
-            resourceInputs["containerRegistryTaskId"] = state ? state.containerRegistryTaskId : undefined;
+            resourceInputs["containerRegistryTaskId"] = state?.containerRegistryTaskId;
         } else {
             const args = argsOrState as RegistryTaskScheduleRunNowArgs | undefined;
-            if ((!args || args.containerRegistryTaskId === undefined) && !opts.urn) {
+            if (args?.containerRegistryTaskId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryTaskId'");
             }
-            resourceInputs["containerRegistryTaskId"] = args ? args.containerRegistryTaskId : undefined;
+            resourceInputs["containerRegistryTaskId"] = args?.containerRegistryTaskId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RegistryTaskScheduleRunNow.__pulumiType, name, resourceInputs, opts);

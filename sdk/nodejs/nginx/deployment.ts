@@ -112,82 +112,82 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * An `autoScaleProfile` block as defined below.
      */
-    public readonly autoScaleProfiles!: pulumi.Output<outputs.nginx.DeploymentAutoScaleProfile[] | undefined>;
+    declare public readonly autoScaleProfiles: pulumi.Output<outputs.nginx.DeploymentAutoScaleProfile[] | undefined>;
     /**
      * Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
      */
-    public readonly automaticUpgradeChannel!: pulumi.Output<string | undefined>;
+    declare public readonly automaticUpgradeChannel: pulumi.Output<string | undefined>;
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment.
      *
      * > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
-    public readonly capacity!: pulumi.Output<number | undefined>;
+    declare public readonly capacity: pulumi.Output<number | undefined>;
     /**
      * The dataplane API endpoint of the NGINX Deployment.
      */
-    public /*out*/ readonly dataplaneApiEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataplaneApiEndpoint: pulumi.Output<string>;
     /**
      * Should the metrics be exported to Azure Monitor?
      */
-    public readonly diagnoseSupportEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly diagnoseSupportEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specify the preferred support contact email address for receiving alerts and notifications.
      */
-    public readonly email!: pulumi.Output<string | undefined>;
+    declare public readonly email: pulumi.Output<string | undefined>;
     /**
      * One or more `frontendPrivate` blocks as defined below.
      */
-    public readonly frontendPrivates!: pulumi.Output<outputs.nginx.DeploymentFrontendPrivate[] | undefined>;
+    declare public readonly frontendPrivates: pulumi.Output<outputs.nginx.DeploymentFrontendPrivate[] | undefined>;
     /**
      * A `frontendPublic` block as defined below.
      */
-    public readonly frontendPublic!: pulumi.Output<outputs.nginx.DeploymentFrontendPublic | undefined>;
+    declare public readonly frontendPublic: pulumi.Output<outputs.nginx.DeploymentFrontendPublic | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.nginx.DeploymentIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.nginx.DeploymentIdentity | undefined>;
     /**
      * The IP address of the NGINX Deployment.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
      */
-    public readonly loggingStorageAccounts!: pulumi.Output<outputs.nginx.DeploymentLoggingStorageAccount[] | undefined>;
+    declare public readonly loggingStorageAccounts: pulumi.Output<outputs.nginx.DeploymentLoggingStorageAccount[] | undefined>;
     /**
      * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
      */
-    public readonly managedResourceGroup!: pulumi.Output<string>;
+    declare public readonly managedResourceGroup: pulumi.Output<string>;
     /**
      * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `networkInterface` blocks as defined below.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.nginx.DeploymentNetworkInterface[] | undefined>;
+    declare public readonly networkInterfaces: pulumi.Output<outputs.nginx.DeploymentNetworkInterface[] | undefined>;
     /**
      * The version of the NGINX Deployment.
      */
-    public /*out*/ readonly nginxVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly nginxVersion: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the NGINX Deployment.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `webApplicationFirewall` blocks as defined below.
      */
-    public readonly webApplicationFirewall!: pulumi.Output<outputs.nginx.DeploymentWebApplicationFirewall | undefined>;
+    declare public readonly webApplicationFirewall: pulumi.Output<outputs.nginx.DeploymentWebApplicationFirewall | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -202,51 +202,51 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            resourceInputs["autoScaleProfiles"] = state ? state.autoScaleProfiles : undefined;
-            resourceInputs["automaticUpgradeChannel"] = state ? state.automaticUpgradeChannel : undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["dataplaneApiEndpoint"] = state ? state.dataplaneApiEndpoint : undefined;
-            resourceInputs["diagnoseSupportEnabled"] = state ? state.diagnoseSupportEnabled : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["frontendPrivates"] = state ? state.frontendPrivates : undefined;
-            resourceInputs["frontendPublic"] = state ? state.frontendPublic : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["loggingStorageAccounts"] = state ? state.loggingStorageAccounts : undefined;
-            resourceInputs["managedResourceGroup"] = state ? state.managedResourceGroup : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            resourceInputs["nginxVersion"] = state ? state.nginxVersion : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["webApplicationFirewall"] = state ? state.webApplicationFirewall : undefined;
+            resourceInputs["autoScaleProfiles"] = state?.autoScaleProfiles;
+            resourceInputs["automaticUpgradeChannel"] = state?.automaticUpgradeChannel;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["dataplaneApiEndpoint"] = state?.dataplaneApiEndpoint;
+            resourceInputs["diagnoseSupportEnabled"] = state?.diagnoseSupportEnabled;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["frontendPrivates"] = state?.frontendPrivates;
+            resourceInputs["frontendPublic"] = state?.frontendPublic;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["loggingStorageAccounts"] = state?.loggingStorageAccounts;
+            resourceInputs["managedResourceGroup"] = state?.managedResourceGroup;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkInterfaces"] = state?.networkInterfaces;
+            resourceInputs["nginxVersion"] = state?.nginxVersion;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["webApplicationFirewall"] = state?.webApplicationFirewall;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["autoScaleProfiles"] = args ? args.autoScaleProfiles : undefined;
-            resourceInputs["automaticUpgradeChannel"] = args ? args.automaticUpgradeChannel : undefined;
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["diagnoseSupportEnabled"] = args ? args.diagnoseSupportEnabled : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["frontendPrivates"] = args ? args.frontendPrivates : undefined;
-            resourceInputs["frontendPublic"] = args ? args.frontendPublic : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["loggingStorageAccounts"] = args ? args.loggingStorageAccounts : undefined;
-            resourceInputs["managedResourceGroup"] = args ? args.managedResourceGroup : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["webApplicationFirewall"] = args ? args.webApplicationFirewall : undefined;
+            resourceInputs["autoScaleProfiles"] = args?.autoScaleProfiles;
+            resourceInputs["automaticUpgradeChannel"] = args?.automaticUpgradeChannel;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["diagnoseSupportEnabled"] = args?.diagnoseSupportEnabled;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["frontendPrivates"] = args?.frontendPrivates;
+            resourceInputs["frontendPublic"] = args?.frontendPublic;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["loggingStorageAccounts"] = args?.loggingStorageAccounts;
+            resourceInputs["managedResourceGroup"] = args?.managedResourceGroup;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["webApplicationFirewall"] = args?.webApplicationFirewall;
             resourceInputs["dataplaneApiEndpoint"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["nginxVersion"] = undefined /*out*/;

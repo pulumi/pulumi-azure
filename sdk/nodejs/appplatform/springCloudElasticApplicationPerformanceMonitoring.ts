@@ -86,27 +86,27 @@ export class SpringCloudElasticApplicationPerformanceMonitoring extends pulumi.C
     /**
      * Specifies a list of the packages which should be used to determine whether a stack trace frame is an in-app frame or a library frame. This is a comma separated list of package names.
      */
-    public readonly applicationPackages!: pulumi.Output<string[]>;
+    declare public readonly applicationPackages: pulumi.Output<string[]>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    public readonly globallyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly globallyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for Elastic. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the server URL. The URL must be fully qualified, including protocol (http or https) and port.
      */
-    public readonly serverUrl!: pulumi.Output<string>;
+    declare public readonly serverUrl: pulumi.Output<string>;
     /**
      * Specifies the service name which is used to keep all the errors and transactions of your service together and is the primary filter in the Elastic APM user interface.
      */
-    public readonly serviceName!: pulumi.Output<string>;
+    declare public readonly serviceName: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudElasticApplicationPerformanceMonitoring resource with the given unique name, arguments, and options.
@@ -121,32 +121,32 @@ export class SpringCloudElasticApplicationPerformanceMonitoring extends pulumi.C
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudElasticApplicationPerformanceMonitoringState | undefined;
-            resourceInputs["applicationPackages"] = state ? state.applicationPackages : undefined;
-            resourceInputs["globallyEnabled"] = state ? state.globallyEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverUrl"] = state ? state.serverUrl : undefined;
-            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
+            resourceInputs["applicationPackages"] = state?.applicationPackages;
+            resourceInputs["globallyEnabled"] = state?.globallyEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverUrl"] = state?.serverUrl;
+            resourceInputs["serviceName"] = state?.serviceName;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
         } else {
             const args = argsOrState as SpringCloudElasticApplicationPerformanceMonitoringArgs | undefined;
-            if ((!args || args.applicationPackages === undefined) && !opts.urn) {
+            if (args?.applicationPackages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationPackages'");
             }
-            if ((!args || args.serverUrl === undefined) && !opts.urn) {
+            if (args?.serverUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverUrl'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            resourceInputs["applicationPackages"] = args ? args.applicationPackages : undefined;
-            resourceInputs["globallyEnabled"] = args ? args.globallyEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
+            resourceInputs["applicationPackages"] = args?.applicationPackages;
+            resourceInputs["globallyEnabled"] = args?.globallyEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverUrl"] = args?.serverUrl;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudElasticApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts);

@@ -66,19 +66,19 @@ export class ManagedHardwareSecurityModuleKeyRotationPolicy extends pulumi.Custo
     /**
      * Specify the expiration duration on a newly rotated key as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `P28D`.
      */
-    public readonly expireAfter!: pulumi.Output<string>;
+    declare public readonly expireAfter: pulumi.Output<string>;
     /**
      * The ID of the Managed HSM Key. Changing this forces a new Managed HSM Key rotation policy to be created.
      */
-    public readonly managedHsmKeyId!: pulumi.Output<string>;
+    declare public readonly managedHsmKeyId: pulumi.Output<string>;
     /**
      * Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      */
-    public readonly timeAfterCreation!: pulumi.Output<string | undefined>;
+    declare public readonly timeAfterCreation: pulumi.Output<string | undefined>;
     /**
      * Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `timeAfterCreation` or `timeBeforeExpiry` should be specified.
      */
-    public readonly timeBeforeExpiry!: pulumi.Output<string | undefined>;
+    declare public readonly timeBeforeExpiry: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedHardwareSecurityModuleKeyRotationPolicy resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class ManagedHardwareSecurityModuleKeyRotationPolicy extends pulumi.Custo
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedHardwareSecurityModuleKeyRotationPolicyState | undefined;
-            resourceInputs["expireAfter"] = state ? state.expireAfter : undefined;
-            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
-            resourceInputs["timeAfterCreation"] = state ? state.timeAfterCreation : undefined;
-            resourceInputs["timeBeforeExpiry"] = state ? state.timeBeforeExpiry : undefined;
+            resourceInputs["expireAfter"] = state?.expireAfter;
+            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
+            resourceInputs["timeAfterCreation"] = state?.timeAfterCreation;
+            resourceInputs["timeBeforeExpiry"] = state?.timeBeforeExpiry;
         } else {
             const args = argsOrState as ManagedHardwareSecurityModuleKeyRotationPolicyArgs | undefined;
-            if ((!args || args.expireAfter === undefined) && !opts.urn) {
+            if (args?.expireAfter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expireAfter'");
             }
-            if ((!args || args.managedHsmKeyId === undefined) && !opts.urn) {
+            if (args?.managedHsmKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedHsmKeyId'");
             }
-            resourceInputs["expireAfter"] = args ? args.expireAfter : undefined;
-            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
-            resourceInputs["timeAfterCreation"] = args ? args.timeAfterCreation : undefined;
-            resourceInputs["timeBeforeExpiry"] = args ? args.timeBeforeExpiry : undefined;
+            resourceInputs["expireAfter"] = args?.expireAfter;
+            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
+            resourceInputs["timeAfterCreation"] = args?.timeAfterCreation;
+            resourceInputs["timeBeforeExpiry"] = args?.timeBeforeExpiry;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedHardwareSecurityModuleKeyRotationPolicy.__pulumiType, name, resourceInputs, opts);

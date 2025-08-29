@@ -93,25 +93,25 @@ export class Share extends pulumi.CustomResource {
      *
      * > **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` requires `Premium` `accessTier`.
      */
-    public readonly accessTier!: pulumi.Output<string>;
+    declare public readonly accessTier: pulumi.Output<string>;
     /**
      * One or more `acl` blocks as defined below.
      */
-    public readonly acls!: pulumi.Output<outputs.storage.ShareAcl[] | undefined>;
+    declare public readonly acls: pulumi.Output<outputs.storage.ShareAcl[] | undefined>;
     /**
      * The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `FileStorage` `accountKind` of the `azure.storage.Account` is required for the `NFS` protocol.
      */
-    public readonly enabledProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly enabledProtocol: pulumi.Output<string | undefined>;
     /**
      * A mapping of MetaData for this File Share.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The maximum size of the share, in gigabytes.
      *
@@ -119,19 +119,19 @@ export class Share extends pulumi.CustomResource {
      *
      * > **Note:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
      */
-    public readonly quota!: pulumi.Output<number>;
+    declare public readonly quota: pulumi.Output<number>;
     /**
      * The Resource Manager ID of this File Share.
      *
      * @deprecated this property is deprecated and will be removed 5.0 and replaced by the `id` property.
      */
-    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceManagerId: pulumi.Output<string>;
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      *
@@ -139,11 +139,11 @@ export class Share extends pulumi.CustomResource {
      *
      * @deprecated This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
      */
-    public readonly storageAccountName!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountName: pulumi.Output<string | undefined>;
     /**
      * The URL of the File Share
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Share resource with the given unique name, arguments, and options.
@@ -158,29 +158,29 @@ export class Share extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareState | undefined;
-            resourceInputs["accessTier"] = state ? state.accessTier : undefined;
-            resourceInputs["acls"] = state ? state.acls : undefined;
-            resourceInputs["enabledProtocol"] = state ? state.enabledProtocol : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["quota"] = state ? state.quota : undefined;
-            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["accessTier"] = state?.accessTier;
+            resourceInputs["acls"] = state?.acls;
+            resourceInputs["enabledProtocol"] = state?.enabledProtocol;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["quota"] = state?.quota;
+            resourceInputs["resourceManagerId"] = state?.resourceManagerId;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ShareArgs | undefined;
-            if ((!args || args.quota === undefined) && !opts.urn) {
+            if (args?.quota === undefined && !opts.urn) {
                 throw new Error("Missing required property 'quota'");
             }
-            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
-            resourceInputs["acls"] = args ? args.acls : undefined;
-            resourceInputs["enabledProtocol"] = args ? args.enabledProtocol : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["quota"] = args ? args.quota : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["accessTier"] = args?.accessTier;
+            resourceInputs["acls"] = args?.acls;
+            resourceInputs["enabledProtocol"] = args?.enabledProtocol;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["quota"] = args?.quota;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }

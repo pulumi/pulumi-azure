@@ -106,35 +106,35 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
      */
-    public readonly applicationId!: pulumi.Output<string | undefined>;
+    declare public readonly applicationId: pulumi.Output<string | undefined>;
     /**
      * List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
      */
-    public readonly certificatePermissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly certificatePermissions: pulumi.Output<string[] | undefined>;
     /**
      * List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
      */
-    public readonly keyPermissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly keyPermissions: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string>;
     /**
      * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      */
-    public readonly objectId!: pulumi.Output<string>;
+    declare public readonly objectId: pulumi.Output<string>;
     /**
      * List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
      */
-    public readonly secretPermissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly secretPermissions: pulumi.Output<string[] | undefined>;
     /**
      * List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
      */
-    public readonly storagePermissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly storagePermissions: pulumi.Output<string[] | undefined>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -149,33 +149,33 @@ export class AccessPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPolicyState | undefined;
-            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
-            resourceInputs["certificatePermissions"] = state ? state.certificatePermissions : undefined;
-            resourceInputs["keyPermissions"] = state ? state.keyPermissions : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["objectId"] = state ? state.objectId : undefined;
-            resourceInputs["secretPermissions"] = state ? state.secretPermissions : undefined;
-            resourceInputs["storagePermissions"] = state ? state.storagePermissions : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["applicationId"] = state?.applicationId;
+            resourceInputs["certificatePermissions"] = state?.certificatePermissions;
+            resourceInputs["keyPermissions"] = state?.keyPermissions;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["objectId"] = state?.objectId;
+            resourceInputs["secretPermissions"] = state?.secretPermissions;
+            resourceInputs["storagePermissions"] = state?.storagePermissions;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as AccessPolicyArgs | undefined;
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
+            if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["certificatePermissions"] = args ? args.certificatePermissions : undefined;
-            resourceInputs["keyPermissions"] = args ? args.keyPermissions : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["secretPermissions"] = args ? args.secretPermissions : undefined;
-            resourceInputs["storagePermissions"] = args ? args.storagePermissions : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["certificatePermissions"] = args?.certificatePermissions;
+            resourceInputs["keyPermissions"] = args?.keyPermissions;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["secretPermissions"] = args?.secretPermissions;
+            resourceInputs["storagePermissions"] = args?.storagePermissions;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccessPolicy.__pulumiType, name, resourceInputs, opts);

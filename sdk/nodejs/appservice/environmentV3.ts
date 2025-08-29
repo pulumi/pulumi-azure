@@ -122,63 +122,63 @@ export class EnvironmentV3 extends pulumi.CustomResource {
     /**
      * Should new Private Endpoint Connections be allowed. Defaults to `true`.
      */
-    public readonly allowNewPrivateEndpointConnections!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowNewPrivateEndpointConnections: pulumi.Output<boolean | undefined>;
     /**
      * Zero or more `clusterSetting` blocks as defined below.
      */
-    public readonly clusterSettings!: pulumi.Output<outputs.appservice.EnvironmentV3ClusterSetting[]>;
+    declare public readonly clusterSettings: pulumi.Output<outputs.appservice.EnvironmentV3ClusterSetting[]>;
     /**
      * This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
      */
-    public readonly dedicatedHostCount!: pulumi.Output<number | undefined>;
+    declare public readonly dedicatedHostCount: pulumi.Output<number | undefined>;
     /**
      * the DNS suffix for this App Service Environment V3.
      */
-    public /*out*/ readonly dnsSuffix!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsSuffix: pulumi.Output<string>;
     /**
      * The external inbound IP addresses of the App Service Environment V3.
      */
-    public /*out*/ readonly externalInboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly externalInboundIpAddresses: pulumi.Output<string[]>;
     /**
      * An `inboundNetworkDependencies` block as defined below.
      */
-    public /*out*/ readonly inboundNetworkDependencies!: pulumi.Output<outputs.appservice.EnvironmentV3InboundNetworkDependency[]>;
+    declare public /*out*/ readonly inboundNetworkDependencies: pulumi.Output<outputs.appservice.EnvironmentV3InboundNetworkDependency[]>;
     /**
      * The internal inbound IP addresses of the App Service Environment V3.
      */
-    public /*out*/ readonly internalInboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly internalInboundIpAddresses: pulumi.Output<string[]>;
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
      */
-    public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
+    declare public readonly internalLoadBalancingMode: pulumi.Output<string | undefined>;
     /**
      * The number of IP SSL addresses reserved for the App Service Environment V3.
      */
-    public /*out*/ readonly ipSslAddressCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly ipSslAddressCount: pulumi.Output<number>;
     /**
      * Outbound addresses of Linux based Apps in this App Service Environment V3
      */
-    public /*out*/ readonly linuxOutboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly linuxOutboundIpAddresses: pulumi.Output<string[]>;
     /**
      * The location where the App Service Environment exists.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Pricing tier for the front end instances.
      */
-    public /*out*/ readonly pricingTier!: pulumi.Output<string>;
+    declare public /*out*/ readonly pricingTier: pulumi.Output<string>;
     /**
      * Whether to enable remote debug. Defaults to `false`.
      */
-    public readonly remoteDebuggingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly remoteDebuggingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      *
@@ -186,18 +186,18 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      *
      * > **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      */
-    public readonly subnetId!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly subnetId: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Outbound addresses of Windows based Apps in this App Service Environment V3.
      */
-    public /*out*/ readonly windowsOutboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly windowsOutboundIpAddresses: pulumi.Output<string[]>;
     /**
      * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicatedHostCount` or `zoneRedundant` but not both. Changing this forces a new resource to be created.
      *
      * > **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a EnvironmentV3 resource with the given unique name, arguments, and options.
@@ -212,43 +212,43 @@ export class EnvironmentV3 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnvironmentV3State | undefined;
-            resourceInputs["allowNewPrivateEndpointConnections"] = state ? state.allowNewPrivateEndpointConnections : undefined;
-            resourceInputs["clusterSettings"] = state ? state.clusterSettings : undefined;
-            resourceInputs["dedicatedHostCount"] = state ? state.dedicatedHostCount : undefined;
-            resourceInputs["dnsSuffix"] = state ? state.dnsSuffix : undefined;
-            resourceInputs["externalInboundIpAddresses"] = state ? state.externalInboundIpAddresses : undefined;
-            resourceInputs["inboundNetworkDependencies"] = state ? state.inboundNetworkDependencies : undefined;
-            resourceInputs["internalInboundIpAddresses"] = state ? state.internalInboundIpAddresses : undefined;
-            resourceInputs["internalLoadBalancingMode"] = state ? state.internalLoadBalancingMode : undefined;
-            resourceInputs["ipSslAddressCount"] = state ? state.ipSslAddressCount : undefined;
-            resourceInputs["linuxOutboundIpAddresses"] = state ? state.linuxOutboundIpAddresses : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pricingTier"] = state ? state.pricingTier : undefined;
-            resourceInputs["remoteDebuggingEnabled"] = state ? state.remoteDebuggingEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["windowsOutboundIpAddresses"] = state ? state.windowsOutboundIpAddresses : undefined;
-            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["allowNewPrivateEndpointConnections"] = state?.allowNewPrivateEndpointConnections;
+            resourceInputs["clusterSettings"] = state?.clusterSettings;
+            resourceInputs["dedicatedHostCount"] = state?.dedicatedHostCount;
+            resourceInputs["dnsSuffix"] = state?.dnsSuffix;
+            resourceInputs["externalInboundIpAddresses"] = state?.externalInboundIpAddresses;
+            resourceInputs["inboundNetworkDependencies"] = state?.inboundNetworkDependencies;
+            resourceInputs["internalInboundIpAddresses"] = state?.internalInboundIpAddresses;
+            resourceInputs["internalLoadBalancingMode"] = state?.internalLoadBalancingMode;
+            resourceInputs["ipSslAddressCount"] = state?.ipSslAddressCount;
+            resourceInputs["linuxOutboundIpAddresses"] = state?.linuxOutboundIpAddresses;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pricingTier"] = state?.pricingTier;
+            resourceInputs["remoteDebuggingEnabled"] = state?.remoteDebuggingEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["windowsOutboundIpAddresses"] = state?.windowsOutboundIpAddresses;
+            resourceInputs["zoneRedundant"] = state?.zoneRedundant;
         } else {
             const args = argsOrState as EnvironmentV3Args | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["allowNewPrivateEndpointConnections"] = args ? args.allowNewPrivateEndpointConnections : undefined;
-            resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
-            resourceInputs["dedicatedHostCount"] = args ? args.dedicatedHostCount : undefined;
-            resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["remoteDebuggingEnabled"] = args ? args.remoteDebuggingEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["allowNewPrivateEndpointConnections"] = args?.allowNewPrivateEndpointConnections;
+            resourceInputs["clusterSettings"] = args?.clusterSettings;
+            resourceInputs["dedicatedHostCount"] = args?.dedicatedHostCount;
+            resourceInputs["internalLoadBalancingMode"] = args?.internalLoadBalancingMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["remoteDebuggingEnabled"] = args?.remoteDebuggingEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["dnsSuffix"] = undefined /*out*/;
             resourceInputs["externalInboundIpAddresses"] = undefined /*out*/;
             resourceInputs["inboundNetworkDependencies"] = undefined /*out*/;

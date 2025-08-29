@@ -75,21 +75,21 @@ export class NamespaceSchemaGroup extends pulumi.CustomResource {
     /**
      * Specifies the name of this schema group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly namespaceId!: pulumi.Output<string>;
+    declare public readonly namespaceId: pulumi.Output<string>;
     /**
      * Specifies the compatibility of this schema group. Possible values are `None`, `Backward`, `Forward`. Changing this forces a new resource to be created.
      */
-    public readonly schemaCompatibility!: pulumi.Output<string>;
+    declare public readonly schemaCompatibility: pulumi.Output<string>;
     /**
      * Specifies the Type of this schema group. Possible values are `Avro`, `Unknown` and `Json`. Changing this forces a new resource to be created.
      *
      * > **Note:** When `schemaType` is specified as `Json`, `schemaCompatibility` must be set to `None`.
      */
-    public readonly schemaType!: pulumi.Output<string>;
+    declare public readonly schemaType: pulumi.Output<string>;
 
     /**
      * Create a NamespaceSchemaGroup resource with the given unique name, arguments, and options.
@@ -104,25 +104,25 @@ export class NamespaceSchemaGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceSchemaGroupState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["schemaCompatibility"] = state ? state.schemaCompatibility : undefined;
-            resourceInputs["schemaType"] = state ? state.schemaType : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceId"] = state?.namespaceId;
+            resourceInputs["schemaCompatibility"] = state?.schemaCompatibility;
+            resourceInputs["schemaType"] = state?.schemaType;
         } else {
             const args = argsOrState as NamespaceSchemaGroupArgs | undefined;
-            if ((!args || args.namespaceId === undefined) && !opts.urn) {
+            if (args?.namespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceId'");
             }
-            if ((!args || args.schemaCompatibility === undefined) && !opts.urn) {
+            if (args?.schemaCompatibility === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaCompatibility'");
             }
-            if ((!args || args.schemaType === undefined) && !opts.urn) {
+            if (args?.schemaType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaType'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["schemaCompatibility"] = args ? args.schemaCompatibility : undefined;
-            resourceInputs["schemaType"] = args ? args.schemaType : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceId"] = args?.namespaceId;
+            resourceInputs["schemaCompatibility"] = args?.schemaCompatibility;
+            resourceInputs["schemaType"] = args?.schemaType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NamespaceSchemaGroup.__pulumiType, name, resourceInputs, opts);

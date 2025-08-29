@@ -87,39 +87,39 @@ export class Project extends pulumi.CustomResource {
     /**
      * Description of the project. Changing this forces a new Dev Center Project to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
      */
-    public readonly devCenterId!: pulumi.Output<string>;
+    declare public readonly devCenterId: pulumi.Output<string>;
     /**
      * The URI of the Dev Center resource this project is associated with.
      */
-    public /*out*/ readonly devCenterUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly devCenterUri: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.devcenter.ProjectIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.devcenter.ProjectIdentity | undefined>;
     /**
      * The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
      */
-    public readonly maximumDevBoxesPerUser!: pulumi.Output<number | undefined>;
+    declare public readonly maximumDevBoxesPerUser: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Project.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -134,31 +134,31 @@ export class Project extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["devCenterId"] = state ? state.devCenterId : undefined;
-            resourceInputs["devCenterUri"] = state ? state.devCenterUri : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maximumDevBoxesPerUser"] = state ? state.maximumDevBoxesPerUser : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["devCenterId"] = state?.devCenterId;
+            resourceInputs["devCenterUri"] = state?.devCenterUri;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maximumDevBoxesPerUser"] = state?.maximumDevBoxesPerUser;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            if ((!args || args.devCenterId === undefined) && !opts.urn) {
+            if (args?.devCenterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumDevBoxesPerUser"] = args ? args.maximumDevBoxesPerUser : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["devCenterId"] = args?.devCenterId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumDevBoxesPerUser"] = args?.maximumDevBoxesPerUser;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["devCenterUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

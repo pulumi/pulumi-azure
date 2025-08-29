@@ -79,19 +79,19 @@ export class ChannelLine extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * One or more `lineChannel` blocks as defined below.
      */
-    public readonly lineChannels!: pulumi.Output<outputs.bot.ChannelLineLineChannel[]>;
+    declare public readonly lineChannels: pulumi.Output<outputs.bot.ChannelLineLineChannel[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ChannelLine resource with the given unique name, arguments, and options.
@@ -106,25 +106,25 @@ export class ChannelLine extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelLineState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["lineChannels"] = state ? state.lineChannels : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["lineChannels"] = state?.lineChannels;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ChannelLineArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.lineChannels === undefined) && !opts.urn) {
+            if (args?.lineChannels === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lineChannels'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["lineChannels"] = args ? args.lineChannels : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["lineChannels"] = args?.lineChannels;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ChannelLine.__pulumiType, name, resourceInputs, opts);

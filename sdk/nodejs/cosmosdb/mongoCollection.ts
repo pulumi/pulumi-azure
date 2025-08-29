@@ -78,41 +78,41 @@ export class MongoCollection extends pulumi.CustomResource {
     /**
      * The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * The default time to live of Analytical Storage for this Mongo Collection. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
-    public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.MongoCollectionAutoscaleSettings | undefined>;
+    declare public readonly analyticalStorageTtl: pulumi.Output<number | undefined>;
+    declare public readonly autoscaleSettings: pulumi.Output<outputs.cosmosdb.MongoCollectionAutoscaleSettings | undefined>;
     /**
      * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The default Time To Live in seconds. If the value is `-1`, items are not automatically expired.
      */
-    public readonly defaultTtlSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly defaultTtlSeconds: pulumi.Output<number | undefined>;
     /**
      * One or more `index` blocks as defined below.
      */
-    public readonly indices!: pulumi.Output<outputs.cosmosdb.MongoCollectionIndex[] | undefined>;
+    declare public readonly indices: pulumi.Output<outputs.cosmosdb.MongoCollectionIndex[] | undefined>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the key to partition on for sharding. There must not be any other unique index keys. Changing this forces a new resource to be created.
      */
-    public readonly shardKey!: pulumi.Output<string | undefined>;
+    declare public readonly shardKey: pulumi.Output<string | undefined>;
     /**
      * One or more `systemIndexes` blocks as defined below.
      */
-    public /*out*/ readonly systemIndexes!: pulumi.Output<outputs.cosmosdb.MongoCollectionSystemIndex[]>;
-    public readonly throughput!: pulumi.Output<number>;
+    declare public /*out*/ readonly systemIndexes: pulumi.Output<outputs.cosmosdb.MongoCollectionSystemIndex[]>;
+    declare public readonly throughput: pulumi.Output<number>;
 
     /**
      * Create a MongoCollection resource with the given unique name, arguments, and options.
@@ -127,38 +127,38 @@ export class MongoCollection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MongoCollectionState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
-            resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["defaultTtlSeconds"] = state ? state.defaultTtlSeconds : undefined;
-            resourceInputs["indices"] = state ? state.indices : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["shardKey"] = state ? state.shardKey : undefined;
-            resourceInputs["systemIndexes"] = state ? state.systemIndexes : undefined;
-            resourceInputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["analyticalStorageTtl"] = state?.analyticalStorageTtl;
+            resourceInputs["autoscaleSettings"] = state?.autoscaleSettings;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["defaultTtlSeconds"] = state?.defaultTtlSeconds;
+            resourceInputs["indices"] = state?.indices;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["shardKey"] = state?.shardKey;
+            resourceInputs["systemIndexes"] = state?.systemIndexes;
+            resourceInputs["throughput"] = state?.throughput;
         } else {
             const args = argsOrState as MongoCollectionArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
-            resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["defaultTtlSeconds"] = args ? args.defaultTtlSeconds : undefined;
-            resourceInputs["indices"] = args ? args.indices : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shardKey"] = args ? args.shardKey : undefined;
-            resourceInputs["throughput"] = args ? args.throughput : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["analyticalStorageTtl"] = args?.analyticalStorageTtl;
+            resourceInputs["autoscaleSettings"] = args?.autoscaleSettings;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["defaultTtlSeconds"] = args?.defaultTtlSeconds;
+            resourceInputs["indices"] = args?.indices;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shardKey"] = args?.shardKey;
+            resourceInputs["throughput"] = args?.throughput;
             resourceInputs["systemIndexes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

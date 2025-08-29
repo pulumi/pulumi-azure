@@ -81,13 +81,13 @@ export class AutomanageConfigurationAssignment extends pulumi.CustomResource {
     /**
      * The ARM resource ID of the Arc Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
      */
-    public readonly arcMachineId!: pulumi.Output<string>;
+    declare public readonly arcMachineId: pulumi.Output<string>;
     /**
      * The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
      */
-    public readonly configurationId!: pulumi.Output<string>;
+    declare public readonly configurationId: pulumi.Output<string>;
 
     /**
      * Create a AutomanageConfigurationAssignment resource with the given unique name, arguments, and options.
@@ -102,18 +102,18 @@ export class AutomanageConfigurationAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomanageConfigurationAssignmentState | undefined;
-            resourceInputs["arcMachineId"] = state ? state.arcMachineId : undefined;
-            resourceInputs["configurationId"] = state ? state.configurationId : undefined;
+            resourceInputs["arcMachineId"] = state?.arcMachineId;
+            resourceInputs["configurationId"] = state?.configurationId;
         } else {
             const args = argsOrState as AutomanageConfigurationAssignmentArgs | undefined;
-            if ((!args || args.arcMachineId === undefined) && !opts.urn) {
+            if (args?.arcMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcMachineId'");
             }
-            if ((!args || args.configurationId === undefined) && !opts.urn) {
+            if (args?.configurationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationId'");
             }
-            resourceInputs["arcMachineId"] = args ? args.arcMachineId : undefined;
-            resourceInputs["configurationId"] = args ? args.configurationId : undefined;
+            resourceInputs["arcMachineId"] = args?.arcMachineId;
+            resourceInputs["configurationId"] = args?.configurationId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AutomanageConfigurationAssignment.__pulumiType, name, resourceInputs, opts);

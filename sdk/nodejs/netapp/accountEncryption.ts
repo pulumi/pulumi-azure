@@ -136,19 +136,19 @@ export class AccountEncryption extends pulumi.CustomResource {
     /**
      * Specify the versionless ID of the encryption key.
      */
-    public readonly encryptionKey!: pulumi.Output<string>;
+    declare public readonly encryptionKey: pulumi.Output<string>;
     /**
      * The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
      */
-    public readonly netappAccountId!: pulumi.Output<string>;
+    declare public readonly netappAccountId: pulumi.Output<string>;
     /**
      * The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
      */
-    public readonly systemAssignedIdentityPrincipalId!: pulumi.Output<string | undefined>;
+    declare public readonly systemAssignedIdentityPrincipalId: pulumi.Output<string | undefined>;
     /**
      * The ID of the User Assigned Managed Identity. Conflicts with `systemAssignedIdentityPrincipalId`.
      */
-    public readonly userAssignedIdentityId!: pulumi.Output<string | undefined>;
+    declare public readonly userAssignedIdentityId: pulumi.Output<string | undefined>;
 
     /**
      * Create a AccountEncryption resource with the given unique name, arguments, and options.
@@ -163,22 +163,22 @@ export class AccountEncryption extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountEncryptionState | undefined;
-            resourceInputs["encryptionKey"] = state ? state.encryptionKey : undefined;
-            resourceInputs["netappAccountId"] = state ? state.netappAccountId : undefined;
-            resourceInputs["systemAssignedIdentityPrincipalId"] = state ? state.systemAssignedIdentityPrincipalId : undefined;
-            resourceInputs["userAssignedIdentityId"] = state ? state.userAssignedIdentityId : undefined;
+            resourceInputs["encryptionKey"] = state?.encryptionKey;
+            resourceInputs["netappAccountId"] = state?.netappAccountId;
+            resourceInputs["systemAssignedIdentityPrincipalId"] = state?.systemAssignedIdentityPrincipalId;
+            resourceInputs["userAssignedIdentityId"] = state?.userAssignedIdentityId;
         } else {
             const args = argsOrState as AccountEncryptionArgs | undefined;
-            if ((!args || args.encryptionKey === undefined) && !opts.urn) {
+            if (args?.encryptionKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'encryptionKey'");
             }
-            if ((!args || args.netappAccountId === undefined) && !opts.urn) {
+            if (args?.netappAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'netappAccountId'");
             }
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["netappAccountId"] = args ? args.netappAccountId : undefined;
-            resourceInputs["systemAssignedIdentityPrincipalId"] = args ? args.systemAssignedIdentityPrincipalId : undefined;
-            resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["netappAccountId"] = args?.netappAccountId;
+            resourceInputs["systemAssignedIdentityPrincipalId"] = args?.systemAssignedIdentityPrincipalId;
+            resourceInputs["userAssignedIdentityId"] = args?.userAssignedIdentityId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountEncryption.__pulumiType, name, resourceInputs, opts);

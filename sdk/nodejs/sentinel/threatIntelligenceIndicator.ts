@@ -76,115 +76,115 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
     /**
      * Confidence levels of the Threat Intelligence Indicator.
      */
-    public readonly confidence!: pulumi.Output<number | undefined>;
+    declare public readonly confidence: pulumi.Output<number | undefined>;
     /**
      * The creator of the Threat Intelligence Indicator.
      */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
+    declare public readonly createdBy: pulumi.Output<string | undefined>;
     /**
      * The date of this Threat Intelligence Indicator created.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * Whether the Threat Intelligence entity is defanged?
      */
-    public /*out*/ readonly defanged!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly defanged: pulumi.Output<boolean>;
     /**
      * The description of the Threat Intelligence Indicator.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the Threat Intelligence Indicator.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The extension config of the Threat Intelligence Indicator in JSON format.
      */
-    public readonly extension!: pulumi.Output<string>;
+    declare public readonly extension: pulumi.Output<string>;
     /**
      * The external ID of the Threat Intelligence Indicator.
      */
-    public /*out*/ readonly externalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly externalId: pulumi.Output<string>;
     /**
      * the External last updated time in UTC.
      */
-    public /*out*/ readonly externalLastUpdatedTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly externalLastUpdatedTimeUtc: pulumi.Output<string>;
     /**
      * One or more `externalReference` blocks as defined below.
      */
-    public readonly externalReferences!: pulumi.Output<outputs.sentinel.ThreatIntelligenceIndicatorExternalReference[] | undefined>;
+    declare public readonly externalReferences: pulumi.Output<outputs.sentinel.ThreatIntelligenceIndicatorExternalReference[] | undefined>;
     /**
      * One or more `granularMarking` blocks as defined below.
      */
-    public readonly granularMarkings!: pulumi.Output<outputs.sentinel.ThreatIntelligenceIndicatorGranularMarking[] | undefined>;
+    declare public readonly granularMarkings: pulumi.Output<outputs.sentinel.ThreatIntelligenceIndicatorGranularMarking[] | undefined>;
     /**
      * The guid of this Sentinel Threat Intelligence Indicator.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * A list of indicator types of this Threat Intelligence Indicator.
      */
-    public /*out*/ readonly indicatorTypes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly indicatorTypes: pulumi.Output<string[]>;
     /**
      * One or more `killChainPhase` blocks as defined below.
      */
-    public readonly killChainPhases!: pulumi.Output<outputs.sentinel.ThreatIntelligenceIndicatorKillChainPhase[] | undefined>;
+    declare public readonly killChainPhases: pulumi.Output<outputs.sentinel.ThreatIntelligenceIndicatorKillChainPhase[] | undefined>;
     /**
      * The language of the Threat Intelligence Indicator.
      */
-    public readonly language!: pulumi.Output<string | undefined>;
+    declare public readonly language: pulumi.Output<string | undefined>;
     /**
      * The last updated time of the Threat Intelligence Indicator in UTC.
      */
-    public /*out*/ readonly lastUpdatedTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedTimeUtc: pulumi.Output<string>;
     /**
      * Specifies a list of Threat Intelligence marking references.
      */
-    public readonly objectMarkingRefs!: pulumi.Output<string[] | undefined>;
+    declare public readonly objectMarkingRefs: pulumi.Output<string[] | undefined>;
     /**
      * A `parsedPattern` block as defined below.
      */
-    public /*out*/ readonly parsedPatterns!: pulumi.Output<outputs.sentinel.ThreatIntelligenceIndicatorParsedPattern[]>;
+    declare public /*out*/ readonly parsedPatterns: pulumi.Output<outputs.sentinel.ThreatIntelligenceIndicatorParsedPattern[]>;
     /**
      * The pattern used by the Threat Intelligence Indicator. When `patternType` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
      */
-    public readonly pattern!: pulumi.Output<string>;
+    declare public readonly pattern: pulumi.Output<string>;
     /**
      * The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
      */
-    public readonly patternType!: pulumi.Output<string>;
+    declare public readonly patternType: pulumi.Output<string>;
     /**
      * The version of a Threat Intelligence entity.
      */
-    public readonly patternVersion!: pulumi.Output<string | undefined>;
+    declare public readonly patternVersion: pulumi.Output<string | undefined>;
     /**
      * Whether the Threat Intelligence entity revoked.
      */
-    public readonly revoked!: pulumi.Output<boolean | undefined>;
+    declare public readonly revoked: pulumi.Output<boolean | undefined>;
     /**
      * Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
-    public readonly source!: pulumi.Output<string>;
+    declare public readonly source: pulumi.Output<string>;
     /**
      * Specifies a list of tags of the Threat Intelligence Indicator.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a list of threat types of this Threat Intelligence Indicator.
      */
-    public readonly threatTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly threatTypes: pulumi.Output<string[] | undefined>;
     /**
      * The start of validate date in RFC3339.
      */
-    public readonly validateFromUtc!: pulumi.Output<string>;
+    declare public readonly validateFromUtc: pulumi.Output<string>;
     /**
      * The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
      */
-    public readonly validateUntilUtc!: pulumi.Output<string | undefined>;
+    declare public readonly validateUntilUtc: pulumi.Output<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a ThreatIntelligenceIndicator resource with the given unique name, arguments, and options.
@@ -199,74 +199,74 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThreatIntelligenceIndicatorState | undefined;
-            resourceInputs["confidence"] = state ? state.confidence : undefined;
-            resourceInputs["createdBy"] = state ? state.createdBy : undefined;
-            resourceInputs["createdOn"] = state ? state.createdOn : undefined;
-            resourceInputs["defanged"] = state ? state.defanged : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["extension"] = state ? state.extension : undefined;
-            resourceInputs["externalId"] = state ? state.externalId : undefined;
-            resourceInputs["externalLastUpdatedTimeUtc"] = state ? state.externalLastUpdatedTimeUtc : undefined;
-            resourceInputs["externalReferences"] = state ? state.externalReferences : undefined;
-            resourceInputs["granularMarkings"] = state ? state.granularMarkings : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["indicatorTypes"] = state ? state.indicatorTypes : undefined;
-            resourceInputs["killChainPhases"] = state ? state.killChainPhases : undefined;
-            resourceInputs["language"] = state ? state.language : undefined;
-            resourceInputs["lastUpdatedTimeUtc"] = state ? state.lastUpdatedTimeUtc : undefined;
-            resourceInputs["objectMarkingRefs"] = state ? state.objectMarkingRefs : undefined;
-            resourceInputs["parsedPatterns"] = state ? state.parsedPatterns : undefined;
-            resourceInputs["pattern"] = state ? state.pattern : undefined;
-            resourceInputs["patternType"] = state ? state.patternType : undefined;
-            resourceInputs["patternVersion"] = state ? state.patternVersion : undefined;
-            resourceInputs["revoked"] = state ? state.revoked : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["threatTypes"] = state ? state.threatTypes : undefined;
-            resourceInputs["validateFromUtc"] = state ? state.validateFromUtc : undefined;
-            resourceInputs["validateUntilUtc"] = state ? state.validateUntilUtc : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["confidence"] = state?.confidence;
+            resourceInputs["createdBy"] = state?.createdBy;
+            resourceInputs["createdOn"] = state?.createdOn;
+            resourceInputs["defanged"] = state?.defanged;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["extension"] = state?.extension;
+            resourceInputs["externalId"] = state?.externalId;
+            resourceInputs["externalLastUpdatedTimeUtc"] = state?.externalLastUpdatedTimeUtc;
+            resourceInputs["externalReferences"] = state?.externalReferences;
+            resourceInputs["granularMarkings"] = state?.granularMarkings;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["indicatorTypes"] = state?.indicatorTypes;
+            resourceInputs["killChainPhases"] = state?.killChainPhases;
+            resourceInputs["language"] = state?.language;
+            resourceInputs["lastUpdatedTimeUtc"] = state?.lastUpdatedTimeUtc;
+            resourceInputs["objectMarkingRefs"] = state?.objectMarkingRefs;
+            resourceInputs["parsedPatterns"] = state?.parsedPatterns;
+            resourceInputs["pattern"] = state?.pattern;
+            resourceInputs["patternType"] = state?.patternType;
+            resourceInputs["patternVersion"] = state?.patternVersion;
+            resourceInputs["revoked"] = state?.revoked;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["threatTypes"] = state?.threatTypes;
+            resourceInputs["validateFromUtc"] = state?.validateFromUtc;
+            resourceInputs["validateUntilUtc"] = state?.validateUntilUtc;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as ThreatIntelligenceIndicatorArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.pattern === undefined) && !opts.urn) {
+            if (args?.pattern === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pattern'");
             }
-            if ((!args || args.patternType === undefined) && !opts.urn) {
+            if (args?.patternType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'patternType'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.validateFromUtc === undefined) && !opts.urn) {
+            if (args?.validateFromUtc === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validateFromUtc'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["confidence"] = args ? args.confidence : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["extension"] = args ? args.extension : undefined;
-            resourceInputs["externalReferences"] = args ? args.externalReferences : undefined;
-            resourceInputs["granularMarkings"] = args ? args.granularMarkings : undefined;
-            resourceInputs["killChainPhases"] = args ? args.killChainPhases : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["objectMarkingRefs"] = args ? args.objectMarkingRefs : undefined;
-            resourceInputs["pattern"] = args ? args.pattern : undefined;
-            resourceInputs["patternType"] = args ? args.patternType : undefined;
-            resourceInputs["patternVersion"] = args ? args.patternVersion : undefined;
-            resourceInputs["revoked"] = args ? args.revoked : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threatTypes"] = args ? args.threatTypes : undefined;
-            resourceInputs["validateFromUtc"] = args ? args.validateFromUtc : undefined;
-            resourceInputs["validateUntilUtc"] = args ? args.validateUntilUtc : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["confidence"] = args?.confidence;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["extension"] = args?.extension;
+            resourceInputs["externalReferences"] = args?.externalReferences;
+            resourceInputs["granularMarkings"] = args?.granularMarkings;
+            resourceInputs["killChainPhases"] = args?.killChainPhases;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["objectMarkingRefs"] = args?.objectMarkingRefs;
+            resourceInputs["pattern"] = args?.pattern;
+            resourceInputs["patternType"] = args?.patternType;
+            resourceInputs["patternVersion"] = args?.patternVersion;
+            resourceInputs["revoked"] = args?.revoked;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threatTypes"] = args?.threatTypes;
+            resourceInputs["validateFromUtc"] = args?.validateFromUtc;
+            resourceInputs["validateUntilUtc"] = args?.validateUntilUtc;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["defanged"] = undefined /*out*/;
             resourceInputs["externalId"] = undefined /*out*/;

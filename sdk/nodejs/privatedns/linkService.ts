@@ -50,53 +50,53 @@ export class LinkService extends pulumi.CustomResource {
     /**
      * A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
      */
-    public /*out*/ readonly alias!: pulumi.Output<string>;
+    declare public /*out*/ readonly alias: pulumi.Output<string>;
     /**
      * A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service.
      */
-    public readonly autoApprovalSubscriptionIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly autoApprovalSubscriptionIds: pulumi.Output<string[] | undefined>;
     /**
      * The destination IP address of the Private Link Service.
      */
-    public readonly destinationIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly destinationIpAddress: pulumi.Output<string | undefined>;
     /**
      * Should the Private Link Service support the Proxy Protocol?
      */
-    public readonly enableProxyProtocol!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableProxyProtocol: pulumi.Output<boolean | undefined>;
     /**
      * List of FQDNs allowed for the Private Link Service.
      */
-    public readonly fqdns!: pulumi.Output<string[] | undefined>;
+    declare public readonly fqdns: pulumi.Output<string[] | undefined>;
     /**
      * A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
      */
-    public readonly loadBalancerFrontendIpConfigurationIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly loadBalancerFrontendIpConfigurationIds: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more (up to 8) `natIpConfiguration` block as defined below.
      */
-    public readonly natIpConfigurations!: pulumi.Output<outputs.privatedns.LinkServiceNatIpConfiguration[]>;
+    declare public readonly natIpConfigurations: pulumi.Output<outputs.privatedns.LinkServiceNatIpConfiguration[]>;
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
      *
      * > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
      */
-    public readonly visibilitySubscriptionIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly visibilitySubscriptionIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a LinkService resource with the given unique name, arguments, and options.
@@ -111,37 +111,37 @@ export class LinkService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkServiceState | undefined;
-            resourceInputs["alias"] = state ? state.alias : undefined;
-            resourceInputs["autoApprovalSubscriptionIds"] = state ? state.autoApprovalSubscriptionIds : undefined;
-            resourceInputs["destinationIpAddress"] = state ? state.destinationIpAddress : undefined;
-            resourceInputs["enableProxyProtocol"] = state ? state.enableProxyProtocol : undefined;
-            resourceInputs["fqdns"] = state ? state.fqdns : undefined;
-            resourceInputs["loadBalancerFrontendIpConfigurationIds"] = state ? state.loadBalancerFrontendIpConfigurationIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["natIpConfigurations"] = state ? state.natIpConfigurations : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["visibilitySubscriptionIds"] = state ? state.visibilitySubscriptionIds : undefined;
+            resourceInputs["alias"] = state?.alias;
+            resourceInputs["autoApprovalSubscriptionIds"] = state?.autoApprovalSubscriptionIds;
+            resourceInputs["destinationIpAddress"] = state?.destinationIpAddress;
+            resourceInputs["enableProxyProtocol"] = state?.enableProxyProtocol;
+            resourceInputs["fqdns"] = state?.fqdns;
+            resourceInputs["loadBalancerFrontendIpConfigurationIds"] = state?.loadBalancerFrontendIpConfigurationIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["natIpConfigurations"] = state?.natIpConfigurations;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["visibilitySubscriptionIds"] = state?.visibilitySubscriptionIds;
         } else {
             const args = argsOrState as LinkServiceArgs | undefined;
-            if ((!args || args.natIpConfigurations === undefined) && !opts.urn) {
+            if (args?.natIpConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'natIpConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoApprovalSubscriptionIds"] = args ? args.autoApprovalSubscriptionIds : undefined;
-            resourceInputs["destinationIpAddress"] = args ? args.destinationIpAddress : undefined;
-            resourceInputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
-            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
-            resourceInputs["loadBalancerFrontendIpConfigurationIds"] = args ? args.loadBalancerFrontendIpConfigurationIds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["natIpConfigurations"] = args ? args.natIpConfigurations : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["visibilitySubscriptionIds"] = args ? args.visibilitySubscriptionIds : undefined;
+            resourceInputs["autoApprovalSubscriptionIds"] = args?.autoApprovalSubscriptionIds;
+            resourceInputs["destinationIpAddress"] = args?.destinationIpAddress;
+            resourceInputs["enableProxyProtocol"] = args?.enableProxyProtocol;
+            resourceInputs["fqdns"] = args?.fqdns;
+            resourceInputs["loadBalancerFrontendIpConfigurationIds"] = args?.loadBalancerFrontendIpConfigurationIds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["natIpConfigurations"] = args?.natIpConfigurations;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["visibilitySubscriptionIds"] = args?.visibilitySubscriptionIds;
             resourceInputs["alias"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

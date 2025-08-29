@@ -98,31 +98,31 @@ export class TagRule extends pulumi.CustomResource {
     /**
      * Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
      */
-    public readonly activityLogEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly activityLogEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`.
      */
-    public readonly azureActiveDirectoryLogEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly azureActiveDirectoryLogEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `logTagFilter` block as defined below.
      */
-    public readonly logTagFilters!: pulumi.Output<outputs.newrelic.TagRuleLogTagFilter[] | undefined>;
+    declare public readonly logTagFilters: pulumi.Output<outputs.newrelic.TagRuleLogTagFilter[] | undefined>;
     /**
      * Whether metrics should be sent for the Monitor resource. Defaults to `false`.
      */
-    public readonly metricEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly metricEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `metricTagFilter` block as defined below.
      */
-    public readonly metricTagFilters!: pulumi.Output<outputs.newrelic.TagRuleMetricTagFilter[] | undefined>;
+    declare public readonly metricTagFilters: pulumi.Output<outputs.newrelic.TagRuleMetricTagFilter[] | undefined>;
     /**
      * Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created.
      */
-    public readonly monitorId!: pulumi.Output<string>;
+    declare public readonly monitorId: pulumi.Output<string>;
     /**
      * Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
      */
-    public readonly subscriptionLogEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly subscriptionLogEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a TagRule resource with the given unique name, arguments, and options.
@@ -137,25 +137,25 @@ export class TagRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagRuleState | undefined;
-            resourceInputs["activityLogEnabled"] = state ? state.activityLogEnabled : undefined;
-            resourceInputs["azureActiveDirectoryLogEnabled"] = state ? state.azureActiveDirectoryLogEnabled : undefined;
-            resourceInputs["logTagFilters"] = state ? state.logTagFilters : undefined;
-            resourceInputs["metricEnabled"] = state ? state.metricEnabled : undefined;
-            resourceInputs["metricTagFilters"] = state ? state.metricTagFilters : undefined;
-            resourceInputs["monitorId"] = state ? state.monitorId : undefined;
-            resourceInputs["subscriptionLogEnabled"] = state ? state.subscriptionLogEnabled : undefined;
+            resourceInputs["activityLogEnabled"] = state?.activityLogEnabled;
+            resourceInputs["azureActiveDirectoryLogEnabled"] = state?.azureActiveDirectoryLogEnabled;
+            resourceInputs["logTagFilters"] = state?.logTagFilters;
+            resourceInputs["metricEnabled"] = state?.metricEnabled;
+            resourceInputs["metricTagFilters"] = state?.metricTagFilters;
+            resourceInputs["monitorId"] = state?.monitorId;
+            resourceInputs["subscriptionLogEnabled"] = state?.subscriptionLogEnabled;
         } else {
             const args = argsOrState as TagRuleArgs | undefined;
-            if ((!args || args.monitorId === undefined) && !opts.urn) {
+            if (args?.monitorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorId'");
             }
-            resourceInputs["activityLogEnabled"] = args ? args.activityLogEnabled : undefined;
-            resourceInputs["azureActiveDirectoryLogEnabled"] = args ? args.azureActiveDirectoryLogEnabled : undefined;
-            resourceInputs["logTagFilters"] = args ? args.logTagFilters : undefined;
-            resourceInputs["metricEnabled"] = args ? args.metricEnabled : undefined;
-            resourceInputs["metricTagFilters"] = args ? args.metricTagFilters : undefined;
-            resourceInputs["monitorId"] = args ? args.monitorId : undefined;
-            resourceInputs["subscriptionLogEnabled"] = args ? args.subscriptionLogEnabled : undefined;
+            resourceInputs["activityLogEnabled"] = args?.activityLogEnabled;
+            resourceInputs["azureActiveDirectoryLogEnabled"] = args?.azureActiveDirectoryLogEnabled;
+            resourceInputs["logTagFilters"] = args?.logTagFilters;
+            resourceInputs["metricEnabled"] = args?.metricEnabled;
+            resourceInputs["metricTagFilters"] = args?.metricTagFilters;
+            resourceInputs["monitorId"] = args?.monitorId;
+            resourceInputs["subscriptionLogEnabled"] = args?.subscriptionLogEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TagRule.__pulumiType, name, resourceInputs, opts);

@@ -106,85 +106,85 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * Can this Virtual Machine be claimed by users? Defaults to `true`.
      */
-    public readonly allowClaim!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowClaim: pulumi.Output<boolean | undefined>;
     /**
      * Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
      */
-    public readonly disallowPublicIpAddress!: pulumi.Output<boolean | undefined>;
+    declare public readonly disallowPublicIpAddress: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN of the Virtual Machine.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * A `galleryImageReference` block as defined below.
      */
-    public readonly galleryImageReference!: pulumi.Output<outputs.devtest.LinuxVirtualMachineGalleryImageReference>;
+    declare public readonly galleryImageReference: pulumi.Output<outputs.devtest.LinuxVirtualMachineGalleryImageReference>;
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
      */
-    public readonly inboundNatRules!: pulumi.Output<outputs.devtest.LinuxVirtualMachineInboundNatRule[] | undefined>;
+    declare public readonly inboundNatRules: pulumi.Output<outputs.devtest.LinuxVirtualMachineInboundNatRule[] | undefined>;
     /**
      * Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
      */
-    public readonly labName!: pulumi.Output<string>;
+    declare public readonly labName: pulumi.Output<string>;
     /**
      * The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
      */
-    public readonly labSubnetName!: pulumi.Output<string>;
+    declare public readonly labSubnetName: pulumi.Output<string>;
     /**
      * The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
      */
-    public readonly labVirtualNetworkId!: pulumi.Output<string>;
+    declare public readonly labVirtualNetworkId: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Any notes about the Virtual Machine.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
      */
-    public readonly size!: pulumi.Output<string>;
+    declare public readonly size: pulumi.Output<string>;
     /**
      * The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **Note:** One or either `password` or `sshKey` must be specified.
      */
-    public readonly sshKey!: pulumi.Output<string | undefined>;
+    declare public readonly sshKey: pulumi.Output<string | undefined>;
     /**
      * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      */
-    public readonly storageType!: pulumi.Output<string>;
+    declare public readonly storageType: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The unique immutable identifier of the Virtual Machine.
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
     /**
      * The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a LinuxVirtualMachine resource with the given unique name, arguments, and options.
@@ -199,68 +199,68 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinuxVirtualMachineState | undefined;
-            resourceInputs["allowClaim"] = state ? state.allowClaim : undefined;
-            resourceInputs["disallowPublicIpAddress"] = state ? state.disallowPublicIpAddress : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["galleryImageReference"] = state ? state.galleryImageReference : undefined;
-            resourceInputs["inboundNatRules"] = state ? state.inboundNatRules : undefined;
-            resourceInputs["labName"] = state ? state.labName : undefined;
-            resourceInputs["labSubnetName"] = state ? state.labSubnetName : undefined;
-            resourceInputs["labVirtualNetworkId"] = state ? state.labVirtualNetworkId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["size"] = state ? state.size : undefined;
-            resourceInputs["sshKey"] = state ? state.sshKey : undefined;
-            resourceInputs["storageType"] = state ? state.storageType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["allowClaim"] = state?.allowClaim;
+            resourceInputs["disallowPublicIpAddress"] = state?.disallowPublicIpAddress;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["galleryImageReference"] = state?.galleryImageReference;
+            resourceInputs["inboundNatRules"] = state?.inboundNatRules;
+            resourceInputs["labName"] = state?.labName;
+            resourceInputs["labSubnetName"] = state?.labSubnetName;
+            resourceInputs["labVirtualNetworkId"] = state?.labVirtualNetworkId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notes"] = state?.notes;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["size"] = state?.size;
+            resourceInputs["sshKey"] = state?.sshKey;
+            resourceInputs["storageType"] = state?.storageType;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["uniqueIdentifier"] = state?.uniqueIdentifier;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as LinuxVirtualMachineArgs | undefined;
-            if ((!args || args.galleryImageReference === undefined) && !opts.urn) {
+            if (args?.galleryImageReference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryImageReference'");
             }
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.labSubnetName === undefined) && !opts.urn) {
+            if (args?.labSubnetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labSubnetName'");
             }
-            if ((!args || args.labVirtualNetworkId === undefined) && !opts.urn) {
+            if (args?.labVirtualNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labVirtualNetworkId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            if ((!args || args.storageType === undefined) && !opts.urn) {
+            if (args?.storageType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageType'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["allowClaim"] = args ? args.allowClaim : undefined;
-            resourceInputs["disallowPublicIpAddress"] = args ? args.disallowPublicIpAddress : undefined;
-            resourceInputs["galleryImageReference"] = args ? args.galleryImageReference : undefined;
-            resourceInputs["inboundNatRules"] = args ? args.inboundNatRules : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["labSubnetName"] = args ? args.labSubnetName : undefined;
-            resourceInputs["labVirtualNetworkId"] = args ? args.labVirtualNetworkId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["allowClaim"] = args?.allowClaim;
+            resourceInputs["disallowPublicIpAddress"] = args?.disallowPublicIpAddress;
+            resourceInputs["galleryImageReference"] = args?.galleryImageReference;
+            resourceInputs["inboundNatRules"] = args?.inboundNatRules;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["labSubnetName"] = args?.labSubnetName;
+            resourceInputs["labVirtualNetworkId"] = args?.labVirtualNetworkId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notes"] = args?.notes;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["sshKey"] = args ? args.sshKey : undefined;
-            resourceInputs["storageType"] = args ? args.storageType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["sshKey"] = args?.sshKey;
+            resourceInputs["storageType"] = args?.storageType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["username"] = args?.username;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }

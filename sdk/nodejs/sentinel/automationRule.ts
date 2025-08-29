@@ -84,49 +84,49 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * One or more `actionIncident` blocks as defined below.
      */
-    public readonly actionIncidents!: pulumi.Output<outputs.sentinel.AutomationRuleActionIncident[] | undefined>;
+    declare public readonly actionIncidents: pulumi.Output<outputs.sentinel.AutomationRuleActionIncident[] | undefined>;
     /**
      * One or more `actionPlaybook` blocks as defined below.
      *
      * > **Note:** Either one `actionIncident` block or `actionPlaybook` block has to be specified.
      */
-    public readonly actionPlaybooks!: pulumi.Output<outputs.sentinel.AutomationRuleActionPlaybook[] | undefined>;
+    declare public readonly actionPlaybooks: pulumi.Output<outputs.sentinel.AutomationRuleActionPlaybook[] | undefined>;
     /**
      * A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
      */
-    public readonly conditionJson!: pulumi.Output<string | undefined>;
+    declare public readonly conditionJson: pulumi.Output<string | undefined>;
     /**
      * The display name which should be used for this Sentinel Automation Rule.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
      */
-    public readonly expiration!: pulumi.Output<string | undefined>;
+    declare public readonly expiration: pulumi.Output<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
      */
-    public readonly triggersOn!: pulumi.Output<string | undefined>;
+    declare public readonly triggersOn: pulumi.Output<string | undefined>;
     /**
      * Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
      */
-    public readonly triggersWhen!: pulumi.Output<string | undefined>;
+    declare public readonly triggersWhen: pulumi.Output<string | undefined>;
 
     /**
      * Create a AutomationRule resource with the given unique name, arguments, and options.
@@ -141,39 +141,39 @@ export class AutomationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomationRuleState | undefined;
-            resourceInputs["actionIncidents"] = state ? state.actionIncidents : undefined;
-            resourceInputs["actionPlaybooks"] = state ? state.actionPlaybooks : undefined;
-            resourceInputs["conditionJson"] = state ? state.conditionJson : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["expiration"] = state ? state.expiration : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["triggersOn"] = state ? state.triggersOn : undefined;
-            resourceInputs["triggersWhen"] = state ? state.triggersWhen : undefined;
+            resourceInputs["actionIncidents"] = state?.actionIncidents;
+            resourceInputs["actionPlaybooks"] = state?.actionPlaybooks;
+            resourceInputs["conditionJson"] = state?.conditionJson;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["expiration"] = state?.expiration;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["triggersOn"] = state?.triggersOn;
+            resourceInputs["triggersWhen"] = state?.triggersWhen;
         } else {
             const args = argsOrState as AutomationRuleArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            resourceInputs["actionIncidents"] = args ? args.actionIncidents : undefined;
-            resourceInputs["actionPlaybooks"] = args ? args.actionPlaybooks : undefined;
-            resourceInputs["conditionJson"] = args ? args.conditionJson : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["expiration"] = args ? args.expiration : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["triggersOn"] = args ? args.triggersOn : undefined;
-            resourceInputs["triggersWhen"] = args ? args.triggersWhen : undefined;
+            resourceInputs["actionIncidents"] = args?.actionIncidents;
+            resourceInputs["actionPlaybooks"] = args?.actionPlaybooks;
+            resourceInputs["conditionJson"] = args?.conditionJson;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["expiration"] = args?.expiration;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["triggersOn"] = args?.triggersOn;
+            resourceInputs["triggersWhen"] = args?.triggersWhen;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:sentinel/authomationRule:AuthomationRule" }] };

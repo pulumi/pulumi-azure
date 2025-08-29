@@ -85,35 +85,35 @@ export class LoadTest extends pulumi.CustomResource {
     /**
      * Resource data plane URI.
      */
-    public /*out*/ readonly dataPlaneUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataPlaneUri: pulumi.Output<string>;
     /**
      * Description of the resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An `encryption` block as defined below. Changing this forces a new Load Test to be created.
      */
-    public readonly encryption!: pulumi.Output<outputs.loadtest.LoadTestEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.loadtest.LoadTestEncryption | undefined>;
     /**
      * An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
      */
-    public readonly identity!: pulumi.Output<outputs.loadtest.LoadTestIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.loadtest.LoadTestIdentity | undefined>;
     /**
      * The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Load Test.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LoadTest resource with the given unique name, arguments, and options.
@@ -128,26 +128,26 @@ export class LoadTest extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadTestState | undefined;
-            resourceInputs["dataPlaneUri"] = state ? state.dataPlaneUri : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["dataPlaneUri"] = state?.dataPlaneUri;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LoadTestArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["dataPlaneUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

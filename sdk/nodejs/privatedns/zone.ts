@@ -71,37 +71,37 @@ export class Zone extends pulumi.CustomResource {
     /**
      * The maximum number of record sets that can be created in this Private DNS zone.
      */
-    public /*out*/ readonly maxNumberOfRecordSets!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNumberOfRecordSets: pulumi.Output<number>;
     /**
      * The maximum number of virtual networks that can be linked to this Private DNS zone.
      */
-    public /*out*/ readonly maxNumberOfVirtualNetworkLinks!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNumberOfVirtualNetworkLinks: pulumi.Output<number>;
     /**
      * The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled.
      */
-    public /*out*/ readonly maxNumberOfVirtualNetworkLinksWithRegistration!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNumberOfVirtualNetworkLinksWithRegistration: pulumi.Output<number>;
     /**
      * The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      *
      * > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The current number of record sets in this Private DNS zone.
      */
-    public /*out*/ readonly numberOfRecordSets!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfRecordSets: pulumi.Output<number>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly soaRecord!: pulumi.Output<outputs.privatedns.ZoneSoaRecord>;
+    declare public readonly soaRecord: pulumi.Output<outputs.privatedns.ZoneSoaRecord>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -116,23 +116,23 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            resourceInputs["maxNumberOfRecordSets"] = state ? state.maxNumberOfRecordSets : undefined;
-            resourceInputs["maxNumberOfVirtualNetworkLinks"] = state ? state.maxNumberOfVirtualNetworkLinks : undefined;
-            resourceInputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = state ? state.maxNumberOfVirtualNetworkLinksWithRegistration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["numberOfRecordSets"] = state ? state.numberOfRecordSets : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["soaRecord"] = state ? state.soaRecord : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["maxNumberOfRecordSets"] = state?.maxNumberOfRecordSets;
+            resourceInputs["maxNumberOfVirtualNetworkLinks"] = state?.maxNumberOfVirtualNetworkLinks;
+            resourceInputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = state?.maxNumberOfVirtualNetworkLinksWithRegistration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["numberOfRecordSets"] = state?.numberOfRecordSets;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["soaRecord"] = state?.soaRecord;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["soaRecord"] = args ? args.soaRecord : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["soaRecord"] = args?.soaRecord;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;
             resourceInputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
             resourceInputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;

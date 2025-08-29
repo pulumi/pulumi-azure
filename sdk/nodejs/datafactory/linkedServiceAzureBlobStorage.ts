@@ -76,56 +76,56 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      *
      * The following supported arguments are specific to Azure Blob Storage Linked Service:
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The connection string. Conflicts with `connectionStringInsecure`, `sasUri` and `serviceEndpoint`.
      */
-    public readonly connectionString!: pulumi.Output<string | undefined>;
+    declare public readonly connectionString: pulumi.Output<string | undefined>;
     /**
      * The connection string sent insecurely. Conflicts with `connectionString`, `sasUri` and `serviceEndpoint`.
      *
      * > **Note:** `connectionString` uses the Azure [SecureString](https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datafactory.models.securestring) to encrypt the contents within the REST payload sent to Azure whilst the `connectionStringInsecure` is sent as a regular string. Both properties are still sent using SSL/HTTPS. At this time the portal will not decrypt Secure Strings so the `connectionString` property in the portal will show as `******` whilst `connectionStringInsecure` will be viewable in the portal.
      */
-    public readonly connectionStringInsecure!: pulumi.Output<string | undefined>;
+    declare public readonly connectionStringInsecure: pulumi.Output<string | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
      * A `keyVaultSasToken` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
      */
-    public readonly keyVaultSasToken!: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken | undefined>;
+    declare public readonly keyVaultSasToken: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
-    public readonly sasUri!: pulumi.Output<string | undefined>;
-    public readonly serviceEndpoint!: pulumi.Output<string | undefined>;
-    public readonly servicePrincipalId!: pulumi.Output<string | undefined>;
-    public readonly servicePrincipalKey!: pulumi.Output<string | undefined>;
-    public readonly servicePrincipalLinkedKeyVaultKey!: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey | undefined>;
-    public readonly storageKind!: pulumi.Output<string | undefined>;
-    public readonly tenantId!: pulumi.Output<string | undefined>;
-    public readonly useManagedIdentity!: pulumi.Output<boolean | undefined>;
+    declare public readonly sasUri: pulumi.Output<string | undefined>;
+    declare public readonly serviceEndpoint: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalId: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalKey: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalLinkedKeyVaultKey: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey | undefined>;
+    declare public readonly storageKind: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
+    declare public readonly useManagedIdentity: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LinkedServiceAzureBlobStorage resource with the given unique name, arguments, and options.
@@ -140,47 +140,47 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceAzureBlobStorageState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["connectionStringInsecure"] = state ? state.connectionStringInsecure : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultSasToken"] = state ? state.keyVaultSasToken : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["sasUri"] = state ? state.sasUri : undefined;
-            resourceInputs["serviceEndpoint"] = state ? state.serviceEndpoint : undefined;
-            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = state ? state.servicePrincipalKey : undefined;
-            resourceInputs["servicePrincipalLinkedKeyVaultKey"] = state ? state.servicePrincipalLinkedKeyVaultKey : undefined;
-            resourceInputs["storageKind"] = state ? state.storageKind : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
-            resourceInputs["useManagedIdentity"] = state ? state.useManagedIdentity : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["connectionStringInsecure"] = state?.connectionStringInsecure;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
+            resourceInputs["keyVaultSasToken"] = state?.keyVaultSasToken;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["sasUri"] = state?.sasUri;
+            resourceInputs["serviceEndpoint"] = state?.serviceEndpoint;
+            resourceInputs["servicePrincipalId"] = state?.servicePrincipalId;
+            resourceInputs["servicePrincipalKey"] = state?.servicePrincipalKey;
+            resourceInputs["servicePrincipalLinkedKeyVaultKey"] = state?.servicePrincipalLinkedKeyVaultKey;
+            resourceInputs["storageKind"] = state?.storageKind;
+            resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["useManagedIdentity"] = state?.useManagedIdentity;
         } else {
             const args = argsOrState as LinkedServiceAzureBlobStorageArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
             resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
-            resourceInputs["connectionStringInsecure"] = args ? args.connectionStringInsecure : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultSasToken"] = args ? args.keyVaultSasToken : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["connectionStringInsecure"] = args?.connectionStringInsecure;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
+            resourceInputs["keyVaultSasToken"] = args?.keyVaultSasToken;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
             resourceInputs["sasUri"] = args?.sasUri ? pulumi.secret(args.sasUri) : undefined;
             resourceInputs["serviceEndpoint"] = args?.serviceEndpoint ? pulumi.secret(args.serviceEndpoint) : undefined;
-            resourceInputs["servicePrincipalId"] = args ? args.servicePrincipalId : undefined;
-            resourceInputs["servicePrincipalKey"] = args ? args.servicePrincipalKey : undefined;
-            resourceInputs["servicePrincipalLinkedKeyVaultKey"] = args ? args.servicePrincipalLinkedKeyVaultKey : undefined;
-            resourceInputs["storageKind"] = args ? args.storageKind : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
+            resourceInputs["servicePrincipalId"] = args?.servicePrincipalId;
+            resourceInputs["servicePrincipalKey"] = args?.servicePrincipalKey;
+            resourceInputs["servicePrincipalLinkedKeyVaultKey"] = args?.servicePrincipalLinkedKeyVaultKey;
+            resourceInputs["storageKind"] = args?.storageKind;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["useManagedIdentity"] = args?.useManagedIdentity;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString", "sasUri", "serviceEndpoint"] };

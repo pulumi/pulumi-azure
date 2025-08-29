@@ -93,19 +93,19 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
      *
      * > **Note:** If `ignoreMissingVnetServiceEndpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `serviceEndpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
      */
-    public readonly ignoreMissingVnetServiceEndpoint!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreMissingVnetServiceEndpoint: pulumi.Output<boolean | undefined>;
     /**
      * The name of the SQL virtual network rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * The ID of the subnet from which the SQL server will accept communications.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkRule resource with the given unique name, arguments, and options.
@@ -120,22 +120,22 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkRuleState | undefined;
-            resourceInputs["ignoreMissingVnetServiceEndpoint"] = state ? state.ignoreMissingVnetServiceEndpoint : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["ignoreMissingVnetServiceEndpoint"] = state?.ignoreMissingVnetServiceEndpoint;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as VirtualNetworkRuleArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["ignoreMissingVnetServiceEndpoint"] = args?.ignoreMissingVnetServiceEndpoint;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["subnetId"] = args?.subnetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:sql/virtualNetworkRule:VirtualNetworkRule" }] };

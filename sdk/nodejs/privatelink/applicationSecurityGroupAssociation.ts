@@ -46,11 +46,11 @@ export class ApplicationSecurityGroupAssociation extends pulumi.CustomResource {
     /**
      * The id of application security group to associate. Changing this forces a new resource to be created.
      */
-    public readonly applicationSecurityGroupId!: pulumi.Output<string>;
+    declare public readonly applicationSecurityGroupId: pulumi.Output<string>;
     /**
      * The id of private endpoint to associate. Changing this forces a new resource to be created.
      */
-    public readonly privateEndpointId!: pulumi.Output<string>;
+    declare public readonly privateEndpointId: pulumi.Output<string>;
 
     /**
      * Create a ApplicationSecurityGroupAssociation resource with the given unique name, arguments, and options.
@@ -65,18 +65,18 @@ export class ApplicationSecurityGroupAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationSecurityGroupAssociationState | undefined;
-            resourceInputs["applicationSecurityGroupId"] = state ? state.applicationSecurityGroupId : undefined;
-            resourceInputs["privateEndpointId"] = state ? state.privateEndpointId : undefined;
+            resourceInputs["applicationSecurityGroupId"] = state?.applicationSecurityGroupId;
+            resourceInputs["privateEndpointId"] = state?.privateEndpointId;
         } else {
             const args = argsOrState as ApplicationSecurityGroupAssociationArgs | undefined;
-            if ((!args || args.applicationSecurityGroupId === undefined) && !opts.urn) {
+            if (args?.applicationSecurityGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationSecurityGroupId'");
             }
-            if ((!args || args.privateEndpointId === undefined) && !opts.urn) {
+            if (args?.privateEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateEndpointId'");
             }
-            resourceInputs["applicationSecurityGroupId"] = args ? args.applicationSecurityGroupId : undefined;
-            resourceInputs["privateEndpointId"] = args ? args.privateEndpointId : undefined;
+            resourceInputs["applicationSecurityGroupId"] = args?.applicationSecurityGroupId;
+            resourceInputs["privateEndpointId"] = args?.privateEndpointId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApplicationSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);

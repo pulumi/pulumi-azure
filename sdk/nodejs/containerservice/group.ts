@@ -98,113 +98,113 @@ export class Group extends pulumi.CustomResource {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    public readonly containers!: pulumi.Output<outputs.containerservice.GroupContainer[]>;
+    declare public readonly containers: pulumi.Output<outputs.containerservice.GroupContainer[]>;
     /**
      * A `diagnostics` block as documented below. Changing this forces a new resource to be created.
      */
-    public readonly diagnostics!: pulumi.Output<outputs.containerservice.GroupDiagnostics | undefined>;
+    declare public readonly diagnostics: pulumi.Output<outputs.containerservice.GroupDiagnostics | undefined>;
     /**
      * A `dnsConfig` block as documented below. Changing this forces a new resource to be created.
      */
-    public readonly dnsConfig!: pulumi.Output<outputs.containerservice.GroupDnsConfig | undefined>;
+    declare public readonly dnsConfig: pulumi.Output<outputs.containerservice.GroupDnsConfig | undefined>;
     /**
      * The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
      *
      * > **Note:** DNS label/name is not supported when deploying to virtual networks.
      */
-    public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
+    declare public readonly dnsNameLabel: pulumi.Output<string | undefined>;
     /**
      * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
      */
-    public readonly dnsNameLabelReusePolicy!: pulumi.Output<string | undefined>;
+    declare public readonly dnsNameLabelReusePolicy: pulumi.Output<string | undefined>;
     /**
      * Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** The `exposedPort` can only contain ports that are also exposed on one or more containers in the group.
      */
-    public readonly exposedPorts!: pulumi.Output<outputs.containerservice.GroupExposedPort[]>;
+    declare public readonly exposedPorts: pulumi.Output<outputs.containerservice.GroupExposedPort[]>;
     /**
      * The FQDN of the container group derived from `dnsNameLabel`.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.containerservice.GroupIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerservice.GroupIdentity | undefined>;
     /**
      * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
-    public readonly imageRegistryCredentials!: pulumi.Output<outputs.containerservice.GroupImageRegistryCredential[] | undefined>;
+    declare public readonly imageRegistryCredentials: pulumi.Output<outputs.containerservice.GroupImageRegistryCredential[] | undefined>;
     /**
      * The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
      */
-    public readonly initContainers!: pulumi.Output<outputs.containerservice.GroupInitContainer[] | undefined>;
+    declare public readonly initContainers: pulumi.Output<outputs.containerservice.GroupInitContainer[] | undefined>;
     /**
      * The IP address allocated to the container group.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
      *
      * > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      */
-    public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    declare public readonly ipAddressType: pulumi.Output<string | undefined>;
     /**
      * The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
     /**
      * The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `keyPermissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
      */
-    public readonly keyVaultUserAssignedIdentityId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultUserAssignedIdentityId: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Container Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * @deprecated the 'network_profile_id' has been removed from the latest versions of the container instance API and has been deprecated. It no longer functions and will be removed from the 4.0 AzureRM provider. Please use the 'subnet_ids' field instead
      */
-    public readonly networkProfileId!: pulumi.Output<string>;
+    declare public readonly networkProfileId: pulumi.Output<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      *
      * > **Note:** if `osType` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
      */
-    public readonly osType!: pulumi.Output<string>;
+    declare public readonly osType: pulumi.Output<string>;
     /**
      * The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
      *
      * > **Note:** When `priority` is set to `Spot`, the `ipAddressType` has to be `None`.
      */
-    public readonly priority!: pulumi.Output<string | undefined>;
+    declare public readonly priority: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
      */
-    public readonly restartPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly restartPolicy: pulumi.Output<string | undefined>;
     /**
      * Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * The subnet resource IDs for a container group. Changing this forces a new resource to be created.
      */
-    public readonly subnetIds!: pulumi.Output<string | undefined>;
+    declare public readonly subnetIds: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -219,65 +219,65 @@ export class Group extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            resourceInputs["containers"] = state ? state.containers : undefined;
-            resourceInputs["diagnostics"] = state ? state.diagnostics : undefined;
-            resourceInputs["dnsConfig"] = state ? state.dnsConfig : undefined;
-            resourceInputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;
-            resourceInputs["dnsNameLabelReusePolicy"] = state ? state.dnsNameLabelReusePolicy : undefined;
-            resourceInputs["exposedPorts"] = state ? state.exposedPorts : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["imageRegistryCredentials"] = state ? state.imageRegistryCredentials : undefined;
-            resourceInputs["initContainers"] = state ? state.initContainers : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["keyVaultUserAssignedIdentityId"] = state ? state.keyVaultUserAssignedIdentityId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkProfileId"] = state ? state.networkProfileId : undefined;
-            resourceInputs["osType"] = state ? state.osType : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["restartPolicy"] = state ? state.restartPolicy : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["containers"] = state?.containers;
+            resourceInputs["diagnostics"] = state?.diagnostics;
+            resourceInputs["dnsConfig"] = state?.dnsConfig;
+            resourceInputs["dnsNameLabel"] = state?.dnsNameLabel;
+            resourceInputs["dnsNameLabelReusePolicy"] = state?.dnsNameLabelReusePolicy;
+            resourceInputs["exposedPorts"] = state?.exposedPorts;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["imageRegistryCredentials"] = state?.imageRegistryCredentials;
+            resourceInputs["initContainers"] = state?.initContainers;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["ipAddressType"] = state?.ipAddressType;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["keyVaultUserAssignedIdentityId"] = state?.keyVaultUserAssignedIdentityId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkProfileId"] = state?.networkProfileId;
+            resourceInputs["osType"] = state?.osType;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["restartPolicy"] = state?.restartPolicy;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["subnetIds"] = state?.subnetIds;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            if ((!args || args.containers === undefined) && !opts.urn) {
+            if (args?.containers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containers'");
             }
-            if ((!args || args.osType === undefined) && !opts.urn) {
+            if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["containers"] = args ? args.containers : undefined;
-            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
-            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            resourceInputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
-            resourceInputs["dnsNameLabelReusePolicy"] = args ? args.dnsNameLabelReusePolicy : undefined;
-            resourceInputs["exposedPorts"] = args ? args.exposedPorts : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
-            resourceInputs["initContainers"] = args ? args.initContainers : undefined;
-            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["keyVaultUserAssignedIdentityId"] = args ? args.keyVaultUserAssignedIdentityId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfileId"] = args ? args.networkProfileId : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["containers"] = args?.containers;
+            resourceInputs["diagnostics"] = args?.diagnostics;
+            resourceInputs["dnsConfig"] = args?.dnsConfig;
+            resourceInputs["dnsNameLabel"] = args?.dnsNameLabel;
+            resourceInputs["dnsNameLabelReusePolicy"] = args?.dnsNameLabelReusePolicy;
+            resourceInputs["exposedPorts"] = args?.exposedPorts;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["imageRegistryCredentials"] = args?.imageRegistryCredentials;
+            resourceInputs["initContainers"] = args?.initContainers;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["keyVaultUserAssignedIdentityId"] = args?.keyVaultUserAssignedIdentityId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkProfileId"] = args?.networkProfileId;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restartPolicy"] = args?.restartPolicy;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
         }

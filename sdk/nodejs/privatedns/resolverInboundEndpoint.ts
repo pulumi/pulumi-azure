@@ -104,23 +104,23 @@ export class ResolverInboundEndpoint extends pulumi.CustomResource {
     /**
      * One `ipConfigurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.privatedns.ResolverInboundEndpointIpConfigurations>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.privatedns.ResolverInboundEndpointIpConfigurations>;
     /**
      * Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
      */
-    public readonly privateDnsResolverId!: pulumi.Output<string>;
+    declare public readonly privateDnsResolverId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ResolverInboundEndpoint resource with the given unique name, arguments, and options.
@@ -135,24 +135,24 @@ export class ResolverInboundEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverInboundEndpointState | undefined;
-            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateDnsResolverId"] = state ? state.privateDnsResolverId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["ipConfigurations"] = state?.ipConfigurations;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateDnsResolverId"] = state?.privateDnsResolverId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ResolverInboundEndpointArgs | undefined;
-            if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
+            if (args?.ipConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if ((!args || args.privateDnsResolverId === undefined) && !opts.urn) {
+            if (args?.privateDnsResolverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateDnsResolverId'");
             }
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateDnsResolverId"] = args ? args.privateDnsResolverId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateDnsResolverId"] = args?.privateDnsResolverId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverInboundEndpoint.__pulumiType, name, resourceInputs, opts);

@@ -79,52 +79,52 @@ export class DicomService extends pulumi.CustomResource {
     /**
      * The `authentication` block as defined below.
      */
-    public /*out*/ readonly authentications!: pulumi.Output<outputs.healthcare.DicomServiceAuthentication[]>;
+    declare public /*out*/ readonly authentications: pulumi.Output<outputs.healthcare.DicomServiceAuthentication[]>;
     /**
      * A `cors` block as defined below.
      */
-    public readonly cors!: pulumi.Output<outputs.healthcare.DicomServiceCors>;
+    declare public readonly cors: pulumi.Output<outputs.healthcare.DicomServiceCors>;
     /**
      * If data partitions are enabled or not. Defaults to `false`. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    public readonly dataPartitionsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataPartitionsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The URL of the key to use for encryption as part of the customer-managed key encryption settings. For more details, refer to the [Azure Customer-Managed Keys Overview](https://learn.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview).
      */
-    public readonly encryptionKeyUrl!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionKeyUrl: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcare.DicomServiceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.healthcare.DicomServiceIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly privateEndpoints!: pulumi.Output<outputs.healthcare.DicomServicePrivateEndpoint[]>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly privateEndpoints: pulumi.Output<outputs.healthcare.DicomServicePrivateEndpoint[]>;
     /**
      * Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The url of the Healthcare DICOM Services.
      */
-    public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceUrl: pulumi.Output<string>;
     /**
      * A `storage` block as defined below.
      */
-    public readonly storage!: pulumi.Output<outputs.healthcare.DicomServiceStorage>;
+    declare public readonly storage: pulumi.Output<outputs.healthcare.DicomServiceStorage>;
     /**
      * A mapping of tags to assign to the Healthcare DICOM Service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the ID of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a DicomService resource with the given unique name, arguments, and options.
@@ -139,34 +139,34 @@ export class DicomService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DicomServiceState | undefined;
-            resourceInputs["authentications"] = state ? state.authentications : undefined;
-            resourceInputs["cors"] = state ? state.cors : undefined;
-            resourceInputs["dataPartitionsEnabled"] = state ? state.dataPartitionsEnabled : undefined;
-            resourceInputs["encryptionKeyUrl"] = state ? state.encryptionKeyUrl : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateEndpoints"] = state ? state.privateEndpoints : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
-            resourceInputs["storage"] = state ? state.storage : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["authentications"] = state?.authentications;
+            resourceInputs["cors"] = state?.cors;
+            resourceInputs["dataPartitionsEnabled"] = state?.dataPartitionsEnabled;
+            resourceInputs["encryptionKeyUrl"] = state?.encryptionKeyUrl;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateEndpoints"] = state?.privateEndpoints;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["serviceUrl"] = state?.serviceUrl;
+            resourceInputs["storage"] = state?.storage;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as DicomServiceArgs | undefined;
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["dataPartitionsEnabled"] = args ? args.dataPartitionsEnabled : undefined;
-            resourceInputs["encryptionKeyUrl"] = args ? args.encryptionKeyUrl : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["storage"] = args ? args.storage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["dataPartitionsEnabled"] = args?.dataPartitionsEnabled;
+            resourceInputs["encryptionKeyUrl"] = args?.encryptionKeyUrl;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["storage"] = args?.storage;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["authentications"] = undefined /*out*/;
             resourceInputs["privateEndpoints"] = undefined /*out*/;
             resourceInputs["serviceUrl"] = undefined /*out*/;

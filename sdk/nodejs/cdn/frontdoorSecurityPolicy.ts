@@ -129,15 +129,15 @@ export class FrontdoorSecurityPolicy extends pulumi.CustomResource {
     /**
      * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
      */
-    public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorProfileId: pulumi.Output<string>;
     /**
      * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
      */
-    public readonly securityPolicies!: pulumi.Output<outputs.cdn.FrontdoorSecurityPolicySecurityPolicies>;
+    declare public readonly securityPolicies: pulumi.Output<outputs.cdn.FrontdoorSecurityPolicySecurityPolicies>;
 
     /**
      * Create a FrontdoorSecurityPolicy resource with the given unique name, arguments, and options.
@@ -152,20 +152,20 @@ export class FrontdoorSecurityPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorSecurityPolicyState | undefined;
-            resourceInputs["cdnFrontdoorProfileId"] = state ? state.cdnFrontdoorProfileId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["securityPolicies"] = state ? state.securityPolicies : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = state?.cdnFrontdoorProfileId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["securityPolicies"] = state?.securityPolicies;
         } else {
             const args = argsOrState as FrontdoorSecurityPolicyArgs | undefined;
-            if ((!args || args.cdnFrontdoorProfileId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorProfileId'");
             }
-            if ((!args || args.securityPolicies === undefined) && !opts.urn) {
+            if (args?.securityPolicies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityPolicies'");
             }
-            resourceInputs["cdnFrontdoorProfileId"] = args ? args.cdnFrontdoorProfileId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["securityPolicies"] = args ? args.securityPolicies : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = args?.cdnFrontdoorProfileId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["securityPolicies"] = args?.securityPolicies;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FrontdoorSecurityPolicy.__pulumiType, name, resourceInputs, opts);

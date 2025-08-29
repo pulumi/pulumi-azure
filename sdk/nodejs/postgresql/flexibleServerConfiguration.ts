@@ -111,15 +111,15 @@ export class FlexibleServerConfiguration extends pulumi.CustomResource {
      *
      * > **Note:** PostgreSQL provides the ability to extend the functionality using azure extensions, with PostgreSQL azure extensions you should specify the `name` value as `azure.extensions` and the `value` you wish to allow in the [extensions list](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/concepts-extensions?WT.mc_id=Portal-Microsoft_Azure_OSSDatabases#extension-versions).
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the PostgreSQL Flexible Server where we want to change configuration. Changing this forces a new PostgreSQL Flexible Server Configuration resource.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * Specifies the value of the PostgreSQL Configuration. See the PostgreSQL documentation for valid values.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a FlexibleServerConfiguration resource with the given unique name, arguments, and options.
@@ -134,20 +134,20 @@ export class FlexibleServerConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerConfigurationState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as FlexibleServerConfigurationArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FlexibleServerConfiguration.__pulumiType, name, resourceInputs, opts);

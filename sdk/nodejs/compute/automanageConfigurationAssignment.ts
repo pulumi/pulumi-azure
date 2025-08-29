@@ -116,11 +116,11 @@ export class AutomanageConfigurationAssignment extends pulumi.CustomResource {
     /**
      * The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly configurationId!: pulumi.Output<string>;
+    declare public readonly configurationId: pulumi.Output<string>;
     /**
      * The ARM resource ID of the Virtual Machine to assign the Automanage Configuration to. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineId!: pulumi.Output<string>;
+    declare public readonly virtualMachineId: pulumi.Output<string>;
 
     /**
      * Create a AutomanageConfigurationAssignment resource with the given unique name, arguments, and options.
@@ -135,18 +135,18 @@ export class AutomanageConfigurationAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutomanageConfigurationAssignmentState | undefined;
-            resourceInputs["configurationId"] = state ? state.configurationId : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["configurationId"] = state?.configurationId;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
         } else {
             const args = argsOrState as AutomanageConfigurationAssignmentArgs | undefined;
-            if ((!args || args.configurationId === undefined) && !opts.urn) {
+            if (args?.configurationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationId'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
+            if (args?.virtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            resourceInputs["configurationId"] = args ? args.configurationId : undefined;
-            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["configurationId"] = args?.configurationId;
+            resourceInputs["virtualMachineId"] = args?.virtualMachineId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AutomanageConfigurationAssignment.__pulumiType, name, resourceInputs, opts);

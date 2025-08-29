@@ -66,15 +66,15 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * A Fully qualified path of the lighthouse definition, such as `/subscriptions/0afefe50-734e-4610-8c82-a144aff49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-8e081c90ada2`. Changing this forces a new resource to be created.
      */
-    public readonly lighthouseDefinitionId!: pulumi.Output<string>;
+    declare public readonly lighthouseDefinitionId: pulumi.Output<string>;
     /**
      * A unique UUID/GUID which identifies this lighthouse assignment- one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The scope at which the Lighthouse Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class Assignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
-            resourceInputs["lighthouseDefinitionId"] = state ? state.lighthouseDefinitionId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["lighthouseDefinitionId"] = state?.lighthouseDefinitionId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if ((!args || args.lighthouseDefinitionId === undefined) && !opts.urn) {
+            if (args?.lighthouseDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lighthouseDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["lighthouseDefinitionId"] = args ? args.lighthouseDefinitionId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["lighthouseDefinitionId"] = args?.lighthouseDefinitionId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["scope"] = args?.scope;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Assignment.__pulumiType, name, resourceInputs, opts);

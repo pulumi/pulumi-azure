@@ -103,11 +103,11 @@ export class StaticWebAppFunctionAppRegistration extends pulumi.CustomResource {
      *
      * > **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azureStaticWebAppV2` which may need to be accounted for by the use of `ignoreChanges` depending on the existing `authSettingsV2` configuration of the target Function App.
      */
-    public readonly functionAppId!: pulumi.Output<string>;
+    declare public readonly functionAppId: pulumi.Output<string>;
     /**
      * The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
      */
-    public readonly staticWebAppId!: pulumi.Output<string>;
+    declare public readonly staticWebAppId: pulumi.Output<string>;
 
     /**
      * Create a StaticWebAppFunctionAppRegistration resource with the given unique name, arguments, and options.
@@ -122,18 +122,18 @@ export class StaticWebAppFunctionAppRegistration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticWebAppFunctionAppRegistrationState | undefined;
-            resourceInputs["functionAppId"] = state ? state.functionAppId : undefined;
-            resourceInputs["staticWebAppId"] = state ? state.staticWebAppId : undefined;
+            resourceInputs["functionAppId"] = state?.functionAppId;
+            resourceInputs["staticWebAppId"] = state?.staticWebAppId;
         } else {
             const args = argsOrState as StaticWebAppFunctionAppRegistrationArgs | undefined;
-            if ((!args || args.functionAppId === undefined) && !opts.urn) {
+            if (args?.functionAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionAppId'");
             }
-            if ((!args || args.staticWebAppId === undefined) && !opts.urn) {
+            if (args?.staticWebAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'staticWebAppId'");
             }
-            resourceInputs["functionAppId"] = args ? args.functionAppId : undefined;
-            resourceInputs["staticWebAppId"] = args ? args.staticWebAppId : undefined;
+            resourceInputs["functionAppId"] = args?.functionAppId;
+            resourceInputs["staticWebAppId"] = args?.staticWebAppId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StaticWebAppFunctionAppRegistration.__pulumiType, name, resourceInputs, opts);

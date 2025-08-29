@@ -44,8 +44,7 @@ type Volume struct {
 	EncryptionKeySource pulumi.StringOutput `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayOutput `pulumi:"exportPolicyRules"`
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
-	// having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
 	KerberosEnabled pulumi.BoolPtrOutput `pulumi:"kerberosEnabled"`
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringOutput `pulumi:"keyVaultPrivateEndpointId"`
@@ -165,8 +164,7 @@ type volumeState struct {
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
-	// having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
@@ -236,8 +234,7 @@ type VolumeState struct {
 	EncryptionKeySource pulumi.StringPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
-	// having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
 	KerberosEnabled pulumi.BoolPtrInput
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringPtrInput
@@ -311,8 +308,7 @@ type volumeArgs struct {
 	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules []VolumeExportPolicyRule `pulumi:"exportPolicyRules"`
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
-	// having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId *string `pulumi:"keyVaultPrivateEndpointId"`
@@ -381,8 +377,7 @@ type VolumeArgs struct {
 	EncryptionKeySource pulumi.StringPtrInput
 	// One or more `exportPolicyRule` block defined below.
 	ExportPolicyRules VolumeExportPolicyRuleArrayInput
-	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
-	// having a defined AD connection.
+	// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
 	KerberosEnabled pulumi.BoolPtrInput
 	// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
 	KeyVaultPrivateEndpointId pulumi.StringPtrInput
@@ -563,8 +558,7 @@ func (o VolumeOutput) ExportPolicyRules() VolumeExportPolicyRuleArrayOutput {
 	return o.ApplyT(func(v *Volume) VolumeExportPolicyRuleArrayOutput { return v.ExportPolicyRules }).(VolumeExportPolicyRuleArrayOutput)
 }
 
-// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account`
-// having a defined AD connection.
+// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `netapp.Account` having a defined AD connection.
 func (o VolumeOutput) KerberosEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.KerberosEnabled }).(pulumi.BoolPtrOutput)
 }

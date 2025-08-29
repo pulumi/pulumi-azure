@@ -86,48 +86,48 @@ export class ConfigurationFeature extends pulumi.CustomResource {
     /**
      * Specifies the id of the App Configuration. Changing this forces a new resource to be created.
      */
-    public readonly configurationStoreId!: pulumi.Output<string>;
+    declare public readonly configurationStoreId: pulumi.Output<string>;
     /**
      * The description of the App Configuration Feature.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The status of the App Configuration Feature. By default, this is set to false.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
-    public readonly etag!: pulumi.Output<string>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * The label of the App Configuration Feature. Changing this forces a new resource to be created.
      */
-    public readonly label!: pulumi.Output<string | undefined>;
+    declare public readonly label: pulumi.Output<string | undefined>;
     /**
      * Should this App Configuration Feature be Locked to prevent changes?
      */
-    public readonly locked!: pulumi.Output<boolean | undefined>;
+    declare public readonly locked: pulumi.Output<boolean | undefined>;
     /**
      * The name of the App Configuration Feature. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A number representing the value of the percentage required to enable this feature.
      */
-    public readonly percentageFilterValue!: pulumi.Output<number | undefined>;
+    declare public readonly percentageFilterValue: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `targetingFilter` block as defined below.
      */
-    public readonly targetingFilters!: pulumi.Output<outputs.appconfiguration.ConfigurationFeatureTargetingFilter[] | undefined>;
+    declare public readonly targetingFilters: pulumi.Output<outputs.appconfiguration.ConfigurationFeatureTargetingFilter[] | undefined>;
     /**
      * A `timewindowFilter` block as defined below.
      */
-    public readonly timewindowFilters!: pulumi.Output<outputs.appconfiguration.ConfigurationFeatureTimewindowFilter[] | undefined>;
+    declare public readonly timewindowFilters: pulumi.Output<outputs.appconfiguration.ConfigurationFeatureTimewindowFilter[] | undefined>;
 
     /**
      * Create a ConfigurationFeature resource with the given unique name, arguments, and options.
@@ -142,35 +142,35 @@ export class ConfigurationFeature extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationFeatureState | undefined;
-            resourceInputs["configurationStoreId"] = state ? state.configurationStoreId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["locked"] = state ? state.locked : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["percentageFilterValue"] = state ? state.percentageFilterValue : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["targetingFilters"] = state ? state.targetingFilters : undefined;
-            resourceInputs["timewindowFilters"] = state ? state.timewindowFilters : undefined;
+            resourceInputs["configurationStoreId"] = state?.configurationStoreId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["locked"] = state?.locked;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["percentageFilterValue"] = state?.percentageFilterValue;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["targetingFilters"] = state?.targetingFilters;
+            resourceInputs["timewindowFilters"] = state?.timewindowFilters;
         } else {
             const args = argsOrState as ConfigurationFeatureArgs | undefined;
-            if ((!args || args.configurationStoreId === undefined) && !opts.urn) {
+            if (args?.configurationStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationStoreId'");
             }
-            resourceInputs["configurationStoreId"] = args ? args.configurationStoreId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["locked"] = args ? args.locked : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["percentageFilterValue"] = args ? args.percentageFilterValue : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetingFilters"] = args ? args.targetingFilters : undefined;
-            resourceInputs["timewindowFilters"] = args ? args.timewindowFilters : undefined;
+            resourceInputs["configurationStoreId"] = args?.configurationStoreId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["etag"] = args?.etag;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["locked"] = args?.locked;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["percentageFilterValue"] = args?.percentageFilterValue;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetingFilters"] = args?.targetingFilters;
+            resourceInputs["timewindowFilters"] = args?.timewindowFilters;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationFeature.__pulumiType, name, resourceInputs, opts);

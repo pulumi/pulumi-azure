@@ -99,21 +99,21 @@ export class FlexibleServerVirtualEndpoint extends pulumi.CustomResource {
     /**
      * The name of the Virtual Endpoint
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
      *
      * > **Note:** If a fail-over has occurred, you will be unable to update `replicaServerId`. You can remove the resource from state and reimport it back in with `sourceServerId` and `replicaServerId` flipped and then update `replicaServerId`.
      */
-    public readonly replicaServerId!: pulumi.Output<string>;
+    declare public readonly replicaServerId: pulumi.Output<string>;
     /**
      * The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
      */
-    public readonly sourceServerId!: pulumi.Output<string>;
+    declare public readonly sourceServerId: pulumi.Output<string>;
     /**
      * The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a FlexibleServerVirtualEndpoint resource with the given unique name, arguments, and options.
@@ -128,25 +128,25 @@ export class FlexibleServerVirtualEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerVirtualEndpointState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["replicaServerId"] = state ? state.replicaServerId : undefined;
-            resourceInputs["sourceServerId"] = state ? state.sourceServerId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["replicaServerId"] = state?.replicaServerId;
+            resourceInputs["sourceServerId"] = state?.sourceServerId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as FlexibleServerVirtualEndpointArgs | undefined;
-            if ((!args || args.replicaServerId === undefined) && !opts.urn) {
+            if (args?.replicaServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicaServerId'");
             }
-            if ((!args || args.sourceServerId === undefined) && !opts.urn) {
+            if (args?.sourceServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceServerId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["replicaServerId"] = args ? args.replicaServerId : undefined;
-            resourceInputs["sourceServerId"] = args ? args.sourceServerId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["replicaServerId"] = args?.replicaServerId;
+            resourceInputs["sourceServerId"] = args?.sourceServerId;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FlexibleServerVirtualEndpoint.__pulumiType, name, resourceInputs, opts);

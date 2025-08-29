@@ -103,77 +103,77 @@ export class Insights extends pulumi.CustomResource {
     /**
      * The App ID associated with this Application Insights component.
      */
-    public /*out*/ readonly appId!: pulumi.Output<string>;
+    declare public /*out*/ readonly appId: pulumi.Output<string>;
     /**
      * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
      */
-    public readonly applicationType!: pulumi.Output<string>;
+    declare public readonly applicationType: pulumi.Output<string>;
     /**
      * The Connection String for this Application Insights component. (Sensitive)
      */
-    public /*out*/ readonly connectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionString: pulumi.Output<string>;
     /**
      * Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
      */
-    public readonly dailyDataCapInGb!: pulumi.Output<number | undefined>;
+    declare public readonly dailyDataCapInGb: pulumi.Output<number | undefined>;
     /**
      * Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
      */
-    public readonly dailyDataCapNotificationsDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dailyDataCapNotificationsDisabled: pulumi.Output<boolean | undefined>;
     /**
      * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
      */
-    public readonly disableIpMasking!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableIpMasking: pulumi.Output<boolean | undefined>;
     /**
      * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
      */
-    public readonly forceCustomerStorageForProfiler!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceCustomerStorageForProfiler: pulumi.Output<boolean | undefined>;
     /**
      * The Instrumentation Key for this Application Insights component. (Sensitive)
      */
-    public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly instrumentationKey: pulumi.Output<string>;
     /**
      * Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
      */
-    public readonly internetIngestionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internetIngestionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
      */
-    public readonly internetQueryEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internetQueryEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Disable Non-Azure AD based Auth. Defaults to `false`.
      */
-    public readonly localAuthenticationDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthenticationDisabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
      * Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
      */
-    public readonly samplingPercentage!: pulumi.Output<number | undefined>;
+    declare public readonly samplingPercentage: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the id of a log analytics workspace resource.
      *
      * > **Note:** `workspaceId` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspaceId` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspaceId` in the config file to the new value.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a Insights resource with the given unique name, arguments, and options.
@@ -188,47 +188,47 @@ export class Insights extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InsightsState | undefined;
-            resourceInputs["appId"] = state ? state.appId : undefined;
-            resourceInputs["applicationType"] = state ? state.applicationType : undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["dailyDataCapInGb"] = state ? state.dailyDataCapInGb : undefined;
-            resourceInputs["dailyDataCapNotificationsDisabled"] = state ? state.dailyDataCapNotificationsDisabled : undefined;
-            resourceInputs["disableIpMasking"] = state ? state.disableIpMasking : undefined;
-            resourceInputs["forceCustomerStorageForProfiler"] = state ? state.forceCustomerStorageForProfiler : undefined;
-            resourceInputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;
-            resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
-            resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
-            resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            resourceInputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["appId"] = state?.appId;
+            resourceInputs["applicationType"] = state?.applicationType;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["dailyDataCapInGb"] = state?.dailyDataCapInGb;
+            resourceInputs["dailyDataCapNotificationsDisabled"] = state?.dailyDataCapNotificationsDisabled;
+            resourceInputs["disableIpMasking"] = state?.disableIpMasking;
+            resourceInputs["forceCustomerStorageForProfiler"] = state?.forceCustomerStorageForProfiler;
+            resourceInputs["instrumentationKey"] = state?.instrumentationKey;
+            resourceInputs["internetIngestionEnabled"] = state?.internetIngestionEnabled;
+            resourceInputs["internetQueryEnabled"] = state?.internetQueryEnabled;
+            resourceInputs["localAuthenticationDisabled"] = state?.localAuthenticationDisabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionInDays"] = state?.retentionInDays;
+            resourceInputs["samplingPercentage"] = state?.samplingPercentage;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as InsightsArgs | undefined;
-            if ((!args || args.applicationType === undefined) && !opts.urn) {
+            if (args?.applicationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationType"] = args ? args.applicationType : undefined;
-            resourceInputs["dailyDataCapInGb"] = args ? args.dailyDataCapInGb : undefined;
-            resourceInputs["dailyDataCapNotificationsDisabled"] = args ? args.dailyDataCapNotificationsDisabled : undefined;
-            resourceInputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
-            resourceInputs["forceCustomerStorageForProfiler"] = args ? args.forceCustomerStorageForProfiler : undefined;
-            resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
-            resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
-            resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["applicationType"] = args?.applicationType;
+            resourceInputs["dailyDataCapInGb"] = args?.dailyDataCapInGb;
+            resourceInputs["dailyDataCapNotificationsDisabled"] = args?.dailyDataCapNotificationsDisabled;
+            resourceInputs["disableIpMasking"] = args?.disableIpMasking;
+            resourceInputs["forceCustomerStorageForProfiler"] = args?.forceCustomerStorageForProfiler;
+            resourceInputs["internetIngestionEnabled"] = args?.internetIngestionEnabled;
+            resourceInputs["internetQueryEnabled"] = args?.internetQueryEnabled;
+            resourceInputs["localAuthenticationDisabled"] = args?.localAuthenticationDisabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["samplingPercentage"] = args?.samplingPercentage;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["appId"] = undefined /*out*/;
             resourceInputs["connectionString"] = undefined /*out*/;
             resourceInputs["instrumentationKey"] = undefined /*out*/;

@@ -91,51 +91,51 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
     /**
      * A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
      */
-    public readonly addonJson!: pulumi.Output<string>;
+    declare public readonly addonJson: pulumi.Output<string>;
     /**
      * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
      */
-    public readonly applicationPerformanceMonitoringIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly applicationPerformanceMonitoringIds: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
      */
-    public readonly arguments!: pulumi.Output<string[] | undefined>;
+    declare public readonly arguments: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
      */
-    public readonly commands!: pulumi.Output<string[] | undefined>;
+    declare public readonly commands: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
-    public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
      */
-    public readonly image!: pulumi.Output<string>;
+    declare public readonly image: pulumi.Output<string>;
     /**
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    public readonly instanceCount!: pulumi.Output<number | undefined>;
+    declare public readonly instanceCount: pulumi.Output<number | undefined>;
     /**
      * Specifies the language framework of the container image. The only possible value is `springboot`.
      */
-    public readonly languageFramework!: pulumi.Output<string | undefined>;
+    declare public readonly languageFramework: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `quota` block as defined below.
      */
-    public readonly quota!: pulumi.Output<outputs.appplatform.SpringCloudContainerDeploymentQuota>;
+    declare public readonly quota: pulumi.Output<outputs.appplatform.SpringCloudContainerDeploymentQuota>;
     /**
      * The name of the registry that contains the container image.
      */
-    public readonly server!: pulumi.Output<string>;
+    declare public readonly server: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
      */
-    public readonly springCloudAppId!: pulumi.Output<string>;
+    declare public readonly springCloudAppId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudContainerDeployment resource with the given unique name, arguments, and options.
@@ -150,41 +150,41 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudContainerDeploymentState | undefined;
-            resourceInputs["addonJson"] = state ? state.addonJson : undefined;
-            resourceInputs["applicationPerformanceMonitoringIds"] = state ? state.applicationPerformanceMonitoringIds : undefined;
-            resourceInputs["arguments"] = state ? state.arguments : undefined;
-            resourceInputs["commands"] = state ? state.commands : undefined;
-            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
-            resourceInputs["image"] = state ? state.image : undefined;
-            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
-            resourceInputs["languageFramework"] = state ? state.languageFramework : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["quota"] = state ? state.quota : undefined;
-            resourceInputs["server"] = state ? state.server : undefined;
-            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["addonJson"] = state?.addonJson;
+            resourceInputs["applicationPerformanceMonitoringIds"] = state?.applicationPerformanceMonitoringIds;
+            resourceInputs["arguments"] = state?.arguments;
+            resourceInputs["commands"] = state?.commands;
+            resourceInputs["environmentVariables"] = state?.environmentVariables;
+            resourceInputs["image"] = state?.image;
+            resourceInputs["instanceCount"] = state?.instanceCount;
+            resourceInputs["languageFramework"] = state?.languageFramework;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["quota"] = state?.quota;
+            resourceInputs["server"] = state?.server;
+            resourceInputs["springCloudAppId"] = state?.springCloudAppId;
         } else {
             const args = argsOrState as SpringCloudContainerDeploymentArgs | undefined;
-            if ((!args || args.image === undefined) && !opts.urn) {
+            if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.server === undefined) && !opts.urn) {
+            if (args?.server === undefined && !opts.urn) {
                 throw new Error("Missing required property 'server'");
             }
-            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
+            if (args?.springCloudAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            resourceInputs["addonJson"] = args ? args.addonJson : undefined;
-            resourceInputs["applicationPerformanceMonitoringIds"] = args ? args.applicationPerformanceMonitoringIds : undefined;
-            resourceInputs["arguments"] = args ? args.arguments : undefined;
-            resourceInputs["commands"] = args ? args.commands : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["languageFramework"] = args ? args.languageFramework : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["quota"] = args ? args.quota : undefined;
-            resourceInputs["server"] = args ? args.server : undefined;
-            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["addonJson"] = args?.addonJson;
+            resourceInputs["applicationPerformanceMonitoringIds"] = args?.applicationPerformanceMonitoringIds;
+            resourceInputs["arguments"] = args?.arguments;
+            resourceInputs["commands"] = args?.commands;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["languageFramework"] = args?.languageFramework;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["quota"] = args?.quota;
+            resourceInputs["server"] = args?.server;
+            resourceInputs["springCloudAppId"] = args?.springCloudAppId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudContainerDeployment.__pulumiType, name, resourceInputs, opts);

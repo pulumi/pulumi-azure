@@ -90,8 +90,7 @@ import (
 type LinuxFunctionApp struct {
 	pulumi.CustomResourceState
 
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxFunctionAppAuthSettingsPtrOutput `pulumi:"authSettings"`
@@ -242,8 +241,7 @@ func GetLinuxFunctionApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinuxFunctionApp resources.
 type linuxFunctionAppState struct {
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *LinuxFunctionAppAuthSettings `pulumi:"authSettings"`
@@ -347,8 +345,7 @@ type linuxFunctionAppState struct {
 }
 
 type LinuxFunctionAppState struct {
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxFunctionAppAuthSettingsPtrInput
@@ -456,8 +453,7 @@ func (LinuxFunctionAppState) ElementType() reflect.Type {
 }
 
 type linuxFunctionAppArgs struct {
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *LinuxFunctionAppAuthSettings `pulumi:"authSettings"`
@@ -544,8 +540,7 @@ type linuxFunctionAppArgs struct {
 
 // The set of arguments for constructing a LinuxFunctionApp resource.
 type LinuxFunctionAppArgs struct {
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings LinuxFunctionAppAuthSettingsPtrInput
@@ -717,8 +712,7 @@ func (o LinuxFunctionAppOutput) ToLinuxFunctionAppOutputWithContext(ctx context.
 	return o
 }
 
-// A map of key-value pairs for [App
-// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 func (o LinuxFunctionAppOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }

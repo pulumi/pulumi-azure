@@ -92,51 +92,51 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
     /**
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
      */
-    public readonly clientProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly clientProtocol: pulumi.Output<string | undefined>;
     /**
      * The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
      */
-    public readonly clusteringPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly clusteringPolicy: pulumi.Output<string | undefined>;
     /**
      * Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
      */
-    public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly evictionPolicy: pulumi.Output<string | undefined>;
     /**
      * Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
      */
-    public readonly linkedDatabaseGroupNickname!: pulumi.Output<string | undefined>;
+    declare public readonly linkedDatabaseGroupNickname: pulumi.Output<string | undefined>;
     /**
      * A list of database resources to link with this database with a maximum of 5.
      *
      * > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink.
      */
-    public readonly linkedDatabaseIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly linkedDatabaseIds: pulumi.Output<string[] | undefined>;
     /**
      * A `module` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
      */
-    public readonly modules!: pulumi.Output<outputs.redis.EnterpriseDatabaseModule[] | undefined>;
+    declare public readonly modules: pulumi.Output<outputs.redis.EnterpriseDatabaseModule[] | undefined>;
     /**
      * The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The Primary Access Key for the Redis Enterprise Database Instance.
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * The Secondary Access Key for the Redis Enterprise Database Instance.
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
 
     /**
      * Create a EnterpriseDatabase resource with the given unique name, arguments, and options.
@@ -151,31 +151,31 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnterpriseDatabaseState | undefined;
-            resourceInputs["clientProtocol"] = state ? state.clientProtocol : undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["clusteringPolicy"] = state ? state.clusteringPolicy : undefined;
-            resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
-            resourceInputs["linkedDatabaseGroupNickname"] = state ? state.linkedDatabaseGroupNickname : undefined;
-            resourceInputs["linkedDatabaseIds"] = state ? state.linkedDatabaseIds : undefined;
-            resourceInputs["modules"] = state ? state.modules : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["clientProtocol"] = state?.clientProtocol;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["clusteringPolicy"] = state?.clusteringPolicy;
+            resourceInputs["evictionPolicy"] = state?.evictionPolicy;
+            resourceInputs["linkedDatabaseGroupNickname"] = state?.linkedDatabaseGroupNickname;
+            resourceInputs["linkedDatabaseIds"] = state?.linkedDatabaseIds;
+            resourceInputs["modules"] = state?.modules;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
         } else {
             const args = argsOrState as EnterpriseDatabaseArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            resourceInputs["clientProtocol"] = args ? args.clientProtocol : undefined;
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            resourceInputs["linkedDatabaseGroupNickname"] = args ? args.linkedDatabaseGroupNickname : undefined;
-            resourceInputs["linkedDatabaseIds"] = args ? args.linkedDatabaseIds : undefined;
-            resourceInputs["modules"] = args ? args.modules : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["clientProtocol"] = args?.clientProtocol;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["clusteringPolicy"] = args?.clusteringPolicy;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
+            resourceInputs["linkedDatabaseGroupNickname"] = args?.linkedDatabaseGroupNickname;
+            resourceInputs["linkedDatabaseIds"] = args?.linkedDatabaseIds;
+            resourceInputs["modules"] = args?.modules;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["port"] = args?.port;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;
         }

@@ -87,15 +87,15 @@ export class HyperVReplicationPolicyAssociation extends pulumi.CustomResource {
     /**
      * The ID of the HyperV site to which the policy should be associated. Changing this forces a new association to be created.
      */
-    public readonly hypervSiteId!: pulumi.Output<string>;
+    declare public readonly hypervSiteId: pulumi.Output<string>;
     /**
      * The name of the replication policy association. Changing this forces a new association to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the HyperV replication policy which to be associated. Changing this forces a new association to be created.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
 
     /**
      * Create a HyperVReplicationPolicyAssociation resource with the given unique name, arguments, and options.
@@ -110,20 +110,20 @@ export class HyperVReplicationPolicyAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HyperVReplicationPolicyAssociationState | undefined;
-            resourceInputs["hypervSiteId"] = state ? state.hypervSiteId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
+            resourceInputs["hypervSiteId"] = state?.hypervSiteId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
         } else {
             const args = argsOrState as HyperVReplicationPolicyAssociationArgs | undefined;
-            if ((!args || args.hypervSiteId === undefined) && !opts.urn) {
+            if (args?.hypervSiteId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hypervSiteId'");
             }
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            resourceInputs["hypervSiteId"] = args ? args.hypervSiteId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
+            resourceInputs["hypervSiteId"] = args?.hypervSiteId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyId"] = args?.policyId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HyperVReplicationPolicyAssociation.__pulumiType, name, resourceInputs, opts);

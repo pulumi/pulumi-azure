@@ -139,19 +139,19 @@ export class ServiceCustomDomain extends pulumi.CustomResource {
      *
      * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
      */
-    public readonly signalrCustomCertificateId!: pulumi.Output<string>;
+    declare public readonly signalrCustomCertificateId: pulumi.Output<string>;
     /**
      * Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
      */
-    public readonly signalrServiceId!: pulumi.Output<string>;
+    declare public readonly signalrServiceId: pulumi.Output<string>;
 
     /**
      * Create a ServiceCustomDomain resource with the given unique name, arguments, and options.
@@ -166,25 +166,25 @@ export class ServiceCustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceCustomDomainState | undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["signalrCustomCertificateId"] = state ? state.signalrCustomCertificateId : undefined;
-            resourceInputs["signalrServiceId"] = state ? state.signalrServiceId : undefined;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["signalrCustomCertificateId"] = state?.signalrCustomCertificateId;
+            resourceInputs["signalrServiceId"] = state?.signalrServiceId;
         } else {
             const args = argsOrState as ServiceCustomDomainArgs | undefined;
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.signalrCustomCertificateId === undefined) && !opts.urn) {
+            if (args?.signalrCustomCertificateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signalrCustomCertificateId'");
             }
-            if ((!args || args.signalrServiceId === undefined) && !opts.urn) {
+            if (args?.signalrServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signalrServiceId'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["signalrCustomCertificateId"] = args ? args.signalrCustomCertificateId : undefined;
-            resourceInputs["signalrServiceId"] = args ? args.signalrServiceId : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["signalrCustomCertificateId"] = args?.signalrCustomCertificateId;
+            resourceInputs["signalrServiceId"] = args?.signalrServiceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceCustomDomain.__pulumiType, name, resourceInputs, opts);

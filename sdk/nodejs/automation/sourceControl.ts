@@ -85,43 +85,43 @@ export class SourceControl extends pulumi.CustomResource {
     /**
      * Whether auto async the Source Control.
      */
-    public readonly automaticSync!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticSync: pulumi.Output<boolean | undefined>;
     /**
      * The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
      */
-    public readonly automationAccountId!: pulumi.Output<string>;
+    declare public readonly automationAccountId: pulumi.Output<string>;
     /**
      * Specify the repo branch of the Source Control. Empty value is valid only for `VsoTfvc`.
      */
-    public readonly branch!: pulumi.Output<string | undefined>;
+    declare public readonly branch: pulumi.Output<string | undefined>;
     /**
      * A short description of the Source Control.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The folder path of the source control. This Path must be relative.
      */
-    public readonly folderPath!: pulumi.Output<string>;
+    declare public readonly folderPath: pulumi.Output<string>;
     /**
      * The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether auto publish the Source Control. Defaults to `true`.
      */
-    public readonly publishRunbookEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publishRunbookEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Repository URL of the source control.
      */
-    public readonly repositoryUrl!: pulumi.Output<string>;
+    declare public readonly repositoryUrl: pulumi.Output<string>;
     /**
      * A `security` block as defined below.
      */
-    public readonly security!: pulumi.Output<outputs.automation.SourceControlSecurity>;
+    declare public readonly security: pulumi.Output<outputs.automation.SourceControlSecurity>;
     /**
      * The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
      */
-    public readonly sourceControlType!: pulumi.Output<string>;
+    declare public readonly sourceControlType: pulumi.Output<string>;
 
     /**
      * Create a SourceControl resource with the given unique name, arguments, and options.
@@ -136,43 +136,43 @@ export class SourceControl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SourceControlState | undefined;
-            resourceInputs["automaticSync"] = state ? state.automaticSync : undefined;
-            resourceInputs["automationAccountId"] = state ? state.automationAccountId : undefined;
-            resourceInputs["branch"] = state ? state.branch : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["folderPath"] = state ? state.folderPath : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publishRunbookEnabled"] = state ? state.publishRunbookEnabled : undefined;
-            resourceInputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
-            resourceInputs["security"] = state ? state.security : undefined;
-            resourceInputs["sourceControlType"] = state ? state.sourceControlType : undefined;
+            resourceInputs["automaticSync"] = state?.automaticSync;
+            resourceInputs["automationAccountId"] = state?.automationAccountId;
+            resourceInputs["branch"] = state?.branch;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["folderPath"] = state?.folderPath;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publishRunbookEnabled"] = state?.publishRunbookEnabled;
+            resourceInputs["repositoryUrl"] = state?.repositoryUrl;
+            resourceInputs["security"] = state?.security;
+            resourceInputs["sourceControlType"] = state?.sourceControlType;
         } else {
             const args = argsOrState as SourceControlArgs | undefined;
-            if ((!args || args.automationAccountId === undefined) && !opts.urn) {
+            if (args?.automationAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountId'");
             }
-            if ((!args || args.folderPath === undefined) && !opts.urn) {
+            if (args?.folderPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'folderPath'");
             }
-            if ((!args || args.repositoryUrl === undefined) && !opts.urn) {
+            if (args?.repositoryUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'repositoryUrl'");
             }
-            if ((!args || args.security === undefined) && !opts.urn) {
+            if (args?.security === undefined && !opts.urn) {
                 throw new Error("Missing required property 'security'");
             }
-            if ((!args || args.sourceControlType === undefined) && !opts.urn) {
+            if (args?.sourceControlType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceControlType'");
             }
-            resourceInputs["automaticSync"] = args ? args.automaticSync : undefined;
-            resourceInputs["automationAccountId"] = args ? args.automationAccountId : undefined;
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publishRunbookEnabled"] = args ? args.publishRunbookEnabled : undefined;
-            resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
-            resourceInputs["security"] = args ? args.security : undefined;
-            resourceInputs["sourceControlType"] = args ? args.sourceControlType : undefined;
+            resourceInputs["automaticSync"] = args?.automaticSync;
+            resourceInputs["automationAccountId"] = args?.automationAccountId;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folderPath"] = args?.folderPath;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publishRunbookEnabled"] = args?.publishRunbookEnabled;
+            resourceInputs["repositoryUrl"] = args?.repositoryUrl;
+            resourceInputs["security"] = args?.security;
+            resourceInputs["sourceControlType"] = args?.sourceControlType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SourceControl.__pulumiType, name, resourceInputs, opts);

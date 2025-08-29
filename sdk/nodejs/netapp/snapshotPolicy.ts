@@ -108,43 +108,43 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
      */
-    public readonly dailySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyDailySchedule | undefined>;
+    declare public readonly dailySchedule: pulumi.Output<outputs.netapp.SnapshotPolicyDailySchedule | undefined>;
     /**
      * Defines that the NetApp Snapshot Policy is enabled or not.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
      */
-    public readonly hourlySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyHourlySchedule | undefined>;
+    declare public readonly hourlySchedule: pulumi.Output<outputs.netapp.SnapshotPolicyHourlySchedule | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
      */
-    public readonly monthlySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyMonthlySchedule | undefined>;
+    declare public readonly monthlySchedule: pulumi.Output<outputs.netapp.SnapshotPolicyMonthlySchedule | undefined>;
     /**
      * The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
      */
-    public readonly weeklySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyWeeklySchedule | undefined>;
+    declare public readonly weeklySchedule: pulumi.Output<outputs.netapp.SnapshotPolicyWeeklySchedule | undefined>;
 
     /**
      * Create a SnapshotPolicy resource with the given unique name, arguments, and options.
@@ -159,37 +159,37 @@ export class SnapshotPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotPolicyState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["dailySchedule"] = state ? state.dailySchedule : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["hourlySchedule"] = state ? state.hourlySchedule : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["monthlySchedule"] = state ? state.monthlySchedule : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["weeklySchedule"] = state ? state.weeklySchedule : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["dailySchedule"] = state?.dailySchedule;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["hourlySchedule"] = state?.hourlySchedule;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["monthlySchedule"] = state?.monthlySchedule;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["weeklySchedule"] = state?.weeklySchedule;
         } else {
             const args = argsOrState as SnapshotPolicyArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dailySchedule"] = args ? args.dailySchedule : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["hourlySchedule"] = args ? args.hourlySchedule : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monthlySchedule"] = args ? args.monthlySchedule : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dailySchedule"] = args?.dailySchedule;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["hourlySchedule"] = args?.hourlySchedule;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["monthlySchedule"] = args?.monthlySchedule;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["weeklySchedule"] = args?.weeklySchedule;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SnapshotPolicy.__pulumiType, name, resourceInputs, opts);

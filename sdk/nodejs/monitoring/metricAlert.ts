@@ -104,77 +104,77 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * One or more `action` blocks as defined below.
      */
-    public readonly actions!: pulumi.Output<outputs.monitoring.MetricAlertAction[] | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.monitoring.MetricAlertAction[] | undefined>;
     /**
      * A `applicationInsightsWebTestLocationAvailabilityCriteria` block as defined below.
      *
      * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
-    public readonly applicationInsightsWebTestLocationAvailabilityCriteria!: pulumi.Output<outputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria | undefined>;
+    declare public readonly applicationInsightsWebTestLocationAvailabilityCriteria: pulumi.Output<outputs.monitoring.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria | undefined>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
      */
-    public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoMitigate: pulumi.Output<boolean | undefined>;
     /**
      * One or more (static) `criteria` blocks as defined below.
      *
      * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
-    public readonly criterias!: pulumi.Output<outputs.monitoring.MetricAlertCriteria[] | undefined>;
+    declare public readonly criterias: pulumi.Output<outputs.monitoring.MetricAlertCriteria[] | undefined>;
     /**
      * The description of this Metric Alert.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A `dynamicCriteria` block as defined below.
      *
      * > **Note:** One of either `criteria`, `dynamicCriteria` or `applicationInsightsWebTestLocationAvailabilityCriteria` must be specified.
      */
-    public readonly dynamicCriteria!: pulumi.Output<outputs.monitoring.MetricAlertDynamicCriteria | undefined>;
+    declare public readonly dynamicCriteria: pulumi.Output<outputs.monitoring.MetricAlertDynamicCriteria | undefined>;
     /**
      * Should this Metric Alert be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
      */
-    public readonly frequency!: pulumi.Output<string | undefined>;
+    declare public readonly frequency: pulumi.Output<string | undefined>;
     /**
      * The name of the Metric Alert. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A set of strings of resource IDs at which the metric criteria should be applied.
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[]>;
     /**
      * The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
      */
-    public readonly severity!: pulumi.Output<number | undefined>;
+    declare public readonly severity: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The location of the target resource.
      *
      * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
-    public readonly targetResourceLocation!: pulumi.Output<string>;
+    declare public readonly targetResourceLocation: pulumi.Output<string>;
     /**
      * The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
      *
      * > **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
      */
-    public readonly targetResourceType!: pulumi.Output<string>;
+    declare public readonly targetResourceType: pulumi.Output<string>;
     /**
      * The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
      */
-    public readonly windowSize!: pulumi.Output<string | undefined>;
+    declare public readonly windowSize: pulumi.Output<string | undefined>;
 
     /**
      * Create a MetricAlert resource with the given unique name, arguments, and options.
@@ -189,46 +189,46 @@ export class MetricAlert extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricAlertState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["applicationInsightsWebTestLocationAvailabilityCriteria"] = state ? state.applicationInsightsWebTestLocationAvailabilityCriteria : undefined;
-            resourceInputs["autoMitigate"] = state ? state.autoMitigate : undefined;
-            resourceInputs["criterias"] = state ? state.criterias : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dynamicCriteria"] = state ? state.dynamicCriteria : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["severity"] = state ? state.severity : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["targetResourceLocation"] = state ? state.targetResourceLocation : undefined;
-            resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
-            resourceInputs["windowSize"] = state ? state.windowSize : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["applicationInsightsWebTestLocationAvailabilityCriteria"] = state?.applicationInsightsWebTestLocationAvailabilityCriteria;
+            resourceInputs["autoMitigate"] = state?.autoMitigate;
+            resourceInputs["criterias"] = state?.criterias;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dynamicCriteria"] = state?.dynamicCriteria;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["severity"] = state?.severity;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["targetResourceLocation"] = state?.targetResourceLocation;
+            resourceInputs["targetResourceType"] = state?.targetResourceType;
+            resourceInputs["windowSize"] = state?.windowSize;
         } else {
             const args = argsOrState as MetricAlertArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["applicationInsightsWebTestLocationAvailabilityCriteria"] = args ? args.applicationInsightsWebTestLocationAvailabilityCriteria : undefined;
-            resourceInputs["autoMitigate"] = args ? args.autoMitigate : undefined;
-            resourceInputs["criterias"] = args ? args.criterias : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dynamicCriteria"] = args ? args.dynamicCriteria : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceLocation"] = args ? args.targetResourceLocation : undefined;
-            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            resourceInputs["windowSize"] = args ? args.windowSize : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["applicationInsightsWebTestLocationAvailabilityCriteria"] = args?.applicationInsightsWebTestLocationAvailabilityCriteria;
+            resourceInputs["autoMitigate"] = args?.autoMitigate;
+            resourceInputs["criterias"] = args?.criterias;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dynamicCriteria"] = args?.dynamicCriteria;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceLocation"] = args?.targetResourceLocation;
+            resourceInputs["targetResourceType"] = args?.targetResourceType;
+            resourceInputs["windowSize"] = args?.windowSize;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MetricAlert.__pulumiType, name, resourceInputs, opts);

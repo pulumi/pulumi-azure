@@ -76,19 +76,19 @@ export class ChannelWebChat extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
-    public readonly sites!: pulumi.Output<outputs.bot.ChannelWebChatSite[] | undefined>;
+    declare public readonly sites: pulumi.Output<outputs.bot.ChannelWebChatSite[] | undefined>;
 
     /**
      * Create a ChannelWebChat resource with the given unique name, arguments, and options.
@@ -103,22 +103,22 @@ export class ChannelWebChat extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelWebChatState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sites"] = state ? state.sites : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sites"] = state?.sites;
         } else {
             const args = argsOrState as ChannelWebChatArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sites"] = args ? args.sites : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sites"] = args?.sites;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ChannelWebChat.__pulumiType, name, resourceInputs, opts);

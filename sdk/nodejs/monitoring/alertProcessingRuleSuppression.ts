@@ -106,35 +106,35 @@ export class AlertProcessingRuleSuppression extends pulumi.CustomResource {
     /**
      * A `condition` block as defined below.
      */
-    public readonly condition!: pulumi.Output<outputs.monitoring.AlertProcessingRuleSuppressionCondition | undefined>;
+    declare public readonly condition: pulumi.Output<outputs.monitoring.AlertProcessingRuleSuppressionCondition | undefined>;
     /**
      * Specifies a description for the Alert Processing Rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Should the Alert Processing Rule be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `schedule` block as defined below.
      */
-    public readonly schedule!: pulumi.Output<outputs.monitoring.AlertProcessingRuleSuppressionSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.monitoring.AlertProcessingRuleSuppressionSchedule | undefined>;
     /**
      * A list of resource IDs which will be the target of Alert Processing Rule.
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[]>;
     /**
      * A mapping of tags which should be assigned to the Alert Processing Rule.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AlertProcessingRuleSuppression resource with the given unique name, arguments, and options.
@@ -149,30 +149,30 @@ export class AlertProcessingRuleSuppression extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertProcessingRuleSuppressionState | undefined;
-            resourceInputs["condition"] = state ? state.condition : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["condition"] = state?.condition;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AlertProcessingRuleSuppressionArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:monitoring/actionRuleSuppression:ActionRuleSuppression" }] };

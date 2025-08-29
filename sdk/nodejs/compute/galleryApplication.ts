@@ -76,43 +76,43 @@ export class GalleryApplication extends pulumi.CustomResource {
     /**
      * A description of the Gallery Application.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The end of life date in RFC3339 format of the Gallery Application.
      */
-    public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
+    declare public readonly endOfLifeDate: pulumi.Output<string | undefined>;
     /**
      * The End User Licence Agreement of the Gallery Application.
      */
-    public readonly eula!: pulumi.Output<string | undefined>;
+    declare public readonly eula: pulumi.Output<string | undefined>;
     /**
      * The ID of the Shared Image Gallery. Changing this forces a new resource to be created.
      */
-    public readonly galleryId!: pulumi.Output<string>;
+    declare public readonly galleryId: pulumi.Output<string>;
     /**
      * The Azure Region where the Gallery Application exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Gallery Application. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The URI containing the Privacy Statement associated with the Gallery Application.
      */
-    public readonly privacyStatementUri!: pulumi.Output<string | undefined>;
+    declare public readonly privacyStatementUri: pulumi.Output<string | undefined>;
     /**
      * The URI containing the Release Notes associated with the Gallery Application.
      */
-    public readonly releaseNoteUri!: pulumi.Output<string | undefined>;
+    declare public readonly releaseNoteUri: pulumi.Output<string | undefined>;
     /**
      * The type of the Operating System supported for the Gallery Application. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
-    public readonly supportedOsType!: pulumi.Output<string>;
+    declare public readonly supportedOsType: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Gallery Application.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a GalleryApplication resource with the given unique name, arguments, and options.
@@ -127,34 +127,34 @@ export class GalleryApplication extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GalleryApplicationState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
-            resourceInputs["eula"] = state ? state.eula : undefined;
-            resourceInputs["galleryId"] = state ? state.galleryId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privacyStatementUri"] = state ? state.privacyStatementUri : undefined;
-            resourceInputs["releaseNoteUri"] = state ? state.releaseNoteUri : undefined;
-            resourceInputs["supportedOsType"] = state ? state.supportedOsType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["endOfLifeDate"] = state?.endOfLifeDate;
+            resourceInputs["eula"] = state?.eula;
+            resourceInputs["galleryId"] = state?.galleryId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privacyStatementUri"] = state?.privacyStatementUri;
+            resourceInputs["releaseNoteUri"] = state?.releaseNoteUri;
+            resourceInputs["supportedOsType"] = state?.supportedOsType;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as GalleryApplicationArgs | undefined;
-            if ((!args || args.galleryId === undefined) && !opts.urn) {
+            if (args?.galleryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryId'");
             }
-            if ((!args || args.supportedOsType === undefined) && !opts.urn) {
+            if (args?.supportedOsType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'supportedOsType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
-            resourceInputs["eula"] = args ? args.eula : undefined;
-            resourceInputs["galleryId"] = args ? args.galleryId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
-            resourceInputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
-            resourceInputs["supportedOsType"] = args ? args.supportedOsType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endOfLifeDate"] = args?.endOfLifeDate;
+            resourceInputs["eula"] = args?.eula;
+            resourceInputs["galleryId"] = args?.galleryId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privacyStatementUri"] = args?.privacyStatementUri;
+            resourceInputs["releaseNoteUri"] = args?.releaseNoteUri;
+            resourceInputs["supportedOsType"] = args?.supportedOsType;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GalleryApplication.__pulumiType, name, resourceInputs, opts);

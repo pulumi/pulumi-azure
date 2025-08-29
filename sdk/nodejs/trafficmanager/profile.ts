@@ -97,37 +97,37 @@ export class Profile extends pulumi.CustomResource {
     /**
      * This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
      */
-    public readonly dnsConfig!: pulumi.Output<outputs.trafficmanager.ProfileDnsConfig>;
+    declare public readonly dnsConfig: pulumi.Output<outputs.trafficmanager.ProfileDnsConfig>;
     /**
      * The FQDN of the created Profile.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      *
      * > **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      */
-    public readonly maxReturn!: pulumi.Output<number | undefined>;
+    declare public readonly maxReturn: pulumi.Output<number | undefined>;
     /**
      * This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      */
-    public readonly monitorConfig!: pulumi.Output<outputs.trafficmanager.ProfileMonitorConfig>;
+    declare public readonly monitorConfig: pulumi.Output<outputs.trafficmanager.ProfileMonitorConfig>;
     /**
      * The name of the Traffic Manager profile. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    public readonly profileStatus!: pulumi.Output<string | undefined>;
+    declare public readonly profileStatus: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
      * * `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
@@ -137,11 +137,11 @@ export class Profile extends pulumi.CustomResource {
      * * `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
      * * `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      */
-    public readonly trafficRoutingMethod!: pulumi.Output<string>;
+    declare public readonly trafficRoutingMethod: pulumi.Output<string>;
     /**
      * Indicates whether Traffic View is enabled for the Traffic Manager profile.
      */
-    public readonly trafficViewEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly trafficViewEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -159,39 +159,39 @@ export class Profile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileState | undefined;
-            resourceInputs["dnsConfig"] = state ? state.dnsConfig : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["maxReturn"] = state ? state.maxReturn : undefined;
-            resourceInputs["monitorConfig"] = state ? state.monitorConfig : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["profileStatus"] = state ? state.profileStatus : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["trafficRoutingMethod"] = state ? state.trafficRoutingMethod : undefined;
-            resourceInputs["trafficViewEnabled"] = state ? state.trafficViewEnabled : undefined;
+            resourceInputs["dnsConfig"] = state?.dnsConfig;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["maxReturn"] = state?.maxReturn;
+            resourceInputs["monitorConfig"] = state?.monitorConfig;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["profileStatus"] = state?.profileStatus;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["trafficRoutingMethod"] = state?.trafficRoutingMethod;
+            resourceInputs["trafficViewEnabled"] = state?.trafficViewEnabled;
         } else {
             const args = argsOrState as ProfileArgs | undefined;
-            if ((!args || args.dnsConfig === undefined) && !opts.urn) {
+            if (args?.dnsConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsConfig'");
             }
-            if ((!args || args.monitorConfig === undefined) && !opts.urn) {
+            if (args?.monitorConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorConfig'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.trafficRoutingMethod === undefined) && !opts.urn) {
+            if (args?.trafficRoutingMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficRoutingMethod'");
             }
-            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            resourceInputs["maxReturn"] = args ? args.maxReturn : undefined;
-            resourceInputs["monitorConfig"] = args ? args.monitorConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["profileStatus"] = args ? args.profileStatus : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
-            resourceInputs["trafficViewEnabled"] = args ? args.trafficViewEnabled : undefined;
+            resourceInputs["dnsConfig"] = args?.dnsConfig;
+            resourceInputs["maxReturn"] = args?.maxReturn;
+            resourceInputs["monitorConfig"] = args?.monitorConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["profileStatus"] = args?.profileStatus;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficRoutingMethod"] = args?.trafficRoutingMethod;
+            resourceInputs["trafficViewEnabled"] = args?.trafficViewEnabled;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

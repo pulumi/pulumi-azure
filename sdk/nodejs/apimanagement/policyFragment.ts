@@ -82,27 +82,27 @@ export class PolicyFragment extends pulumi.CustomResource {
     /**
      * The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
      */
-    public readonly apiManagementId!: pulumi.Output<string>;
+    declare public readonly apiManagementId: pulumi.Output<string>;
     /**
      * The description for the Policy Fragment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      *
      * > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      */
-    public readonly format!: pulumi.Output<string | undefined>;
+    declare public readonly format: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The value of the Policy Fragment.
      *
      * > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
      */
-    public readonly value!: pulumi.Output<string>;
+    declare public readonly value: pulumi.Output<string>;
 
     /**
      * Create a PolicyFragment resource with the given unique name, arguments, and options.
@@ -117,24 +117,24 @@ export class PolicyFragment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyFragmentState | undefined;
-            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["format"] = state ? state.format : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["apiManagementId"] = state?.apiManagementId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["format"] = state?.format;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as PolicyFragmentArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
+            if (args?.apiManagementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
+            if (args?.value === undefined && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["apiManagementId"] = args?.apiManagementId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PolicyFragment.__pulumiType, name, resourceInputs, opts);

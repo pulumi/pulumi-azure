@@ -144,11 +144,11 @@ export class BackupVaultCustomerManagedKey extends pulumi.CustomResource {
     /**
      * The ID of the Backup Vault. Changing this forces a new resource to be created.
      */
-    public readonly dataProtectionBackupVaultId!: pulumi.Output<string>;
+    declare public readonly dataProtectionBackupVaultId: pulumi.Output<string>;
     /**
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Backup Vault.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string>;
 
     /**
      * Create a BackupVaultCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -163,18 +163,18 @@ export class BackupVaultCustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupVaultCustomerManagedKeyState | undefined;
-            resourceInputs["dataProtectionBackupVaultId"] = state ? state.dataProtectionBackupVaultId : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["dataProtectionBackupVaultId"] = state?.dataProtectionBackupVaultId;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
         } else {
             const args = argsOrState as BackupVaultCustomerManagedKeyArgs | undefined;
-            if ((!args || args.dataProtectionBackupVaultId === undefined) && !opts.urn) {
+            if (args?.dataProtectionBackupVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataProtectionBackupVaultId'");
             }
-            if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
+            if (args?.keyVaultKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            resourceInputs["dataProtectionBackupVaultId"] = args ? args.dataProtectionBackupVaultId : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
+            resourceInputs["dataProtectionBackupVaultId"] = args?.dataProtectionBackupVaultId;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupVaultCustomerManagedKey.__pulumiType, name, resourceInputs, opts);

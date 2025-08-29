@@ -48,31 +48,31 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
     /**
      * Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
      */
-    public readonly managedHsmId!: pulumi.Output<string>;
+    declare public readonly managedHsmId: pulumi.Output<string>;
     /**
      * The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `permission` blocks as defined below.
      */
-    public readonly permissions!: pulumi.Output<outputs.keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermission[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermission[] | undefined>;
     /**
      * The ID of the role definition resource without Key Vault base URL.
      */
-    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceManagerId: pulumi.Output<string>;
     /**
      * Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
      */
-    public readonly roleName!: pulumi.Output<string | undefined>;
+    declare public readonly roleName: pulumi.Output<string | undefined>;
     /**
      * The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
      */
-    public /*out*/ readonly roleType!: pulumi.Output<string>;
+    declare public /*out*/ readonly roleType: pulumi.Output<string>;
 
     /**
      * Create a ManagedHardwareSecurityModuleRoleDefinition resource with the given unique name, arguments, and options.
@@ -87,23 +87,23 @@ export class ManagedHardwareSecurityModuleRoleDefinition extends pulumi.CustomRe
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedHardwareSecurityModuleRoleDefinitionState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["managedHsmId"] = state ? state.managedHsmId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
-            resourceInputs["roleType"] = state ? state.roleType : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["managedHsmId"] = state?.managedHsmId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["resourceManagerId"] = state?.resourceManagerId;
+            resourceInputs["roleName"] = state?.roleName;
+            resourceInputs["roleType"] = state?.roleType;
         } else {
             const args = argsOrState as ManagedHardwareSecurityModuleRoleDefinitionArgs | undefined;
-            if ((!args || args.managedHsmId === undefined) && !opts.urn) {
+            if (args?.managedHsmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedHsmId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["managedHsmId"] = args ? args.managedHsmId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["managedHsmId"] = args?.managedHsmId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["roleName"] = args?.roleName;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
             resourceInputs["roleType"] = undefined /*out*/;
         }

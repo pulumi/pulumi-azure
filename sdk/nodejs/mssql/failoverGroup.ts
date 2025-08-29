@@ -106,31 +106,31 @@ export class FailoverGroup extends pulumi.CustomResource {
     /**
      * A set of database names to include in the failover group.
      */
-    public readonly databases!: pulumi.Output<string[] | undefined>;
+    declare public readonly databases: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Failover Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `partnerServer` block as defined below.
      */
-    public readonly partnerServers!: pulumi.Output<outputs.mssql.FailoverGroupPartnerServer[]>;
+    declare public readonly partnerServers: pulumi.Output<outputs.mssql.FailoverGroupPartnerServer[]>;
     /**
      * A `readWriteEndpointFailoverPolicy` block as defined below.
      */
-    public readonly readWriteEndpointFailoverPolicy!: pulumi.Output<outputs.mssql.FailoverGroupReadWriteEndpointFailoverPolicy>;
+    declare public readonly readWriteEndpointFailoverPolicy: pulumi.Output<outputs.mssql.FailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
      * Whether failover is enabled for the readonly endpoint. Defaults to `false`.
      */
-    public readonly readonlyEndpointFailoverPolicyEnabled!: pulumi.Output<boolean>;
+    declare public readonly readonlyEndpointFailoverPolicyEnabled: pulumi.Output<boolean>;
     /**
      * The ID of the primary SQL Server on which to create the failover group. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a FailoverGroup resource with the given unique name, arguments, and options.
@@ -145,31 +145,31 @@ export class FailoverGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FailoverGroupState | undefined;
-            resourceInputs["databases"] = state ? state.databases : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partnerServers"] = state ? state.partnerServers : undefined;
-            resourceInputs["readWriteEndpointFailoverPolicy"] = state ? state.readWriteEndpointFailoverPolicy : undefined;
-            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = state ? state.readonlyEndpointFailoverPolicyEnabled : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["databases"] = state?.databases;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partnerServers"] = state?.partnerServers;
+            resourceInputs["readWriteEndpointFailoverPolicy"] = state?.readWriteEndpointFailoverPolicy;
+            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = state?.readonlyEndpointFailoverPolicyEnabled;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as FailoverGroupArgs | undefined;
-            if ((!args || args.partnerServers === undefined) && !opts.urn) {
+            if (args?.partnerServers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerServers'");
             }
-            if ((!args || args.readWriteEndpointFailoverPolicy === undefined) && !opts.urn) {
+            if (args?.readWriteEndpointFailoverPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'readWriteEndpointFailoverPolicy'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["databases"] = args ? args.databases : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partnerServers"] = args ? args.partnerServers : undefined;
-            resourceInputs["readWriteEndpointFailoverPolicy"] = args ? args.readWriteEndpointFailoverPolicy : undefined;
-            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = args ? args.readonlyEndpointFailoverPolicyEnabled : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["databases"] = args?.databases;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partnerServers"] = args?.partnerServers;
+            resourceInputs["readWriteEndpointFailoverPolicy"] = args?.readWriteEndpointFailoverPolicy;
+            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = args?.readonlyEndpointFailoverPolicyEnabled;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:sql/failoverGroup:FailoverGroup" }] };

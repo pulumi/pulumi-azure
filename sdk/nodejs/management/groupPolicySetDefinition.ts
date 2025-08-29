@@ -89,39 +89,39 @@ export class GroupPolicySetDefinition extends pulumi.CustomResource {
     /**
      * The description of this Policy Set Definition.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of this Policy Set Definition.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The ID of the Management Group where this Policy Set Definition should be created. Changing this forces a new Policy Set Definition to be created.
      */
-    public readonly managementGroupId!: pulumi.Output<string>;
+    declare public readonly managementGroupId: pulumi.Output<string>;
     /**
      * The metadata for the Policy Set Definition in JSON format.
      */
-    public readonly metadata!: pulumi.Output<string>;
+    declare public readonly metadata: pulumi.Output<string>;
     /**
      * The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
      */
-    public readonly parameters!: pulumi.Output<string | undefined>;
+    declare public readonly parameters: pulumi.Output<string | undefined>;
     /**
      * One or more `policyDefinitionGroup` blocks as defined below.
      */
-    public readonly policyDefinitionGroups!: pulumi.Output<outputs.management.GroupPolicySetDefinitionPolicyDefinitionGroup[] | undefined>;
+    declare public readonly policyDefinitionGroups: pulumi.Output<outputs.management.GroupPolicySetDefinitionPolicyDefinitionGroup[] | undefined>;
     /**
      * One or more `policyDefinitionReference` blocks as defined below.
      */
-    public readonly policyDefinitionReferences!: pulumi.Output<outputs.management.GroupPolicySetDefinitionPolicyDefinitionReference[]>;
+    declare public readonly policyDefinitionReferences: pulumi.Output<outputs.management.GroupPolicySetDefinitionPolicyDefinitionReference[]>;
     /**
      * The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
      */
-    public readonly policyType!: pulumi.Output<string>;
+    declare public readonly policyType: pulumi.Output<string>;
 
     /**
      * Create a GroupPolicySetDefinition resource with the given unique name, arguments, and options.
@@ -136,38 +136,38 @@ export class GroupPolicySetDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupPolicySetDefinitionState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["policyDefinitionGroups"] = state ? state.policyDefinitionGroups : undefined;
-            resourceInputs["policyDefinitionReferences"] = state ? state.policyDefinitionReferences : undefined;
-            resourceInputs["policyType"] = state ? state.policyType : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["managementGroupId"] = state?.managementGroupId;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["policyDefinitionGroups"] = state?.policyDefinitionGroups;
+            resourceInputs["policyDefinitionReferences"] = state?.policyDefinitionReferences;
+            resourceInputs["policyType"] = state?.policyType;
         } else {
             const args = argsOrState as GroupPolicySetDefinitionArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.policyDefinitionReferences === undefined) && !opts.urn) {
+            if (args?.policyDefinitionReferences === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitionReferences'");
             }
-            if ((!args || args.policyType === undefined) && !opts.urn) {
+            if (args?.policyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
-            resourceInputs["policyDefinitionReferences"] = args ? args.policyDefinitionReferences : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyDefinitionGroups"] = args?.policyDefinitionGroups;
+            resourceInputs["policyDefinitionReferences"] = args?.policyDefinitionReferences;
+            resourceInputs["policyType"] = args?.policyType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupPolicySetDefinition.__pulumiType, name, resourceInputs, opts);

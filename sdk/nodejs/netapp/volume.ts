@@ -50,133 +50,132 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly azureVmwareDataStoreEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly azureVmwareDataStoreEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `coolAccess` block as defined below.
      */
-    public readonly coolAccess!: pulumi.Output<outputs.netapp.VolumeCoolAccess | undefined>;
+    declare public readonly coolAccess: pulumi.Output<outputs.netapp.VolumeCoolAccess | undefined>;
     /**
      * Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName` and `accountName`. Changing this forces a new resource to be created.
      */
-    public readonly createFromSnapshotResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly createFromSnapshotResourceId: pulumi.Output<string | undefined>;
     /**
      * A `dataProtectionBackupPolicy` block as defined below.
      */
-    public readonly dataProtectionBackupPolicy!: pulumi.Output<outputs.netapp.VolumeDataProtectionBackupPolicy | undefined>;
+    declare public readonly dataProtectionBackupPolicy: pulumi.Output<outputs.netapp.VolumeDataProtectionBackupPolicy | undefined>;
     /**
      * A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly dataProtectionReplication!: pulumi.Output<outputs.netapp.VolumeDataProtectionReplication | undefined>;
+    declare public readonly dataProtectionReplication: pulumi.Output<outputs.netapp.VolumeDataProtectionReplication | undefined>;
     /**
      * A `dataProtectionSnapshotPolicy` block as defined below.
      */
-    public readonly dataProtectionSnapshotPolicy!: pulumi.Output<outputs.netapp.VolumeDataProtectionSnapshotPolicy | undefined>;
+    declare public readonly dataProtectionSnapshotPolicy: pulumi.Output<outputs.netapp.VolumeDataProtectionSnapshotPolicy | undefined>;
     /**
      * The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `keyVaultPrivateEndpointId`. Changing this forces a new resource to be created.
      */
-    public readonly encryptionKeySource!: pulumi.Output<string>;
+    declare public readonly encryptionKeySource: pulumi.Output<string>;
     /**
      * One or more `exportPolicyRule` block defined below.
      */
-    public readonly exportPolicyRules!: pulumi.Output<outputs.netapp.VolumeExportPolicyRule[] | undefined>;
+    declare public readonly exportPolicyRules: pulumi.Output<outputs.netapp.VolumeExportPolicyRule[] | undefined>;
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
-     * having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
      */
-    public readonly kerberosEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly kerberosEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryptionKeySource`. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultPrivateEndpointId!: pulumi.Output<string>;
+    declare public readonly keyVaultPrivateEndpointId: pulumi.Output<string>;
     /**
      * A boolean specifying if the volume is a large volume. Defaults to `false`.
      *
      * > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
      */
-    public readonly largeVolumeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly largeVolumeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A list of IPv4 Addresses which should be used to mount the volume.
      */
-    public /*out*/ readonly mountIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly mountIpAddresses: pulumi.Output<string[]>;
     /**
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
      */
-    public readonly networkFeatures!: pulumi.Output<string>;
+    declare public readonly networkFeatures: pulumi.Output<string>;
     /**
      * The name of the NetApp pool in which the NetApp Volume should be created.
      */
-    public readonly poolName!: pulumi.Output<string>;
+    declare public readonly poolName: pulumi.Output<string>;
     /**
      * The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
      */
-    public readonly protocols!: pulumi.Output<string[]>;
+    declare public readonly protocols: pulumi.Output<string[]>;
     /**
      * The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
      */
-    public readonly securityStyle!: pulumi.Output<string>;
-    public readonly serviceLevel!: pulumi.Output<string>;
+    declare public readonly securityStyle: pulumi.Output<string>;
+    declare public readonly serviceLevel: pulumi.Output<string>;
     /**
      * Enable SMB encryption. Changing this forces a new resource to be created.
      */
-    public readonly smb3ProtocolEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly smb3ProtocolEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
      */
-    public readonly smbAccessBasedEnumerationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly smbAccessBasedEnumerationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Enable SMB Continuous Availability. Changing this forces a new resource to be created.
      */
-    public readonly smbContinuousAvailabilityEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly smbContinuousAvailabilityEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
      */
-    public readonly smbNonBrowsableEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly smbNonBrowsableEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible. Defaults to `true`.
      */
-    public readonly snapshotDirectoryVisible!: pulumi.Output<boolean | undefined>;
+    declare public readonly snapshotDirectoryVisible: pulumi.Output<boolean | undefined>;
     /**
      * The maximum Storage Quota allowed for a file system in Gigabytes.
      */
-    public readonly storageQuotaInGb!: pulumi.Output<number>;
+    declare public readonly storageQuotaInGb: pulumi.Output<number>;
     /**
      * The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      *
      * > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Throughput of this volume in Mibps.
      */
-    public readonly throughputInMibps!: pulumi.Output<number>;
+    declare public readonly throughputInMibps: pulumi.Output<number>;
     /**
      * A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
      */
-    public readonly volumePath!: pulumi.Output<string>;
+    declare public readonly volumePath: pulumi.Output<string>;
     /**
      * Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    declare public readonly zone: pulumi.Output<string | undefined>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -191,92 +190,92 @@ export class Volume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["azureVmwareDataStoreEnabled"] = state ? state.azureVmwareDataStoreEnabled : undefined;
-            resourceInputs["coolAccess"] = state ? state.coolAccess : undefined;
-            resourceInputs["createFromSnapshotResourceId"] = state ? state.createFromSnapshotResourceId : undefined;
-            resourceInputs["dataProtectionBackupPolicy"] = state ? state.dataProtectionBackupPolicy : undefined;
-            resourceInputs["dataProtectionReplication"] = state ? state.dataProtectionReplication : undefined;
-            resourceInputs["dataProtectionSnapshotPolicy"] = state ? state.dataProtectionSnapshotPolicy : undefined;
-            resourceInputs["encryptionKeySource"] = state ? state.encryptionKeySource : undefined;
-            resourceInputs["exportPolicyRules"] = state ? state.exportPolicyRules : undefined;
-            resourceInputs["kerberosEnabled"] = state ? state.kerberosEnabled : undefined;
-            resourceInputs["keyVaultPrivateEndpointId"] = state ? state.keyVaultPrivateEndpointId : undefined;
-            resourceInputs["largeVolumeEnabled"] = state ? state.largeVolumeEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mountIpAddresses"] = state ? state.mountIpAddresses : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkFeatures"] = state ? state.networkFeatures : undefined;
-            resourceInputs["poolName"] = state ? state.poolName : undefined;
-            resourceInputs["protocols"] = state ? state.protocols : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["securityStyle"] = state ? state.securityStyle : undefined;
-            resourceInputs["serviceLevel"] = state ? state.serviceLevel : undefined;
-            resourceInputs["smb3ProtocolEncryptionEnabled"] = state ? state.smb3ProtocolEncryptionEnabled : undefined;
-            resourceInputs["smbAccessBasedEnumerationEnabled"] = state ? state.smbAccessBasedEnumerationEnabled : undefined;
-            resourceInputs["smbContinuousAvailabilityEnabled"] = state ? state.smbContinuousAvailabilityEnabled : undefined;
-            resourceInputs["smbNonBrowsableEnabled"] = state ? state.smbNonBrowsableEnabled : undefined;
-            resourceInputs["snapshotDirectoryVisible"] = state ? state.snapshotDirectoryVisible : undefined;
-            resourceInputs["storageQuotaInGb"] = state ? state.storageQuotaInGb : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["throughputInMibps"] = state ? state.throughputInMibps : undefined;
-            resourceInputs["volumePath"] = state ? state.volumePath : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["azureVmwareDataStoreEnabled"] = state?.azureVmwareDataStoreEnabled;
+            resourceInputs["coolAccess"] = state?.coolAccess;
+            resourceInputs["createFromSnapshotResourceId"] = state?.createFromSnapshotResourceId;
+            resourceInputs["dataProtectionBackupPolicy"] = state?.dataProtectionBackupPolicy;
+            resourceInputs["dataProtectionReplication"] = state?.dataProtectionReplication;
+            resourceInputs["dataProtectionSnapshotPolicy"] = state?.dataProtectionSnapshotPolicy;
+            resourceInputs["encryptionKeySource"] = state?.encryptionKeySource;
+            resourceInputs["exportPolicyRules"] = state?.exportPolicyRules;
+            resourceInputs["kerberosEnabled"] = state?.kerberosEnabled;
+            resourceInputs["keyVaultPrivateEndpointId"] = state?.keyVaultPrivateEndpointId;
+            resourceInputs["largeVolumeEnabled"] = state?.largeVolumeEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mountIpAddresses"] = state?.mountIpAddresses;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkFeatures"] = state?.networkFeatures;
+            resourceInputs["poolName"] = state?.poolName;
+            resourceInputs["protocols"] = state?.protocols;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["securityStyle"] = state?.securityStyle;
+            resourceInputs["serviceLevel"] = state?.serviceLevel;
+            resourceInputs["smb3ProtocolEncryptionEnabled"] = state?.smb3ProtocolEncryptionEnabled;
+            resourceInputs["smbAccessBasedEnumerationEnabled"] = state?.smbAccessBasedEnumerationEnabled;
+            resourceInputs["smbContinuousAvailabilityEnabled"] = state?.smbContinuousAvailabilityEnabled;
+            resourceInputs["smbNonBrowsableEnabled"] = state?.smbNonBrowsableEnabled;
+            resourceInputs["snapshotDirectoryVisible"] = state?.snapshotDirectoryVisible;
+            resourceInputs["storageQuotaInGb"] = state?.storageQuotaInGb;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["throughputInMibps"] = state?.throughputInMibps;
+            resourceInputs["volumePath"] = state?.volumePath;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.poolName === undefined) && !opts.urn) {
+            if (args?.poolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceLevel === undefined) && !opts.urn) {
+            if (args?.serviceLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceLevel'");
             }
-            if ((!args || args.storageQuotaInGb === undefined) && !opts.urn) {
+            if (args?.storageQuotaInGb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageQuotaInGb'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.volumePath === undefined) && !opts.urn) {
+            if (args?.volumePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumePath'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["azureVmwareDataStoreEnabled"] = args ? args.azureVmwareDataStoreEnabled : undefined;
-            resourceInputs["coolAccess"] = args ? args.coolAccess : undefined;
-            resourceInputs["createFromSnapshotResourceId"] = args ? args.createFromSnapshotResourceId : undefined;
-            resourceInputs["dataProtectionBackupPolicy"] = args ? args.dataProtectionBackupPolicy : undefined;
-            resourceInputs["dataProtectionReplication"] = args ? args.dataProtectionReplication : undefined;
-            resourceInputs["dataProtectionSnapshotPolicy"] = args ? args.dataProtectionSnapshotPolicy : undefined;
-            resourceInputs["encryptionKeySource"] = args ? args.encryptionKeySource : undefined;
-            resourceInputs["exportPolicyRules"] = args ? args.exportPolicyRules : undefined;
-            resourceInputs["kerberosEnabled"] = args ? args.kerberosEnabled : undefined;
-            resourceInputs["keyVaultPrivateEndpointId"] = args ? args.keyVaultPrivateEndpointId : undefined;
-            resourceInputs["largeVolumeEnabled"] = args ? args.largeVolumeEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkFeatures"] = args ? args.networkFeatures : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityStyle"] = args ? args.securityStyle : undefined;
-            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
-            resourceInputs["smb3ProtocolEncryptionEnabled"] = args ? args.smb3ProtocolEncryptionEnabled : undefined;
-            resourceInputs["smbAccessBasedEnumerationEnabled"] = args ? args.smbAccessBasedEnumerationEnabled : undefined;
-            resourceInputs["smbContinuousAvailabilityEnabled"] = args ? args.smbContinuousAvailabilityEnabled : undefined;
-            resourceInputs["smbNonBrowsableEnabled"] = args ? args.smbNonBrowsableEnabled : undefined;
-            resourceInputs["snapshotDirectoryVisible"] = args ? args.snapshotDirectoryVisible : undefined;
-            resourceInputs["storageQuotaInGb"] = args ? args.storageQuotaInGb : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughputInMibps"] = args ? args.throughputInMibps : undefined;
-            resourceInputs["volumePath"] = args ? args.volumePath : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["azureVmwareDataStoreEnabled"] = args?.azureVmwareDataStoreEnabled;
+            resourceInputs["coolAccess"] = args?.coolAccess;
+            resourceInputs["createFromSnapshotResourceId"] = args?.createFromSnapshotResourceId;
+            resourceInputs["dataProtectionBackupPolicy"] = args?.dataProtectionBackupPolicy;
+            resourceInputs["dataProtectionReplication"] = args?.dataProtectionReplication;
+            resourceInputs["dataProtectionSnapshotPolicy"] = args?.dataProtectionSnapshotPolicy;
+            resourceInputs["encryptionKeySource"] = args?.encryptionKeySource;
+            resourceInputs["exportPolicyRules"] = args?.exportPolicyRules;
+            resourceInputs["kerberosEnabled"] = args?.kerberosEnabled;
+            resourceInputs["keyVaultPrivateEndpointId"] = args?.keyVaultPrivateEndpointId;
+            resourceInputs["largeVolumeEnabled"] = args?.largeVolumeEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkFeatures"] = args?.networkFeatures;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityStyle"] = args?.securityStyle;
+            resourceInputs["serviceLevel"] = args?.serviceLevel;
+            resourceInputs["smb3ProtocolEncryptionEnabled"] = args?.smb3ProtocolEncryptionEnabled;
+            resourceInputs["smbAccessBasedEnumerationEnabled"] = args?.smbAccessBasedEnumerationEnabled;
+            resourceInputs["smbContinuousAvailabilityEnabled"] = args?.smbContinuousAvailabilityEnabled;
+            resourceInputs["smbNonBrowsableEnabled"] = args?.smbNonBrowsableEnabled;
+            resourceInputs["snapshotDirectoryVisible"] = args?.snapshotDirectoryVisible;
+            resourceInputs["storageQuotaInGb"] = args?.storageQuotaInGb;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throughputInMibps"] = args?.throughputInMibps;
+            resourceInputs["volumePath"] = args?.volumePath;
+            resourceInputs["zone"] = args?.zone;
             resourceInputs["mountIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -325,8 +324,7 @@ export interface VolumeState {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
-     * having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
      */
     kerberosEnabled?: pulumi.Input<boolean>;
     /**
@@ -461,8 +459,7 @@ export interface VolumeArgs {
      */
     exportPolicyRules?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeExportPolicyRule>[]>;
     /**
-     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
-     * having a defined AD connection.
+     * Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account` having a defined AD connection.
      */
     kerberosEnabled?: pulumi.Input<boolean>;
     /**

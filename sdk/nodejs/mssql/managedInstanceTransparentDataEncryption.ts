@@ -213,11 +213,11 @@ export class ManagedInstanceTransparentDataEncryption extends pulumi.CustomResou
     /**
      * When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
      */
-    public readonly autoRotationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoRotationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
     /**
      * To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
      *
@@ -225,11 +225,11 @@ export class ManagedInstanceTransparentDataEncryption extends pulumi.CustomResou
      *
      * > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      */
-    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    public readonly managedInstanceId!: pulumi.Output<string>;
+    declare public readonly managedInstanceId: pulumi.Output<string>;
 
     /**
      * Create a ManagedInstanceTransparentDataEncryption resource with the given unique name, arguments, and options.
@@ -244,19 +244,19 @@ export class ManagedInstanceTransparentDataEncryption extends pulumi.CustomResou
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedInstanceTransparentDataEncryptionState | undefined;
-            resourceInputs["autoRotationEnabled"] = state ? state.autoRotationEnabled : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
-            resourceInputs["managedInstanceId"] = state ? state.managedInstanceId : undefined;
+            resourceInputs["autoRotationEnabled"] = state?.autoRotationEnabled;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
+            resourceInputs["managedInstanceId"] = state?.managedInstanceId;
         } else {
             const args = argsOrState as ManagedInstanceTransparentDataEncryptionArgs | undefined;
-            if ((!args || args.managedInstanceId === undefined) && !opts.urn) {
+            if (args?.managedInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceId'");
             }
-            resourceInputs["autoRotationEnabled"] = args ? args.autoRotationEnabled : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
-            resourceInputs["managedInstanceId"] = args ? args.managedInstanceId : undefined;
+            resourceInputs["autoRotationEnabled"] = args?.autoRotationEnabled;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
+            resourceInputs["managedInstanceId"] = args?.managedInstanceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedInstanceTransparentDataEncryption.__pulumiType, name, resourceInputs, opts);

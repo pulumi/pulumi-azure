@@ -85,27 +85,27 @@ export class Application extends pulumi.CustomResource {
     /**
      * The name of the Batch account. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`.
      */
-    public readonly allowUpdates!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowUpdates: pulumi.Output<boolean | undefined>;
     /**
      * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
      */
-    public readonly defaultVersion!: pulumi.Output<string | undefined>;
+    declare public readonly defaultVersion: pulumi.Output<string | undefined>;
     /**
      * The display name for the application.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -120,26 +120,26 @@ export class Application extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["allowUpdates"] = state ? state.allowUpdates : undefined;
-            resourceInputs["defaultVersion"] = state ? state.defaultVersion : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["allowUpdates"] = state?.allowUpdates;
+            resourceInputs["defaultVersion"] = state?.defaultVersion;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ApplicationArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["allowUpdates"] = args ? args.allowUpdates : undefined;
-            resourceInputs["defaultVersion"] = args ? args.defaultVersion : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["allowUpdates"] = args?.allowUpdates;
+            resourceInputs["defaultVersion"] = args?.defaultVersion;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Application.__pulumiType, name, resourceInputs, opts);

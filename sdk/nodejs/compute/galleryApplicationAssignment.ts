@@ -120,23 +120,23 @@ export class GalleryApplicationAssignment extends pulumi.CustomResource {
     /**
      * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
      */
-    public readonly configurationBlobUri!: pulumi.Output<string | undefined>;
+    declare public readonly configurationBlobUri: pulumi.Output<string | undefined>;
     /**
      * The ID of the Gallery Application Version. Changing this forces a new resource to be created.
      */
-    public readonly galleryApplicationVersionId!: pulumi.Output<string>;
+    declare public readonly galleryApplicationVersionId: pulumi.Output<string>;
     /**
      * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`.
      */
-    public readonly order!: pulumi.Output<number | undefined>;
+    declare public readonly order: pulumi.Output<number | undefined>;
     /**
      * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
      */
-    public readonly tag!: pulumi.Output<string | undefined>;
+    declare public readonly tag: pulumi.Output<string | undefined>;
     /**
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineId!: pulumi.Output<string>;
+    declare public readonly virtualMachineId: pulumi.Output<string>;
 
     /**
      * Create a GalleryApplicationAssignment resource with the given unique name, arguments, and options.
@@ -151,24 +151,24 @@ export class GalleryApplicationAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GalleryApplicationAssignmentState | undefined;
-            resourceInputs["configurationBlobUri"] = state ? state.configurationBlobUri : undefined;
-            resourceInputs["galleryApplicationVersionId"] = state ? state.galleryApplicationVersionId : undefined;
-            resourceInputs["order"] = state ? state.order : undefined;
-            resourceInputs["tag"] = state ? state.tag : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["configurationBlobUri"] = state?.configurationBlobUri;
+            resourceInputs["galleryApplicationVersionId"] = state?.galleryApplicationVersionId;
+            resourceInputs["order"] = state?.order;
+            resourceInputs["tag"] = state?.tag;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
         } else {
             const args = argsOrState as GalleryApplicationAssignmentArgs | undefined;
-            if ((!args || args.galleryApplicationVersionId === undefined) && !opts.urn) {
+            if (args?.galleryApplicationVersionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryApplicationVersionId'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
+            if (args?.virtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            resourceInputs["configurationBlobUri"] = args ? args.configurationBlobUri : undefined;
-            resourceInputs["galleryApplicationVersionId"] = args ? args.galleryApplicationVersionId : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["tag"] = args ? args.tag : undefined;
-            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["configurationBlobUri"] = args?.configurationBlobUri;
+            resourceInputs["galleryApplicationVersionId"] = args?.galleryApplicationVersionId;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["tag"] = args?.tag;
+            resourceInputs["virtualMachineId"] = args?.virtualMachineId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GalleryApplicationAssignment.__pulumiType, name, resourceInputs, opts);

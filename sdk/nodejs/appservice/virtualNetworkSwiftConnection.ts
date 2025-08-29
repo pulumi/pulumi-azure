@@ -178,11 +178,11 @@ export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
     /**
      * The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
      */
-    public readonly appServiceId!: pulumi.Output<string>;
+    declare public readonly appServiceId: pulumi.Output<string>;
     /**
      * The ID of the subnet the app service will be associated to (the subnet must have a `serviceDelegation` configured for `Microsoft.Web/serverFarms`).
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkSwiftConnection resource with the given unique name, arguments, and options.
@@ -197,18 +197,18 @@ export class VirtualNetworkSwiftConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkSwiftConnectionState | undefined;
-            resourceInputs["appServiceId"] = state ? state.appServiceId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["appServiceId"] = state?.appServiceId;
+            resourceInputs["subnetId"] = state?.subnetId;
         } else {
             const args = argsOrState as VirtualNetworkSwiftConnectionArgs | undefined;
-            if ((!args || args.appServiceId === undefined) && !opts.urn) {
+            if (args?.appServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServiceId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["appServiceId"] = args ? args.appServiceId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["appServiceId"] = args?.appServiceId;
+            resourceInputs["subnetId"] = args?.subnetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualNetworkSwiftConnection.__pulumiType, name, resourceInputs, opts);

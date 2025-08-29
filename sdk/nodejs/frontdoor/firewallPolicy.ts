@@ -165,51 +165,51 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
      */
-    public readonly customBlockResponseBody!: pulumi.Output<string | undefined>;
+    declare public readonly customBlockResponseBody: pulumi.Output<string | undefined>;
     /**
      * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      */
-    public readonly customBlockResponseStatusCode!: pulumi.Output<number | undefined>;
+    declare public readonly customBlockResponseStatusCode: pulumi.Output<number | undefined>;
     /**
      * One or more `customRule` blocks as defined below.
      */
-    public readonly customRules!: pulumi.Output<outputs.frontdoor.FirewallPolicyCustomRule[] | undefined>;
+    declare public readonly customRules: pulumi.Output<outputs.frontdoor.FirewallPolicyCustomRule[] | undefined>;
     /**
      * Is the policy a enabled state or disabled state. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
      */
-    public /*out*/ readonly frontendEndpointIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly frontendEndpointIds: pulumi.Output<string[]>;
     /**
      * The Azure Region where this Front Door Firewall Policy exists.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * One or more `managedRule` blocks as defined below.
      */
-    public readonly managedRules!: pulumi.Output<outputs.frontdoor.FirewallPolicyManagedRule[] | undefined>;
+    declare public readonly managedRules: pulumi.Output<outputs.frontdoor.FirewallPolicyManagedRule[] | undefined>;
     /**
      * The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * If action type is redirect, this field represents redirect URL for the client.
      */
-    public readonly redirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly redirectUrl: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Web Application Firewall Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -224,33 +224,33 @@ export class FirewallPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallPolicyState | undefined;
-            resourceInputs["customBlockResponseBody"] = state ? state.customBlockResponseBody : undefined;
-            resourceInputs["customBlockResponseStatusCode"] = state ? state.customBlockResponseStatusCode : undefined;
-            resourceInputs["customRules"] = state ? state.customRules : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["frontendEndpointIds"] = state ? state.frontendEndpointIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedRules"] = state ? state.managedRules : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customBlockResponseBody"] = state?.customBlockResponseBody;
+            resourceInputs["customBlockResponseStatusCode"] = state?.customBlockResponseStatusCode;
+            resourceInputs["customRules"] = state?.customRules;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["frontendEndpointIds"] = state?.frontendEndpointIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedRules"] = state?.managedRules;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["redirectUrl"] = state?.redirectUrl;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as FirewallPolicyArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customBlockResponseBody"] = args ? args.customBlockResponseBody : undefined;
-            resourceInputs["customBlockResponseStatusCode"] = args ? args.customBlockResponseStatusCode : undefined;
-            resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customBlockResponseBody"] = args?.customBlockResponseBody;
+            resourceInputs["customBlockResponseStatusCode"] = args?.customBlockResponseStatusCode;
+            resourceInputs["customRules"] = args?.customRules;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["managedRules"] = args?.managedRules;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["redirectUrl"] = args?.redirectUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["frontendEndpointIds"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
         }

@@ -133,19 +133,19 @@ export class ClusterTrustedAccessRoleBinding extends pulumi.CustomResource {
     /**
      * Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
      */
-    public readonly kubernetesClusterId!: pulumi.Output<string>;
+    declare public readonly kubernetesClusterId: pulumi.Output<string>;
     /**
      * Specifies the name of this Kubernetes Cluster Trusted Access Role Binding. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of roles to bind, each item is a resource type qualified role name.
      */
-    public readonly roles!: pulumi.Output<string[]>;
+    declare public readonly roles: pulumi.Output<string[]>;
     /**
      * The ARM resource ID of source resource that trusted access is configured for. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
      */
-    public readonly sourceResourceId!: pulumi.Output<string>;
+    declare public readonly sourceResourceId: pulumi.Output<string>;
 
     /**
      * Create a ClusterTrustedAccessRoleBinding resource with the given unique name, arguments, and options.
@@ -160,25 +160,25 @@ export class ClusterTrustedAccessRoleBinding extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterTrustedAccessRoleBindingState | undefined;
-            resourceInputs["kubernetesClusterId"] = state ? state.kubernetesClusterId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["roles"] = state ? state.roles : undefined;
-            resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
+            resourceInputs["kubernetesClusterId"] = state?.kubernetesClusterId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["roles"] = state?.roles;
+            resourceInputs["sourceResourceId"] = state?.sourceResourceId;
         } else {
             const args = argsOrState as ClusterTrustedAccessRoleBindingArgs | undefined;
-            if ((!args || args.kubernetesClusterId === undefined) && !opts.urn) {
+            if (args?.kubernetesClusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterId'");
             }
-            if ((!args || args.roles === undefined) && !opts.urn) {
+            if (args?.roles === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
-            if ((!args || args.sourceResourceId === undefined) && !opts.urn) {
+            if (args?.sourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceId'");
             }
-            resourceInputs["kubernetesClusterId"] = args ? args.kubernetesClusterId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
+            resourceInputs["kubernetesClusterId"] = args?.kubernetesClusterId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterTrustedAccessRoleBinding.__pulumiType, name, resourceInputs, opts);

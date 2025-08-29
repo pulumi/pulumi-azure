@@ -84,59 +84,59 @@ export class Topic extends pulumi.CustomResource {
     /**
      * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
+    declare public readonly autoDeleteOnIdle: pulumi.Output<string | undefined>;
     /**
      * Boolean flag which controls if server-side batched operations are enabled.
      */
-    public readonly batchedOperationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly batchedOperationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself. Defaults to `P10675199DT2H48M5.4775807S`.
      */
-    public readonly defaultMessageTtl!: pulumi.Output<string | undefined>;
+    declare public readonly defaultMessageTtl: pulumi.Output<string | undefined>;
     /**
      * The ISO 8601 timespan duration during which duplicates can be detected. Defaults to `PT10M` (10 Minutes).
      */
-    public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string | undefined>;
+    declare public readonly duplicateDetectionHistoryTimeWindow: pulumi.Output<string | undefined>;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      */
-    public readonly expressEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly expressEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). Defaults to `256`.
      */
-    public readonly maxMessageSizeInKilobytes!: pulumi.Output<number>;
+    declare public readonly maxMessageSizeInKilobytes: pulumi.Output<number>;
     /**
      * Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to `5120`.
      */
-    public readonly maxSizeInMegabytes!: pulumi.Output<number>;
+    declare public readonly maxSizeInMegabytes: pulumi.Output<number>;
     /**
      * Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      */
-    public readonly namespaceId!: pulumi.Output<string>;
-    public /*out*/ readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceId: pulumi.Output<string>;
+    declare public /*out*/ readonly namespaceName: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
      *
      * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      */
-    public readonly partitioningEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly partitioningEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly requiresDuplicateDetection!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly requiresDuplicateDetection: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Boolean flag which controls whether the Topic supports ordering.
      */
-    public readonly supportOrdering!: pulumi.Output<boolean | undefined>;
+    declare public readonly supportOrdering: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -154,39 +154,39 @@ export class Topic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicState | undefined;
-            resourceInputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
-            resourceInputs["batchedOperationsEnabled"] = state ? state.batchedOperationsEnabled : undefined;
-            resourceInputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
-            resourceInputs["duplicateDetectionHistoryTimeWindow"] = state ? state.duplicateDetectionHistoryTimeWindow : undefined;
-            resourceInputs["expressEnabled"] = state ? state.expressEnabled : undefined;
-            resourceInputs["maxMessageSizeInKilobytes"] = state ? state.maxMessageSizeInKilobytes : undefined;
-            resourceInputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["partitioningEnabled"] = state ? state.partitioningEnabled : undefined;
-            resourceInputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["supportOrdering"] = state ? state.supportOrdering : undefined;
+            resourceInputs["autoDeleteOnIdle"] = state?.autoDeleteOnIdle;
+            resourceInputs["batchedOperationsEnabled"] = state?.batchedOperationsEnabled;
+            resourceInputs["defaultMessageTtl"] = state?.defaultMessageTtl;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = state?.duplicateDetectionHistoryTimeWindow;
+            resourceInputs["expressEnabled"] = state?.expressEnabled;
+            resourceInputs["maxMessageSizeInKilobytes"] = state?.maxMessageSizeInKilobytes;
+            resourceInputs["maxSizeInMegabytes"] = state?.maxSizeInMegabytes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceId"] = state?.namespaceId;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["partitioningEnabled"] = state?.partitioningEnabled;
+            resourceInputs["requiresDuplicateDetection"] = state?.requiresDuplicateDetection;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["supportOrdering"] = state?.supportOrdering;
         } else {
             const args = argsOrState as TopicArgs | undefined;
-            if ((!args || args.namespaceId === undefined) && !opts.urn) {
+            if (args?.namespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceId'");
             }
-            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            resourceInputs["batchedOperationsEnabled"] = args ? args.batchedOperationsEnabled : undefined;
-            resourceInputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
-            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            resourceInputs["expressEnabled"] = args ? args.expressEnabled : undefined;
-            resourceInputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
-            resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["partitioningEnabled"] = args ? args.partitioningEnabled : undefined;
-            resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["supportOrdering"] = args ? args.supportOrdering : undefined;
+            resourceInputs["autoDeleteOnIdle"] = args?.autoDeleteOnIdle;
+            resourceInputs["batchedOperationsEnabled"] = args?.batchedOperationsEnabled;
+            resourceInputs["defaultMessageTtl"] = args?.defaultMessageTtl;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args?.duplicateDetectionHistoryTimeWindow;
+            resourceInputs["expressEnabled"] = args?.expressEnabled;
+            resourceInputs["maxMessageSizeInKilobytes"] = args?.maxMessageSizeInKilobytes;
+            resourceInputs["maxSizeInMegabytes"] = args?.maxSizeInMegabytes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceId"] = args?.namespaceId;
+            resourceInputs["partitioningEnabled"] = args?.partitioningEnabled;
+            resourceInputs["requiresDuplicateDetection"] = args?.requiresDuplicateDetection;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["supportOrdering"] = args?.supportOrdering;
             resourceInputs["namespaceName"] = undefined /*out*/;
             resourceInputs["resourceGroupName"] = undefined /*out*/;
         }

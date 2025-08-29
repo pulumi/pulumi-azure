@@ -82,51 +82,51 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Determines whether tracing can be enabled. Defaults to `true`.
      */
-    public readonly allowTracing!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowTracing: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
      */
-    public readonly apiId!: pulumi.Output<string | undefined>;
+    declare public readonly apiId: pulumi.Output<string | undefined>;
     /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The display name of this Subscription.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The primary subscription key to use for the subscription.
      */
-    public readonly primaryKey!: pulumi.Output<string>;
+    declare public readonly primaryKey: pulumi.Output<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      *
      * > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
      */
-    public readonly productId!: pulumi.Output<string | undefined>;
+    declare public readonly productId: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary subscription key to use for the subscription.
      */
-    public readonly secondaryKey!: pulumi.Output<string>;
+    declare public readonly secondaryKey: pulumi.Output<string>;
     /**
      * The state of this Subscription. Possible values are `active`, `cancelled`, `expired`, `rejected`, `submitted` and `suspended`. Defaults to `submitted`.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
     /**
      * The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    public readonly userId!: pulumi.Output<string | undefined>;
+    declare public readonly userId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -141,39 +141,39 @@ export class Subscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
-            resourceInputs["allowTracing"] = state ? state.allowTracing : undefined;
-            resourceInputs["apiId"] = state ? state.apiId : undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["productId"] = state ? state.productId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["allowTracing"] = state?.allowTracing;
+            resourceInputs["apiId"] = state?.apiId;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["productId"] = state?.productId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as SubscriptionArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowTracing"] = args ? args.allowTracing : undefined;
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["allowTracing"] = args?.allowTracing;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["displayName"] = args?.displayName;
             resourceInputs["primaryKey"] = args?.primaryKey ? pulumi.secret(args.primaryKey) : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["secondaryKey"] = args?.secondaryKey ? pulumi.secret(args.secondaryKey) : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["primaryKey", "secondaryKey"] };

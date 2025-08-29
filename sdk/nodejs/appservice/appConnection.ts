@@ -50,22 +50,22 @@ export class AppConnection extends pulumi.CustomResource {
      *
      * > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
      */
-    public readonly authentication!: pulumi.Output<outputs.appservice.AppConnectionAuthentication>;
-    public readonly clientType!: pulumi.Output<string | undefined>;
+    declare public readonly authentication: pulumi.Output<outputs.appservice.AppConnectionAuthentication>;
+    declare public readonly clientType: pulumi.Output<string | undefined>;
     /**
      * The ID of the data source function app. Changing this forces a new resource to be created.
      */
-    public readonly functionAppId!: pulumi.Output<string>;
+    declare public readonly functionAppId: pulumi.Output<string>;
     /**
      * The name of the service connection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly secretStore!: pulumi.Output<outputs.appservice.AppConnectionSecretStore | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly secretStore: pulumi.Output<outputs.appservice.AppConnectionSecretStore | undefined>;
     /**
      * The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
-    public readonly vnetSolution!: pulumi.Output<string | undefined>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
+    declare public readonly vnetSolution: pulumi.Output<string | undefined>;
 
     /**
      * Create a AppConnection resource with the given unique name, arguments, and options.
@@ -80,31 +80,31 @@ export class AppConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppConnectionState | undefined;
-            resourceInputs["authentication"] = state ? state.authentication : undefined;
-            resourceInputs["clientType"] = state ? state.clientType : undefined;
-            resourceInputs["functionAppId"] = state ? state.functionAppId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["secretStore"] = state ? state.secretStore : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["vnetSolution"] = state ? state.vnetSolution : undefined;
+            resourceInputs["authentication"] = state?.authentication;
+            resourceInputs["clientType"] = state?.clientType;
+            resourceInputs["functionAppId"] = state?.functionAppId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["secretStore"] = state?.secretStore;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["vnetSolution"] = state?.vnetSolution;
         } else {
             const args = argsOrState as AppConnectionArgs | undefined;
-            if ((!args || args.authentication === undefined) && !opts.urn) {
+            if (args?.authentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if ((!args || args.functionAppId === undefined) && !opts.urn) {
+            if (args?.functionAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionAppId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["clientType"] = args ? args.clientType : undefined;
-            resourceInputs["functionAppId"] = args ? args.functionAppId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["secretStore"] = args ? args.secretStore : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["vnetSolution"] = args ? args.vnetSolution : undefined;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["clientType"] = args?.clientType;
+            resourceInputs["functionAppId"] = args?.functionAppId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["secretStore"] = args?.secretStore;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["vnetSolution"] = args?.vnetSolution;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AppConnection.__pulumiType, name, resourceInputs, opts);

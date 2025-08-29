@@ -46,23 +46,23 @@ export class SqlTrigger extends pulumi.CustomResource {
     /**
      * Body of the Trigger.
      */
-    public readonly body!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string>;
     /**
      * The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created.
      */
-    public readonly containerId!: pulumi.Output<string>;
+    declare public readonly containerId: pulumi.Output<string>;
     /**
      * The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.
      */
-    public readonly operation!: pulumi.Output<string>;
+    declare public readonly operation: pulumi.Output<string>;
     /**
      * Type of the Trigger. Possible values are `Pre` and `Post`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a SqlTrigger resource with the given unique name, arguments, and options.
@@ -77,30 +77,30 @@ export class SqlTrigger extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlTriggerState | undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["containerId"] = state ? state.containerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["operation"] = state ? state.operation : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["containerId"] = state?.containerId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["operation"] = state?.operation;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as SqlTriggerArgs | undefined;
-            if ((!args || args.body === undefined) && !opts.urn) {
+            if (args?.body === undefined && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.containerId === undefined) && !opts.urn) {
+            if (args?.containerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerId'");
             }
-            if ((!args || args.operation === undefined) && !opts.urn) {
+            if (args?.operation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operation'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["containerId"] = args ? args.containerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["operation"] = args ? args.operation : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["containerId"] = args?.containerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["operation"] = args?.operation;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SqlTrigger.__pulumiType, name, resourceInputs, opts);

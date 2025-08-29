@@ -48,33 +48,33 @@ export class VirtualMachineAvailabilityGroupListener extends pulumi.CustomResour
     /**
      * The name of the Availability Group. Changing this forces a new resource to be created.
      */
-    public readonly availabilityGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityGroupName: pulumi.Output<string | undefined>;
     /**
      * A `loadBalancerConfiguration` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** Either one of `loadBalancerConfiguration` or `multiSubnetIpConfiguration` must be specified.
      */
-    public readonly loadBalancerConfiguration!: pulumi.Output<outputs.mssql.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration | undefined>;
+    declare public readonly loadBalancerConfiguration: pulumi.Output<outputs.mssql.VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration | undefined>;
     /**
      * One or more `multiSubnetIpConfiguration` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly multiSubnetIpConfigurations!: pulumi.Output<outputs.mssql.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration[] | undefined>;
+    declare public readonly multiSubnetIpConfigurations: pulumi.Output<outputs.mssql.VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration[] | undefined>;
     /**
      * The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The port of the listener. Changing this forces a new resource to be created.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly replicas!: pulumi.Output<outputs.mssql.VirtualMachineAvailabilityGroupListenerReplica[]>;
+    declare public readonly replicas: pulumi.Output<outputs.mssql.VirtualMachineAvailabilityGroupListenerReplica[]>;
     /**
      * The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
      */
-    public readonly sqlVirtualMachineGroupId!: pulumi.Output<string>;
+    declare public readonly sqlVirtualMachineGroupId: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineAvailabilityGroupListener resource with the given unique name, arguments, and options.
@@ -89,28 +89,28 @@ export class VirtualMachineAvailabilityGroupListener extends pulumi.CustomResour
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineAvailabilityGroupListenerState | undefined;
-            resourceInputs["availabilityGroupName"] = state ? state.availabilityGroupName : undefined;
-            resourceInputs["loadBalancerConfiguration"] = state ? state.loadBalancerConfiguration : undefined;
-            resourceInputs["multiSubnetIpConfigurations"] = state ? state.multiSubnetIpConfigurations : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["replicas"] = state ? state.replicas : undefined;
-            resourceInputs["sqlVirtualMachineGroupId"] = state ? state.sqlVirtualMachineGroupId : undefined;
+            resourceInputs["availabilityGroupName"] = state?.availabilityGroupName;
+            resourceInputs["loadBalancerConfiguration"] = state?.loadBalancerConfiguration;
+            resourceInputs["multiSubnetIpConfigurations"] = state?.multiSubnetIpConfigurations;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["replicas"] = state?.replicas;
+            resourceInputs["sqlVirtualMachineGroupId"] = state?.sqlVirtualMachineGroupId;
         } else {
             const args = argsOrState as VirtualMachineAvailabilityGroupListenerArgs | undefined;
-            if ((!args || args.replicas === undefined) && !opts.urn) {
+            if (args?.replicas === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicas'");
             }
-            if ((!args || args.sqlVirtualMachineGroupId === undefined) && !opts.urn) {
+            if (args?.sqlVirtualMachineGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlVirtualMachineGroupId'");
             }
-            resourceInputs["availabilityGroupName"] = args ? args.availabilityGroupName : undefined;
-            resourceInputs["loadBalancerConfiguration"] = args ? args.loadBalancerConfiguration : undefined;
-            resourceInputs["multiSubnetIpConfigurations"] = args ? args.multiSubnetIpConfigurations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["replicas"] = args ? args.replicas : undefined;
-            resourceInputs["sqlVirtualMachineGroupId"] = args ? args.sqlVirtualMachineGroupId : undefined;
+            resourceInputs["availabilityGroupName"] = args?.availabilityGroupName;
+            resourceInputs["loadBalancerConfiguration"] = args?.loadBalancerConfiguration;
+            resourceInputs["multiSubnetIpConfigurations"] = args?.multiSubnetIpConfigurations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["replicas"] = args?.replicas;
+            resourceInputs["sqlVirtualMachineGroupId"] = args?.sqlVirtualMachineGroupId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualMachineAvailabilityGroupListener.__pulumiType, name, resourceInputs, opts);

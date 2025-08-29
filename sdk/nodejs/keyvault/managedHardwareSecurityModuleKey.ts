@@ -48,45 +48,45 @@ export class ManagedHardwareSecurityModuleKey extends pulumi.CustomResource {
     /**
      * Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `keyType` is `EC-HSM`. Changing this forces a new resource to be created.
      */
-    public readonly curve!: pulumi.Output<string | undefined>;
+    declare public readonly curve: pulumi.Output<string | undefined>;
     /**
      * Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
      */
-    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    declare public readonly expirationDate: pulumi.Output<string | undefined>;
     /**
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
      */
-    public readonly keyOpts!: pulumi.Output<string[]>;
+    declare public readonly keyOpts: pulumi.Output<string[]>;
     /**
      * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
      */
-    public readonly keySize!: pulumi.Output<number | undefined>;
+    declare public readonly keySize: pulumi.Output<number | undefined>;
     /**
      * Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
      */
-    public readonly keyType!: pulumi.Output<string>;
+    declare public readonly keyType: pulumi.Output<string>;
     /**
      * Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
      */
-    public readonly managedHsmId!: pulumi.Output<string>;
+    declare public readonly managedHsmId: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault Managed Hardware Security Module Key. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      *
      * > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
      */
-    public readonly notBeforeDate!: pulumi.Output<string | undefined>;
+    declare public readonly notBeforeDate: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The versioned Key Vault Secret Managed Hardware Security Module Key ID.
      */
-    public /*out*/ readonly versionedId!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionedId: pulumi.Output<string>;
 
     /**
      * Create a ManagedHardwareSecurityModuleKey resource with the given unique name, arguments, and options.
@@ -101,36 +101,36 @@ export class ManagedHardwareSecurityModuleKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedHardwareSecurityModuleKeyState | undefined;
-            resourceInputs["curve"] = state ? state.curve : undefined;
-            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
-            resourceInputs["keyOpts"] = state ? state.keyOpts : undefined;
-            resourceInputs["keySize"] = state ? state.keySize : undefined;
-            resourceInputs["keyType"] = state ? state.keyType : undefined;
-            resourceInputs["managedHsmId"] = state ? state.managedHsmId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["versionedId"] = state ? state.versionedId : undefined;
+            resourceInputs["curve"] = state?.curve;
+            resourceInputs["expirationDate"] = state?.expirationDate;
+            resourceInputs["keyOpts"] = state?.keyOpts;
+            resourceInputs["keySize"] = state?.keySize;
+            resourceInputs["keyType"] = state?.keyType;
+            resourceInputs["managedHsmId"] = state?.managedHsmId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notBeforeDate"] = state?.notBeforeDate;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["versionedId"] = state?.versionedId;
         } else {
             const args = argsOrState as ManagedHardwareSecurityModuleKeyArgs | undefined;
-            if ((!args || args.keyOpts === undefined) && !opts.urn) {
+            if (args?.keyOpts === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyOpts'");
             }
-            if ((!args || args.keyType === undefined) && !opts.urn) {
+            if (args?.keyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyType'");
             }
-            if ((!args || args.managedHsmId === undefined) && !opts.urn) {
+            if (args?.managedHsmId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedHsmId'");
             }
-            resourceInputs["curve"] = args ? args.curve : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["keyOpts"] = args ? args.keyOpts : undefined;
-            resourceInputs["keySize"] = args ? args.keySize : undefined;
-            resourceInputs["keyType"] = args ? args.keyType : undefined;
-            resourceInputs["managedHsmId"] = args ? args.managedHsmId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["curve"] = args?.curve;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["keyOpts"] = args?.keyOpts;
+            resourceInputs["keySize"] = args?.keySize;
+            resourceInputs["keyType"] = args?.keyType;
+            resourceInputs["managedHsmId"] = args?.managedHsmId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notBeforeDate"] = args?.notBeforeDate;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["versionedId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -92,8 +92,7 @@ import (
 type WindowsFunctionApp struct {
 	pulumi.CustomResourceState
 
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings WindowsFunctionAppAuthSettingsPtrOutput `pulumi:"authSettings"`
@@ -242,8 +241,7 @@ func GetWindowsFunctionApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WindowsFunctionApp resources.
 type windowsFunctionAppState struct {
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *WindowsFunctionAppAuthSettings `pulumi:"authSettings"`
@@ -345,8 +343,7 @@ type windowsFunctionAppState struct {
 }
 
 type WindowsFunctionAppState struct {
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings WindowsFunctionAppAuthSettingsPtrInput
@@ -452,8 +449,7 @@ func (WindowsFunctionAppState) ElementType() reflect.Type {
 }
 
 type windowsFunctionAppArgs struct {
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings map[string]string `pulumi:"appSettings"`
 	// A `authSettings` block as defined below.
 	AuthSettings *WindowsFunctionAppAuthSettings `pulumi:"authSettings"`
@@ -538,8 +534,7 @@ type windowsFunctionAppArgs struct {
 
 // The set of arguments for constructing a WindowsFunctionApp resource.
 type WindowsFunctionAppArgs struct {
-	// A map of key-value pairs for [App
-	// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+	// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 	AppSettings pulumi.StringMapInput
 	// A `authSettings` block as defined below.
 	AuthSettings WindowsFunctionAppAuthSettingsPtrInput
@@ -709,8 +704,7 @@ func (o WindowsFunctionAppOutput) ToWindowsFunctionAppOutputWithContext(ctx cont
 	return o
 }
 
-// A map of key-value pairs for [App
-// Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+// A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
 func (o WindowsFunctionAppOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WindowsFunctionApp) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }

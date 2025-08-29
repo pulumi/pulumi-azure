@@ -95,37 +95,37 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
     /**
      * Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      */
-    public readonly authenticationType!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationType: pulumi.Output<string | undefined>;
     /**
      * The connection string for the endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `keyBased`.
      */
-    public readonly connectionString!: pulumi.Output<string | undefined>;
+    declare public readonly connectionString: pulumi.Output<string | undefined>;
     /**
      * URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      */
-    public readonly endpointUri!: pulumi.Output<string | undefined>;
+    declare public readonly endpointUri: pulumi.Output<string | undefined>;
     /**
      * Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
      */
-    public readonly entityPath!: pulumi.Output<string | undefined>;
+    declare public readonly entityPath: pulumi.Output<string | undefined>;
     /**
      * ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint.
      *
      * > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
      */
-    public readonly identityId!: pulumi.Output<string | undefined>;
+    declare public readonly identityId: pulumi.Output<string | undefined>;
     /**
      * The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
      */
-    public readonly iothubId!: pulumi.Output<string>;
+    declare public readonly iothubId: pulumi.Output<string>;
     /**
      * The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group under which the Service Bus Topic has been created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a EndpointServicebusTopic resource with the given unique name, arguments, and options.
@@ -140,30 +140,30 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointServicebusTopicState | undefined;
-            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["endpointUri"] = state ? state.endpointUri : undefined;
-            resourceInputs["entityPath"] = state ? state.entityPath : undefined;
-            resourceInputs["identityId"] = state ? state.identityId : undefined;
-            resourceInputs["iothubId"] = state ? state.iothubId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["authenticationType"] = state?.authenticationType;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["endpointUri"] = state?.endpointUri;
+            resourceInputs["entityPath"] = state?.entityPath;
+            resourceInputs["identityId"] = state?.identityId;
+            resourceInputs["iothubId"] = state?.iothubId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as EndpointServicebusTopicArgs | undefined;
-            if ((!args || args.iothubId === undefined) && !opts.urn) {
+            if (args?.iothubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["authenticationType"] = args?.authenticationType;
             resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
-            resourceInputs["endpointUri"] = args ? args.endpointUri : undefined;
-            resourceInputs["entityPath"] = args ? args.entityPath : undefined;
-            resourceInputs["identityId"] = args ? args.identityId : undefined;
-            resourceInputs["iothubId"] = args ? args.iothubId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["endpointUri"] = args?.endpointUri;
+            resourceInputs["entityPath"] = args?.entityPath;
+            resourceInputs["identityId"] = args?.identityId;
+            resourceInputs["iothubId"] = args?.iothubId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString"] };

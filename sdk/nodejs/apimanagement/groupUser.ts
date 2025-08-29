@@ -72,19 +72,19 @@ export class GroupUser extends pulumi.CustomResource {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly groupName!: pulumi.Output<string>;
+    declare public readonly groupName: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a GroupUser resource with the given unique name, arguments, and options.
@@ -99,28 +99,28 @@ export class GroupUser extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupUserState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["groupName"] = state ? state.groupName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["groupName"] = state?.groupName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as GroupUserArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GroupUser.__pulumiType, name, resourceInputs, opts);

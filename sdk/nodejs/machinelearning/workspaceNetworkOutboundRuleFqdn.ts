@@ -105,15 +105,15 @@ export class WorkspaceNetworkOutboundRuleFqdn extends pulumi.CustomResource {
     /**
      * Specifies the fully qualified domain name to allow for outbound traffic.
      */
-    public readonly destinationFqdn!: pulumi.Output<string>;
+    declare public readonly destinationFqdn: pulumi.Output<string>;
     /**
      * Specifies the name of the Machine Learning Workspace FQDN Network Outbound Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceNetworkOutboundRuleFqdn resource with the given unique name, arguments, and options.
@@ -128,20 +128,20 @@ export class WorkspaceNetworkOutboundRuleFqdn extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceNetworkOutboundRuleFqdnState | undefined;
-            resourceInputs["destinationFqdn"] = state ? state.destinationFqdn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["destinationFqdn"] = state?.destinationFqdn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as WorkspaceNetworkOutboundRuleFqdnArgs | undefined;
-            if ((!args || args.destinationFqdn === undefined) && !opts.urn) {
+            if (args?.destinationFqdn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationFqdn'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["destinationFqdn"] = args ? args.destinationFqdn : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["destinationFqdn"] = args?.destinationFqdn;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkspaceNetworkOutboundRuleFqdn.__pulumiType, name, resourceInputs, opts);

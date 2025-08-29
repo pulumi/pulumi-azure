@@ -73,15 +73,15 @@ export class AccountStaticWebsite extends pulumi.CustomResource {
     /**
      * The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
      */
-    public readonly error404Document!: pulumi.Output<string | undefined>;
+    declare public readonly error404Document: pulumi.Output<string | undefined>;
     /**
      * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
      */
-    public readonly indexDocument!: pulumi.Output<string | undefined>;
+    declare public readonly indexDocument: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account to set Static Website on. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a AccountStaticWebsite resource with the given unique name, arguments, and options.
@@ -96,17 +96,17 @@ export class AccountStaticWebsite extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountStaticWebsiteState | undefined;
-            resourceInputs["error404Document"] = state ? state.error404Document : undefined;
-            resourceInputs["indexDocument"] = state ? state.indexDocument : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["error404Document"] = state?.error404Document;
+            resourceInputs["indexDocument"] = state?.indexDocument;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as AccountStaticWebsiteArgs | undefined;
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["error404Document"] = args ? args.error404Document : undefined;
-            resourceInputs["indexDocument"] = args ? args.indexDocument : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["error404Document"] = args?.error404Document;
+            resourceInputs["indexDocument"] = args?.indexDocument;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountStaticWebsite.__pulumiType, name, resourceInputs, opts);

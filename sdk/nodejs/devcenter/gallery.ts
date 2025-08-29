@@ -97,15 +97,15 @@ export class Gallery extends pulumi.CustomResource {
     /**
      * Specifies the ID of the Dev Center within which this Dev Center Gallery should exist. Changing this forces a new Dev Center Gallery to be created.
      */
-    public readonly devCenterId!: pulumi.Output<string>;
+    declare public readonly devCenterId: pulumi.Output<string>;
     /**
      * Specifies the name of this Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Shared Gallery which should be connected to the Dev Center Gallery. Changing this forces a new Dev Center Gallery to be created.
      */
-    public readonly sharedGalleryId!: pulumi.Output<string>;
+    declare public readonly sharedGalleryId: pulumi.Output<string>;
 
     /**
      * Create a Gallery resource with the given unique name, arguments, and options.
@@ -120,20 +120,20 @@ export class Gallery extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GalleryState | undefined;
-            resourceInputs["devCenterId"] = state ? state.devCenterId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sharedGalleryId"] = state ? state.sharedGalleryId : undefined;
+            resourceInputs["devCenterId"] = state?.devCenterId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sharedGalleryId"] = state?.sharedGalleryId;
         } else {
             const args = argsOrState as GalleryArgs | undefined;
-            if ((!args || args.devCenterId === undefined) && !opts.urn) {
+            if (args?.devCenterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterId'");
             }
-            if ((!args || args.sharedGalleryId === undefined) && !opts.urn) {
+            if (args?.sharedGalleryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sharedGalleryId'");
             }
-            resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sharedGalleryId"] = args ? args.sharedGalleryId : undefined;
+            resourceInputs["devCenterId"] = args?.devCenterId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sharedGalleryId"] = args?.sharedGalleryId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Gallery.__pulumiType, name, resourceInputs, opts);

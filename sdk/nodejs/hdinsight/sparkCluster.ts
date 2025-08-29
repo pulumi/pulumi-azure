@@ -116,101 +116,101 @@ export class SparkCluster extends pulumi.CustomResource {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    public readonly clusterVersion!: pulumi.Output<string>;
+    declare public readonly clusterVersion: pulumi.Output<string>;
     /**
      * A `componentVersion` block as defined below.
      */
-    public readonly componentVersion!: pulumi.Output<outputs.hdinsight.SparkClusterComponentVersion>;
+    declare public readonly componentVersion: pulumi.Output<outputs.hdinsight.SparkClusterComponentVersion>;
     /**
      * A `computeIsolation` block as defined below.
      */
-    public readonly computeIsolation!: pulumi.Output<outputs.hdinsight.SparkClusterComputeIsolation | undefined>;
+    declare public readonly computeIsolation: pulumi.Output<outputs.hdinsight.SparkClusterComputeIsolation | undefined>;
     /**
      * One or more `diskEncryption` block as defined below.
      */
-    public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.SparkClusterDiskEncryption[] | undefined>;
+    declare public readonly diskEncryptions: pulumi.Output<outputs.hdinsight.SparkClusterDiskEncryption[] | undefined>;
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
      */
-    public readonly encryptionInTransitEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly encryptionInTransitEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `extension` block as defined below.
      */
-    public readonly extension!: pulumi.Output<outputs.hdinsight.SparkClusterExtension | undefined>;
+    declare public readonly extension: pulumi.Output<outputs.hdinsight.SparkClusterExtension | undefined>;
     /**
      * A `gateway` block as defined below.
      */
-    public readonly gateway!: pulumi.Output<outputs.hdinsight.SparkClusterGateway>;
+    declare public readonly gateway: pulumi.Output<outputs.hdinsight.SparkClusterGateway>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
      */
-    public /*out*/ readonly httpsEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly httpsEndpoint: pulumi.Output<string>;
     /**
      * Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `metastores` block as defined below.
      */
-    public readonly metastores!: pulumi.Output<outputs.hdinsight.SparkClusterMetastores | undefined>;
+    declare public readonly metastores: pulumi.Output<outputs.hdinsight.SparkClusterMetastores | undefined>;
     /**
      * A `monitor` block as defined below.
      */
-    public readonly monitor!: pulumi.Output<outputs.hdinsight.SparkClusterMonitor | undefined>;
+    declare public readonly monitor: pulumi.Output<outputs.hdinsight.SparkClusterMonitor | undefined>;
     /**
      * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `network` block as defined below.
      */
-    public readonly network!: pulumi.Output<outputs.hdinsight.SparkClusterNetwork | undefined>;
+    declare public readonly network: pulumi.Output<outputs.hdinsight.SparkClusterNetwork | undefined>;
     /**
      * A `privateLinkConfiguration` block as defined below.
      */
-    public readonly privateLinkConfiguration!: pulumi.Output<outputs.hdinsight.SparkClusterPrivateLinkConfiguration | undefined>;
+    declare public readonly privateLinkConfiguration: pulumi.Output<outputs.hdinsight.SparkClusterPrivateLinkConfiguration | undefined>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `roles` block as defined below.
      */
-    public readonly roles!: pulumi.Output<outputs.hdinsight.SparkClusterRoles>;
+    declare public readonly roles: pulumi.Output<outputs.hdinsight.SparkClusterRoles>;
     /**
      * A `securityProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.hdinsight.SparkClusterSecurityProfile | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.hdinsight.SparkClusterSecurityProfile | undefined>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
      */
-    public /*out*/ readonly sshEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly sshEndpoint: pulumi.Output<string>;
     /**
      * A `storageAccountGen2` block as defined below.
      */
-    public readonly storageAccountGen2!: pulumi.Output<outputs.hdinsight.SparkClusterStorageAccountGen2 | undefined>;
+    declare public readonly storageAccountGen2: pulumi.Output<outputs.hdinsight.SparkClusterStorageAccountGen2 | undefined>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.SparkClusterStorageAccount[] | undefined>;
+    declare public readonly storageAccounts: pulumi.Output<outputs.hdinsight.SparkClusterStorageAccount[] | undefined>;
     /**
      * A map of Tags which should be assigned to this HDInsight Spark Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    public readonly tier!: pulumi.Output<string>;
+    declare public readonly tier: pulumi.Output<string>;
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      *
      * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
-    public readonly tlsMinVersion!: pulumi.Output<string | undefined>;
+    declare public readonly tlsMinVersion: pulumi.Output<string | undefined>;
     /**
      * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a SparkCluster resource with the given unique name, arguments, and options.
@@ -225,72 +225,72 @@ export class SparkCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SparkClusterState | undefined;
-            resourceInputs["clusterVersion"] = state ? state.clusterVersion : undefined;
-            resourceInputs["componentVersion"] = state ? state.componentVersion : undefined;
-            resourceInputs["computeIsolation"] = state ? state.computeIsolation : undefined;
-            resourceInputs["diskEncryptions"] = state ? state.diskEncryptions : undefined;
-            resourceInputs["encryptionInTransitEnabled"] = state ? state.encryptionInTransitEnabled : undefined;
-            resourceInputs["extension"] = state ? state.extension : undefined;
-            resourceInputs["gateway"] = state ? state.gateway : undefined;
-            resourceInputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["metastores"] = state ? state.metastores : undefined;
-            resourceInputs["monitor"] = state ? state.monitor : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["network"] = state ? state.network : undefined;
-            resourceInputs["privateLinkConfiguration"] = state ? state.privateLinkConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["roles"] = state ? state.roles : undefined;
-            resourceInputs["securityProfile"] = state ? state.securityProfile : undefined;
-            resourceInputs["sshEndpoint"] = state ? state.sshEndpoint : undefined;
-            resourceInputs["storageAccountGen2"] = state ? state.storageAccountGen2 : undefined;
-            resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tier"] = state ? state.tier : undefined;
-            resourceInputs["tlsMinVersion"] = state ? state.tlsMinVersion : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["clusterVersion"] = state?.clusterVersion;
+            resourceInputs["componentVersion"] = state?.componentVersion;
+            resourceInputs["computeIsolation"] = state?.computeIsolation;
+            resourceInputs["diskEncryptions"] = state?.diskEncryptions;
+            resourceInputs["encryptionInTransitEnabled"] = state?.encryptionInTransitEnabled;
+            resourceInputs["extension"] = state?.extension;
+            resourceInputs["gateway"] = state?.gateway;
+            resourceInputs["httpsEndpoint"] = state?.httpsEndpoint;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["metastores"] = state?.metastores;
+            resourceInputs["monitor"] = state?.monitor;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["network"] = state?.network;
+            resourceInputs["privateLinkConfiguration"] = state?.privateLinkConfiguration;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["roles"] = state?.roles;
+            resourceInputs["securityProfile"] = state?.securityProfile;
+            resourceInputs["sshEndpoint"] = state?.sshEndpoint;
+            resourceInputs["storageAccountGen2"] = state?.storageAccountGen2;
+            resourceInputs["storageAccounts"] = state?.storageAccounts;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tier"] = state?.tier;
+            resourceInputs["tlsMinVersion"] = state?.tlsMinVersion;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as SparkClusterArgs | undefined;
-            if ((!args || args.clusterVersion === undefined) && !opts.urn) {
+            if (args?.clusterVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterVersion'");
             }
-            if ((!args || args.componentVersion === undefined) && !opts.urn) {
+            if (args?.componentVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'componentVersion'");
             }
-            if ((!args || args.gateway === undefined) && !opts.urn) {
+            if (args?.gateway === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gateway'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roles === undefined) && !opts.urn) {
+            if (args?.roles === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
-            if ((!args || args.tier === undefined) && !opts.urn) {
+            if (args?.tier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
-            resourceInputs["componentVersion"] = args ? args.componentVersion : undefined;
-            resourceInputs["computeIsolation"] = args ? args.computeIsolation : undefined;
-            resourceInputs["diskEncryptions"] = args ? args.diskEncryptions : undefined;
-            resourceInputs["encryptionInTransitEnabled"] = args ? args.encryptionInTransitEnabled : undefined;
-            resourceInputs["extension"] = args ? args.extension : undefined;
-            resourceInputs["gateway"] = args ? args.gateway : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metastores"] = args ? args.metastores : undefined;
-            resourceInputs["monitor"] = args ? args.monitor : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
-            resourceInputs["privateLinkConfiguration"] = args ? args.privateLinkConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["storageAccountGen2"] = args ? args.storageAccountGen2 : undefined;
-            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["tlsMinVersion"] = args ? args.tlsMinVersion : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["clusterVersion"] = args?.clusterVersion;
+            resourceInputs["componentVersion"] = args?.componentVersion;
+            resourceInputs["computeIsolation"] = args?.computeIsolation;
+            resourceInputs["diskEncryptions"] = args?.diskEncryptions;
+            resourceInputs["encryptionInTransitEnabled"] = args?.encryptionInTransitEnabled;
+            resourceInputs["extension"] = args?.extension;
+            resourceInputs["gateway"] = args?.gateway;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["metastores"] = args?.metastores;
+            resourceInputs["monitor"] = args?.monitor;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["network"] = args?.network;
+            resourceInputs["privateLinkConfiguration"] = args?.privateLinkConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["storageAccountGen2"] = args?.storageAccountGen2;
+            resourceInputs["storageAccounts"] = args?.storageAccounts;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["tlsMinVersion"] = args?.tlsMinVersion;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["httpsEndpoint"] = undefined /*out*/;
             resourceInputs["sshEndpoint"] = undefined /*out*/;
         }

@@ -84,15 +84,15 @@ export class SqlDedicatedGateway extends pulumi.CustomResource {
     /**
      * The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
      */
-    public readonly cosmosdbAccountId!: pulumi.Output<string>;
+    declare public readonly cosmosdbAccountId: pulumi.Output<string>;
     /**
      * The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
      */
-    public readonly instanceCount!: pulumi.Output<number>;
+    declare public readonly instanceCount: pulumi.Output<number>;
     /**
      * The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
      */
-    public readonly instanceSize!: pulumi.Output<string>;
+    declare public readonly instanceSize: pulumi.Output<string>;
 
     /**
      * Create a SqlDedicatedGateway resource with the given unique name, arguments, and options.
@@ -107,23 +107,23 @@ export class SqlDedicatedGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlDedicatedGatewayState | undefined;
-            resourceInputs["cosmosdbAccountId"] = state ? state.cosmosdbAccountId : undefined;
-            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
-            resourceInputs["instanceSize"] = state ? state.instanceSize : undefined;
+            resourceInputs["cosmosdbAccountId"] = state?.cosmosdbAccountId;
+            resourceInputs["instanceCount"] = state?.instanceCount;
+            resourceInputs["instanceSize"] = state?.instanceSize;
         } else {
             const args = argsOrState as SqlDedicatedGatewayArgs | undefined;
-            if ((!args || args.cosmosdbAccountId === undefined) && !opts.urn) {
+            if (args?.cosmosdbAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosdbAccountId'");
             }
-            if ((!args || args.instanceCount === undefined) && !opts.urn) {
+            if (args?.instanceCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceCount'");
             }
-            if ((!args || args.instanceSize === undefined) && !opts.urn) {
+            if (args?.instanceSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceSize'");
             }
-            resourceInputs["cosmosdbAccountId"] = args ? args.cosmosdbAccountId : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["instanceSize"] = args ? args.instanceSize : undefined;
+            resourceInputs["cosmosdbAccountId"] = args?.cosmosdbAccountId;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["instanceSize"] = args?.instanceSize;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SqlDedicatedGateway.__pulumiType, name, resourceInputs, opts);

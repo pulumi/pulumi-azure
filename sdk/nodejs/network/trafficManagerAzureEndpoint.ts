@@ -101,43 +101,43 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
     /**
      * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
      */
-    public readonly alwaysServeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly alwaysServeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `customHeader` blocks as defined below.
      */
-    public readonly customHeaders!: pulumi.Output<outputs.network.TrafficManagerAzureEndpointCustomHeader[] | undefined>;
+    declare public readonly customHeaders: pulumi.Output<outputs.network.TrafficManagerAzureEndpointCustomHeader[] | undefined>;
     /**
      * Is the endpoint enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
-    public readonly geoMappings!: pulumi.Output<string[] | undefined>;
+    declare public readonly geoMappings: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Azure Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
      */
-    public readonly profileId!: pulumi.Output<string>;
+    declare public readonly profileId: pulumi.Output<string>;
     /**
      * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly subnets!: pulumi.Output<outputs.network.TrafficManagerAzureEndpointSubnet[] | undefined>;
+    declare public readonly subnets: pulumi.Output<outputs.network.TrafficManagerAzureEndpointSubnet[] | undefined>;
     /**
      * The ID of the Azure Resource which should be used as a target.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
-    public readonly weight!: pulumi.Output<number | undefined>;
+    declare public readonly weight: pulumi.Output<number | undefined>;
 
     /**
      * Create a TrafficManagerAzureEndpoint resource with the given unique name, arguments, and options.
@@ -152,34 +152,34 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficManagerAzureEndpointState | undefined;
-            resourceInputs["alwaysServeEnabled"] = state ? state.alwaysServeEnabled : undefined;
-            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["geoMappings"] = state ? state.geoMappings : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["profileId"] = state ? state.profileId : undefined;
-            resourceInputs["subnets"] = state ? state.subnets : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["weight"] = state ? state.weight : undefined;
+            resourceInputs["alwaysServeEnabled"] = state?.alwaysServeEnabled;
+            resourceInputs["customHeaders"] = state?.customHeaders;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["geoMappings"] = state?.geoMappings;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["profileId"] = state?.profileId;
+            resourceInputs["subnets"] = state?.subnets;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["weight"] = state?.weight;
         } else {
             const args = argsOrState as TrafficManagerAzureEndpointArgs | undefined;
-            if ((!args || args.profileId === undefined) && !opts.urn) {
+            if (args?.profileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["alwaysServeEnabled"] = args ? args.alwaysServeEnabled : undefined;
-            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["geoMappings"] = args ? args.geoMappings : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["profileId"] = args ? args.profileId : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["alwaysServeEnabled"] = args?.alwaysServeEnabled;
+            resourceInputs["customHeaders"] = args?.customHeaders;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["geoMappings"] = args?.geoMappings;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["profileId"] = args?.profileId;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["weight"] = args?.weight;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TrafficManagerAzureEndpoint.__pulumiType, name, resourceInputs, opts);

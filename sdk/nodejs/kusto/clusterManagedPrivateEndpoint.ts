@@ -91,31 +91,31 @@ export class ClusterManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
      * The name of the Kusto Cluster. Changing this forces a new resource to be created.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * The group id in which the managed private endpoint is created. Changing this forces a new resource to be created.
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ARM resource ID of the resource for which the managed private endpoint is created. Changing this forces a new resource to be created.
      */
-    public readonly privateLinkResourceId!: pulumi.Output<string>;
+    declare public readonly privateLinkResourceId: pulumi.Output<string>;
     /**
      * The region of the resource to which the managed private endpoint is created. Changing this forces a new resource to be created.
      */
-    public readonly privateLinkResourceRegion!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkResourceRegion: pulumi.Output<string | undefined>;
     /**
      * The user request message.
      */
-    public readonly requestMessage!: pulumi.Output<string | undefined>;
+    declare public readonly requestMessage: pulumi.Output<string | undefined>;
     /**
      * Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ClusterManagedPrivateEndpoint resource with the given unique name, arguments, and options.
@@ -130,34 +130,34 @@ export class ClusterManagedPrivateEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterManagedPrivateEndpointState | undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["groupId"] = state ? state.groupId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateLinkResourceId"] = state ? state.privateLinkResourceId : undefined;
-            resourceInputs["privateLinkResourceRegion"] = state ? state.privateLinkResourceRegion : undefined;
-            resourceInputs["requestMessage"] = state ? state.requestMessage : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["groupId"] = state?.groupId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateLinkResourceId"] = state?.privateLinkResourceId;
+            resourceInputs["privateLinkResourceRegion"] = state?.privateLinkResourceRegion;
+            resourceInputs["requestMessage"] = state?.requestMessage;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ClusterManagedPrivateEndpointArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.privateLinkResourceId === undefined) && !opts.urn) {
+            if (args?.privateLinkResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            resourceInputs["privateLinkResourceRegion"] = args ? args.privateLinkResourceRegion : undefined;
-            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
+            resourceInputs["privateLinkResourceRegion"] = args?.privateLinkResourceRegion;
+            resourceInputs["requestMessage"] = args?.requestMessage;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);

@@ -153,51 +153,51 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * An `apiServerProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly apiServerProfile!: pulumi.Output<outputs.redhatopenshift.ClusterApiServerProfile>;
+    declare public readonly apiServerProfile: pulumi.Output<outputs.redhatopenshift.ClusterApiServerProfile>;
     /**
      * A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly clusterProfile!: pulumi.Output<outputs.redhatopenshift.ClusterClusterProfile>;
+    declare public readonly clusterProfile: pulumi.Output<outputs.redhatopenshift.ClusterClusterProfile>;
     /**
      * The Red Hat OpenShift cluster console URL.
      */
-    public /*out*/ readonly consoleUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly consoleUrl: pulumi.Output<string>;
     /**
      * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ingressProfile!: pulumi.Output<outputs.redhatopenshift.ClusterIngressProfile>;
+    declare public readonly ingressProfile: pulumi.Output<outputs.redhatopenshift.ClusterIngressProfile>;
     /**
      * The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `mainProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly mainProfile!: pulumi.Output<outputs.redhatopenshift.ClusterMainProfile>;
+    declare public readonly mainProfile: pulumi.Output<outputs.redhatopenshift.ClusterMainProfile>;
     /**
      * The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.redhatopenshift.ClusterNetworkProfile>;
+    declare public readonly networkProfile: pulumi.Output<outputs.redhatopenshift.ClusterNetworkProfile>;
     /**
      * Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `servicePrincipal` block as defined below.
      */
-    public readonly servicePrincipal!: pulumi.Output<outputs.redhatopenshift.ClusterServicePrincipal>;
+    declare public readonly servicePrincipal: pulumi.Output<outputs.redhatopenshift.ClusterServicePrincipal>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `workerProfile` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly workerProfile!: pulumi.Output<outputs.redhatopenshift.ClusterWorkerProfile>;
+    declare public readonly workerProfile: pulumi.Output<outputs.redhatopenshift.ClusterWorkerProfile>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -212,55 +212,55 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["apiServerProfile"] = state ? state.apiServerProfile : undefined;
-            resourceInputs["clusterProfile"] = state ? state.clusterProfile : undefined;
-            resourceInputs["consoleUrl"] = state ? state.consoleUrl : undefined;
-            resourceInputs["ingressProfile"] = state ? state.ingressProfile : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mainProfile"] = state ? state.mainProfile : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workerProfile"] = state ? state.workerProfile : undefined;
+            resourceInputs["apiServerProfile"] = state?.apiServerProfile;
+            resourceInputs["clusterProfile"] = state?.clusterProfile;
+            resourceInputs["consoleUrl"] = state?.consoleUrl;
+            resourceInputs["ingressProfile"] = state?.ingressProfile;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mainProfile"] = state?.mainProfile;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkProfile"] = state?.networkProfile;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["servicePrincipal"] = state?.servicePrincipal;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workerProfile"] = state?.workerProfile;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.apiServerProfile === undefined) && !opts.urn) {
+            if (args?.apiServerProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiServerProfile'");
             }
-            if ((!args || args.clusterProfile === undefined) && !opts.urn) {
+            if (args?.clusterProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterProfile'");
             }
-            if ((!args || args.ingressProfile === undefined) && !opts.urn) {
+            if (args?.ingressProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ingressProfile'");
             }
-            if ((!args || args.mainProfile === undefined) && !opts.urn) {
+            if (args?.mainProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mainProfile'");
             }
-            if ((!args || args.networkProfile === undefined) && !opts.urn) {
+            if (args?.networkProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.servicePrincipal === undefined) && !opts.urn) {
+            if (args?.servicePrincipal === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servicePrincipal'");
             }
-            if ((!args || args.workerProfile === undefined) && !opts.urn) {
+            if (args?.workerProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workerProfile'");
             }
-            resourceInputs["apiServerProfile"] = args ? args.apiServerProfile : undefined;
-            resourceInputs["clusterProfile"] = args ? args.clusterProfile : undefined;
-            resourceInputs["ingressProfile"] = args ? args.ingressProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mainProfile"] = args ? args.mainProfile : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workerProfile"] = args ? args.workerProfile : undefined;
+            resourceInputs["apiServerProfile"] = args?.apiServerProfile;
+            resourceInputs["clusterProfile"] = args?.clusterProfile;
+            resourceInputs["ingressProfile"] = args?.ingressProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mainProfile"] = args?.mainProfile;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["servicePrincipal"] = args?.servicePrincipal;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workerProfile"] = args?.workerProfile;
             resourceInputs["consoleUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

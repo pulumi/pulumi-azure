@@ -89,19 +89,19 @@ export class NetworkManagerSecurityAdminConfiguration extends pulumi.CustomResou
     /**
      * A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
      */
-    public readonly applyOnNetworkIntentPolicyBasedServices!: pulumi.Output<string | undefined>;
+    declare public readonly applyOnNetworkIntentPolicyBasedServices: pulumi.Output<string | undefined>;
     /**
      * A description of the Security Admin Configuration.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
      */
-    public readonly networkManagerId!: pulumi.Output<string>;
+    declare public readonly networkManagerId: pulumi.Output<string>;
 
     /**
      * Create a NetworkManagerSecurityAdminConfiguration resource with the given unique name, arguments, and options.
@@ -116,19 +116,19 @@ export class NetworkManagerSecurityAdminConfiguration extends pulumi.CustomResou
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerSecurityAdminConfigurationState | undefined;
-            resourceInputs["applyOnNetworkIntentPolicyBasedServices"] = state ? state.applyOnNetworkIntentPolicyBasedServices : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkManagerId"] = state ? state.networkManagerId : undefined;
+            resourceInputs["applyOnNetworkIntentPolicyBasedServices"] = state?.applyOnNetworkIntentPolicyBasedServices;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkManagerId"] = state?.networkManagerId;
         } else {
             const args = argsOrState as NetworkManagerSecurityAdminConfigurationArgs | undefined;
-            if ((!args || args.networkManagerId === undefined) && !opts.urn) {
+            if (args?.networkManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerId'");
             }
-            resourceInputs["applyOnNetworkIntentPolicyBasedServices"] = args ? args.applyOnNetworkIntentPolicyBasedServices : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
+            resourceInputs["applyOnNetworkIntentPolicyBasedServices"] = args?.applyOnNetworkIntentPolicyBasedServices;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerSecurityAdminConfiguration.__pulumiType, name, resourceInputs, opts);

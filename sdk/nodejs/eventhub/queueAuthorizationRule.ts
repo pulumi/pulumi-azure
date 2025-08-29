@@ -49,49 +49,49 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**
      * Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
      */
-    public readonly listen!: pulumi.Output<boolean | undefined>;
+    declare public readonly listen: pulumi.Output<boolean | undefined>;
     /**
      * Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    public readonly manage!: pulumi.Output<boolean | undefined>;
+    declare public readonly manage: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Primary Connection String for the Authorization Rule.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
      */
-    public /*out*/ readonly primaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionStringAlias: pulumi.Output<string>;
     /**
      * The Primary Key for the Authorization Rule.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      *
      * > **Note:** At least one of the 3 permissions below needs to be set.
      */
-    public readonly queueId!: pulumi.Output<string>;
+    declare public readonly queueId: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the Authorization Rule.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The alias Secondary Connection String for the ServiceBus Namespace
      */
-    public /*out*/ readonly secondaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionStringAlias: pulumi.Output<string>;
     /**
      * The Secondary Key for the Authorization Rule.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      */
-    public readonly send!: pulumi.Output<boolean | undefined>;
+    declare public readonly send: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a QueueAuthorizationRule resource with the given unique name, arguments, and options.
@@ -109,27 +109,27 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueAuthorizationRuleState | undefined;
-            resourceInputs["listen"] = state ? state.listen : undefined;
-            resourceInputs["manage"] = state ? state.manage : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["queueId"] = state ? state.queueId : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["send"] = state ? state.send : undefined;
+            resourceInputs["listen"] = state?.listen;
+            resourceInputs["manage"] = state?.manage;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["primaryConnectionStringAlias"] = state?.primaryConnectionStringAlias;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["queueId"] = state?.queueId;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["secondaryConnectionStringAlias"] = state?.secondaryConnectionStringAlias;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["send"] = state?.send;
         } else {
             const args = argsOrState as QueueAuthorizationRuleArgs | undefined;
-            if ((!args || args.queueId === undefined) && !opts.urn) {
+            if (args?.queueId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queueId'");
             }
-            resourceInputs["listen"] = args ? args.listen : undefined;
-            resourceInputs["manage"] = args ? args.manage : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queueId"] = args ? args.queueId : undefined;
-            resourceInputs["send"] = args ? args.send : undefined;
+            resourceInputs["listen"] = args?.listen;
+            resourceInputs["manage"] = args?.manage;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queueId"] = args?.queueId;
+            resourceInputs["send"] = args?.send;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryConnectionStringAlias"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;

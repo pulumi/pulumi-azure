@@ -147,15 +147,15 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
     /**
      * Used to specify whether enable Infrastructure Encryption. Changing this forces a new resource to be created.
      */
-    public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly infrastructureEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string>;
     /**
      * The ID of the Service Bus namespace. Changing this forces a new resource to be created.
      */
-    public readonly namespaceId!: pulumi.Output<string>;
+    declare public readonly namespaceId: pulumi.Output<string>;
 
     /**
      * Create a NamespaceCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -170,20 +170,20 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceCustomerManagedKeyState | undefined;
-            resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
+            resourceInputs["infrastructureEncryptionEnabled"] = state?.infrastructureEncryptionEnabled;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["namespaceId"] = state?.namespaceId;
         } else {
             const args = argsOrState as NamespaceCustomerManagedKeyArgs | undefined;
-            if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
+            if (args?.keyVaultKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            if ((!args || args.namespaceId === undefined) && !opts.urn) {
+            if (args?.namespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceId'");
             }
-            resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
+            resourceInputs["infrastructureEncryptionEnabled"] = args?.infrastructureEncryptionEnabled;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["namespaceId"] = args?.namespaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NamespaceCustomerManagedKey.__pulumiType, name, resourceInputs, opts);

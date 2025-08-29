@@ -78,23 +78,23 @@ export class SmartDetectionRule extends pulumi.CustomResource {
      *
      * > **Note:** At least one read or write permission must be defined.
      */
-    public readonly additionalEmailRecipients!: pulumi.Output<string[] | undefined>;
+    declare public readonly additionalEmailRecipients: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
      */
-    public readonly applicationInsightsId!: pulumi.Output<string>;
+    declare public readonly applicationInsightsId: pulumi.Output<string>;
     /**
      * Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Potential memory leak detected`, `Potential security issue detected`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Do emails get sent to subscription owners? Defaults to `true`.
      */
-    public readonly sendEmailsToSubscriptionOwners!: pulumi.Output<boolean | undefined>;
+    declare public readonly sendEmailsToSubscriptionOwners: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SmartDetectionRule resource with the given unique name, arguments, and options.
@@ -109,21 +109,21 @@ export class SmartDetectionRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SmartDetectionRuleState | undefined;
-            resourceInputs["additionalEmailRecipients"] = state ? state.additionalEmailRecipients : undefined;
-            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sendEmailsToSubscriptionOwners"] = state ? state.sendEmailsToSubscriptionOwners : undefined;
+            resourceInputs["additionalEmailRecipients"] = state?.additionalEmailRecipients;
+            resourceInputs["applicationInsightsId"] = state?.applicationInsightsId;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sendEmailsToSubscriptionOwners"] = state?.sendEmailsToSubscriptionOwners;
         } else {
             const args = argsOrState as SmartDetectionRuleArgs | undefined;
-            if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
+            if (args?.applicationInsightsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            resourceInputs["additionalEmailRecipients"] = args ? args.additionalEmailRecipients : undefined;
-            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sendEmailsToSubscriptionOwners"] = args ? args.sendEmailsToSubscriptionOwners : undefined;
+            resourceInputs["additionalEmailRecipients"] = args?.additionalEmailRecipients;
+            resourceInputs["applicationInsightsId"] = args?.applicationInsightsId;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sendEmailsToSubscriptionOwners"] = args?.sendEmailsToSubscriptionOwners;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SmartDetectionRule.__pulumiType, name, resourceInputs, opts);

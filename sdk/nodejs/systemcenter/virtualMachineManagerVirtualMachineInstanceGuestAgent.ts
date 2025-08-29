@@ -127,19 +127,19 @@ export class VirtualMachineManagerVirtualMachineInstanceGuestAgent extends pulum
     /**
      * The password that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * The provisioning action that is used to define the different types of operations for the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Possible values are `install`, `repair` and `uninstall`. Defaults to `install`. Changing this forces a new resource to be created.
      */
-    public readonly provisioningAction!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningAction: pulumi.Output<string | undefined>;
     /**
      * The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance Guest Agent is stored. Changing this forces a new resource to be created.
      */
-    public readonly scopedResourceId!: pulumi.Output<string>;
+    declare public readonly scopedResourceId: pulumi.Output<string>;
     /**
      * The username that is used to connect to the System Center Virtual Machine Manager Virtual Machine Instance Guest Agent. Changing this forces a new resource to be created.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineManagerVirtualMachineInstanceGuestAgent resource with the given unique name, arguments, and options.
@@ -154,25 +154,25 @@ export class VirtualMachineManagerVirtualMachineInstanceGuestAgent extends pulum
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineManagerVirtualMachineInstanceGuestAgentState | undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["provisioningAction"] = state ? state.provisioningAction : undefined;
-            resourceInputs["scopedResourceId"] = state ? state.scopedResourceId : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["provisioningAction"] = state?.provisioningAction;
+            resourceInputs["scopedResourceId"] = state?.scopedResourceId;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as VirtualMachineManagerVirtualMachineInstanceGuestAgentArgs | undefined;
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.scopedResourceId === undefined) && !opts.urn) {
+            if (args?.scopedResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopedResourceId'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["scopedResourceId"] = args ? args.scopedResourceId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["provisioningAction"] = args?.provisioningAction;
+            resourceInputs["scopedResourceId"] = args?.scopedResourceId;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

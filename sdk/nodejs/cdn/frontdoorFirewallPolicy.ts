@@ -216,23 +216,23 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
     /**
      * If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
      */
-    public readonly customBlockResponseBody!: pulumi.Output<string | undefined>;
+    declare public readonly customBlockResponseBody: pulumi.Output<string | undefined>;
     /**
      * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
      */
-    public readonly customBlockResponseStatusCode!: pulumi.Output<number | undefined>;
+    declare public readonly customBlockResponseStatusCode: pulumi.Output<number | undefined>;
     /**
      * One or more `customRule` blocks as defined below.
      */
-    public readonly customRules!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyCustomRule[] | undefined>;
+    declare public readonly customRules: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyCustomRule[] | undefined>;
     /**
      * Is the Front Door Firewall Policy enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
      */
-    public /*out*/ readonly frontendEndpointIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly frontendEndpointIds: pulumi.Output<string[]>;
     /**
      * Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
      *
@@ -240,49 +240,49 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      *
      * !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      */
-    public readonly jsChallengeCookieExpirationInMinutes!: pulumi.Output<number>;
+    declare public readonly jsChallengeCookieExpirationInMinutes: pulumi.Output<number>;
     /**
      * A `logScrubbing` block as defined below.
      *
      * !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      */
-    public readonly logScrubbing!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyLogScrubbing | undefined>;
+    declare public readonly logScrubbing: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyLogScrubbing | undefined>;
     /**
      * One or more `managedRule` blocks as defined below.
      */
-    public readonly managedRules!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyManagedRule[] | undefined>;
+    declare public readonly managedRules: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyManagedRule[] | undefined>;
     /**
      * The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * The name of the policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * If action type is redirect, this field represents redirect URL for the client.
      */
-    public readonly redirectUrl!: pulumi.Output<string | undefined>;
+    declare public readonly redirectUrl: pulumi.Output<string | undefined>;
     /**
      * Should policy managed rules inspect the request body content? Defaults to `true`.
      *
      * > **Note:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs.
      */
-    public readonly requestBodyCheckEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly requestBodyCheckEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Front Door Firewall Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a FrontdoorFirewallPolicy resource with the given unique name, arguments, and options.
@@ -297,46 +297,46 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorFirewallPolicyState | undefined;
-            resourceInputs["customBlockResponseBody"] = state ? state.customBlockResponseBody : undefined;
-            resourceInputs["customBlockResponseStatusCode"] = state ? state.customBlockResponseStatusCode : undefined;
-            resourceInputs["customRules"] = state ? state.customRules : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["frontendEndpointIds"] = state ? state.frontendEndpointIds : undefined;
-            resourceInputs["jsChallengeCookieExpirationInMinutes"] = state ? state.jsChallengeCookieExpirationInMinutes : undefined;
-            resourceInputs["logScrubbing"] = state ? state.logScrubbing : undefined;
-            resourceInputs["managedRules"] = state ? state.managedRules : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["redirectUrl"] = state ? state.redirectUrl : undefined;
-            resourceInputs["requestBodyCheckEnabled"] = state ? state.requestBodyCheckEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customBlockResponseBody"] = state?.customBlockResponseBody;
+            resourceInputs["customBlockResponseStatusCode"] = state?.customBlockResponseStatusCode;
+            resourceInputs["customRules"] = state?.customRules;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["frontendEndpointIds"] = state?.frontendEndpointIds;
+            resourceInputs["jsChallengeCookieExpirationInMinutes"] = state?.jsChallengeCookieExpirationInMinutes;
+            resourceInputs["logScrubbing"] = state?.logScrubbing;
+            resourceInputs["managedRules"] = state?.managedRules;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["redirectUrl"] = state?.redirectUrl;
+            resourceInputs["requestBodyCheckEnabled"] = state?.requestBodyCheckEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as FrontdoorFirewallPolicyArgs | undefined;
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["customBlockResponseBody"] = args ? args.customBlockResponseBody : undefined;
-            resourceInputs["customBlockResponseStatusCode"] = args ? args.customBlockResponseStatusCode : undefined;
-            resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["jsChallengeCookieExpirationInMinutes"] = args ? args.jsChallengeCookieExpirationInMinutes : undefined;
-            resourceInputs["logScrubbing"] = args ? args.logScrubbing : undefined;
-            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["redirectUrl"] = args ? args.redirectUrl : undefined;
-            resourceInputs["requestBodyCheckEnabled"] = args ? args.requestBodyCheckEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customBlockResponseBody"] = args?.customBlockResponseBody;
+            resourceInputs["customBlockResponseStatusCode"] = args?.customBlockResponseStatusCode;
+            resourceInputs["customRules"] = args?.customRules;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["jsChallengeCookieExpirationInMinutes"] = args?.jsChallengeCookieExpirationInMinutes;
+            resourceInputs["logScrubbing"] = args?.logScrubbing;
+            resourceInputs["managedRules"] = args?.managedRules;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["redirectUrl"] = args?.redirectUrl;
+            resourceInputs["requestBodyCheckEnabled"] = args?.requestBodyCheckEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["frontendEndpointIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

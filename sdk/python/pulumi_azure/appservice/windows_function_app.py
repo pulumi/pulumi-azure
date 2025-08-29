@@ -61,8 +61,7 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input['WindowsFunctionAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsV2Args'] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
@@ -214,8 +213,7 @@ class WindowsFunctionAppArgs:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of key-value pairs for [App
-        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -654,8 +652,7 @@ class _WindowsFunctionAppState:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WindowsFunctionApp resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['WindowsFunctionAppAuthSettingsV2Args'] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input['WindowsFunctionAppBackupArgs'] backup: A `backup` block as defined below.
@@ -804,8 +801,7 @@ class _WindowsFunctionAppState:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of key-value pairs for [App
-        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1432,8 +1428,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[Union['WindowsFunctionAppAuthSettingsArgs', 'WindowsFunctionAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['WindowsFunctionAppAuthSettingsV2Args', 'WindowsFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input[Union['WindowsFunctionAppBackupArgs', 'WindowsFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
@@ -1707,8 +1702,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[Union['WindowsFunctionAppAuthSettingsArgs', 'WindowsFunctionAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['WindowsFunctionAppAuthSettingsV2Args', 'WindowsFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: A `auth_settings_v2` block as defined below.
         :param pulumi.Input[Union['WindowsFunctionAppBackupArgs', 'WindowsFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
@@ -1818,8 +1812,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of key-value pairs for [App
-        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 

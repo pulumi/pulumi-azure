@@ -150,27 +150,27 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * A `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.chaosstudio.ExperimentIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.chaosstudio.ExperimentIdentity | undefined>;
     /**
      * The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * One or more `selectors` blocks as defined below.
      */
-    public readonly selectors!: pulumi.Output<outputs.chaosstudio.ExperimentSelector[]>;
+    declare public readonly selectors: pulumi.Output<outputs.chaosstudio.ExperimentSelector[]>;
     /**
      * One or more `steps` blocks as defined below.
      */
-    public readonly steps!: pulumi.Output<outputs.chaosstudio.ExperimentStep[]>;
+    declare public readonly steps: pulumi.Output<outputs.chaosstudio.ExperimentStep[]>;
 
     /**
      * Create a Experiment resource with the given unique name, arguments, and options.
@@ -185,29 +185,29 @@ export class Experiment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExperimentState | undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["selectors"] = state ? state.selectors : undefined;
-            resourceInputs["steps"] = state ? state.steps : undefined;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["selectors"] = state?.selectors;
+            resourceInputs["steps"] = state?.steps;
         } else {
             const args = argsOrState as ExperimentArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.selectors === undefined) && !opts.urn) {
+            if (args?.selectors === undefined && !opts.urn) {
                 throw new Error("Missing required property 'selectors'");
             }
-            if ((!args || args.steps === undefined) && !opts.urn) {
+            if (args?.steps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'steps'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["selectors"] = args ? args.selectors : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["selectors"] = args?.selectors;
+            resourceInputs["steps"] = args?.steps;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Experiment.__pulumiType, name, resourceInputs, opts);

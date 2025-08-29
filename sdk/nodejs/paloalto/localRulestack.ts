@@ -70,43 +70,43 @@ export class LocalRulestack extends pulumi.CustomResource {
     /**
      * The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
      */
-    public readonly antiSpywareProfile!: pulumi.Output<string | undefined>;
+    declare public readonly antiSpywareProfile: pulumi.Output<string | undefined>;
     /**
      * The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
      */
-    public readonly antiVirusProfile!: pulumi.Output<string | undefined>;
+    declare public readonly antiVirusProfile: pulumi.Output<string | undefined>;
     /**
      * The description for this Local Rulestack.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
      */
-    public readonly dnsSubscription!: pulumi.Output<string | undefined>;
+    declare public readonly dnsSubscription: pulumi.Output<string | undefined>;
     /**
      * The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
      */
-    public readonly fileBlockingProfile!: pulumi.Output<string | undefined>;
+    declare public readonly fileBlockingProfile: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
      */
-    public readonly urlFilteringProfile!: pulumi.Output<string | undefined>;
+    declare public readonly urlFilteringProfile: pulumi.Output<string | undefined>;
     /**
      * The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
      */
-    public readonly vulnerabilityProfile!: pulumi.Output<string | undefined>;
+    declare public readonly vulnerabilityProfile: pulumi.Output<string | undefined>;
 
     /**
      * Create a LocalRulestack resource with the given unique name, arguments, and options.
@@ -121,31 +121,31 @@ export class LocalRulestack extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRulestackState | undefined;
-            resourceInputs["antiSpywareProfile"] = state ? state.antiSpywareProfile : undefined;
-            resourceInputs["antiVirusProfile"] = state ? state.antiVirusProfile : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["dnsSubscription"] = state ? state.dnsSubscription : undefined;
-            resourceInputs["fileBlockingProfile"] = state ? state.fileBlockingProfile : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["urlFilteringProfile"] = state ? state.urlFilteringProfile : undefined;
-            resourceInputs["vulnerabilityProfile"] = state ? state.vulnerabilityProfile : undefined;
+            resourceInputs["antiSpywareProfile"] = state?.antiSpywareProfile;
+            resourceInputs["antiVirusProfile"] = state?.antiVirusProfile;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["dnsSubscription"] = state?.dnsSubscription;
+            resourceInputs["fileBlockingProfile"] = state?.fileBlockingProfile;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["urlFilteringProfile"] = state?.urlFilteringProfile;
+            resourceInputs["vulnerabilityProfile"] = state?.vulnerabilityProfile;
         } else {
             const args = argsOrState as LocalRulestackArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["antiSpywareProfile"] = args ? args.antiSpywareProfile : undefined;
-            resourceInputs["antiVirusProfile"] = args ? args.antiVirusProfile : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["dnsSubscription"] = args ? args.dnsSubscription : undefined;
-            resourceInputs["fileBlockingProfile"] = args ? args.fileBlockingProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["urlFilteringProfile"] = args ? args.urlFilteringProfile : undefined;
-            resourceInputs["vulnerabilityProfile"] = args ? args.vulnerabilityProfile : undefined;
+            resourceInputs["antiSpywareProfile"] = args?.antiSpywareProfile;
+            resourceInputs["antiVirusProfile"] = args?.antiVirusProfile;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["dnsSubscription"] = args?.dnsSubscription;
+            resourceInputs["fileBlockingProfile"] = args?.fileBlockingProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["urlFilteringProfile"] = args?.urlFilteringProfile;
+            resourceInputs["vulnerabilityProfile"] = args?.vulnerabilityProfile;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalRulestack.__pulumiType, name, resourceInputs, opts);

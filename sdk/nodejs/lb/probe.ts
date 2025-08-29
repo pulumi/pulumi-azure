@@ -87,36 +87,36 @@ export class Probe extends pulumi.CustomResource {
     /**
      * The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
      */
-    public readonly intervalInSeconds!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly loadBalancerRules!: pulumi.Output<string[]>;
+    declare public readonly intervalInSeconds: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly loadBalancerRules: pulumi.Output<string[]>;
     /**
      * The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
      */
-    public readonly loadbalancerId!: pulumi.Output<string>;
+    declare public readonly loadbalancerId: pulumi.Output<string>;
     /**
      * Specifies the name of the Probe. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      */
-    public readonly numberOfProbes!: pulumi.Output<number | undefined>;
+    declare public readonly numberOfProbes: pulumi.Output<number | undefined>;
     /**
      * Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
      */
-    public readonly probeThreshold!: pulumi.Output<number | undefined>;
+    declare public readonly probeThreshold: pulumi.Output<number | undefined>;
     /**
      * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to `Tcp`.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
      */
-    public readonly requestPath!: pulumi.Output<string | undefined>;
+    declare public readonly requestPath: pulumi.Output<string | undefined>;
 
     /**
      * Create a Probe resource with the given unique name, arguments, and options.
@@ -131,31 +131,31 @@ export class Probe extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProbeState | undefined;
-            resourceInputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
-            resourceInputs["loadBalancerRules"] = state ? state.loadBalancerRules : undefined;
-            resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["numberOfProbes"] = state ? state.numberOfProbes : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["probeThreshold"] = state ? state.probeThreshold : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["requestPath"] = state ? state.requestPath : undefined;
+            resourceInputs["intervalInSeconds"] = state?.intervalInSeconds;
+            resourceInputs["loadBalancerRules"] = state?.loadBalancerRules;
+            resourceInputs["loadbalancerId"] = state?.loadbalancerId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["numberOfProbes"] = state?.numberOfProbes;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["probeThreshold"] = state?.probeThreshold;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["requestPath"] = state?.requestPath;
         } else {
             const args = argsOrState as ProbeArgs | undefined;
-            if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
+            if (args?.loadbalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            if ((!args || args.port === undefined) && !opts.urn) {
+            if (args?.port === undefined && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            resourceInputs["intervalInSeconds"] = args ? args.intervalInSeconds : undefined;
-            resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["numberOfProbes"] = args ? args.numberOfProbes : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["probeThreshold"] = args ? args.probeThreshold : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["requestPath"] = args ? args.requestPath : undefined;
+            resourceInputs["intervalInSeconds"] = args?.intervalInSeconds;
+            resourceInputs["loadbalancerId"] = args?.loadbalancerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["numberOfProbes"] = args?.numberOfProbes;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["probeThreshold"] = args?.probeThreshold;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["requestPath"] = args?.requestPath;
             resourceInputs["loadBalancerRules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

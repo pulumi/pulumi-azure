@@ -96,11 +96,11 @@ export class NetworkInterfaceSecurityGroupAssociation extends pulumi.CustomResou
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly networkInterfaceId!: pulumi.Output<string>;
+    declare public readonly networkInterfaceId: pulumi.Output<string>;
     /**
      * The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly networkSecurityGroupId!: pulumi.Output<string>;
+    declare public readonly networkSecurityGroupId: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceSecurityGroupAssociation resource with the given unique name, arguments, and options.
@@ -115,18 +115,18 @@ export class NetworkInterfaceSecurityGroupAssociation extends pulumi.CustomResou
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceSecurityGroupAssociationState | undefined;
-            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            resourceInputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
+            resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
+            resourceInputs["networkSecurityGroupId"] = state?.networkSecurityGroupId;
         } else {
             const args = argsOrState as NetworkInterfaceSecurityGroupAssociationArgs | undefined;
-            if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
+            if (args?.networkInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            if ((!args || args.networkSecurityGroupId === undefined) && !opts.urn) {
+            if (args?.networkSecurityGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityGroupId'");
             }
-            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            resourceInputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
+            resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["networkSecurityGroupId"] = args?.networkSecurityGroupId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkInterfaceSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);

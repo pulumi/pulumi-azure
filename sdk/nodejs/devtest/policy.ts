@@ -85,39 +85,39 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A description for the Policy.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
      */
-    public readonly evaluatorType!: pulumi.Output<string>;
+    declare public readonly evaluatorType: pulumi.Output<string>;
     /**
      * The Fact Data for this Policy.
      */
-    public readonly factData!: pulumi.Output<string | undefined>;
+    declare public readonly factData: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
      */
-    public readonly labName!: pulumi.Output<string>;
+    declare public readonly labName: pulumi.Output<string>;
     /**
      * Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
      */
-    public readonly policySetName!: pulumi.Output<string>;
+    declare public readonly policySetName: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Threshold for this Policy.
      */
-    public readonly threshold!: pulumi.Output<string>;
+    declare public readonly threshold: pulumi.Output<string>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -132,41 +132,41 @@ export class Policy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["evaluatorType"] = state ? state.evaluatorType : undefined;
-            resourceInputs["factData"] = state ? state.factData : undefined;
-            resourceInputs["labName"] = state ? state.labName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policySetName"] = state ? state.policySetName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["threshold"] = state ? state.threshold : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["evaluatorType"] = state?.evaluatorType;
+            resourceInputs["factData"] = state?.factData;
+            resourceInputs["labName"] = state?.labName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policySetName"] = state?.policySetName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["threshold"] = state?.threshold;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if ((!args || args.evaluatorType === undefined) && !opts.urn) {
+            if (args?.evaluatorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluatorType'");
             }
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.policySetName === undefined) && !opts.urn) {
+            if (args?.policySetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policySetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.threshold === undefined) && !opts.urn) {
+            if (args?.threshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'threshold'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["evaluatorType"] = args ? args.evaluatorType : undefined;
-            resourceInputs["factData"] = args ? args.factData : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policySetName"] = args ? args.policySetName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threshold"] = args ? args.threshold : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["evaluatorType"] = args?.evaluatorType;
+            resourceInputs["factData"] = args?.factData;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policySetName"] = args?.policySetName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threshold"] = args?.threshold;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Policy.__pulumiType, name, resourceInputs, opts);

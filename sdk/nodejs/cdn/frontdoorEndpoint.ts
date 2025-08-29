@@ -70,23 +70,23 @@ export class FrontdoorEndpoint extends pulumi.CustomResource {
     /**
      * The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created.
      */
-    public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorProfileId: pulumi.Output<string>;
     /**
      * Specifies if this Front Door Endpoint is enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      */
-    public /*out*/ readonly hostName!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostName: pulumi.Output<string>;
     /**
      * The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a mapping of tags which should be assigned to the Front Door Endpoint.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a FrontdoorEndpoint resource with the given unique name, arguments, and options.
@@ -101,20 +101,20 @@ export class FrontdoorEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorEndpointState | undefined;
-            resourceInputs["cdnFrontdoorProfileId"] = state ? state.cdnFrontdoorProfileId : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["hostName"] = state ? state.hostName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = state?.cdnFrontdoorProfileId;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["hostName"] = state?.hostName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as FrontdoorEndpointArgs | undefined;
-            if ((!args || args.cdnFrontdoorProfileId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorProfileId'");
             }
-            resourceInputs["cdnFrontdoorProfileId"] = args ? args.cdnFrontdoorProfileId : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = args?.cdnFrontdoorProfileId;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["hostName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

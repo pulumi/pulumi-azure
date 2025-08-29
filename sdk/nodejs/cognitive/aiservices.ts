@@ -78,73 +78,73 @@ export class AIServices extends pulumi.CustomResource {
      *
      * > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
      */
-    public readonly customSubdomainName!: pulumi.Output<string | undefined>;
+    declare public readonly customSubdomainName: pulumi.Output<string | undefined>;
     /**
      * A `customerManagedKey` block as documented below.
      */
-    public readonly customerManagedKey!: pulumi.Output<outputs.cognitive.AIServicesCustomerManagedKey | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<outputs.cognitive.AIServicesCustomerManagedKey | undefined>;
     /**
      * The endpoint used to connect to the AI Services Account.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * List of FQDNs allowed for the AI Services Account.
      */
-    public readonly fqdns!: pulumi.Output<string[] | undefined>;
+    declare public readonly fqdns: pulumi.Output<string[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.cognitive.AIServicesIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.cognitive.AIServicesIdentity | undefined>;
     /**
      * Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
      */
-    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the AI Services Account. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      */
-    public readonly networkAcls!: pulumi.Output<outputs.cognitive.AIServicesNetworkAcls | undefined>;
+    declare public readonly networkAcls: pulumi.Output<outputs.cognitive.AIServicesNetworkAcls | undefined>;
     /**
      * Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
      */
-    public readonly outboundNetworkAccessRestricted!: pulumi.Output<boolean | undefined>;
+    declare public readonly outboundNetworkAccessRestricted: pulumi.Output<boolean | undefined>;
     /**
      * A primary access key which can be used to connect to the AI Services Account.
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * Whether public network access is allowed for the AI Services Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which the AI Services Account is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary access key which can be used to connect to the AI Services Account.
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * Specifies the SKU Name for this AI Services Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
      *
      * > **Note:** SKU `DC0` is the commitment tier for AI Services Account containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A `storage` block as defined below.
      */
-    public readonly storages!: pulumi.Output<outputs.cognitive.AIServicesStorage[] | undefined>;
+    declare public readonly storages: pulumi.Output<outputs.cognitive.AIServicesStorage[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AIServices resource with the given unique name, arguments, and options.
@@ -159,45 +159,45 @@ export class AIServices extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AIServicesState | undefined;
-            resourceInputs["customSubdomainName"] = state ? state.customSubdomainName : undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["fqdns"] = state ? state.fqdns : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkAcls"] = state ? state.networkAcls : undefined;
-            resourceInputs["outboundNetworkAccessRestricted"] = state ? state.outboundNetworkAccessRestricted : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["storages"] = state ? state.storages : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customSubdomainName"] = state?.customSubdomainName;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["fqdns"] = state?.fqdns;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkAcls"] = state?.networkAcls;
+            resourceInputs["outboundNetworkAccessRestricted"] = state?.outboundNetworkAccessRestricted;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["storages"] = state?.storages;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AIServicesArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["customSubdomainName"] = args ? args.customSubdomainName : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["outboundNetworkAccessRestricted"] = args ? args.outboundNetworkAccessRestricted : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["storages"] = args ? args.storages : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customSubdomainName"] = args?.customSubdomainName;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["fqdns"] = args?.fqdns;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["outboundNetworkAccessRestricted"] = args?.outboundNetworkAccessRestricted;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["storages"] = args?.storages;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;

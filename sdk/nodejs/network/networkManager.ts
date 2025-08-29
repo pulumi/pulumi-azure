@@ -84,35 +84,35 @@ export class NetworkManager extends pulumi.CustomResource {
     /**
      * One or more `crossTenantScopes` blocks as defined below.
      */
-    public /*out*/ readonly crossTenantScopes!: pulumi.Output<outputs.network.NetworkManagerCrossTenantScope[]>;
+    declare public /*out*/ readonly crossTenantScopes: pulumi.Output<outputs.network.NetworkManagerCrossTenantScope[]>;
     /**
      * A description of the Network Manager.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `scope` block as defined below.
      */
-    public readonly scope!: pulumi.Output<outputs.network.NetworkManagerScope>;
+    declare public readonly scope: pulumi.Output<outputs.network.NetworkManagerScope>;
     /**
      * A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      */
-    public readonly scopeAccesses!: pulumi.Output<string[] | undefined>;
+    declare public readonly scopeAccesses: pulumi.Output<string[] | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Manager.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NetworkManager resource with the given unique name, arguments, and options.
@@ -127,29 +127,29 @@ export class NetworkManager extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerState | undefined;
-            resourceInputs["crossTenantScopes"] = state ? state.crossTenantScopes : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["scopeAccesses"] = state ? state.scopeAccesses : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["crossTenantScopes"] = state?.crossTenantScopes;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["scopeAccesses"] = state?.scopeAccesses;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NetworkManagerArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["scopeAccesses"] = args ? args.scopeAccesses : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["scopeAccesses"] = args?.scopeAccesses;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["crossTenantScopes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

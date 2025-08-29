@@ -81,31 +81,31 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
     /**
      * The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
      */
-    public readonly privateDnsZoneName!: pulumi.Output<string>;
+    declare public readonly privateDnsZoneName: pulumi.Output<string>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
-    public readonly registrationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly registrationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
      */
-    public readonly resolutionPolicy!: pulumi.Output<string>;
+    declare public readonly resolutionPolicy: pulumi.Output<string>;
     /**
      * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */
-    public readonly virtualNetworkId!: pulumi.Output<string>;
+    declare public readonly virtualNetworkId: pulumi.Output<string>;
 
     /**
      * Create a ZoneVirtualNetworkLink resource with the given unique name, arguments, and options.
@@ -120,31 +120,31 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneVirtualNetworkLinkState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateDnsZoneName"] = state ? state.privateDnsZoneName : undefined;
-            resourceInputs["registrationEnabled"] = state ? state.registrationEnabled : undefined;
-            resourceInputs["resolutionPolicy"] = state ? state.resolutionPolicy : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateDnsZoneName"] = state?.privateDnsZoneName;
+            resourceInputs["registrationEnabled"] = state?.registrationEnabled;
+            resourceInputs["resolutionPolicy"] = state?.resolutionPolicy;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualNetworkId"] = state?.virtualNetworkId;
         } else {
             const args = argsOrState as ZoneVirtualNetworkLinkArgs | undefined;
-            if ((!args || args.privateDnsZoneName === undefined) && !opts.urn) {
+            if (args?.privateDnsZoneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateDnsZoneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkId === undefined) && !opts.urn) {
+            if (args?.virtualNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateDnsZoneName"] = args ? args.privateDnsZoneName : undefined;
-            resourceInputs["registrationEnabled"] = args ? args.registrationEnabled : undefined;
-            resourceInputs["resolutionPolicy"] = args ? args.resolutionPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateDnsZoneName"] = args?.privateDnsZoneName;
+            resourceInputs["registrationEnabled"] = args?.registrationEnabled;
+            resourceInputs["resolutionPolicy"] = args?.resolutionPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ZoneVirtualNetworkLink.__pulumiType, name, resourceInputs, opts);

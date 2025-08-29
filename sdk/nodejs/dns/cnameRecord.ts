@@ -104,37 +104,37 @@ export class CNameRecord extends pulumi.CustomResource {
     /**
      * The FQDN of the DNS CName Record.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * The name of the DNS CNAME Record. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The target of the CNAME.
      */
-    public readonly record!: pulumi.Output<string | undefined>;
+    declare public readonly record: pulumi.Output<string | undefined>;
     /**
      * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      *
      * > **Note:** either `record` OR `targetResourceId` must be specified, but not both.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Azure resource id of the target object. Conflicts with `record`.
      */
-    public readonly targetResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly targetResourceId: pulumi.Output<string | undefined>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
-    public readonly ttl!: pulumi.Output<number>;
+    declare public readonly ttl: pulumi.Output<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly zoneName!: pulumi.Output<string>;
+    declare public readonly zoneName: pulumi.Output<string>;
 
     /**
      * Create a CNameRecord resource with the given unique name, arguments, and options.
@@ -149,32 +149,32 @@ export class CNameRecord extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CNameRecordState | undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["record"] = state ? state.record : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["ttl"] = state ? state.ttl : undefined;
-            resourceInputs["zoneName"] = state ? state.zoneName : undefined;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["record"] = state?.record;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["ttl"] = state?.ttl;
+            resourceInputs["zoneName"] = state?.zoneName;
         } else {
             const args = argsOrState as CNameRecordArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ttl === undefined) && !opts.urn) {
+            if (args?.ttl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ttl'");
             }
-            if ((!args || args.zoneName === undefined) && !opts.urn) {
+            if (args?.zoneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["record"] = args ? args.record : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["record"] = args?.record;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["zoneName"] = args?.zoneName;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

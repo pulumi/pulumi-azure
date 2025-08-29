@@ -87,19 +87,19 @@ export class ProtectionContainer extends pulumi.CustomResource {
     /**
      * The name of the protection container. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Name of fabric that should contain this protection container. Changing this forces a new resource to be created.
      */
-    public readonly recoveryFabricName!: pulumi.Output<string>;
+    declare public readonly recoveryFabricName: pulumi.Output<string>;
     /**
      * The name of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ProtectionContainer resource with the given unique name, arguments, and options.
@@ -114,25 +114,25 @@ export class ProtectionContainer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectionContainerState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryFabricName"] = state ? state.recoveryFabricName : undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recoveryFabricName"] = state?.recoveryFabricName;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ProtectionContainerArgs | undefined;
-            if ((!args || args.recoveryFabricName === undefined) && !opts.urn) {
+            if (args?.recoveryFabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryFabricName'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryFabricName"] = args ? args.recoveryFabricName : undefined;
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recoveryFabricName"] = args?.recoveryFabricName;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProtectionContainer.__pulumiType, name, resourceInputs, opts);

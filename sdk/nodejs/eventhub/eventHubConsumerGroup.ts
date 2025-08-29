@@ -92,23 +92,23 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
-    public readonly eventhubName!: pulumi.Output<string>;
+    declare public readonly eventhubName: pulumi.Output<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the user metadata.
      */
-    public readonly userMetadata!: pulumi.Output<string | undefined>;
+    declare public readonly userMetadata: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventHubConsumerGroup resource with the given unique name, arguments, and options.
@@ -126,27 +126,27 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventHubConsumerGroupState | undefined;
-            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["userMetadata"] = state ? state.userMetadata : undefined;
+            resourceInputs["eventhubName"] = state?.eventhubName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["userMetadata"] = state?.userMetadata;
         } else {
             const args = argsOrState as EventHubConsumerGroupArgs | undefined;
-            if ((!args || args.eventhubName === undefined) && !opts.urn) {
+            if (args?.eventhubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["eventhubName"] = args?.eventhubName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["userMetadata"] = args?.userMetadata;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EventHubConsumerGroup.__pulumiType, name, resourceInputs, opts);

@@ -100,23 +100,23 @@ export class SyncCloudEndpoint extends pulumi.CustomResource {
     /**
      * The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    public readonly fileShareName!: pulumi.Output<string>;
+    declare public readonly fileShareName: pulumi.Output<string>;
     /**
      * The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
      */
-    public readonly storageAccountTenantId!: pulumi.Output<string>;
+    declare public readonly storageAccountTenantId: pulumi.Output<string>;
     /**
      * The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
      */
-    public readonly storageSyncGroupId!: pulumi.Output<string>;
+    declare public readonly storageSyncGroupId: pulumi.Output<string>;
 
     /**
      * Create a SyncCloudEndpoint resource with the given unique name, arguments, and options.
@@ -131,27 +131,27 @@ export class SyncCloudEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyncCloudEndpointState | undefined;
-            resourceInputs["fileShareName"] = state ? state.fileShareName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["storageAccountTenantId"] = state ? state.storageAccountTenantId : undefined;
-            resourceInputs["storageSyncGroupId"] = state ? state.storageSyncGroupId : undefined;
+            resourceInputs["fileShareName"] = state?.fileShareName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["storageAccountTenantId"] = state?.storageAccountTenantId;
+            resourceInputs["storageSyncGroupId"] = state?.storageSyncGroupId;
         } else {
             const args = argsOrState as SyncCloudEndpointArgs | undefined;
-            if ((!args || args.fileShareName === undefined) && !opts.urn) {
+            if (args?.fileShareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileShareName'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            if ((!args || args.storageSyncGroupId === undefined) && !opts.urn) {
+            if (args?.storageSyncGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncGroupId'");
             }
-            resourceInputs["fileShareName"] = args ? args.fileShareName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
-            resourceInputs["storageSyncGroupId"] = args ? args.storageSyncGroupId : undefined;
+            resourceInputs["fileShareName"] = args?.fileShareName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["storageAccountTenantId"] = args?.storageAccountTenantId;
+            resourceInputs["storageSyncGroupId"] = args?.storageSyncGroupId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SyncCloudEndpoint.__pulumiType, name, resourceInputs, opts);

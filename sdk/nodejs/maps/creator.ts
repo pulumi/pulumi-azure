@@ -84,23 +84,23 @@ export class Creator extends pulumi.CustomResource {
     /**
      * The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of the Azure Maps Creator. Changing this forces a new resource to be created.
      */
-    public readonly mapsAccountId!: pulumi.Output<string>;
+    declare public readonly mapsAccountId: pulumi.Output<string>;
     /**
      * The name of the Azure Maps Creator. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The storage units to be allocated. Integer values from 1 to 100, inclusive.
      */
-    public readonly storageUnits!: pulumi.Output<number>;
+    declare public readonly storageUnits: pulumi.Output<number>;
     /**
      * A mapping of tags which should be assigned to the Azure Maps Creator.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Creator resource with the given unique name, arguments, and options.
@@ -115,24 +115,24 @@ export class Creator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CreatorState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mapsAccountId"] = state ? state.mapsAccountId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageUnits"] = state ? state.storageUnits : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mapsAccountId"] = state?.mapsAccountId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageUnits"] = state?.storageUnits;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as CreatorArgs | undefined;
-            if ((!args || args.mapsAccountId === undefined) && !opts.urn) {
+            if (args?.mapsAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mapsAccountId'");
             }
-            if ((!args || args.storageUnits === undefined) && !opts.urn) {
+            if (args?.storageUnits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageUnits'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mapsAccountId"] = args ? args.mapsAccountId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageUnits"] = args ? args.storageUnits : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mapsAccountId"] = args?.mapsAccountId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageUnits"] = args?.storageUnits;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Creator.__pulumiType, name, resourceInputs, opts);

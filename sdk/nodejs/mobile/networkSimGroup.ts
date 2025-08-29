@@ -99,29 +99,29 @@ export class NetworkSimGroup extends pulumi.CustomResource {
     /**
      * A key to encrypt the SIM data that belongs to this SIM group.
      */
-    public readonly encryptionKeyUrl!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionKeyUrl: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      *
      * > **Note:** A `UserAssigned` identity must be specified when `encryptionKeyUrl` is specified.
      */
-    public readonly identity!: pulumi.Output<outputs.mobile.NetworkSimGroupIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.mobile.NetworkSimGroupIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of Mobile Network which the Mobile Network Sim Group belongs to. Changing this forces a new Mobile Network Slice to be created.
      */
-    public readonly mobileNetworkId!: pulumi.Output<string>;
+    declare public readonly mobileNetworkId: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Sim Groups.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NetworkSimGroup resource with the given unique name, arguments, and options.
@@ -136,23 +136,23 @@ export class NetworkSimGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkSimGroupState | undefined;
-            resourceInputs["encryptionKeyUrl"] = state ? state.encryptionKeyUrl : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mobileNetworkId"] = state ? state.mobileNetworkId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["encryptionKeyUrl"] = state?.encryptionKeyUrl;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mobileNetworkId"] = state?.mobileNetworkId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NetworkSimGroupArgs | undefined;
-            if ((!args || args.mobileNetworkId === undefined) && !opts.urn) {
+            if (args?.mobileNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkId'");
             }
-            resourceInputs["encryptionKeyUrl"] = args ? args.encryptionKeyUrl : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkId"] = args ? args.mobileNetworkId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryptionKeyUrl"] = args?.encryptionKeyUrl;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkId"] = args?.mobileNetworkId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkSimGroup.__pulumiType, name, resourceInputs, opts);

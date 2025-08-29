@@ -46,35 +46,35 @@ export class WorkspaceSecurityAlertPolicy extends pulumi.CustomResource {
     /**
      * Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
      */
-    public readonly disabledAlerts!: pulumi.Output<string[] | undefined>;
+    declare public readonly disabledAlerts: pulumi.Output<string[] | undefined>;
     /**
      * Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
      */
-    public readonly emailAccountAdminsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly emailAccountAdminsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */
-    public readonly emailAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly emailAddresses: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are `Disabled`, `Enabled` and `New`.
      */
-    public readonly policyState!: pulumi.Output<string>;
+    declare public readonly policyState: pulumi.Output<string>;
     /**
      * Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
      */
-    public readonly retentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionDays: pulumi.Output<number | undefined>;
     /**
      * Specifies the identifier key of the Threat Detection audit storage account.
      */
-    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountAccessKey: pulumi.Output<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
      */
-    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly storageEndpoint: pulumi.Output<string | undefined>;
     /**
      * Specifies the ID of the Synapse Workspace. Changing this forces a new resource to be created.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceSecurityAlertPolicy resource with the given unique name, arguments, and options.
@@ -89,30 +89,30 @@ export class WorkspaceSecurityAlertPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceSecurityAlertPolicyState | undefined;
-            resourceInputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
-            resourceInputs["emailAccountAdminsEnabled"] = state ? state.emailAccountAdminsEnabled : undefined;
-            resourceInputs["emailAddresses"] = state ? state.emailAddresses : undefined;
-            resourceInputs["policyState"] = state ? state.policyState : undefined;
-            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
-            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["disabledAlerts"] = state?.disabledAlerts;
+            resourceInputs["emailAccountAdminsEnabled"] = state?.emailAccountAdminsEnabled;
+            resourceInputs["emailAddresses"] = state?.emailAddresses;
+            resourceInputs["policyState"] = state?.policyState;
+            resourceInputs["retentionDays"] = state?.retentionDays;
+            resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
+            resourceInputs["storageEndpoint"] = state?.storageEndpoint;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
         } else {
             const args = argsOrState as WorkspaceSecurityAlertPolicyArgs | undefined;
-            if ((!args || args.policyState === undefined) && !opts.urn) {
+            if (args?.policyState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyState'");
             }
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
+            if (args?.synapseWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            resourceInputs["emailAccountAdminsEnabled"] = args ? args.emailAccountAdminsEnabled : undefined;
-            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            resourceInputs["policyState"] = args ? args.policyState : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["disabledAlerts"] = args?.disabledAlerts;
+            resourceInputs["emailAccountAdminsEnabled"] = args?.emailAccountAdminsEnabled;
+            resourceInputs["emailAddresses"] = args?.emailAddresses;
+            resourceInputs["policyState"] = args?.policyState;
+            resourceInputs["retentionDays"] = args?.retentionDays;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };

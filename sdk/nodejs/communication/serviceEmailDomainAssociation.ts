@@ -84,11 +84,11 @@ export class ServiceEmailDomainAssociation extends pulumi.CustomResource {
     /**
      * The ID of the Communication Service. Changing this forces a new communication service email domain association to be created.
      */
-    public readonly communicationServiceId!: pulumi.Output<string>;
+    declare public readonly communicationServiceId: pulumi.Output<string>;
     /**
      * The ID of the EMail Service Domain. Changing this forces a new communication service email domain association to be created.
      */
-    public readonly emailServiceDomainId!: pulumi.Output<string>;
+    declare public readonly emailServiceDomainId: pulumi.Output<string>;
 
     /**
      * Create a ServiceEmailDomainAssociation resource with the given unique name, arguments, and options.
@@ -103,18 +103,18 @@ export class ServiceEmailDomainAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEmailDomainAssociationState | undefined;
-            resourceInputs["communicationServiceId"] = state ? state.communicationServiceId : undefined;
-            resourceInputs["emailServiceDomainId"] = state ? state.emailServiceDomainId : undefined;
+            resourceInputs["communicationServiceId"] = state?.communicationServiceId;
+            resourceInputs["emailServiceDomainId"] = state?.emailServiceDomainId;
         } else {
             const args = argsOrState as ServiceEmailDomainAssociationArgs | undefined;
-            if ((!args || args.communicationServiceId === undefined) && !opts.urn) {
+            if (args?.communicationServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communicationServiceId'");
             }
-            if ((!args || args.emailServiceDomainId === undefined) && !opts.urn) {
+            if (args?.emailServiceDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailServiceDomainId'");
             }
-            resourceInputs["communicationServiceId"] = args ? args.communicationServiceId : undefined;
-            resourceInputs["emailServiceDomainId"] = args ? args.emailServiceDomainId : undefined;
+            resourceInputs["communicationServiceId"] = args?.communicationServiceId;
+            resourceInputs["emailServiceDomainId"] = args?.emailServiceDomainId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceEmailDomainAssociation.__pulumiType, name, resourceInputs, opts);

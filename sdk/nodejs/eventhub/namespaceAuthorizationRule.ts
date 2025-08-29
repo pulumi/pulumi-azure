@@ -84,49 +84,49 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * Grants listen access to this Authorization Rule. Defaults to `false`.
      */
-    public readonly listen!: pulumi.Output<boolean | undefined>;
+    declare public readonly listen: pulumi.Output<boolean | undefined>;
     /**
      * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    public readonly manage!: pulumi.Output<boolean | undefined>;
+    declare public readonly manage: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      *
      * > **Note:** At least one of the 3 permissions below needs to be set.
      */
-    public readonly namespaceId!: pulumi.Output<string>;
+    declare public readonly namespaceId: pulumi.Output<string>;
     /**
      * The Primary Connection String for the ServiceBus Namespace authorization Rule.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
      */
-    public /*out*/ readonly primaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionStringAlias: pulumi.Output<string>;
     /**
      * The Primary Key for the ServiceBus Namespace authorization Rule.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The alias Secondary Connection String for the ServiceBus Namespace
      */
-    public /*out*/ readonly secondaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionStringAlias: pulumi.Output<string>;
     /**
      * The Secondary Key for the ServiceBus Namespace authorization Rule.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * Grants send access to this Authorization Rule. Defaults to `false`.
      */
-    public readonly send!: pulumi.Output<boolean | undefined>;
+    declare public readonly send: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a NamespaceAuthorizationRule resource with the given unique name, arguments, and options.
@@ -144,27 +144,27 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceAuthorizationRuleState | undefined;
-            resourceInputs["listen"] = state ? state.listen : undefined;
-            resourceInputs["manage"] = state ? state.manage : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["send"] = state ? state.send : undefined;
+            resourceInputs["listen"] = state?.listen;
+            resourceInputs["manage"] = state?.manage;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceId"] = state?.namespaceId;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["primaryConnectionStringAlias"] = state?.primaryConnectionStringAlias;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["secondaryConnectionStringAlias"] = state?.secondaryConnectionStringAlias;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["send"] = state?.send;
         } else {
             const args = argsOrState as NamespaceAuthorizationRuleArgs | undefined;
-            if ((!args || args.namespaceId === undefined) && !opts.urn) {
+            if (args?.namespaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceId'");
             }
-            resourceInputs["listen"] = args ? args.listen : undefined;
-            resourceInputs["manage"] = args ? args.manage : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
-            resourceInputs["send"] = args ? args.send : undefined;
+            resourceInputs["listen"] = args?.listen;
+            resourceInputs["manage"] = args?.manage;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceId"] = args?.namespaceId;
+            resourceInputs["send"] = args?.send;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryConnectionStringAlias"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;

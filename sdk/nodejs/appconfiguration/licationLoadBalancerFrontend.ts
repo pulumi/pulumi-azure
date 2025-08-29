@@ -70,19 +70,19 @@ export class LicationLoadBalancerFrontend extends pulumi.CustomResource {
     /**
      * The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
      */
-    public readonly applicationLoadBalancerId!: pulumi.Output<string>;
+    declare public readonly applicationLoadBalancerId: pulumi.Output<string>;
     /**
      * The Fully Qualified Domain Name of the DNS record associated to an Application Gateway for Containers Frontend.
      */
-    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedDomainName: pulumi.Output<string>;
     /**
      * The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Application Gateway for Containers Frontend.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LicationLoadBalancerFrontend resource with the given unique name, arguments, and options.
@@ -97,18 +97,18 @@ export class LicationLoadBalancerFrontend extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LicationLoadBalancerFrontendState | undefined;
-            resourceInputs["applicationLoadBalancerId"] = state ? state.applicationLoadBalancerId : undefined;
-            resourceInputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["applicationLoadBalancerId"] = state?.applicationLoadBalancerId;
+            resourceInputs["fullyQualifiedDomainName"] = state?.fullyQualifiedDomainName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LicationLoadBalancerFrontendArgs | undefined;
-            if ((!args || args.applicationLoadBalancerId === undefined) && !opts.urn) {
+            if (args?.applicationLoadBalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationLoadBalancerId'");
             }
-            resourceInputs["applicationLoadBalancerId"] = args ? args.applicationLoadBalancerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationLoadBalancerId"] = args?.applicationLoadBalancerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

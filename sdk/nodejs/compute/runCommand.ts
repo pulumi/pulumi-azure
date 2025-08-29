@@ -250,56 +250,56 @@ export class RunCommand extends pulumi.CustomResource {
     /**
      * An `errorBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
      */
-    public readonly errorBlobManagedIdentity!: pulumi.Output<outputs.compute.RunCommandErrorBlobManagedIdentity | undefined>;
+    declare public readonly errorBlobManagedIdentity: pulumi.Output<outputs.compute.RunCommandErrorBlobManagedIdentity | undefined>;
     /**
      * Specifies the Azure storage blob where script error stream will be uploaded.
      */
-    public readonly errorBlobUri!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly instanceViews!: pulumi.Output<outputs.compute.RunCommandInstanceView[]>;
+    declare public readonly errorBlobUri: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly instanceViews: pulumi.Output<outputs.compute.RunCommandInstanceView[]>;
     /**
      * The Azure Region where the Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Virtual Machine Run Command. Changing this forces a new Virtual Machine Run Command to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An `outputBlobManagedIdentity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
      */
-    public readonly outputBlobManagedIdentity!: pulumi.Output<outputs.compute.RunCommandOutputBlobManagedIdentity | undefined>;
+    declare public readonly outputBlobManagedIdentity: pulumi.Output<outputs.compute.RunCommandOutputBlobManagedIdentity | undefined>;
     /**
      * Specifies the Azure storage blob where script output stream will be uploaded. It can be basic blob URI with SAS token.
      */
-    public readonly outputBlobUri!: pulumi.Output<string | undefined>;
+    declare public readonly outputBlobUri: pulumi.Output<string | undefined>;
     /**
      * A list of `parameter` blocks as defined below. The parameters used by the script.
      */
-    public readonly parameters!: pulumi.Output<outputs.compute.RunCommandParameter[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.compute.RunCommandParameter[] | undefined>;
     /**
      * A list of `protectedParameter` blocks as defined below. The protected parameters used by the script.
      */
-    public readonly protectedParameters!: pulumi.Output<outputs.compute.RunCommandProtectedParameter[] | undefined>;
+    declare public readonly protectedParameters: pulumi.Output<outputs.compute.RunCommandProtectedParameter[] | undefined>;
     /**
      * Specifies the user account password on the VM when executing the Virtual Machine Run Command.
      */
-    public readonly runAsPassword!: pulumi.Output<string | undefined>;
+    declare public readonly runAsPassword: pulumi.Output<string | undefined>;
     /**
      * Specifies the user account on the VM when executing the Virtual Machine Run Command.
      */
-    public readonly runAsUser!: pulumi.Output<string | undefined>;
+    declare public readonly runAsUser: pulumi.Output<string | undefined>;
     /**
      * A `source` block as defined below. The source of the run command script.
      */
-    public readonly source!: pulumi.Output<outputs.compute.RunCommandSource>;
+    declare public readonly source: pulumi.Output<outputs.compute.RunCommandSource>;
     /**
      * A mapping of tags which should be assigned to the Virtual Machine Run Command.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Virtual Machine ID within which this Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
      */
-    public readonly virtualMachineId!: pulumi.Output<string>;
+    declare public readonly virtualMachineId: pulumi.Output<string>;
 
     /**
      * Create a RunCommand resource with the given unique name, arguments, and options.
@@ -314,41 +314,41 @@ export class RunCommand extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RunCommandState | undefined;
-            resourceInputs["errorBlobManagedIdentity"] = state ? state.errorBlobManagedIdentity : undefined;
-            resourceInputs["errorBlobUri"] = state ? state.errorBlobUri : undefined;
-            resourceInputs["instanceViews"] = state ? state.instanceViews : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputBlobManagedIdentity"] = state ? state.outputBlobManagedIdentity : undefined;
-            resourceInputs["outputBlobUri"] = state ? state.outputBlobUri : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["protectedParameters"] = state ? state.protectedParameters : undefined;
-            resourceInputs["runAsPassword"] = state ? state.runAsPassword : undefined;
-            resourceInputs["runAsUser"] = state ? state.runAsUser : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["errorBlobManagedIdentity"] = state?.errorBlobManagedIdentity;
+            resourceInputs["errorBlobUri"] = state?.errorBlobUri;
+            resourceInputs["instanceViews"] = state?.instanceViews;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputBlobManagedIdentity"] = state?.outputBlobManagedIdentity;
+            resourceInputs["outputBlobUri"] = state?.outputBlobUri;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["protectedParameters"] = state?.protectedParameters;
+            resourceInputs["runAsPassword"] = state?.runAsPassword;
+            resourceInputs["runAsUser"] = state?.runAsUser;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
         } else {
             const args = argsOrState as RunCommandArgs | undefined;
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
+            if (args?.virtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
             resourceInputs["errorBlobManagedIdentity"] = args?.errorBlobManagedIdentity ? pulumi.secret(args.errorBlobManagedIdentity) : undefined;
-            resourceInputs["errorBlobUri"] = args ? args.errorBlobUri : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["errorBlobUri"] = args?.errorBlobUri;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
             resourceInputs["outputBlobManagedIdentity"] = args?.outputBlobManagedIdentity ? pulumi.secret(args.outputBlobManagedIdentity) : undefined;
-            resourceInputs["outputBlobUri"] = args ? args.outputBlobUri : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["outputBlobUri"] = args?.outputBlobUri;
+            resourceInputs["parameters"] = args?.parameters;
             resourceInputs["protectedParameters"] = args?.protectedParameters ? pulumi.secret(args.protectedParameters) : undefined;
             resourceInputs["runAsPassword"] = args?.runAsPassword ? pulumi.secret(args.runAsPassword) : undefined;
-            resourceInputs["runAsUser"] = args ? args.runAsUser : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["runAsUser"] = args?.runAsUser;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMachineId"] = args?.virtualMachineId;
             resourceInputs["instanceViews"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

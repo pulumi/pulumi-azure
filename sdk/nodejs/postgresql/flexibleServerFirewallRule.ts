@@ -81,19 +81,19 @@ export class FlexibleServerFirewallRule extends pulumi.CustomResource {
     /**
      * The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
      */
-    public readonly endIpAddress!: pulumi.Output<string>;
+    declare public readonly endIpAddress: pulumi.Output<string>;
     /**
      * The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
      */
-    public readonly startIpAddress!: pulumi.Output<string>;
+    declare public readonly startIpAddress: pulumi.Output<string>;
 
     /**
      * Create a FlexibleServerFirewallRule resource with the given unique name, arguments, and options.
@@ -108,25 +108,25 @@ export class FlexibleServerFirewallRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerFirewallRuleState | undefined;
-            resourceInputs["endIpAddress"] = state ? state.endIpAddress : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["startIpAddress"] = state ? state.startIpAddress : undefined;
+            resourceInputs["endIpAddress"] = state?.endIpAddress;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["startIpAddress"] = state?.startIpAddress;
         } else {
             const args = argsOrState as FlexibleServerFirewallRuleArgs | undefined;
-            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
+            if (args?.endIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
+            if (args?.startIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
-            resourceInputs["endIpAddress"] = args ? args.endIpAddress : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            resourceInputs["endIpAddress"] = args?.endIpAddress;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["startIpAddress"] = args?.startIpAddress;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FlexibleServerFirewallRule.__pulumiType, name, resourceInputs, opts);

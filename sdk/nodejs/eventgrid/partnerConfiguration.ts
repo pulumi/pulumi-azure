@@ -79,19 +79,19 @@ export class PartnerConfiguration extends pulumi.CustomResource {
     /**
      * Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
      */
-    public readonly defaultMaximumExpirationTimeInDays!: pulumi.Output<number | undefined>;
+    declare public readonly defaultMaximumExpirationTimeInDays: pulumi.Output<number | undefined>;
     /**
      * One or more `partnerAuthorization` blocks as defined below.
      */
-    public readonly partnerAuthorizations!: pulumi.Output<outputs.eventgrid.PartnerConfigurationPartnerAuthorization[] | undefined>;
+    declare public readonly partnerAuthorizations: pulumi.Output<outputs.eventgrid.PartnerConfigurationPartnerAuthorization[] | undefined>;
     /**
      * The name of the Resource Group where the Event Grid Partner Configuration should exist. Changing this forces a new Event Grid Partner Configuration to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Event Grid Partner Configuration.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PartnerConfiguration resource with the given unique name, arguments, and options.
@@ -106,19 +106,19 @@ export class PartnerConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PartnerConfigurationState | undefined;
-            resourceInputs["defaultMaximumExpirationTimeInDays"] = state ? state.defaultMaximumExpirationTimeInDays : undefined;
-            resourceInputs["partnerAuthorizations"] = state ? state.partnerAuthorizations : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["defaultMaximumExpirationTimeInDays"] = state?.defaultMaximumExpirationTimeInDays;
+            resourceInputs["partnerAuthorizations"] = state?.partnerAuthorizations;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as PartnerConfigurationArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["defaultMaximumExpirationTimeInDays"] = args ? args.defaultMaximumExpirationTimeInDays : undefined;
-            resourceInputs["partnerAuthorizations"] = args ? args.partnerAuthorizations : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultMaximumExpirationTimeInDays"] = args?.defaultMaximumExpirationTimeInDays;
+            resourceInputs["partnerAuthorizations"] = args?.partnerAuthorizations;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PartnerConfiguration.__pulumiType, name, resourceInputs, opts);

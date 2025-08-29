@@ -86,15 +86,15 @@ export class WatchlistItem extends pulumi.CustomResource {
     /**
      * The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The key value pairs of the Sentinel Watchlist Item.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly properties: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
      */
-    public readonly watchlistId!: pulumi.Output<string>;
+    declare public readonly watchlistId: pulumi.Output<string>;
 
     /**
      * Create a WatchlistItem resource with the given unique name, arguments, and options.
@@ -109,20 +109,20 @@ export class WatchlistItem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WatchlistItemState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["watchlistId"] = state ? state.watchlistId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["watchlistId"] = state?.watchlistId;
         } else {
             const args = argsOrState as WatchlistItemArgs | undefined;
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.watchlistId === undefined) && !opts.urn) {
+            if (args?.watchlistId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watchlistId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["watchlistId"] = args ? args.watchlistId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["watchlistId"] = args?.watchlistId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WatchlistItem.__pulumiType, name, resourceInputs, opts);

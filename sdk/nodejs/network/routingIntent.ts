@@ -99,15 +99,15 @@ export class RoutingIntent extends pulumi.CustomResource {
     /**
      * The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `routingPolicy` blocks as defined below.
      */
-    public readonly routingPolicies!: pulumi.Output<outputs.network.RoutingIntentRoutingPolicy[]>;
+    declare public readonly routingPolicies: pulumi.Output<outputs.network.RoutingIntentRoutingPolicy[]>;
     /**
      * The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
 
     /**
      * Create a RoutingIntent resource with the given unique name, arguments, and options.
@@ -122,20 +122,20 @@ export class RoutingIntent extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoutingIntentState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["routingPolicies"] = state ? state.routingPolicies : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["routingPolicies"] = state?.routingPolicies;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
         } else {
             const args = argsOrState as RoutingIntentArgs | undefined;
-            if ((!args || args.routingPolicies === undefined) && !opts.urn) {
+            if (args?.routingPolicies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingPolicies'");
             }
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["routingPolicies"] = args ? args.routingPolicies : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["routingPolicies"] = args?.routingPolicies;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RoutingIntent.__pulumiType, name, resourceInputs, opts);

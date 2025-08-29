@@ -135,31 +135,31 @@ export class ManagedStorageAccountSasTokenDefinition extends pulumi.CustomResour
     /**
      * The ID of the Managed Storage Account.
      */
-    public readonly managedStorageAccountId!: pulumi.Output<string>;
+    declare public readonly managedStorageAccountId: pulumi.Output<string>;
     /**
      * The name which should be used for this SAS Definition.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
      */
-    public readonly sasTemplateUri!: pulumi.Output<string>;
+    declare public readonly sasTemplateUri: pulumi.Output<string>;
     /**
      * The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
      */
-    public readonly sasType!: pulumi.Output<string>;
+    declare public readonly sasType: pulumi.Output<string>;
     /**
      * The ID of the Secret that is created by Managed Storage Account SAS Definition.
      */
-    public /*out*/ readonly secretId!: pulumi.Output<string>;
+    declare public /*out*/ readonly secretId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      */
-    public readonly validityPeriod!: pulumi.Output<string>;
+    declare public readonly validityPeriod: pulumi.Output<string>;
 
     /**
      * Create a ManagedStorageAccountSasTokenDefinition resource with the given unique name, arguments, and options.
@@ -174,33 +174,33 @@ export class ManagedStorageAccountSasTokenDefinition extends pulumi.CustomResour
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedStorageAccountSasTokenDefinitionState | undefined;
-            resourceInputs["managedStorageAccountId"] = state ? state.managedStorageAccountId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sasTemplateUri"] = state ? state.sasTemplateUri : undefined;
-            resourceInputs["sasType"] = state ? state.sasType : undefined;
-            resourceInputs["secretId"] = state ? state.secretId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["validityPeriod"] = state ? state.validityPeriod : undefined;
+            resourceInputs["managedStorageAccountId"] = state?.managedStorageAccountId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sasTemplateUri"] = state?.sasTemplateUri;
+            resourceInputs["sasType"] = state?.sasType;
+            resourceInputs["secretId"] = state?.secretId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["validityPeriod"] = state?.validityPeriod;
         } else {
             const args = argsOrState as ManagedStorageAccountSasTokenDefinitionArgs | undefined;
-            if ((!args || args.managedStorageAccountId === undefined) && !opts.urn) {
+            if (args?.managedStorageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedStorageAccountId'");
             }
-            if ((!args || args.sasTemplateUri === undefined) && !opts.urn) {
+            if (args?.sasTemplateUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sasTemplateUri'");
             }
-            if ((!args || args.sasType === undefined) && !opts.urn) {
+            if (args?.sasType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sasType'");
             }
-            if ((!args || args.validityPeriod === undefined) && !opts.urn) {
+            if (args?.validityPeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validityPeriod'");
             }
-            resourceInputs["managedStorageAccountId"] = args ? args.managedStorageAccountId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sasTemplateUri"] = args ? args.sasTemplateUri : undefined;
-            resourceInputs["sasType"] = args ? args.sasType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validityPeriod"] = args ? args.validityPeriod : undefined;
+            resourceInputs["managedStorageAccountId"] = args?.managedStorageAccountId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sasTemplateUri"] = args?.sasTemplateUri;
+            resourceInputs["sasType"] = args?.sasType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validityPeriod"] = args?.validityPeriod;
             resourceInputs["secretId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -83,11 +83,11 @@ export class ApiTag extends pulumi.CustomResource {
     /**
      * The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ApiTag resource with the given unique name, arguments, and options.
@@ -102,15 +102,15 @@ export class ApiTag extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiTagState | undefined;
-            resourceInputs["apiId"] = state ? state.apiId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiId"] = state?.apiId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ApiTagArgs | undefined;
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiTag.__pulumiType, name, resourceInputs, opts);

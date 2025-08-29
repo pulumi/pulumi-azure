@@ -73,42 +73,42 @@ export class ShareFile extends pulumi.CustomResource {
     /**
      * Sets the file’s Content-Disposition header.
      */
-    public readonly contentDisposition!: pulumi.Output<string | undefined>;
+    declare public readonly contentDisposition: pulumi.Output<string | undefined>;
     /**
      * Specifies which content encodings have been applied to the file.
      */
-    public readonly contentEncoding!: pulumi.Output<string | undefined>;
+    declare public readonly contentEncoding: pulumi.Output<string | undefined>;
     /**
      * The length in bytes of the file content
      */
-    public /*out*/ readonly contentLength!: pulumi.Output<number>;
-    public readonly contentMd5!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly contentLength: pulumi.Output<number>;
+    declare public readonly contentMd5: pulumi.Output<string | undefined>;
     /**
      * The content type of the share file. Defaults to `application/octet-stream`.
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
     /**
      * A mapping of metadata to assign to this file.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    declare public readonly path: pulumi.Output<string | undefined>;
     /**
      * An absolute path to a file on the local system. Changing this forces a new resource to be created.
      *
      * > **Note:** The file specified with `source` can not be empty.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    declare public readonly source: pulumi.Output<string | undefined>;
     /**
      * The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    public readonly storageShareId!: pulumi.Output<string>;
+    declare public readonly storageShareId: pulumi.Output<string>;
 
     /**
      * Create a ShareFile resource with the given unique name, arguments, and options.
@@ -123,30 +123,30 @@ export class ShareFile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareFileState | undefined;
-            resourceInputs["contentDisposition"] = state ? state.contentDisposition : undefined;
-            resourceInputs["contentEncoding"] = state ? state.contentEncoding : undefined;
-            resourceInputs["contentLength"] = state ? state.contentLength : undefined;
-            resourceInputs["contentMd5"] = state ? state.contentMd5 : undefined;
-            resourceInputs["contentType"] = state ? state.contentType : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["path"] = state ? state.path : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["storageShareId"] = state ? state.storageShareId : undefined;
+            resourceInputs["contentDisposition"] = state?.contentDisposition;
+            resourceInputs["contentEncoding"] = state?.contentEncoding;
+            resourceInputs["contentLength"] = state?.contentLength;
+            resourceInputs["contentMd5"] = state?.contentMd5;
+            resourceInputs["contentType"] = state?.contentType;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["path"] = state?.path;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["storageShareId"] = state?.storageShareId;
         } else {
             const args = argsOrState as ShareFileArgs | undefined;
-            if ((!args || args.storageShareId === undefined) && !opts.urn) {
+            if (args?.storageShareId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageShareId'");
             }
-            resourceInputs["contentDisposition"] = args ? args.contentDisposition : undefined;
-            resourceInputs["contentEncoding"] = args ? args.contentEncoding : undefined;
-            resourceInputs["contentMd5"] = args ? args.contentMd5 : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["storageShareId"] = args ? args.storageShareId : undefined;
+            resourceInputs["contentDisposition"] = args?.contentDisposition;
+            resourceInputs["contentEncoding"] = args?.contentEncoding;
+            resourceInputs["contentMd5"] = args?.contentMd5;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["storageShareId"] = args?.storageShareId;
             resourceInputs["contentLength"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

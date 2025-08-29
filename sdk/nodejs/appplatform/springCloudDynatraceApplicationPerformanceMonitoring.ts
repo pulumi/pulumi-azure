@@ -86,39 +86,39 @@ export class SpringCloudDynatraceApplicationPerformanceMonitoring extends pulumi
     /**
      * Specifies the API token of the Dynatrace environment.
      */
-    public readonly apiToken!: pulumi.Output<string | undefined>;
+    declare public readonly apiToken: pulumi.Output<string | undefined>;
     /**
      * Specifies the API Url of the Dynatrace environment.
      */
-    public readonly apiUrl!: pulumi.Output<string | undefined>;
+    declare public readonly apiUrl: pulumi.Output<string | undefined>;
     /**
      * Specifies the endpoint to connect to the Dynatrace environment.
      */
-    public readonly connectionPoint!: pulumi.Output<string>;
+    declare public readonly connectionPoint: pulumi.Output<string>;
     /**
      * Specifies the Dynatrace environment ID.
      */
-    public readonly environmentId!: pulumi.Output<string | undefined>;
+    declare public readonly environmentId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    public readonly globallyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly globallyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for Dynatrace. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
     /**
      * Specifies the Dynatrace tenant.
      */
-    public readonly tenant!: pulumi.Output<string>;
+    declare public readonly tenant: pulumi.Output<string>;
     /**
      * Specifies the internal token that is used for authentication when OneAgent connects to the Dynatrace cluster to send data.
      */
-    public readonly tenantToken!: pulumi.Output<string>;
+    declare public readonly tenantToken: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudDynatraceApplicationPerformanceMonitoring resource with the given unique name, arguments, and options.
@@ -133,36 +133,36 @@ export class SpringCloudDynatraceApplicationPerformanceMonitoring extends pulumi
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudDynatraceApplicationPerformanceMonitoringState | undefined;
-            resourceInputs["apiToken"] = state ? state.apiToken : undefined;
-            resourceInputs["apiUrl"] = state ? state.apiUrl : undefined;
-            resourceInputs["connectionPoint"] = state ? state.connectionPoint : undefined;
-            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
-            resourceInputs["globallyEnabled"] = state ? state.globallyEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
-            resourceInputs["tenant"] = state ? state.tenant : undefined;
-            resourceInputs["tenantToken"] = state ? state.tenantToken : undefined;
+            resourceInputs["apiToken"] = state?.apiToken;
+            resourceInputs["apiUrl"] = state?.apiUrl;
+            resourceInputs["connectionPoint"] = state?.connectionPoint;
+            resourceInputs["environmentId"] = state?.environmentId;
+            resourceInputs["globallyEnabled"] = state?.globallyEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
+            resourceInputs["tenant"] = state?.tenant;
+            resourceInputs["tenantToken"] = state?.tenantToken;
         } else {
             const args = argsOrState as SpringCloudDynatraceApplicationPerformanceMonitoringArgs | undefined;
-            if ((!args || args.connectionPoint === undefined) && !opts.urn) {
+            if (args?.connectionPoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionPoint'");
             }
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            if ((!args || args.tenant === undefined) && !opts.urn) {
+            if (args?.tenant === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenant'");
             }
-            if ((!args || args.tenantToken === undefined) && !opts.urn) {
+            if (args?.tenantToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantToken'");
             }
             resourceInputs["apiToken"] = args?.apiToken ? pulumi.secret(args.apiToken) : undefined;
-            resourceInputs["apiUrl"] = args ? args.apiUrl : undefined;
-            resourceInputs["connectionPoint"] = args ? args.connectionPoint : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["globallyEnabled"] = args ? args.globallyEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
+            resourceInputs["apiUrl"] = args?.apiUrl;
+            resourceInputs["connectionPoint"] = args?.connectionPoint;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["globallyEnabled"] = args?.globallyEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
             resourceInputs["tenant"] = args?.tenant ? pulumi.secret(args.tenant) : undefined;
             resourceInputs["tenantToken"] = args?.tenantToken ? pulumi.secret(args.tenantToken) : undefined;
         }

@@ -78,23 +78,23 @@ export class AlertRuleFusion extends pulumi.CustomResource {
     /**
      * The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      */
-    public readonly alertRuleTemplateGuid!: pulumi.Output<string>;
+    declare public readonly alertRuleTemplateGuid: pulumi.Output<string>;
     /**
      * Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `source` blocks as defined below.
      */
-    public readonly sources!: pulumi.Output<outputs.sentinel.AlertRuleFusionSource[]>;
+    declare public readonly sources: pulumi.Output<outputs.sentinel.AlertRuleFusionSource[]>;
 
     /**
      * Create a AlertRuleFusion resource with the given unique name, arguments, and options.
@@ -109,24 +109,24 @@ export class AlertRuleFusion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertRuleFusionState | undefined;
-            resourceInputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sources"] = state ? state.sources : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = state?.alertRuleTemplateGuid;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sources"] = state?.sources;
         } else {
             const args = argsOrState as AlertRuleFusionArgs | undefined;
-            if ((!args || args.alertRuleTemplateGuid === undefined) && !opts.urn) {
+            if (args?.alertRuleTemplateGuid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertRuleTemplateGuid'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            resourceInputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = args?.alertRuleTemplateGuid;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sources"] = args?.sources;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertRuleFusion.__pulumiType, name, resourceInputs, opts);

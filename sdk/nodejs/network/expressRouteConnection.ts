@@ -122,39 +122,39 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
     /**
      * The authorization key to establish the Express Route Connection.
      */
-    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
      * Is Internet security enabled for this Express Route Connection?
      */
-    public readonly enableInternetSecurity!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableInternetSecurity: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
-    public readonly expressRouteCircuitPeeringId!: pulumi.Output<string>;
+    declare public readonly expressRouteCircuitPeeringId: pulumi.Output<string>;
     /**
      * Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
      */
-    public readonly expressRouteGatewayBypassEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly expressRouteGatewayBypassEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
      */
-    public readonly expressRouteGatewayId!: pulumi.Output<string>;
+    declare public readonly expressRouteGatewayId: pulumi.Output<string>;
     /**
      * The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * @deprecated 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      */
-    public readonly privateLinkFastPathEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly privateLinkFastPathEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `routing` block as defined below.
      */
-    public readonly routing!: pulumi.Output<outputs.network.ExpressRouteConnectionRouting>;
+    declare public readonly routing: pulumi.Output<outputs.network.ExpressRouteConnectionRouting>;
     /**
      * The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
      */
-    public readonly routingWeight!: pulumi.Output<number | undefined>;
+    declare public readonly routingWeight: pulumi.Output<number | undefined>;
 
     /**
      * Create a ExpressRouteConnection resource with the given unique name, arguments, and options.
@@ -169,32 +169,32 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteConnectionState | undefined;
-            resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
-            resourceInputs["enableInternetSecurity"] = state ? state.enableInternetSecurity : undefined;
-            resourceInputs["expressRouteCircuitPeeringId"] = state ? state.expressRouteCircuitPeeringId : undefined;
-            resourceInputs["expressRouteGatewayBypassEnabled"] = state ? state.expressRouteGatewayBypassEnabled : undefined;
-            resourceInputs["expressRouteGatewayId"] = state ? state.expressRouteGatewayId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateLinkFastPathEnabled"] = state ? state.privateLinkFastPathEnabled : undefined;
-            resourceInputs["routing"] = state ? state.routing : undefined;
-            resourceInputs["routingWeight"] = state ? state.routingWeight : undefined;
+            resourceInputs["authorizationKey"] = state?.authorizationKey;
+            resourceInputs["enableInternetSecurity"] = state?.enableInternetSecurity;
+            resourceInputs["expressRouteCircuitPeeringId"] = state?.expressRouteCircuitPeeringId;
+            resourceInputs["expressRouteGatewayBypassEnabled"] = state?.expressRouteGatewayBypassEnabled;
+            resourceInputs["expressRouteGatewayId"] = state?.expressRouteGatewayId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateLinkFastPathEnabled"] = state?.privateLinkFastPathEnabled;
+            resourceInputs["routing"] = state?.routing;
+            resourceInputs["routingWeight"] = state?.routingWeight;
         } else {
             const args = argsOrState as ExpressRouteConnectionArgs | undefined;
-            if ((!args || args.expressRouteCircuitPeeringId === undefined) && !opts.urn) {
+            if (args?.expressRouteCircuitPeeringId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteCircuitPeeringId'");
             }
-            if ((!args || args.expressRouteGatewayId === undefined) && !opts.urn) {
+            if (args?.expressRouteGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteGatewayId'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
-            resourceInputs["expressRouteCircuitPeeringId"] = args ? args.expressRouteCircuitPeeringId : undefined;
-            resourceInputs["expressRouteGatewayBypassEnabled"] = args ? args.expressRouteGatewayBypassEnabled : undefined;
-            resourceInputs["expressRouteGatewayId"] = args ? args.expressRouteGatewayId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateLinkFastPathEnabled"] = args ? args.privateLinkFastPathEnabled : undefined;
-            resourceInputs["routing"] = args ? args.routing : undefined;
-            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["enableInternetSecurity"] = args?.enableInternetSecurity;
+            resourceInputs["expressRouteCircuitPeeringId"] = args?.expressRouteCircuitPeeringId;
+            resourceInputs["expressRouteGatewayBypassEnabled"] = args?.expressRouteGatewayBypassEnabled;
+            resourceInputs["expressRouteGatewayId"] = args?.expressRouteGatewayId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateLinkFastPathEnabled"] = args?.privateLinkFastPathEnabled;
+            resourceInputs["routing"] = args?.routing;
+            resourceInputs["routingWeight"] = args?.routingWeight;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ExpressRouteConnection.__pulumiType, name, resourceInputs, opts);

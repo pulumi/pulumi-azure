@@ -135,27 +135,27 @@ export class DataDiskAttachment extends pulumi.CustomResource {
     /**
      * Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
      */
-    public readonly caching!: pulumi.Output<string>;
+    declare public readonly caching: pulumi.Output<string>;
     /**
      * The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
      */
-    public readonly createOption!: pulumi.Output<string | undefined>;
+    declare public readonly createOption: pulumi.Output<string | undefined>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly lun!: pulumi.Output<number>;
+    declare public readonly lun: pulumi.Output<number>;
     /**
      * The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
      */
-    public readonly managedDiskId!: pulumi.Output<string>;
+    declare public readonly managedDiskId: pulumi.Output<string>;
     /**
      * The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineId!: pulumi.Output<string>;
+    declare public readonly virtualMachineId: pulumi.Output<string>;
     /**
      * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      */
-    public readonly writeAcceleratorEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly writeAcceleratorEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DataDiskAttachment resource with the given unique name, arguments, and options.
@@ -170,32 +170,32 @@ export class DataDiskAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataDiskAttachmentState | undefined;
-            resourceInputs["caching"] = state ? state.caching : undefined;
-            resourceInputs["createOption"] = state ? state.createOption : undefined;
-            resourceInputs["lun"] = state ? state.lun : undefined;
-            resourceInputs["managedDiskId"] = state ? state.managedDiskId : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
-            resourceInputs["writeAcceleratorEnabled"] = state ? state.writeAcceleratorEnabled : undefined;
+            resourceInputs["caching"] = state?.caching;
+            resourceInputs["createOption"] = state?.createOption;
+            resourceInputs["lun"] = state?.lun;
+            resourceInputs["managedDiskId"] = state?.managedDiskId;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
+            resourceInputs["writeAcceleratorEnabled"] = state?.writeAcceleratorEnabled;
         } else {
             const args = argsOrState as DataDiskAttachmentArgs | undefined;
-            if ((!args || args.caching === undefined) && !opts.urn) {
+            if (args?.caching === undefined && !opts.urn) {
                 throw new Error("Missing required property 'caching'");
             }
-            if ((!args || args.lun === undefined) && !opts.urn) {
+            if (args?.lun === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lun'");
             }
-            if ((!args || args.managedDiskId === undefined) && !opts.urn) {
+            if (args?.managedDiskId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedDiskId'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
+            if (args?.virtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            resourceInputs["caching"] = args ? args.caching : undefined;
-            resourceInputs["createOption"] = args ? args.createOption : undefined;
-            resourceInputs["lun"] = args ? args.lun : undefined;
-            resourceInputs["managedDiskId"] = args ? args.managedDiskId : undefined;
-            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
-            resourceInputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
+            resourceInputs["caching"] = args?.caching;
+            resourceInputs["createOption"] = args?.createOption;
+            resourceInputs["lun"] = args?.lun;
+            resourceInputs["managedDiskId"] = args?.managedDiskId;
+            resourceInputs["virtualMachineId"] = args?.virtualMachineId;
+            resourceInputs["writeAcceleratorEnabled"] = args?.writeAcceleratorEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataDiskAttachment.__pulumiType, name, resourceInputs, opts);

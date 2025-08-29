@@ -85,35 +85,35 @@ export class NetworkManagerIpamPool extends pulumi.CustomResource {
     /**
      * Specifies a list of IPv4 or IPv6 IP address prefixes. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    public readonly addressPrefixes!: pulumi.Output<string[]>;
+    declare public readonly addressPrefixes: pulumi.Output<string[]>;
     /**
      * The description of the Network Manager IPAM Pool.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name for the Network Manager IPAM Pool.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Network Manager IPAM Pool should exist. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Network Manager IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the parent Network Manager. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    public readonly networkManagerId!: pulumi.Output<string>;
+    declare public readonly networkManagerId: pulumi.Output<string>;
     /**
      * The name of the parent IPAM Pool. Changing this forces a new Network Manager IPAM Pool to be created.
      */
-    public readonly parentPoolName!: pulumi.Output<string | undefined>;
+    declare public readonly parentPoolName: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Network Manager IPAM Pool.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NetworkManagerIpamPool resource with the given unique name, arguments, and options.
@@ -128,30 +128,30 @@ export class NetworkManagerIpamPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerIpamPoolState | undefined;
-            resourceInputs["addressPrefixes"] = state ? state.addressPrefixes : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkManagerId"] = state ? state.networkManagerId : undefined;
-            resourceInputs["parentPoolName"] = state ? state.parentPoolName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["addressPrefixes"] = state?.addressPrefixes;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkManagerId"] = state?.networkManagerId;
+            resourceInputs["parentPoolName"] = state?.parentPoolName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NetworkManagerIpamPoolArgs | undefined;
-            if ((!args || args.addressPrefixes === undefined) && !opts.urn) {
+            if (args?.addressPrefixes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressPrefixes'");
             }
-            if ((!args || args.networkManagerId === undefined) && !opts.urn) {
+            if (args?.networkManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerId'");
             }
-            resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
-            resourceInputs["parentPoolName"] = args ? args.parentPoolName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressPrefixes"] = args?.addressPrefixes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
+            resourceInputs["parentPoolName"] = args?.parentPoolName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerIpamPool.__pulumiType, name, resourceInputs, opts);

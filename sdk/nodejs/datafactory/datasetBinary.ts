@@ -83,53 +83,53 @@ export class DatasetBinary extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Binary Dataset.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Binary Dataset.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * A `azureBlobStorageLocation` block as defined below.
      */
-    public readonly azureBlobStorageLocation!: pulumi.Output<outputs.datafactory.DatasetBinaryAzureBlobStorageLocation | undefined>;
+    declare public readonly azureBlobStorageLocation: pulumi.Output<outputs.datafactory.DatasetBinaryAzureBlobStorageLocation | undefined>;
     /**
      * A `compression` block as defined below.
      */
-    public readonly compression!: pulumi.Output<outputs.datafactory.DatasetBinaryCompression | undefined>;
+    declare public readonly compression: pulumi.Output<outputs.datafactory.DatasetBinaryCompression | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Dataset.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<string | undefined>;
+    declare public readonly folder: pulumi.Output<string | undefined>;
     /**
      * A `httpServerLocation` block as defined below.
      */
-    public readonly httpServerLocation!: pulumi.Output<outputs.datafactory.DatasetBinaryHttpServerLocation | undefined>;
+    declare public readonly httpServerLocation: pulumi.Output<outputs.datafactory.DatasetBinaryHttpServerLocation | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Binary Dataset with.
      */
-    public readonly linkedServiceName!: pulumi.Output<string>;
+    declare public readonly linkedServiceName: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a list of parameters to associate with the Data Factory Binary Dataset.
      *
      * The following supported locations for a Binary Dataset. One of these should be specified:
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `sftpServerLocation` block as defined below.
      */
-    public readonly sftpServerLocation!: pulumi.Output<outputs.datafactory.DatasetBinarySftpServerLocation | undefined>;
+    declare public readonly sftpServerLocation: pulumi.Output<outputs.datafactory.DatasetBinarySftpServerLocation | undefined>;
 
     /**
      * Create a DatasetBinary resource with the given unique name, arguments, and options.
@@ -144,38 +144,38 @@ export class DatasetBinary extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetBinaryState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["azureBlobStorageLocation"] = state ? state.azureBlobStorageLocation : undefined;
-            resourceInputs["compression"] = state ? state.compression : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["folder"] = state ? state.folder : undefined;
-            resourceInputs["httpServerLocation"] = state ? state.httpServerLocation : undefined;
-            resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["sftpServerLocation"] = state ? state.sftpServerLocation : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["azureBlobStorageLocation"] = state?.azureBlobStorageLocation;
+            resourceInputs["compression"] = state?.compression;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["folder"] = state?.folder;
+            resourceInputs["httpServerLocation"] = state?.httpServerLocation;
+            resourceInputs["linkedServiceName"] = state?.linkedServiceName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["sftpServerLocation"] = state?.sftpServerLocation;
         } else {
             const args = argsOrState as DatasetBinaryArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
+            if (args?.linkedServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["azureBlobStorageLocation"] = args ? args.azureBlobStorageLocation : undefined;
-            resourceInputs["compression"] = args ? args.compression : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["httpServerLocation"] = args ? args.httpServerLocation : undefined;
-            resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["sftpServerLocation"] = args ? args.sftpServerLocation : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["azureBlobStorageLocation"] = args?.azureBlobStorageLocation;
+            resourceInputs["compression"] = args?.compression;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["httpServerLocation"] = args?.httpServerLocation;
+            resourceInputs["linkedServiceName"] = args?.linkedServiceName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["sftpServerLocation"] = args?.sftpServerLocation;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DatasetBinary.__pulumiType, name, resourceInputs, opts);

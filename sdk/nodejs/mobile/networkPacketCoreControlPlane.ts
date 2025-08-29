@@ -109,71 +109,71 @@ export class NetworkPacketCoreControlPlane extends pulumi.CustomResource {
     /**
      * The IPv4 address for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly controlPlaneAccessIpv4Address!: pulumi.Output<string | undefined>;
+    declare public readonly controlPlaneAccessIpv4Address: pulumi.Output<string | undefined>;
     /**
      * The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly controlPlaneAccessIpv4Gateway!: pulumi.Output<string | undefined>;
+    declare public readonly controlPlaneAccessIpv4Gateway: pulumi.Output<string | undefined>;
     /**
      * The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly controlPlaneAccessIpv4Subnet!: pulumi.Output<string | undefined>;
+    declare public readonly controlPlaneAccessIpv4Subnet: pulumi.Output<string | undefined>;
     /**
      * Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly controlPlaneAccessName!: pulumi.Output<string | undefined>;
+    declare public readonly controlPlaneAccessName: pulumi.Output<string | undefined>;
     /**
      * The core network technology generation. Possible values are `5GC` and `EPC`.
      */
-    public readonly coreNetworkTechnology!: pulumi.Output<string | undefined>;
+    declare public readonly coreNetworkTechnology: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.mobile.NetworkPacketCoreControlPlaneIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.mobile.NetworkPacketCoreControlPlaneIdentity | undefined>;
     /**
      * Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
      */
-    public readonly interoperabilitySettingsJson!: pulumi.Output<string | undefined>;
+    declare public readonly interoperabilitySettingsJson: pulumi.Output<string | undefined>;
     /**
      * One or more `localDiagnosticsAccess` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
      */
-    public readonly localDiagnosticsAccess!: pulumi.Output<outputs.mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccess>;
+    declare public readonly localDiagnosticsAccess: pulumi.Output<outputs.mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccess>;
     /**
      * Specifies the Azure Region where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies The name of the Mobile Network Packet Core Control Plane. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `platform` block as defined below.
      */
-    public readonly platform!: pulumi.Output<outputs.mobile.NetworkPacketCoreControlPlanePlatform | undefined>;
+    declare public readonly platform: pulumi.Output<outputs.mobile.NetworkPacketCoreControlPlanePlatform | undefined>;
     /**
      * Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. Currently, the API supports exactly 1 resource ID in the list. Changing this forces a new resource to be created.
      */
-    public readonly siteIds!: pulumi.Output<string[]>;
+    declare public readonly siteIds: pulumi.Output<string[]>;
     /**
      * The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * Specifies the version of the packet core software that is deployed.
      */
-    public readonly softwareVersion!: pulumi.Output<string | undefined>;
+    declare public readonly softwareVersion: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the MTU in bytes that can be sent to the user equipment. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link will be 60 bytes greater than this value to allow for GTP encapsulation.
      */
-    public readonly userEquipmentMtuInBytes!: pulumi.Output<number | undefined>;
+    declare public readonly userEquipmentMtuInBytes: pulumi.Output<number | undefined>;
 
     /**
      * Create a NetworkPacketCoreControlPlane resource with the given unique name, arguments, and options.
@@ -188,54 +188,54 @@ export class NetworkPacketCoreControlPlane extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkPacketCoreControlPlaneState | undefined;
-            resourceInputs["controlPlaneAccessIpv4Address"] = state ? state.controlPlaneAccessIpv4Address : undefined;
-            resourceInputs["controlPlaneAccessIpv4Gateway"] = state ? state.controlPlaneAccessIpv4Gateway : undefined;
-            resourceInputs["controlPlaneAccessIpv4Subnet"] = state ? state.controlPlaneAccessIpv4Subnet : undefined;
-            resourceInputs["controlPlaneAccessName"] = state ? state.controlPlaneAccessName : undefined;
-            resourceInputs["coreNetworkTechnology"] = state ? state.coreNetworkTechnology : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["interoperabilitySettingsJson"] = state ? state.interoperabilitySettingsJson : undefined;
-            resourceInputs["localDiagnosticsAccess"] = state ? state.localDiagnosticsAccess : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["platform"] = state ? state.platform : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["siteIds"] = state ? state.siteIds : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["softwareVersion"] = state ? state.softwareVersion : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["userEquipmentMtuInBytes"] = state ? state.userEquipmentMtuInBytes : undefined;
+            resourceInputs["controlPlaneAccessIpv4Address"] = state?.controlPlaneAccessIpv4Address;
+            resourceInputs["controlPlaneAccessIpv4Gateway"] = state?.controlPlaneAccessIpv4Gateway;
+            resourceInputs["controlPlaneAccessIpv4Subnet"] = state?.controlPlaneAccessIpv4Subnet;
+            resourceInputs["controlPlaneAccessName"] = state?.controlPlaneAccessName;
+            resourceInputs["coreNetworkTechnology"] = state?.coreNetworkTechnology;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["interoperabilitySettingsJson"] = state?.interoperabilitySettingsJson;
+            resourceInputs["localDiagnosticsAccess"] = state?.localDiagnosticsAccess;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["platform"] = state?.platform;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["siteIds"] = state?.siteIds;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["softwareVersion"] = state?.softwareVersion;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["userEquipmentMtuInBytes"] = state?.userEquipmentMtuInBytes;
         } else {
             const args = argsOrState as NetworkPacketCoreControlPlaneArgs | undefined;
-            if ((!args || args.localDiagnosticsAccess === undefined) && !opts.urn) {
+            if (args?.localDiagnosticsAccess === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localDiagnosticsAccess'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteIds === undefined) && !opts.urn) {
+            if (args?.siteIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteIds'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["controlPlaneAccessIpv4Address"] = args ? args.controlPlaneAccessIpv4Address : undefined;
-            resourceInputs["controlPlaneAccessIpv4Gateway"] = args ? args.controlPlaneAccessIpv4Gateway : undefined;
-            resourceInputs["controlPlaneAccessIpv4Subnet"] = args ? args.controlPlaneAccessIpv4Subnet : undefined;
-            resourceInputs["controlPlaneAccessName"] = args ? args.controlPlaneAccessName : undefined;
-            resourceInputs["coreNetworkTechnology"] = args ? args.coreNetworkTechnology : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["interoperabilitySettingsJson"] = args ? args.interoperabilitySettingsJson : undefined;
-            resourceInputs["localDiagnosticsAccess"] = args ? args.localDiagnosticsAccess : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteIds"] = args ? args.siteIds : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["softwareVersion"] = args ? args.softwareVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userEquipmentMtuInBytes"] = args ? args.userEquipmentMtuInBytes : undefined;
+            resourceInputs["controlPlaneAccessIpv4Address"] = args?.controlPlaneAccessIpv4Address;
+            resourceInputs["controlPlaneAccessIpv4Gateway"] = args?.controlPlaneAccessIpv4Gateway;
+            resourceInputs["controlPlaneAccessIpv4Subnet"] = args?.controlPlaneAccessIpv4Subnet;
+            resourceInputs["controlPlaneAccessName"] = args?.controlPlaneAccessName;
+            resourceInputs["coreNetworkTechnology"] = args?.coreNetworkTechnology;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["interoperabilitySettingsJson"] = args?.interoperabilitySettingsJson;
+            resourceInputs["localDiagnosticsAccess"] = args?.localDiagnosticsAccess;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteIds"] = args?.siteIds;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["softwareVersion"] = args?.softwareVersion;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userEquipmentMtuInBytes"] = args?.userEquipmentMtuInBytes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkPacketCoreControlPlane.__pulumiType, name, resourceInputs, opts);

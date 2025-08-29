@@ -73,59 +73,59 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
      */
-    public readonly dayOfMonth!: pulumi.Output<number | undefined>;
+    declare public readonly dayOfMonth: pulumi.Output<number | undefined>;
     /**
      * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      */
-    public readonly daysOfWeeks!: pulumi.Output<string[] | undefined>;
+    declare public readonly daysOfWeeks: pulumi.Output<string[] | undefined>;
     /**
      * User visible input name of the Cost Management Scheduled Action.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
      */
-    public readonly emailAddressSender!: pulumi.Output<string>;
+    declare public readonly emailAddressSender: pulumi.Output<string>;
     /**
      * Specifies a list of email addresses that will receive the Scheduled Action.
      */
-    public readonly emailAddresses!: pulumi.Output<string[]>;
+    declare public readonly emailAddresses: pulumi.Output<string[]>;
     /**
      * Subject of the email. Length is limited to 70 characters.
      */
-    public readonly emailSubject!: pulumi.Output<string>;
+    declare public readonly emailSubject: pulumi.Output<string>;
     /**
      * The end date and time of the Scheduled Action (UTC).
      */
-    public readonly endDate!: pulumi.Output<string>;
+    declare public readonly endDate: pulumi.Output<string>;
     /**
      * Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeksOfMonth` and `daysOfWeek` or `dayOfMonth` to be specified. Value `Weekly` requires `daysOfWeek` to be specified.
      */
-    public readonly frequency!: pulumi.Output<string>;
+    declare public readonly frequency: pulumi.Output<string>;
     /**
      * UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
      */
-    public readonly hourOfDay!: pulumi.Output<number | undefined>;
+    declare public readonly hourOfDay: pulumi.Output<number | undefined>;
     /**
      * Message to be added in the email. Length is limited to 250 characters.
      */
-    public readonly message!: pulumi.Output<string | undefined>;
+    declare public readonly message: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The start date and time of the Scheduled Action (UTC).
      */
-    public readonly startDate!: pulumi.Output<string>;
+    declare public readonly startDate: pulumi.Output<string>;
     /**
      * The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
      */
-    public readonly viewId!: pulumi.Output<string>;
+    declare public readonly viewId: pulumi.Output<string>;
     /**
      * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      */
-    public readonly weeksOfMonths!: pulumi.Output<string[] | undefined>;
+    declare public readonly weeksOfMonths: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ScheduledAction resource with the given unique name, arguments, and options.
@@ -140,60 +140,60 @@ export class ScheduledAction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledActionState | undefined;
-            resourceInputs["dayOfMonth"] = state ? state.dayOfMonth : undefined;
-            resourceInputs["daysOfWeeks"] = state ? state.daysOfWeeks : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["emailAddressSender"] = state ? state.emailAddressSender : undefined;
-            resourceInputs["emailAddresses"] = state ? state.emailAddresses : undefined;
-            resourceInputs["emailSubject"] = state ? state.emailSubject : undefined;
-            resourceInputs["endDate"] = state ? state.endDate : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["hourOfDay"] = state ? state.hourOfDay : undefined;
-            resourceInputs["message"] = state ? state.message : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["startDate"] = state ? state.startDate : undefined;
-            resourceInputs["viewId"] = state ? state.viewId : undefined;
-            resourceInputs["weeksOfMonths"] = state ? state.weeksOfMonths : undefined;
+            resourceInputs["dayOfMonth"] = state?.dayOfMonth;
+            resourceInputs["daysOfWeeks"] = state?.daysOfWeeks;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["emailAddressSender"] = state?.emailAddressSender;
+            resourceInputs["emailAddresses"] = state?.emailAddresses;
+            resourceInputs["emailSubject"] = state?.emailSubject;
+            resourceInputs["endDate"] = state?.endDate;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["hourOfDay"] = state?.hourOfDay;
+            resourceInputs["message"] = state?.message;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["startDate"] = state?.startDate;
+            resourceInputs["viewId"] = state?.viewId;
+            resourceInputs["weeksOfMonths"] = state?.weeksOfMonths;
         } else {
             const args = argsOrState as ScheduledActionArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.emailAddressSender === undefined) && !opts.urn) {
+            if (args?.emailAddressSender === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailAddressSender'");
             }
-            if ((!args || args.emailAddresses === undefined) && !opts.urn) {
+            if (args?.emailAddresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailAddresses'");
             }
-            if ((!args || args.emailSubject === undefined) && !opts.urn) {
+            if (args?.emailSubject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailSubject'");
             }
-            if ((!args || args.endDate === undefined) && !opts.urn) {
+            if (args?.endDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endDate'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.startDate === undefined) && !opts.urn) {
+            if (args?.startDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startDate'");
             }
-            if ((!args || args.viewId === undefined) && !opts.urn) {
+            if (args?.viewId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'viewId'");
             }
-            resourceInputs["dayOfMonth"] = args ? args.dayOfMonth : undefined;
-            resourceInputs["daysOfWeeks"] = args ? args.daysOfWeeks : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["emailAddressSender"] = args ? args.emailAddressSender : undefined;
-            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            resourceInputs["emailSubject"] = args ? args.emailSubject : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["hourOfDay"] = args ? args.hourOfDay : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
-            resourceInputs["viewId"] = args ? args.viewId : undefined;
-            resourceInputs["weeksOfMonths"] = args ? args.weeksOfMonths : undefined;
+            resourceInputs["dayOfMonth"] = args?.dayOfMonth;
+            resourceInputs["daysOfWeeks"] = args?.daysOfWeeks;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["emailAddressSender"] = args?.emailAddressSender;
+            resourceInputs["emailAddresses"] = args?.emailAddresses;
+            resourceInputs["emailSubject"] = args?.emailSubject;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["hourOfDay"] = args?.hourOfDay;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["startDate"] = args?.startDate;
+            resourceInputs["viewId"] = args?.viewId;
+            resourceInputs["weeksOfMonths"] = args?.weeksOfMonths;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScheduledAction.__pulumiType, name, resourceInputs, opts);

@@ -119,31 +119,31 @@ export class ActiveRoleAssignment extends pulumi.CustomResource {
     /**
      * The justification for the role assignment. Changing this forces a new resource to be created.
      */
-    public readonly justification!: pulumi.Output<string>;
+    declare public readonly justification: pulumi.Output<string>;
     /**
      * Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
      */
-    public readonly principalId!: pulumi.Output<string>;
+    declare public readonly principalId: pulumi.Output<string>;
     /**
      * Type of principal to which the role will be assigned.
      */
-    public /*out*/ readonly principalType!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalType: pulumi.Output<string>;
     /**
      * The role definition ID for this role assignment. Changing this forces a new resource to be created.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    declare public readonly roleDefinitionId: pulumi.Output<string>;
     /**
      * A `schedule` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly schedule!: pulumi.Output<outputs.pim.ActiveRoleAssignmentSchedule>;
+    declare public readonly schedule: pulumi.Output<outputs.pim.ActiveRoleAssignmentSchedule>;
     /**
      * The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * A `ticket` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ticket!: pulumi.Output<outputs.pim.ActiveRoleAssignmentTicket>;
+    declare public readonly ticket: pulumi.Output<outputs.pim.ActiveRoleAssignmentTicket>;
 
     /**
      * Create a ActiveRoleAssignment resource with the given unique name, arguments, and options.
@@ -158,30 +158,30 @@ export class ActiveRoleAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActiveRoleAssignmentState | undefined;
-            resourceInputs["justification"] = state ? state.justification : undefined;
-            resourceInputs["principalId"] = state ? state.principalId : undefined;
-            resourceInputs["principalType"] = state ? state.principalType : undefined;
-            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["ticket"] = state ? state.ticket : undefined;
+            resourceInputs["justification"] = state?.justification;
+            resourceInputs["principalId"] = state?.principalId;
+            resourceInputs["principalType"] = state?.principalType;
+            resourceInputs["roleDefinitionId"] = state?.roleDefinitionId;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["ticket"] = state?.ticket;
         } else {
             const args = argsOrState as ActiveRoleAssignmentArgs | undefined;
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
+            if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["justification"] = args ? args.justification : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["ticket"] = args ? args.ticket : undefined;
+            resourceInputs["justification"] = args?.justification;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["ticket"] = args?.ticket;
             resourceInputs["principalType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

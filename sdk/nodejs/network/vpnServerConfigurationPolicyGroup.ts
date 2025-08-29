@@ -89,23 +89,23 @@ export class VpnServerConfigurationPolicyGroup extends pulumi.CustomResource {
     /**
      * Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly isDefault!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDefault: pulumi.Output<boolean | undefined>;
     /**
      * The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `policy` blocks as documented below.
      */
-    public readonly policies!: pulumi.Output<outputs.network.VpnServerConfigurationPolicyGroupPolicy[]>;
+    declare public readonly policies: pulumi.Output<outputs.network.VpnServerConfigurationPolicyGroupPolicy[]>;
     /**
      * The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
      */
-    public readonly vpnServerConfigurationId!: pulumi.Output<string>;
+    declare public readonly vpnServerConfigurationId: pulumi.Output<string>;
 
     /**
      * Create a VpnServerConfigurationPolicyGroup resource with the given unique name, arguments, and options.
@@ -120,24 +120,24 @@ export class VpnServerConfigurationPolicyGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnServerConfigurationPolicyGroupState | undefined;
-            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policies"] = state ? state.policies : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["vpnServerConfigurationId"] = state ? state.vpnServerConfigurationId : undefined;
+            resourceInputs["isDefault"] = state?.isDefault;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policies"] = state?.policies;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["vpnServerConfigurationId"] = state?.vpnServerConfigurationId;
         } else {
             const args = argsOrState as VpnServerConfigurationPolicyGroupArgs | undefined;
-            if ((!args || args.policies === undefined) && !opts.urn) {
+            if (args?.policies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policies'");
             }
-            if ((!args || args.vpnServerConfigurationId === undefined) && !opts.urn) {
+            if (args?.vpnServerConfigurationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnServerConfigurationId'");
             }
-            resourceInputs["isDefault"] = args ? args.isDefault : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["vpnServerConfigurationId"] = args ? args.vpnServerConfigurationId : undefined;
+            resourceInputs["isDefault"] = args?.isDefault;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["vpnServerConfigurationId"] = args?.vpnServerConfigurationId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpnServerConfigurationPolicyGroup.__pulumiType, name, resourceInputs, opts);

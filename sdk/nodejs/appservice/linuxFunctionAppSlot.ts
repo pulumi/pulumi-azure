@@ -95,139 +95,139 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly appSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * an `authSettings` block as detailed below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotAuthSettings | undefined>;
+    declare public readonly authSettings: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotAuthSettings | undefined>;
     /**
      * an `authSettingsV2` block as detailed below.
      */
-    public readonly authSettingsV2!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2 | undefined>;
+    declare public readonly authSettingsV2: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2 | undefined>;
     /**
      * a `backup` block as detailed below.
      */
-    public readonly backup!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotBackup | undefined>;
+    declare public readonly backup: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotBackup | undefined>;
     /**
      * Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
      */
-    public readonly builtinLoggingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly builtinLoggingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should the Function App Slot use Client Certificates.
      */
-    public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientCertificateEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    public readonly clientCertificateExclusionPaths!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificateExclusionPaths: pulumi.Output<string | undefined>;
     /**
      * The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
-    public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificateMode: pulumi.Output<string | undefined>;
     /**
      * a `connectionString` block as detailed below.
      */
-    public readonly connectionStrings!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotConnectionString[] | undefined>;
+    declare public readonly connectionStrings: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotConnectionString[] | undefined>;
     /**
      * Force disable the content share settings.
      */
-    public readonly contentShareForceDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly contentShareForceDisabled: pulumi.Output<boolean | undefined>;
     /**
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customDomainVerificationId: pulumi.Output<string>;
     /**
      * The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
      */
-    public readonly dailyMemoryTimeQuota!: pulumi.Output<number | undefined>;
+    declare public readonly dailyMemoryTimeQuota: pulumi.Output<number | undefined>;
     /**
      * The default hostname of the Linux Function App Slot.
      */
-    public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultHostname: pulumi.Output<string>;
     /**
      * Is the Linux Function App Slot enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Are the default FTP Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
-    public readonly ftpPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ftpPublishBasicAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
      */
-    public readonly functionAppId!: pulumi.Output<string>;
+    declare public readonly functionAppId: pulumi.Output<string>;
     /**
      * The runtime version associated with the Function App Slot. Defaults to `~4`.
      */
-    public readonly functionsExtensionVersion!: pulumi.Output<string | undefined>;
+    declare public readonly functionsExtensionVersion: pulumi.Output<string | undefined>;
     /**
      * The ID of the App Service Environment used by Function App Slot.
      */
-    public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostingEnvironmentId: pulumi.Output<string>;
     /**
      * Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
      */
-    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsOnly: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as detailed below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotIdentity | undefined>;
     /**
      * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
-    public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
+    declare public readonly keyVaultReferenceIdentityId: pulumi.Output<string>;
     /**
      * The Kind value for this Linux Function App Slot.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
      */
-    public /*out*/ readonly outboundIpAddressLists!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundIpAddressLists: pulumi.Output<string[]>;
     /**
      * A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
      */
-    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
     /**
      * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
      */
-    public /*out*/ readonly possibleOutboundIpAddressLists!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly possibleOutboundIpAddressLists: pulumi.Output<string[]>;
     /**
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
      */
-    public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
      */
-    public readonly servicePlanId!: pulumi.Output<string | undefined>;
+    declare public readonly servicePlanId: pulumi.Output<string | undefined>;
     /**
      * a `siteConfig` block as detailed below.
      */
-    public readonly siteConfig!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotSiteConfig>;
+    declare public readonly siteConfig: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotSiteConfig>;
     /**
      * A `siteCredential` block as defined below.
      */
-    public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotSiteCredential[]>;
+    declare public /*out*/ readonly siteCredentials: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotSiteCredential[]>;
     /**
      * The access key which will be used to access the storage account for the Function App Slot.
      */
-    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountAccessKey: pulumi.Output<string | undefined>;
     /**
      * The backend storage account name which will be used by this Function App Slot.
      */
-    public readonly storageAccountName!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountName: pulumi.Output<string | undefined>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotStorageAccount[] | undefined>;
+    declare public readonly storageAccounts: pulumi.Output<outputs.appservice.LinuxFunctionAppSlotStorageAccount[] | undefined>;
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
@@ -235,32 +235,32 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      *
      * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
-    public readonly storageKeyVaultSecretId!: pulumi.Output<string | undefined>;
+    declare public readonly storageKeyVaultSecretId: pulumi.Output<string | undefined>;
     /**
      * Should the Function App Slot use its Managed Identity to access storage.
      *
      * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
-    public readonly storageUsesManagedIdentity!: pulumi.Output<boolean | undefined>;
+    declare public readonly storageUsesManagedIdentity: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to the Linux Function App.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
      */
-    public readonly virtualNetworkBackupRestoreEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkBackupRestoreEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
      *
      * > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for an app running in the App Service Environment.
      */
-    public readonly vnetImagePullEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly vnetImagePullEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      */
-    public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly webdeployPublishBasicAuthenticationEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LinuxFunctionAppSlot resource with the given unique name, arguments, and options.
@@ -275,87 +275,87 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinuxFunctionAppSlotState | undefined;
-            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
-            resourceInputs["authSettings"] = state ? state.authSettings : undefined;
-            resourceInputs["authSettingsV2"] = state ? state.authSettingsV2 : undefined;
-            resourceInputs["backup"] = state ? state.backup : undefined;
-            resourceInputs["builtinLoggingEnabled"] = state ? state.builtinLoggingEnabled : undefined;
-            resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
-            resourceInputs["clientCertificateExclusionPaths"] = state ? state.clientCertificateExclusionPaths : undefined;
-            resourceInputs["clientCertificateMode"] = state ? state.clientCertificateMode : undefined;
-            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
-            resourceInputs["contentShareForceDisabled"] = state ? state.contentShareForceDisabled : undefined;
-            resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
-            resourceInputs["dailyMemoryTimeQuota"] = state ? state.dailyMemoryTimeQuota : undefined;
-            resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state ? state.ftpPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["functionAppId"] = state ? state.functionAppId : undefined;
-            resourceInputs["functionsExtensionVersion"] = state ? state.functionsExtensionVersion : undefined;
-            resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
-            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundIpAddressLists"] = state ? state.outboundIpAddressLists : undefined;
-            resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
-            resourceInputs["possibleOutboundIpAddressLists"] = state ? state.possibleOutboundIpAddressLists : undefined;
-            resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["servicePlanId"] = state ? state.servicePlanId : undefined;
-            resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
-            resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
-            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
-            resourceInputs["storageKeyVaultSecretId"] = state ? state.storageKeyVaultSecretId : undefined;
-            resourceInputs["storageUsesManagedIdentity"] = state ? state.storageUsesManagedIdentity : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualNetworkBackupRestoreEnabled"] = state ? state.virtualNetworkBackupRestoreEnabled : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
-            resourceInputs["vnetImagePullEnabled"] = state ? state.vnetImagePullEnabled : undefined;
-            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
+            resourceInputs["appSettings"] = state?.appSettings;
+            resourceInputs["authSettings"] = state?.authSettings;
+            resourceInputs["authSettingsV2"] = state?.authSettingsV2;
+            resourceInputs["backup"] = state?.backup;
+            resourceInputs["builtinLoggingEnabled"] = state?.builtinLoggingEnabled;
+            resourceInputs["clientCertificateEnabled"] = state?.clientCertificateEnabled;
+            resourceInputs["clientCertificateExclusionPaths"] = state?.clientCertificateExclusionPaths;
+            resourceInputs["clientCertificateMode"] = state?.clientCertificateMode;
+            resourceInputs["connectionStrings"] = state?.connectionStrings;
+            resourceInputs["contentShareForceDisabled"] = state?.contentShareForceDisabled;
+            resourceInputs["customDomainVerificationId"] = state?.customDomainVerificationId;
+            resourceInputs["dailyMemoryTimeQuota"] = state?.dailyMemoryTimeQuota;
+            resourceInputs["defaultHostname"] = state?.defaultHostname;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state?.ftpPublishBasicAuthenticationEnabled;
+            resourceInputs["functionAppId"] = state?.functionAppId;
+            resourceInputs["functionsExtensionVersion"] = state?.functionsExtensionVersion;
+            resourceInputs["hostingEnvironmentId"] = state?.hostingEnvironmentId;
+            resourceInputs["httpsOnly"] = state?.httpsOnly;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = state?.keyVaultReferenceIdentityId;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundIpAddressLists"] = state?.outboundIpAddressLists;
+            resourceInputs["outboundIpAddresses"] = state?.outboundIpAddresses;
+            resourceInputs["possibleOutboundIpAddressLists"] = state?.possibleOutboundIpAddressLists;
+            resourceInputs["possibleOutboundIpAddresses"] = state?.possibleOutboundIpAddresses;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["servicePlanId"] = state?.servicePlanId;
+            resourceInputs["siteConfig"] = state?.siteConfig;
+            resourceInputs["siteCredentials"] = state?.siteCredentials;
+            resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["storageAccounts"] = state?.storageAccounts;
+            resourceInputs["storageKeyVaultSecretId"] = state?.storageKeyVaultSecretId;
+            resourceInputs["storageUsesManagedIdentity"] = state?.storageUsesManagedIdentity;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = state?.virtualNetworkBackupRestoreEnabled;
+            resourceInputs["virtualNetworkSubnetId"] = state?.virtualNetworkSubnetId;
+            resourceInputs["vnetImagePullEnabled"] = state?.vnetImagePullEnabled;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state?.webdeployPublishBasicAuthenticationEnabled;
         } else {
             const args = argsOrState as LinuxFunctionAppSlotArgs | undefined;
-            if ((!args || args.functionAppId === undefined) && !opts.urn) {
+            if (args?.functionAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionAppId'");
             }
-            if ((!args || args.siteConfig === undefined) && !opts.urn) {
+            if (args?.siteConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteConfig'");
             }
-            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
-            resourceInputs["authSettings"] = args ? args.authSettings : undefined;
-            resourceInputs["authSettingsV2"] = args ? args.authSettingsV2 : undefined;
-            resourceInputs["backup"] = args ? args.backup : undefined;
-            resourceInputs["builtinLoggingEnabled"] = args ? args.builtinLoggingEnabled : undefined;
-            resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
-            resourceInputs["clientCertificateExclusionPaths"] = args ? args.clientCertificateExclusionPaths : undefined;
-            resourceInputs["clientCertificateMode"] = args ? args.clientCertificateMode : undefined;
-            resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
-            resourceInputs["contentShareForceDisabled"] = args ? args.contentShareForceDisabled : undefined;
-            resourceInputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args ? args.ftpPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["functionAppId"] = args ? args.functionAppId : undefined;
-            resourceInputs["functionsExtensionVersion"] = args ? args.functionsExtensionVersion : undefined;
-            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["servicePlanId"] = args ? args.servicePlanId : undefined;
-            resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
+            resourceInputs["appSettings"] = args?.appSettings;
+            resourceInputs["authSettings"] = args?.authSettings;
+            resourceInputs["authSettingsV2"] = args?.authSettingsV2;
+            resourceInputs["backup"] = args?.backup;
+            resourceInputs["builtinLoggingEnabled"] = args?.builtinLoggingEnabled;
+            resourceInputs["clientCertificateEnabled"] = args?.clientCertificateEnabled;
+            resourceInputs["clientCertificateExclusionPaths"] = args?.clientCertificateExclusionPaths;
+            resourceInputs["clientCertificateMode"] = args?.clientCertificateMode;
+            resourceInputs["connectionStrings"] = args?.connectionStrings;
+            resourceInputs["contentShareForceDisabled"] = args?.contentShareForceDisabled;
+            resourceInputs["dailyMemoryTimeQuota"] = args?.dailyMemoryTimeQuota;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args?.ftpPublishBasicAuthenticationEnabled;
+            resourceInputs["functionAppId"] = args?.functionAppId;
+            resourceInputs["functionsExtensionVersion"] = args?.functionsExtensionVersion;
+            resourceInputs["httpsOnly"] = args?.httpsOnly;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = args?.keyVaultReferenceIdentityId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["servicePlanId"] = args?.servicePlanId;
+            resourceInputs["siteConfig"] = args?.siteConfig;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            resourceInputs["storageKeyVaultSecretId"] = args ? args.storageKeyVaultSecretId : undefined;
-            resourceInputs["storageUsesManagedIdentity"] = args ? args.storageUsesManagedIdentity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkBackupRestoreEnabled"] = args ? args.virtualNetworkBackupRestoreEnabled : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
-            resourceInputs["vnetImagePullEnabled"] = args ? args.vnetImagePullEnabled : undefined;
-            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageAccounts"] = args?.storageAccounts;
+            resourceInputs["storageKeyVaultSecretId"] = args?.storageKeyVaultSecretId;
+            resourceInputs["storageUsesManagedIdentity"] = args?.storageUsesManagedIdentity;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = args?.virtualNetworkBackupRestoreEnabled;
+            resourceInputs["virtualNetworkSubnetId"] = args?.virtualNetworkSubnetId;
+            resourceInputs["vnetImagePullEnabled"] = args?.vnetImagePullEnabled;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args?.webdeployPublishBasicAuthenticationEnabled;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["hostingEnvironmentId"] = undefined /*out*/;

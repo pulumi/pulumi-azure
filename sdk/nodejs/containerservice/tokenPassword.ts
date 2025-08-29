@@ -48,15 +48,15 @@ export class TokenPassword extends pulumi.CustomResource {
     /**
      * The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
      */
-    public readonly containerRegistryTokenId!: pulumi.Output<string>;
+    declare public readonly containerRegistryTokenId: pulumi.Output<string>;
     /**
      * One `password` block as defined below.
      */
-    public readonly password1!: pulumi.Output<outputs.containerservice.TokenPasswordPassword1>;
+    declare public readonly password1: pulumi.Output<outputs.containerservice.TokenPasswordPassword1>;
     /**
      * One `password` block as defined below.
      */
-    public readonly password2!: pulumi.Output<outputs.containerservice.TokenPasswordPassword2 | undefined>;
+    declare public readonly password2: pulumi.Output<outputs.containerservice.TokenPasswordPassword2 | undefined>;
 
     /**
      * Create a TokenPassword resource with the given unique name, arguments, and options.
@@ -71,20 +71,20 @@ export class TokenPassword extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TokenPasswordState | undefined;
-            resourceInputs["containerRegistryTokenId"] = state ? state.containerRegistryTokenId : undefined;
-            resourceInputs["password1"] = state ? state.password1 : undefined;
-            resourceInputs["password2"] = state ? state.password2 : undefined;
+            resourceInputs["containerRegistryTokenId"] = state?.containerRegistryTokenId;
+            resourceInputs["password1"] = state?.password1;
+            resourceInputs["password2"] = state?.password2;
         } else {
             const args = argsOrState as TokenPasswordArgs | undefined;
-            if ((!args || args.containerRegistryTokenId === undefined) && !opts.urn) {
+            if (args?.containerRegistryTokenId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryTokenId'");
             }
-            if ((!args || args.password1 === undefined) && !opts.urn) {
+            if (args?.password1 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password1'");
             }
-            resourceInputs["containerRegistryTokenId"] = args ? args.containerRegistryTokenId : undefined;
-            resourceInputs["password1"] = args ? args.password1 : undefined;
-            resourceInputs["password2"] = args ? args.password2 : undefined;
+            resourceInputs["containerRegistryTokenId"] = args?.containerRegistryTokenId;
+            resourceInputs["password1"] = args?.password1;
+            resourceInputs["password2"] = args?.password2;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TokenPassword.__pulumiType, name, resourceInputs, opts);

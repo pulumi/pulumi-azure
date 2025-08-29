@@ -122,23 +122,23 @@ export class BackupInstancePostgresqlFlexibleServer extends pulumi.CustomResourc
     /**
      * The ID of the Backup Policy.
      */
-    public readonly backupPolicyId!: pulumi.Output<string>;
+    declare public readonly backupPolicyId: pulumi.Output<string>;
     /**
      * The location of the source database. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Backup Instance for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the source server. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * The ID of the Backup Vault within which the PostgreSQL Flexible Server Backup Instance should exist. Changing this forces a new resource to be created.
      */
-    public readonly vaultId!: pulumi.Output<string>;
+    declare public readonly vaultId: pulumi.Output<string>;
 
     /**
      * Create a BackupInstancePostgresqlFlexibleServer resource with the given unique name, arguments, and options.
@@ -153,27 +153,27 @@ export class BackupInstancePostgresqlFlexibleServer extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupInstancePostgresqlFlexibleServerState | undefined;
-            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = state?.backupPolicyId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["vaultId"] = state?.vaultId;
         } else {
             const args = argsOrState as BackupInstancePostgresqlFlexibleServerArgs | undefined;
-            if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
+            if (args?.backupPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyId'");
             }
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if ((!args || args.vaultId === undefined) && !opts.urn) {
+            if (args?.vaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = args?.backupPolicyId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["vaultId"] = args?.vaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstancePostgresqlFlexibleServer.__pulumiType, name, resourceInputs, opts);

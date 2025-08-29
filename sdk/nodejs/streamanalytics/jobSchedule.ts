@@ -144,21 +144,21 @@ export class JobSchedule extends pulumi.CustomResource {
     /**
      * The time at which the Stream Analytics job last produced an output.
      */
-    public /*out*/ readonly lastOutputTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastOutputTime: pulumi.Output<string>;
     /**
      * The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
      *
      * > **Note:** Setting `startMode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
      */
-    public readonly startMode!: pulumi.Output<string>;
+    declare public readonly startMode: pulumi.Output<string>;
     /**
      * The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `startMode` is set to `CustomTime`
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
     /**
      * The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobId!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobId: pulumi.Output<string>;
 
     /**
      * Create a JobSchedule resource with the given unique name, arguments, and options.
@@ -173,21 +173,21 @@ export class JobSchedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobScheduleState | undefined;
-            resourceInputs["lastOutputTime"] = state ? state.lastOutputTime : undefined;
-            resourceInputs["startMode"] = state ? state.startMode : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["streamAnalyticsJobId"] = state ? state.streamAnalyticsJobId : undefined;
+            resourceInputs["lastOutputTime"] = state?.lastOutputTime;
+            resourceInputs["startMode"] = state?.startMode;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["streamAnalyticsJobId"] = state?.streamAnalyticsJobId;
         } else {
             const args = argsOrState as JobScheduleArgs | undefined;
-            if ((!args || args.startMode === undefined) && !opts.urn) {
+            if (args?.startMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startMode'");
             }
-            if ((!args || args.streamAnalyticsJobId === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobId'");
             }
-            resourceInputs["startMode"] = args ? args.startMode : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["streamAnalyticsJobId"] = args ? args.streamAnalyticsJobId : undefined;
+            resourceInputs["startMode"] = args?.startMode;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["streamAnalyticsJobId"] = args?.streamAnalyticsJobId;
             resourceInputs["lastOutputTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

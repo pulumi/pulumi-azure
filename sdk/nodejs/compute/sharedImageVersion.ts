@@ -89,31 +89,31 @@ export class SharedImageVersion extends pulumi.CustomResource {
      *
      * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
-    public readonly blobUri!: pulumi.Output<string | undefined>;
+    declare public readonly blobUri: pulumi.Output<string | undefined>;
     /**
      * Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly deletionOfReplicatedLocationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deletionOfReplicatedLocationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The end of life date in RFC3339 format of the Image Version.
      */
-    public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
+    declare public readonly endOfLifeDate: pulumi.Output<string | undefined>;
     /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
-    public readonly excludeFromLatest!: pulumi.Output<boolean | undefined>;
+    declare public readonly excludeFromLatest: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
      */
-    public readonly galleryName!: pulumi.Output<string>;
+    declare public readonly galleryName: pulumi.Output<string>;
     /**
      * The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
      */
-    public readonly imageName!: pulumi.Output<string>;
+    declare public readonly imageName: pulumi.Output<string>;
     /**
      * The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
@@ -121,39 +121,39 @@ export class SharedImageVersion extends pulumi.CustomResource {
      *
      * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
-    public readonly managedImageId!: pulumi.Output<string | undefined>;
+    declare public readonly managedImageId: pulumi.Output<string | undefined>;
     /**
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      *
      * > **NOTE:** You must specify exact one of `blobUri`, `managedImageId` and `osDiskSnapshotId`.
      */
-    public readonly osDiskSnapshotId!: pulumi.Output<string | undefined>;
+    declare public readonly osDiskSnapshotId: pulumi.Output<string | undefined>;
     /**
      * Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
      */
-    public readonly replicationMode!: pulumi.Output<string | undefined>;
+    declare public readonly replicationMode: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      *
      * > **NOTE:** `blobUri` and `storageAccountId` must be specified together
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * A collection of tags which should be applied to this resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `targetRegion` blocks as documented below.
      */
-    public readonly targetRegions!: pulumi.Output<outputs.compute.SharedImageVersionTargetRegion[]>;
+    declare public readonly targetRegions: pulumi.Output<outputs.compute.SharedImageVersionTargetRegion[]>;
 
     /**
      * Create a SharedImageVersion resource with the given unique name, arguments, and options.
@@ -168,50 +168,50 @@ export class SharedImageVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedImageVersionState | undefined;
-            resourceInputs["blobUri"] = state ? state.blobUri : undefined;
-            resourceInputs["deletionOfReplicatedLocationsEnabled"] = state ? state.deletionOfReplicatedLocationsEnabled : undefined;
-            resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
-            resourceInputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
-            resourceInputs["galleryName"] = state ? state.galleryName : undefined;
-            resourceInputs["imageName"] = state ? state.imageName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedImageId"] = state ? state.managedImageId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["osDiskSnapshotId"] = state ? state.osDiskSnapshotId : undefined;
-            resourceInputs["replicationMode"] = state ? state.replicationMode : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["targetRegions"] = state ? state.targetRegions : undefined;
+            resourceInputs["blobUri"] = state?.blobUri;
+            resourceInputs["deletionOfReplicatedLocationsEnabled"] = state?.deletionOfReplicatedLocationsEnabled;
+            resourceInputs["endOfLifeDate"] = state?.endOfLifeDate;
+            resourceInputs["excludeFromLatest"] = state?.excludeFromLatest;
+            resourceInputs["galleryName"] = state?.galleryName;
+            resourceInputs["imageName"] = state?.imageName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedImageId"] = state?.managedImageId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["osDiskSnapshotId"] = state?.osDiskSnapshotId;
+            resourceInputs["replicationMode"] = state?.replicationMode;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["targetRegions"] = state?.targetRegions;
         } else {
             const args = argsOrState as SharedImageVersionArgs | undefined;
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.imageName === undefined) && !opts.urn) {
+            if (args?.imageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetRegions === undefined) && !opts.urn) {
+            if (args?.targetRegions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetRegions'");
             }
-            resourceInputs["blobUri"] = args ? args.blobUri : undefined;
-            resourceInputs["deletionOfReplicatedLocationsEnabled"] = args ? args.deletionOfReplicatedLocationsEnabled : undefined;
-            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
-            resourceInputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedImageId"] = args ? args.managedImageId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["osDiskSnapshotId"] = args ? args.osDiskSnapshotId : undefined;
-            resourceInputs["replicationMode"] = args ? args.replicationMode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetRegions"] = args ? args.targetRegions : undefined;
+            resourceInputs["blobUri"] = args?.blobUri;
+            resourceInputs["deletionOfReplicatedLocationsEnabled"] = args?.deletionOfReplicatedLocationsEnabled;
+            resourceInputs["endOfLifeDate"] = args?.endOfLifeDate;
+            resourceInputs["excludeFromLatest"] = args?.excludeFromLatest;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedImageId"] = args?.managedImageId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["osDiskSnapshotId"] = args?.osDiskSnapshotId;
+            resourceInputs["replicationMode"] = args?.replicationMode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetRegions"] = args?.targetRegions;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SharedImageVersion.__pulumiType, name, resourceInputs, opts);

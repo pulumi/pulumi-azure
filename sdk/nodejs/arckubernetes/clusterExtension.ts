@@ -87,47 +87,47 @@ export class ClusterExtension extends pulumi.CustomResource {
     /**
      * Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      */
-    public readonly configurationProtectedSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly configurationProtectedSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration settings, as name-value pairs for configuring this extension.
      */
-    public readonly configurationSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly configurationSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The current version of the extension.
      */
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
      * Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    public readonly extensionType!: pulumi.Output<string>;
+    declare public readonly extensionType: pulumi.Output<string>;
     /**
      * An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.arckubernetes.ClusterExtensionIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.arckubernetes.ClusterExtensionIdentity>;
     /**
      * Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    public readonly releaseNamespace!: pulumi.Output<string>;
+    declare public readonly releaseNamespace: pulumi.Output<string>;
     /**
      * The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    public readonly releaseTrain!: pulumi.Output<string>;
+    declare public readonly releaseTrain: pulumi.Output<string>;
     /**
      * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    public readonly targetNamespace!: pulumi.Output<string>;
+    declare public readonly targetNamespace: pulumi.Output<string>;
     /**
      * User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a ClusterExtension resource with the given unique name, arguments, and options.
@@ -142,38 +142,38 @@ export class ClusterExtension extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterExtensionState | undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["configurationProtectedSettings"] = state ? state.configurationProtectedSettings : undefined;
-            resourceInputs["configurationSettings"] = state ? state.configurationSettings : undefined;
-            resourceInputs["currentVersion"] = state ? state.currentVersion : undefined;
-            resourceInputs["extensionType"] = state ? state.extensionType : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["releaseNamespace"] = state ? state.releaseNamespace : undefined;
-            resourceInputs["releaseTrain"] = state ? state.releaseTrain : undefined;
-            resourceInputs["targetNamespace"] = state ? state.targetNamespace : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["configurationProtectedSettings"] = state?.configurationProtectedSettings;
+            resourceInputs["configurationSettings"] = state?.configurationSettings;
+            resourceInputs["currentVersion"] = state?.currentVersion;
+            resourceInputs["extensionType"] = state?.extensionType;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["releaseNamespace"] = state?.releaseNamespace;
+            resourceInputs["releaseTrain"] = state?.releaseTrain;
+            resourceInputs["targetNamespace"] = state?.targetNamespace;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ClusterExtensionArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.extensionType === undefined) && !opts.urn) {
+            if (args?.extensionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extensionType'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
-            resourceInputs["configurationSettings"] = args ? args.configurationSettings : undefined;
-            resourceInputs["extensionType"] = args ? args.extensionType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["releaseNamespace"] = args ? args.releaseNamespace : undefined;
-            resourceInputs["releaseTrain"] = args ? args.releaseTrain : undefined;
-            resourceInputs["targetNamespace"] = args ? args.targetNamespace : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["configurationProtectedSettings"] = args?.configurationProtectedSettings;
+            resourceInputs["configurationSettings"] = args?.configurationSettings;
+            resourceInputs["extensionType"] = args?.extensionType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["releaseNamespace"] = args?.releaseNamespace;
+            resourceInputs["releaseTrain"] = args?.releaseTrain;
+            resourceInputs["targetNamespace"] = args?.targetNamespace;
+            resourceInputs["version"] = args?.version;
             resourceInputs["currentVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

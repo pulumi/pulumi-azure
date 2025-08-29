@@ -95,27 +95,27 @@ export class WorkspaceExtendedAuditingPolicy extends pulumi.CustomResource {
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`.
      */
-    public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly logMonitoringEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
      * The access key to use for the auditing storage account.
      */
-    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountAccessKey: pulumi.Output<string | undefined>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    public readonly storageAccountAccessKeyIsSecondary!: pulumi.Output<boolean | undefined>;
+    declare public readonly storageAccountAccessKeyIsSecondary: pulumi.Output<boolean | undefined>;
     /**
      * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
-    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly storageEndpoint: pulumi.Output<string | undefined>;
     /**
      * The ID of the Synapse workspace to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceExtendedAuditingPolicy resource with the given unique name, arguments, and options.
@@ -130,23 +130,23 @@ export class WorkspaceExtendedAuditingPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceExtendedAuditingPolicyState | undefined;
-            resourceInputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
-            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            resourceInputs["storageAccountAccessKeyIsSecondary"] = state ? state.storageAccountAccessKeyIsSecondary : undefined;
-            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["logMonitoringEnabled"] = state?.logMonitoringEnabled;
+            resourceInputs["retentionInDays"] = state?.retentionInDays;
+            resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = state?.storageAccountAccessKeyIsSecondary;
+            resourceInputs["storageEndpoint"] = state?.storageEndpoint;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
         } else {
             const args = argsOrState as WorkspaceExtendedAuditingPolicyArgs | undefined;
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
+            if (args?.synapseWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            resourceInputs["logMonitoringEnabled"] = args?.logMonitoringEnabled;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
-            resourceInputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = args?.storageAccountAccessKeyIsSecondary;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };

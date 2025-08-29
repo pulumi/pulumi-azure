@@ -116,31 +116,31 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
     /**
      * Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
      */
-    public readonly internetSecurityEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internetSecurityEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
      */
-    public readonly remoteVpnSiteId!: pulumi.Output<string>;
+    declare public readonly remoteVpnSiteId: pulumi.Output<string>;
     /**
      * A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
      */
-    public readonly routing!: pulumi.Output<outputs.network.VpnGatewayConnectionRouting>;
+    declare public readonly routing: pulumi.Output<outputs.network.VpnGatewayConnectionRouting>;
     /**
      * One or more `trafficSelectorPolicy` blocks as defined below.
      */
-    public readonly trafficSelectorPolicies!: pulumi.Output<outputs.network.VpnGatewayConnectionTrafficSelectorPolicy[] | undefined>;
+    declare public readonly trafficSelectorPolicies: pulumi.Output<outputs.network.VpnGatewayConnectionTrafficSelectorPolicy[] | undefined>;
     /**
      * The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
      */
-    public readonly vpnGatewayId!: pulumi.Output<string>;
+    declare public readonly vpnGatewayId: pulumi.Output<string>;
     /**
      * One or more `vpnLink` blocks as defined below.
      */
-    public readonly vpnLinks!: pulumi.Output<outputs.network.VpnGatewayConnectionVpnLink[]>;
+    declare public readonly vpnLinks: pulumi.Output<outputs.network.VpnGatewayConnectionVpnLink[]>;
 
     /**
      * Create a VpnGatewayConnection resource with the given unique name, arguments, and options.
@@ -155,31 +155,31 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayConnectionState | undefined;
-            resourceInputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["remoteVpnSiteId"] = state ? state.remoteVpnSiteId : undefined;
-            resourceInputs["routing"] = state ? state.routing : undefined;
-            resourceInputs["trafficSelectorPolicies"] = state ? state.trafficSelectorPolicies : undefined;
-            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
-            resourceInputs["vpnLinks"] = state ? state.vpnLinks : undefined;
+            resourceInputs["internetSecurityEnabled"] = state?.internetSecurityEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["remoteVpnSiteId"] = state?.remoteVpnSiteId;
+            resourceInputs["routing"] = state?.routing;
+            resourceInputs["trafficSelectorPolicies"] = state?.trafficSelectorPolicies;
+            resourceInputs["vpnGatewayId"] = state?.vpnGatewayId;
+            resourceInputs["vpnLinks"] = state?.vpnLinks;
         } else {
             const args = argsOrState as VpnGatewayConnectionArgs | undefined;
-            if ((!args || args.remoteVpnSiteId === undefined) && !opts.urn) {
+            if (args?.remoteVpnSiteId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteVpnSiteId'");
             }
-            if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
+            if (args?.vpnGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
-            if ((!args || args.vpnLinks === undefined) && !opts.urn) {
+            if (args?.vpnLinks === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnLinks'");
             }
-            resourceInputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["remoteVpnSiteId"] = args ? args.remoteVpnSiteId : undefined;
-            resourceInputs["routing"] = args ? args.routing : undefined;
-            resourceInputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
-            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
-            resourceInputs["vpnLinks"] = args ? args.vpnLinks : undefined;
+            resourceInputs["internetSecurityEnabled"] = args?.internetSecurityEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["remoteVpnSiteId"] = args?.remoteVpnSiteId;
+            resourceInputs["routing"] = args?.routing;
+            resourceInputs["trafficSelectorPolicies"] = args?.trafficSelectorPolicies;
+            resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
+            resourceInputs["vpnLinks"] = args?.vpnLinks;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpnGatewayConnection.__pulumiType, name, resourceInputs, opts);

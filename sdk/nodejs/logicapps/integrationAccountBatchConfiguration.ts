@@ -82,27 +82,27 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
     /**
      * The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
      */
-    public readonly batchGroupName!: pulumi.Output<string>;
+    declare public readonly batchGroupName: pulumi.Output<string>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      */
-    public readonly integrationAccountName!: pulumi.Output<string>;
+    declare public readonly integrationAccountName: pulumi.Output<string>;
     /**
      * A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `releaseCriteria` block as documented below, which is used to select the criteria to meet before processing each batch.
      */
-    public readonly releaseCriteria!: pulumi.Output<outputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteria>;
+    declare public readonly releaseCriteria: pulumi.Output<outputs.logicapps.IntegrationAccountBatchConfigurationReleaseCriteria>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAccountBatchConfiguration resource with the given unique name, arguments, and options.
@@ -117,32 +117,32 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountBatchConfigurationState | undefined;
-            resourceInputs["batchGroupName"] = state ? state.batchGroupName : undefined;
-            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["releaseCriteria"] = state ? state.releaseCriteria : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["batchGroupName"] = state?.batchGroupName;
+            resourceInputs["integrationAccountName"] = state?.integrationAccountName;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["releaseCriteria"] = state?.releaseCriteria;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IntegrationAccountBatchConfigurationArgs | undefined;
-            if ((!args || args.batchGroupName === undefined) && !opts.urn) {
+            if (args?.batchGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'batchGroupName'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.releaseCriteria === undefined) && !opts.urn) {
+            if (args?.releaseCriteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'releaseCriteria'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["batchGroupName"] = args ? args.batchGroupName : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["releaseCriteria"] = args ? args.releaseCriteria : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["batchGroupName"] = args?.batchGroupName;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["releaseCriteria"] = args?.releaseCriteria;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAccountBatchConfiguration.__pulumiType, name, resourceInputs, opts);

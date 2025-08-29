@@ -91,11 +91,11 @@ export class CertificateContacts extends pulumi.CustomResource {
     /**
      * One or more `contact` blocks as defined below.
      */
-    public readonly contacts!: pulumi.Output<outputs.keyvault.CertificateContactsContact[] | undefined>;
+    declare public readonly contacts: pulumi.Output<outputs.keyvault.CertificateContactsContact[] | undefined>;
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string>;
 
     /**
      * Create a CertificateContacts resource with the given unique name, arguments, and options.
@@ -110,15 +110,15 @@ export class CertificateContacts extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateContactsState | undefined;
-            resourceInputs["contacts"] = state ? state.contacts : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["contacts"] = state?.contacts;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
         } else {
             const args = argsOrState as CertificateContactsArgs | undefined;
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
+            if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            resourceInputs["contacts"] = args ? args.contacts : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["contacts"] = args?.contacts;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CertificateContacts.__pulumiType, name, resourceInputs, opts);

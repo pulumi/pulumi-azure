@@ -86,23 +86,23 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**
      * The Authorization Key.
      */
-    public /*out*/ readonly authorizationKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly authorizationKey: pulumi.Output<string>;
     /**
      * The authorization use status.
      */
-    public /*out*/ readonly authorizationUseStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly authorizationUseStatus: pulumi.Output<string>;
     /**
      * The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
      */
-    public readonly expressRouteCircuitName!: pulumi.Output<string>;
+    declare public readonly expressRouteCircuitName: pulumi.Output<string>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ExpressRouteCircuitAuthorization resource with the given unique name, arguments, and options.
@@ -117,22 +117,22 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteCircuitAuthorizationState | undefined;
-            resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
-            resourceInputs["authorizationUseStatus"] = state ? state.authorizationUseStatus : undefined;
-            resourceInputs["expressRouteCircuitName"] = state ? state.expressRouteCircuitName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["authorizationKey"] = state?.authorizationKey;
+            resourceInputs["authorizationUseStatus"] = state?.authorizationUseStatus;
+            resourceInputs["expressRouteCircuitName"] = state?.expressRouteCircuitName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ExpressRouteCircuitAuthorizationArgs | undefined;
-            if ((!args || args.expressRouteCircuitName === undefined) && !opts.urn) {
+            if (args?.expressRouteCircuitName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteCircuitName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["expressRouteCircuitName"] = args?.expressRouteCircuitName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["authorizationKey"] = undefined /*out*/;
             resourceInputs["authorizationUseStatus"] = undefined /*out*/;
         }

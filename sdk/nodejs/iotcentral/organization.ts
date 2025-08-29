@@ -81,19 +81,19 @@ export class Organization extends pulumi.CustomResource {
     /**
      * Custom `displayName` for the organization.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The application `id`. Changing this forces a new resource to be created.
      */
-    public readonly iotcentralApplicationId!: pulumi.Output<string>;
+    declare public readonly iotcentralApplicationId: pulumi.Output<string>;
     /**
      * The ID of the organization. Changing this forces a new resource to be created.
      */
-    public readonly organizationId!: pulumi.Output<string>;
+    declare public readonly organizationId: pulumi.Output<string>;
     /**
      * The `organizationId` of the parent organization. Changing this forces a new resource to be created.
      */
-    public readonly parentOrganizationId!: pulumi.Output<string | undefined>;
+    declare public readonly parentOrganizationId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -108,25 +108,25 @@ export class Organization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["iotcentralApplicationId"] = state ? state.iotcentralApplicationId : undefined;
-            resourceInputs["organizationId"] = state ? state.organizationId : undefined;
-            resourceInputs["parentOrganizationId"] = state ? state.parentOrganizationId : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["iotcentralApplicationId"] = state?.iotcentralApplicationId;
+            resourceInputs["organizationId"] = state?.organizationId;
+            resourceInputs["parentOrganizationId"] = state?.parentOrganizationId;
         } else {
             const args = argsOrState as OrganizationArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.iotcentralApplicationId === undefined) && !opts.urn) {
+            if (args?.iotcentralApplicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iotcentralApplicationId'");
             }
-            if ((!args || args.organizationId === undefined) && !opts.urn) {
+            if (args?.organizationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'organizationId'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["iotcentralApplicationId"] = args ? args.iotcentralApplicationId : undefined;
-            resourceInputs["organizationId"] = args ? args.organizationId : undefined;
-            resourceInputs["parentOrganizationId"] = args ? args.parentOrganizationId : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["iotcentralApplicationId"] = args?.iotcentralApplicationId;
+            resourceInputs["organizationId"] = args?.organizationId;
+            resourceInputs["parentOrganizationId"] = args?.parentOrganizationId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Organization.__pulumiType, name, resourceInputs, opts);

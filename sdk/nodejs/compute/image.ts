@@ -77,37 +77,37 @@ export class Image extends pulumi.CustomResource {
      *
      * > **Note:** `dataDisk` cannot be set together with `sourceVirtualMachineId`.
      */
-    public readonly dataDisks!: pulumi.Output<outputs.compute.ImageDataDisk[] | undefined>;
+    declare public readonly dataDisks: pulumi.Output<outputs.compute.ImageDataDisk[] | undefined>;
     /**
      * The Hyper-V Generation Type of the Virtual Machine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    declare public readonly hyperVGeneration: pulumi.Output<string | undefined>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the image. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** `osDisk` cannot be set together with `sourceVirtualMachineId`.
      */
-    public readonly osDisk!: pulumi.Output<outputs.compute.ImageOsDisk | undefined>;
+    declare public readonly osDisk: pulumi.Output<outputs.compute.ImageOsDisk | undefined>;
     /**
      * The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Virtual Machine ID from which to create the image.
      */
-    public readonly sourceVirtualMachineId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceVirtualMachineId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
@@ -115,7 +115,7 @@ export class Image extends pulumi.CustomResource {
      *
      * > **Note:** `zoneResilient` cannot be set together with `sourceVirtualMachineId`.
      */
-    public readonly zoneResilient!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneResilient: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -130,29 +130,29 @@ export class Image extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ImageState | undefined;
-            resourceInputs["dataDisks"] = state ? state.dataDisks : undefined;
-            resourceInputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["osDisk"] = state ? state.osDisk : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceVirtualMachineId"] = state ? state.sourceVirtualMachineId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zoneResilient"] = state ? state.zoneResilient : undefined;
+            resourceInputs["dataDisks"] = state?.dataDisks;
+            resourceInputs["hyperVGeneration"] = state?.hyperVGeneration;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["osDisk"] = state?.osDisk;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceVirtualMachineId"] = state?.sourceVirtualMachineId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zoneResilient"] = state?.zoneResilient;
         } else {
             const args = argsOrState as ImageArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataDisks"] = args ? args.dataDisks : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["osDisk"] = args ? args.osDisk : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceVirtualMachineId"] = args ? args.sourceVirtualMachineId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneResilient"] = args ? args.zoneResilient : undefined;
+            resourceInputs["dataDisks"] = args?.dataDisks;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["osDisk"] = args?.osDisk;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceVirtualMachineId"] = args?.sourceVirtualMachineId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneResilient"] = args?.zoneResilient;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Image.__pulumiType, name, resourceInputs, opts);

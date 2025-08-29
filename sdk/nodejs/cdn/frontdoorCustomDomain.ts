@@ -125,7 +125,7 @@ export class FrontdoorCustomDomain extends pulumi.CustomResource {
     /**
      * The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
      */
-    public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorProfileId: pulumi.Output<string>;
     /**
      * The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
      *
@@ -133,27 +133,27 @@ export class FrontdoorCustomDomain extends pulumi.CustomResource {
      *
      * > **Note:** Currently `preValidatedCdnFrontdoorCustomDomainId` only supports domains validated by Static Web App. -->
      */
-    public readonly dnsZoneId!: pulumi.Output<string | undefined>;
+    declare public readonly dnsZoneId: pulumi.Output<string | undefined>;
     /**
      * The date time that the token expires.
      */
-    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
     /**
      * The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
      */
-    public readonly hostName!: pulumi.Output<string>;
+    declare public readonly hostName: pulumi.Output<string>;
     /**
      * The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `tls` block as defined below.
      */
-    public readonly tls!: pulumi.Output<outputs.cdn.FrontdoorCustomDomainTls>;
+    declare public readonly tls: pulumi.Output<outputs.cdn.FrontdoorCustomDomainTls>;
     /**
      * Challenge used for DNS TXT record or file based validation.
      */
-    public /*out*/ readonly validationToken!: pulumi.Output<string>;
+    declare public /*out*/ readonly validationToken: pulumi.Output<string>;
 
     /**
      * Create a FrontdoorCustomDomain resource with the given unique name, arguments, and options.
@@ -168,29 +168,29 @@ export class FrontdoorCustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorCustomDomainState | undefined;
-            resourceInputs["cdnFrontdoorProfileId"] = state ? state.cdnFrontdoorProfileId : undefined;
-            resourceInputs["dnsZoneId"] = state ? state.dnsZoneId : undefined;
-            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
-            resourceInputs["hostName"] = state ? state.hostName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tls"] = state ? state.tls : undefined;
-            resourceInputs["validationToken"] = state ? state.validationToken : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = state?.cdnFrontdoorProfileId;
+            resourceInputs["dnsZoneId"] = state?.dnsZoneId;
+            resourceInputs["expirationDate"] = state?.expirationDate;
+            resourceInputs["hostName"] = state?.hostName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tls"] = state?.tls;
+            resourceInputs["validationToken"] = state?.validationToken;
         } else {
             const args = argsOrState as FrontdoorCustomDomainArgs | undefined;
-            if ((!args || args.cdnFrontdoorProfileId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorProfileId'");
             }
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.tls === undefined) && !opts.urn) {
+            if (args?.tls === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tls'");
             }
-            resourceInputs["cdnFrontdoorProfileId"] = args ? args.cdnFrontdoorProfileId : undefined;
-            resourceInputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tls"] = args ? args.tls : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = args?.cdnFrontdoorProfileId;
+            resourceInputs["dnsZoneId"] = args?.dnsZoneId;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tls"] = args?.tls;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["validationToken"] = undefined /*out*/;
         }

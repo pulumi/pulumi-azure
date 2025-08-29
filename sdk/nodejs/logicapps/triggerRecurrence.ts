@@ -71,33 +71,33 @@ export class TriggerRecurrence extends pulumi.CustomResource {
     /**
      * Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
      */
-    public readonly frequency!: pulumi.Output<string>;
+    declare public readonly frequency: pulumi.Output<string>;
     /**
      * Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
      */
-    public readonly interval!: pulumi.Output<number>;
+    declare public readonly interval: pulumi.Output<number>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly logicAppId!: pulumi.Output<string>;
+    declare public readonly logicAppId: pulumi.Output<string>;
     /**
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
      * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `schedule` block as specified below.
      */
-    public readonly schedule!: pulumi.Output<outputs.logicapps.TriggerRecurrenceSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.logicapps.TriggerRecurrenceSchedule | undefined>;
     /**
      * Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
      */
-    public readonly startTime!: pulumi.Output<string | undefined>;
+    declare public readonly startTime: pulumi.Output<string | undefined>;
     /**
      * Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
      */
-    public readonly timeZone!: pulumi.Output<string>;
+    declare public readonly timeZone: pulumi.Output<string>;
 
     /**
      * Create a TriggerRecurrence resource with the given unique name, arguments, and options.
@@ -112,31 +112,31 @@ export class TriggerRecurrence extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerRecurrenceState | undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["interval"] = state ? state.interval : undefined;
-            resourceInputs["logicAppId"] = state ? state.logicAppId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["interval"] = state?.interval;
+            resourceInputs["logicAppId"] = state?.logicAppId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["timeZone"] = state?.timeZone;
         } else {
             const args = argsOrState as TriggerRecurrenceArgs | undefined;
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.interval === undefined) && !opts.urn) {
+            if (args?.interval === undefined && !opts.urn) {
                 throw new Error("Missing required property 'interval'");
             }
-            if ((!args || args.logicAppId === undefined) && !opts.urn) {
+            if (args?.logicAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logicAppId'");
             }
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["logicAppId"] = args ? args.logicAppId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["logicAppId"] = args?.logicAppId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["timeZone"] = args?.timeZone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TriggerRecurrence.__pulumiType, name, resourceInputs, opts);

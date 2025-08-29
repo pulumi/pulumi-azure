@@ -95,15 +95,15 @@ export class Job extends pulumi.CustomResource {
     /**
      * The description of the Elastic Job.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the Elastic Job Agent. Changing this forces a new Elastic Job to be created.
      */
-    public readonly jobAgentId!: pulumi.Output<string>;
+    declare public readonly jobAgentId: pulumi.Output<string>;
     /**
      * The name which should be used for this Elastic Job. Changing this forces a new Elastic Job to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -118,17 +118,17 @@ export class Job extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["jobAgentId"] = state ? state.jobAgentId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["jobAgentId"] = state?.jobAgentId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if ((!args || args.jobAgentId === undefined) && !opts.urn) {
+            if (args?.jobAgentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["jobAgentId"] = args ? args.jobAgentId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["jobAgentId"] = args?.jobAgentId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Job.__pulumiType, name, resourceInputs, opts);

@@ -249,39 +249,39 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
     /**
      * The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
      */
-    public readonly managedInstanceId!: pulumi.Output<string>;
+    declare public readonly managedInstanceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
      */
-    public readonly partnerManagedInstanceId!: pulumi.Output<string>;
+    declare public readonly partnerManagedInstanceId: pulumi.Output<string>;
     /**
      * A `partnerRegion` block as defined below.
      */
-    public /*out*/ readonly partnerRegions!: pulumi.Output<outputs.mssql.ManagedInstanceFailoverGroupPartnerRegion[]>;
+    declare public /*out*/ readonly partnerRegions: pulumi.Output<outputs.mssql.ManagedInstanceFailoverGroupPartnerRegion[]>;
     /**
      * A `readWriteEndpointFailoverPolicy` block as defined below.
      */
-    public readonly readWriteEndpointFailoverPolicy!: pulumi.Output<outputs.mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy>;
+    declare public readonly readWriteEndpointFailoverPolicy: pulumi.Output<outputs.mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
      * Failover policy for the read-only endpoint. Defaults to `true`.
      */
-    public readonly readonlyEndpointFailoverPolicyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly readonlyEndpointFailoverPolicyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The partner replication role of the Managed Instance Failover Group.
      */
-    public /*out*/ readonly role!: pulumi.Output<string>;
+    declare public /*out*/ readonly role: pulumi.Output<string>;
     /**
      * The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
      */
-    public readonly secondaryType!: pulumi.Output<string | undefined>;
+    declare public readonly secondaryType: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedInstanceFailoverGroup resource with the given unique name, arguments, and options.
@@ -296,33 +296,33 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedInstanceFailoverGroupState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedInstanceId"] = state ? state.managedInstanceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partnerManagedInstanceId"] = state ? state.partnerManagedInstanceId : undefined;
-            resourceInputs["partnerRegions"] = state ? state.partnerRegions : undefined;
-            resourceInputs["readWriteEndpointFailoverPolicy"] = state ? state.readWriteEndpointFailoverPolicy : undefined;
-            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = state ? state.readonlyEndpointFailoverPolicyEnabled : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["secondaryType"] = state ? state.secondaryType : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedInstanceId"] = state?.managedInstanceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partnerManagedInstanceId"] = state?.partnerManagedInstanceId;
+            resourceInputs["partnerRegions"] = state?.partnerRegions;
+            resourceInputs["readWriteEndpointFailoverPolicy"] = state?.readWriteEndpointFailoverPolicy;
+            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = state?.readonlyEndpointFailoverPolicyEnabled;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["secondaryType"] = state?.secondaryType;
         } else {
             const args = argsOrState as ManagedInstanceFailoverGroupArgs | undefined;
-            if ((!args || args.managedInstanceId === undefined) && !opts.urn) {
+            if (args?.managedInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceId'");
             }
-            if ((!args || args.partnerManagedInstanceId === undefined) && !opts.urn) {
+            if (args?.partnerManagedInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerManagedInstanceId'");
             }
-            if ((!args || args.readWriteEndpointFailoverPolicy === undefined) && !opts.urn) {
+            if (args?.readWriteEndpointFailoverPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'readWriteEndpointFailoverPolicy'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedInstanceId"] = args ? args.managedInstanceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partnerManagedInstanceId"] = args ? args.partnerManagedInstanceId : undefined;
-            resourceInputs["readWriteEndpointFailoverPolicy"] = args ? args.readWriteEndpointFailoverPolicy : undefined;
-            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = args ? args.readonlyEndpointFailoverPolicyEnabled : undefined;
-            resourceInputs["secondaryType"] = args ? args.secondaryType : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedInstanceId"] = args?.managedInstanceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partnerManagedInstanceId"] = args?.partnerManagedInstanceId;
+            resourceInputs["readWriteEndpointFailoverPolicy"] = args?.readWriteEndpointFailoverPolicy;
+            resourceInputs["readonlyEndpointFailoverPolicyEnabled"] = args?.readonlyEndpointFailoverPolicyEnabled;
+            resourceInputs["secondaryType"] = args?.secondaryType;
             resourceInputs["partnerRegions"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
         }

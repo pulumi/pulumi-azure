@@ -87,49 +87,49 @@ export class AuthorizationRule extends pulumi.CustomResource {
     /**
      * Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
      */
-    public readonly listen!: pulumi.Output<boolean | undefined>;
+    declare public readonly listen: pulumi.Output<boolean | undefined>;
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      *
      * > **Note:** If `manage` is set to `true` then both `send` and `listen` must also be set to `true`.
      */
-    public readonly manage!: pulumi.Output<boolean | undefined>;
+    declare public readonly manage: pulumi.Output<boolean | undefined>;
     /**
      * The name to use for this Authorization Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
      */
-    public readonly notificationHubName!: pulumi.Output<string>;
+    declare public readonly notificationHubName: pulumi.Output<string>;
     /**
      * The Primary Access Key associated with this Authorization Rule.
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * The Primary Connetion String associated with this Authorization Rule.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Secondary Access Key associated with this Authorization Rule.
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * The Secondary Connetion String associated with this Authorization Rule.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
      */
-    public readonly send!: pulumi.Output<boolean | undefined>;
+    declare public readonly send: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AuthorizationRule resource with the given unique name, arguments, and options.
@@ -144,35 +144,35 @@ export class AuthorizationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizationRuleState | undefined;
-            resourceInputs["listen"] = state ? state.listen : undefined;
-            resourceInputs["manage"] = state ? state.manage : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["notificationHubName"] = state ? state.notificationHubName : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["send"] = state ? state.send : undefined;
+            resourceInputs["listen"] = state?.listen;
+            resourceInputs["manage"] = state?.manage;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["notificationHubName"] = state?.notificationHubName;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["send"] = state?.send;
         } else {
             const args = argsOrState as AuthorizationRuleArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.notificationHubName === undefined) && !opts.urn) {
+            if (args?.notificationHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationHubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["listen"] = args ? args.listen : undefined;
-            resourceInputs["manage"] = args ? args.manage : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["notificationHubName"] = args ? args.notificationHubName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["send"] = args ? args.send : undefined;
+            resourceInputs["listen"] = args?.listen;
+            resourceInputs["manage"] = args?.manage;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["notificationHubName"] = args?.notificationHubName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["send"] = args?.send;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;

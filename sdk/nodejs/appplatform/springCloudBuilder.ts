@@ -82,19 +82,19 @@ export class SpringCloudBuilder extends pulumi.CustomResource {
     /**
      * One or more `buildPackGroup` blocks as defined below.
      */
-    public readonly buildPackGroups!: pulumi.Output<outputs.appplatform.SpringCloudBuilderBuildPackGroup[]>;
+    declare public readonly buildPackGroups: pulumi.Output<outputs.appplatform.SpringCloudBuilderBuildPackGroup[]>;
     /**
      * The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
     /**
      * A `stack` block as defined below.
      */
-    public readonly stack!: pulumi.Output<outputs.appplatform.SpringCloudBuilderStack>;
+    declare public readonly stack: pulumi.Output<outputs.appplatform.SpringCloudBuilderStack>;
 
     /**
      * Create a SpringCloudBuilder resource with the given unique name, arguments, and options.
@@ -109,25 +109,25 @@ export class SpringCloudBuilder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudBuilderState | undefined;
-            resourceInputs["buildPackGroups"] = state ? state.buildPackGroups : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
-            resourceInputs["stack"] = state ? state.stack : undefined;
+            resourceInputs["buildPackGroups"] = state?.buildPackGroups;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
+            resourceInputs["stack"] = state?.stack;
         } else {
             const args = argsOrState as SpringCloudBuilderArgs | undefined;
-            if ((!args || args.buildPackGroups === undefined) && !opts.urn) {
+            if (args?.buildPackGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'buildPackGroups'");
             }
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            if ((!args || args.stack === undefined) && !opts.urn) {
+            if (args?.stack === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stack'");
             }
-            resourceInputs["buildPackGroups"] = args ? args.buildPackGroups : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
-            resourceInputs["stack"] = args ? args.stack : undefined;
+            resourceInputs["buildPackGroups"] = args?.buildPackGroups;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
+            resourceInputs["stack"] = args?.stack;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudBuilder.__pulumiType, name, resourceInputs, opts);

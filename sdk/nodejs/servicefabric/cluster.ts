@@ -84,103 +84,103 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A List of one or more features which should be enabled, such as `DnsService`.
      */
-    public readonly addOnFeatures!: pulumi.Output<string[] | undefined>;
+    declare public readonly addOnFeatures: pulumi.Output<string[] | undefined>;
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    public readonly azureActiveDirectory!: pulumi.Output<outputs.servicefabric.ClusterAzureActiveDirectory | undefined>;
+    declare public readonly azureActiveDirectory: pulumi.Output<outputs.servicefabric.ClusterAzureActiveDirectory | undefined>;
     /**
      * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      */
-    public readonly certificate!: pulumi.Output<outputs.servicefabric.ClusterCertificate | undefined>;
+    declare public readonly certificate: pulumi.Output<outputs.servicefabric.ClusterCertificate | undefined>;
     /**
      * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      */
-    public readonly certificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterCertificateCommonNames | undefined>;
+    declare public readonly certificateCommonNames: pulumi.Output<outputs.servicefabric.ClusterCertificateCommonNames | undefined>;
     /**
      * A `clientCertificateCommonName` block as defined below.
      *
      * > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      */
-    public readonly clientCertificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateCommonName[] | undefined>;
+    declare public readonly clientCertificateCommonNames: pulumi.Output<outputs.servicefabric.ClusterClientCertificateCommonName[] | undefined>;
     /**
      * One or more `clientCertificateThumbprint` blocks as defined below.
      */
-    public readonly clientCertificateThumbprints!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateThumbprint[] | undefined>;
+    declare public readonly clientCertificateThumbprints: pulumi.Output<outputs.servicefabric.ClusterClientCertificateThumbprint[] | undefined>;
     /**
      * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
      */
-    public readonly clusterCodeVersion!: pulumi.Output<string>;
+    declare public readonly clusterCodeVersion: pulumi.Output<string>;
     /**
      * The Cluster Endpoint for this Service Fabric Cluster.
      */
-    public /*out*/ readonly clusterEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterEndpoint: pulumi.Output<string>;
     /**
      * A `diagnosticsConfig` block as defined below.
      */
-    public readonly diagnosticsConfig!: pulumi.Output<outputs.servicefabric.ClusterDiagnosticsConfig | undefined>;
+    declare public readonly diagnosticsConfig: pulumi.Output<outputs.servicefabric.ClusterDiagnosticsConfig | undefined>;
     /**
      * One or more `fabricSettings` blocks as defined below.
      */
-    public readonly fabricSettings!: pulumi.Output<outputs.servicefabric.ClusterFabricSetting[] | undefined>;
+    declare public readonly fabricSettings: pulumi.Output<outputs.servicefabric.ClusterFabricSetting[] | undefined>;
     /**
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
      */
-    public readonly managementEndpoint!: pulumi.Output<string>;
+    declare public readonly managementEndpoint: pulumi.Output<string>;
     /**
      * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    public readonly nodeTypes!: pulumi.Output<outputs.servicefabric.ClusterNodeType[]>;
+    declare public readonly nodeTypes: pulumi.Output<outputs.servicefabric.ClusterNodeType[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      *
      * > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
      */
-    public readonly reliabilityLevel!: pulumi.Output<string>;
+    declare public readonly reliabilityLevel: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `reverseProxyCertificate` block as defined below. Conflicts with `reverseProxyCertificateCommonNames`.
      */
-    public readonly reverseProxyCertificate!: pulumi.Output<outputs.servicefabric.ClusterReverseProxyCertificate | undefined>;
+    declare public readonly reverseProxyCertificate: pulumi.Output<outputs.servicefabric.ClusterReverseProxyCertificate | undefined>;
     /**
      * A `reverseProxyCertificateCommonNames` block as defined below. Conflicts with `reverseProxyCertificate`.
      */
-    public readonly reverseProxyCertificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterReverseProxyCertificateCommonNames | undefined>;
+    declare public readonly reverseProxyCertificateCommonNames: pulumi.Output<outputs.servicefabric.ClusterReverseProxyCertificateCommonNames | undefined>;
     /**
      * Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`.
      */
-    public readonly serviceFabricZonalUpgradeMode!: pulumi.Output<string | undefined>;
+    declare public readonly serviceFabricZonalUpgradeMode: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
      */
-    public readonly upgradeMode!: pulumi.Output<string>;
+    declare public readonly upgradeMode: pulumi.Output<string>;
     /**
      * A `upgradePolicy` block as defined below.
      */
-    public readonly upgradePolicy!: pulumi.Output<outputs.servicefabric.ClusterUpgradePolicy | undefined>;
+    declare public readonly upgradePolicy: pulumi.Output<outputs.servicefabric.ClusterUpgradePolicy | undefined>;
     /**
      * Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
      */
-    public readonly vmImage!: pulumi.Output<string>;
+    declare public readonly vmImage: pulumi.Output<string>;
     /**
      * Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`.
      */
-    public readonly vmssZonalUpgradeMode!: pulumi.Output<string | undefined>;
+    declare public readonly vmssZonalUpgradeMode: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -195,73 +195,73 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["addOnFeatures"] = state ? state.addOnFeatures : undefined;
-            resourceInputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["certificateCommonNames"] = state ? state.certificateCommonNames : undefined;
-            resourceInputs["clientCertificateCommonNames"] = state ? state.clientCertificateCommonNames : undefined;
-            resourceInputs["clientCertificateThumbprints"] = state ? state.clientCertificateThumbprints : undefined;
-            resourceInputs["clusterCodeVersion"] = state ? state.clusterCodeVersion : undefined;
-            resourceInputs["clusterEndpoint"] = state ? state.clusterEndpoint : undefined;
-            resourceInputs["diagnosticsConfig"] = state ? state.diagnosticsConfig : undefined;
-            resourceInputs["fabricSettings"] = state ? state.fabricSettings : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managementEndpoint"] = state ? state.managementEndpoint : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeTypes"] = state ? state.nodeTypes : undefined;
-            resourceInputs["reliabilityLevel"] = state ? state.reliabilityLevel : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["reverseProxyCertificate"] = state ? state.reverseProxyCertificate : undefined;
-            resourceInputs["reverseProxyCertificateCommonNames"] = state ? state.reverseProxyCertificateCommonNames : undefined;
-            resourceInputs["serviceFabricZonalUpgradeMode"] = state ? state.serviceFabricZonalUpgradeMode : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["upgradeMode"] = state ? state.upgradeMode : undefined;
-            resourceInputs["upgradePolicy"] = state ? state.upgradePolicy : undefined;
-            resourceInputs["vmImage"] = state ? state.vmImage : undefined;
-            resourceInputs["vmssZonalUpgradeMode"] = state ? state.vmssZonalUpgradeMode : undefined;
+            resourceInputs["addOnFeatures"] = state?.addOnFeatures;
+            resourceInputs["azureActiveDirectory"] = state?.azureActiveDirectory;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["certificateCommonNames"] = state?.certificateCommonNames;
+            resourceInputs["clientCertificateCommonNames"] = state?.clientCertificateCommonNames;
+            resourceInputs["clientCertificateThumbprints"] = state?.clientCertificateThumbprints;
+            resourceInputs["clusterCodeVersion"] = state?.clusterCodeVersion;
+            resourceInputs["clusterEndpoint"] = state?.clusterEndpoint;
+            resourceInputs["diagnosticsConfig"] = state?.diagnosticsConfig;
+            resourceInputs["fabricSettings"] = state?.fabricSettings;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managementEndpoint"] = state?.managementEndpoint;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeTypes"] = state?.nodeTypes;
+            resourceInputs["reliabilityLevel"] = state?.reliabilityLevel;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["reverseProxyCertificate"] = state?.reverseProxyCertificate;
+            resourceInputs["reverseProxyCertificateCommonNames"] = state?.reverseProxyCertificateCommonNames;
+            resourceInputs["serviceFabricZonalUpgradeMode"] = state?.serviceFabricZonalUpgradeMode;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["upgradeMode"] = state?.upgradeMode;
+            resourceInputs["upgradePolicy"] = state?.upgradePolicy;
+            resourceInputs["vmImage"] = state?.vmImage;
+            resourceInputs["vmssZonalUpgradeMode"] = state?.vmssZonalUpgradeMode;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.managementEndpoint === undefined) && !opts.urn) {
+            if (args?.managementEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementEndpoint'");
             }
-            if ((!args || args.nodeTypes === undefined) && !opts.urn) {
+            if (args?.nodeTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeTypes'");
             }
-            if ((!args || args.reliabilityLevel === undefined) && !opts.urn) {
+            if (args?.reliabilityLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reliabilityLevel'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.upgradeMode === undefined) && !opts.urn) {
+            if (args?.upgradeMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'upgradeMode'");
             }
-            if ((!args || args.vmImage === undefined) && !opts.urn) {
+            if (args?.vmImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmImage'");
             }
-            resourceInputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
-            resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["certificateCommonNames"] = args ? args.certificateCommonNames : undefined;
-            resourceInputs["clientCertificateCommonNames"] = args ? args.clientCertificateCommonNames : undefined;
-            resourceInputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
-            resourceInputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
-            resourceInputs["diagnosticsConfig"] = args ? args.diagnosticsConfig : undefined;
-            resourceInputs["fabricSettings"] = args ? args.fabricSettings : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementEndpoint"] = args ? args.managementEndpoint : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodeTypes"] = args ? args.nodeTypes : undefined;
-            resourceInputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
-            resourceInputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
-            resourceInputs["serviceFabricZonalUpgradeMode"] = args ? args.serviceFabricZonalUpgradeMode : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradeMode"] = args ? args.upgradeMode : undefined;
-            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            resourceInputs["vmImage"] = args ? args.vmImage : undefined;
-            resourceInputs["vmssZonalUpgradeMode"] = args ? args.vmssZonalUpgradeMode : undefined;
+            resourceInputs["addOnFeatures"] = args?.addOnFeatures;
+            resourceInputs["azureActiveDirectory"] = args?.azureActiveDirectory;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["certificateCommonNames"] = args?.certificateCommonNames;
+            resourceInputs["clientCertificateCommonNames"] = args?.clientCertificateCommonNames;
+            resourceInputs["clientCertificateThumbprints"] = args?.clientCertificateThumbprints;
+            resourceInputs["clusterCodeVersion"] = args?.clusterCodeVersion;
+            resourceInputs["diagnosticsConfig"] = args?.diagnosticsConfig;
+            resourceInputs["fabricSettings"] = args?.fabricSettings;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementEndpoint"] = args?.managementEndpoint;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodeTypes"] = args?.nodeTypes;
+            resourceInputs["reliabilityLevel"] = args?.reliabilityLevel;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["reverseProxyCertificate"] = args?.reverseProxyCertificate;
+            resourceInputs["reverseProxyCertificateCommonNames"] = args?.reverseProxyCertificateCommonNames;
+            resourceInputs["serviceFabricZonalUpgradeMode"] = args?.serviceFabricZonalUpgradeMode;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradeMode"] = args?.upgradeMode;
+            resourceInputs["upgradePolicy"] = args?.upgradePolicy;
+            resourceInputs["vmImage"] = args?.vmImage;
+            resourceInputs["vmssZonalUpgradeMode"] = args?.vmssZonalUpgradeMode;
             resourceInputs["clusterEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

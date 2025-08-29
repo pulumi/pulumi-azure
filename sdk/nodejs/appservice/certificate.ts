@@ -70,71 +70,71 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      */
-    public readonly appServicePlanId!: pulumi.Output<string | undefined>;
+    declare public readonly appServicePlanId: pulumi.Output<string | undefined>;
     /**
      * The expiration date for the certificate.
      */
-    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
     /**
      * The friendly name of the certificate.
      */
-    public /*out*/ readonly friendlyName!: pulumi.Output<string>;
+    declare public /*out*/ readonly friendlyName: pulumi.Output<string>;
     /**
      * List of host names the certificate applies to.
      */
-    public /*out*/ readonly hostNames!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly hostNames: pulumi.Output<string[]>;
     /**
      * The ID of the App Service Environment where the certificate is in use.
      */
-    public /*out*/ readonly hostingEnvironmentProfileId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostingEnvironmentProfileId: pulumi.Output<string>;
     /**
      * The issue date for the certificate.
      */
-    public /*out*/ readonly issueDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly issueDate: pulumi.Output<string>;
     /**
      * The name of the certificate issuer.
      */
-    public /*out*/ readonly issuer!: pulumi.Output<string>;
-    public readonly keyVaultId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly issuer: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
-    public readonly keyVaultSecretId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultSecretId: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password to access the certificate's private key. Changing this forces a new resource to be created.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
-    public readonly pfxBlob!: pulumi.Output<string | undefined>;
+    declare public readonly pfxBlob: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      *
      * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The subject name of the certificate.
      */
-    public /*out*/ readonly subjectName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly subjectName: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The thumbprint for the certificate.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -149,37 +149,37 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
-            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["hostNames"] = state ? state.hostNames : undefined;
-            resourceInputs["hostingEnvironmentProfileId"] = state ? state.hostingEnvironmentProfileId : undefined;
-            resourceInputs["issueDate"] = state ? state.issueDate : undefined;
-            resourceInputs["issuer"] = state ? state.issuer : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["keyVaultSecretId"] = state ? state.keyVaultSecretId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["pfxBlob"] = state ? state.pfxBlob : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subjectName"] = state ? state.subjectName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["appServicePlanId"] = state?.appServicePlanId;
+            resourceInputs["expirationDate"] = state?.expirationDate;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["hostNames"] = state?.hostNames;
+            resourceInputs["hostingEnvironmentProfileId"] = state?.hostingEnvironmentProfileId;
+            resourceInputs["issueDate"] = state?.issueDate;
+            resourceInputs["issuer"] = state?.issuer;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["keyVaultSecretId"] = state?.keyVaultSecretId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["pfxBlob"] = state?.pfxBlob;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subjectName"] = state?.subjectName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["keyVaultSecretId"] = args ? args.keyVaultSecretId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["appServicePlanId"] = args?.appServicePlanId;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["keyVaultSecretId"] = args?.keyVaultSecretId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["pfxBlob"] = args?.pfxBlob ? pulumi.secret(args.pfxBlob) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["hostNames"] = undefined /*out*/;

@@ -92,53 +92,53 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * A list of address blocks reserved for this virtual network in CIDR notation.
      */
-    public /*out*/ readonly addressSpacePrefixes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly addressSpacePrefixes: pulumi.Output<string[]>;
     /**
      * Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
      */
-    public readonly allowForwardedTraffic!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowForwardedTraffic: pulumi.Output<boolean | undefined>;
     /**
      * Can the gateway links be used in the remote virtual network to link to the Databricks virtual network? Defaults to `false`.
      */
-    public readonly allowGatewayTransit!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowGatewayTransit: pulumi.Output<boolean | undefined>;
     /**
      * Can the VMs in the local virtual network space access the VMs in the remote virtual network space? Defaults to `true`.
      */
-    public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowVirtualNetworkAccess: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Databricks Virtual Network Peering resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of address blocks reserved for the remote virtual network in CIDR notation. Changing this forces a new resource to be created.
      */
-    public readonly remoteAddressSpacePrefixes!: pulumi.Output<string[]>;
+    declare public readonly remoteAddressSpacePrefixes: pulumi.Output<string[]>;
     /**
      * The ID of the remote virtual network. Changing this forces a new resource to be created.
      *
      * > **Note:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information.
      */
-    public readonly remoteVirtualNetworkId!: pulumi.Output<string>;
+    declare public readonly remoteVirtualNetworkId: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Databricks Virtual Network Peering should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Can remote gateways be used on the Databricks virtual network? Defaults to `false`.
      *
      * > **Note:** If the `useRemoteGateways` is set to `true`, and `allowGatewayTransit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `useRemoteGateways` cannot be set if the virtual network already has a gateway.
      */
-    public readonly useRemoteGateways!: pulumi.Output<boolean | undefined>;
+    declare public readonly useRemoteGateways: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the internal Virtual Network used by the DataBricks Workspace.
      *
      * > **Note:** The `virtualNetworkId` field is the value you must supply to the `azure.network.VirtualNetworkPeering` resources `remoteVirtualNetworkId` field to successfully peer the Databricks Virtual Network with the remote virtual network.
      */
-    public /*out*/ readonly virtualNetworkId!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualNetworkId: pulumi.Output<string>;
     /**
      * The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkPeering resource with the given unique name, arguments, and options.
@@ -153,40 +153,40 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkPeeringState | undefined;
-            resourceInputs["addressSpacePrefixes"] = state ? state.addressSpacePrefixes : undefined;
-            resourceInputs["allowForwardedTraffic"] = state ? state.allowForwardedTraffic : undefined;
-            resourceInputs["allowGatewayTransit"] = state ? state.allowGatewayTransit : undefined;
-            resourceInputs["allowVirtualNetworkAccess"] = state ? state.allowVirtualNetworkAccess : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["remoteAddressSpacePrefixes"] = state ? state.remoteAddressSpacePrefixes : undefined;
-            resourceInputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["useRemoteGateways"] = state ? state.useRemoteGateways : undefined;
-            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["addressSpacePrefixes"] = state?.addressSpacePrefixes;
+            resourceInputs["allowForwardedTraffic"] = state?.allowForwardedTraffic;
+            resourceInputs["allowGatewayTransit"] = state?.allowGatewayTransit;
+            resourceInputs["allowVirtualNetworkAccess"] = state?.allowVirtualNetworkAccess;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["remoteAddressSpacePrefixes"] = state?.remoteAddressSpacePrefixes;
+            resourceInputs["remoteVirtualNetworkId"] = state?.remoteVirtualNetworkId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["useRemoteGateways"] = state?.useRemoteGateways;
+            resourceInputs["virtualNetworkId"] = state?.virtualNetworkId;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as VirtualNetworkPeeringArgs | undefined;
-            if ((!args || args.remoteAddressSpacePrefixes === undefined) && !opts.urn) {
+            if (args?.remoteAddressSpacePrefixes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteAddressSpacePrefixes'");
             }
-            if ((!args || args.remoteVirtualNetworkId === undefined) && !opts.urn) {
+            if (args?.remoteVirtualNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteVirtualNetworkId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
-            resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
-            resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["remoteAddressSpacePrefixes"] = args ? args.remoteAddressSpacePrefixes : undefined;
-            resourceInputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["allowForwardedTraffic"] = args?.allowForwardedTraffic;
+            resourceInputs["allowGatewayTransit"] = args?.allowGatewayTransit;
+            resourceInputs["allowVirtualNetworkAccess"] = args?.allowVirtualNetworkAccess;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["remoteAddressSpacePrefixes"] = args?.remoteAddressSpacePrefixes;
+            resourceInputs["remoteVirtualNetworkId"] = args?.remoteVirtualNetworkId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["useRemoteGateways"] = args?.useRemoteGateways;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["addressSpacePrefixes"] = undefined /*out*/;
             resourceInputs["virtualNetworkId"] = undefined /*out*/;
         }

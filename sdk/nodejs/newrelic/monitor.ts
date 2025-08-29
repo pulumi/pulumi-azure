@@ -105,55 +105,55 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly accountCreationSource!: pulumi.Output<string | undefined>;
+    declare public readonly accountCreationSource: pulumi.Output<string | undefined>;
     /**
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
      *
      * > **Note:** The value of `accountId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.newrelic.MonitorIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.newrelic.MonitorIdentity | undefined>;
     /**
      * Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly ingestionKey!: pulumi.Output<string | undefined>;
+    declare public readonly ingestionKey: pulumi.Output<string | undefined>;
     /**
      * Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly orgCreationSource!: pulumi.Output<string | undefined>;
+    declare public readonly orgCreationSource: pulumi.Output<string | undefined>;
     /**
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
      *
      * > **Note:** The value of `organizationId` must come from an Azure Native New Relic Monitor instance of another different subscription.
      */
-    public readonly organizationId!: pulumi.Output<string>;
+    declare public readonly organizationId: pulumi.Output<string>;
     /**
      * A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly plan!: pulumi.Output<outputs.newrelic.MonitorPlan>;
+    declare public readonly plan: pulumi.Output<outputs.newrelic.MonitorPlan>;
     /**
      * Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly user!: pulumi.Output<outputs.newrelic.MonitorUser>;
+    declare public readonly user: pulumi.Output<outputs.newrelic.MonitorUser>;
     /**
      * Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
      */
-    public readonly userId!: pulumi.Output<string | undefined>;
+    declare public readonly userId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -168,41 +168,41 @@ export class Monitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
-            resourceInputs["accountCreationSource"] = state ? state.accountCreationSource : undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["ingestionKey"] = state ? state.ingestionKey : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["orgCreationSource"] = state ? state.orgCreationSource : undefined;
-            resourceInputs["organizationId"] = state ? state.organizationId : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["user"] = state ? state.user : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["accountCreationSource"] = state?.accountCreationSource;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["ingestionKey"] = state?.ingestionKey;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["orgCreationSource"] = state?.orgCreationSource;
+            resourceInputs["organizationId"] = state?.organizationId;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["user"] = state?.user;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
-            if ((!args || args.plan === undefined) && !opts.urn) {
+            if (args?.plan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'plan'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.user === undefined) && !opts.urn) {
+            if (args?.user === undefined && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            resourceInputs["accountCreationSource"] = args ? args.accountCreationSource : undefined;
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["accountCreationSource"] = args?.accountCreationSource;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["identity"] = args?.identity;
             resourceInputs["ingestionKey"] = args?.ingestionKey ? pulumi.secret(args.ingestionKey) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["orgCreationSource"] = args ? args.orgCreationSource : undefined;
-            resourceInputs["organizationId"] = args ? args.organizationId : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["orgCreationSource"] = args?.orgCreationSource;
+            resourceInputs["organizationId"] = args?.organizationId;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["user"] = args?.user;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["ingestionKey"] };

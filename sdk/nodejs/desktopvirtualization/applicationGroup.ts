@@ -98,39 +98,39 @@ export class ApplicationGroup extends pulumi.CustomResource {
     /**
      * Option to set the display name for the default sessionDesktop desktop when `type` is set to `Desktop`. A value here is mandatory for connections to the desktop using the Windows 365 portal. Without it the connection will hang at 'Loading Client'.
      */
-    public readonly defaultDesktopDisplayName!: pulumi.Output<string | undefined>;
+    declare public readonly defaultDesktopDisplayName: pulumi.Output<string | undefined>;
     /**
      * Option to set a description for the Virtual Desktop Application Group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Option to set a friendly name for the Virtual Desktop Application Group.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      */
-    public readonly hostPoolId!: pulumi.Output<string>;
+    declare public readonly hostPoolId: pulumi.Output<string>;
     /**
      * The location/region where the Virtual Desktop Application Group is located. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Virtual Desktop Application Group. Changing the name forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Virtual Desktop Application Group. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of Virtual Desktop Application Group. Valid options are `RemoteApp` or `Desktop` application groups. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a ApplicationGroup resource with the given unique name, arguments, and options.
@@ -145,35 +145,35 @@ export class ApplicationGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationGroupState | undefined;
-            resourceInputs["defaultDesktopDisplayName"] = state ? state.defaultDesktopDisplayName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["hostPoolId"] = state ? state.hostPoolId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["defaultDesktopDisplayName"] = state?.defaultDesktopDisplayName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["hostPoolId"] = state?.hostPoolId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as ApplicationGroupArgs | undefined;
-            if ((!args || args.hostPoolId === undefined) && !opts.urn) {
+            if (args?.hostPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["defaultDesktopDisplayName"] = args ? args.defaultDesktopDisplayName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["hostPoolId"] = args ? args.hostPoolId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["defaultDesktopDisplayName"] = args?.defaultDesktopDisplayName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["hostPoolId"] = args?.hostPoolId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApplicationGroup.__pulumiType, name, resourceInputs, opts);

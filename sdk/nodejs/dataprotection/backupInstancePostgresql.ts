@@ -171,27 +171,27 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
     /**
      * The ID of the Backup Policy.
      */
-    public readonly backupPolicyId!: pulumi.Output<string>;
+    declare public readonly backupPolicyId: pulumi.Output<string>;
     /**
      * The ID or versionless ID of the key vault secret which stores the connection string of the database.
      */
-    public readonly databaseCredentialKeyVaultSecretId!: pulumi.Output<string | undefined>;
+    declare public readonly databaseCredentialKeyVaultSecretId: pulumi.Output<string | undefined>;
     /**
      * The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
      */
-    public readonly databaseId!: pulumi.Output<string>;
+    declare public readonly databaseId: pulumi.Output<string>;
     /**
      * The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
      */
-    public readonly vaultId!: pulumi.Output<string>;
+    declare public readonly vaultId: pulumi.Output<string>;
 
     /**
      * Create a BackupInstancePostgresql resource with the given unique name, arguments, and options.
@@ -206,29 +206,29 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupInstancePostgresqlState | undefined;
-            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            resourceInputs["databaseCredentialKeyVaultSecretId"] = state ? state.databaseCredentialKeyVaultSecretId : undefined;
-            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = state?.backupPolicyId;
+            resourceInputs["databaseCredentialKeyVaultSecretId"] = state?.databaseCredentialKeyVaultSecretId;
+            resourceInputs["databaseId"] = state?.databaseId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["vaultId"] = state?.vaultId;
         } else {
             const args = argsOrState as BackupInstancePostgresqlArgs | undefined;
-            if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
+            if (args?.backupPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyId'");
             }
-            if ((!args || args.databaseId === undefined) && !opts.urn) {
+            if (args?.databaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
-            if ((!args || args.vaultId === undefined) && !opts.urn) {
+            if (args?.vaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            resourceInputs["databaseCredentialKeyVaultSecretId"] = args ? args.databaseCredentialKeyVaultSecretId : undefined;
-            resourceInputs["databaseId"] = args ? args.databaseId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupPolicyId"] = args?.backupPolicyId;
+            resourceInputs["databaseCredentialKeyVaultSecretId"] = args?.databaseCredentialKeyVaultSecretId;
+            resourceInputs["databaseId"] = args?.databaseId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["vaultId"] = args?.vaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupInstancePostgresql.__pulumiType, name, resourceInputs, opts);

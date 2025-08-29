@@ -94,21 +94,21 @@ export class LicationLoadBalancerSubnetAssociation extends pulumi.CustomResource
     /**
      * The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
      */
-    public readonly applicationLoadBalancerId!: pulumi.Output<string>;
+    declare public readonly applicationLoadBalancerId: pulumi.Output<string>;
     /**
      * The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the subnet which the Application Gateway for Containers associated to.
      *
      * > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Application Gateway for Containers Association.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LicationLoadBalancerSubnetAssociation resource with the given unique name, arguments, and options.
@@ -123,22 +123,22 @@ export class LicationLoadBalancerSubnetAssociation extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LicationLoadBalancerSubnetAssociationState | undefined;
-            resourceInputs["applicationLoadBalancerId"] = state ? state.applicationLoadBalancerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["applicationLoadBalancerId"] = state?.applicationLoadBalancerId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LicationLoadBalancerSubnetAssociationArgs | undefined;
-            if ((!args || args.applicationLoadBalancerId === undefined) && !opts.urn) {
+            if (args?.applicationLoadBalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationLoadBalancerId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["applicationLoadBalancerId"] = args ? args.applicationLoadBalancerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationLoadBalancerId"] = args?.applicationLoadBalancerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LicationLoadBalancerSubnetAssociation.__pulumiType, name, resourceInputs, opts);

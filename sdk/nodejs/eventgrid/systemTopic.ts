@@ -84,31 +84,31 @@ export class SystemTopic extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.eventgrid.SystemTopicIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.eventgrid.SystemTopicIdentity | undefined>;
     /**
      * The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Metric ARM Resource ID of the Event Grid System Topic.
      */
-    public /*out*/ readonly metricArmResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly metricArmResourceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
      */
-    public readonly sourceArmResourceId!: pulumi.Output<string>;
+    declare public readonly sourceArmResourceId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Event Grid System Topic.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Topic Type of the Event Grid System Topic. The topic type is validated by Azure and there may be additional topic types beyond the following: `Microsoft.AppConfiguration.ConfigurationStores`, `Microsoft.Communication.CommunicationServices`, `Microsoft.ContainerRegistry.Registries`, `Microsoft.Devices.IoTHubs`, `Microsoft.EventGrid.Domains`, `Microsoft.EventGrid.Topics`, `Microsoft.Eventhub.Namespaces`, `Microsoft.KeyVault.vaults`, `Microsoft.MachineLearningServices.Workspaces`, `Microsoft.Maps.Accounts`, `Microsoft.Media.MediaServices`, `Microsoft.Resources.ResourceGroups`, `Microsoft.Resources.Subscriptions`, `Microsoft.ServiceBus.Namespaces`, `Microsoft.SignalRService.SignalR`, `Microsoft.Storage.StorageAccounts`, `Microsoft.Web.ServerFarms` and `Microsoft.Web.Sites`. Changing this forces a new Event Grid System Topic to be created.
      *
@@ -116,7 +116,7 @@ export class SystemTopic extends pulumi.CustomResource {
      *
      * > **Note:** You can use Azure CLI to get a full list of the available topic types: `az eventgrid topic-type  list --output json | grep -w id`
      */
-    public readonly topicType!: pulumi.Output<string>;
+    declare public readonly topicType: pulumi.Output<string>;
 
     /**
      * Create a SystemTopic resource with the given unique name, arguments, and options.
@@ -131,32 +131,32 @@ export class SystemTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SystemTopicState | undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["metricArmResourceId"] = state ? state.metricArmResourceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceArmResourceId"] = state ? state.sourceArmResourceId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["topicType"] = state ? state.topicType : undefined;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["metricArmResourceId"] = state?.metricArmResourceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceArmResourceId"] = state?.sourceArmResourceId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["topicType"] = state?.topicType;
         } else {
             const args = argsOrState as SystemTopicArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceArmResourceId === undefined) && !opts.urn) {
+            if (args?.sourceArmResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceArmResourceId'");
             }
-            if ((!args || args.topicType === undefined) && !opts.urn) {
+            if (args?.topicType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicType'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceArmResourceId"] = args ? args.sourceArmResourceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicType"] = args ? args.topicType : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceArmResourceId"] = args?.sourceArmResourceId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicType"] = args?.topicType;
             resourceInputs["metricArmResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

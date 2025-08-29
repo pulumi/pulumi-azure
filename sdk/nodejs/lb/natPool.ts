@@ -94,48 +94,48 @@ export class NatPool extends pulumi.CustomResource {
     /**
      * The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
      */
-    public readonly backendPort!: pulumi.Output<number>;
+    declare public readonly backendPort: pulumi.Output<number>;
     /**
      * Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group.
      */
-    public readonly floatingIpEnabled!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly frontendIpConfigurationId!: pulumi.Output<string>;
+    declare public readonly floatingIpEnabled: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly frontendIpConfigurationId: pulumi.Output<string>;
     /**
      * The name of the frontend IP configuration exposing this rule.
      */
-    public readonly frontendIpConfigurationName!: pulumi.Output<string>;
+    declare public readonly frontendIpConfigurationName: pulumi.Output<string>;
     /**
      * The last port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    public readonly frontendPortEnd!: pulumi.Output<number>;
+    declare public readonly frontendPortEnd: pulumi.Output<number>;
     /**
      * The first port number in the range of external ports that will be used to provide Inbound NAT to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    public readonly frontendPortStart!: pulumi.Output<number>;
+    declare public readonly frontendPortStart: pulumi.Output<number>;
     /**
      * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`.
      */
-    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly idleTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * The ID of the Load Balancer in which to create the NAT pool. Changing this forces a new resource to be created.
      */
-    public readonly loadbalancerId!: pulumi.Output<string>;
+    declare public readonly loadbalancerId: pulumi.Output<string>;
     /**
      * Specifies the name of the NAT pool. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `All`, `Tcp` and `Udp`.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Is TCP Reset enabled for this Load Balancer Rule?
      */
-    public readonly tcpResetEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tcpResetEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a NatPool resource with the given unique name, arguments, and options.
@@ -150,52 +150,52 @@ export class NatPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatPoolState | undefined;
-            resourceInputs["backendPort"] = state ? state.backendPort : undefined;
-            resourceInputs["floatingIpEnabled"] = state ? state.floatingIpEnabled : undefined;
-            resourceInputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
-            resourceInputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;
-            resourceInputs["frontendPortEnd"] = state ? state.frontendPortEnd : undefined;
-            resourceInputs["frontendPortStart"] = state ? state.frontendPortStart : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
-            resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tcpResetEnabled"] = state ? state.tcpResetEnabled : undefined;
+            resourceInputs["backendPort"] = state?.backendPort;
+            resourceInputs["floatingIpEnabled"] = state?.floatingIpEnabled;
+            resourceInputs["frontendIpConfigurationId"] = state?.frontendIpConfigurationId;
+            resourceInputs["frontendIpConfigurationName"] = state?.frontendIpConfigurationName;
+            resourceInputs["frontendPortEnd"] = state?.frontendPortEnd;
+            resourceInputs["frontendPortStart"] = state?.frontendPortStart;
+            resourceInputs["idleTimeoutInMinutes"] = state?.idleTimeoutInMinutes;
+            resourceInputs["loadbalancerId"] = state?.loadbalancerId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tcpResetEnabled"] = state?.tcpResetEnabled;
         } else {
             const args = argsOrState as NatPoolArgs | undefined;
-            if ((!args || args.backendPort === undefined) && !opts.urn) {
+            if (args?.backendPort === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backendPort'");
             }
-            if ((!args || args.frontendIpConfigurationName === undefined) && !opts.urn) {
+            if (args?.frontendIpConfigurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontendIpConfigurationName'");
             }
-            if ((!args || args.frontendPortEnd === undefined) && !opts.urn) {
+            if (args?.frontendPortEnd === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontendPortEnd'");
             }
-            if ((!args || args.frontendPortStart === undefined) && !opts.urn) {
+            if (args?.frontendPortStart === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontendPortStart'");
             }
-            if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
+            if (args?.loadbalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backendPort"] = args ? args.backendPort : undefined;
-            resourceInputs["floatingIpEnabled"] = args ? args.floatingIpEnabled : undefined;
-            resourceInputs["frontendIpConfigurationName"] = args ? args.frontendIpConfigurationName : undefined;
-            resourceInputs["frontendPortEnd"] = args ? args.frontendPortEnd : undefined;
-            resourceInputs["frontendPortStart"] = args ? args.frontendPortStart : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tcpResetEnabled"] = args ? args.tcpResetEnabled : undefined;
+            resourceInputs["backendPort"] = args?.backendPort;
+            resourceInputs["floatingIpEnabled"] = args?.floatingIpEnabled;
+            resourceInputs["frontendIpConfigurationName"] = args?.frontendIpConfigurationName;
+            resourceInputs["frontendPortEnd"] = args?.frontendPortEnd;
+            resourceInputs["frontendPortStart"] = args?.frontendPortStart;
+            resourceInputs["idleTimeoutInMinutes"] = args?.idleTimeoutInMinutes;
+            resourceInputs["loadbalancerId"] = args?.loadbalancerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tcpResetEnabled"] = args?.tcpResetEnabled;
             resourceInputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

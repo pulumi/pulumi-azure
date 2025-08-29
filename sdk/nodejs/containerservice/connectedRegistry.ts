@@ -101,53 +101,53 @@ export class ConnectedRegistry extends pulumi.CustomResource {
     /**
      * Should the log auditing be enabled?
      */
-    public readonly auditLogEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly auditLogEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
      */
-    public readonly clientTokenIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly clientTokenIds: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      *
      * > **Note:** If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
      */
-    public readonly containerRegistryId!: pulumi.Output<string>;
+    declare public readonly containerRegistryId: pulumi.Output<string>;
     /**
      * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      */
-    public readonly logLevel!: pulumi.Output<string | undefined>;
+    declare public readonly logLevel: pulumi.Output<string | undefined>;
     /**
      * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `notification` blocks as defined below.
      */
-    public readonly notifications!: pulumi.Output<outputs.containerservice.ConnectedRegistryNotification[] | undefined>;
+    declare public readonly notifications: pulumi.Output<outputs.containerservice.ConnectedRegistryNotification[] | undefined>;
     /**
      * The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
      */
-    public readonly parentRegistryId!: pulumi.Output<string | undefined>;
+    declare public readonly parentRegistryId: pulumi.Output<string | undefined>;
     /**
      * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      */
-    public readonly syncMessageTtl!: pulumi.Output<string | undefined>;
+    declare public readonly syncMessageTtl: pulumi.Output<string | undefined>;
     /**
      * The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
      */
-    public readonly syncSchedule!: pulumi.Output<string | undefined>;
+    declare public readonly syncSchedule: pulumi.Output<string | undefined>;
     /**
      * The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
      */
-    public readonly syncTokenId!: pulumi.Output<string>;
+    declare public readonly syncTokenId: pulumi.Output<string>;
     /**
      * The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
      */
-    public readonly syncWindow!: pulumi.Output<string | undefined>;
+    declare public readonly syncWindow: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConnectedRegistry resource with the given unique name, arguments, and options.
@@ -162,38 +162,38 @@ export class ConnectedRegistry extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectedRegistryState | undefined;
-            resourceInputs["auditLogEnabled"] = state ? state.auditLogEnabled : undefined;
-            resourceInputs["clientTokenIds"] = state ? state.clientTokenIds : undefined;
-            resourceInputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
-            resourceInputs["logLevel"] = state ? state.logLevel : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifications"] = state ? state.notifications : undefined;
-            resourceInputs["parentRegistryId"] = state ? state.parentRegistryId : undefined;
-            resourceInputs["syncMessageTtl"] = state ? state.syncMessageTtl : undefined;
-            resourceInputs["syncSchedule"] = state ? state.syncSchedule : undefined;
-            resourceInputs["syncTokenId"] = state ? state.syncTokenId : undefined;
-            resourceInputs["syncWindow"] = state ? state.syncWindow : undefined;
+            resourceInputs["auditLogEnabled"] = state?.auditLogEnabled;
+            resourceInputs["clientTokenIds"] = state?.clientTokenIds;
+            resourceInputs["containerRegistryId"] = state?.containerRegistryId;
+            resourceInputs["logLevel"] = state?.logLevel;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifications"] = state?.notifications;
+            resourceInputs["parentRegistryId"] = state?.parentRegistryId;
+            resourceInputs["syncMessageTtl"] = state?.syncMessageTtl;
+            resourceInputs["syncSchedule"] = state?.syncSchedule;
+            resourceInputs["syncTokenId"] = state?.syncTokenId;
+            resourceInputs["syncWindow"] = state?.syncWindow;
         } else {
             const args = argsOrState as ConnectedRegistryArgs | undefined;
-            if ((!args || args.containerRegistryId === undefined) && !opts.urn) {
+            if (args?.containerRegistryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryId'");
             }
-            if ((!args || args.syncTokenId === undefined) && !opts.urn) {
+            if (args?.syncTokenId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncTokenId'");
             }
-            resourceInputs["auditLogEnabled"] = args ? args.auditLogEnabled : undefined;
-            resourceInputs["clientTokenIds"] = args ? args.clientTokenIds : undefined;
-            resourceInputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["parentRegistryId"] = args ? args.parentRegistryId : undefined;
-            resourceInputs["syncMessageTtl"] = args ? args.syncMessageTtl : undefined;
-            resourceInputs["syncSchedule"] = args ? args.syncSchedule : undefined;
-            resourceInputs["syncTokenId"] = args ? args.syncTokenId : undefined;
-            resourceInputs["syncWindow"] = args ? args.syncWindow : undefined;
+            resourceInputs["auditLogEnabled"] = args?.auditLogEnabled;
+            resourceInputs["clientTokenIds"] = args?.clientTokenIds;
+            resourceInputs["containerRegistryId"] = args?.containerRegistryId;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["parentRegistryId"] = args?.parentRegistryId;
+            resourceInputs["syncMessageTtl"] = args?.syncMessageTtl;
+            resourceInputs["syncSchedule"] = args?.syncSchedule;
+            resourceInputs["syncTokenId"] = args?.syncTokenId;
+            resourceInputs["syncWindow"] = args?.syncWindow;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConnectedRegistry.__pulumiType, name, resourceInputs, opts);

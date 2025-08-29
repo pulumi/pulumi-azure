@@ -77,23 +77,23 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content.
      */
-    public readonly certificateContent!: pulumi.Output<string>;
+    declare public readonly certificateContent: pulumi.Output<string>;
     /**
      * The name of the IoTHub that this certificate will be attached to. Changing this forces a new resource to be created.
      */
-    public readonly iothubName!: pulumi.Output<string>;
+    declare public readonly iothubName: pulumi.Output<string>;
     /**
      * Is the certificate verified? Defaults to `false`.
      */
-    public readonly isVerified!: pulumi.Output<boolean | undefined>;
+    declare public readonly isVerified: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the IotHub Certificate resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group under which the IotHub Certificate resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -108,27 +108,27 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["certificateContent"] = state ? state.certificateContent : undefined;
-            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
-            resourceInputs["isVerified"] = state ? state.isVerified : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["certificateContent"] = state?.certificateContent;
+            resourceInputs["iothubName"] = state?.iothubName;
+            resourceInputs["isVerified"] = state?.isVerified;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.certificateContent === undefined) && !opts.urn) {
+            if (args?.certificateContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateContent'");
             }
-            if ((!args || args.iothubName === undefined) && !opts.urn) {
+            if (args?.iothubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["certificateContent"] = args?.certificateContent ? pulumi.secret(args.certificateContent) : undefined;
-            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
-            resourceInputs["isVerified"] = args ? args.isVerified : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["iothubName"] = args?.iothubName;
+            resourceInputs["isVerified"] = args?.isVerified;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["certificateContent"] };

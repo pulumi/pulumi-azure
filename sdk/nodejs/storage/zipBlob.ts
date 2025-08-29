@@ -36,22 +36,22 @@ export class ZipBlob extends pulumi.CustomResource {
         return obj['__pulumiType'] === ZipBlob.__pulumiType;
     }
 
-    public readonly accessTier!: pulumi.Output<string>;
-    public readonly cacheControl!: pulumi.Output<string | undefined>;
-    public readonly content!: pulumi.Output<pulumi.asset.Archive | undefined>;
-    public readonly contentMd5!: pulumi.Output<string | undefined>;
-    public readonly contentType!: pulumi.Output<string | undefined>;
-    public readonly encryptionScope!: pulumi.Output<string | undefined>;
-    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
-    public readonly name!: pulumi.Output<string>;
-    public readonly parallelism!: pulumi.Output<number | undefined>;
-    public readonly size!: pulumi.Output<number | undefined>;
-    public readonly sourceContent!: pulumi.Output<string | undefined>;
-    public readonly sourceUri!: pulumi.Output<string | undefined>;
-    public readonly storageAccountName!: pulumi.Output<string>;
-    public readonly storageContainerName!: pulumi.Output<string>;
-    public readonly type!: pulumi.Output<string>;
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public readonly accessTier: pulumi.Output<string>;
+    declare public readonly cacheControl: pulumi.Output<string | undefined>;
+    declare public readonly content: pulumi.Output<pulumi.asset.Archive | undefined>;
+    declare public readonly contentMd5: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
+    declare public readonly encryptionScope: pulumi.Output<string | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string}>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly parallelism: pulumi.Output<number | undefined>;
+    declare public readonly size: pulumi.Output<number | undefined>;
+    declare public readonly sourceContent: pulumi.Output<string | undefined>;
+    declare public readonly sourceUri: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
+    declare public readonly storageContainerName: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a ZipBlob resource with the given unique name, arguments, and options.
@@ -69,48 +69,48 @@ export class ZipBlob extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZipBlobState | undefined;
-            resourceInputs["accessTier"] = state ? state.accessTier : undefined;
-            resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["contentMd5"] = state ? state.contentMd5 : undefined;
-            resourceInputs["contentType"] = state ? state.contentType : undefined;
-            resourceInputs["encryptionScope"] = state ? state.encryptionScope : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parallelism"] = state ? state.parallelism : undefined;
-            resourceInputs["size"] = state ? state.size : undefined;
-            resourceInputs["sourceContent"] = state ? state.sourceContent : undefined;
-            resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            resourceInputs["storageContainerName"] = state ? state.storageContainerName : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["accessTier"] = state?.accessTier;
+            resourceInputs["cacheControl"] = state?.cacheControl;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["contentMd5"] = state?.contentMd5;
+            resourceInputs["contentType"] = state?.contentType;
+            resourceInputs["encryptionScope"] = state?.encryptionScope;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parallelism"] = state?.parallelism;
+            resourceInputs["size"] = state?.size;
+            resourceInputs["sourceContent"] = state?.sourceContent;
+            resourceInputs["sourceUri"] = state?.sourceUri;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["storageContainerName"] = state?.storageContainerName;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ZipBlobArgs | undefined;
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.storageContainerName === undefined) && !opts.urn) {
+            if (args?.storageContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
-            resourceInputs["cacheControl"] = args ? args.cacheControl : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentMd5"] = args ? args.contentMd5 : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["encryptionScope"] = args ? args.encryptionScope : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parallelism"] = args ? args.parallelism : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["sourceContent"] = args ? args.sourceContent : undefined;
-            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["accessTier"] = args?.accessTier;
+            resourceInputs["cacheControl"] = args?.cacheControl;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentMd5"] = args?.contentMd5;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["encryptionScope"] = args?.encryptionScope;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parallelism"] = args?.parallelism;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["sourceContent"] = args?.sourceContent;
+            resourceInputs["sourceUri"] = args?.sourceUri;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageContainerName"] = args?.storageContainerName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

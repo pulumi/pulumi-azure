@@ -136,39 +136,39 @@ export class NetworkSimPolicy extends pulumi.CustomResource {
     /**
      * The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
      */
-    public readonly defaultSliceId!: pulumi.Output<string>;
+    declare public readonly defaultSliceId: pulumi.Output<string>;
     /**
      * Specifies the Azure Region where the Mobile Network Sim Policy should exist. Changing this forces a new Mobile Network Sim Policies to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of the Mobile Network which the Sim Policy belongs to. Changing this forces a new Mobile Network Sim Policies to be created.
      */
-    public readonly mobileNetworkId!: pulumi.Output<string>;
+    declare public readonly mobileNetworkId: pulumi.Output<string>;
     /**
      * The name which should be used for this Mobile Network Sim Policies. Changing this forces a new Mobile Network Sim Policies to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.
      */
-    public readonly ratFrequencySelectionPriorityIndex!: pulumi.Output<number | undefined>;
+    declare public readonly ratFrequencySelectionPriorityIndex: pulumi.Output<number | undefined>;
     /**
      * Interval for the user equipment periodic registration update procedure. Defaults to `3240`.
      */
-    public readonly registrationTimerInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly registrationTimerInSeconds: pulumi.Output<number | undefined>;
     /**
      * An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
      */
-    public readonly slices!: pulumi.Output<outputs.mobile.NetworkSimPolicySlice[]>;
+    declare public readonly slices: pulumi.Output<outputs.mobile.NetworkSimPolicySlice[]>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Sim Policies.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `userEquipmentAggregateMaximumBitRate` block as defined below.
      */
-    public readonly userEquipmentAggregateMaximumBitRate!: pulumi.Output<outputs.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRate>;
+    declare public readonly userEquipmentAggregateMaximumBitRate: pulumi.Output<outputs.mobile.NetworkSimPolicyUserEquipmentAggregateMaximumBitRate>;
 
     /**
      * Create a NetworkSimPolicy resource with the given unique name, arguments, and options.
@@ -183,38 +183,38 @@ export class NetworkSimPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkSimPolicyState | undefined;
-            resourceInputs["defaultSliceId"] = state ? state.defaultSliceId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mobileNetworkId"] = state ? state.mobileNetworkId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["ratFrequencySelectionPriorityIndex"] = state ? state.ratFrequencySelectionPriorityIndex : undefined;
-            resourceInputs["registrationTimerInSeconds"] = state ? state.registrationTimerInSeconds : undefined;
-            resourceInputs["slices"] = state ? state.slices : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["userEquipmentAggregateMaximumBitRate"] = state ? state.userEquipmentAggregateMaximumBitRate : undefined;
+            resourceInputs["defaultSliceId"] = state?.defaultSliceId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mobileNetworkId"] = state?.mobileNetworkId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["ratFrequencySelectionPriorityIndex"] = state?.ratFrequencySelectionPriorityIndex;
+            resourceInputs["registrationTimerInSeconds"] = state?.registrationTimerInSeconds;
+            resourceInputs["slices"] = state?.slices;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["userEquipmentAggregateMaximumBitRate"] = state?.userEquipmentAggregateMaximumBitRate;
         } else {
             const args = argsOrState as NetworkSimPolicyArgs | undefined;
-            if ((!args || args.defaultSliceId === undefined) && !opts.urn) {
+            if (args?.defaultSliceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultSliceId'");
             }
-            if ((!args || args.mobileNetworkId === undefined) && !opts.urn) {
+            if (args?.mobileNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkId'");
             }
-            if ((!args || args.slices === undefined) && !opts.urn) {
+            if (args?.slices === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slices'");
             }
-            if ((!args || args.userEquipmentAggregateMaximumBitRate === undefined) && !opts.urn) {
+            if (args?.userEquipmentAggregateMaximumBitRate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userEquipmentAggregateMaximumBitRate'");
             }
-            resourceInputs["defaultSliceId"] = args ? args.defaultSliceId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkId"] = args ? args.mobileNetworkId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["ratFrequencySelectionPriorityIndex"] = args ? args.ratFrequencySelectionPriorityIndex : undefined;
-            resourceInputs["registrationTimerInSeconds"] = args ? args.registrationTimerInSeconds : undefined;
-            resourceInputs["slices"] = args ? args.slices : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userEquipmentAggregateMaximumBitRate"] = args ? args.userEquipmentAggregateMaximumBitRate : undefined;
+            resourceInputs["defaultSliceId"] = args?.defaultSliceId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkId"] = args?.mobileNetworkId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["ratFrequencySelectionPriorityIndex"] = args?.ratFrequencySelectionPriorityIndex;
+            resourceInputs["registrationTimerInSeconds"] = args?.registrationTimerInSeconds;
+            resourceInputs["slices"] = args?.slices;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userEquipmentAggregateMaximumBitRate"] = args?.userEquipmentAggregateMaximumBitRate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkSimPolicy.__pulumiType, name, resourceInputs, opts);

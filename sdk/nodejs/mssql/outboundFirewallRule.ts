@@ -78,11 +78,11 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
     /**
      * The name of the outbound firewall rule. This should be a FQDN. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
 
     /**
      * Create a OutboundFirewallRule resource with the given unique name, arguments, and options.
@@ -97,15 +97,15 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutboundFirewallRuleState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as OutboundFirewallRuleArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OutboundFirewallRule.__pulumiType, name, resourceInputs, opts);

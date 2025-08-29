@@ -111,43 +111,43 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
     /**
      * The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
      */
-    public readonly agreementType!: pulumi.Output<string>;
+    declare public readonly agreementType: pulumi.Output<string>;
     /**
      * The content of the Logic App Integration Account Agreement.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * A `guestIdentity` block as documented below.
      */
-    public readonly guestIdentity!: pulumi.Output<outputs.logicapps.IntegrationAccountAgreementGuestIdentity>;
+    declare public readonly guestIdentity: pulumi.Output<outputs.logicapps.IntegrationAccountAgreementGuestIdentity>;
     /**
      * The name of the guest Logic App Integration Account Partner.
      */
-    public readonly guestPartnerName!: pulumi.Output<string>;
+    declare public readonly guestPartnerName: pulumi.Output<string>;
     /**
      * A `hostIdentity` block as documented below.
      */
-    public readonly hostIdentity!: pulumi.Output<outputs.logicapps.IntegrationAccountAgreementHostIdentity>;
+    declare public readonly hostIdentity: pulumi.Output<outputs.logicapps.IntegrationAccountAgreementHostIdentity>;
     /**
      * The name of the host Logic App Integration Account Partner.
      */
-    public readonly hostPartnerName!: pulumi.Output<string>;
+    declare public readonly hostPartnerName: pulumi.Output<string>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new resource to be created.
      */
-    public readonly integrationAccountName!: pulumi.Output<string>;
+    declare public readonly integrationAccountName: pulumi.Output<string>;
     /**
      * The metadata of the Logic App Integration Account Agreement.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAccountAgreement resource with the given unique name, arguments, and options.
@@ -162,52 +162,52 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountAgreementState | undefined;
-            resourceInputs["agreementType"] = state ? state.agreementType : undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["guestIdentity"] = state ? state.guestIdentity : undefined;
-            resourceInputs["guestPartnerName"] = state ? state.guestPartnerName : undefined;
-            resourceInputs["hostIdentity"] = state ? state.hostIdentity : undefined;
-            resourceInputs["hostPartnerName"] = state ? state.hostPartnerName : undefined;
-            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["agreementType"] = state?.agreementType;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["guestIdentity"] = state?.guestIdentity;
+            resourceInputs["guestPartnerName"] = state?.guestPartnerName;
+            resourceInputs["hostIdentity"] = state?.hostIdentity;
+            resourceInputs["hostPartnerName"] = state?.hostPartnerName;
+            resourceInputs["integrationAccountName"] = state?.integrationAccountName;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IntegrationAccountAgreementArgs | undefined;
-            if ((!args || args.agreementType === undefined) && !opts.urn) {
+            if (args?.agreementType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agreementType'");
             }
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.guestIdentity === undefined) && !opts.urn) {
+            if (args?.guestIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'guestIdentity'");
             }
-            if ((!args || args.guestPartnerName === undefined) && !opts.urn) {
+            if (args?.guestPartnerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'guestPartnerName'");
             }
-            if ((!args || args.hostIdentity === undefined) && !opts.urn) {
+            if (args?.hostIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostIdentity'");
             }
-            if ((!args || args.hostPartnerName === undefined) && !opts.urn) {
+            if (args?.hostPartnerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPartnerName'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agreementType"] = args ? args.agreementType : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["guestIdentity"] = args ? args.guestIdentity : undefined;
-            resourceInputs["guestPartnerName"] = args ? args.guestPartnerName : undefined;
-            resourceInputs["hostIdentity"] = args ? args.hostIdentity : undefined;
-            resourceInputs["hostPartnerName"] = args ? args.hostPartnerName : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["agreementType"] = args?.agreementType;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["guestIdentity"] = args?.guestIdentity;
+            resourceInputs["guestPartnerName"] = args?.guestPartnerName;
+            resourceInputs["hostIdentity"] = args?.hostIdentity;
+            resourceInputs["hostPartnerName"] = args?.hostPartnerName;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAccountAgreement.__pulumiType, name, resourceInputs, opts);

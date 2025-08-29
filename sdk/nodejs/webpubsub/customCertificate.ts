@@ -132,23 +132,23 @@ export class CustomCertificate extends pulumi.CustomResource {
     /**
      * The certificate version of the Web PubSub Custom Certificate.
      */
-    public /*out*/ readonly certificateVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateVersion: pulumi.Output<string>;
     /**
      * The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      *
      * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
-    public readonly customCertificateId!: pulumi.Output<string>;
+    declare public readonly customCertificateId: pulumi.Output<string>;
     /**
      * The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created.
      *
      * > **Note:** custom certificate is only available for Web PubSub Premium tier. Please enable managed identity in the corresponding Web PubSub Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
-    public readonly webPubsubId!: pulumi.Output<string>;
+    declare public readonly webPubsubId: pulumi.Output<string>;
 
     /**
      * Create a CustomCertificate resource with the given unique name, arguments, and options.
@@ -163,21 +163,21 @@ export class CustomCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomCertificateState | undefined;
-            resourceInputs["certificateVersion"] = state ? state.certificateVersion : undefined;
-            resourceInputs["customCertificateId"] = state ? state.customCertificateId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["webPubsubId"] = state ? state.webPubsubId : undefined;
+            resourceInputs["certificateVersion"] = state?.certificateVersion;
+            resourceInputs["customCertificateId"] = state?.customCertificateId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["webPubsubId"] = state?.webPubsubId;
         } else {
             const args = argsOrState as CustomCertificateArgs | undefined;
-            if ((!args || args.customCertificateId === undefined) && !opts.urn) {
+            if (args?.customCertificateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customCertificateId'");
             }
-            if ((!args || args.webPubsubId === undefined) && !opts.urn) {
+            if (args?.webPubsubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webPubsubId'");
             }
-            resourceInputs["customCertificateId"] = args ? args.customCertificateId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["webPubsubId"] = args ? args.webPubsubId : undefined;
+            resourceInputs["customCertificateId"] = args?.customCertificateId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["webPubsubId"] = args?.webPubsubId;
             resourceInputs["certificateVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
