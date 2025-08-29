@@ -105,39 +105,39 @@ export class LocalUser extends pulumi.CustomResource {
     /**
      * The home directory of the Storage Account Local User.
      */
-    public readonly homeDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly homeDirectory: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The value of the password, which is only available when `sshPasswordEnabled` is set to `true`.
      */
-    public /*out*/ readonly password!: pulumi.Output<string>;
+    declare public /*out*/ readonly password: pulumi.Output<string>;
     /**
      * One or more `permissionScope` blocks as defined below.
      */
-    public readonly permissionScopes!: pulumi.Output<outputs.storage.LocalUserPermissionScope[] | undefined>;
+    declare public readonly permissionScopes: pulumi.Output<outputs.storage.LocalUserPermissionScope[] | undefined>;
     /**
      * The unique Security Identifier of this Storage Account Local User.
      */
-    public /*out*/ readonly sid!: pulumi.Output<string>;
+    declare public /*out*/ readonly sid: pulumi.Output<string>;
     /**
      * One or more `sshAuthorizedKey` blocks as defined below.
      */
-    public readonly sshAuthorizedKeys!: pulumi.Output<outputs.storage.LocalUserSshAuthorizedKey[] | undefined>;
+    declare public readonly sshAuthorizedKeys: pulumi.Output<outputs.storage.LocalUserSshAuthorizedKey[] | undefined>;
     /**
      * Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
      */
-    public readonly sshKeyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sshKeyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
      */
-    public readonly sshPasswordEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sshPasswordEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a LocalUser resource with the given unique name, arguments, and options.
@@ -152,27 +152,27 @@ export class LocalUser extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalUserState | undefined;
-            resourceInputs["homeDirectory"] = state ? state.homeDirectory : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["permissionScopes"] = state ? state.permissionScopes : undefined;
-            resourceInputs["sid"] = state ? state.sid : undefined;
-            resourceInputs["sshAuthorizedKeys"] = state ? state.sshAuthorizedKeys : undefined;
-            resourceInputs["sshKeyEnabled"] = state ? state.sshKeyEnabled : undefined;
-            resourceInputs["sshPasswordEnabled"] = state ? state.sshPasswordEnabled : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["homeDirectory"] = state?.homeDirectory;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["permissionScopes"] = state?.permissionScopes;
+            resourceInputs["sid"] = state?.sid;
+            resourceInputs["sshAuthorizedKeys"] = state?.sshAuthorizedKeys;
+            resourceInputs["sshKeyEnabled"] = state?.sshKeyEnabled;
+            resourceInputs["sshPasswordEnabled"] = state?.sshPasswordEnabled;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as LocalUserArgs | undefined;
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissionScopes"] = args ? args.permissionScopes : undefined;
-            resourceInputs["sshAuthorizedKeys"] = args ? args.sshAuthorizedKeys : undefined;
-            resourceInputs["sshKeyEnabled"] = args ? args.sshKeyEnabled : undefined;
-            resourceInputs["sshPasswordEnabled"] = args ? args.sshPasswordEnabled : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["homeDirectory"] = args?.homeDirectory;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissionScopes"] = args?.permissionScopes;
+            resourceInputs["sshAuthorizedKeys"] = args?.sshAuthorizedKeys;
+            resourceInputs["sshKeyEnabled"] = args?.sshKeyEnabled;
+            resourceInputs["sshPasswordEnabled"] = args?.sshPasswordEnabled;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
             resourceInputs["password"] = undefined /*out*/;
             resourceInputs["sid"] = undefined /*out*/;
         }

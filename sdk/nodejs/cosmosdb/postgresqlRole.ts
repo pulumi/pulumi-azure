@@ -79,15 +79,15 @@ export class PostgresqlRole extends pulumi.CustomResource {
     /**
      * The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
 
     /**
      * Create a PostgresqlRole resource with the given unique name, arguments, and options.
@@ -102,19 +102,19 @@ export class PostgresqlRole extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PostgresqlRoleState | undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
         } else {
             const args = argsOrState as PostgresqlRoleArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

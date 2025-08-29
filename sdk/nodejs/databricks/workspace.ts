@@ -48,105 +48,105 @@ export class Workspace extends pulumi.CustomResource {
      *
      * > **Note:** The `accessConnectorId` field is only required if `defaultStorageFirewallEnabled` is set to `true`.
      */
-    public readonly accessConnectorId!: pulumi.Output<string | undefined>;
+    declare public readonly accessConnectorId: pulumi.Output<string | undefined>;
     /**
      * A `customParameters` block as documented below.
      */
-    public readonly customParameters!: pulumi.Output<outputs.databricks.WorkspaceCustomParameters>;
+    declare public readonly customParameters: pulumi.Output<outputs.databricks.WorkspaceCustomParameters>;
     /**
      * Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
      */
-    public readonly customerManagedKeyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly customerManagedKeyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Disallow public access to default storage account. Defaults to `false`.
      */
-    public readonly defaultStorageFirewallEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly defaultStorageFirewallEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of Managed Disk Encryption Set created by the Databricks Workspace.
      */
-    public /*out*/ readonly diskEncryptionSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly diskEncryptionSetId: pulumi.Output<string>;
     /**
      * An `enhancedSecurityCompliance` block as documented below. This feature is only valid if `sku` is set to `premium`.
      */
-    public readonly enhancedSecurityCompliance!: pulumi.Output<outputs.databricks.WorkspaceEnhancedSecurityCompliance | undefined>;
+    declare public readonly enhancedSecurityCompliance: pulumi.Output<outputs.databricks.WorkspaceEnhancedSecurityCompliance | undefined>;
     /**
      * Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
      */
-    public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly infrastructureEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
      */
-    public readonly loadBalancerBackendAddressPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly loadBalancerBackendAddressPoolId: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
-    public readonly managedDiskCmkKeyVaultId!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string>;
+    declare public readonly managedDiskCmkKeyVaultId: pulumi.Output<string | undefined>;
     /**
      * Customer managed encryption properties for the Databricks Workspace managed disks.
      */
-    public readonly managedDiskCmkKeyVaultKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly managedDiskCmkKeyVaultKeyId: pulumi.Output<string | undefined>;
     /**
      * Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
      */
-    public readonly managedDiskCmkRotationToLatestVersionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly managedDiskCmkRotationToLatestVersionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `managedDiskIdentity` block as documented below.
      */
-    public /*out*/ readonly managedDiskIdentities!: pulumi.Output<outputs.databricks.WorkspaceManagedDiskIdentity[]>;
+    declare public /*out*/ readonly managedDiskIdentities: pulumi.Output<outputs.databricks.WorkspaceManagedDiskIdentity[]>;
     /**
      * The ID of the Managed Resource Group created by the Databricks Workspace.
      */
-    public /*out*/ readonly managedResourceGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedResourceGroupId: pulumi.Output<string>;
     /**
      * The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
      *
      * > **Note:** Make sure that this field is unique if you have multiple Databrick Workspaces deployed in your subscription and choose to not have the `managedResourceGroupName` auto generated by the Azure Resource Provider. Having multiple Databrick Workspaces deployed in the same subscription with the same `manageResourceGroupName` may result in some resources that cannot be deleted.
      */
-    public readonly managedResourceGroupName!: pulumi.Output<string>;
-    public readonly managedServicesCmkKeyVaultId!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourceGroupName: pulumi.Output<string>;
+    declare public readonly managedServicesCmkKeyVaultId: pulumi.Output<string | undefined>;
     /**
      * Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
      */
-    public readonly managedServicesCmkKeyVaultKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly managedServicesCmkKeyVaultKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `publicNetworkAccessEnabled` is set to `false`.
      */
-    public readonly networkSecurityGroupRulesRequired!: pulumi.Output<string | undefined>;
+    declare public readonly networkSecurityGroupRulesRequired: pulumi.Output<string | undefined>;
     /**
      * Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
      *
      * > **Note:** Downgrading to a `trial sku` from a `standard` or `premium sku` will force a new resource to be created.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A `storageAccountIdentity` block as documented below.
      */
-    public /*out*/ readonly storageAccountIdentities!: pulumi.Output<outputs.databricks.WorkspaceStorageAccountIdentity[]>;
+    declare public /*out*/ readonly storageAccountIdentities: pulumi.Output<outputs.databricks.WorkspaceStorageAccountIdentity[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The unique identifier of the databricks workspace in Databricks control plane.
      */
-    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceId: pulumi.Output<string>;
     /**
      * The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
      */
-    public /*out*/ readonly workspaceUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceUrl: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -161,60 +161,60 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            resourceInputs["accessConnectorId"] = state ? state.accessConnectorId : undefined;
-            resourceInputs["customParameters"] = state ? state.customParameters : undefined;
-            resourceInputs["customerManagedKeyEnabled"] = state ? state.customerManagedKeyEnabled : undefined;
-            resourceInputs["defaultStorageFirewallEnabled"] = state ? state.defaultStorageFirewallEnabled : undefined;
-            resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
-            resourceInputs["enhancedSecurityCompliance"] = state ? state.enhancedSecurityCompliance : undefined;
-            resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["loadBalancerBackendAddressPoolId"] = state ? state.loadBalancerBackendAddressPoolId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedDiskCmkKeyVaultId"] = state ? state.managedDiskCmkKeyVaultId : undefined;
-            resourceInputs["managedDiskCmkKeyVaultKeyId"] = state ? state.managedDiskCmkKeyVaultKeyId : undefined;
-            resourceInputs["managedDiskCmkRotationToLatestVersionEnabled"] = state ? state.managedDiskCmkRotationToLatestVersionEnabled : undefined;
-            resourceInputs["managedDiskIdentities"] = state ? state.managedDiskIdentities : undefined;
-            resourceInputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
-            resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
-            resourceInputs["managedServicesCmkKeyVaultId"] = state ? state.managedServicesCmkKeyVaultId : undefined;
-            resourceInputs["managedServicesCmkKeyVaultKeyId"] = state ? state.managedServicesCmkKeyVaultKeyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkSecurityGroupRulesRequired"] = state ? state.networkSecurityGroupRulesRequired : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["storageAccountIdentities"] = state ? state.storageAccountIdentities : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
-            resourceInputs["workspaceUrl"] = state ? state.workspaceUrl : undefined;
+            resourceInputs["accessConnectorId"] = state?.accessConnectorId;
+            resourceInputs["customParameters"] = state?.customParameters;
+            resourceInputs["customerManagedKeyEnabled"] = state?.customerManagedKeyEnabled;
+            resourceInputs["defaultStorageFirewallEnabled"] = state?.defaultStorageFirewallEnabled;
+            resourceInputs["diskEncryptionSetId"] = state?.diskEncryptionSetId;
+            resourceInputs["enhancedSecurityCompliance"] = state?.enhancedSecurityCompliance;
+            resourceInputs["infrastructureEncryptionEnabled"] = state?.infrastructureEncryptionEnabled;
+            resourceInputs["loadBalancerBackendAddressPoolId"] = state?.loadBalancerBackendAddressPoolId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedDiskCmkKeyVaultId"] = state?.managedDiskCmkKeyVaultId;
+            resourceInputs["managedDiskCmkKeyVaultKeyId"] = state?.managedDiskCmkKeyVaultKeyId;
+            resourceInputs["managedDiskCmkRotationToLatestVersionEnabled"] = state?.managedDiskCmkRotationToLatestVersionEnabled;
+            resourceInputs["managedDiskIdentities"] = state?.managedDiskIdentities;
+            resourceInputs["managedResourceGroupId"] = state?.managedResourceGroupId;
+            resourceInputs["managedResourceGroupName"] = state?.managedResourceGroupName;
+            resourceInputs["managedServicesCmkKeyVaultId"] = state?.managedServicesCmkKeyVaultId;
+            resourceInputs["managedServicesCmkKeyVaultKeyId"] = state?.managedServicesCmkKeyVaultKeyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkSecurityGroupRulesRequired"] = state?.networkSecurityGroupRulesRequired;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["storageAccountIdentities"] = state?.storageAccountIdentities;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceId"] = state?.workspaceId;
+            resourceInputs["workspaceUrl"] = state?.workspaceUrl;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["accessConnectorId"] = args ? args.accessConnectorId : undefined;
-            resourceInputs["customParameters"] = args ? args.customParameters : undefined;
-            resourceInputs["customerManagedKeyEnabled"] = args ? args.customerManagedKeyEnabled : undefined;
-            resourceInputs["defaultStorageFirewallEnabled"] = args ? args.defaultStorageFirewallEnabled : undefined;
-            resourceInputs["enhancedSecurityCompliance"] = args ? args.enhancedSecurityCompliance : undefined;
-            resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["loadBalancerBackendAddressPoolId"] = args ? args.loadBalancerBackendAddressPoolId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedDiskCmkKeyVaultId"] = args ? args.managedDiskCmkKeyVaultId : undefined;
-            resourceInputs["managedDiskCmkKeyVaultKeyId"] = args ? args.managedDiskCmkKeyVaultKeyId : undefined;
-            resourceInputs["managedDiskCmkRotationToLatestVersionEnabled"] = args ? args.managedDiskCmkRotationToLatestVersionEnabled : undefined;
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["managedServicesCmkKeyVaultId"] = args ? args.managedServicesCmkKeyVaultId : undefined;
-            resourceInputs["managedServicesCmkKeyVaultKeyId"] = args ? args.managedServicesCmkKeyVaultKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkSecurityGroupRulesRequired"] = args ? args.networkSecurityGroupRulesRequired : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessConnectorId"] = args?.accessConnectorId;
+            resourceInputs["customParameters"] = args?.customParameters;
+            resourceInputs["customerManagedKeyEnabled"] = args?.customerManagedKeyEnabled;
+            resourceInputs["defaultStorageFirewallEnabled"] = args?.defaultStorageFirewallEnabled;
+            resourceInputs["enhancedSecurityCompliance"] = args?.enhancedSecurityCompliance;
+            resourceInputs["infrastructureEncryptionEnabled"] = args?.infrastructureEncryptionEnabled;
+            resourceInputs["loadBalancerBackendAddressPoolId"] = args?.loadBalancerBackendAddressPoolId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedDiskCmkKeyVaultId"] = args?.managedDiskCmkKeyVaultId;
+            resourceInputs["managedDiskCmkKeyVaultKeyId"] = args?.managedDiskCmkKeyVaultKeyId;
+            resourceInputs["managedDiskCmkRotationToLatestVersionEnabled"] = args?.managedDiskCmkRotationToLatestVersionEnabled;
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["managedServicesCmkKeyVaultId"] = args?.managedServicesCmkKeyVaultId;
+            resourceInputs["managedServicesCmkKeyVaultKeyId"] = args?.managedServicesCmkKeyVaultKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkSecurityGroupRulesRequired"] = args?.networkSecurityGroupRulesRequired;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["diskEncryptionSetId"] = undefined /*out*/;
             resourceInputs["managedDiskIdentities"] = undefined /*out*/;
             resourceInputs["managedResourceGroupId"] = undefined /*out*/;

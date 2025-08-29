@@ -128,27 +128,27 @@ export class Hub extends pulumi.CustomResource {
      * Is anonymous connections are allowed for this hub? Defaults to `false`.
      * Possible values are `true`, `false`.
      */
-    public readonly anonymousConnectionsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly anonymousConnectionsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `eventHandler` block as defined below.
      *
      * > **Note:** User can change the order of `eventHandler` to change the priority accordingly.
      */
-    public readonly eventHandlers!: pulumi.Output<outputs.webpubsub.HubEventHandler[] | undefined>;
+    declare public readonly eventHandlers: pulumi.Output<outputs.webpubsub.HubEventHandler[] | undefined>;
     /**
      * An `eventListener` block as defined below.
      *
      * > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
      */
-    public readonly eventListeners!: pulumi.Output<outputs.webpubsub.HubEventListener[] | undefined>;
+    declare public readonly eventListeners: pulumi.Output<outputs.webpubsub.HubEventListener[] | undefined>;
     /**
      * The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
      */
-    public readonly webPubsubId!: pulumi.Output<string>;
+    declare public readonly webPubsubId: pulumi.Output<string>;
 
     /**
      * Create a Hub resource with the given unique name, arguments, and options.
@@ -163,21 +163,21 @@ export class Hub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HubState | undefined;
-            resourceInputs["anonymousConnectionsEnabled"] = state ? state.anonymousConnectionsEnabled : undefined;
-            resourceInputs["eventHandlers"] = state ? state.eventHandlers : undefined;
-            resourceInputs["eventListeners"] = state ? state.eventListeners : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["webPubsubId"] = state ? state.webPubsubId : undefined;
+            resourceInputs["anonymousConnectionsEnabled"] = state?.anonymousConnectionsEnabled;
+            resourceInputs["eventHandlers"] = state?.eventHandlers;
+            resourceInputs["eventListeners"] = state?.eventListeners;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["webPubsubId"] = state?.webPubsubId;
         } else {
             const args = argsOrState as HubArgs | undefined;
-            if ((!args || args.webPubsubId === undefined) && !opts.urn) {
+            if (args?.webPubsubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webPubsubId'");
             }
-            resourceInputs["anonymousConnectionsEnabled"] = args ? args.anonymousConnectionsEnabled : undefined;
-            resourceInputs["eventHandlers"] = args ? args.eventHandlers : undefined;
-            resourceInputs["eventListeners"] = args ? args.eventListeners : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["webPubsubId"] = args ? args.webPubsubId : undefined;
+            resourceInputs["anonymousConnectionsEnabled"] = args?.anonymousConnectionsEnabled;
+            resourceInputs["eventHandlers"] = args?.eventHandlers;
+            resourceInputs["eventListeners"] = args?.eventListeners;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["webPubsubId"] = args?.webPubsubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Hub.__pulumiType, name, resourceInputs, opts);

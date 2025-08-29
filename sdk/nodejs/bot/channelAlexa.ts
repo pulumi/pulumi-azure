@@ -74,19 +74,19 @@ export class ChannelAlexa extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource group where the Alexa Channel should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Alexa skill ID for the Alexa Channel.
      */
-    public readonly skillId!: pulumi.Output<string>;
+    declare public readonly skillId: pulumi.Output<string>;
 
     /**
      * Create a ChannelAlexa resource with the given unique name, arguments, and options.
@@ -101,25 +101,25 @@ export class ChannelAlexa extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelAlexaState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skillId"] = state ? state.skillId : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skillId"] = state?.skillId;
         } else {
             const args = argsOrState as ChannelAlexaArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skillId === undefined) && !opts.urn) {
+            if (args?.skillId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skillId'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skillId"] = args ? args.skillId : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skillId"] = args?.skillId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ChannelAlexa.__pulumiType, name, resourceInputs, opts);

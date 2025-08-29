@@ -73,19 +73,19 @@ export class Table extends pulumi.CustomResource {
     /**
      * One or more `acl` blocks as defined below.
      */
-    public readonly acls!: pulumi.Output<outputs.storage.TableAcl[] | undefined>;
+    declare public readonly acls: pulumi.Output<outputs.storage.TableAcl[] | undefined>;
     /**
      * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Resource Manager ID of this Storage Table.
      */
-    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceManagerId: pulumi.Output<string>;
     /**
      * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -100,18 +100,18 @@ export class Table extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            resourceInputs["acls"] = state ? state.acls : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["acls"] = state?.acls;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceManagerId"] = state?.resourceManagerId;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            resourceInputs["acls"] = args ? args.acls : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["acls"] = args?.acls;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

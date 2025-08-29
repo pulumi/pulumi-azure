@@ -81,51 +81,51 @@ export class DatasetHttp extends pulumi.CustomResource {
      *
      * The following supported arguments are specific to HTTP Dataset:
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Dataset.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<string | undefined>;
+    declare public readonly folder: pulumi.Output<string | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    public readonly linkedServiceName!: pulumi.Output<string>;
+    declare public readonly linkedServiceName: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Dataset.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The relative URL based on the URL in the HTTP Linked Service.
      */
-    public readonly relativeUrl!: pulumi.Output<string | undefined>;
+    declare public readonly relativeUrl: pulumi.Output<string | undefined>;
     /**
      * The body for the HTTP request.
      */
-    public readonly requestBody!: pulumi.Output<string | undefined>;
+    declare public readonly requestBody: pulumi.Output<string | undefined>;
     /**
      * The HTTP method for the HTTP request. (e.g. GET, POST)
      */
-    public readonly requestMethod!: pulumi.Output<string | undefined>;
+    declare public readonly requestMethod: pulumi.Output<string | undefined>;
     /**
      * A `schemaColumn` block as defined below.
      */
-    public readonly schemaColumns!: pulumi.Output<outputs.datafactory.DatasetHttpSchemaColumn[] | undefined>;
+    declare public readonly schemaColumns: pulumi.Output<outputs.datafactory.DatasetHttpSchemaColumn[] | undefined>;
 
     /**
      * Create a DatasetHttp resource with the given unique name, arguments, and options.
@@ -140,38 +140,38 @@ export class DatasetHttp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetHttpState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["folder"] = state ? state.folder : undefined;
-            resourceInputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["relativeUrl"] = state ? state.relativeUrl : undefined;
-            resourceInputs["requestBody"] = state ? state.requestBody : undefined;
-            resourceInputs["requestMethod"] = state ? state.requestMethod : undefined;
-            resourceInputs["schemaColumns"] = state ? state.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["folder"] = state?.folder;
+            resourceInputs["linkedServiceName"] = state?.linkedServiceName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["relativeUrl"] = state?.relativeUrl;
+            resourceInputs["requestBody"] = state?.requestBody;
+            resourceInputs["requestMethod"] = state?.requestMethod;
+            resourceInputs["schemaColumns"] = state?.schemaColumns;
         } else {
             const args = argsOrState as DatasetHttpArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.linkedServiceName === undefined) && !opts.urn) {
+            if (args?.linkedServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["relativeUrl"] = args ? args.relativeUrl : undefined;
-            resourceInputs["requestBody"] = args ? args.requestBody : undefined;
-            resourceInputs["requestMethod"] = args ? args.requestMethod : undefined;
-            resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["linkedServiceName"] = args?.linkedServiceName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["relativeUrl"] = args?.relativeUrl;
+            resourceInputs["requestBody"] = args?.requestBody;
+            resourceInputs["requestMethod"] = args?.requestMethod;
+            resourceInputs["schemaColumns"] = args?.schemaColumns;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DatasetHttp.__pulumiType, name, resourceInputs, opts);

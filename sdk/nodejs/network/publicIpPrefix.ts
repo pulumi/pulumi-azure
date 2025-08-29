@@ -76,53 +76,53 @@ export class PublicIpPrefix extends pulumi.CustomResource {
      *
      * > **Note:** When `ipVersion` is set to `IPv6`, `customIpPrefixId` must reference a regional (child) range rather than a global (parent) range. For more details on creating a Public IP Prefix from a custom IP prefix, see [here](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/manage-custom-ip-address-prefix#create-a-public-ip-prefix-from-a-custom-ip-prefix).
      */
-    public readonly customIpPrefixId!: pulumi.Output<string | undefined>;
+    declare public readonly customIpPrefixId: pulumi.Output<string | undefined>;
     /**
      * The IP address prefix value that was allocated.
      */
-    public /*out*/ readonly ipPrefix!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipPrefix: pulumi.Output<string>;
     /**
      * The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
      */
-    public readonly ipVersion!: pulumi.Output<string | undefined>;
+    declare public readonly ipVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      *
      * > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      */
-    public readonly prefixLength!: pulumi.Output<number | undefined>;
+    declare public readonly prefixLength: pulumi.Output<number | undefined>;
     /**
      * The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
      * > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      */
-    public readonly skuTier!: pulumi.Output<string | undefined>;
+    declare public readonly skuTier: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
      *
      * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PublicIpPrefix resource with the given unique name, arguments, and options.
@@ -137,32 +137,32 @@ export class PublicIpPrefix extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublicIpPrefixState | undefined;
-            resourceInputs["customIpPrefixId"] = state ? state.customIpPrefixId : undefined;
-            resourceInputs["ipPrefix"] = state ? state.ipPrefix : undefined;
-            resourceInputs["ipVersion"] = state ? state.ipVersion : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["prefixLength"] = state ? state.prefixLength : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["customIpPrefixId"] = state?.customIpPrefixId;
+            resourceInputs["ipPrefix"] = state?.ipPrefix;
+            resourceInputs["ipVersion"] = state?.ipVersion;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["prefixLength"] = state?.prefixLength;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["skuTier"] = state?.skuTier;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as PublicIpPrefixArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customIpPrefixId"] = args ? args.customIpPrefixId : undefined;
-            resourceInputs["ipVersion"] = args ? args.ipVersion : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["prefixLength"] = args ? args.prefixLength : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["customIpPrefixId"] = args?.customIpPrefixId;
+            resourceInputs["ipVersion"] = args?.ipVersion;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["prefixLength"] = args?.prefixLength;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["skuTier"] = args?.skuTier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["ipPrefix"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -94,39 +94,39 @@ export class StreamInputIotHub extends pulumi.CustomResource {
     /**
      * The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
      */
-    public readonly endpoint!: pulumi.Output<string>;
+    declare public readonly endpoint: pulumi.Output<string>;
     /**
      * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
      */
-    public readonly eventhubConsumerGroupName!: pulumi.Output<string>;
+    declare public readonly eventhubConsumerGroupName: pulumi.Output<string>;
     /**
      * The name or the URI of the IoT Hub.
      */
-    public readonly iothubNamespace!: pulumi.Output<string>;
+    declare public readonly iothubNamespace: pulumi.Output<string>;
     /**
      * The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `serialization` block as defined below.
      */
-    public readonly serialization!: pulumi.Output<outputs.streamanalytics.StreamInputIotHubSerialization>;
+    declare public readonly serialization: pulumi.Output<outputs.streamanalytics.StreamInputIotHubSerialization>;
     /**
      * The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
      */
-    public readonly sharedAccessPolicyKey!: pulumi.Output<string>;
+    declare public readonly sharedAccessPolicyKey: pulumi.Output<string>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    public readonly sharedAccessPolicyName!: pulumi.Output<string>;
+    declare public readonly sharedAccessPolicyName: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobName: pulumi.Output<string>;
 
     /**
      * Create a StreamInputIotHub resource with the given unique name, arguments, and options.
@@ -141,50 +141,50 @@ export class StreamInputIotHub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StreamInputIotHubState | undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
-            resourceInputs["iothubNamespace"] = state ? state.iothubNamespace : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serialization"] = state ? state.serialization : undefined;
-            resourceInputs["sharedAccessPolicyKey"] = state ? state.sharedAccessPolicyKey : undefined;
-            resourceInputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["eventhubConsumerGroupName"] = state?.eventhubConsumerGroupName;
+            resourceInputs["iothubNamespace"] = state?.iothubNamespace;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serialization"] = state?.serialization;
+            resourceInputs["sharedAccessPolicyKey"] = state?.sharedAccessPolicyKey;
+            resourceInputs["sharedAccessPolicyName"] = state?.sharedAccessPolicyName;
+            resourceInputs["streamAnalyticsJobName"] = state?.streamAnalyticsJobName;
         } else {
             const args = argsOrState as StreamInputIotHubArgs | undefined;
-            if ((!args || args.endpoint === undefined) && !opts.urn) {
+            if (args?.endpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpoint'");
             }
-            if ((!args || args.eventhubConsumerGroupName === undefined) && !opts.urn) {
+            if (args?.eventhubConsumerGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubConsumerGroupName'");
             }
-            if ((!args || args.iothubNamespace === undefined) && !opts.urn) {
+            if (args?.iothubNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubNamespace'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialization === undefined) && !opts.urn) {
+            if (args?.serialization === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serialization'");
             }
-            if ((!args || args.sharedAccessPolicyKey === undefined) && !opts.urn) {
+            if (args?.sharedAccessPolicyKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyKey'");
             }
-            if ((!args || args.sharedAccessPolicyName === undefined) && !opts.urn) {
+            if (args?.sharedAccessPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyName'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
-            resourceInputs["iothubNamespace"] = args ? args.iothubNamespace : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialization"] = args ? args.serialization : undefined;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["eventhubConsumerGroupName"] = args?.eventhubConsumerGroupName;
+            resourceInputs["iothubNamespace"] = args?.iothubNamespace;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialization"] = args?.serialization;
             resourceInputs["sharedAccessPolicyKey"] = args?.sharedAccessPolicyKey ? pulumi.secret(args.sharedAccessPolicyKey) : undefined;
-            resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["sharedAccessPolicyName"] = args?.sharedAccessPolicyName;
+            resourceInputs["streamAnalyticsJobName"] = args?.streamAnalyticsJobName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sharedAccessPolicyKey"] };

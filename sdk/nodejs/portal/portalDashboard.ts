@@ -46,25 +46,25 @@ export class PortalDashboard extends pulumi.CustomResource {
     /**
      * JSON data representing dashboard body. See above for details on how to obtain this from the Portal.
      */
-    public readonly dashboardProperties!: pulumi.Output<string>;
+    declare public readonly dashboardProperties: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created.
      *
      * > **Note:** You can specify a tag with the key `hidden-title` to set a more user-friendly title for this Dashboard.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PortalDashboard resource with the given unique name, arguments, and options.
@@ -79,24 +79,24 @@ export class PortalDashboard extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PortalDashboardState | undefined;
-            resourceInputs["dashboardProperties"] = state ? state.dashboardProperties : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["dashboardProperties"] = state?.dashboardProperties;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as PortalDashboardArgs | undefined;
-            if ((!args || args.dashboardProperties === undefined) && !opts.urn) {
+            if (args?.dashboardProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardProperties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dashboardProperties"] = args ? args.dashboardProperties : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dashboardProperties"] = args?.dashboardProperties;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:portal/dashboard:Dashboard" }] };

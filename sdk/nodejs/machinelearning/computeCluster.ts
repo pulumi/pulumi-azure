@@ -131,59 +131,59 @@ export class ComputeCluster extends pulumi.CustomResource {
     /**
      * The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearning.ComputeClusterIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.machinelearning.ComputeClusterIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly machineLearningWorkspaceId!: pulumi.Output<string>;
+    declare public readonly machineLearningWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly nodePublicIpEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly nodePublicIpEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `scaleSettings` block as defined below.
      */
-    public readonly scaleSettings!: pulumi.Output<outputs.machinelearning.ComputeClusterScaleSettings>;
+    declare public readonly scaleSettings: pulumi.Output<outputs.machinelearning.ComputeClusterScaleSettings>;
     /**
      * Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly ssh!: pulumi.Output<outputs.machinelearning.ComputeClusterSsh | undefined>;
+    declare public readonly ssh: pulumi.Output<outputs.machinelearning.ComputeClusterSsh | undefined>;
     /**
      * A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly sshPublicAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sshPublicAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly subnetResourceId!: pulumi.Output<string>;
+    declare public readonly subnetResourceId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
      */
-    public readonly vmPriority!: pulumi.Output<string>;
+    declare public readonly vmPriority: pulumi.Output<string>;
     /**
      * The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly vmSize!: pulumi.Output<string>;
+    declare public readonly vmSize: pulumi.Output<string>;
 
     /**
      * Create a ComputeCluster resource with the given unique name, arguments, and options.
@@ -198,48 +198,48 @@ export class ComputeCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComputeClusterState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodePublicIpEnabled"] = state ? state.nodePublicIpEnabled : undefined;
-            resourceInputs["scaleSettings"] = state ? state.scaleSettings : undefined;
-            resourceInputs["ssh"] = state ? state.ssh : undefined;
-            resourceInputs["sshPublicAccessEnabled"] = state ? state.sshPublicAccessEnabled : undefined;
-            resourceInputs["subnetResourceId"] = state ? state.subnetResourceId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["vmPriority"] = state ? state.vmPriority : undefined;
-            resourceInputs["vmSize"] = state ? state.vmSize : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["machineLearningWorkspaceId"] = state?.machineLearningWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodePublicIpEnabled"] = state?.nodePublicIpEnabled;
+            resourceInputs["scaleSettings"] = state?.scaleSettings;
+            resourceInputs["ssh"] = state?.ssh;
+            resourceInputs["sshPublicAccessEnabled"] = state?.sshPublicAccessEnabled;
+            resourceInputs["subnetResourceId"] = state?.subnetResourceId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["vmPriority"] = state?.vmPriority;
+            resourceInputs["vmSize"] = state?.vmSize;
         } else {
             const args = argsOrState as ComputeClusterArgs | undefined;
-            if ((!args || args.machineLearningWorkspaceId === undefined) && !opts.urn) {
+            if (args?.machineLearningWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineLearningWorkspaceId'");
             }
-            if ((!args || args.scaleSettings === undefined) && !opts.urn) {
+            if (args?.scaleSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scaleSettings'");
             }
-            if ((!args || args.vmPriority === undefined) && !opts.urn) {
+            if (args?.vmPriority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmPriority'");
             }
-            if ((!args || args.vmSize === undefined) && !opts.urn) {
+            if (args?.vmSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodePublicIpEnabled"] = args ? args.nodePublicIpEnabled : undefined;
-            resourceInputs["scaleSettings"] = args ? args.scaleSettings : undefined;
-            resourceInputs["ssh"] = args ? args.ssh : undefined;
-            resourceInputs["sshPublicAccessEnabled"] = args ? args.sshPublicAccessEnabled : undefined;
-            resourceInputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmPriority"] = args ? args.vmPriority : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["machineLearningWorkspaceId"] = args?.machineLearningWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodePublicIpEnabled"] = args?.nodePublicIpEnabled;
+            resourceInputs["scaleSettings"] = args?.scaleSettings;
+            resourceInputs["ssh"] = args?.ssh;
+            resourceInputs["sshPublicAccessEnabled"] = args?.sshPublicAccessEnabled;
+            resourceInputs["subnetResourceId"] = args?.subnetResourceId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmPriority"] = args?.vmPriority;
+            resourceInputs["vmSize"] = args?.vmSize;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ComputeCluster.__pulumiType, name, resourceInputs, opts);

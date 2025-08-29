@@ -109,31 +109,31 @@ export class LinkedService extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Synapse Linked Service.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Synapse Linked Service.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The description for the Synapse Linked Service.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A `integrationRuntime` block as defined below.
      */
-    public readonly integrationRuntime!: pulumi.Output<outputs.synapse.LinkedServiceIntegrationRuntime | undefined>;
+    declare public readonly integrationRuntime: pulumi.Output<outputs.synapse.LinkedServiceIntegrationRuntime | undefined>;
     /**
      * The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Synapse Linked Service.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string>;
     /**
      * The type of data stores that will be connected to Synapse. Valid Values include `AmazonMWS`, `AmazonRdsForOracle`, `AmazonRdsForSqlServer`, `AmazonRedshift`, `AmazonS3`, `AzureBatch`. Changing this forces a new resource to be created.
      * `AzureBlobFS`, `AzureBlobStorage`, `AzureDataExplorer`, `AzureDataLakeAnalytics`, `AzureDataLakeStore`, `AzureDatabricks`, `AzureDatabricksDeltaLake`, `AzureFileStorage`, `AzureFunction`,
@@ -145,11 +145,11 @@ export class LinkedService extends pulumi.CustomResource {
      * `Responsys`, `RestService`, `SqlServer`, `Salesforce`, `SalesforceMarketingCloud`, `SalesforceServiceCloud`, `SapBW`, `SapCloudForCustomer`, `SapEcc`, `SapHana`, `SapOpenHub`,
      * `SapTable`, `ServiceNow`, `Sftp`, `SharePointOnlineList`, `Shopify`, `Snowflake`, `Spark`, `Square`, `Sybase`, `Teradata`, `Vertica`, `Web`, `Xero`, `Zoho`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * A JSON object that contains the properties of the Synapse Linked Service.
      */
-    public readonly typePropertiesJson!: pulumi.Output<string>;
+    declare public readonly typePropertiesJson: pulumi.Output<string>;
 
     /**
      * Create a LinkedService resource with the given unique name, arguments, and options.
@@ -164,35 +164,35 @@ export class LinkedService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["integrationRuntime"] = state ? state.integrationRuntime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["typePropertiesJson"] = state ? state.typePropertiesJson : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["integrationRuntime"] = state?.integrationRuntime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["typePropertiesJson"] = state?.typePropertiesJson;
         } else {
             const args = argsOrState as LinkedServiceArgs | undefined;
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
+            if (args?.synapseWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.typePropertiesJson === undefined) && !opts.urn) {
+            if (args?.typePropertiesJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typePropertiesJson'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationRuntime"] = args ? args.integrationRuntime : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typePropertiesJson"] = args ? args.typePropertiesJson : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationRuntime"] = args?.integrationRuntime;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typePropertiesJson"] = args?.typePropertiesJson;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedService.__pulumiType, name, resourceInputs, opts);

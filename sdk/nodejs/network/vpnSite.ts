@@ -85,43 +85,43 @@ export class VpnSite extends pulumi.CustomResource {
      *
      * > **Note:** The `addressCidrs` has to be set when the `link.bgp` isn't specified.
      */
-    public readonly addressCidrs!: pulumi.Output<string[] | undefined>;
+    declare public readonly addressCidrs: pulumi.Output<string[] | undefined>;
     /**
      * The model of the VPN device.
      */
-    public readonly deviceModel!: pulumi.Output<string | undefined>;
+    declare public readonly deviceModel: pulumi.Output<string | undefined>;
     /**
      * The name of the VPN device vendor.
      */
-    public readonly deviceVendor!: pulumi.Output<string | undefined>;
+    declare public readonly deviceVendor: pulumi.Output<string | undefined>;
     /**
      * One or more `link` blocks as defined below.
      */
-    public readonly links!: pulumi.Output<outputs.network.VpnSiteLink[] | undefined>;
+    declare public readonly links: pulumi.Output<outputs.network.VpnSiteLink[] | undefined>;
     /**
      * The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An `o365Policy` block as defined below.
      */
-    public readonly o365Policy!: pulumi.Output<outputs.network.VpnSiteO365Policy>;
+    declare public readonly o365Policy: pulumi.Output<outputs.network.VpnSiteO365Policy>;
     /**
      * The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the VPN Site.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
      */
-    public readonly virtualWanId!: pulumi.Output<string>;
+    declare public readonly virtualWanId: pulumi.Output<string>;
 
     /**
      * Create a VpnSite resource with the given unique name, arguments, and options.
@@ -136,34 +136,34 @@ export class VpnSite extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnSiteState | undefined;
-            resourceInputs["addressCidrs"] = state ? state.addressCidrs : undefined;
-            resourceInputs["deviceModel"] = state ? state.deviceModel : undefined;
-            resourceInputs["deviceVendor"] = state ? state.deviceVendor : undefined;
-            resourceInputs["links"] = state ? state.links : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["o365Policy"] = state ? state.o365Policy : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualWanId"] = state ? state.virtualWanId : undefined;
+            resourceInputs["addressCidrs"] = state?.addressCidrs;
+            resourceInputs["deviceModel"] = state?.deviceModel;
+            resourceInputs["deviceVendor"] = state?.deviceVendor;
+            resourceInputs["links"] = state?.links;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["o365Policy"] = state?.o365Policy;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualWanId"] = state?.virtualWanId;
         } else {
             const args = argsOrState as VpnSiteArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualWanId === undefined) && !opts.urn) {
+            if (args?.virtualWanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualWanId'");
             }
-            resourceInputs["addressCidrs"] = args ? args.addressCidrs : undefined;
-            resourceInputs["deviceModel"] = args ? args.deviceModel : undefined;
-            resourceInputs["deviceVendor"] = args ? args.deviceVendor : undefined;
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["o365Policy"] = args ? args.o365Policy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualWanId"] = args ? args.virtualWanId : undefined;
+            resourceInputs["addressCidrs"] = args?.addressCidrs;
+            resourceInputs["deviceModel"] = args?.deviceModel;
+            resourceInputs["deviceVendor"] = args?.deviceVendor;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["o365Policy"] = args?.o365Policy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualWanId"] = args?.virtualWanId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpnSite.__pulumiType, name, resourceInputs, opts);

@@ -71,31 +71,31 @@ export class Zone extends pulumi.CustomResource {
     /**
      * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
      */
-    public /*out*/ readonly maxNumberOfRecordSets!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNumberOfRecordSets: pulumi.Output<number>;
     /**
      * The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * (Optional) A list of values that make up the NS record for the zone.
      */
-    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly nameServers: pulumi.Output<string[]>;
     /**
      * (Optional) The number of records already in the zone.
      */
-    public /*out*/ readonly numberOfRecordSets!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfRecordSets: pulumi.Output<number>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * An `soaRecord` block as defined below.
      */
-    public readonly soaRecord!: pulumi.Output<outputs.dns.ZoneSoaRecord>;
+    declare public readonly soaRecord: pulumi.Output<outputs.dns.ZoneSoaRecord>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -110,22 +110,22 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            resourceInputs["maxNumberOfRecordSets"] = state ? state.maxNumberOfRecordSets : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
-            resourceInputs["numberOfRecordSets"] = state ? state.numberOfRecordSets : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["soaRecord"] = state ? state.soaRecord : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["maxNumberOfRecordSets"] = state?.maxNumberOfRecordSets;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nameServers"] = state?.nameServers;
+            resourceInputs["numberOfRecordSets"] = state?.numberOfRecordSets;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["soaRecord"] = state?.soaRecord;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["soaRecord"] = args ? args.soaRecord : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["soaRecord"] = args?.soaRecord;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;
             resourceInputs["nameServers"] = undefined /*out*/;
             resourceInputs["numberOfRecordSets"] = undefined /*out*/;

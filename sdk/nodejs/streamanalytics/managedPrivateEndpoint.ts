@@ -87,23 +87,23 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
      * The name which should be used for this Stream Analytics Managed Private Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Managed Private Endpoint should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Cluster where the Managed Private Endpoint should be created. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsClusterName!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsClusterName: pulumi.Output<string>;
     /**
      * Specifies the sub resource name which the Stream Analytics Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      */
-    public readonly subresourceName!: pulumi.Output<string>;
+    declare public readonly subresourceName: pulumi.Output<string>;
     /**
      * The ID of the Private Link Enabled Remote Resource which this Stream Analytics Private endpoint should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
 
     /**
      * Create a ManagedPrivateEndpoint resource with the given unique name, arguments, and options.
@@ -118,30 +118,30 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrivateEndpointState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["streamAnalyticsClusterName"] = state ? state.streamAnalyticsClusterName : undefined;
-            resourceInputs["subresourceName"] = state ? state.subresourceName : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["streamAnalyticsClusterName"] = state?.streamAnalyticsClusterName;
+            resourceInputs["subresourceName"] = state?.subresourceName;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
         } else {
             const args = argsOrState as ManagedPrivateEndpointArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.streamAnalyticsClusterName === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsClusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsClusterName'");
             }
-            if ((!args || args.subresourceName === undefined) && !opts.urn) {
+            if (args?.subresourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subresourceName'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["streamAnalyticsClusterName"] = args ? args.streamAnalyticsClusterName : undefined;
-            resourceInputs["subresourceName"] = args ? args.subresourceName : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["streamAnalyticsClusterName"] = args?.streamAnalyticsClusterName;
+            resourceInputs["subresourceName"] = args?.subresourceName;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);

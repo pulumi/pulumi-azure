@@ -140,31 +140,31 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
     /**
      * An `action` block as defined below.
      */
-    public readonly action!: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertV2Action | undefined>;
+    declare public readonly action: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertV2Action | undefined>;
     /**
      * Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
      */
-    public readonly autoMitigationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoMitigationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The api-version used when creating this alert rule.
      */
-    public /*out*/ readonly createdWithApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdWithApiVersion: pulumi.Output<string>;
     /**
      * A `criteria` block as defined below.
      */
-    public readonly criterias!: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertV2Criteria[]>;
+    declare public readonly criterias: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertV2Criteria[]>;
     /**
      * Specifies the description of the scheduled query rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the display name of the alert rule.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
      *
@@ -172,71 +172,71 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
      *
      * > **Note:** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      */
-    public readonly evaluationFrequency!: pulumi.Output<string>;
+    declare public readonly evaluationFrequency: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertV2Identity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.monitoring.ScheduledQueryRulesAlertV2Identity | undefined>;
     /**
      * True if this alert rule is a legacy Log Analytic Rule.
      */
-    public /*out*/ readonly isALegacyLogAnalyticsRule!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isALegacyLogAnalyticsRule: pulumi.Output<boolean>;
     /**
      * The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
      */
-    public /*out*/ readonly isWorkspaceAlertsStorageConfigured!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isWorkspaceAlertsStorageConfigured: pulumi.Output<boolean>;
     /**
      * Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      *
      * > **Note:** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
      */
-    public readonly muteActionsAfterAlertDuration!: pulumi.Output<string | undefined>;
+    declare public readonly muteActionsAfterAlertDuration: pulumi.Output<string | undefined>;
     /**
      * Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      *
      * > **Note:** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      */
-    public readonly queryTimeRangeOverride!: pulumi.Output<string | undefined>;
+    declare public readonly queryTimeRangeOverride: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list.
      */
-    public readonly scopes!: pulumi.Output<string>;
+    declare public readonly scopes: pulumi.Output<string>;
     /**
      * Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
      */
-    public readonly severity!: pulumi.Output<number>;
+    declare public readonly severity: pulumi.Output<number>;
     /**
      * Specifies the flag which indicates whether the provided query should be validated or not. The default is false.
      */
-    public readonly skipQueryValidation!: pulumi.Output<boolean | undefined>;
+    declare public readonly skipQueryValidation: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to the Monitor Scheduled Query Rule.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
      */
-    public readonly targetResourceTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly targetResourceTypes: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluationFrequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
      */
-    public readonly windowDuration!: pulumi.Output<string>;
+    declare public readonly windowDuration: pulumi.Output<string>;
     /**
      * Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
      */
-    public readonly workspaceAlertsStorageEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly workspaceAlertsStorageEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ScheduledQueryRulesAlertV2 resource with the given unique name, arguments, and options.
@@ -251,69 +251,69 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduledQueryRulesAlertV2State | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["autoMitigationEnabled"] = state ? state.autoMitigationEnabled : undefined;
-            resourceInputs["createdWithApiVersion"] = state ? state.createdWithApiVersion : undefined;
-            resourceInputs["criterias"] = state ? state.criterias : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["evaluationFrequency"] = state ? state.evaluationFrequency : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["isALegacyLogAnalyticsRule"] = state ? state.isALegacyLogAnalyticsRule : undefined;
-            resourceInputs["isWorkspaceAlertsStorageConfigured"] = state ? state.isWorkspaceAlertsStorageConfigured : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["muteActionsAfterAlertDuration"] = state ? state.muteActionsAfterAlertDuration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queryTimeRangeOverride"] = state ? state.queryTimeRangeOverride : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["severity"] = state ? state.severity : undefined;
-            resourceInputs["skipQueryValidation"] = state ? state.skipQueryValidation : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["targetResourceTypes"] = state ? state.targetResourceTypes : undefined;
-            resourceInputs["windowDuration"] = state ? state.windowDuration : undefined;
-            resourceInputs["workspaceAlertsStorageEnabled"] = state ? state.workspaceAlertsStorageEnabled : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["autoMitigationEnabled"] = state?.autoMitigationEnabled;
+            resourceInputs["createdWithApiVersion"] = state?.createdWithApiVersion;
+            resourceInputs["criterias"] = state?.criterias;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["evaluationFrequency"] = state?.evaluationFrequency;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["isALegacyLogAnalyticsRule"] = state?.isALegacyLogAnalyticsRule;
+            resourceInputs["isWorkspaceAlertsStorageConfigured"] = state?.isWorkspaceAlertsStorageConfigured;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["muteActionsAfterAlertDuration"] = state?.muteActionsAfterAlertDuration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queryTimeRangeOverride"] = state?.queryTimeRangeOverride;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["severity"] = state?.severity;
+            resourceInputs["skipQueryValidation"] = state?.skipQueryValidation;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["targetResourceTypes"] = state?.targetResourceTypes;
+            resourceInputs["windowDuration"] = state?.windowDuration;
+            resourceInputs["workspaceAlertsStorageEnabled"] = state?.workspaceAlertsStorageEnabled;
         } else {
             const args = argsOrState as ScheduledQueryRulesAlertV2Args | undefined;
-            if ((!args || args.criterias === undefined) && !opts.urn) {
+            if (args?.criterias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'criterias'");
             }
-            if ((!args || args.evaluationFrequency === undefined) && !opts.urn) {
+            if (args?.evaluationFrequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'evaluationFrequency'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            if ((!args || args.windowDuration === undefined) && !opts.urn) {
+            if (args?.windowDuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'windowDuration'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["autoMitigationEnabled"] = args ? args.autoMitigationEnabled : undefined;
-            resourceInputs["criterias"] = args ? args.criterias : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["muteActionsAfterAlertDuration"] = args ? args.muteActionsAfterAlertDuration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryTimeRangeOverride"] = args ? args.queryTimeRangeOverride : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["skipQueryValidation"] = args ? args.skipQueryValidation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceTypes"] = args ? args.targetResourceTypes : undefined;
-            resourceInputs["windowDuration"] = args ? args.windowDuration : undefined;
-            resourceInputs["workspaceAlertsStorageEnabled"] = args ? args.workspaceAlertsStorageEnabled : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["autoMitigationEnabled"] = args?.autoMitigationEnabled;
+            resourceInputs["criterias"] = args?.criterias;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["evaluationFrequency"] = args?.evaluationFrequency;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["muteActionsAfterAlertDuration"] = args?.muteActionsAfterAlertDuration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryTimeRangeOverride"] = args?.queryTimeRangeOverride;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["skipQueryValidation"] = args?.skipQueryValidation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceTypes"] = args?.targetResourceTypes;
+            resourceInputs["windowDuration"] = args?.windowDuration;
+            resourceInputs["workspaceAlertsStorageEnabled"] = args?.workspaceAlertsStorageEnabled;
             resourceInputs["createdWithApiVersion"] = undefined /*out*/;
             resourceInputs["isALegacyLogAnalyticsRule"] = undefined /*out*/;
             resourceInputs["isWorkspaceAlertsStorageConfigured"] = undefined /*out*/;

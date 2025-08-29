@@ -163,33 +163,33 @@ export class ManagedStorageAccount extends pulumi.CustomResource {
     /**
      * The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string>;
     /**
      * The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Should Storage Account access key be regenerated periodically?
      *
      * > **Note:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
      */
-    public readonly regenerateKeyAutomatically!: pulumi.Output<boolean | undefined>;
+    declare public readonly regenerateKeyAutomatically: pulumi.Output<boolean | undefined>;
     /**
      * How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      */
-    public readonly regenerationPeriod!: pulumi.Output<string | undefined>;
+    declare public readonly regenerationPeriod: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
      */
-    public readonly storageAccountKey!: pulumi.Output<string>;
+    declare public readonly storageAccountKey: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ManagedStorageAccount resource with the given unique name, arguments, and options.
@@ -204,31 +204,31 @@ export class ManagedStorageAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedStorageAccountState | undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["regenerateKeyAutomatically"] = state ? state.regenerateKeyAutomatically : undefined;
-            resourceInputs["regenerationPeriod"] = state ? state.regenerationPeriod : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["regenerateKeyAutomatically"] = state?.regenerateKeyAutomatically;
+            resourceInputs["regenerationPeriod"] = state?.regenerationPeriod;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["storageAccountKey"] = state?.storageAccountKey;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ManagedStorageAccountArgs | undefined;
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
+            if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            if ((!args || args.storageAccountKey === undefined) && !opts.urn) {
+            if (args?.storageAccountKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountKey'");
             }
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["regenerateKeyAutomatically"] = args ? args.regenerateKeyAutomatically : undefined;
-            resourceInputs["regenerationPeriod"] = args ? args.regenerationPeriod : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["storageAccountKey"] = args ? args.storageAccountKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["regenerateKeyAutomatically"] = args?.regenerateKeyAutomatically;
+            resourceInputs["regenerationPeriod"] = args?.regenerationPeriod;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["storageAccountKey"] = args?.storageAccountKey;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedStorageAccount.__pulumiType, name, resourceInputs, opts);

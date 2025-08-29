@@ -125,39 +125,39 @@ export class WorkbookTemplate extends pulumi.CustomResource {
     /**
      * Information about the author of the workbook template.
      */
-    public readonly author!: pulumi.Output<string | undefined>;
+    declare public readonly author: pulumi.Output<string | undefined>;
     /**
      * A `galleries` block as defined below.
      */
-    public readonly galleries!: pulumi.Output<outputs.appinsights.WorkbookTemplateGallery[]>;
+    declare public readonly galleries: pulumi.Output<outputs.appinsights.WorkbookTemplateGallery[]>;
     /**
      * Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
      */
-    public readonly localized!: pulumi.Output<string | undefined>;
+    declare public readonly localized: pulumi.Output<string | undefined>;
     /**
      * Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode. Defaults to `0`.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Application Insights Workbook Template.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Valid JSON object containing workbook template payload.
      */
-    public readonly templateData!: pulumi.Output<string>;
+    declare public readonly templateData: pulumi.Output<string>;
 
     /**
      * Create a WorkbookTemplate resource with the given unique name, arguments, and options.
@@ -172,35 +172,35 @@ export class WorkbookTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkbookTemplateState | undefined;
-            resourceInputs["author"] = state ? state.author : undefined;
-            resourceInputs["galleries"] = state ? state.galleries : undefined;
-            resourceInputs["localized"] = state ? state.localized : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["templateData"] = state ? state.templateData : undefined;
+            resourceInputs["author"] = state?.author;
+            resourceInputs["galleries"] = state?.galleries;
+            resourceInputs["localized"] = state?.localized;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["templateData"] = state?.templateData;
         } else {
             const args = argsOrState as WorkbookTemplateArgs | undefined;
-            if ((!args || args.galleries === undefined) && !opts.urn) {
+            if (args?.galleries === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleries'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.templateData === undefined) && !opts.urn) {
+            if (args?.templateData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateData'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["galleries"] = args ? args.galleries : undefined;
-            resourceInputs["localized"] = args ? args.localized : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateData"] = args ? args.templateData : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["galleries"] = args?.galleries;
+            resourceInputs["localized"] = args?.localized;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateData"] = args?.templateData;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkbookTemplate.__pulumiType, name, resourceInputs, opts);

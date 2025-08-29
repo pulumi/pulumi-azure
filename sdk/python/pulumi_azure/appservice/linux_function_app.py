@@ -61,8 +61,7 @@ class LinuxFunctionAppArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input['LinuxFunctionAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input['LinuxFunctionAppBackupArgs'] backup: A `backup` block as defined below.
@@ -216,8 +215,7 @@ class LinuxFunctionAppArgs:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of key-value pairs for [App
-        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -658,8 +656,7 @@ class _LinuxFunctionAppState:
                  zip_deploy_file: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinuxFunctionApp resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsArgs'] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input['LinuxFunctionAppAuthSettingsV2Args'] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input['LinuxFunctionAppBackupArgs'] backup: A `backup` block as defined below.
@@ -810,8 +807,7 @@ class _LinuxFunctionAppState:
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of key-value pairs for [App
-        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1438,8 +1434,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsArgs', 'LinuxFunctionAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsV2Args', 'LinuxFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[Union['LinuxFunctionAppBackupArgs', 'LinuxFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
@@ -1713,8 +1708,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App
-               Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsArgs', 'LinuxFunctionAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsV2Args', 'LinuxFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[Union['LinuxFunctionAppBackupArgs', 'LinuxFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
@@ -1826,8 +1820,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of key-value pairs for [App
-        Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+        A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
         """
         return pulumi.get(self, "app_settings")
 

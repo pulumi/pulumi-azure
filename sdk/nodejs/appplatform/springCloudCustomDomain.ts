@@ -92,19 +92,19 @@ export class SpringCloudCustomDomain extends pulumi.CustomResource {
     /**
      * Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
      */
-    public readonly certificateName!: pulumi.Output<string | undefined>;
+    declare public readonly certificateName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Custom Domain. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the resource ID of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    public readonly springCloudAppId!: pulumi.Output<string>;
+    declare public readonly springCloudAppId: pulumi.Output<string>;
     /**
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificateName` is specified. Changing this forces a new resource to be created.
      */
-    public readonly thumbprint!: pulumi.Output<string | undefined>;
+    declare public readonly thumbprint: pulumi.Output<string | undefined>;
 
     /**
      * Create a SpringCloudCustomDomain resource with the given unique name, arguments, and options.
@@ -119,19 +119,19 @@ export class SpringCloudCustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudCustomDomainState | undefined;
-            resourceInputs["certificateName"] = state ? state.certificateName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["certificateName"] = state?.certificateName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudAppId"] = state?.springCloudAppId;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as SpringCloudCustomDomainArgs | undefined;
-            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
+            if (args?.springCloudAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
-            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudAppId"] = args?.springCloudAppId;
+            resourceInputs["thumbprint"] = args?.thumbprint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudCustomDomain.__pulumiType, name, resourceInputs, opts);

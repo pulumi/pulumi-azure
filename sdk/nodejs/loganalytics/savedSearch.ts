@@ -79,35 +79,35 @@ export class SavedSearch extends pulumi.CustomResource {
     /**
      * The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
      */
-    public readonly category!: pulumi.Output<string>;
+    declare public readonly category: pulumi.Output<string>;
     /**
      * The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The function alias if the query serves as a function. Changing this forces a new resource to be created.
      */
-    public readonly functionAlias!: pulumi.Output<string | undefined>;
+    declare public readonly functionAlias: pulumi.Output<string | undefined>;
     /**
      * The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      */
-    public readonly functionParameters!: pulumi.Output<string[] | undefined>;
+    declare public readonly functionParameters: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The query expression for the saved search. Changing this forces a new resource to be created.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SavedSearch resource with the given unique name, arguments, and options.
@@ -122,36 +122,36 @@ export class SavedSearch extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SavedSearchState | undefined;
-            resourceInputs["category"] = state ? state.category : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["functionAlias"] = state ? state.functionAlias : undefined;
-            resourceInputs["functionParameters"] = state ? state.functionParameters : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["category"] = state?.category;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["functionAlias"] = state?.functionAlias;
+            resourceInputs["functionParameters"] = state?.functionParameters;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SavedSearchArgs | undefined;
-            if ((!args || args.category === undefined) && !opts.urn) {
+            if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["functionAlias"] = args ? args.functionAlias : undefined;
-            resourceInputs["functionParameters"] = args ? args.functionParameters : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["functionAlias"] = args?.functionAlias;
+            resourceInputs["functionParameters"] = args?.functionParameters;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SavedSearch.__pulumiType, name, resourceInputs, opts);

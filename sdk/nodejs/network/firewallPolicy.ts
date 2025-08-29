@@ -72,83 +72,83 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * Whether enable auto learn private ip range.
      */
-    public readonly autoLearnPrivateRangesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoLearnPrivateRangesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the base Firewall Policy.
      */
-    public readonly basePolicyId!: pulumi.Output<string | undefined>;
+    declare public readonly basePolicyId: pulumi.Output<string | undefined>;
     /**
      * A list of reference to child Firewall Policies of this Firewall Policy.
      */
-    public /*out*/ readonly childPolicies!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly childPolicies: pulumi.Output<string[]>;
     /**
      * A `dns` block as defined below.
      */
-    public readonly dns!: pulumi.Output<outputs.network.FirewallPolicyDns | undefined>;
+    declare public readonly dns: pulumi.Output<outputs.network.FirewallPolicyDns | undefined>;
     /**
      * A `explicitProxy` block as defined below.
      */
-    public readonly explicitProxy!: pulumi.Output<outputs.network.FirewallPolicyExplicitProxy | undefined>;
+    declare public readonly explicitProxy: pulumi.Output<outputs.network.FirewallPolicyExplicitProxy | undefined>;
     /**
      * A list of references to Azure Firewalls that this Firewall Policy is associated with.
      */
-    public /*out*/ readonly firewalls!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly firewalls: pulumi.Output<string[]>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.network.FirewallPolicyIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.network.FirewallPolicyIdentity | undefined>;
     /**
      * An `insights` block as defined below.
      */
-    public readonly insights!: pulumi.Output<outputs.network.FirewallPolicyInsights | undefined>;
+    declare public readonly insights: pulumi.Output<outputs.network.FirewallPolicyInsights | undefined>;
     /**
      * A `intrusionDetection` block as defined below.
      */
-    public readonly intrusionDetection!: pulumi.Output<outputs.network.FirewallPolicyIntrusionDetection | undefined>;
+    declare public readonly intrusionDetection: pulumi.Output<outputs.network.FirewallPolicyIntrusionDetection | undefined>;
     /**
      * The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of private IP ranges to which traffic will not be SNAT.
      */
-    public readonly privateIpRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly privateIpRanges: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
      */
-    public /*out*/ readonly ruleCollectionGroups!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly ruleCollectionGroups: pulumi.Output<string[]>;
     /**
      * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
      */
-    public readonly sqlRedirectAllowed!: pulumi.Output<boolean | undefined>;
+    declare public readonly sqlRedirectAllowed: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `threatIntelligenceAllowlist` block as defined below.
      */
-    public readonly threatIntelligenceAllowlist!: pulumi.Output<outputs.network.FirewallPolicyThreatIntelligenceAllowlist | undefined>;
+    declare public readonly threatIntelligenceAllowlist: pulumi.Output<outputs.network.FirewallPolicyThreatIntelligenceAllowlist | undefined>;
     /**
      * The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
      */
-    public readonly threatIntelligenceMode!: pulumi.Output<string | undefined>;
+    declare public readonly threatIntelligenceMode: pulumi.Output<string | undefined>;
     /**
      * A `tlsCertificate` block as defined below.
      */
-    public readonly tlsCertificate!: pulumi.Output<outputs.network.FirewallPolicyTlsCertificate | undefined>;
+    declare public readonly tlsCertificate: pulumi.Output<outputs.network.FirewallPolicyTlsCertificate | undefined>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -163,48 +163,48 @@ export class FirewallPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallPolicyState | undefined;
-            resourceInputs["autoLearnPrivateRangesEnabled"] = state ? state.autoLearnPrivateRangesEnabled : undefined;
-            resourceInputs["basePolicyId"] = state ? state.basePolicyId : undefined;
-            resourceInputs["childPolicies"] = state ? state.childPolicies : undefined;
-            resourceInputs["dns"] = state ? state.dns : undefined;
-            resourceInputs["explicitProxy"] = state ? state.explicitProxy : undefined;
-            resourceInputs["firewalls"] = state ? state.firewalls : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["insights"] = state ? state.insights : undefined;
-            resourceInputs["intrusionDetection"] = state ? state.intrusionDetection : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateIpRanges"] = state ? state.privateIpRanges : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["ruleCollectionGroups"] = state ? state.ruleCollectionGroups : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["sqlRedirectAllowed"] = state ? state.sqlRedirectAllowed : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["threatIntelligenceAllowlist"] = state ? state.threatIntelligenceAllowlist : undefined;
-            resourceInputs["threatIntelligenceMode"] = state ? state.threatIntelligenceMode : undefined;
-            resourceInputs["tlsCertificate"] = state ? state.tlsCertificate : undefined;
+            resourceInputs["autoLearnPrivateRangesEnabled"] = state?.autoLearnPrivateRangesEnabled;
+            resourceInputs["basePolicyId"] = state?.basePolicyId;
+            resourceInputs["childPolicies"] = state?.childPolicies;
+            resourceInputs["dns"] = state?.dns;
+            resourceInputs["explicitProxy"] = state?.explicitProxy;
+            resourceInputs["firewalls"] = state?.firewalls;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["insights"] = state?.insights;
+            resourceInputs["intrusionDetection"] = state?.intrusionDetection;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateIpRanges"] = state?.privateIpRanges;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["ruleCollectionGroups"] = state?.ruleCollectionGroups;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["sqlRedirectAllowed"] = state?.sqlRedirectAllowed;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["threatIntelligenceAllowlist"] = state?.threatIntelligenceAllowlist;
+            resourceInputs["threatIntelligenceMode"] = state?.threatIntelligenceMode;
+            resourceInputs["tlsCertificate"] = state?.tlsCertificate;
         } else {
             const args = argsOrState as FirewallPolicyArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoLearnPrivateRangesEnabled"] = args ? args.autoLearnPrivateRangesEnabled : undefined;
-            resourceInputs["basePolicyId"] = args ? args.basePolicyId : undefined;
-            resourceInputs["dns"] = args ? args.dns : undefined;
-            resourceInputs["explicitProxy"] = args ? args.explicitProxy : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["insights"] = args ? args.insights : undefined;
-            resourceInputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["sqlRedirectAllowed"] = args ? args.sqlRedirectAllowed : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threatIntelligenceAllowlist"] = args ? args.threatIntelligenceAllowlist : undefined;
-            resourceInputs["threatIntelligenceMode"] = args ? args.threatIntelligenceMode : undefined;
-            resourceInputs["tlsCertificate"] = args ? args.tlsCertificate : undefined;
+            resourceInputs["autoLearnPrivateRangesEnabled"] = args?.autoLearnPrivateRangesEnabled;
+            resourceInputs["basePolicyId"] = args?.basePolicyId;
+            resourceInputs["dns"] = args?.dns;
+            resourceInputs["explicitProxy"] = args?.explicitProxy;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["insights"] = args?.insights;
+            resourceInputs["intrusionDetection"] = args?.intrusionDetection;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateIpRanges"] = args?.privateIpRanges;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["sqlRedirectAllowed"] = args?.sqlRedirectAllowed;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threatIntelligenceAllowlist"] = args?.threatIntelligenceAllowlist;
+            resourceInputs["threatIntelligenceMode"] = args?.threatIntelligenceMode;
+            resourceInputs["tlsCertificate"] = args?.tlsCertificate;
             resourceInputs["childPolicies"] = undefined /*out*/;
             resourceInputs["firewalls"] = undefined /*out*/;
             resourceInputs["ruleCollectionGroups"] = undefined /*out*/;

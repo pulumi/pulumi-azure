@@ -97,35 +97,35 @@ export class OutboundRule extends pulumi.CustomResource {
     /**
      * The number of outbound ports to be used for NAT. Defaults to `1024`.
      */
-    public readonly allocatedOutboundPorts!: pulumi.Output<number | undefined>;
+    declare public readonly allocatedOutboundPorts: pulumi.Output<number | undefined>;
     /**
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
-    public readonly backendAddressPoolId!: pulumi.Output<string>;
+    declare public readonly backendAddressPoolId: pulumi.Output<string>;
     /**
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
-    public readonly enableTcpReset!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableTcpReset: pulumi.Output<boolean | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    public readonly frontendIpConfigurations!: pulumi.Output<outputs.lb.OutboundRuleFrontendIpConfiguration[] | undefined>;
+    declare public readonly frontendIpConfigurations: pulumi.Output<outputs.lb.OutboundRuleFrontendIpConfiguration[] | undefined>;
     /**
      * The timeout for the TCP idle connection Defaults to `4`.
      */
-    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly idleTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
      */
-    public readonly loadbalancerId!: pulumi.Output<string>;
+    declare public readonly loadbalancerId: pulumi.Output<string>;
     /**
      * Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
 
     /**
      * Create a OutboundRule resource with the given unique name, arguments, and options.
@@ -140,33 +140,33 @@ export class OutboundRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutboundRuleState | undefined;
-            resourceInputs["allocatedOutboundPorts"] = state ? state.allocatedOutboundPorts : undefined;
-            resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
-            resourceInputs["enableTcpReset"] = state ? state.enableTcpReset : undefined;
-            resourceInputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
-            resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["allocatedOutboundPorts"] = state?.allocatedOutboundPorts;
+            resourceInputs["backendAddressPoolId"] = state?.backendAddressPoolId;
+            resourceInputs["enableTcpReset"] = state?.enableTcpReset;
+            resourceInputs["frontendIpConfigurations"] = state?.frontendIpConfigurations;
+            resourceInputs["idleTimeoutInMinutes"] = state?.idleTimeoutInMinutes;
+            resourceInputs["loadbalancerId"] = state?.loadbalancerId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protocol"] = state?.protocol;
         } else {
             const args = argsOrState as OutboundRuleArgs | undefined;
-            if ((!args || args.backendAddressPoolId === undefined) && !opts.urn) {
+            if (args?.backendAddressPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backendAddressPoolId'");
             }
-            if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
+            if (args?.loadbalancerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadbalancerId'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["allocatedOutboundPorts"] = args ? args.allocatedOutboundPorts : undefined;
-            resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
-            resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
-            resourceInputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["allocatedOutboundPorts"] = args?.allocatedOutboundPorts;
+            resourceInputs["backendAddressPoolId"] = args?.backendAddressPoolId;
+            resourceInputs["enableTcpReset"] = args?.enableTcpReset;
+            resourceInputs["frontendIpConfigurations"] = args?.frontendIpConfigurations;
+            resourceInputs["idleTimeoutInMinutes"] = args?.idleTimeoutInMinutes;
+            resourceInputs["loadbalancerId"] = args?.loadbalancerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protocol"] = args?.protocol;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OutboundRule.__pulumiType, name, resourceInputs, opts);

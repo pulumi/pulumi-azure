@@ -48,27 +48,27 @@ export class ManagedInstanceStartStopSchedule extends pulumi.CustomResource {
     /**
      * Specifies the description of the schedule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the ID of the Managed Instance. Changing this forces a new Sql Start Stop Managed Instance Schedule to be created.
      */
-    public readonly managedInstanceId!: pulumi.Output<string>;
+    declare public readonly managedInstanceId: pulumi.Output<string>;
     /**
      * Timestamp when the next action will be executed in the corresponding schedule time zone.
      */
-    public /*out*/ readonly nextExecutionTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextExecutionTime: pulumi.Output<string>;
     /**
      * Next action to be executed (Start or Stop).
      */
-    public /*out*/ readonly nextRunAction!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextRunAction: pulumi.Output<string>;
     /**
      * A `schedule` block as defined below.
      */
-    public readonly schedules!: pulumi.Output<outputs.mssql.ManagedInstanceStartStopScheduleSchedule[]>;
+    declare public readonly schedules: pulumi.Output<outputs.mssql.ManagedInstanceStartStopScheduleSchedule[]>;
     /**
      * Specifies the time zone of the schedule. Defaults to `UTC`.
      */
-    public readonly timezoneId!: pulumi.Output<string | undefined>;
+    declare public readonly timezoneId: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedInstanceStartStopSchedule resource with the given unique name, arguments, and options.
@@ -83,24 +83,24 @@ export class ManagedInstanceStartStopSchedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedInstanceStartStopScheduleState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["managedInstanceId"] = state ? state.managedInstanceId : undefined;
-            resourceInputs["nextExecutionTime"] = state ? state.nextExecutionTime : undefined;
-            resourceInputs["nextRunAction"] = state ? state.nextRunAction : undefined;
-            resourceInputs["schedules"] = state ? state.schedules : undefined;
-            resourceInputs["timezoneId"] = state ? state.timezoneId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["managedInstanceId"] = state?.managedInstanceId;
+            resourceInputs["nextExecutionTime"] = state?.nextExecutionTime;
+            resourceInputs["nextRunAction"] = state?.nextRunAction;
+            resourceInputs["schedules"] = state?.schedules;
+            resourceInputs["timezoneId"] = state?.timezoneId;
         } else {
             const args = argsOrState as ManagedInstanceStartStopScheduleArgs | undefined;
-            if ((!args || args.managedInstanceId === undefined) && !opts.urn) {
+            if (args?.managedInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceId'");
             }
-            if ((!args || args.schedules === undefined) && !opts.urn) {
+            if (args?.schedules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedules'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["managedInstanceId"] = args ? args.managedInstanceId : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
-            resourceInputs["timezoneId"] = args ? args.timezoneId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["managedInstanceId"] = args?.managedInstanceId;
+            resourceInputs["schedules"] = args?.schedules;
+            resourceInputs["timezoneId"] = args?.timezoneId;
             resourceInputs["nextExecutionTime"] = undefined /*out*/;
             resourceInputs["nextRunAction"] = undefined /*out*/;
         }

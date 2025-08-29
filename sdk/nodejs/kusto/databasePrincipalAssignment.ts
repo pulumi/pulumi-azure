@@ -93,43 +93,43 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
     /**
      * The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * The name of the database in which to create the resource. Changing this forces a new resource to be created.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The name of the kusto principal assignment. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The object id of the principal. Changing this forces a new resource to be created.
      */
-    public readonly principalId!: pulumi.Output<string>;
+    declare public readonly principalId: pulumi.Output<string>;
     /**
      * The name of the principal.
      */
-    public /*out*/ readonly principalName!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalName: pulumi.Output<string>;
     /**
      * The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created.
      */
-    public readonly principalType!: pulumi.Output<string>;
+    declare public readonly principalType: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created.
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * The tenant id in which the principal resides. Changing this forces a new resource to be created.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
     /**
      * The name of the tenant.
      */
-    public /*out*/ readonly tenantName!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantName: pulumi.Output<string>;
 
     /**
      * Create a DatabasePrincipalAssignment resource with the given unique name, arguments, and options.
@@ -144,47 +144,47 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabasePrincipalAssignmentState | undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["principalId"] = state ? state.principalId : undefined;
-            resourceInputs["principalName"] = state ? state.principalName : undefined;
-            resourceInputs["principalType"] = state ? state.principalType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["role"] = state ? state.role : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
-            resourceInputs["tenantName"] = state ? state.tenantName : undefined;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["principalId"] = state?.principalId;
+            resourceInputs["principalName"] = state?.principalName;
+            resourceInputs["principalType"] = state?.principalType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["role"] = state?.role;
+            resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["tenantName"] = state?.tenantName;
         } else {
             const args = argsOrState as DatabasePrincipalAssignmentArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.principalType === undefined) && !opts.urn) {
+            if (args?.principalType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["principalType"] = args ? args.principalType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["principalType"] = args?.principalType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["tenantName"] = undefined /*out*/;
         }

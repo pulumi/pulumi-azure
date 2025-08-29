@@ -97,13 +97,13 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      *
      * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified. At least one type of Log or Metric must be enabled.
      */
-    public readonly enabledLogs!: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledLog[] | undefined>;
+    declare public readonly enabledLogs: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledLog[] | undefined>;
     /**
      * One or more `enabledMetric` blocks as defined below.
      *
      * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
      */
-    public readonly enabledMetrics!: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledMetric[]>;
+    declare public readonly enabledMetrics: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledMetric[]>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
      *
@@ -111,51 +111,51 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    public readonly eventhubAuthorizationRuleId!: pulumi.Output<string | undefined>;
+    declare public readonly eventhubAuthorizationRuleId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      *
      * > **NOTE:** If this isn't specified then the default Event Hub will be used.
      */
-    public readonly eventhubName!: pulumi.Output<string | undefined>;
+    declare public readonly eventhubName: pulumi.Output<string | undefined>;
     /**
      * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      *
      * > **NOTE:** This setting will only have an effect if a `logAnalyticsWorkspaceId` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      */
-    public readonly logAnalyticsDestinationType!: pulumi.Output<string>;
+    declare public readonly logAnalyticsDestinationType: pulumi.Output<string>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string | undefined>;
     /**
      * @deprecated `metric` has been deprecated in favor of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
      */
-    public readonly metrics!: pulumi.Output<outputs.monitoring.DiagnosticSettingMetric[]>;
+    declare public readonly metrics: pulumi.Output<outputs.monitoring.DiagnosticSettingMetric[]>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *
      * > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    public readonly partnerSolutionId!: pulumi.Output<string | undefined>;
+    declare public readonly partnerSolutionId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Storage Account where logs should be sent. 
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
 
     /**
      * Create a DiagnosticSetting resource with the given unique name, arguments, and options.
@@ -170,33 +170,33 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DiagnosticSettingState | undefined;
-            resourceInputs["enabledLogs"] = state ? state.enabledLogs : undefined;
-            resourceInputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
-            resourceInputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
-            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
-            resourceInputs["logAnalyticsDestinationType"] = state ? state.logAnalyticsDestinationType : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["metrics"] = state ? state.metrics : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partnerSolutionId"] = state ? state.partnerSolutionId : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["enabledLogs"] = state?.enabledLogs;
+            resourceInputs["enabledMetrics"] = state?.enabledMetrics;
+            resourceInputs["eventhubAuthorizationRuleId"] = state?.eventhubAuthorizationRuleId;
+            resourceInputs["eventhubName"] = state?.eventhubName;
+            resourceInputs["logAnalyticsDestinationType"] = state?.logAnalyticsDestinationType;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["metrics"] = state?.metrics;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partnerSolutionId"] = state?.partnerSolutionId;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
         } else {
             const args = argsOrState as DiagnosticSettingArgs | undefined;
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["enabledLogs"] = args ? args.enabledLogs : undefined;
-            resourceInputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
-            resourceInputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
-            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
-            resourceInputs["logAnalyticsDestinationType"] = args ? args.logAnalyticsDestinationType : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partnerSolutionId"] = args ? args.partnerSolutionId : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["enabledLogs"] = args?.enabledLogs;
+            resourceInputs["enabledMetrics"] = args?.enabledMetrics;
+            resourceInputs["eventhubAuthorizationRuleId"] = args?.eventhubAuthorizationRuleId;
+            resourceInputs["eventhubName"] = args?.eventhubName;
+            resourceInputs["logAnalyticsDestinationType"] = args?.logAnalyticsDestinationType;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["metrics"] = args?.metrics;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partnerSolutionId"] = args?.partnerSolutionId;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DiagnosticSetting.__pulumiType, name, resourceInputs, opts);

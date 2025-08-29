@@ -120,107 +120,107 @@ export class Account extends pulumi.CustomResource {
     /**
      * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
      */
-    public readonly accessTier!: pulumi.Output<string>;
+    declare public readonly accessTier: pulumi.Output<string>;
     /**
      * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      *
      * > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
      */
-    public readonly accountKind!: pulumi.Output<string | undefined>;
+    declare public readonly accountKind: pulumi.Output<string | undefined>;
     /**
      * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
      */
-    public readonly accountReplicationType!: pulumi.Output<string>;
+    declare public readonly accountReplicationType: pulumi.Output<string>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      *
      * > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
      */
-    public readonly accountTier!: pulumi.Output<string>;
+    declare public readonly accountTier: pulumi.Output<string>;
     /**
      * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      *
      * > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      */
-    public readonly allowNestedItemsToBePublic!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowNestedItemsToBePublic: pulumi.Output<boolean | undefined>;
     /**
      * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
      */
-    public readonly allowedCopyScope!: pulumi.Output<string | undefined>;
+    declare public readonly allowedCopyScope: pulumi.Output<string | undefined>;
     /**
      * A `azureFilesAuthentication` block as defined below.
      */
-    public readonly azureFilesAuthentication!: pulumi.Output<outputs.storage.AccountAzureFilesAuthentication | undefined>;
+    declare public readonly azureFilesAuthentication: pulumi.Output<outputs.storage.AccountAzureFilesAuthentication | undefined>;
     /**
      * A `blobProperties` block as defined below.
      */
-    public readonly blobProperties!: pulumi.Output<outputs.storage.AccountBlobProperties>;
+    declare public readonly blobProperties: pulumi.Output<outputs.storage.AccountBlobProperties>;
     /**
      * Should cross Tenant replication be enabled? Defaults to `false`.
      */
-    public readonly crossTenantReplicationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly crossTenantReplicationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `customDomain` block as documented below.
      */
-    public readonly customDomain!: pulumi.Output<outputs.storage.AccountCustomDomain | undefined>;
+    declare public readonly customDomain: pulumi.Output<outputs.storage.AccountCustomDomain | undefined>;
     /**
      * A `customerManagedKey` block as documented below.
      *
      * > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
      */
-    public readonly customerManagedKey!: pulumi.Output<outputs.storage.AccountCustomerManagedKey | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<outputs.storage.AccountCustomerManagedKey | undefined>;
     /**
      * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
      */
-    public readonly defaultToOauthAuthentication!: pulumi.Output<boolean | undefined>;
+    declare public readonly defaultToOauthAuthentication: pulumi.Output<boolean | undefined>;
     /**
      * Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
      */
-    public readonly dnsEndpointType!: pulumi.Output<string | undefined>;
+    declare public readonly dnsEndpointType: pulumi.Output<string | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      */
-    public readonly httpsTrafficOnlyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsTrafficOnlyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.storage.AccountIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.storage.AccountIdentity | undefined>;
     /**
      * An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly immutabilityPolicy!: pulumi.Output<outputs.storage.AccountImmutabilityPolicy | undefined>;
+    declare public readonly immutabilityPolicy: pulumi.Output<outputs.storage.AccountImmutabilityPolicy | undefined>;
     /**
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      *
      * > **Note:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
      */
-    public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly infrastructureEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      *
      * > **Note:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
      */
-    public readonly isHnsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isHnsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Are Large File Shares Enabled? Defaults to `false`.
      *
      * > **Note:** Large File Shares are enabled by default when using an `accountKind` of `FileStorage`.
      */
-    public readonly largeFileShareEnabled!: pulumi.Output<boolean>;
+    declare public readonly largeFileShareEnabled: pulumi.Output<boolean>;
     /**
      * Is Local User Enabled? Defaults to `true`.
      */
-    public readonly localUserEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localUserEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      *
@@ -228,177 +228,177 @@ export class Account extends pulumi.CustomResource {
      *
      * > **Note:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      */
-    public readonly minTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minTlsVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkRules` block as documented below.
      */
-    public readonly networkRules!: pulumi.Output<outputs.storage.AccountNetworkRules>;
+    declare public readonly networkRules: pulumi.Output<outputs.storage.AccountNetworkRules>;
     /**
      * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
      *
      * > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
      */
-    public readonly nfsv3Enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly nfsv3Enabled: pulumi.Output<boolean | undefined>;
     /**
      * The primary access key for the storage account.
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * The connection string associated with the primary blob location.
      */
-    public /*out*/ readonly primaryBlobConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryBlobConnectionString: pulumi.Output<string>;
     /**
      * The endpoint URL for blob storage in the primary location.
      */
-    public /*out*/ readonly primaryBlobEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryBlobEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for blob storage in the primary location.
      */
-    public /*out*/ readonly primaryBlobHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryBlobHost: pulumi.Output<string>;
     /**
      * The internet routing endpoint URL for blob storage in the primary location.
      */
-    public /*out*/ readonly primaryBlobInternetEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryBlobInternetEndpoint: pulumi.Output<string>;
     /**
      * The internet routing hostname with port if applicable for blob storage in the primary location.
      */
-    public /*out*/ readonly primaryBlobInternetHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryBlobInternetHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for blob storage in the primary location.
      */
-    public /*out*/ readonly primaryBlobMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryBlobMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for blob storage in the primary location.
      */
-    public /*out*/ readonly primaryBlobMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryBlobMicrosoftHost: pulumi.Output<string>;
     /**
      * The connection string associated with the primary location.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The endpoint URL for DFS storage in the primary location.
      */
-    public /*out*/ readonly primaryDfsEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryDfsEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for DFS storage in the primary location.
      */
-    public /*out*/ readonly primaryDfsHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryDfsHost: pulumi.Output<string>;
     /**
      * The internet routing endpoint URL for DFS storage in the primary location.
      */
-    public /*out*/ readonly primaryDfsInternetEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryDfsInternetEndpoint: pulumi.Output<string>;
     /**
      * The internet routing hostname with port if applicable for DFS storage in the primary location.
      */
-    public /*out*/ readonly primaryDfsInternetHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryDfsInternetHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for DFS storage in the primary location.
      */
-    public /*out*/ readonly primaryDfsMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryDfsMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for DFS storage in the primary location.
      */
-    public /*out*/ readonly primaryDfsMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryDfsMicrosoftHost: pulumi.Output<string>;
     /**
      * The endpoint URL for file storage in the primary location.
      */
-    public /*out*/ readonly primaryFileEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryFileEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for file storage in the primary location.
      */
-    public /*out*/ readonly primaryFileHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryFileHost: pulumi.Output<string>;
     /**
      * The internet routing endpoint URL for file storage in the primary location.
      */
-    public /*out*/ readonly primaryFileInternetEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryFileInternetEndpoint: pulumi.Output<string>;
     /**
      * The internet routing hostname with port if applicable for file storage in the primary location.
      */
-    public /*out*/ readonly primaryFileInternetHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryFileInternetHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for file storage in the primary location.
      */
-    public /*out*/ readonly primaryFileMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryFileMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for file storage in the primary location.
      */
-    public /*out*/ readonly primaryFileMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryFileMicrosoftHost: pulumi.Output<string>;
     /**
      * The primary location of the storage account.
      */
-    public /*out*/ readonly primaryLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryLocation: pulumi.Output<string>;
     /**
      * The endpoint URL for queue storage in the primary location.
      */
-    public /*out*/ readonly primaryQueueEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryQueueEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for queue storage in the primary location.
      */
-    public /*out*/ readonly primaryQueueHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryQueueHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for queue storage in the primary location.
      */
-    public /*out*/ readonly primaryQueueMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryQueueMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for queue storage in the primary location.
      */
-    public /*out*/ readonly primaryQueueMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryQueueMicrosoftHost: pulumi.Output<string>;
     /**
      * The endpoint URL for table storage in the primary location.
      */
-    public /*out*/ readonly primaryTableEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryTableEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for table storage in the primary location.
      */
-    public /*out*/ readonly primaryTableHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryTableHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for table storage in the primary location.
      */
-    public /*out*/ readonly primaryTableMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryTableMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for table storage in the primary location.
      */
-    public /*out*/ readonly primaryTableMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryTableMicrosoftHost: pulumi.Output<string>;
     /**
      * The endpoint URL for web storage in the primary location.
      */
-    public /*out*/ readonly primaryWebEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryWebEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for web storage in the primary location.
      */
-    public /*out*/ readonly primaryWebHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryWebHost: pulumi.Output<string>;
     /**
      * The internet routing endpoint URL for web storage in the primary location.
      */
-    public /*out*/ readonly primaryWebInternetEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryWebInternetEndpoint: pulumi.Output<string>;
     /**
      * The internet routing hostname with port if applicable for web storage in the primary location.
      */
-    public /*out*/ readonly primaryWebInternetHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryWebInternetHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for web storage in the primary location.
      */
-    public /*out*/ readonly primaryWebMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryWebMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for web storage in the primary location.
      */
-    public /*out*/ readonly primaryWebMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryWebMicrosoftHost: pulumi.Output<string>;
     /**
      * Specifies the version of the **provisioned** billing model (e.g. when `accountKind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
      */
-    public readonly provisionedBillingModelVersion!: pulumi.Output<string | undefined>;
+    declare public readonly provisionedBillingModelVersion: pulumi.Output<string | undefined>;
     /**
      * Whether the public network access is enabled? Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */
-    public readonly queueEncryptionKeyType!: pulumi.Output<string | undefined>;
+    declare public readonly queueEncryptionKeyType: pulumi.Output<string | undefined>;
     /**
      * A `queueProperties` block as defined below.
      *
@@ -406,176 +406,176 @@ export class Account extends pulumi.CustomResource {
      *
      * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
      */
-    public readonly queueProperties!: pulumi.Output<outputs.storage.AccountQueueProperties>;
+    declare public readonly queueProperties: pulumi.Output<outputs.storage.AccountQueueProperties>;
     /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `routing` block as defined below.
      */
-    public readonly routing!: pulumi.Output<outputs.storage.AccountRouting>;
+    declare public readonly routing: pulumi.Output<outputs.storage.AccountRouting>;
     /**
      * A `sasPolicy` block as defined below.
      */
-    public readonly sasPolicy!: pulumi.Output<outputs.storage.AccountSasPolicy | undefined>;
+    declare public readonly sasPolicy: pulumi.Output<outputs.storage.AccountSasPolicy | undefined>;
     /**
      * The secondary access key for the storage account.
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * The connection string associated with the secondary blob location.
      */
-    public /*out*/ readonly secondaryBlobConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryBlobConnectionString: pulumi.Output<string>;
     /**
      * The endpoint URL for blob storage in the secondary location.
      */
-    public /*out*/ readonly secondaryBlobEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryBlobEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for blob storage in the secondary location.
      */
-    public /*out*/ readonly secondaryBlobHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryBlobHost: pulumi.Output<string>;
     /**
      * The internet routing endpoint URL for blob storage in the secondary location.
      */
-    public /*out*/ readonly secondaryBlobInternetEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryBlobInternetEndpoint: pulumi.Output<string>;
     /**
      * The internet routing hostname with port if applicable for blob storage in the secondary location.
      */
-    public /*out*/ readonly secondaryBlobInternetHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryBlobInternetHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for blob storage in the secondary location.
      */
-    public /*out*/ readonly secondaryBlobMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryBlobMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for blob storage in the secondary location.
      */
-    public /*out*/ readonly secondaryBlobMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryBlobMicrosoftHost: pulumi.Output<string>;
     /**
      * The connection string associated with the secondary location.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The endpoint URL for DFS storage in the secondary location.
      */
-    public /*out*/ readonly secondaryDfsEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryDfsEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for DFS storage in the secondary location.
      */
-    public /*out*/ readonly secondaryDfsHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryDfsHost: pulumi.Output<string>;
     /**
      * The internet routing endpoint URL for DFS storage in the secondary location.
      */
-    public /*out*/ readonly secondaryDfsInternetEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryDfsInternetEndpoint: pulumi.Output<string>;
     /**
      * The internet routing hostname with port if applicable for DFS storage in the secondary location.
      */
-    public /*out*/ readonly secondaryDfsInternetHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryDfsInternetHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for DFS storage in the secondary location.
      */
-    public /*out*/ readonly secondaryDfsMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryDfsMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for DFS storage in the secondary location.
      */
-    public /*out*/ readonly secondaryDfsMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryDfsMicrosoftHost: pulumi.Output<string>;
     /**
      * The endpoint URL for file storage in the secondary location.
      */
-    public /*out*/ readonly secondaryFileEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryFileEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for file storage in the secondary location.
      */
-    public /*out*/ readonly secondaryFileHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryFileHost: pulumi.Output<string>;
     /**
      * The internet routing endpoint URL for file storage in the secondary location.
      */
-    public /*out*/ readonly secondaryFileInternetEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryFileInternetEndpoint: pulumi.Output<string>;
     /**
      * The internet routing hostname with port if applicable for file storage in the secondary location.
      */
-    public /*out*/ readonly secondaryFileInternetHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryFileInternetHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for file storage in the secondary location.
      */
-    public /*out*/ readonly secondaryFileMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryFileMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for file storage in the secondary location.
      */
-    public /*out*/ readonly secondaryFileMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryFileMicrosoftHost: pulumi.Output<string>;
     /**
      * The secondary location of the storage account.
      */
-    public /*out*/ readonly secondaryLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryLocation: pulumi.Output<string>;
     /**
      * The endpoint URL for queue storage in the secondary location.
      */
-    public /*out*/ readonly secondaryQueueEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryQueueEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for queue storage in the secondary location.
      */
-    public /*out*/ readonly secondaryQueueHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryQueueHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for queue storage in the secondary location.
      */
-    public /*out*/ readonly secondaryQueueMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryQueueMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for queue storage in the secondary location.
      */
-    public /*out*/ readonly secondaryQueueMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryQueueMicrosoftHost: pulumi.Output<string>;
     /**
      * The endpoint URL for table storage in the secondary location.
      */
-    public /*out*/ readonly secondaryTableEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryTableEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for table storage in the secondary location.
      */
-    public /*out*/ readonly secondaryTableHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryTableHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for table storage in the secondary location.
      */
-    public /*out*/ readonly secondaryTableMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryTableMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for table storage in the secondary location.
      */
-    public /*out*/ readonly secondaryTableMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryTableMicrosoftHost: pulumi.Output<string>;
     /**
      * The endpoint URL for web storage in the secondary location.
      */
-    public /*out*/ readonly secondaryWebEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryWebEndpoint: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for web storage in the secondary location.
      */
-    public /*out*/ readonly secondaryWebHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryWebHost: pulumi.Output<string>;
     /**
      * The internet routing endpoint URL for web storage in the secondary location.
      */
-    public /*out*/ readonly secondaryWebInternetEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryWebInternetEndpoint: pulumi.Output<string>;
     /**
      * The internet routing hostname with port if applicable for web storage in the secondary location.
      */
-    public /*out*/ readonly secondaryWebInternetHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryWebInternetHost: pulumi.Output<string>;
     /**
      * The microsoft routing endpoint URL for web storage in the secondary location.
      */
-    public /*out*/ readonly secondaryWebMicrosoftEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryWebMicrosoftEndpoint: pulumi.Output<string>;
     /**
      * The microsoft routing hostname with port if applicable for web storage in the secondary location.
      */
-    public /*out*/ readonly secondaryWebMicrosoftHost!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryWebMicrosoftHost: pulumi.Output<string>;
     /**
      * Boolean, enable SFTP for the storage account
      *
      * > **Note:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
      */
-    public readonly sftpEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sftpEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `shareProperties` block as defined below.
      *
      * > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
      */
-    public readonly shareProperties!: pulumi.Output<outputs.storage.AccountShareProperties>;
-    public readonly sharedAccessKeyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly shareProperties: pulumi.Output<outputs.storage.AccountShareProperties>;
+    declare public readonly sharedAccessKeyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `staticWebsite` block as defined below.
      *
@@ -585,17 +585,17 @@ export class Account extends pulumi.CustomResource {
      *
      * @deprecated this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
      */
-    public readonly staticWebsite!: pulumi.Output<outputs.storage.AccountStaticWebsite>;
+    declare public readonly staticWebsite: pulumi.Output<outputs.storage.AccountStaticWebsite>;
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      *
      * > **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
      */
-    public readonly tableEncryptionKeyType!: pulumi.Output<string | undefined>;
+    declare public readonly tableEncryptionKeyType: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -610,167 +610,167 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["accessTier"] = state ? state.accessTier : undefined;
-            resourceInputs["accountKind"] = state ? state.accountKind : undefined;
-            resourceInputs["accountReplicationType"] = state ? state.accountReplicationType : undefined;
-            resourceInputs["accountTier"] = state ? state.accountTier : undefined;
-            resourceInputs["allowNestedItemsToBePublic"] = state ? state.allowNestedItemsToBePublic : undefined;
-            resourceInputs["allowedCopyScope"] = state ? state.allowedCopyScope : undefined;
-            resourceInputs["azureFilesAuthentication"] = state ? state.azureFilesAuthentication : undefined;
-            resourceInputs["blobProperties"] = state ? state.blobProperties : undefined;
-            resourceInputs["crossTenantReplicationEnabled"] = state ? state.crossTenantReplicationEnabled : undefined;
-            resourceInputs["customDomain"] = state ? state.customDomain : undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["defaultToOauthAuthentication"] = state ? state.defaultToOauthAuthentication : undefined;
-            resourceInputs["dnsEndpointType"] = state ? state.dnsEndpointType : undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["httpsTrafficOnlyEnabled"] = state ? state.httpsTrafficOnlyEnabled : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["immutabilityPolicy"] = state ? state.immutabilityPolicy : undefined;
-            resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["isHnsEnabled"] = state ? state.isHnsEnabled : undefined;
-            resourceInputs["largeFileShareEnabled"] = state ? state.largeFileShareEnabled : undefined;
-            resourceInputs["localUserEnabled"] = state ? state.localUserEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkRules"] = state ? state.networkRules : undefined;
-            resourceInputs["nfsv3Enabled"] = state ? state.nfsv3Enabled : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["primaryBlobConnectionString"] = state ? state.primaryBlobConnectionString : undefined;
-            resourceInputs["primaryBlobEndpoint"] = state ? state.primaryBlobEndpoint : undefined;
-            resourceInputs["primaryBlobHost"] = state ? state.primaryBlobHost : undefined;
-            resourceInputs["primaryBlobInternetEndpoint"] = state ? state.primaryBlobInternetEndpoint : undefined;
-            resourceInputs["primaryBlobInternetHost"] = state ? state.primaryBlobInternetHost : undefined;
-            resourceInputs["primaryBlobMicrosoftEndpoint"] = state ? state.primaryBlobMicrosoftEndpoint : undefined;
-            resourceInputs["primaryBlobMicrosoftHost"] = state ? state.primaryBlobMicrosoftHost : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["primaryDfsEndpoint"] = state ? state.primaryDfsEndpoint : undefined;
-            resourceInputs["primaryDfsHost"] = state ? state.primaryDfsHost : undefined;
-            resourceInputs["primaryDfsInternetEndpoint"] = state ? state.primaryDfsInternetEndpoint : undefined;
-            resourceInputs["primaryDfsInternetHost"] = state ? state.primaryDfsInternetHost : undefined;
-            resourceInputs["primaryDfsMicrosoftEndpoint"] = state ? state.primaryDfsMicrosoftEndpoint : undefined;
-            resourceInputs["primaryDfsMicrosoftHost"] = state ? state.primaryDfsMicrosoftHost : undefined;
-            resourceInputs["primaryFileEndpoint"] = state ? state.primaryFileEndpoint : undefined;
-            resourceInputs["primaryFileHost"] = state ? state.primaryFileHost : undefined;
-            resourceInputs["primaryFileInternetEndpoint"] = state ? state.primaryFileInternetEndpoint : undefined;
-            resourceInputs["primaryFileInternetHost"] = state ? state.primaryFileInternetHost : undefined;
-            resourceInputs["primaryFileMicrosoftEndpoint"] = state ? state.primaryFileMicrosoftEndpoint : undefined;
-            resourceInputs["primaryFileMicrosoftHost"] = state ? state.primaryFileMicrosoftHost : undefined;
-            resourceInputs["primaryLocation"] = state ? state.primaryLocation : undefined;
-            resourceInputs["primaryQueueEndpoint"] = state ? state.primaryQueueEndpoint : undefined;
-            resourceInputs["primaryQueueHost"] = state ? state.primaryQueueHost : undefined;
-            resourceInputs["primaryQueueMicrosoftEndpoint"] = state ? state.primaryQueueMicrosoftEndpoint : undefined;
-            resourceInputs["primaryQueueMicrosoftHost"] = state ? state.primaryQueueMicrosoftHost : undefined;
-            resourceInputs["primaryTableEndpoint"] = state ? state.primaryTableEndpoint : undefined;
-            resourceInputs["primaryTableHost"] = state ? state.primaryTableHost : undefined;
-            resourceInputs["primaryTableMicrosoftEndpoint"] = state ? state.primaryTableMicrosoftEndpoint : undefined;
-            resourceInputs["primaryTableMicrosoftHost"] = state ? state.primaryTableMicrosoftHost : undefined;
-            resourceInputs["primaryWebEndpoint"] = state ? state.primaryWebEndpoint : undefined;
-            resourceInputs["primaryWebHost"] = state ? state.primaryWebHost : undefined;
-            resourceInputs["primaryWebInternetEndpoint"] = state ? state.primaryWebInternetEndpoint : undefined;
-            resourceInputs["primaryWebInternetHost"] = state ? state.primaryWebInternetHost : undefined;
-            resourceInputs["primaryWebMicrosoftEndpoint"] = state ? state.primaryWebMicrosoftEndpoint : undefined;
-            resourceInputs["primaryWebMicrosoftHost"] = state ? state.primaryWebMicrosoftHost : undefined;
-            resourceInputs["provisionedBillingModelVersion"] = state ? state.provisionedBillingModelVersion : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["queueEncryptionKeyType"] = state ? state.queueEncryptionKeyType : undefined;
-            resourceInputs["queueProperties"] = state ? state.queueProperties : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routing"] = state ? state.routing : undefined;
-            resourceInputs["sasPolicy"] = state ? state.sasPolicy : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            resourceInputs["secondaryBlobConnectionString"] = state ? state.secondaryBlobConnectionString : undefined;
-            resourceInputs["secondaryBlobEndpoint"] = state ? state.secondaryBlobEndpoint : undefined;
-            resourceInputs["secondaryBlobHost"] = state ? state.secondaryBlobHost : undefined;
-            resourceInputs["secondaryBlobInternetEndpoint"] = state ? state.secondaryBlobInternetEndpoint : undefined;
-            resourceInputs["secondaryBlobInternetHost"] = state ? state.secondaryBlobInternetHost : undefined;
-            resourceInputs["secondaryBlobMicrosoftEndpoint"] = state ? state.secondaryBlobMicrosoftEndpoint : undefined;
-            resourceInputs["secondaryBlobMicrosoftHost"] = state ? state.secondaryBlobMicrosoftHost : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["secondaryDfsEndpoint"] = state ? state.secondaryDfsEndpoint : undefined;
-            resourceInputs["secondaryDfsHost"] = state ? state.secondaryDfsHost : undefined;
-            resourceInputs["secondaryDfsInternetEndpoint"] = state ? state.secondaryDfsInternetEndpoint : undefined;
-            resourceInputs["secondaryDfsInternetHost"] = state ? state.secondaryDfsInternetHost : undefined;
-            resourceInputs["secondaryDfsMicrosoftEndpoint"] = state ? state.secondaryDfsMicrosoftEndpoint : undefined;
-            resourceInputs["secondaryDfsMicrosoftHost"] = state ? state.secondaryDfsMicrosoftHost : undefined;
-            resourceInputs["secondaryFileEndpoint"] = state ? state.secondaryFileEndpoint : undefined;
-            resourceInputs["secondaryFileHost"] = state ? state.secondaryFileHost : undefined;
-            resourceInputs["secondaryFileInternetEndpoint"] = state ? state.secondaryFileInternetEndpoint : undefined;
-            resourceInputs["secondaryFileInternetHost"] = state ? state.secondaryFileInternetHost : undefined;
-            resourceInputs["secondaryFileMicrosoftEndpoint"] = state ? state.secondaryFileMicrosoftEndpoint : undefined;
-            resourceInputs["secondaryFileMicrosoftHost"] = state ? state.secondaryFileMicrosoftHost : undefined;
-            resourceInputs["secondaryLocation"] = state ? state.secondaryLocation : undefined;
-            resourceInputs["secondaryQueueEndpoint"] = state ? state.secondaryQueueEndpoint : undefined;
-            resourceInputs["secondaryQueueHost"] = state ? state.secondaryQueueHost : undefined;
-            resourceInputs["secondaryQueueMicrosoftEndpoint"] = state ? state.secondaryQueueMicrosoftEndpoint : undefined;
-            resourceInputs["secondaryQueueMicrosoftHost"] = state ? state.secondaryQueueMicrosoftHost : undefined;
-            resourceInputs["secondaryTableEndpoint"] = state ? state.secondaryTableEndpoint : undefined;
-            resourceInputs["secondaryTableHost"] = state ? state.secondaryTableHost : undefined;
-            resourceInputs["secondaryTableMicrosoftEndpoint"] = state ? state.secondaryTableMicrosoftEndpoint : undefined;
-            resourceInputs["secondaryTableMicrosoftHost"] = state ? state.secondaryTableMicrosoftHost : undefined;
-            resourceInputs["secondaryWebEndpoint"] = state ? state.secondaryWebEndpoint : undefined;
-            resourceInputs["secondaryWebHost"] = state ? state.secondaryWebHost : undefined;
-            resourceInputs["secondaryWebInternetEndpoint"] = state ? state.secondaryWebInternetEndpoint : undefined;
-            resourceInputs["secondaryWebInternetHost"] = state ? state.secondaryWebInternetHost : undefined;
-            resourceInputs["secondaryWebMicrosoftEndpoint"] = state ? state.secondaryWebMicrosoftEndpoint : undefined;
-            resourceInputs["secondaryWebMicrosoftHost"] = state ? state.secondaryWebMicrosoftHost : undefined;
-            resourceInputs["sftpEnabled"] = state ? state.sftpEnabled : undefined;
-            resourceInputs["shareProperties"] = state ? state.shareProperties : undefined;
-            resourceInputs["sharedAccessKeyEnabled"] = state ? state.sharedAccessKeyEnabled : undefined;
-            resourceInputs["staticWebsite"] = state ? state.staticWebsite : undefined;
-            resourceInputs["tableEncryptionKeyType"] = state ? state.tableEncryptionKeyType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accessTier"] = state?.accessTier;
+            resourceInputs["accountKind"] = state?.accountKind;
+            resourceInputs["accountReplicationType"] = state?.accountReplicationType;
+            resourceInputs["accountTier"] = state?.accountTier;
+            resourceInputs["allowNestedItemsToBePublic"] = state?.allowNestedItemsToBePublic;
+            resourceInputs["allowedCopyScope"] = state?.allowedCopyScope;
+            resourceInputs["azureFilesAuthentication"] = state?.azureFilesAuthentication;
+            resourceInputs["blobProperties"] = state?.blobProperties;
+            resourceInputs["crossTenantReplicationEnabled"] = state?.crossTenantReplicationEnabled;
+            resourceInputs["customDomain"] = state?.customDomain;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["defaultToOauthAuthentication"] = state?.defaultToOauthAuthentication;
+            resourceInputs["dnsEndpointType"] = state?.dnsEndpointType;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["httpsTrafficOnlyEnabled"] = state?.httpsTrafficOnlyEnabled;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["immutabilityPolicy"] = state?.immutabilityPolicy;
+            resourceInputs["infrastructureEncryptionEnabled"] = state?.infrastructureEncryptionEnabled;
+            resourceInputs["isHnsEnabled"] = state?.isHnsEnabled;
+            resourceInputs["largeFileShareEnabled"] = state?.largeFileShareEnabled;
+            resourceInputs["localUserEnabled"] = state?.localUserEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["minTlsVersion"] = state?.minTlsVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkRules"] = state?.networkRules;
+            resourceInputs["nfsv3Enabled"] = state?.nfsv3Enabled;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["primaryBlobConnectionString"] = state?.primaryBlobConnectionString;
+            resourceInputs["primaryBlobEndpoint"] = state?.primaryBlobEndpoint;
+            resourceInputs["primaryBlobHost"] = state?.primaryBlobHost;
+            resourceInputs["primaryBlobInternetEndpoint"] = state?.primaryBlobInternetEndpoint;
+            resourceInputs["primaryBlobInternetHost"] = state?.primaryBlobInternetHost;
+            resourceInputs["primaryBlobMicrosoftEndpoint"] = state?.primaryBlobMicrosoftEndpoint;
+            resourceInputs["primaryBlobMicrosoftHost"] = state?.primaryBlobMicrosoftHost;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["primaryDfsEndpoint"] = state?.primaryDfsEndpoint;
+            resourceInputs["primaryDfsHost"] = state?.primaryDfsHost;
+            resourceInputs["primaryDfsInternetEndpoint"] = state?.primaryDfsInternetEndpoint;
+            resourceInputs["primaryDfsInternetHost"] = state?.primaryDfsInternetHost;
+            resourceInputs["primaryDfsMicrosoftEndpoint"] = state?.primaryDfsMicrosoftEndpoint;
+            resourceInputs["primaryDfsMicrosoftHost"] = state?.primaryDfsMicrosoftHost;
+            resourceInputs["primaryFileEndpoint"] = state?.primaryFileEndpoint;
+            resourceInputs["primaryFileHost"] = state?.primaryFileHost;
+            resourceInputs["primaryFileInternetEndpoint"] = state?.primaryFileInternetEndpoint;
+            resourceInputs["primaryFileInternetHost"] = state?.primaryFileInternetHost;
+            resourceInputs["primaryFileMicrosoftEndpoint"] = state?.primaryFileMicrosoftEndpoint;
+            resourceInputs["primaryFileMicrosoftHost"] = state?.primaryFileMicrosoftHost;
+            resourceInputs["primaryLocation"] = state?.primaryLocation;
+            resourceInputs["primaryQueueEndpoint"] = state?.primaryQueueEndpoint;
+            resourceInputs["primaryQueueHost"] = state?.primaryQueueHost;
+            resourceInputs["primaryQueueMicrosoftEndpoint"] = state?.primaryQueueMicrosoftEndpoint;
+            resourceInputs["primaryQueueMicrosoftHost"] = state?.primaryQueueMicrosoftHost;
+            resourceInputs["primaryTableEndpoint"] = state?.primaryTableEndpoint;
+            resourceInputs["primaryTableHost"] = state?.primaryTableHost;
+            resourceInputs["primaryTableMicrosoftEndpoint"] = state?.primaryTableMicrosoftEndpoint;
+            resourceInputs["primaryTableMicrosoftHost"] = state?.primaryTableMicrosoftHost;
+            resourceInputs["primaryWebEndpoint"] = state?.primaryWebEndpoint;
+            resourceInputs["primaryWebHost"] = state?.primaryWebHost;
+            resourceInputs["primaryWebInternetEndpoint"] = state?.primaryWebInternetEndpoint;
+            resourceInputs["primaryWebInternetHost"] = state?.primaryWebInternetHost;
+            resourceInputs["primaryWebMicrosoftEndpoint"] = state?.primaryWebMicrosoftEndpoint;
+            resourceInputs["primaryWebMicrosoftHost"] = state?.primaryWebMicrosoftHost;
+            resourceInputs["provisionedBillingModelVersion"] = state?.provisionedBillingModelVersion;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["queueEncryptionKeyType"] = state?.queueEncryptionKeyType;
+            resourceInputs["queueProperties"] = state?.queueProperties;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routing"] = state?.routing;
+            resourceInputs["sasPolicy"] = state?.sasPolicy;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
+            resourceInputs["secondaryBlobConnectionString"] = state?.secondaryBlobConnectionString;
+            resourceInputs["secondaryBlobEndpoint"] = state?.secondaryBlobEndpoint;
+            resourceInputs["secondaryBlobHost"] = state?.secondaryBlobHost;
+            resourceInputs["secondaryBlobInternetEndpoint"] = state?.secondaryBlobInternetEndpoint;
+            resourceInputs["secondaryBlobInternetHost"] = state?.secondaryBlobInternetHost;
+            resourceInputs["secondaryBlobMicrosoftEndpoint"] = state?.secondaryBlobMicrosoftEndpoint;
+            resourceInputs["secondaryBlobMicrosoftHost"] = state?.secondaryBlobMicrosoftHost;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["secondaryDfsEndpoint"] = state?.secondaryDfsEndpoint;
+            resourceInputs["secondaryDfsHost"] = state?.secondaryDfsHost;
+            resourceInputs["secondaryDfsInternetEndpoint"] = state?.secondaryDfsInternetEndpoint;
+            resourceInputs["secondaryDfsInternetHost"] = state?.secondaryDfsInternetHost;
+            resourceInputs["secondaryDfsMicrosoftEndpoint"] = state?.secondaryDfsMicrosoftEndpoint;
+            resourceInputs["secondaryDfsMicrosoftHost"] = state?.secondaryDfsMicrosoftHost;
+            resourceInputs["secondaryFileEndpoint"] = state?.secondaryFileEndpoint;
+            resourceInputs["secondaryFileHost"] = state?.secondaryFileHost;
+            resourceInputs["secondaryFileInternetEndpoint"] = state?.secondaryFileInternetEndpoint;
+            resourceInputs["secondaryFileInternetHost"] = state?.secondaryFileInternetHost;
+            resourceInputs["secondaryFileMicrosoftEndpoint"] = state?.secondaryFileMicrosoftEndpoint;
+            resourceInputs["secondaryFileMicrosoftHost"] = state?.secondaryFileMicrosoftHost;
+            resourceInputs["secondaryLocation"] = state?.secondaryLocation;
+            resourceInputs["secondaryQueueEndpoint"] = state?.secondaryQueueEndpoint;
+            resourceInputs["secondaryQueueHost"] = state?.secondaryQueueHost;
+            resourceInputs["secondaryQueueMicrosoftEndpoint"] = state?.secondaryQueueMicrosoftEndpoint;
+            resourceInputs["secondaryQueueMicrosoftHost"] = state?.secondaryQueueMicrosoftHost;
+            resourceInputs["secondaryTableEndpoint"] = state?.secondaryTableEndpoint;
+            resourceInputs["secondaryTableHost"] = state?.secondaryTableHost;
+            resourceInputs["secondaryTableMicrosoftEndpoint"] = state?.secondaryTableMicrosoftEndpoint;
+            resourceInputs["secondaryTableMicrosoftHost"] = state?.secondaryTableMicrosoftHost;
+            resourceInputs["secondaryWebEndpoint"] = state?.secondaryWebEndpoint;
+            resourceInputs["secondaryWebHost"] = state?.secondaryWebHost;
+            resourceInputs["secondaryWebInternetEndpoint"] = state?.secondaryWebInternetEndpoint;
+            resourceInputs["secondaryWebInternetHost"] = state?.secondaryWebInternetHost;
+            resourceInputs["secondaryWebMicrosoftEndpoint"] = state?.secondaryWebMicrosoftEndpoint;
+            resourceInputs["secondaryWebMicrosoftHost"] = state?.secondaryWebMicrosoftHost;
+            resourceInputs["sftpEnabled"] = state?.sftpEnabled;
+            resourceInputs["shareProperties"] = state?.shareProperties;
+            resourceInputs["sharedAccessKeyEnabled"] = state?.sharedAccessKeyEnabled;
+            resourceInputs["staticWebsite"] = state?.staticWebsite;
+            resourceInputs["tableEncryptionKeyType"] = state?.tableEncryptionKeyType;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.accountReplicationType === undefined) && !opts.urn) {
+            if (args?.accountReplicationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountReplicationType'");
             }
-            if ((!args || args.accountTier === undefined) && !opts.urn) {
+            if (args?.accountTier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountTier'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
-            resourceInputs["accountKind"] = args ? args.accountKind : undefined;
-            resourceInputs["accountReplicationType"] = args ? args.accountReplicationType : undefined;
-            resourceInputs["accountTier"] = args ? args.accountTier : undefined;
-            resourceInputs["allowNestedItemsToBePublic"] = args ? args.allowNestedItemsToBePublic : undefined;
-            resourceInputs["allowedCopyScope"] = args ? args.allowedCopyScope : undefined;
-            resourceInputs["azureFilesAuthentication"] = args ? args.azureFilesAuthentication : undefined;
-            resourceInputs["blobProperties"] = args ? args.blobProperties : undefined;
-            resourceInputs["crossTenantReplicationEnabled"] = args ? args.crossTenantReplicationEnabled : undefined;
-            resourceInputs["customDomain"] = args ? args.customDomain : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["defaultToOauthAuthentication"] = args ? args.defaultToOauthAuthentication : undefined;
-            resourceInputs["dnsEndpointType"] = args ? args.dnsEndpointType : undefined;
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["httpsTrafficOnlyEnabled"] = args ? args.httpsTrafficOnlyEnabled : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["immutabilityPolicy"] = args ? args.immutabilityPolicy : undefined;
-            resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
-            resourceInputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
-            resourceInputs["largeFileShareEnabled"] = args ? args.largeFileShareEnabled : undefined;
-            resourceInputs["localUserEnabled"] = args ? args.localUserEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkRules"] = args ? args.networkRules : undefined;
-            resourceInputs["nfsv3Enabled"] = args ? args.nfsv3Enabled : undefined;
-            resourceInputs["provisionedBillingModelVersion"] = args ? args.provisionedBillingModelVersion : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["queueEncryptionKeyType"] = args ? args.queueEncryptionKeyType : undefined;
-            resourceInputs["queueProperties"] = args ? args.queueProperties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routing"] = args ? args.routing : undefined;
-            resourceInputs["sasPolicy"] = args ? args.sasPolicy : undefined;
-            resourceInputs["sftpEnabled"] = args ? args.sftpEnabled : undefined;
-            resourceInputs["shareProperties"] = args ? args.shareProperties : undefined;
-            resourceInputs["sharedAccessKeyEnabled"] = args ? args.sharedAccessKeyEnabled : undefined;
-            resourceInputs["staticWebsite"] = args ? args.staticWebsite : undefined;
-            resourceInputs["tableEncryptionKeyType"] = args ? args.tableEncryptionKeyType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessTier"] = args?.accessTier;
+            resourceInputs["accountKind"] = args?.accountKind;
+            resourceInputs["accountReplicationType"] = args?.accountReplicationType;
+            resourceInputs["accountTier"] = args?.accountTier;
+            resourceInputs["allowNestedItemsToBePublic"] = args?.allowNestedItemsToBePublic;
+            resourceInputs["allowedCopyScope"] = args?.allowedCopyScope;
+            resourceInputs["azureFilesAuthentication"] = args?.azureFilesAuthentication;
+            resourceInputs["blobProperties"] = args?.blobProperties;
+            resourceInputs["crossTenantReplicationEnabled"] = args?.crossTenantReplicationEnabled;
+            resourceInputs["customDomain"] = args?.customDomain;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["defaultToOauthAuthentication"] = args?.defaultToOauthAuthentication;
+            resourceInputs["dnsEndpointType"] = args?.dnsEndpointType;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["httpsTrafficOnlyEnabled"] = args?.httpsTrafficOnlyEnabled;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["immutabilityPolicy"] = args?.immutabilityPolicy;
+            resourceInputs["infrastructureEncryptionEnabled"] = args?.infrastructureEncryptionEnabled;
+            resourceInputs["isHnsEnabled"] = args?.isHnsEnabled;
+            resourceInputs["largeFileShareEnabled"] = args?.largeFileShareEnabled;
+            resourceInputs["localUserEnabled"] = args?.localUserEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minTlsVersion"] = args?.minTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkRules"] = args?.networkRules;
+            resourceInputs["nfsv3Enabled"] = args?.nfsv3Enabled;
+            resourceInputs["provisionedBillingModelVersion"] = args?.provisionedBillingModelVersion;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["queueEncryptionKeyType"] = args?.queueEncryptionKeyType;
+            resourceInputs["queueProperties"] = args?.queueProperties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routing"] = args?.routing;
+            resourceInputs["sasPolicy"] = args?.sasPolicy;
+            resourceInputs["sftpEnabled"] = args?.sftpEnabled;
+            resourceInputs["shareProperties"] = args?.shareProperties;
+            resourceInputs["sharedAccessKeyEnabled"] = args?.sharedAccessKeyEnabled;
+            resourceInputs["staticWebsite"] = args?.staticWebsite;
+            resourceInputs["tableEncryptionKeyType"] = args?.tableEncryptionKeyType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["primaryBlobConnectionString"] = undefined /*out*/;
             resourceInputs["primaryBlobEndpoint"] = undefined /*out*/;

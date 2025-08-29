@@ -73,27 +73,27 @@ export class AzureTrafficCollector extends pulumi.CustomResource {
     /**
      * The list of Resource IDs of collector policies.
      */
-    public /*out*/ readonly collectorPolicyIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly collectorPolicyIds: pulumi.Output<string[]>;
     /**
      * Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Network Function Azure Traffic Collector. Changing this forces a new Network Function Azure Traffic Collector to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Network Function Azure Traffic Collector.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Resource ID of virtual hub.
      */
-    public /*out*/ readonly virtualHubIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly virtualHubIds: pulumi.Output<string[]>;
 
     /**
      * Create a AzureTrafficCollector resource with the given unique name, arguments, and options.
@@ -108,21 +108,21 @@ export class AzureTrafficCollector extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AzureTrafficCollectorState | undefined;
-            resourceInputs["collectorPolicyIds"] = state ? state.collectorPolicyIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualHubIds"] = state ? state.virtualHubIds : undefined;
+            resourceInputs["collectorPolicyIds"] = state?.collectorPolicyIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualHubIds"] = state?.virtualHubIds;
         } else {
             const args = argsOrState as AzureTrafficCollectorArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["collectorPolicyIds"] = undefined /*out*/;
             resourceInputs["virtualHubIds"] = undefined /*out*/;
         }

@@ -76,19 +76,19 @@ export class ConsumerGroup extends pulumi.CustomResource {
     /**
      * The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
      */
-    public readonly eventhubEndpointName!: pulumi.Output<string>;
+    declare public readonly eventhubEndpointName: pulumi.Output<string>;
     /**
      * The name of the IoT Hub. Changing this forces a new resource to be created.
      */
-    public readonly iothubName!: pulumi.Output<string>;
+    declare public readonly iothubName: pulumi.Output<string>;
     /**
      * The name of this Consumer Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ConsumerGroup resource with the given unique name, arguments, and options.
@@ -103,25 +103,25 @@ export class ConsumerGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConsumerGroupState | undefined;
-            resourceInputs["eventhubEndpointName"] = state ? state.eventhubEndpointName : undefined;
-            resourceInputs["iothubName"] = state ? state.iothubName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["eventhubEndpointName"] = state?.eventhubEndpointName;
+            resourceInputs["iothubName"] = state?.iothubName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ConsumerGroupArgs | undefined;
-            if ((!args || args.eventhubEndpointName === undefined) && !opts.urn) {
+            if (args?.eventhubEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubEndpointName'");
             }
-            if ((!args || args.iothubName === undefined) && !opts.urn) {
+            if (args?.iothubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["eventhubEndpointName"] = args ? args.eventhubEndpointName : undefined;
-            resourceInputs["iothubName"] = args ? args.iothubName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["eventhubEndpointName"] = args?.eventhubEndpointName;
+            resourceInputs["iothubName"] = args?.iothubName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConsumerGroup.__pulumiType, name, resourceInputs, opts);

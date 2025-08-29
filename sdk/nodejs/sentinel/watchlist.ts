@@ -78,31 +78,31 @@ export class Watchlist extends pulumi.CustomResource {
     /**
      * The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    public readonly defaultDuration!: pulumi.Output<string | undefined>;
+    declare public readonly defaultDuration: pulumi.Output<string | undefined>;
     /**
      * The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created.
      */
-    public readonly itemSearchKey!: pulumi.Output<string>;
+    declare public readonly itemSearchKey: pulumi.Output<string>;
     /**
      * Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Watchlist resource with the given unique name, arguments, and options.
@@ -117,31 +117,31 @@ export class Watchlist extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WatchlistState | undefined;
-            resourceInputs["defaultDuration"] = state ? state.defaultDuration : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["itemSearchKey"] = state ? state.itemSearchKey : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["defaultDuration"] = state?.defaultDuration;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["itemSearchKey"] = state?.itemSearchKey;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as WatchlistArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.itemSearchKey === undefined) && !opts.urn) {
+            if (args?.itemSearchKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'itemSearchKey'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            resourceInputs["defaultDuration"] = args ? args.defaultDuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["itemSearchKey"] = args ? args.itemSearchKey : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["defaultDuration"] = args?.defaultDuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["itemSearchKey"] = args?.itemSearchKey;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Watchlist.__pulumiType, name, resourceInputs, opts);

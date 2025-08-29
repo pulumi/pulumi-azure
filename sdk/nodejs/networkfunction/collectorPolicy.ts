@@ -119,27 +119,27 @@ export class CollectorPolicy extends pulumi.CustomResource {
     /**
      * An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      */
-    public readonly ipfxEmission!: pulumi.Output<outputs.networkfunction.CollectorPolicyIpfxEmission>;
+    declare public readonly ipfxEmission: pulumi.Output<outputs.networkfunction.CollectorPolicyIpfxEmission>;
     /**
      * An `ipfxIngestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
      */
-    public readonly ipfxIngestion!: pulumi.Output<outputs.networkfunction.CollectorPolicyIpfxIngestion>;
+    declare public readonly ipfxIngestion: pulumi.Output<outputs.networkfunction.CollectorPolicyIpfxIngestion>;
     /**
      * Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Network Function Collector Policy.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Azure Traffic Collector ID of the Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
      */
-    public readonly trafficCollectorId!: pulumi.Output<string>;
+    declare public readonly trafficCollectorId: pulumi.Output<string>;
 
     /**
      * Create a CollectorPolicy resource with the given unique name, arguments, and options.
@@ -154,29 +154,29 @@ export class CollectorPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CollectorPolicyState | undefined;
-            resourceInputs["ipfxEmission"] = state ? state.ipfxEmission : undefined;
-            resourceInputs["ipfxIngestion"] = state ? state.ipfxIngestion : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["trafficCollectorId"] = state ? state.trafficCollectorId : undefined;
+            resourceInputs["ipfxEmission"] = state?.ipfxEmission;
+            resourceInputs["ipfxIngestion"] = state?.ipfxIngestion;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["trafficCollectorId"] = state?.trafficCollectorId;
         } else {
             const args = argsOrState as CollectorPolicyArgs | undefined;
-            if ((!args || args.ipfxEmission === undefined) && !opts.urn) {
+            if (args?.ipfxEmission === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipfxEmission'");
             }
-            if ((!args || args.ipfxIngestion === undefined) && !opts.urn) {
+            if (args?.ipfxIngestion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipfxIngestion'");
             }
-            if ((!args || args.trafficCollectorId === undefined) && !opts.urn) {
+            if (args?.trafficCollectorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficCollectorId'");
             }
-            resourceInputs["ipfxEmission"] = args ? args.ipfxEmission : undefined;
-            resourceInputs["ipfxIngestion"] = args ? args.ipfxIngestion : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficCollectorId"] = args ? args.trafficCollectorId : undefined;
+            resourceInputs["ipfxEmission"] = args?.ipfxEmission;
+            resourceInputs["ipfxIngestion"] = args?.ipfxIngestion;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficCollectorId"] = args?.trafficCollectorId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CollectorPolicy.__pulumiType, name, resourceInputs, opts);

@@ -101,39 +101,39 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     /**
      * One or more `action` blocks as defined below.
      */
-    public readonly actions!: pulumi.Output<outputs.monitoring.ActivityLogAlertAction[] | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.monitoring.ActivityLogAlertAction[] | undefined>;
     /**
      * A `criteria` block as defined below.
      */
-    public readonly criteria!: pulumi.Output<outputs.monitoring.ActivityLogAlertCriteria>;
+    declare public readonly criteria: pulumi.Output<outputs.monitoring.ActivityLogAlertCriteria>;
     /**
      * The description of this activity log alert.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Should this Activity Log Alert be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ActivityLogAlert resource with the given unique name, arguments, and options.
@@ -148,35 +148,35 @@ export class ActivityLogAlert extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActivityLogAlertState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["criteria"] = state ? state.criteria : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scopes"] = state ? state.scopes : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["criteria"] = state?.criteria;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scopes"] = state?.scopes;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ActivityLogAlertArgs | undefined;
-            if ((!args || args.criteria === undefined) && !opts.urn) {
+            if (args?.criteria === undefined && !opts.urn) {
                 throw new Error("Missing required property 'criteria'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["criteria"] = args ? args.criteria : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["criteria"] = args?.criteria;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActivityLogAlert.__pulumiType, name, resourceInputs, opts);

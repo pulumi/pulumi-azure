@@ -93,81 +93,81 @@ export class NetworkInterface extends pulumi.CustomResource {
      *
      * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
      */
-    public readonly acceleratedNetworkingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly acceleratedNetworkingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
      */
-    public /*out*/ readonly appliedDnsServers!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly appliedDnsServers: pulumi.Output<string[]>;
     /**
      * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
      *
      * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      */
-    public readonly auxiliaryMode!: pulumi.Output<string | undefined>;
+    declare public readonly auxiliaryMode: pulumi.Output<string | undefined>;
     /**
      * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`.
      *
      * > **Note:** `auxiliarySku` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
      */
-    public readonly auxiliarySku!: pulumi.Output<string | undefined>;
+    declare public readonly auxiliarySku: pulumi.Output<string | undefined>;
     /**
      * A list of IP Addresses defining the DNS Servers which should be used for this Network Interface.
      *
      * > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
      */
-    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsServers: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      */
-    public readonly internalDnsNameLabel!: pulumi.Output<string | undefined>;
+    declare public readonly internalDnsNameLabel: pulumi.Output<string | undefined>;
     /**
      * Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
      */
-    public /*out*/ readonly internalDomainNameSuffix!: pulumi.Output<string>;
+    declare public /*out*/ readonly internalDomainNameSuffix: pulumi.Output<string>;
     /**
      * One or more `ipConfiguration` blocks as defined below.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.NetworkInterfaceIpConfiguration[]>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.network.NetworkInterfaceIpConfiguration[]>;
     /**
      * Should IP Forwarding be enabled? Defaults to `false`.
      */
-    public readonly ipForwardingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ipForwardingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The location where the Network Interface should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Media Access Control (MAC) Address of the Network Interface.
      */
-    public /*out*/ readonly macAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly macAddress: pulumi.Output<string>;
     /**
      * The name of the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The first private IP address of the network interface.
      */
-    public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateIpAddress: pulumi.Output<string>;
     /**
      * The private IP addresses of the network interface.
      */
-    public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly privateIpAddresses: pulumi.Output<string[]>;
     /**
      * The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Virtual Machine which this Network Interface is connected to.
      */
-    public /*out*/ readonly virtualMachineId!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualMachineId: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -182,44 +182,44 @@ export class NetworkInterface extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceState | undefined;
-            resourceInputs["acceleratedNetworkingEnabled"] = state ? state.acceleratedNetworkingEnabled : undefined;
-            resourceInputs["appliedDnsServers"] = state ? state.appliedDnsServers : undefined;
-            resourceInputs["auxiliaryMode"] = state ? state.auxiliaryMode : undefined;
-            resourceInputs["auxiliarySku"] = state ? state.auxiliarySku : undefined;
-            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["internalDnsNameLabel"] = state ? state.internalDnsNameLabel : undefined;
-            resourceInputs["internalDomainNameSuffix"] = state ? state.internalDomainNameSuffix : undefined;
-            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
-            resourceInputs["ipForwardingEnabled"] = state ? state.ipForwardingEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["macAddress"] = state ? state.macAddress : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            resourceInputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["acceleratedNetworkingEnabled"] = state?.acceleratedNetworkingEnabled;
+            resourceInputs["appliedDnsServers"] = state?.appliedDnsServers;
+            resourceInputs["auxiliaryMode"] = state?.auxiliaryMode;
+            resourceInputs["auxiliarySku"] = state?.auxiliarySku;
+            resourceInputs["dnsServers"] = state?.dnsServers;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["internalDnsNameLabel"] = state?.internalDnsNameLabel;
+            resourceInputs["internalDomainNameSuffix"] = state?.internalDomainNameSuffix;
+            resourceInputs["ipConfigurations"] = state?.ipConfigurations;
+            resourceInputs["ipForwardingEnabled"] = state?.ipForwardingEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["macAddress"] = state?.macAddress;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateIpAddress"] = state?.privateIpAddress;
+            resourceInputs["privateIpAddresses"] = state?.privateIpAddresses;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
         } else {
             const args = argsOrState as NetworkInterfaceArgs | undefined;
-            if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
+            if (args?.ipConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["acceleratedNetworkingEnabled"] = args ? args.acceleratedNetworkingEnabled : undefined;
-            resourceInputs["auxiliaryMode"] = args ? args.auxiliaryMode : undefined;
-            resourceInputs["auxiliarySku"] = args ? args.auxiliarySku : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["internalDnsNameLabel"] = args ? args.internalDnsNameLabel : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["ipForwardingEnabled"] = args ? args.ipForwardingEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["acceleratedNetworkingEnabled"] = args?.acceleratedNetworkingEnabled;
+            resourceInputs["auxiliaryMode"] = args?.auxiliaryMode;
+            resourceInputs["auxiliarySku"] = args?.auxiliarySku;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["internalDnsNameLabel"] = args?.internalDnsNameLabel;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["ipForwardingEnabled"] = args?.ipForwardingEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["appliedDnsServers"] = undefined /*out*/;
             resourceInputs["internalDomainNameSuffix"] = undefined /*out*/;
             resourceInputs["macAddress"] = undefined /*out*/;

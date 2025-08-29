@@ -105,57 +105,57 @@ export class PolicyVM extends pulumi.CustomResource {
     /**
      * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
-    public readonly backup!: pulumi.Output<outputs.backup.PolicyVMBackup>;
+    declare public readonly backup: pulumi.Output<outputs.backup.PolicyVMBackup>;
     /**
      * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      */
-    public readonly instantRestoreResourceGroup!: pulumi.Output<outputs.backup.PolicyVMInstantRestoreResourceGroup | undefined>;
+    declare public readonly instantRestoreResourceGroup: pulumi.Output<outputs.backup.PolicyVMInstantRestoreResourceGroup | undefined>;
     /**
      * Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
      *
      * > **Note:** `instantRestoreRetentionDays` **must** be set to `5` if the backup frequency is set to `Weekly`.
      */
-    public readonly instantRestoreRetentionDays!: pulumi.Output<number>;
+    declare public readonly instantRestoreRetentionDays: pulumi.Output<number>;
     /**
      * Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
      */
-    public readonly policyType!: pulumi.Output<string | undefined>;
+    declare public readonly policyType: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      */
-    public readonly retentionDaily!: pulumi.Output<outputs.backup.PolicyVMRetentionDaily | undefined>;
+    declare public readonly retentionDaily: pulumi.Output<outputs.backup.PolicyVMRetentionDaily | undefined>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    public readonly retentionMonthly!: pulumi.Output<outputs.backup.PolicyVMRetentionMonthly | undefined>;
+    declare public readonly retentionMonthly: pulumi.Output<outputs.backup.PolicyVMRetentionMonthly | undefined>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      */
-    public readonly retentionWeekly!: pulumi.Output<outputs.backup.PolicyVMRetentionWeekly | undefined>;
+    declare public readonly retentionWeekly: pulumi.Output<outputs.backup.PolicyVMRetentionWeekly | undefined>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    public readonly retentionYearly!: pulumi.Output<outputs.backup.PolicyVMRetentionYearly | undefined>;
+    declare public readonly retentionYearly: pulumi.Output<outputs.backup.PolicyVMRetentionYearly | undefined>;
     /**
      * A `tieringPolicy` block as defined below.
      */
-    public readonly tieringPolicy!: pulumi.Output<outputs.backup.PolicyVMTieringPolicy | undefined>;
+    declare public readonly tieringPolicy: pulumi.Output<outputs.backup.PolicyVMTieringPolicy | undefined>;
     /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      */
-    public readonly timezone!: pulumi.Output<string | undefined>;
+    declare public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a PolicyVM resource with the given unique name, arguments, and options.
@@ -170,43 +170,43 @@ export class PolicyVM extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyVMState | undefined;
-            resourceInputs["backup"] = state ? state.backup : undefined;
-            resourceInputs["instantRestoreResourceGroup"] = state ? state.instantRestoreResourceGroup : undefined;
-            resourceInputs["instantRestoreRetentionDays"] = state ? state.instantRestoreRetentionDays : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyType"] = state ? state.policyType : undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionDaily"] = state ? state.retentionDaily : undefined;
-            resourceInputs["retentionMonthly"] = state ? state.retentionMonthly : undefined;
-            resourceInputs["retentionWeekly"] = state ? state.retentionWeekly : undefined;
-            resourceInputs["retentionYearly"] = state ? state.retentionYearly : undefined;
-            resourceInputs["tieringPolicy"] = state ? state.tieringPolicy : undefined;
-            resourceInputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["backup"] = state?.backup;
+            resourceInputs["instantRestoreResourceGroup"] = state?.instantRestoreResourceGroup;
+            resourceInputs["instantRestoreRetentionDays"] = state?.instantRestoreRetentionDays;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyType"] = state?.policyType;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionDaily"] = state?.retentionDaily;
+            resourceInputs["retentionMonthly"] = state?.retentionMonthly;
+            resourceInputs["retentionWeekly"] = state?.retentionWeekly;
+            resourceInputs["retentionYearly"] = state?.retentionYearly;
+            resourceInputs["tieringPolicy"] = state?.tieringPolicy;
+            resourceInputs["timezone"] = state?.timezone;
         } else {
             const args = argsOrState as PolicyVMArgs | undefined;
-            if ((!args || args.backup === undefined) && !opts.urn) {
+            if (args?.backup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backup'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backup"] = args ? args.backup : undefined;
-            resourceInputs["instantRestoreResourceGroup"] = args ? args.instantRestoreResourceGroup : undefined;
-            resourceInputs["instantRestoreRetentionDays"] = args ? args.instantRestoreRetentionDays : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDaily"] = args ? args.retentionDaily : undefined;
-            resourceInputs["retentionMonthly"] = args ? args.retentionMonthly : undefined;
-            resourceInputs["retentionWeekly"] = args ? args.retentionWeekly : undefined;
-            resourceInputs["retentionYearly"] = args ? args.retentionYearly : undefined;
-            resourceInputs["tieringPolicy"] = args ? args.tieringPolicy : undefined;
-            resourceInputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["backup"] = args?.backup;
+            resourceInputs["instantRestoreResourceGroup"] = args?.instantRestoreResourceGroup;
+            resourceInputs["instantRestoreRetentionDays"] = args?.instantRestoreRetentionDays;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDaily"] = args?.retentionDaily;
+            resourceInputs["retentionMonthly"] = args?.retentionMonthly;
+            resourceInputs["retentionWeekly"] = args?.retentionWeekly;
+            resourceInputs["retentionYearly"] = args?.retentionYearly;
+            resourceInputs["tieringPolicy"] = args?.tieringPolicy;
+            resourceInputs["timezone"] = args?.timezone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PolicyVM.__pulumiType, name, resourceInputs, opts);

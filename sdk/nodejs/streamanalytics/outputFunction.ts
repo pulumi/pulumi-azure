@@ -111,35 +111,35 @@ export class OutputFunction extends pulumi.CustomResource {
     /**
      * The API key for the Function.
      */
-    public readonly apiKey!: pulumi.Output<string>;
+    declare public readonly apiKey: pulumi.Output<string>;
     /**
      * The maximum number of events in each batch that's sent to the function. Defaults to `100`.
      */
-    public readonly batchMaxCount!: pulumi.Output<number | undefined>;
+    declare public readonly batchMaxCount: pulumi.Output<number | undefined>;
     /**
      * The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
      */
-    public readonly batchMaxInBytes!: pulumi.Output<number | undefined>;
+    declare public readonly batchMaxInBytes: pulumi.Output<number | undefined>;
     /**
      * The name of the Function App.
      */
-    public readonly functionApp!: pulumi.Output<string>;
+    declare public readonly functionApp: pulumi.Output<string>;
     /**
      * The name of the function in the Function App.
      */
-    public readonly functionName!: pulumi.Output<string>;
+    declare public readonly functionName: pulumi.Output<string>;
     /**
      * The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobName: pulumi.Output<string>;
 
     /**
      * Create a OutputFunction resource with the given unique name, arguments, and options.
@@ -154,39 +154,39 @@ export class OutputFunction extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputFunctionState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["batchMaxCount"] = state ? state.batchMaxCount : undefined;
-            resourceInputs["batchMaxInBytes"] = state ? state.batchMaxInBytes : undefined;
-            resourceInputs["functionApp"] = state ? state.functionApp : undefined;
-            resourceInputs["functionName"] = state ? state.functionName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["batchMaxCount"] = state?.batchMaxCount;
+            resourceInputs["batchMaxInBytes"] = state?.batchMaxInBytes;
+            resourceInputs["functionApp"] = state?.functionApp;
+            resourceInputs["functionName"] = state?.functionName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["streamAnalyticsJobName"] = state?.streamAnalyticsJobName;
         } else {
             const args = argsOrState as OutputFunctionArgs | undefined;
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
+            if (args?.apiKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            if ((!args || args.functionApp === undefined) && !opts.urn) {
+            if (args?.functionApp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionApp'");
             }
-            if ((!args || args.functionName === undefined) && !opts.urn) {
+            if (args?.functionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["batchMaxCount"] = args ? args.batchMaxCount : undefined;
-            resourceInputs["batchMaxInBytes"] = args ? args.batchMaxInBytes : undefined;
-            resourceInputs["functionApp"] = args ? args.functionApp : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["batchMaxCount"] = args?.batchMaxCount;
+            resourceInputs["batchMaxInBytes"] = args?.batchMaxInBytes;
+            resourceInputs["functionApp"] = args?.functionApp;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["streamAnalyticsJobName"] = args?.streamAnalyticsJobName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey"] };

@@ -113,43 +113,43 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
      * The list of databases from the `clusterResourceId` which are currently attached to the cluster.
      */
-    public /*out*/ readonly attachedDatabaseNames!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly attachedDatabaseNames: pulumi.Output<string[]>;
     /**
      * The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * @deprecated `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
      */
-    public readonly clusterResourceId!: pulumi.Output<string>;
+    declare public readonly clusterResourceId: pulumi.Output<string>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      */
-    public readonly defaultPrincipalModificationKind!: pulumi.Output<string | undefined>;
+    declare public readonly defaultPrincipalModificationKind: pulumi.Output<string | undefined>;
     /**
      * Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `sharing` block as defined below.
      */
-    public readonly sharing!: pulumi.Output<outputs.kusto.AttachedDatabaseConfigurationSharing | undefined>;
+    declare public readonly sharing: pulumi.Output<outputs.kusto.AttachedDatabaseConfigurationSharing | undefined>;
 
     /**
      * Create a AttachedDatabaseConfiguration resource with the given unique name, arguments, and options.
@@ -164,36 +164,36 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AttachedDatabaseConfigurationState | undefined;
-            resourceInputs["attachedDatabaseNames"] = state ? state.attachedDatabaseNames : undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["defaultPrincipalModificationKind"] = state ? state.defaultPrincipalModificationKind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sharing"] = state ? state.sharing : undefined;
+            resourceInputs["attachedDatabaseNames"] = state?.attachedDatabaseNames;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["clusterResourceId"] = state?.clusterResourceId;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["defaultPrincipalModificationKind"] = state?.defaultPrincipalModificationKind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sharing"] = state?.sharing;
         } else {
             const args = argsOrState as AttachedDatabaseConfigurationArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["defaultPrincipalModificationKind"] = args ? args.defaultPrincipalModificationKind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharing"] = args ? args.sharing : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterResourceId"] = args?.clusterResourceId;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["defaultPrincipalModificationKind"] = args?.defaultPrincipalModificationKind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharing"] = args?.sharing;
             resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

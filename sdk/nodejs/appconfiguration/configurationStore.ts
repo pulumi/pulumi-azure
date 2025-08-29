@@ -179,89 +179,89 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * The data plane proxy authentication mode. Possible values are `Local` and `Pass-through`. Defaults to `Local`.
      */
-    public readonly dataPlaneProxyAuthenticationMode!: pulumi.Output<string | undefined>;
+    declare public readonly dataPlaneProxyAuthenticationMode: pulumi.Output<string | undefined>;
     /**
      * Whether data plane proxy private link delegation is enabled. Defaults to `false`.
      *
      * > **Note:** `dataPlaneProxyPrivateLinkDelegationEnabled` cannot be set to `true` when `dataPlaneProxyAuthenticationMode` is set to `Local`.
      */
-    public readonly dataPlaneProxyPrivateLinkDelegationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dataPlaneProxyPrivateLinkDelegationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `encryption` block as defined below.
      */
-    public readonly encryption!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.appconfiguration.ConfigurationStoreEncryption | undefined>;
     /**
      * The URL of the App Configuration Replica.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appconfiguration.ConfigurationStoreIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`.
      */
-    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the App Configuration. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `primaryReadKey` block as defined below containing the primary read access key.
      */
-    public /*out*/ readonly primaryReadKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStorePrimaryReadKey[]>;
+    declare public /*out*/ readonly primaryReadKeys: pulumi.Output<outputs.appconfiguration.ConfigurationStorePrimaryReadKey[]>;
     /**
      * A `primaryWriteKey` block as defined below containing the primary write access key.
      */
-    public /*out*/ readonly primaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStorePrimaryWriteKey[]>;
+    declare public /*out*/ readonly primaryWriteKeys: pulumi.Output<outputs.appconfiguration.ConfigurationStorePrimaryWriteKey[]>;
     /**
      * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      *
      * > **Note:** If `publicNetworkAccess` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      *
      * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
-    public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly purgeProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `replica` blocks as defined below.
      */
-    public readonly replicas!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreReplica[] | undefined>;
+    declare public readonly replicas: pulumi.Output<outputs.appconfiguration.ConfigurationStoreReplica[] | undefined>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `secondaryReadKey` block as defined below containing the secondary read access key.
      */
-    public /*out*/ readonly secondaryReadKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryReadKey[]>;
+    declare public /*out*/ readonly secondaryReadKeys: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryReadKey[]>;
     /**
      * A `secondaryWriteKey` block as defined below containing the secondary write access key.
      */
-    public /*out*/ readonly secondaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryWriteKey[]>;
+    declare public /*out*/ readonly secondaryWriteKeys: pulumi.Output<outputs.appconfiguration.ConfigurationStoreSecondaryWriteKey[]>;
     /**
      * The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
      *
      * > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
      *
      * > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
      */
-    public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly softDeleteRetentionDays: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ConfigurationStore resource with the given unique name, arguments, and options.
@@ -276,44 +276,44 @@ export class ConfigurationStore extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationStoreState | undefined;
-            resourceInputs["dataPlaneProxyAuthenticationMode"] = state ? state.dataPlaneProxyAuthenticationMode : undefined;
-            resourceInputs["dataPlaneProxyPrivateLinkDelegationEnabled"] = state ? state.dataPlaneProxyPrivateLinkDelegationEnabled : undefined;
-            resourceInputs["encryption"] = state ? state.encryption : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryReadKeys"] = state ? state.primaryReadKeys : undefined;
-            resourceInputs["primaryWriteKeys"] = state ? state.primaryWriteKeys : undefined;
-            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
-            resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
-            resourceInputs["replicas"] = state ? state.replicas : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryReadKeys"] = state ? state.secondaryReadKeys : undefined;
-            resourceInputs["secondaryWriteKeys"] = state ? state.secondaryWriteKeys : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["dataPlaneProxyAuthenticationMode"] = state?.dataPlaneProxyAuthenticationMode;
+            resourceInputs["dataPlaneProxyPrivateLinkDelegationEnabled"] = state?.dataPlaneProxyPrivateLinkDelegationEnabled;
+            resourceInputs["encryption"] = state?.encryption;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryReadKeys"] = state?.primaryReadKeys;
+            resourceInputs["primaryWriteKeys"] = state?.primaryWriteKeys;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
+            resourceInputs["purgeProtectionEnabled"] = state?.purgeProtectionEnabled;
+            resourceInputs["replicas"] = state?.replicas;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryReadKeys"] = state?.secondaryReadKeys;
+            resourceInputs["secondaryWriteKeys"] = state?.secondaryWriteKeys;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["softDeleteRetentionDays"] = state?.softDeleteRetentionDays;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ConfigurationStoreArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataPlaneProxyAuthenticationMode"] = args ? args.dataPlaneProxyAuthenticationMode : undefined;
-            resourceInputs["dataPlaneProxyPrivateLinkDelegationEnabled"] = args ? args.dataPlaneProxyPrivateLinkDelegationEnabled : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
-            resourceInputs["replicas"] = args ? args.replicas : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataPlaneProxyAuthenticationMode"] = args?.dataPlaneProxyAuthenticationMode;
+            resourceInputs["dataPlaneProxyPrivateLinkDelegationEnabled"] = args?.dataPlaneProxyPrivateLinkDelegationEnabled;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["purgeProtectionEnabled"] = args?.purgeProtectionEnabled;
+            resourceInputs["replicas"] = args?.replicas;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["softDeleteRetentionDays"] = args?.softDeleteRetentionDays;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryReadKeys"] = undefined /*out*/;
             resourceInputs["primaryWriteKeys"] = undefined /*out*/;

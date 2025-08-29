@@ -106,57 +106,57 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
     /**
      * The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
      */
-    public readonly automationAccountId!: pulumi.Output<string>;
+    declare public readonly automationAccountId: pulumi.Output<string>;
     /**
      * Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
      */
-    public readonly duration!: pulumi.Output<string | undefined>;
+    declare public readonly duration: pulumi.Output<string | undefined>;
     /**
      * The Error code when failed.
      */
-    public /*out*/ readonly errorCode!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorCode: pulumi.Output<string>;
     /**
      * The Error message indicating why the operation failed.
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
      * A `linux` block as defined below.
      */
-    public readonly linux!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationLinux | undefined>;
+    declare public readonly linux: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationLinux | undefined>;
     /**
      * The name which should be used for this Automation. Changing this forces a new Automation to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a list of names of non-Azure machines for the software update configuration.
      */
-    public readonly nonAzureComputerNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly nonAzureComputerNames: pulumi.Output<string[] | undefined>;
     /**
      * A `postTask` blocks as defined below.
      */
-    public readonly postTask!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPostTask | undefined>;
+    declare public readonly postTask: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPostTask | undefined>;
     /**
      * A `preTask` blocks as defined below.
      */
-    public readonly preTask!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPreTask | undefined>;
+    declare public readonly preTask: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationPreTask | undefined>;
     /**
      * A `schedule` blocks as defined below.
      */
-    public readonly schedule!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationSchedule>;
+    declare public readonly schedule: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationSchedule>;
     /**
      * A `target` blocks as defined below.
      */
-    public readonly target!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationTarget | undefined>;
+    declare public readonly target: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationTarget | undefined>;
     /**
      * Specifies a list of Azure Resource IDs of azure virtual machines.
      */
-    public readonly virtualMachineIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly virtualMachineIds: pulumi.Output<string[] | undefined>;
     /**
      * A `windows` block as defined below.
      *
      * > **Note:** One of `linux` or `windows` must be specified.
      */
-    public readonly windows!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationWindows | undefined>;
+    declare public readonly windows: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationWindows | undefined>;
 
     /**
      * Create a SoftwareUpdateConfiguration resource with the given unique name, arguments, and options.
@@ -171,38 +171,38 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SoftwareUpdateConfigurationState | undefined;
-            resourceInputs["automationAccountId"] = state ? state.automationAccountId : undefined;
-            resourceInputs["duration"] = state ? state.duration : undefined;
-            resourceInputs["errorCode"] = state ? state.errorCode : undefined;
-            resourceInputs["errorMessage"] = state ? state.errorMessage : undefined;
-            resourceInputs["linux"] = state ? state.linux : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nonAzureComputerNames"] = state ? state.nonAzureComputerNames : undefined;
-            resourceInputs["postTask"] = state ? state.postTask : undefined;
-            resourceInputs["preTask"] = state ? state.preTask : undefined;
-            resourceInputs["schedule"] = state ? state.schedule : undefined;
-            resourceInputs["target"] = state ? state.target : undefined;
-            resourceInputs["virtualMachineIds"] = state ? state.virtualMachineIds : undefined;
-            resourceInputs["windows"] = state ? state.windows : undefined;
+            resourceInputs["automationAccountId"] = state?.automationAccountId;
+            resourceInputs["duration"] = state?.duration;
+            resourceInputs["errorCode"] = state?.errorCode;
+            resourceInputs["errorMessage"] = state?.errorMessage;
+            resourceInputs["linux"] = state?.linux;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nonAzureComputerNames"] = state?.nonAzureComputerNames;
+            resourceInputs["postTask"] = state?.postTask;
+            resourceInputs["preTask"] = state?.preTask;
+            resourceInputs["schedule"] = state?.schedule;
+            resourceInputs["target"] = state?.target;
+            resourceInputs["virtualMachineIds"] = state?.virtualMachineIds;
+            resourceInputs["windows"] = state?.windows;
         } else {
             const args = argsOrState as SoftwareUpdateConfigurationArgs | undefined;
-            if ((!args || args.automationAccountId === undefined) && !opts.urn) {
+            if (args?.automationAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountId'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            resourceInputs["automationAccountId"] = args ? args.automationAccountId : undefined;
-            resourceInputs["duration"] = args ? args.duration : undefined;
-            resourceInputs["linux"] = args ? args.linux : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nonAzureComputerNames"] = args ? args.nonAzureComputerNames : undefined;
-            resourceInputs["postTask"] = args ? args.postTask : undefined;
-            resourceInputs["preTask"] = args ? args.preTask : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["virtualMachineIds"] = args ? args.virtualMachineIds : undefined;
-            resourceInputs["windows"] = args ? args.windows : undefined;
+            resourceInputs["automationAccountId"] = args?.automationAccountId;
+            resourceInputs["duration"] = args?.duration;
+            resourceInputs["linux"] = args?.linux;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nonAzureComputerNames"] = args?.nonAzureComputerNames;
+            resourceInputs["postTask"] = args?.postTask;
+            resourceInputs["preTask"] = args?.preTask;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["virtualMachineIds"] = args?.virtualMachineIds;
+            resourceInputs["windows"] = args?.windows;
             resourceInputs["errorCode"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
         }

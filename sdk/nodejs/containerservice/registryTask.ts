@@ -86,69 +86,69 @@ export class RegistryTask extends pulumi.CustomResource {
     /**
      * The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
      */
-    public readonly agentPoolName!: pulumi.Output<string | undefined>;
+    declare public readonly agentPoolName: pulumi.Output<string | undefined>;
     /**
      * A `agentSetting` block as defined below.
      *
      * > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      */
-    public readonly agentSetting!: pulumi.Output<outputs.containerservice.RegistryTaskAgentSetting | undefined>;
+    declare public readonly agentSetting: pulumi.Output<outputs.containerservice.RegistryTaskAgentSetting | undefined>;
     /**
      * A `baseImageTrigger` block as defined below.
      */
-    public readonly baseImageTrigger!: pulumi.Output<outputs.containerservice.RegistryTaskBaseImageTrigger | undefined>;
+    declare public readonly baseImageTrigger: pulumi.Output<outputs.containerservice.RegistryTaskBaseImageTrigger | undefined>;
     /**
      * The ID of the Container Registry that this Container Registry Task resides in. Changing this forces a new Container Registry Task to be created.
      */
-    public readonly containerRegistryId!: pulumi.Output<string>;
+    declare public readonly containerRegistryId: pulumi.Output<string>;
     /**
      * A `dockerStep` block as defined below.
      */
-    public readonly dockerStep!: pulumi.Output<outputs.containerservice.RegistryTaskDockerStep | undefined>;
+    declare public readonly dockerStep: pulumi.Output<outputs.containerservice.RegistryTaskDockerStep | undefined>;
     /**
      * Should this Container Registry Task be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * A `encodedStep` block as defined below.
      */
-    public readonly encodedStep!: pulumi.Output<outputs.containerservice.RegistryTaskEncodedStep | undefined>;
+    declare public readonly encodedStep: pulumi.Output<outputs.containerservice.RegistryTaskEncodedStep | undefined>;
     /**
      * A `fileStep` block as defined below.
      *
      * > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      */
-    public readonly fileStep!: pulumi.Output<outputs.containerservice.RegistryTaskFileStep | undefined>;
+    declare public readonly fileStep: pulumi.Output<outputs.containerservice.RegistryTaskFileStep | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.containerservice.RegistryTaskIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerservice.RegistryTaskIdentity | undefined>;
     /**
      * Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`.
      */
-    public readonly isSystemTask!: pulumi.Output<boolean | undefined>;
-    public readonly logTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly isSystemTask: pulumi.Output<boolean | undefined>;
+    declare public readonly logTemplate: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Container Registry Task. Changing this forces a new Container Registry Task to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `platform` block as defined below.
      *
      * > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
-    public readonly platform!: pulumi.Output<outputs.containerservice.RegistryTaskPlatform | undefined>;
-    public readonly registryCredential!: pulumi.Output<outputs.containerservice.RegistryTaskRegistryCredential | undefined>;
+    declare public readonly platform: pulumi.Output<outputs.containerservice.RegistryTaskPlatform | undefined>;
+    declare public readonly registryCredential: pulumi.Output<outputs.containerservice.RegistryTaskRegistryCredential | undefined>;
     /**
      * One or more `sourceTrigger` blocks as defined below.
      */
-    public readonly sourceTriggers!: pulumi.Output<outputs.containerservice.RegistryTaskSourceTrigger[] | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly sourceTriggers: pulumi.Output<outputs.containerservice.RegistryTaskSourceTrigger[] | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly timeoutInSeconds: pulumi.Output<number | undefined>;
     /**
      * One or more `timerTrigger` blocks as defined below.
      */
-    public readonly timerTriggers!: pulumi.Output<outputs.containerservice.RegistryTaskTimerTrigger[] | undefined>;
+    declare public readonly timerTriggers: pulumi.Output<outputs.containerservice.RegistryTaskTimerTrigger[] | undefined>;
 
     /**
      * Create a RegistryTask resource with the given unique name, arguments, and options.
@@ -163,47 +163,47 @@ export class RegistryTask extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryTaskState | undefined;
-            resourceInputs["agentPoolName"] = state ? state.agentPoolName : undefined;
-            resourceInputs["agentSetting"] = state ? state.agentSetting : undefined;
-            resourceInputs["baseImageTrigger"] = state ? state.baseImageTrigger : undefined;
-            resourceInputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
-            resourceInputs["dockerStep"] = state ? state.dockerStep : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["encodedStep"] = state ? state.encodedStep : undefined;
-            resourceInputs["fileStep"] = state ? state.fileStep : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["isSystemTask"] = state ? state.isSystemTask : undefined;
-            resourceInputs["logTemplate"] = state ? state.logTemplate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["platform"] = state ? state.platform : undefined;
-            resourceInputs["registryCredential"] = state ? state.registryCredential : undefined;
-            resourceInputs["sourceTriggers"] = state ? state.sourceTriggers : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["timeoutInSeconds"] = state ? state.timeoutInSeconds : undefined;
-            resourceInputs["timerTriggers"] = state ? state.timerTriggers : undefined;
+            resourceInputs["agentPoolName"] = state?.agentPoolName;
+            resourceInputs["agentSetting"] = state?.agentSetting;
+            resourceInputs["baseImageTrigger"] = state?.baseImageTrigger;
+            resourceInputs["containerRegistryId"] = state?.containerRegistryId;
+            resourceInputs["dockerStep"] = state?.dockerStep;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["encodedStep"] = state?.encodedStep;
+            resourceInputs["fileStep"] = state?.fileStep;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["isSystemTask"] = state?.isSystemTask;
+            resourceInputs["logTemplate"] = state?.logTemplate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["platform"] = state?.platform;
+            resourceInputs["registryCredential"] = state?.registryCredential;
+            resourceInputs["sourceTriggers"] = state?.sourceTriggers;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["timeoutInSeconds"] = state?.timeoutInSeconds;
+            resourceInputs["timerTriggers"] = state?.timerTriggers;
         } else {
             const args = argsOrState as RegistryTaskArgs | undefined;
-            if ((!args || args.containerRegistryId === undefined) && !opts.urn) {
+            if (args?.containerRegistryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryId'");
             }
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["agentSetting"] = args ? args.agentSetting : undefined;
-            resourceInputs["baseImageTrigger"] = args ? args.baseImageTrigger : undefined;
-            resourceInputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
-            resourceInputs["dockerStep"] = args ? args.dockerStep : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["encodedStep"] = args ? args.encodedStep : undefined;
-            resourceInputs["fileStep"] = args ? args.fileStep : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isSystemTask"] = args ? args.isSystemTask : undefined;
-            resourceInputs["logTemplate"] = args ? args.logTemplate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["registryCredential"] = args ? args.registryCredential : undefined;
-            resourceInputs["sourceTriggers"] = args ? args.sourceTriggers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
-            resourceInputs["timerTriggers"] = args ? args.timerTriggers : undefined;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["agentSetting"] = args?.agentSetting;
+            resourceInputs["baseImageTrigger"] = args?.baseImageTrigger;
+            resourceInputs["containerRegistryId"] = args?.containerRegistryId;
+            resourceInputs["dockerStep"] = args?.dockerStep;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["encodedStep"] = args?.encodedStep;
+            resourceInputs["fileStep"] = args?.fileStep;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isSystemTask"] = args?.isSystemTask;
+            resourceInputs["logTemplate"] = args?.logTemplate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["registryCredential"] = args?.registryCredential;
+            resourceInputs["sourceTriggers"] = args?.sourceTriggers;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeoutInSeconds"] = args?.timeoutInSeconds;
+            resourceInputs["timerTriggers"] = args?.timerTriggers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RegistryTask.__pulumiType, name, resourceInputs, opts);

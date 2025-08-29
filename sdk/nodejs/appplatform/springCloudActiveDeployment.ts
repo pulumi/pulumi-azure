@@ -91,11 +91,11 @@ export class SpringCloudActiveDeployment extends pulumi.CustomResource {
     /**
      * Specifies the name of Spring Cloud Deployment which is going to be active.
      */
-    public readonly deploymentName!: pulumi.Output<string>;
+    declare public readonly deploymentName: pulumi.Output<string>;
     /**
      * Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
      */
-    public readonly springCloudAppId!: pulumi.Output<string>;
+    declare public readonly springCloudAppId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudActiveDeployment resource with the given unique name, arguments, and options.
@@ -110,18 +110,18 @@ export class SpringCloudActiveDeployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudActiveDeploymentState | undefined;
-            resourceInputs["deploymentName"] = state ? state.deploymentName : undefined;
-            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["deploymentName"] = state?.deploymentName;
+            resourceInputs["springCloudAppId"] = state?.springCloudAppId;
         } else {
             const args = argsOrState as SpringCloudActiveDeploymentArgs | undefined;
-            if ((!args || args.deploymentName === undefined) && !opts.urn) {
+            if (args?.deploymentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentName'");
             }
-            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
+            if (args?.springCloudAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
-            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["deploymentName"] = args?.deploymentName;
+            resourceInputs["springCloudAppId"] = args?.springCloudAppId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudActiveDeployment.__pulumiType, name, resourceInputs, opts);

@@ -141,121 +141,121 @@ export class Standard extends pulumi.CustomResource {
     /**
      * The ID of the App Service Plan within which to create this Logic App.
      */
-    public readonly appServicePlanId!: pulumi.Output<string>;
+    declare public readonly appServicePlanId: pulumi.Output<string>;
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      *
      * > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly appSettings: pulumi.Output<{[key: string]: string}>;
     /**
      * If `useExtensionBundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      */
-    public readonly bundleVersion!: pulumi.Output<string | undefined>;
+    declare public readonly bundleVersion: pulumi.Output<string | undefined>;
     /**
      * Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
+    declare public readonly clientAffinityEnabled: pulumi.Output<boolean>;
     /**
      * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
      */
-    public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificateMode: pulumi.Output<string | undefined>;
     /**
      * A `connectionString` block as defined below.
      */
-    public readonly connectionStrings!: pulumi.Output<outputs.logicapps.StandardConnectionString[]>;
+    declare public readonly connectionStrings: pulumi.Output<outputs.logicapps.StandardConnectionString[]>;
     /**
      * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customDomainVerificationId: pulumi.Output<string>;
     /**
      * The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
      */
-    public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultHostname: pulumi.Output<string>;
     /**
      * Is the Logic App enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
      */
-    public readonly ftpPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly ftpPublishBasicAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Can the Logic App only be accessed via HTTPS? Defaults to `false`.
      */
-    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsOnly: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.logicapps.StandardIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.logicapps.StandardIdentity | undefined>;
     /**
      * The Logic App kind.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Logic App. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      */
-    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
-    public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
     /**
      * Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
      *
      * > **Note:** Setting this property will also set it in the Site Config.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
      */
-    public readonly scmPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly scmPublishBasicAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `siteConfig` object as defined below.
      */
-    public readonly siteConfig!: pulumi.Output<outputs.logicapps.StandardSiteConfig>;
+    declare public readonly siteConfig: pulumi.Output<outputs.logicapps.StandardSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.logicapps.StandardSiteCredential[]>;
+    declare public /*out*/ readonly siteCredentials: pulumi.Output<outputs.logicapps.StandardSiteCredential[]>;
     /**
      * The access key which will be used to access the backend storage account for the Logic App.
      */
-    public readonly storageAccountAccessKey!: pulumi.Output<string>;
+    declare public readonly storageAccountAccessKey: pulumi.Output<string>;
     /**
      * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
-    public readonly storageAccountShareName!: pulumi.Output<string>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
+    declare public readonly storageAccountShareName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
      */
-    public readonly useExtensionBundle!: pulumi.Output<boolean | undefined>;
+    declare public readonly useExtensionBundle: pulumi.Output<boolean | undefined>;
     /**
      * The runtime version associated with the Logic App. Defaults to `~4`.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
-    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether allow routing traffic between the Logic App and Storage Account content share through a virtual network. Defaults to `false`.
      */
-    public readonly vnetContentShareEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly vnetContentShareEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Standard resource with the given unique name, arguments, and options.
@@ -270,74 +270,74 @@ export class Standard extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandardState | undefined;
-            resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
-            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
-            resourceInputs["bundleVersion"] = state ? state.bundleVersion : undefined;
-            resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
-            resourceInputs["clientCertificateMode"] = state ? state.clientCertificateMode : undefined;
-            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
-            resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
-            resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state ? state.ftpPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
-            resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
-            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scmPublishBasicAuthenticationEnabled"] = state ? state.scmPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
-            resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
-            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            resourceInputs["storageAccountShareName"] = state ? state.storageAccountShareName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["useExtensionBundle"] = state ? state.useExtensionBundle : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
-            resourceInputs["vnetContentShareEnabled"] = state ? state.vnetContentShareEnabled : undefined;
+            resourceInputs["appServicePlanId"] = state?.appServicePlanId;
+            resourceInputs["appSettings"] = state?.appSettings;
+            resourceInputs["bundleVersion"] = state?.bundleVersion;
+            resourceInputs["clientAffinityEnabled"] = state?.clientAffinityEnabled;
+            resourceInputs["clientCertificateMode"] = state?.clientCertificateMode;
+            resourceInputs["connectionStrings"] = state?.connectionStrings;
+            resourceInputs["customDomainVerificationId"] = state?.customDomainVerificationId;
+            resourceInputs["defaultHostname"] = state?.defaultHostname;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state?.ftpPublishBasicAuthenticationEnabled;
+            resourceInputs["httpsOnly"] = state?.httpsOnly;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundIpAddresses"] = state?.outboundIpAddresses;
+            resourceInputs["possibleOutboundIpAddresses"] = state?.possibleOutboundIpAddresses;
+            resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scmPublishBasicAuthenticationEnabled"] = state?.scmPublishBasicAuthenticationEnabled;
+            resourceInputs["siteConfig"] = state?.siteConfig;
+            resourceInputs["siteCredentials"] = state?.siteCredentials;
+            resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["storageAccountShareName"] = state?.storageAccountShareName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["useExtensionBundle"] = state?.useExtensionBundle;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["virtualNetworkSubnetId"] = state?.virtualNetworkSubnetId;
+            resourceInputs["vnetContentShareEnabled"] = state?.vnetContentShareEnabled;
         } else {
             const args = argsOrState as StandardArgs | undefined;
-            if ((!args || args.appServicePlanId === undefined) && !opts.urn) {
+            if (args?.appServicePlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServicePlanId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountAccessKey === undefined) && !opts.urn) {
+            if (args?.storageAccountAccessKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountAccessKey'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
-            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
-            resourceInputs["bundleVersion"] = args ? args.bundleVersion : undefined;
-            resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
-            resourceInputs["clientCertificateMode"] = args ? args.clientCertificateMode : undefined;
-            resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args ? args.ftpPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scmPublishBasicAuthenticationEnabled"] = args ? args.scmPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
+            resourceInputs["appServicePlanId"] = args?.appServicePlanId;
+            resourceInputs["appSettings"] = args?.appSettings;
+            resourceInputs["bundleVersion"] = args?.bundleVersion;
+            resourceInputs["clientAffinityEnabled"] = args?.clientAffinityEnabled;
+            resourceInputs["clientCertificateMode"] = args?.clientCertificateMode;
+            resourceInputs["connectionStrings"] = args?.connectionStrings;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args?.ftpPublishBasicAuthenticationEnabled;
+            resourceInputs["httpsOnly"] = args?.httpsOnly;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scmPublishBasicAuthenticationEnabled"] = args?.scmPublishBasicAuthenticationEnabled;
+            resourceInputs["siteConfig"] = args?.siteConfig;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageAccountShareName"] = args ? args.storageAccountShareName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["useExtensionBundle"] = args ? args.useExtensionBundle : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
-            resourceInputs["vnetContentShareEnabled"] = args ? args.vnetContentShareEnabled : undefined;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageAccountShareName"] = args?.storageAccountShareName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["useExtensionBundle"] = args?.useExtensionBundle;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["virtualNetworkSubnetId"] = args?.virtualNetworkSubnetId;
+            resourceInputs["vnetContentShareEnabled"] = args?.vnetContentShareEnabled;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

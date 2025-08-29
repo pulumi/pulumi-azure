@@ -76,55 +76,55 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
      *
      * The following supported arguments are specific to Azure File Storage Linked Service:
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The connection string.
      */
-    public readonly connectionString!: pulumi.Output<string>;
+    declare public readonly connectionString: pulumi.Output<string>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the file share.
      */
-    public readonly fileShare!: pulumi.Output<string | undefined>;
+    declare public readonly fileShare: pulumi.Output<string | undefined>;
     /**
      * The Host name of the server.
      */
-    public readonly host!: pulumi.Output<string | undefined>;
+    declare public readonly host: pulumi.Output<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
-    public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
+    declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
      * A `keyVaultPassword` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
      */
-    public readonly keyVaultPassword!: pulumi.Output<outputs.datafactory.LinkedServiceAzureFileStorageKeyVaultPassword | undefined>;
+    declare public readonly keyVaultPassword: pulumi.Output<outputs.datafactory.LinkedServiceAzureFileStorageKeyVaultPassword | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The password to log in the server.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The user ID to log in the server.
      */
-    public readonly userId!: pulumi.Output<string | undefined>;
+    declare public readonly userId: pulumi.Output<string | undefined>;
 
     /**
      * Create a LinkedServiceAzureFileStorage resource with the given unique name, arguments, and options.
@@ -139,40 +139,40 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceAzureFileStorageState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["connectionString"] = state ? state.connectionString : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["fileShare"] = state ? state.fileShare : undefined;
-            resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["integrationRuntimeName"] = state ? state.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultPassword"] = state ? state.keyVaultPassword : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["userId"] = state ? state.userId : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["connectionString"] = state?.connectionString;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["fileShare"] = state?.fileShare;
+            resourceInputs["host"] = state?.host;
+            resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
+            resourceInputs["keyVaultPassword"] = state?.keyVaultPassword;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["userId"] = state?.userId;
         } else {
             const args = argsOrState as LinkedServiceAzureFileStorageArgs | undefined;
-            if ((!args || args.connectionString === undefined) && !opts.urn) {
+            if (args?.connectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
             resourceInputs["connectionString"] = args?.connectionString ? pulumi.secret(args.connectionString) : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fileShare"] = args ? args.fileShare : undefined;
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["integrationRuntimeName"] = args ? args.integrationRuntimeName : undefined;
-            resourceInputs["keyVaultPassword"] = args ? args.keyVaultPassword : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fileShare"] = args?.fileShare;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
+            resourceInputs["keyVaultPassword"] = args?.keyVaultPassword;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["userId"] = args?.userId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString", "password"] };

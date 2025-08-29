@@ -91,87 +91,87 @@ export class ServiceAzureBot extends pulumi.CustomResource {
      *
      * > **Note:** In order to utilize CMEK, you must add the `Key Vault Crypto Service Encryption User` role to the Azure-defined `Bot Service CMEK Prod` Service Principal. You must also enable `softDeleteEnabled` and `purgeProtectionEnabled` on the `azure.keyvault.KeyVault` that `cmkKeyVaultKeyUrl` refers to. [See Azure Documentation](https://learn.microsoft.com/en-us/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0#how-to-configure-your-azure-key-vault-instance)
      */
-    public readonly cmkKeyVaultKeyUrl!: pulumi.Output<string | undefined>;
+    declare public readonly cmkKeyVaultKeyUrl: pulumi.Output<string | undefined>;
     /**
      * The Application Insights API Key to associate with this Azure Bot Service.
      */
-    public readonly developerAppInsightsApiKey!: pulumi.Output<string | undefined>;
+    declare public readonly developerAppInsightsApiKey: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the Application Insights instance to associate with this Azure Bot Service.
      */
-    public readonly developerAppInsightsApplicationId!: pulumi.Output<string | undefined>;
+    declare public readonly developerAppInsightsApplicationId: pulumi.Output<string | undefined>;
     /**
      * The Application Insight Key to associate with this Azure Bot Service.
      */
-    public readonly developerAppInsightsKey!: pulumi.Output<string | undefined>;
+    declare public readonly developerAppInsightsKey: pulumi.Output<string | undefined>;
     /**
      * The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The Azure Bot Service endpoint.
      */
-    public readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
-    public readonly iconUrl!: pulumi.Output<string | undefined>;
+    declare public readonly iconUrl: pulumi.Output<string | undefined>;
     /**
      * Is local authentication enabled? Defaults to `true`.
      */
-    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A list of LUIS App IDs to associate with this Azure Bot Service.
      */
-    public readonly luisAppIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly luisAppIds: pulumi.Output<string[] | undefined>;
     /**
      * The LUIS key to associate with this Azure Bot Service.
      */
-    public readonly luisKey!: pulumi.Output<string | undefined>;
+    declare public readonly luisKey: pulumi.Output<string | undefined>;
     /**
      * The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
      */
-    public readonly microsoftAppId!: pulumi.Output<string>;
+    declare public readonly microsoftAppId: pulumi.Output<string>;
     /**
      * The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
      */
-    public readonly microsoftAppMsiId!: pulumi.Output<string | undefined>;
+    declare public readonly microsoftAppMsiId: pulumi.Output<string | undefined>;
     /**
      * The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
      */
-    public readonly microsoftAppTenantId!: pulumi.Output<string | undefined>;
+    declare public readonly microsoftAppTenantId: pulumi.Output<string | undefined>;
     /**
      * The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      */
-    public readonly microsoftAppType!: pulumi.Output<string | undefined>;
+    declare public readonly microsoftAppType: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether public network access is enabled. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
      */
-    public readonly streamingEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly streamingEndpointEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags which should be assigned to this Azure Bot Service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ServiceAzureBot resource with the given unique name, arguments, and options.
@@ -186,59 +186,59 @@ export class ServiceAzureBot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceAzureBotState | undefined;
-            resourceInputs["cmkKeyVaultKeyUrl"] = state ? state.cmkKeyVaultKeyUrl : undefined;
-            resourceInputs["developerAppInsightsApiKey"] = state ? state.developerAppInsightsApiKey : undefined;
-            resourceInputs["developerAppInsightsApplicationId"] = state ? state.developerAppInsightsApplicationId : undefined;
-            resourceInputs["developerAppInsightsKey"] = state ? state.developerAppInsightsKey : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["iconUrl"] = state ? state.iconUrl : undefined;
-            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["luisAppIds"] = state ? state.luisAppIds : undefined;
-            resourceInputs["luisKey"] = state ? state.luisKey : undefined;
-            resourceInputs["microsoftAppId"] = state ? state.microsoftAppId : undefined;
-            resourceInputs["microsoftAppMsiId"] = state ? state.microsoftAppMsiId : undefined;
-            resourceInputs["microsoftAppTenantId"] = state ? state.microsoftAppTenantId : undefined;
-            resourceInputs["microsoftAppType"] = state ? state.microsoftAppType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["streamingEndpointEnabled"] = state ? state.streamingEndpointEnabled : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["cmkKeyVaultKeyUrl"] = state?.cmkKeyVaultKeyUrl;
+            resourceInputs["developerAppInsightsApiKey"] = state?.developerAppInsightsApiKey;
+            resourceInputs["developerAppInsightsApplicationId"] = state?.developerAppInsightsApplicationId;
+            resourceInputs["developerAppInsightsKey"] = state?.developerAppInsightsKey;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["iconUrl"] = state?.iconUrl;
+            resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["luisAppIds"] = state?.luisAppIds;
+            resourceInputs["luisKey"] = state?.luisKey;
+            resourceInputs["microsoftAppId"] = state?.microsoftAppId;
+            resourceInputs["microsoftAppMsiId"] = state?.microsoftAppMsiId;
+            resourceInputs["microsoftAppTenantId"] = state?.microsoftAppTenantId;
+            resourceInputs["microsoftAppType"] = state?.microsoftAppType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["streamingEndpointEnabled"] = state?.streamingEndpointEnabled;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ServiceAzureBotArgs | undefined;
-            if ((!args || args.microsoftAppId === undefined) && !opts.urn) {
+            if (args?.microsoftAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'microsoftAppId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["cmkKeyVaultKeyUrl"] = args ? args.cmkKeyVaultKeyUrl : undefined;
+            resourceInputs["cmkKeyVaultKeyUrl"] = args?.cmkKeyVaultKeyUrl;
             resourceInputs["developerAppInsightsApiKey"] = args?.developerAppInsightsApiKey ? pulumi.secret(args.developerAppInsightsApiKey) : undefined;
-            resourceInputs["developerAppInsightsApplicationId"] = args ? args.developerAppInsightsApplicationId : undefined;
-            resourceInputs["developerAppInsightsKey"] = args ? args.developerAppInsightsKey : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["iconUrl"] = args ? args.iconUrl : undefined;
-            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["luisAppIds"] = args ? args.luisAppIds : undefined;
+            resourceInputs["developerAppInsightsApplicationId"] = args?.developerAppInsightsApplicationId;
+            resourceInputs["developerAppInsightsKey"] = args?.developerAppInsightsKey;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["iconUrl"] = args?.iconUrl;
+            resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["luisAppIds"] = args?.luisAppIds;
             resourceInputs["luisKey"] = args?.luisKey ? pulumi.secret(args.luisKey) : undefined;
-            resourceInputs["microsoftAppId"] = args ? args.microsoftAppId : undefined;
-            resourceInputs["microsoftAppMsiId"] = args ? args.microsoftAppMsiId : undefined;
-            resourceInputs["microsoftAppTenantId"] = args ? args.microsoftAppTenantId : undefined;
-            resourceInputs["microsoftAppType"] = args ? args.microsoftAppType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["streamingEndpointEnabled"] = args ? args.streamingEndpointEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["microsoftAppId"] = args?.microsoftAppId;
+            resourceInputs["microsoftAppMsiId"] = args?.microsoftAppMsiId;
+            resourceInputs["microsoftAppTenantId"] = args?.microsoftAppTenantId;
+            resourceInputs["microsoftAppType"] = args?.microsoftAppType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["streamingEndpointEnabled"] = args?.streamingEndpointEnabled;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["developerAppInsightsApiKey", "luisKey"] };

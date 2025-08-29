@@ -95,39 +95,39 @@ export class SubscriptionCostManagementExport extends pulumi.CustomResource {
     /**
      * Is the cost management export active? Default is `true`.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * A `exportDataOptions` block as defined below.
      */
-    public readonly exportDataOptions!: pulumi.Output<outputs.core.SubscriptionCostManagementExportExportDataOptions>;
+    declare public readonly exportDataOptions: pulumi.Output<outputs.core.SubscriptionCostManagementExportExportDataOptions>;
     /**
      * A `exportDataStorageLocation` block as defined below.
      */
-    public readonly exportDataStorageLocation!: pulumi.Output<outputs.core.SubscriptionCostManagementExportExportDataStorageLocation>;
+    declare public readonly exportDataStorageLocation: pulumi.Output<outputs.core.SubscriptionCostManagementExportExportDataStorageLocation>;
     /**
      * Format for export. Valid values are `Csv` only. Default is `Csv`.
      */
-    public readonly fileFormat!: pulumi.Output<string | undefined>;
+    declare public readonly fileFormat: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The date the export will stop capturing information.
      */
-    public readonly recurrencePeriodEndDate!: pulumi.Output<string>;
+    declare public readonly recurrencePeriodEndDate: pulumi.Output<string>;
     /**
      * The date the export will start capturing information.
      */
-    public readonly recurrencePeriodStartDate!: pulumi.Output<string>;
+    declare public readonly recurrencePeriodStartDate: pulumi.Output<string>;
     /**
      * How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
      */
-    public readonly recurrenceType!: pulumi.Output<string>;
+    declare public readonly recurrenceType: pulumi.Output<string>;
     /**
      * The id of the subscription on which to create an export. Changing this forces a new resource to be created.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionCostManagementExport resource with the given unique name, arguments, and options.
@@ -142,44 +142,44 @@ export class SubscriptionCostManagementExport extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionCostManagementExportState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["exportDataOptions"] = state ? state.exportDataOptions : undefined;
-            resourceInputs["exportDataStorageLocation"] = state ? state.exportDataStorageLocation : undefined;
-            resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recurrencePeriodEndDate"] = state ? state.recurrencePeriodEndDate : undefined;
-            resourceInputs["recurrencePeriodStartDate"] = state ? state.recurrencePeriodStartDate : undefined;
-            resourceInputs["recurrenceType"] = state ? state.recurrenceType : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["exportDataOptions"] = state?.exportDataOptions;
+            resourceInputs["exportDataStorageLocation"] = state?.exportDataStorageLocation;
+            resourceInputs["fileFormat"] = state?.fileFormat;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recurrencePeriodEndDate"] = state?.recurrencePeriodEndDate;
+            resourceInputs["recurrencePeriodStartDate"] = state?.recurrencePeriodStartDate;
+            resourceInputs["recurrenceType"] = state?.recurrenceType;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
         } else {
             const args = argsOrState as SubscriptionCostManagementExportArgs | undefined;
-            if ((!args || args.exportDataOptions === undefined) && !opts.urn) {
+            if (args?.exportDataOptions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exportDataOptions'");
             }
-            if ((!args || args.exportDataStorageLocation === undefined) && !opts.urn) {
+            if (args?.exportDataStorageLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exportDataStorageLocation'");
             }
-            if ((!args || args.recurrencePeriodEndDate === undefined) && !opts.urn) {
+            if (args?.recurrencePeriodEndDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrencePeriodEndDate'");
             }
-            if ((!args || args.recurrencePeriodStartDate === undefined) && !opts.urn) {
+            if (args?.recurrencePeriodStartDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrencePeriodStartDate'");
             }
-            if ((!args || args.recurrenceType === undefined) && !opts.urn) {
+            if (args?.recurrenceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrenceType'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["exportDataOptions"] = args ? args.exportDataOptions : undefined;
-            resourceInputs["exportDataStorageLocation"] = args ? args.exportDataStorageLocation : undefined;
-            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recurrencePeriodEndDate"] = args ? args.recurrencePeriodEndDate : undefined;
-            resourceInputs["recurrencePeriodStartDate"] = args ? args.recurrencePeriodStartDate : undefined;
-            resourceInputs["recurrenceType"] = args ? args.recurrenceType : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["exportDataOptions"] = args?.exportDataOptions;
+            resourceInputs["exportDataStorageLocation"] = args?.exportDataStorageLocation;
+            resourceInputs["fileFormat"] = args?.fileFormat;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recurrencePeriodEndDate"] = args?.recurrencePeriodEndDate;
+            resourceInputs["recurrencePeriodStartDate"] = args?.recurrencePeriodStartDate;
+            resourceInputs["recurrenceType"] = args?.recurrenceType;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubscriptionCostManagementExport.__pulumiType, name, resourceInputs, opts);

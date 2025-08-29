@@ -77,27 +77,27 @@ export class MoverSourceEndpoint extends pulumi.CustomResource {
     /**
      * Specifies a description for the Storage Mover Source Endpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the directory being exported from the server. Changing this forces a new resource to be created.
      */
-    public readonly export!: pulumi.Output<string | undefined>;
+    declare public readonly export: pulumi.Output<string | undefined>;
     /**
      * Specifies the host name or IP address of the server exporting the file system. Changing this forces a new resource to be created.
      */
-    public readonly host!: pulumi.Output<string>;
+    declare public readonly host: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the NFS protocol version. Possible values are `NFSauto`, `NFSv3` and `NFSv4`. Defaults to `NFSauto`. Changing this forces a new resource to be created.
      */
-    public readonly nfsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly nfsVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies the ID of the Storage Mover for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly storageMoverId!: pulumi.Output<string>;
+    declare public readonly storageMoverId: pulumi.Output<string>;
 
     /**
      * Create a MoverSourceEndpoint resource with the given unique name, arguments, and options.
@@ -112,26 +112,26 @@ export class MoverSourceEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MoverSourceEndpointState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["export"] = state ? state.export : undefined;
-            resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nfsVersion"] = state ? state.nfsVersion : undefined;
-            resourceInputs["storageMoverId"] = state ? state.storageMoverId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["export"] = state?.export;
+            resourceInputs["host"] = state?.host;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nfsVersion"] = state?.nfsVersion;
+            resourceInputs["storageMoverId"] = state?.storageMoverId;
         } else {
             const args = argsOrState as MoverSourceEndpointArgs | undefined;
-            if ((!args || args.host === undefined) && !opts.urn) {
+            if (args?.host === undefined && !opts.urn) {
                 throw new Error("Missing required property 'host'");
             }
-            if ((!args || args.storageMoverId === undefined) && !opts.urn) {
+            if (args?.storageMoverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageMoverId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["export"] = args ? args.export : undefined;
-            resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nfsVersion"] = args ? args.nfsVersion : undefined;
-            resourceInputs["storageMoverId"] = args ? args.storageMoverId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["export"] = args?.export;
+            resourceInputs["host"] = args?.host;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nfsVersion"] = args?.nfsVersion;
+            resourceInputs["storageMoverId"] = args?.storageMoverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MoverSourceEndpoint.__pulumiType, name, resourceInputs, opts);

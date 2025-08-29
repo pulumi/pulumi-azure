@@ -82,27 +82,27 @@ export class ChannelEmail extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * The email address that the Bot will authenticate with.
      */
-    public readonly emailAddress!: pulumi.Output<string>;
+    declare public readonly emailAddress: pulumi.Output<string>;
     /**
      * The email password that the Bot will authenticate with.
      */
-    public readonly emailPassword!: pulumi.Output<string | undefined>;
+    declare public readonly emailPassword: pulumi.Output<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The magic code used to set up OAUTH authentication.
      */
-    public readonly magicCode!: pulumi.Output<string | undefined>;
+    declare public readonly magicCode: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ChannelEmail resource with the given unique name, arguments, and options.
@@ -117,29 +117,29 @@ export class ChannelEmail extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelEmailState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
-            resourceInputs["emailPassword"] = state ? state.emailPassword : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["magicCode"] = state ? state.magicCode : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["emailAddress"] = state?.emailAddress;
+            resourceInputs["emailPassword"] = state?.emailPassword;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["magicCode"] = state?.magicCode;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ChannelEmailArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.emailAddress === undefined) && !opts.urn) {
+            if (args?.emailAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailAddress'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["emailAddress"] = args?.emailAddress;
             resourceInputs["emailPassword"] = args?.emailPassword ? pulumi.secret(args.emailPassword) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["location"] = args?.location;
             resourceInputs["magicCode"] = args?.magicCode ? pulumi.secret(args.magicCode) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["emailPassword", "magicCode"] };

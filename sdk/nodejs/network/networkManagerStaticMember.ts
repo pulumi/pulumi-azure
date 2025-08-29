@@ -95,19 +95,19 @@ export class NetworkManagerStaticMember extends pulumi.CustomResource {
     /**
      * Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created.
      */
-    public readonly networkGroupId!: pulumi.Output<string>;
+    declare public readonly networkGroupId: pulumi.Output<string>;
     /**
      * The region of the Network Manager Static Member.
      */
-    public /*out*/ readonly region!: pulumi.Output<string>;
+    declare public /*out*/ readonly region: pulumi.Output<string>;
     /**
      * Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created.
      */
-    public readonly targetVirtualNetworkId!: pulumi.Output<string>;
+    declare public readonly targetVirtualNetworkId: pulumi.Output<string>;
 
     /**
      * Create a NetworkManagerStaticMember resource with the given unique name, arguments, and options.
@@ -122,21 +122,21 @@ export class NetworkManagerStaticMember extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerStaticMemberState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkGroupId"] = state ? state.networkGroupId : undefined;
-            resourceInputs["region"] = state ? state.region : undefined;
-            resourceInputs["targetVirtualNetworkId"] = state ? state.targetVirtualNetworkId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkGroupId"] = state?.networkGroupId;
+            resourceInputs["region"] = state?.region;
+            resourceInputs["targetVirtualNetworkId"] = state?.targetVirtualNetworkId;
         } else {
             const args = argsOrState as NetworkManagerStaticMemberArgs | undefined;
-            if ((!args || args.networkGroupId === undefined) && !opts.urn) {
+            if (args?.networkGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkGroupId'");
             }
-            if ((!args || args.targetVirtualNetworkId === undefined) && !opts.urn) {
+            if (args?.targetVirtualNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetVirtualNetworkId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkGroupId"] = args ? args.networkGroupId : undefined;
-            resourceInputs["targetVirtualNetworkId"] = args ? args.targetVirtualNetworkId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkGroupId"] = args?.networkGroupId;
+            resourceInputs["targetVirtualNetworkId"] = args?.targetVirtualNetworkId;
             resourceInputs["region"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

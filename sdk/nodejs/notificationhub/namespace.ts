@@ -72,35 +72,35 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Is this Notification Hub Namespace enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Type of Namespace - possible values are `Messaging` or `NotificationHub`.
      */
-    public readonly namespaceType!: pulumi.Output<string>;
+    declare public readonly namespaceType: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ServiceBus Endpoint for this Notification Hub Namespace.
      */
-    public /*out*/ readonly servicebusEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly servicebusEndpoint: pulumi.Output<string>;
     /**
      * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -115,32 +115,32 @@ export class Namespace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NamespaceState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceType"] = state ? state.namespaceType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["servicebusEndpoint"] = state ? state.servicebusEndpoint : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceType"] = state?.namespaceType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["servicebusEndpoint"] = state?.servicebusEndpoint;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if ((!args || args.namespaceType === undefined) && !opts.urn) {
+            if (args?.namespaceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceType"] = args ? args.namespaceType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceType"] = args?.namespaceType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["servicebusEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -75,67 +75,67 @@ export class Account extends pulumi.CustomResource {
     /**
      * Atlas Kafka endpoint primary connection string.
      */
-    public /*out*/ readonly atlasKafkaEndpointPrimaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly atlasKafkaEndpointPrimaryConnectionString: pulumi.Output<string>;
     /**
      * Atlas Kafka endpoint secondary connection string.
      */
-    public /*out*/ readonly atlasKafkaEndpointSecondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly atlasKafkaEndpointSecondaryConnectionString: pulumi.Output<string>;
     /**
      * Configured in AWS to allow use of the role arn used for scanning
      */
-    public /*out*/ readonly awsExternalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly awsExternalId: pulumi.Output<string>;
     /**
      * Catalog endpoint.
      */
-    public /*out*/ readonly catalogEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly catalogEndpoint: pulumi.Output<string>;
     /**
      * Guardian endpoint.
      */
-    public /*out*/ readonly guardianEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly guardianEndpoint: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.purview.AccountIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.purview.AccountIdentity>;
     /**
      * The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
      *
      * > **Note:** `managedEventHubEnabled` must be `false` in order to use a Kafka Configuration with the Purview Account.
      */
-    public readonly managedEventHubEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly managedEventHubEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      *
      * > **Note:** `managedResourceGroupName` must be a new Resource Group.
      */
-    public readonly managedResourceGroupName!: pulumi.Output<string>;
+    declare public readonly managedResourceGroupName: pulumi.Output<string>;
     /**
      * A `managedResources` block as defined below.
      */
-    public /*out*/ readonly managedResources!: pulumi.Output<outputs.purview.AccountManagedResource[]>;
+    declare public /*out*/ readonly managedResources: pulumi.Output<outputs.purview.AccountManagedResource[]>;
     /**
      * The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Should the Purview Account be visible to the public network? Defaults to `true`.
      */
-    public readonly publicNetworkEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Scan endpoint.
      */
-    public /*out*/ readonly scanEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly scanEndpoint: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Purview Account.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -150,37 +150,37 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["atlasKafkaEndpointPrimaryConnectionString"] = state ? state.atlasKafkaEndpointPrimaryConnectionString : undefined;
-            resourceInputs["atlasKafkaEndpointSecondaryConnectionString"] = state ? state.atlasKafkaEndpointSecondaryConnectionString : undefined;
-            resourceInputs["awsExternalId"] = state ? state.awsExternalId : undefined;
-            resourceInputs["catalogEndpoint"] = state ? state.catalogEndpoint : undefined;
-            resourceInputs["guardianEndpoint"] = state ? state.guardianEndpoint : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedEventHubEnabled"] = state ? state.managedEventHubEnabled : undefined;
-            resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
-            resourceInputs["managedResources"] = state ? state.managedResources : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkEnabled"] = state ? state.publicNetworkEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scanEndpoint"] = state ? state.scanEndpoint : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["atlasKafkaEndpointPrimaryConnectionString"] = state?.atlasKafkaEndpointPrimaryConnectionString;
+            resourceInputs["atlasKafkaEndpointSecondaryConnectionString"] = state?.atlasKafkaEndpointSecondaryConnectionString;
+            resourceInputs["awsExternalId"] = state?.awsExternalId;
+            resourceInputs["catalogEndpoint"] = state?.catalogEndpoint;
+            resourceInputs["guardianEndpoint"] = state?.guardianEndpoint;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedEventHubEnabled"] = state?.managedEventHubEnabled;
+            resourceInputs["managedResourceGroupName"] = state?.managedResourceGroupName;
+            resourceInputs["managedResources"] = state?.managedResources;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkEnabled"] = state?.publicNetworkEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scanEndpoint"] = state?.scanEndpoint;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedEventHubEnabled"] = args ? args.managedEventHubEnabled : undefined;
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkEnabled"] = args ? args.publicNetworkEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedEventHubEnabled"] = args?.managedEventHubEnabled;
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkEnabled"] = args?.publicNetworkEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["atlasKafkaEndpointPrimaryConnectionString"] = undefined /*out*/;
             resourceInputs["atlasKafkaEndpointSecondaryConnectionString"] = undefined /*out*/;
             resourceInputs["awsExternalId"] = undefined /*out*/;

@@ -95,39 +95,39 @@ export class LinkedCustomService extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An `integrationRuntime` block as defined below.
      */
-    public readonly integrationRuntime!: pulumi.Output<outputs.datafactory.LinkedCustomServiceIntegrationRuntime | undefined>;
+    declare public readonly integrationRuntime: pulumi.Output<outputs.datafactory.LinkedCustomServiceIntegrationRuntime | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Please refer to Microsoft.DataFactory factories/linkedservices for the type values syntax. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * A JSON object that contains the properties of the Data Factory Linked Service.
      */
-    public readonly typePropertiesJson!: pulumi.Output<string>;
+    declare public readonly typePropertiesJson: pulumi.Output<string>;
 
     /**
      * Create a LinkedCustomService resource with the given unique name, arguments, and options.
@@ -142,35 +142,35 @@ export class LinkedCustomService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedCustomServiceState | undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["integrationRuntime"] = state ? state.integrationRuntime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["typePropertiesJson"] = state ? state.typePropertiesJson : undefined;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["integrationRuntime"] = state?.integrationRuntime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["typePropertiesJson"] = state?.typePropertiesJson;
         } else {
             const args = argsOrState as LinkedCustomServiceArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.typePropertiesJson === undefined) && !opts.urn) {
+            if (args?.typePropertiesJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typePropertiesJson'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["integrationRuntime"] = args ? args.integrationRuntime : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typePropertiesJson"] = args ? args.typePropertiesJson : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["integrationRuntime"] = args?.integrationRuntime;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typePropertiesJson"] = args?.typePropertiesJson;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedCustomService.__pulumiType, name, resourceInputs, opts);

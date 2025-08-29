@@ -90,23 +90,23 @@ export class VirtualHubConnection extends pulumi.CustomResource {
     /**
      * Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
      */
-    public readonly internetSecurityEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internetSecurityEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly remoteVirtualNetworkId!: pulumi.Output<string>;
+    declare public readonly remoteVirtualNetworkId: pulumi.Output<string>;
     /**
      * A `routing` block as defined below.
      */
-    public readonly routing!: pulumi.Output<outputs.network.VirtualHubConnectionRouting>;
+    declare public readonly routing: pulumi.Output<outputs.network.VirtualHubConnectionRouting>;
     /**
      * The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
 
     /**
      * Create a VirtualHubConnection resource with the given unique name, arguments, and options.
@@ -121,24 +121,24 @@ export class VirtualHubConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubConnectionState | undefined;
-            resourceInputs["internetSecurityEnabled"] = state ? state.internetSecurityEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
-            resourceInputs["routing"] = state ? state.routing : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["internetSecurityEnabled"] = state?.internetSecurityEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["remoteVirtualNetworkId"] = state?.remoteVirtualNetworkId;
+            resourceInputs["routing"] = state?.routing;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
         } else {
             const args = argsOrState as VirtualHubConnectionArgs | undefined;
-            if ((!args || args.remoteVirtualNetworkId === undefined) && !opts.urn) {
+            if (args?.remoteVirtualNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteVirtualNetworkId'");
             }
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["internetSecurityEnabled"] = args ? args.internetSecurityEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
-            resourceInputs["routing"] = args ? args.routing : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["internetSecurityEnabled"] = args?.internetSecurityEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["remoteVirtualNetworkId"] = args?.remoteVirtualNetworkId;
+            resourceInputs["routing"] = args?.routing;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualHubConnection.__pulumiType, name, resourceInputs, opts);

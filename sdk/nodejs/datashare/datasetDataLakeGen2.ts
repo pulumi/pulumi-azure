@@ -108,31 +108,31 @@ export class DatasetDataLakeGen2 extends pulumi.CustomResource {
     /**
      * The name of the Data Share Dataset.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folderPath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    public readonly filePath!: pulumi.Output<string | undefined>;
+    declare public readonly filePath: pulumi.Output<string | undefined>;
     /**
      * The name of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    public readonly fileSystemName!: pulumi.Output<string>;
+    declare public readonly fileSystemName: pulumi.Output<string>;
     /**
      * The folder path in the data lake file system to be shared with the receiver. Conflicts with `filePath` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    public readonly folderPath!: pulumi.Output<string | undefined>;
+    declare public readonly folderPath: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Data Share Data Lake Gen2 Dataset. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    public readonly shareId!: pulumi.Output<string>;
+    declare public readonly shareId: pulumi.Output<string>;
     /**
      * The resource id of the storage account of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a DatasetDataLakeGen2 resource with the given unique name, arguments, and options.
@@ -147,30 +147,30 @@ export class DatasetDataLakeGen2 extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetDataLakeGen2State | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["filePath"] = state ? state.filePath : undefined;
-            resourceInputs["fileSystemName"] = state ? state.fileSystemName : undefined;
-            resourceInputs["folderPath"] = state ? state.folderPath : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["shareId"] = state ? state.shareId : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["filePath"] = state?.filePath;
+            resourceInputs["fileSystemName"] = state?.fileSystemName;
+            resourceInputs["folderPath"] = state?.folderPath;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["shareId"] = state?.shareId;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as DatasetDataLakeGen2Args | undefined;
-            if ((!args || args.fileSystemName === undefined) && !opts.urn) {
+            if (args?.fileSystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystemName'");
             }
-            if ((!args || args.shareId === undefined) && !opts.urn) {
+            if (args?.shareId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareId'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["fileSystemName"] = args ? args.fileSystemName : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["shareId"] = args ? args.shareId : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["filePath"] = args?.filePath;
+            resourceInputs["fileSystemName"] = args?.fileSystemName;
+            resourceInputs["folderPath"] = args?.folderPath;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["shareId"] = args?.shareId;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
             resourceInputs["displayName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

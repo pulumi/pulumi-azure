@@ -92,51 +92,51 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
     /**
      * The allowed AAD tenant, usually your B2C tenant domain.
      */
-    public readonly allowedTenant!: pulumi.Output<string>;
+    declare public readonly allowedTenant: pulumi.Output<string>;
     /**
      * The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
      */
-    public readonly authority!: pulumi.Output<string>;
+    declare public readonly authority: pulumi.Output<string>;
     /**
      * Client ID of the Application in your B2C tenant.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * The client library to be used in the Azure AD B2C Identity Provider.
      */
-    public readonly clientLibrary!: pulumi.Output<string | undefined>;
+    declare public readonly clientLibrary: pulumi.Output<string | undefined>;
     /**
      * Client secret of the Application in your B2C tenant.
      */
-    public readonly clientSecret!: pulumi.Output<string>;
+    declare public readonly clientSecret: pulumi.Output<string>;
     /**
      * Password reset Policy Name.
      */
-    public readonly passwordResetPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly passwordResetPolicy: pulumi.Output<string | undefined>;
     /**
      * Profile editing Policy Name.
      */
-    public readonly profileEditingPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly profileEditingPolicy: pulumi.Output<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Signin Policy Name.
      */
-    public readonly signinPolicy!: pulumi.Output<string>;
+    declare public readonly signinPolicy: pulumi.Output<string>;
     /**
      * The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
      */
-    public readonly signinTenant!: pulumi.Output<string>;
+    declare public readonly signinTenant: pulumi.Output<string>;
     /**
      * Signup Policy Name.
      */
-    public readonly signupPolicy!: pulumi.Output<string>;
+    declare public readonly signupPolicy: pulumi.Output<string>;
 
     /**
      * Create a IdentityProviderAadb2c resource with the given unique name, arguments, and options.
@@ -151,59 +151,59 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderAadb2cState | undefined;
-            resourceInputs["allowedTenant"] = state ? state.allowedTenant : undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["authority"] = state ? state.authority : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientLibrary"] = state ? state.clientLibrary : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["passwordResetPolicy"] = state ? state.passwordResetPolicy : undefined;
-            resourceInputs["profileEditingPolicy"] = state ? state.profileEditingPolicy : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["signinPolicy"] = state ? state.signinPolicy : undefined;
-            resourceInputs["signinTenant"] = state ? state.signinTenant : undefined;
-            resourceInputs["signupPolicy"] = state ? state.signupPolicy : undefined;
+            resourceInputs["allowedTenant"] = state?.allowedTenant;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["authority"] = state?.authority;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientLibrary"] = state?.clientLibrary;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["passwordResetPolicy"] = state?.passwordResetPolicy;
+            resourceInputs["profileEditingPolicy"] = state?.profileEditingPolicy;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["signinPolicy"] = state?.signinPolicy;
+            resourceInputs["signinTenant"] = state?.signinTenant;
+            resourceInputs["signupPolicy"] = state?.signupPolicy;
         } else {
             const args = argsOrState as IdentityProviderAadb2cArgs | undefined;
-            if ((!args || args.allowedTenant === undefined) && !opts.urn) {
+            if (args?.allowedTenant === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allowedTenant'");
             }
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.authority === undefined) && !opts.urn) {
+            if (args?.authority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authority'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !opts.urn) {
+            if (args?.clientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.signinPolicy === undefined) && !opts.urn) {
+            if (args?.signinPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signinPolicy'");
             }
-            if ((!args || args.signinTenant === undefined) && !opts.urn) {
+            if (args?.signinTenant === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signinTenant'");
             }
-            if ((!args || args.signupPolicy === undefined) && !opts.urn) {
+            if (args?.signupPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signupPolicy'");
             }
-            resourceInputs["allowedTenant"] = args ? args.allowedTenant : undefined;
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["authority"] = args ? args.authority : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientLibrary"] = args ? args.clientLibrary : undefined;
+            resourceInputs["allowedTenant"] = args?.allowedTenant;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["authority"] = args?.authority;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientLibrary"] = args?.clientLibrary;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["passwordResetPolicy"] = args ? args.passwordResetPolicy : undefined;
-            resourceInputs["profileEditingPolicy"] = args ? args.profileEditingPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["signinPolicy"] = args ? args.signinPolicy : undefined;
-            resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
-            resourceInputs["signupPolicy"] = args ? args.signupPolicy : undefined;
+            resourceInputs["passwordResetPolicy"] = args?.passwordResetPolicy;
+            resourceInputs["profileEditingPolicy"] = args?.profileEditingPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["signinPolicy"] = args?.signinPolicy;
+            resourceInputs["signinTenant"] = args?.signinTenant;
+            resourceInputs["signupPolicy"] = args?.signupPolicy;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };

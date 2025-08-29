@@ -79,39 +79,39 @@ export class Ledger extends pulumi.CustomResource {
     /**
      * A list of `azureadBasedServicePrincipal` blocks as defined below.
      */
-    public readonly azureadBasedServicePrincipals!: pulumi.Output<outputs.confidentialledger.LedgerAzureadBasedServicePrincipal[]>;
+    declare public readonly azureadBasedServicePrincipals: pulumi.Output<outputs.confidentialledger.LedgerAzureadBasedServicePrincipal[]>;
     /**
      * A list of `certificateBasedSecurityPrincipal` blocks as defined below.
      */
-    public readonly certificateBasedSecurityPrincipals!: pulumi.Output<outputs.confidentialledger.LedgerCertificateBasedSecurityPrincipal[] | undefined>;
+    declare public readonly certificateBasedSecurityPrincipals: pulumi.Output<outputs.confidentialledger.LedgerCertificateBasedSecurityPrincipal[] | undefined>;
     /**
      * The Identity Service Endpoint for this Confidential Ledger.
      */
-    public /*out*/ readonly identityServiceEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly identityServiceEndpoint: pulumi.Output<string>;
     /**
      * The Endpoint for this Confidential Ledger.
      */
-    public /*out*/ readonly ledgerEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly ledgerEndpoint: pulumi.Output<string>;
     /**
      * Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
      */
-    public readonly ledgerType!: pulumi.Output<string>;
+    declare public readonly ledgerType: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Confidential Ledger.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Ledger resource with the given unique name, arguments, and options.
@@ -126,33 +126,33 @@ export class Ledger extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LedgerState | undefined;
-            resourceInputs["azureadBasedServicePrincipals"] = state ? state.azureadBasedServicePrincipals : undefined;
-            resourceInputs["certificateBasedSecurityPrincipals"] = state ? state.certificateBasedSecurityPrincipals : undefined;
-            resourceInputs["identityServiceEndpoint"] = state ? state.identityServiceEndpoint : undefined;
-            resourceInputs["ledgerEndpoint"] = state ? state.ledgerEndpoint : undefined;
-            resourceInputs["ledgerType"] = state ? state.ledgerType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["azureadBasedServicePrincipals"] = state?.azureadBasedServicePrincipals;
+            resourceInputs["certificateBasedSecurityPrincipals"] = state?.certificateBasedSecurityPrincipals;
+            resourceInputs["identityServiceEndpoint"] = state?.identityServiceEndpoint;
+            resourceInputs["ledgerEndpoint"] = state?.ledgerEndpoint;
+            resourceInputs["ledgerType"] = state?.ledgerType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LedgerArgs | undefined;
-            if ((!args || args.azureadBasedServicePrincipals === undefined) && !opts.urn) {
+            if (args?.azureadBasedServicePrincipals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureadBasedServicePrincipals'");
             }
-            if ((!args || args.ledgerType === undefined) && !opts.urn) {
+            if (args?.ledgerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ledgerType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureadBasedServicePrincipals"] = args ? args.azureadBasedServicePrincipals : undefined;
-            resourceInputs["certificateBasedSecurityPrincipals"] = args ? args.certificateBasedSecurityPrincipals : undefined;
-            resourceInputs["ledgerType"] = args ? args.ledgerType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureadBasedServicePrincipals"] = args?.azureadBasedServicePrincipals;
+            resourceInputs["certificateBasedSecurityPrincipals"] = args?.certificateBasedSecurityPrincipals;
+            resourceInputs["ledgerType"] = args?.ledgerType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["identityServiceEndpoint"] = undefined /*out*/;
             resourceInputs["ledgerEndpoint"] = undefined /*out*/;
         }

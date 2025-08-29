@@ -69,19 +69,19 @@ export class Queue extends pulumi.CustomResource {
     /**
      * A mapping of MetaData which should be assigned to this Storage Queue.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Resource Manager ID of this Storage Queue.
      */
-    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceManagerId: pulumi.Output<string>;
     /**
      * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -96,18 +96,18 @@ export class Queue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceManagerId"] = state?.resourceManagerId;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
         } else {
             const args = argsOrState as QueueArgs | undefined;
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

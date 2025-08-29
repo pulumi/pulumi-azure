@@ -86,77 +86,77 @@ export class KeyVault extends pulumi.CustomResource {
      *
      * > **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
-    public readonly accessPolicies!: pulumi.Output<outputs.keyvault.KeyVaultAccessPolicy[]>;
+    declare public readonly accessPolicies: pulumi.Output<outputs.keyvault.KeyVaultAccessPolicy[]>;
     /**
      * @deprecated As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
      */
-    public readonly contacts!: pulumi.Output<outputs.keyvault.KeyVaultContact[]>;
+    declare public readonly contacts: pulumi.Output<outputs.keyvault.KeyVaultContact[]>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
      *
      * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
      */
-    public readonly enableRbacAuthorization!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableRbacAuthorization: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      */
-    public readonly enabledForDeployment!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabledForDeployment: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
      */
-    public readonly enabledForDiskEncryption!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabledForDiskEncryption: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
      */
-    public readonly enabledForTemplateDeployment!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabledForTemplateDeployment: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkAcls` block as defined below.
      */
-    public readonly networkAcls!: pulumi.Output<outputs.keyvault.KeyVaultNetworkAcls>;
+    declare public readonly networkAcls: pulumi.Output<outputs.keyvault.KeyVaultNetworkAcls>;
     /**
      * Whether public network access is allowed for this Key Vault. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Is Purge Protection enabled for this Key Vault? 
      *
      * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      */
-    public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly purgeProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
      *
      * > **Note:** This field can only be configured one time and cannot be updated.
      */
-    public readonly softDeleteRetentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly softDeleteRetentionDays: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
     /**
      * The URI of the Key Vault, used for performing operations on keys and secrets.
      */
-    public /*out*/ readonly vaultUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly vaultUri: pulumi.Output<string>;
 
     /**
      * Create a KeyVault resource with the given unique name, arguments, and options.
@@ -171,50 +171,50 @@ export class KeyVault extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyVaultState | undefined;
-            resourceInputs["accessPolicies"] = state ? state.accessPolicies : undefined;
-            resourceInputs["contacts"] = state ? state.contacts : undefined;
-            resourceInputs["enableRbacAuthorization"] = state ? state.enableRbacAuthorization : undefined;
-            resourceInputs["enabledForDeployment"] = state ? state.enabledForDeployment : undefined;
-            resourceInputs["enabledForDiskEncryption"] = state ? state.enabledForDiskEncryption : undefined;
-            resourceInputs["enabledForTemplateDeployment"] = state ? state.enabledForTemplateDeployment : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkAcls"] = state ? state.networkAcls : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["softDeleteRetentionDays"] = state ? state.softDeleteRetentionDays : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
-            resourceInputs["vaultUri"] = state ? state.vaultUri : undefined;
+            resourceInputs["accessPolicies"] = state?.accessPolicies;
+            resourceInputs["contacts"] = state?.contacts;
+            resourceInputs["enableRbacAuthorization"] = state?.enableRbacAuthorization;
+            resourceInputs["enabledForDeployment"] = state?.enabledForDeployment;
+            resourceInputs["enabledForDiskEncryption"] = state?.enabledForDiskEncryption;
+            resourceInputs["enabledForTemplateDeployment"] = state?.enabledForTemplateDeployment;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkAcls"] = state?.networkAcls;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["purgeProtectionEnabled"] = state?.purgeProtectionEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["softDeleteRetentionDays"] = state?.softDeleteRetentionDays;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["vaultUri"] = state?.vaultUri;
         } else {
             const args = argsOrState as KeyVaultArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
-            resourceInputs["contacts"] = args ? args.contacts : undefined;
-            resourceInputs["enableRbacAuthorization"] = args ? args.enableRbacAuthorization : undefined;
-            resourceInputs["enabledForDeployment"] = args ? args.enabledForDeployment : undefined;
-            resourceInputs["enabledForDiskEncryption"] = args ? args.enabledForDiskEncryption : undefined;
-            resourceInputs["enabledForTemplateDeployment"] = args ? args.enabledForTemplateDeployment : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["softDeleteRetentionDays"] = args ? args.softDeleteRetentionDays : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["accessPolicies"] = args?.accessPolicies;
+            resourceInputs["contacts"] = args?.contacts;
+            resourceInputs["enableRbacAuthorization"] = args?.enableRbacAuthorization;
+            resourceInputs["enabledForDeployment"] = args?.enabledForDeployment;
+            resourceInputs["enabledForDiskEncryption"] = args?.enabledForDiskEncryption;
+            resourceInputs["enabledForTemplateDeployment"] = args?.enabledForTemplateDeployment;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["purgeProtectionEnabled"] = args?.purgeProtectionEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["softDeleteRetentionDays"] = args?.softDeleteRetentionDays;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["vaultUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -95,39 +95,39 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Webhook is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
     /**
      * Controls if Webhook is enabled. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Timestamp when the webhook expires. Changing this forces a new resource to be created.
      */
-    public readonly expiryTime!: pulumi.Output<string>;
+    declare public readonly expiryTime: pulumi.Output<string>;
     /**
      * Specifies the name of the Webhook. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Map of input parameters passed to runbook.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource group in which the Webhook is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Name of the hybrid worker group the Webhook job will run on.
      */
-    public readonly runOnWorkerGroup!: pulumi.Output<string | undefined>;
+    declare public readonly runOnWorkerGroup: pulumi.Output<string | undefined>;
     /**
      * Name of the Automation Runbook to execute by Webhook.
      */
-    public readonly runbookName!: pulumi.Output<string>;
+    declare public readonly runbookName: pulumi.Output<string>;
     /**
      * URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
      */
-    public readonly uri!: pulumi.Output<string>;
+    declare public readonly uri: pulumi.Output<string>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -142,37 +142,37 @@ export class Webhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["expiryTime"] = state ? state.expiryTime : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["runOnWorkerGroup"] = state ? state.runOnWorkerGroup : undefined;
-            resourceInputs["runbookName"] = state ? state.runbookName : undefined;
-            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["expiryTime"] = state?.expiryTime;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["runOnWorkerGroup"] = state?.runOnWorkerGroup;
+            resourceInputs["runbookName"] = state?.runbookName;
+            resourceInputs["uri"] = state?.uri;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.expiryTime === undefined) && !opts.urn) {
+            if (args?.expiryTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expiryTime'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runbookName === undefined) && !opts.urn) {
+            if (args?.runbookName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runbookName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["expiryTime"] = args ? args.expiryTime : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runOnWorkerGroup"] = args ? args.runOnWorkerGroup : undefined;
-            resourceInputs["runbookName"] = args ? args.runbookName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["expiryTime"] = args?.expiryTime;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runOnWorkerGroup"] = args?.runOnWorkerGroup;
+            resourceInputs["runbookName"] = args?.runbookName;
             resourceInputs["uri"] = args?.uri ? pulumi.secret(args.uri) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

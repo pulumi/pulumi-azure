@@ -96,78 +96,78 @@ export class Frontdoor extends pulumi.CustomResource {
     /**
      * A `backendPoolHealthProbe` block as defined below.
      */
-    public readonly backendPoolHealthProbes!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolHealthProbe[]>;
+    declare public readonly backendPoolHealthProbes: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolHealthProbe[]>;
     /**
      * A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
      */
-    public /*out*/ readonly backendPoolHealthProbesMap!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly backendPoolHealthProbesMap: pulumi.Output<{[key: string]: string}>;
     /**
      * A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
      */
-    public /*out*/ readonly backendPoolLoadBalancingSettingsMap!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly backendPoolLoadBalancingSettingsMap: pulumi.Output<{[key: string]: string}>;
     /**
      * A `backendPoolLoadBalancing` block as defined below.
      */
-    public readonly backendPoolLoadBalancings!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolLoadBalancing[]>;
+    declare public readonly backendPoolLoadBalancings: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolLoadBalancing[]>;
     /**
      * A `backendPoolSettings` block as defined below.
      */
-    public readonly backendPoolSettings!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolSetting[]>;
+    declare public readonly backendPoolSettings: pulumi.Output<outputs.frontdoor.FrontdoorBackendPoolSetting[]>;
     /**
      * A `backendPool` block as defined below.
      *
      * > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
      */
-    public readonly backendPools!: pulumi.Output<outputs.frontdoor.FrontdoorBackendPool[]>;
+    declare public readonly backendPools: pulumi.Output<outputs.frontdoor.FrontdoorBackendPool[]>;
     /**
      * A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
      */
-    public /*out*/ readonly backendPoolsMap!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly backendPoolsMap: pulumi.Output<{[key: string]: string}>;
     /**
      * The host that each frontendEndpoint must CNAME to.
      */
-    public /*out*/ readonly cname!: pulumi.Output<string>;
-    public /*out*/ readonly explicitResourceOrders!: pulumi.Output<outputs.frontdoor.FrontdoorExplicitResourceOrder[]>;
+    declare public /*out*/ readonly cname: pulumi.Output<string>;
+    declare public /*out*/ readonly explicitResourceOrders: pulumi.Output<outputs.frontdoor.FrontdoorExplicitResourceOrder[]>;
     /**
      * A friendly name for the Front Door service.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * A `frontendEndpoint` block as defined below.
      */
-    public readonly frontendEndpoints!: pulumi.Output<outputs.frontdoor.FrontdoorFrontendEndpoint[]>;
+    declare public readonly frontendEndpoints: pulumi.Output<outputs.frontdoor.FrontdoorFrontendEndpoint[]>;
     /**
      * A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
      */
-    public /*out*/ readonly frontendEndpointsMap!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly frontendEndpointsMap: pulumi.Output<{[key: string]: string}>;
     /**
      * The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
      */
-    public /*out*/ readonly headerFrontdoorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly headerFrontdoorId: pulumi.Output<string>;
     /**
      * Should the Front Door Load Balancer be Enabled? Defaults to `true`.
      */
-    public readonly loadBalancerEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly loadBalancerEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `routingRule` block as defined below.
      */
-    public readonly routingRules!: pulumi.Output<outputs.frontdoor.FrontdoorRoutingRule[]>;
+    declare public readonly routingRules: pulumi.Output<outputs.frontdoor.FrontdoorRoutingRule[]>;
     /**
      * A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
      */
-    public /*out*/ readonly routingRulesMap!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly routingRulesMap: pulumi.Output<{[key: string]: string}>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Frontdoor resource with the given unique name, arguments, and options.
@@ -182,56 +182,56 @@ export class Frontdoor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorState | undefined;
-            resourceInputs["backendPoolHealthProbes"] = state ? state.backendPoolHealthProbes : undefined;
-            resourceInputs["backendPoolHealthProbesMap"] = state ? state.backendPoolHealthProbesMap : undefined;
-            resourceInputs["backendPoolLoadBalancingSettingsMap"] = state ? state.backendPoolLoadBalancingSettingsMap : undefined;
-            resourceInputs["backendPoolLoadBalancings"] = state ? state.backendPoolLoadBalancings : undefined;
-            resourceInputs["backendPoolSettings"] = state ? state.backendPoolSettings : undefined;
-            resourceInputs["backendPools"] = state ? state.backendPools : undefined;
-            resourceInputs["backendPoolsMap"] = state ? state.backendPoolsMap : undefined;
-            resourceInputs["cname"] = state ? state.cname : undefined;
-            resourceInputs["explicitResourceOrders"] = state ? state.explicitResourceOrders : undefined;
-            resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
-            resourceInputs["frontendEndpoints"] = state ? state.frontendEndpoints : undefined;
-            resourceInputs["frontendEndpointsMap"] = state ? state.frontendEndpointsMap : undefined;
-            resourceInputs["headerFrontdoorId"] = state ? state.headerFrontdoorId : undefined;
-            resourceInputs["loadBalancerEnabled"] = state ? state.loadBalancerEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routingRules"] = state ? state.routingRules : undefined;
-            resourceInputs["routingRulesMap"] = state ? state.routingRulesMap : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["backendPoolHealthProbes"] = state?.backendPoolHealthProbes;
+            resourceInputs["backendPoolHealthProbesMap"] = state?.backendPoolHealthProbesMap;
+            resourceInputs["backendPoolLoadBalancingSettingsMap"] = state?.backendPoolLoadBalancingSettingsMap;
+            resourceInputs["backendPoolLoadBalancings"] = state?.backendPoolLoadBalancings;
+            resourceInputs["backendPoolSettings"] = state?.backendPoolSettings;
+            resourceInputs["backendPools"] = state?.backendPools;
+            resourceInputs["backendPoolsMap"] = state?.backendPoolsMap;
+            resourceInputs["cname"] = state?.cname;
+            resourceInputs["explicitResourceOrders"] = state?.explicitResourceOrders;
+            resourceInputs["friendlyName"] = state?.friendlyName;
+            resourceInputs["frontendEndpoints"] = state?.frontendEndpoints;
+            resourceInputs["frontendEndpointsMap"] = state?.frontendEndpointsMap;
+            resourceInputs["headerFrontdoorId"] = state?.headerFrontdoorId;
+            resourceInputs["loadBalancerEnabled"] = state?.loadBalancerEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routingRules"] = state?.routingRules;
+            resourceInputs["routingRulesMap"] = state?.routingRulesMap;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as FrontdoorArgs | undefined;
-            if ((!args || args.backendPoolHealthProbes === undefined) && !opts.urn) {
+            if (args?.backendPoolHealthProbes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backendPoolHealthProbes'");
             }
-            if ((!args || args.backendPoolLoadBalancings === undefined) && !opts.urn) {
+            if (args?.backendPoolLoadBalancings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backendPoolLoadBalancings'");
             }
-            if ((!args || args.backendPools === undefined) && !opts.urn) {
+            if (args?.backendPools === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backendPools'");
             }
-            if ((!args || args.frontendEndpoints === undefined) && !opts.urn) {
+            if (args?.frontendEndpoints === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontendEndpoints'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routingRules === undefined) && !opts.urn) {
+            if (args?.routingRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routingRules'");
             }
-            resourceInputs["backendPoolHealthProbes"] = args ? args.backendPoolHealthProbes : undefined;
-            resourceInputs["backendPoolLoadBalancings"] = args ? args.backendPoolLoadBalancings : undefined;
-            resourceInputs["backendPoolSettings"] = args ? args.backendPoolSettings : undefined;
-            resourceInputs["backendPools"] = args ? args.backendPools : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["frontendEndpoints"] = args ? args.frontendEndpoints : undefined;
-            resourceInputs["loadBalancerEnabled"] = args ? args.loadBalancerEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingRules"] = args ? args.routingRules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["backendPoolHealthProbes"] = args?.backendPoolHealthProbes;
+            resourceInputs["backendPoolLoadBalancings"] = args?.backendPoolLoadBalancings;
+            resourceInputs["backendPoolSettings"] = args?.backendPoolSettings;
+            resourceInputs["backendPools"] = args?.backendPools;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["frontendEndpoints"] = args?.frontendEndpoints;
+            resourceInputs["loadBalancerEnabled"] = args?.loadBalancerEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingRules"] = args?.routingRules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["backendPoolHealthProbesMap"] = undefined /*out*/;
             resourceInputs["backendPoolLoadBalancingSettingsMap"] = undefined /*out*/;
             resourceInputs["backendPoolsMap"] = undefined /*out*/;

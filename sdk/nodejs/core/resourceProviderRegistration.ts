@@ -82,11 +82,11 @@ export class ResourceProviderRegistration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceProviderRegistration.__pulumiType;
     }
 
-    public readonly features!: pulumi.Output<outputs.core.ResourceProviderRegistrationFeature[] | undefined>;
+    declare public readonly features: pulumi.Output<outputs.core.ResourceProviderRegistrationFeature[] | undefined>;
     /**
      * The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a ResourceProviderRegistration resource with the given unique name, arguments, and options.
@@ -101,12 +101,12 @@ export class ResourceProviderRegistration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceProviderRegistrationState | undefined;
-            resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["features"] = state?.features;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as ResourceProviderRegistrationArgs | undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceProviderRegistration.__pulumiType, name, resourceInputs, opts);

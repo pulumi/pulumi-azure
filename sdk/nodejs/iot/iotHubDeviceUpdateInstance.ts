@@ -101,27 +101,27 @@ export class IotHubDeviceUpdateInstance extends pulumi.CustomResource {
     /**
      * Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
      */
-    public readonly deviceUpdateAccountId!: pulumi.Output<string>;
+    declare public readonly deviceUpdateAccountId: pulumi.Output<string>;
     /**
      * Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
      */
-    public readonly diagnosticEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly diagnosticEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `diagnosticStorageAccount` block as defined below.
      */
-    public readonly diagnosticStorageAccount!: pulumi.Output<outputs.iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccount | undefined>;
+    declare public readonly diagnosticStorageAccount: pulumi.Output<outputs.iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccount | undefined>;
     /**
      * Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
      */
-    public readonly iothubId!: pulumi.Output<string>;
+    declare public readonly iothubId: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the IoT Hub Device Update Instance.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IotHubDeviceUpdateInstance resource with the given unique name, arguments, and options.
@@ -136,26 +136,26 @@ export class IotHubDeviceUpdateInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IotHubDeviceUpdateInstanceState | undefined;
-            resourceInputs["deviceUpdateAccountId"] = state ? state.deviceUpdateAccountId : undefined;
-            resourceInputs["diagnosticEnabled"] = state ? state.diagnosticEnabled : undefined;
-            resourceInputs["diagnosticStorageAccount"] = state ? state.diagnosticStorageAccount : undefined;
-            resourceInputs["iothubId"] = state ? state.iothubId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["deviceUpdateAccountId"] = state?.deviceUpdateAccountId;
+            resourceInputs["diagnosticEnabled"] = state?.diagnosticEnabled;
+            resourceInputs["diagnosticStorageAccount"] = state?.diagnosticStorageAccount;
+            resourceInputs["iothubId"] = state?.iothubId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as IotHubDeviceUpdateInstanceArgs | undefined;
-            if ((!args || args.deviceUpdateAccountId === undefined) && !opts.urn) {
+            if (args?.deviceUpdateAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceUpdateAccountId'");
             }
-            if ((!args || args.iothubId === undefined) && !opts.urn) {
+            if (args?.iothubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubId'");
             }
-            resourceInputs["deviceUpdateAccountId"] = args ? args.deviceUpdateAccountId : undefined;
-            resourceInputs["diagnosticEnabled"] = args ? args.diagnosticEnabled : undefined;
-            resourceInputs["diagnosticStorageAccount"] = args ? args.diagnosticStorageAccount : undefined;
-            resourceInputs["iothubId"] = args ? args.iothubId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deviceUpdateAccountId"] = args?.deviceUpdateAccountId;
+            resourceInputs["diagnosticEnabled"] = args?.diagnosticEnabled;
+            resourceInputs["diagnosticStorageAccount"] = args?.diagnosticStorageAccount;
+            resourceInputs["iothubId"] = args?.iothubId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IotHubDeviceUpdateInstance.__pulumiType, name, resourceInputs, opts);

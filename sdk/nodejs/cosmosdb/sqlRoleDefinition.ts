@@ -85,33 +85,33 @@ export class SqlRoleDefinition extends pulumi.CustomResource {
     /**
      * The name of the Cosmos DB Account. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
      *
      * > **Note:** The resources referenced in assignable scopes need not exist.
      */
-    public readonly assignableScopes!: pulumi.Output<string[]>;
+    declare public readonly assignableScopes: pulumi.Output<string[]>;
     /**
      * An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `permissions` block as defined below.
      */
-    public readonly permissions!: pulumi.Output<outputs.cosmosdb.SqlRoleDefinitionPermission[]>;
+    declare public readonly permissions: pulumi.Output<outputs.cosmosdb.SqlRoleDefinitionPermission[]>;
     /**
      * The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The GUID as the name of the Cosmos DB SQL Role Definition - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    declare public readonly roleDefinitionId: pulumi.Output<string>;
     /**
      * The type of the Cosmos DB SQL Role Definition. Possible values are `BuiltInRole` and `CustomRole`. Defaults to `CustomRole`. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a SqlRoleDefinition resource with the given unique name, arguments, and options.
@@ -126,34 +126,34 @@ export class SqlRoleDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlRoleDefinitionState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["assignableScopes"] = state ? state.assignableScopes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["permissions"] = state ? state.permissions : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["assignableScopes"] = state?.assignableScopes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["permissions"] = state?.permissions;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["roleDefinitionId"] = state?.roleDefinitionId;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as SqlRoleDefinitionArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.assignableScopes === undefined) && !opts.urn) {
+            if (args?.assignableScopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assignableScopes'");
             }
-            if ((!args || args.permissions === undefined) && !opts.urn) {
+            if (args?.permissions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["assignableScopes"] = args ? args.assignableScopes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["assignableScopes"] = args?.assignableScopes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SqlRoleDefinition.__pulumiType, name, resourceInputs, opts);

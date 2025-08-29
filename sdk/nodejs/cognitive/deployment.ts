@@ -86,31 +86,31 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
      */
-    public readonly cognitiveAccountId!: pulumi.Output<string>;
+    declare public readonly cognitiveAccountId: pulumi.Output<string>;
     /**
      * Whether dynamic throttling is enabled.
      */
-    public readonly dynamicThrottlingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dynamicThrottlingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `model` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly model!: pulumi.Output<outputs.cognitive.DeploymentModel>;
+    declare public readonly model: pulumi.Output<outputs.cognitive.DeploymentModel>;
     /**
      * The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of RAI policy.
      */
-    public readonly raiPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly raiPolicyName: pulumi.Output<string | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<outputs.cognitive.DeploymentSku>;
+    declare public readonly sku: pulumi.Output<outputs.cognitive.DeploymentSku>;
     /**
      * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
      */
-    public readonly versionUpgradeOption!: pulumi.Output<string | undefined>;
+    declare public readonly versionUpgradeOption: pulumi.Output<string | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -125,31 +125,31 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            resourceInputs["cognitiveAccountId"] = state ? state.cognitiveAccountId : undefined;
-            resourceInputs["dynamicThrottlingEnabled"] = state ? state.dynamicThrottlingEnabled : undefined;
-            resourceInputs["model"] = state ? state.model : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["raiPolicyName"] = state ? state.raiPolicyName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["versionUpgradeOption"] = state ? state.versionUpgradeOption : undefined;
+            resourceInputs["cognitiveAccountId"] = state?.cognitiveAccountId;
+            resourceInputs["dynamicThrottlingEnabled"] = state?.dynamicThrottlingEnabled;
+            resourceInputs["model"] = state?.model;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["raiPolicyName"] = state?.raiPolicyName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["versionUpgradeOption"] = state?.versionUpgradeOption;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
-            if ((!args || args.cognitiveAccountId === undefined) && !opts.urn) {
+            if (args?.cognitiveAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cognitiveAccountId'");
             }
-            if ((!args || args.model === undefined) && !opts.urn) {
+            if (args?.model === undefined && !opts.urn) {
                 throw new Error("Missing required property 'model'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
-            resourceInputs["dynamicThrottlingEnabled"] = args ? args.dynamicThrottlingEnabled : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["raiPolicyName"] = args ? args.raiPolicyName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["versionUpgradeOption"] = args ? args.versionUpgradeOption : undefined;
+            resourceInputs["cognitiveAccountId"] = args?.cognitiveAccountId;
+            resourceInputs["dynamicThrottlingEnabled"] = args?.dynamicThrottlingEnabled;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["raiPolicyName"] = args?.raiPolicyName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["versionUpgradeOption"] = args?.versionUpgradeOption;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Deployment.__pulumiType, name, resourceInputs, opts);

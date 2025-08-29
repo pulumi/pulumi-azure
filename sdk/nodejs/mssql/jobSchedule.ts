@@ -104,27 +104,27 @@ export class JobSchedule extends pulumi.CustomResource {
      *
      * > **Note:** When `type` is set to `Once` and `enabled` is set to `true`, it's recommended to add `enabled` to `ignoreChanges`. This is because Azure will set `enabled` to `false` once the job has executed.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The end time of the schedule. Must be in RFC3339 format.
      */
-    public readonly endTime!: pulumi.Output<string>;
+    declare public readonly endTime: pulumi.Output<string>;
     /**
      * The interval between job executions. Must be in ISO8601 duration format.
      */
-    public readonly interval!: pulumi.Output<string | undefined>;
+    declare public readonly interval: pulumi.Output<string | undefined>;
     /**
      * The ID of the Elastic Job. Changing this forces a new Elastic Job Schedule to be created.
      */
-    public readonly jobId!: pulumi.Output<string>;
+    declare public readonly jobId: pulumi.Output<string>;
     /**
      * The start time of the schedule. Must be in RFC3339 format.
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
     /**
      * The type of schedule. Possible values are `Once` and `Recurring`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a JobSchedule resource with the given unique name, arguments, and options.
@@ -139,26 +139,26 @@ export class JobSchedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobScheduleState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["interval"] = state ? state.interval : undefined;
-            resourceInputs["jobId"] = state ? state.jobId : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["interval"] = state?.interval;
+            resourceInputs["jobId"] = state?.jobId;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as JobScheduleArgs | undefined;
-            if ((!args || args.jobId === undefined) && !opts.urn) {
+            if (args?.jobId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobId'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["jobId"] = args ? args.jobId : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["jobId"] = args?.jobId;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(JobSchedule.__pulumiType, name, resourceInputs, opts);

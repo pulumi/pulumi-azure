@@ -98,54 +98,54 @@ export class GremlinGraph extends pulumi.CustomResource {
     /**
      * The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
      *
      * > **Note:** Disabling `analyticalStorageTtl` will force a new resource to be created since it can't be disabled once it's enabled.
      */
-    public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
-    public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
+    declare public readonly analyticalStorageTtl: pulumi.Output<number | undefined>;
+    declare public readonly autoscaleSettings: pulumi.Output<outputs.cosmosdb.GremlinGraphAutoscaleSettings | undefined>;
     /**
      * A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly conflictResolutionPolicy!: pulumi.Output<outputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
+    declare public readonly conflictResolutionPolicy: pulumi.Output<outputs.cosmosdb.GremlinGraphConflictResolutionPolicy>;
     /**
      * The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
      */
-    public readonly defaultTtl!: pulumi.Output<number | undefined>;
+    declare public readonly defaultTtl: pulumi.Output<number | undefined>;
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */
-    public readonly indexPolicy!: pulumi.Output<outputs.cosmosdb.GremlinGraphIndexPolicy>;
+    declare public readonly indexPolicy: pulumi.Output<outputs.cosmosdb.GremlinGraphIndexPolicy>;
     /**
      * Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Define a partition key. Changing this forces a new resource to be created.
      */
-    public readonly partitionKeyPath!: pulumi.Output<string>;
+    declare public readonly partitionKeyPath: pulumi.Output<string>;
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      */
-    public readonly partitionKeyVersion!: pulumi.Output<number | undefined>;
+    declare public readonly partitionKeyVersion: pulumi.Output<number | undefined>;
     /**
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
      */
-    public readonly throughput!: pulumi.Output<number>;
+    declare public readonly throughput: pulumi.Output<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly uniqueKeys!: pulumi.Output<outputs.cosmosdb.GremlinGraphUniqueKey[] | undefined>;
+    declare public readonly uniqueKeys: pulumi.Output<outputs.cosmosdb.GremlinGraphUniqueKey[] | undefined>;
 
     /**
      * Create a GremlinGraph resource with the given unique name, arguments, and options.
@@ -160,46 +160,46 @@ export class GremlinGraph extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GremlinGraphState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["analyticalStorageTtl"] = state ? state.analyticalStorageTtl : undefined;
-            resourceInputs["autoscaleSettings"] = state ? state.autoscaleSettings : undefined;
-            resourceInputs["conflictResolutionPolicy"] = state ? state.conflictResolutionPolicy : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
-            resourceInputs["indexPolicy"] = state ? state.indexPolicy : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
-            resourceInputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["throughput"] = state ? state.throughput : undefined;
-            resourceInputs["uniqueKeys"] = state ? state.uniqueKeys : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["analyticalStorageTtl"] = state?.analyticalStorageTtl;
+            resourceInputs["autoscaleSettings"] = state?.autoscaleSettings;
+            resourceInputs["conflictResolutionPolicy"] = state?.conflictResolutionPolicy;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["defaultTtl"] = state?.defaultTtl;
+            resourceInputs["indexPolicy"] = state?.indexPolicy;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partitionKeyPath"] = state?.partitionKeyPath;
+            resourceInputs["partitionKeyVersion"] = state?.partitionKeyVersion;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["throughput"] = state?.throughput;
+            resourceInputs["uniqueKeys"] = state?.uniqueKeys;
         } else {
             const args = argsOrState as GremlinGraphArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.partitionKeyPath === undefined) && !opts.urn) {
+            if (args?.partitionKeyPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionKeyPath'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["analyticalStorageTtl"] = args ? args.analyticalStorageTtl : undefined;
-            resourceInputs["autoscaleSettings"] = args ? args.autoscaleSettings : undefined;
-            resourceInputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            resourceInputs["indexPolicy"] = args ? args.indexPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
-            resourceInputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["throughput"] = args ? args.throughput : undefined;
-            resourceInputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["analyticalStorageTtl"] = args?.analyticalStorageTtl;
+            resourceInputs["autoscaleSettings"] = args?.autoscaleSettings;
+            resourceInputs["conflictResolutionPolicy"] = args?.conflictResolutionPolicy;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["defaultTtl"] = args?.defaultTtl;
+            resourceInputs["indexPolicy"] = args?.indexPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partitionKeyPath"] = args?.partitionKeyPath;
+            resourceInputs["partitionKeyVersion"] = args?.partitionKeyVersion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["throughput"] = args?.throughput;
+            resourceInputs["uniqueKeys"] = args?.uniqueKeys;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GremlinGraph.__pulumiType, name, resourceInputs, opts);

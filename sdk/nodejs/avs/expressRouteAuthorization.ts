@@ -82,19 +82,19 @@ export class ExpressRouteAuthorization extends pulumi.CustomResource {
     /**
      * The ID of the Azure VMware Solution ExpressRoute Circuit Authorization.
      */
-    public /*out*/ readonly expressRouteAuthorizationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly expressRouteAuthorizationId: pulumi.Output<string>;
     /**
      * The key of the Azure VMware Solution ExpressRoute Circuit Authorization.
      */
-    public /*out*/ readonly expressRouteAuthorizationKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly expressRouteAuthorizationKey: pulumi.Output<string>;
     /**
      * The name which should be used for this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Azure VMware Solution Private Cloud in which to create this Azure VMware Solution ExpressRoute Circuit Authorization. Changing this forces a new Azure VMware Solution ExpressRoute Circuit Authorization to be created.
      */
-    public readonly privateCloudId!: pulumi.Output<string>;
+    declare public readonly privateCloudId: pulumi.Output<string>;
 
     /**
      * Create a ExpressRouteAuthorization resource with the given unique name, arguments, and options.
@@ -109,17 +109,17 @@ export class ExpressRouteAuthorization extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteAuthorizationState | undefined;
-            resourceInputs["expressRouteAuthorizationId"] = state ? state.expressRouteAuthorizationId : undefined;
-            resourceInputs["expressRouteAuthorizationKey"] = state ? state.expressRouteAuthorizationKey : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateCloudId"] = state ? state.privateCloudId : undefined;
+            resourceInputs["expressRouteAuthorizationId"] = state?.expressRouteAuthorizationId;
+            resourceInputs["expressRouteAuthorizationKey"] = state?.expressRouteAuthorizationKey;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateCloudId"] = state?.privateCloudId;
         } else {
             const args = argsOrState as ExpressRouteAuthorizationArgs | undefined;
-            if ((!args || args.privateCloudId === undefined) && !opts.urn) {
+            if (args?.privateCloudId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateCloudId"] = args ? args.privateCloudId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateCloudId"] = args?.privateCloudId;
             resourceInputs["expressRouteAuthorizationId"] = undefined /*out*/;
             resourceInputs["expressRouteAuthorizationKey"] = undefined /*out*/;
         }

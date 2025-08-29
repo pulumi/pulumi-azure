@@ -48,43 +48,43 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
     /**
      * The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      */
-    public readonly debugLevel!: pulumi.Output<string | undefined>;
+    declare public readonly debugLevel: pulumi.Output<string | undefined>;
     /**
      * The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
      *
      * > **Note:** If `deploymentMode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
      */
-    public readonly deploymentMode!: pulumi.Output<string>;
+    declare public readonly deploymentMode: pulumi.Output<string>;
     /**
      * The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The JSON Content of the Outputs of the ARM Template Deployment.
      */
-    public /*out*/ readonly outputContent!: pulumi.Output<string>;
+    declare public /*out*/ readonly outputContent: pulumi.Output<string>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      *
      * > An example of how to pass variables into an ARM Template can be seen in the example.
      */
-    public readonly parametersContent!: pulumi.Output<string>;
+    declare public readonly parametersContent: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Resource Group Template Deployment.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      */
-    public readonly templateContent!: pulumi.Output<string>;
+    declare public readonly templateContent: pulumi.Output<string>;
     /**
      * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      */
-    public readonly templateSpecVersionId!: pulumi.Output<string | undefined>;
+    declare public readonly templateSpecVersionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a ResourceGroupTemplateDeployment resource with the given unique name, arguments, and options.
@@ -99,31 +99,31 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceGroupTemplateDeploymentState | undefined;
-            resourceInputs["debugLevel"] = state ? state.debugLevel : undefined;
-            resourceInputs["deploymentMode"] = state ? state.deploymentMode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputContent"] = state ? state.outputContent : undefined;
-            resourceInputs["parametersContent"] = state ? state.parametersContent : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["templateContent"] = state ? state.templateContent : undefined;
-            resourceInputs["templateSpecVersionId"] = state ? state.templateSpecVersionId : undefined;
+            resourceInputs["debugLevel"] = state?.debugLevel;
+            resourceInputs["deploymentMode"] = state?.deploymentMode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputContent"] = state?.outputContent;
+            resourceInputs["parametersContent"] = state?.parametersContent;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["templateContent"] = state?.templateContent;
+            resourceInputs["templateSpecVersionId"] = state?.templateSpecVersionId;
         } else {
             const args = argsOrState as ResourceGroupTemplateDeploymentArgs | undefined;
-            if ((!args || args.deploymentMode === undefined) && !opts.urn) {
+            if (args?.deploymentMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["debugLevel"] = args ? args.debugLevel : undefined;
-            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parametersContent"] = args ? args.parametersContent : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateContent"] = args ? args.templateContent : undefined;
-            resourceInputs["templateSpecVersionId"] = args ? args.templateSpecVersionId : undefined;
+            resourceInputs["debugLevel"] = args?.debugLevel;
+            resourceInputs["deploymentMode"] = args?.deploymentMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parametersContent"] = args?.parametersContent;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateContent"] = args?.templateContent;
+            resourceInputs["templateSpecVersionId"] = args?.templateSpecVersionId;
             resourceInputs["outputContent"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

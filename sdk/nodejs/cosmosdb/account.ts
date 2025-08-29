@@ -147,135 +147,135 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
-    public readonly accessKeyMetadataWritesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly accessKeyMetadataWritesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `analyticalStorage` block as defined below.
      */
-    public readonly analyticalStorage!: pulumi.Output<outputs.cosmosdb.AccountAnalyticalStorage>;
-    public readonly analyticalStorageEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly automaticFailoverEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly backup!: pulumi.Output<outputs.cosmosdb.AccountBackup>;
-    public readonly burstCapacityEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly capabilities!: pulumi.Output<outputs.cosmosdb.AccountCapability[]>;
+    declare public readonly analyticalStorage: pulumi.Output<outputs.cosmosdb.AccountAnalyticalStorage>;
+    declare public readonly analyticalStorageEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticFailoverEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly backup: pulumi.Output<outputs.cosmosdb.AccountBackup>;
+    declare public readonly burstCapacityEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly capabilities: pulumi.Output<outputs.cosmosdb.AccountCapability[]>;
     /**
      * A `capacity` block as defined below.
      */
-    public readonly capacity!: pulumi.Output<outputs.cosmosdb.AccountCapacity>;
-    public readonly consistencyPolicy!: pulumi.Output<outputs.cosmosdb.AccountConsistencyPolicy>;
-    public readonly corsRule!: pulumi.Output<outputs.cosmosdb.AccountCorsRule | undefined>;
+    declare public readonly capacity: pulumi.Output<outputs.cosmosdb.AccountCapacity>;
+    declare public readonly consistencyPolicy: pulumi.Output<outputs.cosmosdb.AccountConsistencyPolicy>;
+    declare public readonly corsRule: pulumi.Output<outputs.cosmosdb.AccountCorsRule | undefined>;
     /**
      * The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
      *
      * > **Note:** `createMode` can only be defined when the `backup.type` is set to `Continuous`.
      */
-    public readonly createMode!: pulumi.Output<string>;
+    declare public readonly createMode: pulumi.Output<string>;
     /**
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
      */
-    public readonly defaultIdentityType!: pulumi.Output<string | undefined>;
+    declare public readonly defaultIdentityType: pulumi.Output<string | undefined>;
     /**
      * The endpoint used to connect to the CosmosDB account.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
-    public readonly freeTierEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly geoLocations!: pulumi.Output<outputs.cosmosdb.AccountGeoLocation[]>;
-    public readonly identity!: pulumi.Output<outputs.cosmosdb.AccountIdentity | undefined>;
-    public readonly ipRangeFilters!: pulumi.Output<string[] | undefined>;
-    public readonly isVirtualNetworkFilterEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
-    public readonly kind!: pulumi.Output<string | undefined>;
-    public readonly localAuthenticationDisabled!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    declare public readonly freeTierEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly geoLocations: pulumi.Output<outputs.cosmosdb.AccountGeoLocation[]>;
+    declare public readonly identity: pulumi.Output<outputs.cosmosdb.AccountIdentity | undefined>;
+    declare public readonly ipRangeFilters: pulumi.Output<string[] | undefined>;
+    declare public readonly isVirtualNetworkFilterEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
+    declare public readonly localAuthenticationDisabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
-    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string>;
+    declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      */
-    public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
-    public readonly mongoServerVersion!: pulumi.Output<string>;
-    public readonly multipleWriteLocationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly minimalTlsVersion: pulumi.Output<string | undefined>;
+    declare public readonly mongoServerVersion: pulumi.Output<string>;
+    declare public readonly multipleWriteLocationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly networkAclBypassForAzureServices!: pulumi.Output<boolean | undefined>;
-    public readonly networkAclBypassIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly networkAclBypassForAzureServices: pulumi.Output<boolean | undefined>;
+    declare public readonly networkAclBypassIds: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
      */
-    public readonly offerType!: pulumi.Output<string>;
-    public readonly partitionMergeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly offerType: pulumi.Output<string>;
+    declare public readonly partitionMergeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Primary key for the CosmosDB Account.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * Primary Mongodb connection string for the CosmosDB Account.
      */
-    public /*out*/ readonly primaryMongodbConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryMongodbConnectionString: pulumi.Output<string>;
     /**
      * The Primary read-only Key for the CosmosDB Account.
      */
-    public /*out*/ readonly primaryReadonlyKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryReadonlyKey: pulumi.Output<string>;
     /**
      * Primary readonly Mongodb connection string for the CosmosDB Account.
      */
-    public /*out*/ readonly primaryReadonlyMongodbConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryReadonlyMongodbConnectionString: pulumi.Output<string>;
     /**
      * Primary readonly SQL connection string for the CosmosDB Account.
      */
-    public /*out*/ readonly primaryReadonlySqlConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryReadonlySqlConnectionString: pulumi.Output<string>;
     /**
      * Primary SQL connection string for the CosmosDB Account.
      */
-    public /*out*/ readonly primarySqlConnectionString!: pulumi.Output<string>;
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly primarySqlConnectionString: pulumi.Output<string>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of read endpoints available for this CosmosDB account.
      */
-    public /*out*/ readonly readEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly readEndpoints: pulumi.Output<string[]>;
     /**
      * The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
-    public readonly restore!: pulumi.Output<outputs.cosmosdb.AccountRestore | undefined>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
+    declare public readonly restore: pulumi.Output<outputs.cosmosdb.AccountRestore | undefined>;
     /**
      * The Secondary key for the CosmosDB Account.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * Secondary Mongodb connection string for the CosmosDB Account.
      */
-    public /*out*/ readonly secondaryMongodbConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryMongodbConnectionString: pulumi.Output<string>;
     /**
      * The Secondary read-only key for the CosmosDB Account.
      */
-    public /*out*/ readonly secondaryReadonlyKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryReadonlyKey: pulumi.Output<string>;
     /**
      * Secondary readonly Mongodb connection string for the CosmosDB Account.
      */
-    public /*out*/ readonly secondaryReadonlyMongodbConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryReadonlyMongodbConnectionString: pulumi.Output<string>;
     /**
      * Secondary readonly SQL connection string for the CosmosDB Account.
      */
-    public /*out*/ readonly secondaryReadonlySqlConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryReadonlySqlConnectionString: pulumi.Output<string>;
     /**
      * Secondary SQL connection string for the CosmosDB Account.
      */
-    public /*out*/ readonly secondarySqlConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondarySqlConnectionString: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly virtualNetworkRules!: pulumi.Output<outputs.cosmosdb.AccountVirtualNetworkRule[] | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly virtualNetworkRules: pulumi.Output<outputs.cosmosdb.AccountVirtualNetworkRule[] | undefined>;
     /**
      * A list of write endpoints available for this CosmosDB account.
      */
-    public /*out*/ readonly writeEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly writeEndpoints: pulumi.Output<string[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -290,105 +290,105 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["accessKeyMetadataWritesEnabled"] = state ? state.accessKeyMetadataWritesEnabled : undefined;
-            resourceInputs["analyticalStorage"] = state ? state.analyticalStorage : undefined;
-            resourceInputs["analyticalStorageEnabled"] = state ? state.analyticalStorageEnabled : undefined;
-            resourceInputs["automaticFailoverEnabled"] = state ? state.automaticFailoverEnabled : undefined;
-            resourceInputs["backup"] = state ? state.backup : undefined;
-            resourceInputs["burstCapacityEnabled"] = state ? state.burstCapacityEnabled : undefined;
-            resourceInputs["capabilities"] = state ? state.capabilities : undefined;
-            resourceInputs["capacity"] = state ? state.capacity : undefined;
-            resourceInputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;
-            resourceInputs["corsRule"] = state ? state.corsRule : undefined;
-            resourceInputs["createMode"] = state ? state.createMode : undefined;
-            resourceInputs["defaultIdentityType"] = state ? state.defaultIdentityType : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["freeTierEnabled"] = state ? state.freeTierEnabled : undefined;
-            resourceInputs["geoLocations"] = state ? state.geoLocations : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["ipRangeFilters"] = state ? state.ipRangeFilters : undefined;
-            resourceInputs["isVirtualNetworkFilterEnabled"] = state ? state.isVirtualNetworkFilterEnabled : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
-            resourceInputs["minimalTlsVersion"] = state ? state.minimalTlsVersion : undefined;
-            resourceInputs["mongoServerVersion"] = state ? state.mongoServerVersion : undefined;
-            resourceInputs["multipleWriteLocationsEnabled"] = state ? state.multipleWriteLocationsEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkAclBypassForAzureServices"] = state ? state.networkAclBypassForAzureServices : undefined;
-            resourceInputs["networkAclBypassIds"] = state ? state.networkAclBypassIds : undefined;
-            resourceInputs["offerType"] = state ? state.offerType : undefined;
-            resourceInputs["partitionMergeEnabled"] = state ? state.partitionMergeEnabled : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["primaryMongodbConnectionString"] = state ? state.primaryMongodbConnectionString : undefined;
-            resourceInputs["primaryReadonlyKey"] = state ? state.primaryReadonlyKey : undefined;
-            resourceInputs["primaryReadonlyMongodbConnectionString"] = state ? state.primaryReadonlyMongodbConnectionString : undefined;
-            resourceInputs["primaryReadonlySqlConnectionString"] = state ? state.primaryReadonlySqlConnectionString : undefined;
-            resourceInputs["primarySqlConnectionString"] = state ? state.primarySqlConnectionString : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["readEndpoints"] = state ? state.readEndpoints : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["restore"] = state ? state.restore : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["secondaryMongodbConnectionString"] = state ? state.secondaryMongodbConnectionString : undefined;
-            resourceInputs["secondaryReadonlyKey"] = state ? state.secondaryReadonlyKey : undefined;
-            resourceInputs["secondaryReadonlyMongodbConnectionString"] = state ? state.secondaryReadonlyMongodbConnectionString : undefined;
-            resourceInputs["secondaryReadonlySqlConnectionString"] = state ? state.secondaryReadonlySqlConnectionString : undefined;
-            resourceInputs["secondarySqlConnectionString"] = state ? state.secondarySqlConnectionString : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualNetworkRules"] = state ? state.virtualNetworkRules : undefined;
-            resourceInputs["writeEndpoints"] = state ? state.writeEndpoints : undefined;
+            resourceInputs["accessKeyMetadataWritesEnabled"] = state?.accessKeyMetadataWritesEnabled;
+            resourceInputs["analyticalStorage"] = state?.analyticalStorage;
+            resourceInputs["analyticalStorageEnabled"] = state?.analyticalStorageEnabled;
+            resourceInputs["automaticFailoverEnabled"] = state?.automaticFailoverEnabled;
+            resourceInputs["backup"] = state?.backup;
+            resourceInputs["burstCapacityEnabled"] = state?.burstCapacityEnabled;
+            resourceInputs["capabilities"] = state?.capabilities;
+            resourceInputs["capacity"] = state?.capacity;
+            resourceInputs["consistencyPolicy"] = state?.consistencyPolicy;
+            resourceInputs["corsRule"] = state?.corsRule;
+            resourceInputs["createMode"] = state?.createMode;
+            resourceInputs["defaultIdentityType"] = state?.defaultIdentityType;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["freeTierEnabled"] = state?.freeTierEnabled;
+            resourceInputs["geoLocations"] = state?.geoLocations;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["ipRangeFilters"] = state?.ipRangeFilters;
+            resourceInputs["isVirtualNetworkFilterEnabled"] = state?.isVirtualNetworkFilterEnabled;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["localAuthenticationDisabled"] = state?.localAuthenticationDisabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
+            resourceInputs["minimalTlsVersion"] = state?.minimalTlsVersion;
+            resourceInputs["mongoServerVersion"] = state?.mongoServerVersion;
+            resourceInputs["multipleWriteLocationsEnabled"] = state?.multipleWriteLocationsEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkAclBypassForAzureServices"] = state?.networkAclBypassForAzureServices;
+            resourceInputs["networkAclBypassIds"] = state?.networkAclBypassIds;
+            resourceInputs["offerType"] = state?.offerType;
+            resourceInputs["partitionMergeEnabled"] = state?.partitionMergeEnabled;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["primaryMongodbConnectionString"] = state?.primaryMongodbConnectionString;
+            resourceInputs["primaryReadonlyKey"] = state?.primaryReadonlyKey;
+            resourceInputs["primaryReadonlyMongodbConnectionString"] = state?.primaryReadonlyMongodbConnectionString;
+            resourceInputs["primaryReadonlySqlConnectionString"] = state?.primaryReadonlySqlConnectionString;
+            resourceInputs["primarySqlConnectionString"] = state?.primarySqlConnectionString;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["readEndpoints"] = state?.readEndpoints;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["restore"] = state?.restore;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["secondaryMongodbConnectionString"] = state?.secondaryMongodbConnectionString;
+            resourceInputs["secondaryReadonlyKey"] = state?.secondaryReadonlyKey;
+            resourceInputs["secondaryReadonlyMongodbConnectionString"] = state?.secondaryReadonlyMongodbConnectionString;
+            resourceInputs["secondaryReadonlySqlConnectionString"] = state?.secondaryReadonlySqlConnectionString;
+            resourceInputs["secondarySqlConnectionString"] = state?.secondarySqlConnectionString;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualNetworkRules"] = state?.virtualNetworkRules;
+            resourceInputs["writeEndpoints"] = state?.writeEndpoints;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.consistencyPolicy === undefined) && !opts.urn) {
+            if (args?.consistencyPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consistencyPolicy'");
             }
-            if ((!args || args.geoLocations === undefined) && !opts.urn) {
+            if (args?.geoLocations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'geoLocations'");
             }
-            if ((!args || args.offerType === undefined) && !opts.urn) {
+            if (args?.offerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'offerType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessKeyMetadataWritesEnabled"] = args ? args.accessKeyMetadataWritesEnabled : undefined;
-            resourceInputs["analyticalStorage"] = args ? args.analyticalStorage : undefined;
-            resourceInputs["analyticalStorageEnabled"] = args ? args.analyticalStorageEnabled : undefined;
-            resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
-            resourceInputs["backup"] = args ? args.backup : undefined;
-            resourceInputs["burstCapacityEnabled"] = args ? args.burstCapacityEnabled : undefined;
-            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
-            resourceInputs["capacity"] = args ? args.capacity : undefined;
-            resourceInputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
-            resourceInputs["corsRule"] = args ? args.corsRule : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["defaultIdentityType"] = args ? args.defaultIdentityType : undefined;
-            resourceInputs["freeTierEnabled"] = args ? args.freeTierEnabled : undefined;
-            resourceInputs["geoLocations"] = args ? args.geoLocations : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["ipRangeFilters"] = args ? args.ipRangeFilters : undefined;
-            resourceInputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
-            resourceInputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
-            resourceInputs["mongoServerVersion"] = args ? args.mongoServerVersion : undefined;
-            resourceInputs["multipleWriteLocationsEnabled"] = args ? args.multipleWriteLocationsEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkAclBypassForAzureServices"] = args ? args.networkAclBypassForAzureServices : undefined;
-            resourceInputs["networkAclBypassIds"] = args ? args.networkAclBypassIds : undefined;
-            resourceInputs["offerType"] = args ? args.offerType : undefined;
-            resourceInputs["partitionMergeEnabled"] = args ? args.partitionMergeEnabled : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restore"] = args ? args.restore : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["accessKeyMetadataWritesEnabled"] = args?.accessKeyMetadataWritesEnabled;
+            resourceInputs["analyticalStorage"] = args?.analyticalStorage;
+            resourceInputs["analyticalStorageEnabled"] = args?.analyticalStorageEnabled;
+            resourceInputs["automaticFailoverEnabled"] = args?.automaticFailoverEnabled;
+            resourceInputs["backup"] = args?.backup;
+            resourceInputs["burstCapacityEnabled"] = args?.burstCapacityEnabled;
+            resourceInputs["capabilities"] = args?.capabilities;
+            resourceInputs["capacity"] = args?.capacity;
+            resourceInputs["consistencyPolicy"] = args?.consistencyPolicy;
+            resourceInputs["corsRule"] = args?.corsRule;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["defaultIdentityType"] = args?.defaultIdentityType;
+            resourceInputs["freeTierEnabled"] = args?.freeTierEnabled;
+            resourceInputs["geoLocations"] = args?.geoLocations;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["ipRangeFilters"] = args?.ipRangeFilters;
+            resourceInputs["isVirtualNetworkFilterEnabled"] = args?.isVirtualNetworkFilterEnabled;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["localAuthenticationDisabled"] = args?.localAuthenticationDisabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
+            resourceInputs["minimalTlsVersion"] = args?.minimalTlsVersion;
+            resourceInputs["mongoServerVersion"] = args?.mongoServerVersion;
+            resourceInputs["multipleWriteLocationsEnabled"] = args?.multipleWriteLocationsEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkAclBypassForAzureServices"] = args?.networkAclBypassForAzureServices;
+            resourceInputs["networkAclBypassIds"] = args?.networkAclBypassIds;
+            resourceInputs["offerType"] = args?.offerType;
+            resourceInputs["partitionMergeEnabled"] = args?.partitionMergeEnabled;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restore"] = args?.restore;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkRules"] = args?.virtualNetworkRules;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["primaryMongodbConnectionString"] = undefined /*out*/;

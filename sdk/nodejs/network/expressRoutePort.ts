@@ -75,59 +75,59 @@ export class ExpressRoutePort extends pulumi.CustomResource {
     /**
      * Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
      */
-    public readonly bandwidthInGbps!: pulumi.Output<number>;
+    declare public readonly bandwidthInGbps: pulumi.Output<number>;
     /**
      * The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
      */
-    public readonly billingType!: pulumi.Output<string | undefined>;
+    declare public readonly billingType: pulumi.Output<string | undefined>;
     /**
      * The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
      */
-    public readonly encapsulation!: pulumi.Output<string>;
+    declare public readonly encapsulation: pulumi.Output<string>;
     /**
      * The EtherType of the Express Route Port.
      */
-    public /*out*/ readonly ethertype!: pulumi.Output<string>;
+    declare public /*out*/ readonly ethertype: pulumi.Output<string>;
     /**
      * The resource GUID of the Express Route Port.
      */
-    public /*out*/ readonly guid!: pulumi.Output<string>;
+    declare public /*out*/ readonly guid: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.network.ExpressRoutePortIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.network.ExpressRoutePortIdentity | undefined>;
     /**
      * A list of `link` blocks as defined below.
      */
-    public readonly link1!: pulumi.Output<outputs.network.ExpressRoutePortLink1>;
+    declare public readonly link1: pulumi.Output<outputs.network.ExpressRoutePortLink1>;
     /**
      * A list of `link` blocks as defined below.
      */
-    public readonly link2!: pulumi.Output<outputs.network.ExpressRoutePortLink2>;
+    declare public readonly link2: pulumi.Output<outputs.network.ExpressRoutePortLink2>;
     /**
      * The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The maximum transmission unit of the Express Route Port.
      */
-    public /*out*/ readonly mtu!: pulumi.Output<string>;
+    declare public /*out*/ readonly mtu: pulumi.Output<string>;
     /**
      * The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
      */
-    public readonly peeringLocation!: pulumi.Output<string>;
+    declare public readonly peeringLocation: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Express Route Port.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ExpressRoutePort resource with the given unique name, arguments, and options.
@@ -142,45 +142,45 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRoutePortState | undefined;
-            resourceInputs["bandwidthInGbps"] = state ? state.bandwidthInGbps : undefined;
-            resourceInputs["billingType"] = state ? state.billingType : undefined;
-            resourceInputs["encapsulation"] = state ? state.encapsulation : undefined;
-            resourceInputs["ethertype"] = state ? state.ethertype : undefined;
-            resourceInputs["guid"] = state ? state.guid : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["link1"] = state ? state.link1 : undefined;
-            resourceInputs["link2"] = state ? state.link2 : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mtu"] = state ? state.mtu : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["peeringLocation"] = state ? state.peeringLocation : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["bandwidthInGbps"] = state?.bandwidthInGbps;
+            resourceInputs["billingType"] = state?.billingType;
+            resourceInputs["encapsulation"] = state?.encapsulation;
+            resourceInputs["ethertype"] = state?.ethertype;
+            resourceInputs["guid"] = state?.guid;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["link1"] = state?.link1;
+            resourceInputs["link2"] = state?.link2;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mtu"] = state?.mtu;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["peeringLocation"] = state?.peeringLocation;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ExpressRoutePortArgs | undefined;
-            if ((!args || args.bandwidthInGbps === undefined) && !opts.urn) {
+            if (args?.bandwidthInGbps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bandwidthInGbps'");
             }
-            if ((!args || args.encapsulation === undefined) && !opts.urn) {
+            if (args?.encapsulation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'encapsulation'");
             }
-            if ((!args || args.peeringLocation === undefined) && !opts.urn) {
+            if (args?.peeringLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
-            resourceInputs["billingType"] = args ? args.billingType : undefined;
-            resourceInputs["encapsulation"] = args ? args.encapsulation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["link1"] = args ? args.link1 : undefined;
-            resourceInputs["link2"] = args ? args.link2 : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peeringLocation"] = args ? args.peeringLocation : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bandwidthInGbps"] = args?.bandwidthInGbps;
+            resourceInputs["billingType"] = args?.billingType;
+            resourceInputs["encapsulation"] = args?.encapsulation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["link1"] = args?.link1;
+            resourceInputs["link2"] = args?.link2;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peeringLocation"] = args?.peeringLocation;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ethertype"] = undefined /*out*/;
             resourceInputs["guid"] = undefined /*out*/;
             resourceInputs["mtu"] = undefined /*out*/;

@@ -100,19 +100,19 @@ export class SubscriptionPricing extends pulumi.CustomResource {
     /**
      * One or more `extension` blocks as defined below.
      */
-    public readonly extensions!: pulumi.Output<outputs.securitycenter.SubscriptionPricingExtension[] | undefined>;
+    declare public readonly extensions: pulumi.Output<outputs.securitycenter.SubscriptionPricingExtension[] | undefined>;
     /**
      * The resource type this setting affects. Possible values are `AI`, `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines`
      */
-    public readonly resourceType!: pulumi.Output<string | undefined>;
+    declare public readonly resourceType: pulumi.Output<string | undefined>;
     /**
      * Resource type pricing subplan. Contact your MSFT representative for possible values. Changing this forces a new resource to be created.
      */
-    public readonly subplan!: pulumi.Output<string | undefined>;
+    declare public readonly subplan: pulumi.Output<string | undefined>;
     /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
-    public readonly tier!: pulumi.Output<string>;
+    declare public readonly tier: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionPricing resource with the given unique name, arguments, and options.
@@ -127,19 +127,19 @@ export class SubscriptionPricing extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionPricingState | undefined;
-            resourceInputs["extensions"] = state ? state.extensions : undefined;
-            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
-            resourceInputs["subplan"] = state ? state.subplan : undefined;
-            resourceInputs["tier"] = state ? state.tier : undefined;
+            resourceInputs["extensions"] = state?.extensions;
+            resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["subplan"] = state?.subplan;
+            resourceInputs["tier"] = state?.tier;
         } else {
             const args = argsOrState as SubscriptionPricingArgs | undefined;
-            if ((!args || args.tier === undefined) && !opts.urn) {
+            if (args?.tier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
             }
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["subplan"] = args ? args.subplan : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["subplan"] = args?.subplan;
+            resourceInputs["tier"] = args?.tier;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SubscriptionPricing.__pulumiType, name, resourceInputs, opts);

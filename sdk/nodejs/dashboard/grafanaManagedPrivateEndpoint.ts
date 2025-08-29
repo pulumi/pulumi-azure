@@ -91,39 +91,39 @@ export class GrafanaManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
      * The id of the associated managed Grafana. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    public readonly grafanaId!: pulumi.Output<string>;
+    declare public readonly grafanaId: pulumi.Output<string>;
     /**
      * Specifies a list of private link group IDs. The value of this will depend on the private link resource to which you are connecting. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    public readonly groupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupIds: pulumi.Output<string[] | undefined>;
     /**
      * The Azure Region where the Dashboard Grafana Managed Private Endpoint should exist. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    public readonly privateLinkResourceId!: pulumi.Output<string>;
+    declare public readonly privateLinkResourceId: pulumi.Output<string>;
     /**
      * The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
      */
-    public readonly privateLinkResourceRegion!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkResourceRegion: pulumi.Output<string | undefined>;
     /**
      * A domain name for this endpoint to be used within Grafana. Must be just a domain, without schema, and with at least three parts.
      */
-    public readonly privateLinkServiceUrl!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkServiceUrl: pulumi.Output<string | undefined>;
     /**
      * A message to provide in the request which will be seen by approvers.
      */
-    public readonly requestMessage!: pulumi.Output<string | undefined>;
+    declare public readonly requestMessage: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a GrafanaManagedPrivateEndpoint resource with the given unique name, arguments, and options.
@@ -138,32 +138,32 @@ export class GrafanaManagedPrivateEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GrafanaManagedPrivateEndpointState | undefined;
-            resourceInputs["grafanaId"] = state ? state.grafanaId : undefined;
-            resourceInputs["groupIds"] = state ? state.groupIds : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateLinkResourceId"] = state ? state.privateLinkResourceId : undefined;
-            resourceInputs["privateLinkResourceRegion"] = state ? state.privateLinkResourceRegion : undefined;
-            resourceInputs["privateLinkServiceUrl"] = state ? state.privateLinkServiceUrl : undefined;
-            resourceInputs["requestMessage"] = state ? state.requestMessage : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["grafanaId"] = state?.grafanaId;
+            resourceInputs["groupIds"] = state?.groupIds;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateLinkResourceId"] = state?.privateLinkResourceId;
+            resourceInputs["privateLinkResourceRegion"] = state?.privateLinkResourceRegion;
+            resourceInputs["privateLinkServiceUrl"] = state?.privateLinkServiceUrl;
+            resourceInputs["requestMessage"] = state?.requestMessage;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as GrafanaManagedPrivateEndpointArgs | undefined;
-            if ((!args || args.grafanaId === undefined) && !opts.urn) {
+            if (args?.grafanaId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'grafanaId'");
             }
-            if ((!args || args.privateLinkResourceId === undefined) && !opts.urn) {
+            if (args?.privateLinkResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkResourceId'");
             }
-            resourceInputs["grafanaId"] = args ? args.grafanaId : undefined;
-            resourceInputs["groupIds"] = args ? args.groupIds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            resourceInputs["privateLinkResourceRegion"] = args ? args.privateLinkResourceRegion : undefined;
-            resourceInputs["privateLinkServiceUrl"] = args ? args.privateLinkServiceUrl : undefined;
-            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["grafanaId"] = args?.grafanaId;
+            resourceInputs["groupIds"] = args?.groupIds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
+            resourceInputs["privateLinkResourceRegion"] = args?.privateLinkResourceRegion;
+            resourceInputs["privateLinkServiceUrl"] = args?.privateLinkServiceUrl;
+            resourceInputs["requestMessage"] = args?.requestMessage;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GrafanaManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);

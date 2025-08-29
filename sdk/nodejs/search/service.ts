@@ -116,83 +116,83 @@ export class Service extends pulumi.CustomResource {
      *
      * > **Note:** The `allowedIps` are only applied if the `publicNetworkAccessEnabled` field has been set to `true`, else all traffic over the public interface will be rejected, even if the `allowedIps` field has been defined. When the `publicNetworkAccessEnabled` field has been set to `false` the private endpoint connections are the only allowed access point to the Search Service.
      */
-    public readonly allowedIps!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedIps: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`.
      *
      * > **Note:** `authenticationFailureMode` can only be configured when using `localAuthenticationEnabled` is set to `true` - which when set together specifies that both API Keys and AzureAD Authentication should be supported.
      */
-    public readonly authenticationFailureMode!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationFailureMode: pulumi.Output<string | undefined>;
     /**
      * Describes whether the search service is compliant or not with respect to having non-customer encrypted resources. If a service has more than one non-customer encrypted resource and `Enforcement` is `enabled` then the service will be marked as `NonCompliant`. If all the resources are customer encrypted, then the service will be marked as `Compliant`.
      */
-    public /*out*/ readonly customerManagedKeyEncryptionComplianceStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly customerManagedKeyEncryptionComplianceStatus: pulumi.Output<string>;
     /**
      * Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`.
      */
-    public readonly customerManagedKeyEnforcementEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly customerManagedKeyEnforcementEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created.
      *
      * > **Note:** `hostingMode` can only be configured when `sku` is set to `standard3`.
      */
-    public readonly hostingMode!: pulumi.Output<string | undefined>;
+    declare public readonly hostingMode: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.search.ServiceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.search.ServiceIdentity | undefined>;
     /**
      * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
      */
-    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
      */
-    public readonly networkRuleBypassOption!: pulumi.Output<string | undefined>;
+    declare public readonly networkRuleBypassOption: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of partitions which should be created. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
      *
      * > **Note:** when `hostingMode` is set to `highDensity` the maximum number of partitions allowed is `3`.
      */
-    public readonly partitionCount!: pulumi.Output<number | undefined>;
+    declare public readonly partitionCount: pulumi.Output<number | undefined>;
     /**
      * The Primary Key used for Search Service Administration.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * Specifies whether Public Network Access is allowed for this resource. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `queryKeys` block as defined below.
      */
-    public /*out*/ readonly queryKeys!: pulumi.Output<outputs.search.ServiceQueryKey[]>;
+    declare public /*out*/ readonly queryKeys: pulumi.Output<outputs.search.ServiceQueryKey[]>;
     /**
      * Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)).
      */
-    public readonly replicaCount!: pulumi.Output<number | undefined>;
+    declare public readonly replicaCount: pulumi.Output<number | undefined>;
     /**
      * The name of the Resource Group where the Search Service should exist. Changing this forces a new Search Service to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Secondary Key used for Search Service Administration.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`.
      *
      * > **Note:** The `semanticSearchSku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
      */
-    public readonly semanticSearchSku!: pulumi.Output<string | undefined>;
+    declare public readonly semanticSearchSku: pulumi.Output<string | undefined>;
     /**
      * The SKU which should be used for this Search Service. Possible values include `basic`, `free`, `standard`, `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2`. Changing this forces a new Search Service to be created.
      *
@@ -200,11 +200,11 @@ export class Service extends pulumi.CustomResource {
      *
      * > **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * Specifies a mapping of tags which should be assigned to this Search Service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -219,50 +219,50 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["allowedIps"] = state ? state.allowedIps : undefined;
-            resourceInputs["authenticationFailureMode"] = state ? state.authenticationFailureMode : undefined;
-            resourceInputs["customerManagedKeyEncryptionComplianceStatus"] = state ? state.customerManagedKeyEncryptionComplianceStatus : undefined;
-            resourceInputs["customerManagedKeyEnforcementEnabled"] = state ? state.customerManagedKeyEnforcementEnabled : undefined;
-            resourceInputs["hostingMode"] = state ? state.hostingMode : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkRuleBypassOption"] = state ? state.networkRuleBypassOption : undefined;
-            resourceInputs["partitionCount"] = state ? state.partitionCount : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["queryKeys"] = state ? state.queryKeys : undefined;
-            resourceInputs["replicaCount"] = state ? state.replicaCount : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["semanticSearchSku"] = state ? state.semanticSearchSku : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["allowedIps"] = state?.allowedIps;
+            resourceInputs["authenticationFailureMode"] = state?.authenticationFailureMode;
+            resourceInputs["customerManagedKeyEncryptionComplianceStatus"] = state?.customerManagedKeyEncryptionComplianceStatus;
+            resourceInputs["customerManagedKeyEnforcementEnabled"] = state?.customerManagedKeyEnforcementEnabled;
+            resourceInputs["hostingMode"] = state?.hostingMode;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkRuleBypassOption"] = state?.networkRuleBypassOption;
+            resourceInputs["partitionCount"] = state?.partitionCount;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["queryKeys"] = state?.queryKeys;
+            resourceInputs["replicaCount"] = state?.replicaCount;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["semanticSearchSku"] = state?.semanticSearchSku;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["allowedIps"] = args ? args.allowedIps : undefined;
-            resourceInputs["authenticationFailureMode"] = args ? args.authenticationFailureMode : undefined;
-            resourceInputs["customerManagedKeyEnforcementEnabled"] = args ? args.customerManagedKeyEnforcementEnabled : undefined;
-            resourceInputs["hostingMode"] = args ? args.hostingMode : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkRuleBypassOption"] = args ? args.networkRuleBypassOption : undefined;
-            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["replicaCount"] = args ? args.replicaCount : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["semanticSearchSku"] = args ? args.semanticSearchSku : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedIps"] = args?.allowedIps;
+            resourceInputs["authenticationFailureMode"] = args?.authenticationFailureMode;
+            resourceInputs["customerManagedKeyEnforcementEnabled"] = args?.customerManagedKeyEnforcementEnabled;
+            resourceInputs["hostingMode"] = args?.hostingMode;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkRuleBypassOption"] = args?.networkRuleBypassOption;
+            resourceInputs["partitionCount"] = args?.partitionCount;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["replicaCount"] = args?.replicaCount;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["semanticSearchSku"] = args?.semanticSearchSku;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["customerManagedKeyEncryptionComplianceStatus"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["queryKeys"] = undefined /*out*/;

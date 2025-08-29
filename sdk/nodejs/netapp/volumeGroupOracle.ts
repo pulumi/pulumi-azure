@@ -327,31 +327,31 @@ export class VolumeGroupOracle extends pulumi.CustomResource {
     /**
      * Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    public readonly applicationIdentifier!: pulumi.Output<string>;
+    declare public readonly applicationIdentifier: pulumi.Output<string>;
     /**
      * Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    public readonly groupDescription!: pulumi.Output<string>;
+    declare public readonly groupDescription: pulumi.Output<string>;
     /**
      * The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * One or more `volume` blocks as defined below.
      */
-    public readonly volumes!: pulumi.Output<outputs.netapp.VolumeGroupOracleVolume[]>;
+    declare public readonly volumes: pulumi.Output<outputs.netapp.VolumeGroupOracleVolume[]>;
 
     /**
      * Create a VolumeGroupOracle resource with the given unique name, arguments, and options.
@@ -366,37 +366,37 @@ export class VolumeGroupOracle extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeGroupOracleState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["applicationIdentifier"] = state ? state.applicationIdentifier : undefined;
-            resourceInputs["groupDescription"] = state ? state.groupDescription : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["volumes"] = state ? state.volumes : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["applicationIdentifier"] = state?.applicationIdentifier;
+            resourceInputs["groupDescription"] = state?.groupDescription;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["volumes"] = state?.volumes;
         } else {
             const args = argsOrState as VolumeGroupOracleArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.applicationIdentifier === undefined) && !opts.urn) {
+            if (args?.applicationIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationIdentifier'");
             }
-            if ((!args || args.groupDescription === undefined) && !opts.urn) {
+            if (args?.groupDescription === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupDescription'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumes === undefined) && !opts.urn) {
+            if (args?.volumes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumes'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["applicationIdentifier"] = args ? args.applicationIdentifier : undefined;
-            resourceInputs["groupDescription"] = args ? args.groupDescription : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["applicationIdentifier"] = args?.applicationIdentifier;
+            resourceInputs["groupDescription"] = args?.groupDescription;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["volumes"] = args?.volumes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VolumeGroupOracle.__pulumiType, name, resourceInputs, opts);

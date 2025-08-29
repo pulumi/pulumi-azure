@@ -78,17 +78,17 @@ export class ContainerStorageAccount extends pulumi.CustomResource {
     /**
      * The name of the vault where the storage account will be registered. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * Name of the resource group where the vault is located. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      *
      * > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a ContainerStorageAccount resource with the given unique name, arguments, and options.
@@ -103,23 +103,23 @@ export class ContainerStorageAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContainerStorageAccountState | undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as ContainerStorageAccountArgs | undefined;
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ContainerStorageAccount.__pulumiType, name, resourceInputs, opts);

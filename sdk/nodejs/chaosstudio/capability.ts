@@ -94,15 +94,15 @@ export class Capability extends pulumi.CustomResource {
     /**
      * The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
      */
-    public readonly capabilityType!: pulumi.Output<string>;
+    declare public readonly capabilityType: pulumi.Output<string>;
     /**
      * The Unique Resource Name of the Capability.
      */
-    public /*out*/ readonly capabilityUrn!: pulumi.Output<string>;
+    declare public /*out*/ readonly capabilityUrn: pulumi.Output<string>;
     /**
      * The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
      */
-    public readonly chaosStudioTargetId!: pulumi.Output<string>;
+    declare public readonly chaosStudioTargetId: pulumi.Output<string>;
 
     /**
      * Create a Capability resource with the given unique name, arguments, and options.
@@ -117,19 +117,19 @@ export class Capability extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CapabilityState | undefined;
-            resourceInputs["capabilityType"] = state ? state.capabilityType : undefined;
-            resourceInputs["capabilityUrn"] = state ? state.capabilityUrn : undefined;
-            resourceInputs["chaosStudioTargetId"] = state ? state.chaosStudioTargetId : undefined;
+            resourceInputs["capabilityType"] = state?.capabilityType;
+            resourceInputs["capabilityUrn"] = state?.capabilityUrn;
+            resourceInputs["chaosStudioTargetId"] = state?.chaosStudioTargetId;
         } else {
             const args = argsOrState as CapabilityArgs | undefined;
-            if ((!args || args.capabilityType === undefined) && !opts.urn) {
+            if (args?.capabilityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capabilityType'");
             }
-            if ((!args || args.chaosStudioTargetId === undefined) && !opts.urn) {
+            if (args?.chaosStudioTargetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'chaosStudioTargetId'");
             }
-            resourceInputs["capabilityType"] = args ? args.capabilityType : undefined;
-            resourceInputs["chaosStudioTargetId"] = args ? args.chaosStudioTargetId : undefined;
+            resourceInputs["capabilityType"] = args?.capabilityType;
+            resourceInputs["chaosStudioTargetId"] = args?.chaosStudioTargetId;
             resourceInputs["capabilityUrn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

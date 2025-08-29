@@ -73,39 +73,39 @@ export class AvailabilitySet extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
      */
-    public readonly managed!: pulumi.Output<boolean | undefined>;
+    declare public readonly managed: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the availability set. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
      *
      * > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      */
-    public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
+    declare public readonly platformFaultDomainCount: pulumi.Output<number | undefined>;
     /**
      * Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
      *
      * > **Note:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
      */
-    public readonly platformUpdateDomainCount!: pulumi.Output<number | undefined>;
+    declare public readonly platformUpdateDomainCount: pulumi.Output<number | undefined>;
     /**
      * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
      */
-    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly proximityPlacementGroupId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AvailabilitySet resource with the given unique name, arguments, and options.
@@ -120,27 +120,27 @@ export class AvailabilitySet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AvailabilitySetState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managed"] = state ? state.managed : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
-            resourceInputs["platformUpdateDomainCount"] = state ? state.platformUpdateDomainCount : undefined;
-            resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managed"] = state?.managed;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["platformFaultDomainCount"] = state?.platformFaultDomainCount;
+            resourceInputs["platformUpdateDomainCount"] = state?.platformUpdateDomainCount;
+            resourceInputs["proximityPlacementGroupId"] = state?.proximityPlacementGroupId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AvailabilitySetArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managed"] = args ? args.managed : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            resourceInputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
-            resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managed"] = args?.managed;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platformFaultDomainCount"] = args?.platformFaultDomainCount;
+            resourceInputs["platformUpdateDomainCount"] = args?.platformUpdateDomainCount;
+            resourceInputs["proximityPlacementGroupId"] = args?.proximityPlacementGroupId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);

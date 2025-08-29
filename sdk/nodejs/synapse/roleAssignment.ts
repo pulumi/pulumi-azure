@@ -96,13 +96,13 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
      */
-    public readonly principalId!: pulumi.Output<string>;
+    declare public readonly principalId: pulumi.Output<string>;
     /**
      * The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** While `principalType` is optional, it's still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can't run SQL statements using `Entra ID` authentication if `principalType` is not set to `ServicePrincipal`.
      */
-    public readonly principalType!: pulumi.Output<string | undefined>;
+    declare public readonly principalType: pulumi.Output<string | undefined>;
     /**
      * The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
      *
@@ -110,17 +110,17 @@ export class RoleAssignment extends pulumi.CustomResource {
      *
      * > **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
      */
-    public readonly roleName!: pulumi.Output<string>;
+    declare public readonly roleName: pulumi.Output<string>;
     /**
      * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      *
      * > **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapseWorkspaceId`, `synapseSparkPoolId` must be set.
      */
-    public readonly synapseSparkPoolId!: pulumi.Output<string | undefined>;
+    declare public readonly synapseSparkPoolId: pulumi.Output<string | undefined>;
     /**
      * The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string | undefined>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string | undefined>;
 
     /**
      * Create a RoleAssignment resource with the given unique name, arguments, and options.
@@ -135,24 +135,24 @@ export class RoleAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleAssignmentState | undefined;
-            resourceInputs["principalId"] = state ? state.principalId : undefined;
-            resourceInputs["principalType"] = state ? state.principalType : undefined;
-            resourceInputs["roleName"] = state ? state.roleName : undefined;
-            resourceInputs["synapseSparkPoolId"] = state ? state.synapseSparkPoolId : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
+            resourceInputs["principalId"] = state?.principalId;
+            resourceInputs["principalType"] = state?.principalType;
+            resourceInputs["roleName"] = state?.roleName;
+            resourceInputs["synapseSparkPoolId"] = state?.synapseSparkPoolId;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
         } else {
             const args = argsOrState as RoleAssignmentArgs | undefined;
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["principalType"] = args ? args.principalType : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["synapseSparkPoolId"] = args ? args.synapseSparkPoolId : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["principalType"] = args?.principalType;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["synapseSparkPoolId"] = args?.synapseSparkPoolId;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RoleAssignment.__pulumiType, name, resourceInputs, opts);

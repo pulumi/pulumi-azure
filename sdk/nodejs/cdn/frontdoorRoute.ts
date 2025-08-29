@@ -174,63 +174,63 @@ export class FrontdoorRoute extends pulumi.CustomResource {
      *
      * > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
      */
-    public readonly cache!: pulumi.Output<outputs.cdn.FrontdoorRouteCache | undefined>;
+    declare public readonly cache: pulumi.Output<outputs.cdn.FrontdoorRouteCache | undefined>;
     /**
      * The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
      */
-    public readonly cdnFrontdoorCustomDomainIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly cdnFrontdoorCustomDomainIds: pulumi.Output<string[] | undefined>;
     /**
      * The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created.
      */
-    public readonly cdnFrontdoorEndpointId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorEndpointId: pulumi.Output<string>;
     /**
      * The resource ID of the Front Door Origin Group where this Front Door Route should be created.
      */
-    public readonly cdnFrontdoorOriginGroupId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorOriginGroupId: pulumi.Output<string>;
     /**
      * One or more Front Door Origin resource IDs that this Front Door Route will link to.
      */
-    public readonly cdnFrontdoorOriginIds!: pulumi.Output<string[]>;
+    declare public readonly cdnFrontdoorOriginIds: pulumi.Output<string[]>;
     /**
      * A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
      */
-    public readonly cdnFrontdoorOriginPath!: pulumi.Output<string | undefined>;
+    declare public readonly cdnFrontdoorOriginPath: pulumi.Output<string | undefined>;
     /**
      * A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
      */
-    public readonly cdnFrontdoorRuleSetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly cdnFrontdoorRuleSetIds: pulumi.Output<string[] | undefined>;
     /**
      * Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      */
-    public readonly forwardingProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly forwardingProtocol: pulumi.Output<string | undefined>;
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      *
      * > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      */
-    public readonly httpsRedirectEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsRedirectEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
      */
-    public readonly linkToDefaultDomain!: pulumi.Output<boolean | undefined>;
+    declare public readonly linkToDefaultDomain: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The route patterns of the rule.
      */
-    public readonly patternsToMatches!: pulumi.Output<string[]>;
+    declare public readonly patternsToMatches: pulumi.Output<string[]>;
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      *
      * > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      */
-    public readonly supportedProtocols!: pulumi.Output<string[]>;
+    declare public readonly supportedProtocols: pulumi.Output<string[]>;
 
     /**
      * Create a FrontdoorRoute resource with the given unique name, arguments, and options.
@@ -245,51 +245,51 @@ export class FrontdoorRoute extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorRouteState | undefined;
-            resourceInputs["cache"] = state ? state.cache : undefined;
-            resourceInputs["cdnFrontdoorCustomDomainIds"] = state ? state.cdnFrontdoorCustomDomainIds : undefined;
-            resourceInputs["cdnFrontdoorEndpointId"] = state ? state.cdnFrontdoorEndpointId : undefined;
-            resourceInputs["cdnFrontdoorOriginGroupId"] = state ? state.cdnFrontdoorOriginGroupId : undefined;
-            resourceInputs["cdnFrontdoorOriginIds"] = state ? state.cdnFrontdoorOriginIds : undefined;
-            resourceInputs["cdnFrontdoorOriginPath"] = state ? state.cdnFrontdoorOriginPath : undefined;
-            resourceInputs["cdnFrontdoorRuleSetIds"] = state ? state.cdnFrontdoorRuleSetIds : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["forwardingProtocol"] = state ? state.forwardingProtocol : undefined;
-            resourceInputs["httpsRedirectEnabled"] = state ? state.httpsRedirectEnabled : undefined;
-            resourceInputs["linkToDefaultDomain"] = state ? state.linkToDefaultDomain : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["patternsToMatches"] = state ? state.patternsToMatches : undefined;
-            resourceInputs["supportedProtocols"] = state ? state.supportedProtocols : undefined;
+            resourceInputs["cache"] = state?.cache;
+            resourceInputs["cdnFrontdoorCustomDomainIds"] = state?.cdnFrontdoorCustomDomainIds;
+            resourceInputs["cdnFrontdoorEndpointId"] = state?.cdnFrontdoorEndpointId;
+            resourceInputs["cdnFrontdoorOriginGroupId"] = state?.cdnFrontdoorOriginGroupId;
+            resourceInputs["cdnFrontdoorOriginIds"] = state?.cdnFrontdoorOriginIds;
+            resourceInputs["cdnFrontdoorOriginPath"] = state?.cdnFrontdoorOriginPath;
+            resourceInputs["cdnFrontdoorRuleSetIds"] = state?.cdnFrontdoorRuleSetIds;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["forwardingProtocol"] = state?.forwardingProtocol;
+            resourceInputs["httpsRedirectEnabled"] = state?.httpsRedirectEnabled;
+            resourceInputs["linkToDefaultDomain"] = state?.linkToDefaultDomain;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["patternsToMatches"] = state?.patternsToMatches;
+            resourceInputs["supportedProtocols"] = state?.supportedProtocols;
         } else {
             const args = argsOrState as FrontdoorRouteArgs | undefined;
-            if ((!args || args.cdnFrontdoorEndpointId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorEndpointId'");
             }
-            if ((!args || args.cdnFrontdoorOriginGroupId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorOriginGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorOriginGroupId'");
             }
-            if ((!args || args.cdnFrontdoorOriginIds === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorOriginIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorOriginIds'");
             }
-            if ((!args || args.patternsToMatches === undefined) && !opts.urn) {
+            if (args?.patternsToMatches === undefined && !opts.urn) {
                 throw new Error("Missing required property 'patternsToMatches'");
             }
-            if ((!args || args.supportedProtocols === undefined) && !opts.urn) {
+            if (args?.supportedProtocols === undefined && !opts.urn) {
                 throw new Error("Missing required property 'supportedProtocols'");
             }
-            resourceInputs["cache"] = args ? args.cache : undefined;
-            resourceInputs["cdnFrontdoorCustomDomainIds"] = args ? args.cdnFrontdoorCustomDomainIds : undefined;
-            resourceInputs["cdnFrontdoorEndpointId"] = args ? args.cdnFrontdoorEndpointId : undefined;
-            resourceInputs["cdnFrontdoorOriginGroupId"] = args ? args.cdnFrontdoorOriginGroupId : undefined;
-            resourceInputs["cdnFrontdoorOriginIds"] = args ? args.cdnFrontdoorOriginIds : undefined;
-            resourceInputs["cdnFrontdoorOriginPath"] = args ? args.cdnFrontdoorOriginPath : undefined;
-            resourceInputs["cdnFrontdoorRuleSetIds"] = args ? args.cdnFrontdoorRuleSetIds : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["forwardingProtocol"] = args ? args.forwardingProtocol : undefined;
-            resourceInputs["httpsRedirectEnabled"] = args ? args.httpsRedirectEnabled : undefined;
-            resourceInputs["linkToDefaultDomain"] = args ? args.linkToDefaultDomain : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["patternsToMatches"] = args ? args.patternsToMatches : undefined;
-            resourceInputs["supportedProtocols"] = args ? args.supportedProtocols : undefined;
+            resourceInputs["cache"] = args?.cache;
+            resourceInputs["cdnFrontdoorCustomDomainIds"] = args?.cdnFrontdoorCustomDomainIds;
+            resourceInputs["cdnFrontdoorEndpointId"] = args?.cdnFrontdoorEndpointId;
+            resourceInputs["cdnFrontdoorOriginGroupId"] = args?.cdnFrontdoorOriginGroupId;
+            resourceInputs["cdnFrontdoorOriginIds"] = args?.cdnFrontdoorOriginIds;
+            resourceInputs["cdnFrontdoorOriginPath"] = args?.cdnFrontdoorOriginPath;
+            resourceInputs["cdnFrontdoorRuleSetIds"] = args?.cdnFrontdoorRuleSetIds;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["forwardingProtocol"] = args?.forwardingProtocol;
+            resourceInputs["httpsRedirectEnabled"] = args?.httpsRedirectEnabled;
+            resourceInputs["linkToDefaultDomain"] = args?.linkToDefaultDomain;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["patternsToMatches"] = args?.patternsToMatches;
+            resourceInputs["supportedProtocols"] = args?.supportedProtocols;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FrontdoorRoute.__pulumiType, name, resourceInputs, opts);

@@ -96,45 +96,45 @@ export class Definition extends pulumi.CustomResource {
     /**
      * The description of the policy definition.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the policy definition.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      */
-    public readonly managementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly managementGroupId: pulumi.Output<string | undefined>;
     /**
      * The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
      */
-    public readonly metadata!: pulumi.Output<string>;
+    declare public readonly metadata: pulumi.Output<string>;
     /**
      * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
      *
      * > **Note:** Other resource provider modes only support built-in policy definitions but may later become available in custom definitions, these include; `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`. [See here](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#resource-provider-modes) for more details.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * The name of the policy definition. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. Reducing the number of parameters forces a new resource to be created.
      */
-    public readonly parameters!: pulumi.Output<string | undefined>;
+    declare public readonly parameters: pulumi.Output<string | undefined>;
     /**
      * The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
      */
-    public readonly policyRule!: pulumi.Output<string | undefined>;
+    declare public readonly policyRule: pulumi.Output<string | undefined>;
     /**
      * The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
      */
-    public readonly policyType!: pulumi.Output<string>;
+    declare public readonly policyType: pulumi.Output<string>;
     /**
      * A list of role definition id extracted from `policyRule` required for remediation.
      */
-    public /*out*/ readonly roleDefinitionIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly roleDefinitionIds: pulumi.Output<string[]>;
 
     /**
      * Create a Definition resource with the given unique name, arguments, and options.
@@ -149,36 +149,36 @@ export class Definition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefinitionState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["managementGroupId"] = state ? state.managementGroupId : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["policyRule"] = state ? state.policyRule : undefined;
-            resourceInputs["policyType"] = state ? state.policyType : undefined;
-            resourceInputs["roleDefinitionIds"] = state ? state.roleDefinitionIds : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["managementGroupId"] = state?.managementGroupId;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["policyRule"] = state?.policyRule;
+            resourceInputs["policyType"] = state?.policyType;
+            resourceInputs["roleDefinitionIds"] = state?.roleDefinitionIds;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.policyType === undefined) && !opts.urn) {
+            if (args?.policyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyRule"] = args ? args.policyRule : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyRule"] = args?.policyRule;
+            resourceInputs["policyType"] = args?.policyType;
             resourceInputs["roleDefinitionIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

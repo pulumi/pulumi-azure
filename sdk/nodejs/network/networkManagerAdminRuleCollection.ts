@@ -92,19 +92,19 @@ export class NetworkManagerAdminRuleCollection extends pulumi.CustomResource {
     /**
      * A description of the Network Manager Admin Rule Collection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name which should be used for this Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule Collection to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of Network Group ID which this Network Manager Admin Rule Collection applies to.
      */
-    public readonly networkGroupIds!: pulumi.Output<string[]>;
+    declare public readonly networkGroupIds: pulumi.Output<string[]>;
     /**
      * Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Admin Rule Collection to be created.
      */
-    public readonly securityAdminConfigurationId!: pulumi.Output<string>;
+    declare public readonly securityAdminConfigurationId: pulumi.Output<string>;
 
     /**
      * Create a NetworkManagerAdminRuleCollection resource with the given unique name, arguments, and options.
@@ -119,22 +119,22 @@ export class NetworkManagerAdminRuleCollection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerAdminRuleCollectionState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkGroupIds"] = state ? state.networkGroupIds : undefined;
-            resourceInputs["securityAdminConfigurationId"] = state ? state.securityAdminConfigurationId : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkGroupIds"] = state?.networkGroupIds;
+            resourceInputs["securityAdminConfigurationId"] = state?.securityAdminConfigurationId;
         } else {
             const args = argsOrState as NetworkManagerAdminRuleCollectionArgs | undefined;
-            if ((!args || args.networkGroupIds === undefined) && !opts.urn) {
+            if (args?.networkGroupIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkGroupIds'");
             }
-            if ((!args || args.securityAdminConfigurationId === undefined) && !opts.urn) {
+            if (args?.securityAdminConfigurationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityAdminConfigurationId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkGroupIds"] = args ? args.networkGroupIds : undefined;
-            resourceInputs["securityAdminConfigurationId"] = args ? args.securityAdminConfigurationId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkGroupIds"] = args?.networkGroupIds;
+            resourceInputs["securityAdminConfigurationId"] = args?.securityAdminConfigurationId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerAdminRuleCollection.__pulumiType, name, resourceInputs, opts);

@@ -61,15 +61,15 @@ export class ActiveSlot extends pulumi.CustomResource {
     /**
      * The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
      */
-    public readonly appServiceName!: pulumi.Output<string>;
+    declare public readonly appServiceName: pulumi.Output<string>;
     /**
      * The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
      */
-    public readonly appServiceSlotName!: pulumi.Output<string>;
+    declare public readonly appServiceSlotName: pulumi.Output<string>;
     /**
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ActiveSlot resource with the given unique name, arguments, and options.
@@ -84,23 +84,23 @@ export class ActiveSlot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActiveSlotState | undefined;
-            resourceInputs["appServiceName"] = state ? state.appServiceName : undefined;
-            resourceInputs["appServiceSlotName"] = state ? state.appServiceSlotName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["appServiceName"] = state?.appServiceName;
+            resourceInputs["appServiceSlotName"] = state?.appServiceSlotName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ActiveSlotArgs | undefined;
-            if ((!args || args.appServiceName === undefined) && !opts.urn) {
+            if (args?.appServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServiceName'");
             }
-            if ((!args || args.appServiceSlotName === undefined) && !opts.urn) {
+            if (args?.appServiceSlotName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServiceSlotName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appServiceName"] = args ? args.appServiceName : undefined;
-            resourceInputs["appServiceSlotName"] = args ? args.appServiceSlotName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["appServiceName"] = args?.appServiceName;
+            resourceInputs["appServiceSlotName"] = args?.appServiceSlotName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActiveSlot.__pulumiType, name, resourceInputs, opts);

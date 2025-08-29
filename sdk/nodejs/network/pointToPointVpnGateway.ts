@@ -123,43 +123,43 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
     /**
      * A `connectionConfiguration` block as defined below.
      */
-    public readonly connectionConfigurations!: pulumi.Output<outputs.network.PointToPointVpnGatewayConnectionConfiguration[]>;
+    declare public readonly connectionConfigurations: pulumi.Output<outputs.network.PointToPointVpnGatewayConnectionConfiguration[]>;
     /**
      * A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
      */
-    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsServers: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly routingPreferenceInternetEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly routingPreferenceInternetEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The [Scale Unit](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-a-virtual-wan-gateway-scale-unit) for this Point-to-Site VPN Gateway.
      */
-    public readonly scaleUnit!: pulumi.Output<number>;
+    declare public readonly scaleUnit: pulumi.Output<number>;
     /**
      * A mapping of tags to assign to the Point-to-Site VPN Gateway.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
     /**
      * The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
      */
-    public readonly vpnServerConfigurationId!: pulumi.Output<string>;
+    declare public readonly vpnServerConfigurationId: pulumi.Output<string>;
 
     /**
      * Create a PointToPointVpnGateway resource with the given unique name, arguments, and options.
@@ -174,43 +174,43 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PointToPointVpnGatewayState | undefined;
-            resourceInputs["connectionConfigurations"] = state ? state.connectionConfigurations : undefined;
-            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routingPreferenceInternetEnabled"] = state ? state.routingPreferenceInternetEnabled : undefined;
-            resourceInputs["scaleUnit"] = state ? state.scaleUnit : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
-            resourceInputs["vpnServerConfigurationId"] = state ? state.vpnServerConfigurationId : undefined;
+            resourceInputs["connectionConfigurations"] = state?.connectionConfigurations;
+            resourceInputs["dnsServers"] = state?.dnsServers;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routingPreferenceInternetEnabled"] = state?.routingPreferenceInternetEnabled;
+            resourceInputs["scaleUnit"] = state?.scaleUnit;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
+            resourceInputs["vpnServerConfigurationId"] = state?.vpnServerConfigurationId;
         } else {
             const args = argsOrState as PointToPointVpnGatewayArgs | undefined;
-            if ((!args || args.connectionConfigurations === undefined) && !opts.urn) {
+            if (args?.connectionConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionConfigurations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scaleUnit === undefined) && !opts.urn) {
+            if (args?.scaleUnit === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scaleUnit'");
             }
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            if ((!args || args.vpnServerConfigurationId === undefined) && !opts.urn) {
+            if (args?.vpnServerConfigurationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpnServerConfigurationId'");
             }
-            resourceInputs["connectionConfigurations"] = args ? args.connectionConfigurations : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingPreferenceInternetEnabled"] = args ? args.routingPreferenceInternetEnabled : undefined;
-            resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
-            resourceInputs["vpnServerConfigurationId"] = args ? args.vpnServerConfigurationId : undefined;
+            resourceInputs["connectionConfigurations"] = args?.connectionConfigurations;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingPreferenceInternetEnabled"] = args?.routingPreferenceInternetEnabled;
+            resourceInputs["scaleUnit"] = args?.scaleUnit;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
+            resourceInputs["vpnServerConfigurationId"] = args?.vpnServerConfigurationId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PointToPointVpnGateway.__pulumiType, name, resourceInputs, opts);

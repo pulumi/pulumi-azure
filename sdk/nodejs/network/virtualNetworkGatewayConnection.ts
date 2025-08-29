@@ -220,110 +220,110 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection.
      */
-    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
      * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      */
-    public readonly connectionMode!: pulumi.Output<string | undefined>;
+    declare public readonly connectionMode: pulumi.Output<string | undefined>;
     /**
      * The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
      * > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
      */
-    public readonly connectionProtocol!: pulumi.Output<string>;
+    declare public readonly connectionProtocol: pulumi.Output<string>;
     /**
      * A `customBgpAddresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
      * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      */
-    public readonly customBgpAddresses!: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionCustomBgpAddresses | undefined>;
+    declare public readonly customBgpAddresses: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionCustomBgpAddresses | undefined>;
     /**
      * The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
      */
-    public readonly dpdTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly dpdTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * A list of the egress NAT Rule Ids.
      */
-    public readonly egressNatRuleIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly egressNatRuleIds: pulumi.Output<string[] | undefined>;
     /**
      * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      */
-    public readonly enableBgp!: pulumi.Output<boolean>;
+    declare public readonly enableBgp: pulumi.Output<boolean>;
     /**
      * The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
      */
-    public readonly expressRouteCircuitId!: pulumi.Output<string | undefined>;
+    declare public readonly expressRouteCircuitId: pulumi.Output<string | undefined>;
     /**
      * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
      */
-    public readonly expressRouteGatewayBypass!: pulumi.Output<boolean>;
+    declare public readonly expressRouteGatewayBypass: pulumi.Output<boolean>;
     /**
      * A list of the ingress NAT Rule Ids.
      */
-    public readonly ingressNatRuleIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly ingressNatRuleIds: pulumi.Output<string[] | undefined>;
     /**
      * A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
-    public readonly ipsecPolicy!: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionIpsecPolicy | undefined>;
+    declare public readonly ipsecPolicy: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionIpsecPolicy | undefined>;
     /**
      * Use private local Azure IP for the connection. Changing this forces a new resource to be created.
      */
-    public readonly localAzureIpAddressEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAzureIpAddressEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the local network gateway when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      */
-    public readonly localNetworkGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly localNetworkGatewayId: pulumi.Output<string | undefined>;
     /**
      * The location/region where the connection is located. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the connection. Changing the name forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created.
      */
-    public readonly peerVirtualNetworkGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly peerVirtualNetworkGatewayId: pulumi.Output<string | undefined>;
     /**
      * Bypass the Express Route gateway when accessing private-links. When enabled `expressRouteGatewayBypass` must be set to `true`. Defaults to `false`.
      */
-    public readonly privateLinkFastPathEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly privateLinkFastPathEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the connection Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The routing weight. Defaults to `10`.
      */
-    public readonly routingWeight!: pulumi.Output<number>;
+    declare public readonly routingWeight: pulumi.Output<number>;
     /**
      * The shared IPSec key. A key could be provided if a Site-to-Site, VNet-to-VNet or ExpressRoute connection is created.
      */
-    public readonly sharedKey!: pulumi.Output<string>;
+    declare public readonly sharedKey: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `trafficSelectorPolicy` blocks which are documented below.
      * A `trafficSelectorPolicy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection.
      * For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
      */
-    public readonly trafficSelectorPolicy!: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionTrafficSelectorPolicy | undefined>;
+    declare public readonly trafficSelectorPolicy: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionTrafficSelectorPolicy | undefined>;
     /**
      * The type of connection. Valid options are `IPsec` (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet). Each connection type requires different mandatory arguments (refer to the examples above). Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsecPolicy` block. Defaults to `false`.
      */
-    public readonly usePolicyBasedTrafficSelectors!: pulumi.Output<boolean>;
+    declare public readonly usePolicyBasedTrafficSelectors: pulumi.Output<boolean>;
     /**
      * The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
      */
-    public readonly virtualNetworkGatewayId!: pulumi.Output<string>;
+    declare public readonly virtualNetworkGatewayId: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkGatewayConnection resource with the given unique name, arguments, and options.
@@ -338,67 +338,67 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
-            resourceInputs["authorizationKey"] = state ? state.authorizationKey : undefined;
-            resourceInputs["connectionMode"] = state ? state.connectionMode : undefined;
-            resourceInputs["connectionProtocol"] = state ? state.connectionProtocol : undefined;
-            resourceInputs["customBgpAddresses"] = state ? state.customBgpAddresses : undefined;
-            resourceInputs["dpdTimeoutSeconds"] = state ? state.dpdTimeoutSeconds : undefined;
-            resourceInputs["egressNatRuleIds"] = state ? state.egressNatRuleIds : undefined;
-            resourceInputs["enableBgp"] = state ? state.enableBgp : undefined;
-            resourceInputs["expressRouteCircuitId"] = state ? state.expressRouteCircuitId : undefined;
-            resourceInputs["expressRouteGatewayBypass"] = state ? state.expressRouteGatewayBypass : undefined;
-            resourceInputs["ingressNatRuleIds"] = state ? state.ingressNatRuleIds : undefined;
-            resourceInputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
-            resourceInputs["localAzureIpAddressEnabled"] = state ? state.localAzureIpAddressEnabled : undefined;
-            resourceInputs["localNetworkGatewayId"] = state ? state.localNetworkGatewayId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["peerVirtualNetworkGatewayId"] = state ? state.peerVirtualNetworkGatewayId : undefined;
-            resourceInputs["privateLinkFastPathEnabled"] = state ? state.privateLinkFastPathEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["routingWeight"] = state ? state.routingWeight : undefined;
-            resourceInputs["sharedKey"] = state ? state.sharedKey : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["trafficSelectorPolicy"] = state ? state.trafficSelectorPolicy : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["usePolicyBasedTrafficSelectors"] = state ? state.usePolicyBasedTrafficSelectors : undefined;
-            resourceInputs["virtualNetworkGatewayId"] = state ? state.virtualNetworkGatewayId : undefined;
+            resourceInputs["authorizationKey"] = state?.authorizationKey;
+            resourceInputs["connectionMode"] = state?.connectionMode;
+            resourceInputs["connectionProtocol"] = state?.connectionProtocol;
+            resourceInputs["customBgpAddresses"] = state?.customBgpAddresses;
+            resourceInputs["dpdTimeoutSeconds"] = state?.dpdTimeoutSeconds;
+            resourceInputs["egressNatRuleIds"] = state?.egressNatRuleIds;
+            resourceInputs["enableBgp"] = state?.enableBgp;
+            resourceInputs["expressRouteCircuitId"] = state?.expressRouteCircuitId;
+            resourceInputs["expressRouteGatewayBypass"] = state?.expressRouteGatewayBypass;
+            resourceInputs["ingressNatRuleIds"] = state?.ingressNatRuleIds;
+            resourceInputs["ipsecPolicy"] = state?.ipsecPolicy;
+            resourceInputs["localAzureIpAddressEnabled"] = state?.localAzureIpAddressEnabled;
+            resourceInputs["localNetworkGatewayId"] = state?.localNetworkGatewayId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["peerVirtualNetworkGatewayId"] = state?.peerVirtualNetworkGatewayId;
+            resourceInputs["privateLinkFastPathEnabled"] = state?.privateLinkFastPathEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routingWeight"] = state?.routingWeight;
+            resourceInputs["sharedKey"] = state?.sharedKey;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["trafficSelectorPolicy"] = state?.trafficSelectorPolicy;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = state?.usePolicyBasedTrafficSelectors;
+            resourceInputs["virtualNetworkGatewayId"] = state?.virtualNetworkGatewayId;
         } else {
             const args = argsOrState as VirtualNetworkGatewayConnectionArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.virtualNetworkGatewayId === undefined) && !opts.urn) {
+            if (args?.virtualNetworkGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGatewayId'");
             }
             resourceInputs["authorizationKey"] = args?.authorizationKey ? pulumi.secret(args.authorizationKey) : undefined;
-            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
-            resourceInputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
-            resourceInputs["customBgpAddresses"] = args ? args.customBgpAddresses : undefined;
-            resourceInputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
-            resourceInputs["egressNatRuleIds"] = args ? args.egressNatRuleIds : undefined;
-            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["expressRouteCircuitId"] = args ? args.expressRouteCircuitId : undefined;
-            resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
-            resourceInputs["ingressNatRuleIds"] = args ? args.ingressNatRuleIds : undefined;
-            resourceInputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
-            resourceInputs["localAzureIpAddressEnabled"] = args ? args.localAzureIpAddressEnabled : undefined;
-            resourceInputs["localNetworkGatewayId"] = args ? args.localNetworkGatewayId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerVirtualNetworkGatewayId"] = args ? args.peerVirtualNetworkGatewayId : undefined;
-            resourceInputs["privateLinkFastPathEnabled"] = args ? args.privateLinkFastPathEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
+            resourceInputs["connectionMode"] = args?.connectionMode;
+            resourceInputs["connectionProtocol"] = args?.connectionProtocol;
+            resourceInputs["customBgpAddresses"] = args?.customBgpAddresses;
+            resourceInputs["dpdTimeoutSeconds"] = args?.dpdTimeoutSeconds;
+            resourceInputs["egressNatRuleIds"] = args?.egressNatRuleIds;
+            resourceInputs["enableBgp"] = args?.enableBgp;
+            resourceInputs["expressRouteCircuitId"] = args?.expressRouteCircuitId;
+            resourceInputs["expressRouteGatewayBypass"] = args?.expressRouteGatewayBypass;
+            resourceInputs["ingressNatRuleIds"] = args?.ingressNatRuleIds;
+            resourceInputs["ipsecPolicy"] = args?.ipsecPolicy;
+            resourceInputs["localAzureIpAddressEnabled"] = args?.localAzureIpAddressEnabled;
+            resourceInputs["localNetworkGatewayId"] = args?.localNetworkGatewayId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerVirtualNetworkGatewayId"] = args?.peerVirtualNetworkGatewayId;
+            resourceInputs["privateLinkFastPathEnabled"] = args?.privateLinkFastPathEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingWeight"] = args?.routingWeight;
             resourceInputs["sharedKey"] = args?.sharedKey ? pulumi.secret(args.sharedKey) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficSelectorPolicy"] = args ? args.trafficSelectorPolicy : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
-            resourceInputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficSelectorPolicy"] = args?.trafficSelectorPolicy;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = args?.usePolicyBasedTrafficSelectors;
+            resourceInputs["virtualNetworkGatewayId"] = args?.virtualNetworkGatewayId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["authorizationKey", "sharedKey"] };

@@ -105,41 +105,41 @@ export class NextGenerationFirewallVirtualHubLocalRulestack extends pulumi.Custo
     /**
      * One or more `destinationNat` blocks as defined below.
      */
-    public readonly destinationNats!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDestinationNat[] | undefined>;
+    declare public readonly destinationNats: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDestinationNat[] | undefined>;
     /**
      * A `dnsSettings` block as defined below.
      */
-    public readonly dnsSettings!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDnsSettings | undefined>;
+    declare public readonly dnsSettings: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackDnsSettings | undefined>;
     /**
      * The marketplace offer ID. Defaults to `panSwfwCloudNgfw`. Changing this forces a new resource to be created.
      */
-    public readonly marketplaceOfferId!: pulumi.Output<string | undefined>;
+    declare public readonly marketplaceOfferId: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkProfile` block as defined below.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile>;
+    declare public readonly networkProfile: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfile>;
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      *
      * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
-    public readonly planId!: pulumi.Output<string | undefined>;
+    declare public readonly planId: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Local Rulestack to be used for this Next Generation Firewall.
      */
-    public readonly rulestackId!: pulumi.Output<string>;
+    declare public readonly rulestackId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a NextGenerationFirewallVirtualHubLocalRulestack resource with the given unique name, arguments, and options.
@@ -154,35 +154,35 @@ export class NextGenerationFirewallVirtualHubLocalRulestack extends pulumi.Custo
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NextGenerationFirewallVirtualHubLocalRulestackState | undefined;
-            resourceInputs["destinationNats"] = state ? state.destinationNats : undefined;
-            resourceInputs["dnsSettings"] = state ? state.dnsSettings : undefined;
-            resourceInputs["marketplaceOfferId"] = state ? state.marketplaceOfferId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
-            resourceInputs["planId"] = state ? state.planId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rulestackId"] = state ? state.rulestackId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["destinationNats"] = state?.destinationNats;
+            resourceInputs["dnsSettings"] = state?.dnsSettings;
+            resourceInputs["marketplaceOfferId"] = state?.marketplaceOfferId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkProfile"] = state?.networkProfile;
+            resourceInputs["planId"] = state?.planId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rulestackId"] = state?.rulestackId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as NextGenerationFirewallVirtualHubLocalRulestackArgs | undefined;
-            if ((!args || args.networkProfile === undefined) && !opts.urn) {
+            if (args?.networkProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rulestackId === undefined) && !opts.urn) {
+            if (args?.rulestackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulestackId'");
             }
-            resourceInputs["destinationNats"] = args ? args.destinationNats : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["marketplaceOfferId"] = args ? args.marketplaceOfferId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["planId"] = args ? args.planId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rulestackId"] = args ? args.rulestackId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["destinationNats"] = args?.destinationNats;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["marketplaceOfferId"] = args?.marketplaceOfferId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["planId"] = args?.planId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rulestackId"] = args?.rulestackId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NextGenerationFirewallVirtualHubLocalRulestack.__pulumiType, name, resourceInputs, opts);

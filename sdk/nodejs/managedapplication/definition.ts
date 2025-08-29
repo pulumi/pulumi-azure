@@ -81,53 +81,53 @@ export class Definition extends pulumi.CustomResource {
     /**
      * One or more `authorization` block defined below.
      */
-    public readonly authorizations!: pulumi.Output<outputs.managedapplication.DefinitionAuthorization[] | undefined>;
+    declare public readonly authorizations: pulumi.Output<outputs.managedapplication.DefinitionAuthorization[] | undefined>;
     /**
      * Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource.
      */
-    public readonly createUiDefinition!: pulumi.Output<string | undefined>;
+    declare public readonly createUiDefinition: pulumi.Output<string | undefined>;
     /**
      * Specifies the managed application definition description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the managed application definition display name.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the managed application lock level. Valid values include `CanNotDelete`, `None`, `ReadOnly`. Changing this forces a new resource to be created.
      */
-    public readonly lockLevel!: pulumi.Output<string>;
+    declare public readonly lockLevel: pulumi.Output<string>;
     /**
      * Specifies the inline main template JSON which has resources to be provisioned.
      */
-    public readonly mainTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly mainTemplate: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Managed Application Definition. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Is the package enabled? Defaults to `true`.
      */
-    public readonly packageEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly packageEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the managed application definition package file Uri.
      */
-    public readonly packageFileUri!: pulumi.Output<string | undefined>;
+    declare public readonly packageFileUri: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Managed Application Definition should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      *
      * > **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Definition resource with the given unique name, arguments, and options.
@@ -142,41 +142,41 @@ export class Definition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DefinitionState | undefined;
-            resourceInputs["authorizations"] = state ? state.authorizations : undefined;
-            resourceInputs["createUiDefinition"] = state ? state.createUiDefinition : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["lockLevel"] = state ? state.lockLevel : undefined;
-            resourceInputs["mainTemplate"] = state ? state.mainTemplate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["packageEnabled"] = state ? state.packageEnabled : undefined;
-            resourceInputs["packageFileUri"] = state ? state.packageFileUri : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["authorizations"] = state?.authorizations;
+            resourceInputs["createUiDefinition"] = state?.createUiDefinition;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["lockLevel"] = state?.lockLevel;
+            resourceInputs["mainTemplate"] = state?.mainTemplate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["packageEnabled"] = state?.packageEnabled;
+            resourceInputs["packageFileUri"] = state?.packageFileUri;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.lockLevel === undefined) && !opts.urn) {
+            if (args?.lockLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
-            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["packageEnabled"] = args ? args.packageEnabled : undefined;
-            resourceInputs["packageFileUri"] = args ? args.packageFileUri : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorizations"] = args?.authorizations;
+            resourceInputs["createUiDefinition"] = args?.createUiDefinition;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["lockLevel"] = args?.lockLevel;
+            resourceInputs["mainTemplate"] = args?.mainTemplate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["packageEnabled"] = args?.packageEnabled;
+            resourceInputs["packageFileUri"] = args?.packageFileUri;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Definition.__pulumiType, name, resourceInputs, opts);

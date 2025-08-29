@@ -86,19 +86,19 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
      */
-    public readonly apiManagementId!: pulumi.Output<string>;
+    declare public readonly apiManagementId: pulumi.Output<string>;
     /**
      * The description of the API Management Gateway.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A `locationData` block as documented below.
      */
-    public readonly locationData!: pulumi.Output<outputs.apimanagement.GatewayLocationData>;
+    declare public readonly locationData: pulumi.Output<outputs.apimanagement.GatewayLocationData>;
     /**
      * The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -113,22 +113,22 @@ export class Gateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
-            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["locationData"] = state ? state.locationData : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiManagementId"] = state?.apiManagementId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["locationData"] = state?.locationData;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
+            if (args?.apiManagementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            if ((!args || args.locationData === undefined) && !opts.urn) {
+            if (args?.locationData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationData'");
             }
-            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["locationData"] = args ? args.locationData : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiManagementId"] = args?.apiManagementId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["locationData"] = args?.locationData;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);

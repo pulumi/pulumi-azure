@@ -85,67 +85,67 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * An `assessment` block as defined below.
      */
-    public readonly assessment!: pulumi.Output<outputs.mssql.VirtualMachineAssessment | undefined>;
+    declare public readonly assessment: pulumi.Output<outputs.mssql.VirtualMachineAssessment | undefined>;
     /**
      * An `autoBackup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
      */
-    public readonly autoBackup!: pulumi.Output<outputs.mssql.VirtualMachineAutoBackup | undefined>;
+    declare public readonly autoBackup: pulumi.Output<outputs.mssql.VirtualMachineAutoBackup | undefined>;
     /**
      * An `autoPatching` block as defined below.
      */
-    public readonly autoPatching!: pulumi.Output<outputs.mssql.VirtualMachineAutoPatching | undefined>;
+    declare public readonly autoPatching: pulumi.Output<outputs.mssql.VirtualMachineAutoPatching | undefined>;
     /**
      * An `keyVaultCredential` block as defined below.
      */
-    public readonly keyVaultCredential!: pulumi.Output<outputs.mssql.VirtualMachineKeyVaultCredential | undefined>;
+    declare public readonly keyVaultCredential: pulumi.Output<outputs.mssql.VirtualMachineKeyVaultCredential | undefined>;
     /**
      * Should R Services be enabled?
      */
-    public readonly rServicesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly rServicesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The SQL Server port. Defaults to `1433`.
      */
-    public readonly sqlConnectivityPort!: pulumi.Output<number | undefined>;
+    declare public readonly sqlConnectivityPort: pulumi.Output<number | undefined>;
     /**
      * The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
      */
-    public readonly sqlConnectivityType!: pulumi.Output<string | undefined>;
+    declare public readonly sqlConnectivityType: pulumi.Output<string | undefined>;
     /**
      * The SQL Server sysadmin login password.
      */
-    public readonly sqlConnectivityUpdatePassword!: pulumi.Output<string | undefined>;
+    declare public readonly sqlConnectivityUpdatePassword: pulumi.Output<string | undefined>;
     /**
      * The SQL Server sysadmin login to create.
      */
-    public readonly sqlConnectivityUpdateUsername!: pulumi.Output<string | undefined>;
+    declare public readonly sqlConnectivityUpdateUsername: pulumi.Output<string | undefined>;
     /**
      * A `sqlInstance` block as defined below.
      */
-    public readonly sqlInstance!: pulumi.Output<outputs.mssql.VirtualMachineSqlInstance | undefined>;
+    declare public readonly sqlInstance: pulumi.Output<outputs.mssql.VirtualMachineSqlInstance | undefined>;
     /**
      * The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
      */
-    public readonly sqlLicenseType!: pulumi.Output<string | undefined>;
+    declare public readonly sqlLicenseType: pulumi.Output<string | undefined>;
     /**
      * The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
      */
-    public readonly sqlVirtualMachineGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly sqlVirtualMachineGroupId: pulumi.Output<string | undefined>;
     /**
      * An `storageConfiguration` block as defined below.
      */
-    public readonly storageConfiguration!: pulumi.Output<outputs.mssql.VirtualMachineStorageConfiguration | undefined>;
+    declare public readonly storageConfiguration: pulumi.Output<outputs.mssql.VirtualMachineStorageConfiguration | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineId!: pulumi.Output<string>;
+    declare public readonly virtualMachineId: pulumi.Output<string>;
     /**
      * A `wsfcDomainCredential` block as defined below
      */
-    public readonly wsfcDomainCredential!: pulumi.Output<outputs.mssql.VirtualMachineWsfcDomainCredential | undefined>;
+    declare public readonly wsfcDomainCredential: pulumi.Output<outputs.mssql.VirtualMachineWsfcDomainCredential | undefined>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -160,43 +160,43 @@ export class VirtualMachine extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineState | undefined;
-            resourceInputs["assessment"] = state ? state.assessment : undefined;
-            resourceInputs["autoBackup"] = state ? state.autoBackup : undefined;
-            resourceInputs["autoPatching"] = state ? state.autoPatching : undefined;
-            resourceInputs["keyVaultCredential"] = state ? state.keyVaultCredential : undefined;
-            resourceInputs["rServicesEnabled"] = state ? state.rServicesEnabled : undefined;
-            resourceInputs["sqlConnectivityPort"] = state ? state.sqlConnectivityPort : undefined;
-            resourceInputs["sqlConnectivityType"] = state ? state.sqlConnectivityType : undefined;
-            resourceInputs["sqlConnectivityUpdatePassword"] = state ? state.sqlConnectivityUpdatePassword : undefined;
-            resourceInputs["sqlConnectivityUpdateUsername"] = state ? state.sqlConnectivityUpdateUsername : undefined;
-            resourceInputs["sqlInstance"] = state ? state.sqlInstance : undefined;
-            resourceInputs["sqlLicenseType"] = state ? state.sqlLicenseType : undefined;
-            resourceInputs["sqlVirtualMachineGroupId"] = state ? state.sqlVirtualMachineGroupId : undefined;
-            resourceInputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
-            resourceInputs["wsfcDomainCredential"] = state ? state.wsfcDomainCredential : undefined;
+            resourceInputs["assessment"] = state?.assessment;
+            resourceInputs["autoBackup"] = state?.autoBackup;
+            resourceInputs["autoPatching"] = state?.autoPatching;
+            resourceInputs["keyVaultCredential"] = state?.keyVaultCredential;
+            resourceInputs["rServicesEnabled"] = state?.rServicesEnabled;
+            resourceInputs["sqlConnectivityPort"] = state?.sqlConnectivityPort;
+            resourceInputs["sqlConnectivityType"] = state?.sqlConnectivityType;
+            resourceInputs["sqlConnectivityUpdatePassword"] = state?.sqlConnectivityUpdatePassword;
+            resourceInputs["sqlConnectivityUpdateUsername"] = state?.sqlConnectivityUpdateUsername;
+            resourceInputs["sqlInstance"] = state?.sqlInstance;
+            resourceInputs["sqlLicenseType"] = state?.sqlLicenseType;
+            resourceInputs["sqlVirtualMachineGroupId"] = state?.sqlVirtualMachineGroupId;
+            resourceInputs["storageConfiguration"] = state?.storageConfiguration;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
+            resourceInputs["wsfcDomainCredential"] = state?.wsfcDomainCredential;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
-            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
+            if (args?.virtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            resourceInputs["assessment"] = args ? args.assessment : undefined;
-            resourceInputs["autoBackup"] = args ? args.autoBackup : undefined;
-            resourceInputs["autoPatching"] = args ? args.autoPatching : undefined;
-            resourceInputs["keyVaultCredential"] = args ? args.keyVaultCredential : undefined;
-            resourceInputs["rServicesEnabled"] = args ? args.rServicesEnabled : undefined;
-            resourceInputs["sqlConnectivityPort"] = args ? args.sqlConnectivityPort : undefined;
-            resourceInputs["sqlConnectivityType"] = args ? args.sqlConnectivityType : undefined;
+            resourceInputs["assessment"] = args?.assessment;
+            resourceInputs["autoBackup"] = args?.autoBackup;
+            resourceInputs["autoPatching"] = args?.autoPatching;
+            resourceInputs["keyVaultCredential"] = args?.keyVaultCredential;
+            resourceInputs["rServicesEnabled"] = args?.rServicesEnabled;
+            resourceInputs["sqlConnectivityPort"] = args?.sqlConnectivityPort;
+            resourceInputs["sqlConnectivityType"] = args?.sqlConnectivityType;
             resourceInputs["sqlConnectivityUpdatePassword"] = args?.sqlConnectivityUpdatePassword ? pulumi.secret(args.sqlConnectivityUpdatePassword) : undefined;
             resourceInputs["sqlConnectivityUpdateUsername"] = args?.sqlConnectivityUpdateUsername ? pulumi.secret(args.sqlConnectivityUpdateUsername) : undefined;
-            resourceInputs["sqlInstance"] = args ? args.sqlInstance : undefined;
-            resourceInputs["sqlLicenseType"] = args ? args.sqlLicenseType : undefined;
-            resourceInputs["sqlVirtualMachineGroupId"] = args ? args.sqlVirtualMachineGroupId : undefined;
-            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
-            resourceInputs["wsfcDomainCredential"] = args ? args.wsfcDomainCredential : undefined;
+            resourceInputs["sqlInstance"] = args?.sqlInstance;
+            resourceInputs["sqlLicenseType"] = args?.sqlLicenseType;
+            resourceInputs["sqlVirtualMachineGroupId"] = args?.sqlVirtualMachineGroupId;
+            resourceInputs["storageConfiguration"] = args?.storageConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMachineId"] = args?.virtualMachineId;
+            resourceInputs["wsfcDomainCredential"] = args?.wsfcDomainCredential;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sqlConnectivityUpdatePassword", "sqlConnectivityUpdateUsername"] };

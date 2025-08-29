@@ -80,35 +80,35 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * The ID of the Cognitive Account this Bot Channel should be associated with.
      */
-    public readonly cognitiveAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly cognitiveAccountId: pulumi.Output<string | undefined>;
     /**
      * The access key to access the Cognitive Service.
      */
-    public readonly cognitiveServiceAccessKey!: pulumi.Output<string>;
+    declare public readonly cognitiveServiceAccessKey: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the Cognitive Service resource exists.
      */
-    public readonly cognitiveServiceLocation!: pulumi.Output<string>;
+    declare public readonly cognitiveServiceLocation: pulumi.Output<string>;
     /**
      * The custom speech model id for the Direct Line Speech Channel.
      */
-    public readonly customSpeechModelId!: pulumi.Output<string | undefined>;
+    declare public readonly customSpeechModelId: pulumi.Output<string | undefined>;
     /**
      * The custom voice deployment id for the Direct Line Speech Channel.
      */
-    public readonly customVoiceDeploymentId!: pulumi.Output<string | undefined>;
+    declare public readonly customVoiceDeploymentId: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource group where the Direct Line Speech Channel should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ChannelDirectLineSpeech resource with the given unique name, arguments, and options.
@@ -123,36 +123,36 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelDirectLineSpeechState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["cognitiveAccountId"] = state ? state.cognitiveAccountId : undefined;
-            resourceInputs["cognitiveServiceAccessKey"] = state ? state.cognitiveServiceAccessKey : undefined;
-            resourceInputs["cognitiveServiceLocation"] = state ? state.cognitiveServiceLocation : undefined;
-            resourceInputs["customSpeechModelId"] = state ? state.customSpeechModelId : undefined;
-            resourceInputs["customVoiceDeploymentId"] = state ? state.customVoiceDeploymentId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["cognitiveAccountId"] = state?.cognitiveAccountId;
+            resourceInputs["cognitiveServiceAccessKey"] = state?.cognitiveServiceAccessKey;
+            resourceInputs["cognitiveServiceLocation"] = state?.cognitiveServiceLocation;
+            resourceInputs["customSpeechModelId"] = state?.customSpeechModelId;
+            resourceInputs["customVoiceDeploymentId"] = state?.customVoiceDeploymentId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ChannelDirectLineSpeechArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.cognitiveServiceAccessKey === undefined) && !opts.urn) {
+            if (args?.cognitiveServiceAccessKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cognitiveServiceAccessKey'");
             }
-            if ((!args || args.cognitiveServiceLocation === undefined) && !opts.urn) {
+            if (args?.cognitiveServiceLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cognitiveServiceLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["cognitiveAccountId"] = args?.cognitiveAccountId;
             resourceInputs["cognitiveServiceAccessKey"] = args?.cognitiveServiceAccessKey ? pulumi.secret(args.cognitiveServiceAccessKey) : undefined;
-            resourceInputs["cognitiveServiceLocation"] = args ? args.cognitiveServiceLocation : undefined;
-            resourceInputs["customSpeechModelId"] = args ? args.customSpeechModelId : undefined;
-            resourceInputs["customVoiceDeploymentId"] = args ? args.customVoiceDeploymentId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["cognitiveServiceLocation"] = args?.cognitiveServiceLocation;
+            resourceInputs["customSpeechModelId"] = args?.customSpeechModelId;
+            resourceInputs["customVoiceDeploymentId"] = args?.customVoiceDeploymentId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["cognitiveServiceAccessKey"] };

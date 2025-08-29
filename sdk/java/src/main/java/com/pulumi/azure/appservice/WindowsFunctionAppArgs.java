@@ -29,16 +29,14 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
     public static final WindowsFunctionAppArgs Empty = new WindowsFunctionAppArgs();
 
     /**
-     * A map of key-value pairs for [App
-     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
     @Import(name="appSettings")
     private @Nullable Output<Map<String,String>> appSettings;
 
     /**
-     * @return A map of key-value pairs for [App
-     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -630,8 +628,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param appSettings A map of key-value pairs for [App
-         * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+         * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
          * 
          * @return builder
          * 
@@ -642,8 +639,7 @@ public final class WindowsFunctionAppArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param appSettings A map of key-value pairs for [App
-         * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+         * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
          * 
          * @return builder
          * 

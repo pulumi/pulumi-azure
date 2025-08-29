@@ -89,15 +89,15 @@ export class AssignmentDedicatedHost extends pulumi.CustomResource {
     /**
      * Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
      */
-    public readonly dedicatedHostId!: pulumi.Output<string>;
+    declare public readonly dedicatedHostId: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
      */
-    public readonly maintenanceConfigurationId!: pulumi.Output<string>;
+    declare public readonly maintenanceConfigurationId: pulumi.Output<string>;
 
     /**
      * Create a AssignmentDedicatedHost resource with the given unique name, arguments, and options.
@@ -112,20 +112,20 @@ export class AssignmentDedicatedHost extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentDedicatedHostState | undefined;
-            resourceInputs["dedicatedHostId"] = state ? state.dedicatedHostId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = state ? state.maintenanceConfigurationId : undefined;
+            resourceInputs["dedicatedHostId"] = state?.dedicatedHostId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maintenanceConfigurationId"] = state?.maintenanceConfigurationId;
         } else {
             const args = argsOrState as AssignmentDedicatedHostArgs | undefined;
-            if ((!args || args.dedicatedHostId === undefined) && !opts.urn) {
+            if (args?.dedicatedHostId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dedicatedHostId'");
             }
-            if ((!args || args.maintenanceConfigurationId === undefined) && !opts.urn) {
+            if (args?.maintenanceConfigurationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maintenanceConfigurationId'");
             }
-            resourceInputs["dedicatedHostId"] = args ? args.dedicatedHostId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
+            resourceInputs["dedicatedHostId"] = args?.dedicatedHostId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AssignmentDedicatedHost.__pulumiType, name, resourceInputs, opts);

@@ -48,35 +48,35 @@ export class HciLogicalNetwork extends pulumi.CustomResource {
     /**
      * The ID of Custom Location where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
      */
-    public readonly customLocationId!: pulumi.Output<string>;
+    declare public readonly customLocationId: pulumi.Output<string>;
     /**
      * A list of IPv4 addresses of DNS servers available to VMs deployed in the Logical Networks. Changing this forces a new resource to be created.
      */
-    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsServers: pulumi.Output<string[] | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Azure Stack HCI Logical Network. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `subnet` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly subnet!: pulumi.Output<outputs.stack.HciLogicalNetworkSubnet>;
+    declare public readonly subnet: pulumi.Output<outputs.stack.HciLogicalNetworkSubnet>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Logical Network.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the virtual switch on the cluster used to associate with the Azure Stack HCI Logical Network. Possible switch names can be retrieved by following this [Azure guide](https://learn.microsoft.com/azure-stack/hci/manage/create-logical-networks?tabs=azurecli#prerequisites). Changing this forces a new resource to be created.
      */
-    public readonly virtualSwitchName!: pulumi.Output<string>;
+    declare public readonly virtualSwitchName: pulumi.Output<string>;
 
     /**
      * Create a HciLogicalNetwork resource with the given unique name, arguments, and options.
@@ -91,36 +91,36 @@ export class HciLogicalNetwork extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HciLogicalNetworkState | undefined;
-            resourceInputs["customLocationId"] = state ? state.customLocationId : undefined;
-            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subnet"] = state ? state.subnet : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualSwitchName"] = state ? state.virtualSwitchName : undefined;
+            resourceInputs["customLocationId"] = state?.customLocationId;
+            resourceInputs["dnsServers"] = state?.dnsServers;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subnet"] = state?.subnet;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualSwitchName"] = state?.virtualSwitchName;
         } else {
             const args = argsOrState as HciLogicalNetworkArgs | undefined;
-            if ((!args || args.customLocationId === undefined) && !opts.urn) {
+            if (args?.customLocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customLocationId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnet === undefined) && !opts.urn) {
+            if (args?.subnet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnet'");
             }
-            if ((!args || args.virtualSwitchName === undefined) && !opts.urn) {
+            if (args?.virtualSwitchName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualSwitchName'");
             }
-            resourceInputs["customLocationId"] = args ? args.customLocationId : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnet"] = args ? args.subnet : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualSwitchName"] = args ? args.virtualSwitchName : undefined;
+            resourceInputs["customLocationId"] = args?.customLocationId;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnet"] = args?.subnet;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualSwitchName"] = args?.virtualSwitchName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HciLogicalNetwork.__pulumiType, name, resourceInputs, opts);

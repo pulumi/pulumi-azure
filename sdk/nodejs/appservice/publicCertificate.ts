@@ -90,27 +90,27 @@ export class PublicCertificate extends pulumi.CustomResource {
     /**
      * The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
      */
-    public readonly appServiceName!: pulumi.Output<string>;
+    declare public readonly appServiceName: pulumi.Output<string>;
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
      */
-    public readonly blob!: pulumi.Output<string>;
+    declare public readonly blob: pulumi.Output<string>;
     /**
      * The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
      */
-    public readonly certificateLocation!: pulumi.Output<string>;
+    declare public readonly certificateLocation: pulumi.Output<string>;
     /**
      * The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
      */
-    public readonly certificateName!: pulumi.Output<string>;
+    declare public readonly certificateName: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The thumbprint of the public certificate.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
 
     /**
      * Create a PublicCertificate resource with the given unique name, arguments, and options.
@@ -125,34 +125,34 @@ export class PublicCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublicCertificateState | undefined;
-            resourceInputs["appServiceName"] = state ? state.appServiceName : undefined;
-            resourceInputs["blob"] = state ? state.blob : undefined;
-            resourceInputs["certificateLocation"] = state ? state.certificateLocation : undefined;
-            resourceInputs["certificateName"] = state ? state.certificateName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["appServiceName"] = state?.appServiceName;
+            resourceInputs["blob"] = state?.blob;
+            resourceInputs["certificateLocation"] = state?.certificateLocation;
+            resourceInputs["certificateName"] = state?.certificateName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as PublicCertificateArgs | undefined;
-            if ((!args || args.appServiceName === undefined) && !opts.urn) {
+            if (args?.appServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServiceName'");
             }
-            if ((!args || args.blob === undefined) && !opts.urn) {
+            if (args?.blob === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blob'");
             }
-            if ((!args || args.certificateLocation === undefined) && !opts.urn) {
+            if (args?.certificateLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateLocation'");
             }
-            if ((!args || args.certificateName === undefined) && !opts.urn) {
+            if (args?.certificateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appServiceName"] = args ? args.appServiceName : undefined;
-            resourceInputs["blob"] = args ? args.blob : undefined;
-            resourceInputs["certificateLocation"] = args ? args.certificateLocation : undefined;
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["appServiceName"] = args?.appServiceName;
+            resourceInputs["blob"] = args?.blob;
+            resourceInputs["certificateLocation"] = args?.certificateLocation;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["thumbprint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

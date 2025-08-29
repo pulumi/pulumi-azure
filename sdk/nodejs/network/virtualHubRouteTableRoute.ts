@@ -121,27 +121,27 @@ export class VirtualHubRouteTableRoute extends pulumi.CustomResource {
     /**
      * A list of destination addresses for this route.
      */
-    public readonly destinations!: pulumi.Output<string[]>;
+    declare public readonly destinations: pulumi.Output<string[]>;
     /**
      * The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
      */
-    public readonly destinationsType!: pulumi.Output<string>;
+    declare public readonly destinationsType: pulumi.Output<string>;
     /**
      * The name which should be used for this route. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The next hop's resource ID.
      */
-    public readonly nextHop!: pulumi.Output<string>;
+    declare public readonly nextHop: pulumi.Output<string>;
     /**
      * The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
      */
-    public readonly nextHopType!: pulumi.Output<string | undefined>;
+    declare public readonly nextHopType: pulumi.Output<string | undefined>;
     /**
      * The ID of the Virtual Hub Route Table to link this route to. Changing this forces a new resource to be created.
      */
-    public readonly routeTableId!: pulumi.Output<string>;
+    declare public readonly routeTableId: pulumi.Output<string>;
 
     /**
      * Create a VirtualHubRouteTableRoute resource with the given unique name, arguments, and options.
@@ -156,32 +156,32 @@ export class VirtualHubRouteTableRoute extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubRouteTableRouteState | undefined;
-            resourceInputs["destinations"] = state ? state.destinations : undefined;
-            resourceInputs["destinationsType"] = state ? state.destinationsType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nextHop"] = state ? state.nextHop : undefined;
-            resourceInputs["nextHopType"] = state ? state.nextHopType : undefined;
-            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
+            resourceInputs["destinations"] = state?.destinations;
+            resourceInputs["destinationsType"] = state?.destinationsType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nextHop"] = state?.nextHop;
+            resourceInputs["nextHopType"] = state?.nextHopType;
+            resourceInputs["routeTableId"] = state?.routeTableId;
         } else {
             const args = argsOrState as VirtualHubRouteTableRouteArgs | undefined;
-            if ((!args || args.destinations === undefined) && !opts.urn) {
+            if (args?.destinations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinations'");
             }
-            if ((!args || args.destinationsType === undefined) && !opts.urn) {
+            if (args?.destinationsType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationsType'");
             }
-            if ((!args || args.nextHop === undefined) && !opts.urn) {
+            if (args?.nextHop === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nextHop'");
             }
-            if ((!args || args.routeTableId === undefined) && !opts.urn) {
+            if (args?.routeTableId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["destinationsType"] = args ? args.destinationsType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nextHop"] = args ? args.nextHop : undefined;
-            resourceInputs["nextHopType"] = args ? args.nextHopType : undefined;
-            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["destinationsType"] = args?.destinationsType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nextHop"] = args?.nextHop;
+            resourceInputs["nextHopType"] = args?.nextHopType;
+            resourceInputs["routeTableId"] = args?.routeTableId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualHubRouteTableRoute.__pulumiType, name, resourceInputs, opts);

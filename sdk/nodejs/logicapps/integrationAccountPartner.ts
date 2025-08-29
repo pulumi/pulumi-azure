@@ -82,23 +82,23 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
     /**
      * A `businessIdentity` block as documented below.
      */
-    public readonly businessIdentities!: pulumi.Output<outputs.logicapps.IntegrationAccountPartnerBusinessIdentity[]>;
+    declare public readonly businessIdentities: pulumi.Output<outputs.logicapps.IntegrationAccountPartnerBusinessIdentity[]>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
      */
-    public readonly integrationAccountName!: pulumi.Output<string>;
+    declare public readonly integrationAccountName: pulumi.Output<string>;
     /**
      * A JSON mapping of any Metadata for this Logic App Integration Account Partner.
      */
-    public readonly metadata!: pulumi.Output<string | undefined>;
+    declare public readonly metadata: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAccountPartner resource with the given unique name, arguments, and options.
@@ -113,27 +113,27 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountPartnerState | undefined;
-            resourceInputs["businessIdentities"] = state ? state.businessIdentities : undefined;
-            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["businessIdentities"] = state?.businessIdentities;
+            resourceInputs["integrationAccountName"] = state?.integrationAccountName;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IntegrationAccountPartnerArgs | undefined;
-            if ((!args || args.businessIdentities === undefined) && !opts.urn) {
+            if (args?.businessIdentities === undefined && !opts.urn) {
                 throw new Error("Missing required property 'businessIdentities'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["businessIdentities"] = args ? args.businessIdentities : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["businessIdentities"] = args?.businessIdentities;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAccountPartner.__pulumiType, name, resourceInputs, opts);

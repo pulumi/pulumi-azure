@@ -100,25 +100,25 @@ export class ProtectedFileShare extends pulumi.CustomResource {
     /**
      * Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
      */
-    public readonly backupPolicyId!: pulumi.Output<string>;
+    declare public readonly backupPolicyId: pulumi.Output<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the file share to backup. Changing this forces a new resource to be created.
      */
-    public readonly sourceFileShareName!: pulumi.Output<string>;
+    declare public readonly sourceFileShareName: pulumi.Output<string>;
     /**
      * Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created.
      *
      * > **Note:** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `azure.backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `azure.backup.ContainerStorageAccount` resource to register, you can use `dependsOn` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `azure.backup.ProtectedFileShare` resource.
      */
-    public readonly sourceStorageAccountId!: pulumi.Output<string>;
+    declare public readonly sourceStorageAccountId: pulumi.Output<string>;
 
     /**
      * Create a ProtectedFileShare resource with the given unique name, arguments, and options.
@@ -133,33 +133,33 @@ export class ProtectedFileShare extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectedFileShareState | undefined;
-            resourceInputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sourceFileShareName"] = state ? state.sourceFileShareName : undefined;
-            resourceInputs["sourceStorageAccountId"] = state ? state.sourceStorageAccountId : undefined;
+            resourceInputs["backupPolicyId"] = state?.backupPolicyId;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sourceFileShareName"] = state?.sourceFileShareName;
+            resourceInputs["sourceStorageAccountId"] = state?.sourceStorageAccountId;
         } else {
             const args = argsOrState as ProtectedFileShareArgs | undefined;
-            if ((!args || args.backupPolicyId === undefined) && !opts.urn) {
+            if (args?.backupPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupPolicyId'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceFileShareName === undefined) && !opts.urn) {
+            if (args?.sourceFileShareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceFileShareName'");
             }
-            if ((!args || args.sourceStorageAccountId === undefined) && !opts.urn) {
+            if (args?.sourceStorageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceStorageAccountId'");
             }
-            resourceInputs["backupPolicyId"] = args ? args.backupPolicyId : undefined;
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceFileShareName"] = args ? args.sourceFileShareName : undefined;
-            resourceInputs["sourceStorageAccountId"] = args ? args.sourceStorageAccountId : undefined;
+            resourceInputs["backupPolicyId"] = args?.backupPolicyId;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceFileShareName"] = args?.sourceFileShareName;
+            resourceInputs["sourceStorageAccountId"] = args?.sourceStorageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProtectedFileShare.__pulumiType, name, resourceInputs, opts);

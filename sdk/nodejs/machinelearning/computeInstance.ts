@@ -131,51 +131,51 @@ export class ComputeInstance extends pulumi.CustomResource {
     /**
      * A `assignToUser` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly assignToUser!: pulumi.Output<outputs.machinelearning.ComputeInstanceAssignToUser | undefined>;
+    declare public readonly assignToUser: pulumi.Output<outputs.machinelearning.ComputeInstanceAssignToUser | undefined>;
     /**
      * The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly authorizationType!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationType: pulumi.Output<string | undefined>;
     /**
      * The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearning.ComputeInstanceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.machinelearning.ComputeInstanceIdentity | undefined>;
     /**
      * Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly machineLearningWorkspaceId!: pulumi.Output<string>;
+    declare public readonly machineLearningWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether the compute instance will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
      */
-    public readonly nodePublicIpEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly nodePublicIpEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly ssh!: pulumi.Output<outputs.machinelearning.ComputeInstanceSsh | undefined>;
+    declare public readonly ssh: pulumi.Output<outputs.machinelearning.ComputeInstanceSsh | undefined>;
     /**
      * Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly subnetResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetResourceId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.
      */
-    public readonly virtualMachineSize!: pulumi.Output<string>;
+    declare public readonly virtualMachineSize: pulumi.Output<string>;
 
     /**
      * Create a ComputeInstance resource with the given unique name, arguments, and options.
@@ -190,38 +190,38 @@ export class ComputeInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComputeInstanceState | undefined;
-            resourceInputs["assignToUser"] = state ? state.assignToUser : undefined;
-            resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["machineLearningWorkspaceId"] = state ? state.machineLearningWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodePublicIpEnabled"] = state ? state.nodePublicIpEnabled : undefined;
-            resourceInputs["ssh"] = state ? state.ssh : undefined;
-            resourceInputs["subnetResourceId"] = state ? state.subnetResourceId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualMachineSize"] = state ? state.virtualMachineSize : undefined;
+            resourceInputs["assignToUser"] = state?.assignToUser;
+            resourceInputs["authorizationType"] = state?.authorizationType;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
+            resourceInputs["machineLearningWorkspaceId"] = state?.machineLearningWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodePublicIpEnabled"] = state?.nodePublicIpEnabled;
+            resourceInputs["ssh"] = state?.ssh;
+            resourceInputs["subnetResourceId"] = state?.subnetResourceId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualMachineSize"] = state?.virtualMachineSize;
         } else {
             const args = argsOrState as ComputeInstanceArgs | undefined;
-            if ((!args || args.machineLearningWorkspaceId === undefined) && !opts.urn) {
+            if (args?.machineLearningWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineLearningWorkspaceId'");
             }
-            if ((!args || args.virtualMachineSize === undefined) && !opts.urn) {
+            if (args?.virtualMachineSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineSize'");
             }
-            resourceInputs["assignToUser"] = args ? args.assignToUser : undefined;
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["machineLearningWorkspaceId"] = args ? args.machineLearningWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodePublicIpEnabled"] = args ? args.nodePublicIpEnabled : undefined;
-            resourceInputs["ssh"] = args ? args.ssh : undefined;
-            resourceInputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMachineSize"] = args ? args.virtualMachineSize : undefined;
+            resourceInputs["assignToUser"] = args?.assignToUser;
+            resourceInputs["authorizationType"] = args?.authorizationType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
+            resourceInputs["machineLearningWorkspaceId"] = args?.machineLearningWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodePublicIpEnabled"] = args?.nodePublicIpEnabled;
+            resourceInputs["ssh"] = args?.ssh;
+            resourceInputs["subnetResourceId"] = args?.subnetResourceId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMachineSize"] = args?.virtualMachineSize;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ComputeInstance.__pulumiType, name, resourceInputs, opts);

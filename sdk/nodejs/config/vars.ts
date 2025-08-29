@@ -40,8 +40,7 @@ Object.defineProperty(exports, "clientCertificate", {
 });
 
 /**
- * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
- * Certificate
+ * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
  */
 export declare const clientCertificatePassword: string | undefined;
 Object.defineProperty(exports, "clientCertificatePassword", {
@@ -52,8 +51,7 @@ Object.defineProperty(exports, "clientCertificatePassword", {
 });
 
 /**
- * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
- * Principal using a Client Certificate.
+ * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
  */
 export declare const clientCertificatePath: string | undefined;
 Object.defineProperty(exports, "clientCertificatePath", {
@@ -97,8 +95,7 @@ Object.defineProperty(exports, "clientSecret", {
 });
 
 /**
- * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
- * using a Client Secret.
+ * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
  */
 export declare const clientSecretFilePath: string | undefined;
 Object.defineProperty(exports, "clientSecretFilePath", {
@@ -128,8 +125,7 @@ Object.defineProperty(exports, "disableTerraformPartnerId", {
 });
 
 /**
- * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
- * used and should not be specified when `metadataHost` is specified.
+ * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
  */
 export declare const environment: string;
 Object.defineProperty(exports, "environment", {
@@ -167,8 +163,7 @@ Object.defineProperty(exports, "metadataHost", {
 });
 
 /**
- * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
- * the endpoint. e.g. for Azure Container Apps.
+ * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
  */
 export declare const msiApiVersion: string | undefined;
 Object.defineProperty(exports, "msiApiVersion", {
@@ -179,8 +174,7 @@ Object.defineProperty(exports, "msiApiVersion", {
 });
 
 /**
- * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
- * automatically.
+ * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
  */
 export declare const msiEndpoint: string | undefined;
 Object.defineProperty(exports, "msiEndpoint", {
@@ -191,8 +185,7 @@ Object.defineProperty(exports, "msiEndpoint", {
 });
 
 /**
- * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
- * Connect.
+ * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
  */
 export declare const oidcRequestToken: string | undefined;
 Object.defineProperty(exports, "oidcRequestToken", {
@@ -203,8 +196,7 @@ Object.defineProperty(exports, "oidcRequestToken", {
 });
 
 /**
- * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
- * using OpenID Connect.
+ * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
  */
 export declare const oidcRequestUrl: string | undefined;
 Object.defineProperty(exports, "oidcRequestUrl", {
@@ -259,8 +251,7 @@ Object.defineProperty(exports, "resourceProviderRegistrations", {
 });
 
 /**
- * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
- * `resourceProviderRegistrations` property.
+ * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
  */
 export declare const resourceProvidersToRegisters: string[] | undefined;
 Object.defineProperty(exports, "resourceProvidersToRegisters", {
@@ -271,8 +262,7 @@ Object.defineProperty(exports, "resourceProvidersToRegisters", {
 });
 
 /**
- * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
- * registered?
+ * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
  */
 export declare const skipProviderRegistration: boolean;
 Object.defineProperty(exports, "skipProviderRegistration", {

@@ -52,19 +52,19 @@ export class HciDeploymentSetting extends pulumi.CustomResource {
     /**
      * Specifies a list of IDs of Azure ARC machine resource to be part of cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
      */
-    public readonly arcResourceIds!: pulumi.Output<string[]>;
+    declare public readonly arcResourceIds: pulumi.Output<string[]>;
     /**
      * One or more `scaleUnit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
      */
-    public readonly scaleUnits!: pulumi.Output<outputs.stack.HciDeploymentSettingScaleUnit[]>;
+    declare public readonly scaleUnits: pulumi.Output<outputs.stack.HciDeploymentSettingScaleUnit[]>;
     /**
      * The ID of the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
      */
-    public readonly stackHciClusterId!: pulumi.Output<string>;
+    declare public readonly stackHciClusterId: pulumi.Output<string>;
     /**
      * The deployment template version. The format must be a set of numbers separated by dots such as `10.0.0.0`. Changing this forces a new Stack HCI Deployment Setting to be created.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a HciDeploymentSetting resource with the given unique name, arguments, and options.
@@ -79,28 +79,28 @@ export class HciDeploymentSetting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HciDeploymentSettingState | undefined;
-            resourceInputs["arcResourceIds"] = state ? state.arcResourceIds : undefined;
-            resourceInputs["scaleUnits"] = state ? state.scaleUnits : undefined;
-            resourceInputs["stackHciClusterId"] = state ? state.stackHciClusterId : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["arcResourceIds"] = state?.arcResourceIds;
+            resourceInputs["scaleUnits"] = state?.scaleUnits;
+            resourceInputs["stackHciClusterId"] = state?.stackHciClusterId;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as HciDeploymentSettingArgs | undefined;
-            if ((!args || args.arcResourceIds === undefined) && !opts.urn) {
+            if (args?.arcResourceIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcResourceIds'");
             }
-            if ((!args || args.scaleUnits === undefined) && !opts.urn) {
+            if (args?.scaleUnits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scaleUnits'");
             }
-            if ((!args || args.stackHciClusterId === undefined) && !opts.urn) {
+            if (args?.stackHciClusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stackHciClusterId'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["arcResourceIds"] = args ? args.arcResourceIds : undefined;
-            resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
-            resourceInputs["stackHciClusterId"] = args ? args.stackHciClusterId : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["arcResourceIds"] = args?.arcResourceIds;
+            resourceInputs["scaleUnits"] = args?.scaleUnits;
+            resourceInputs["stackHciClusterId"] = args?.stackHciClusterId;
+            resourceInputs["version"] = args?.version;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HciDeploymentSetting.__pulumiType, name, resourceInputs, opts);

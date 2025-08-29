@@ -92,51 +92,51 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `dailyRecurrence` block as defined below.
      */
-    public readonly dailyRecurrence!: pulumi.Output<outputs.devtest.ScheduleDailyRecurrence | undefined>;
+    declare public readonly dailyRecurrence: pulumi.Output<outputs.devtest.ScheduleDailyRecurrence | undefined>;
     /**
      * The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourlyRecurrence` block as defined below.
      */
-    public readonly hourlyRecurrence!: pulumi.Output<outputs.devtest.ScheduleHourlyRecurrence | undefined>;
+    declare public readonly hourlyRecurrence: pulumi.Output<outputs.devtest.ScheduleHourlyRecurrence | undefined>;
     /**
      * The name of the dev test lab. Changing this forces a new resource to be created.
      */
-    public readonly labName!: pulumi.Output<string>;
+    declare public readonly labName: pulumi.Output<string>;
     /**
      * The location where the schedule is created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The notification setting of a schedule. A `notificationSettings` block as defined below.
      */
-    public readonly notificationSettings!: pulumi.Output<outputs.devtest.ScheduleNotificationSettings>;
+    declare public readonly notificationSettings: pulumi.Output<outputs.devtest.ScheduleNotificationSettings>;
     /**
      * The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
      */
-    public readonly taskType!: pulumi.Output<string>;
+    declare public readonly taskType: pulumi.Output<string>;
     /**
      * The time zone ID (e.g. Pacific Standard time).
      */
-    public readonly timeZoneId!: pulumi.Output<string>;
+    declare public readonly timeZoneId: pulumi.Output<string>;
     /**
      * The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weeklyRecurrence` block as defined below.
      */
-    public readonly weeklyRecurrence!: pulumi.Output<outputs.devtest.ScheduleWeeklyRecurrence | undefined>;
+    declare public readonly weeklyRecurrence: pulumi.Output<outputs.devtest.ScheduleWeeklyRecurrence | undefined>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -151,47 +151,47 @@ export class Schedule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScheduleState | undefined;
-            resourceInputs["dailyRecurrence"] = state ? state.dailyRecurrence : undefined;
-            resourceInputs["hourlyRecurrence"] = state ? state.hourlyRecurrence : undefined;
-            resourceInputs["labName"] = state ? state.labName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notificationSettings"] = state ? state.notificationSettings : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["taskType"] = state ? state.taskType : undefined;
-            resourceInputs["timeZoneId"] = state ? state.timeZoneId : undefined;
-            resourceInputs["weeklyRecurrence"] = state ? state.weeklyRecurrence : undefined;
+            resourceInputs["dailyRecurrence"] = state?.dailyRecurrence;
+            resourceInputs["hourlyRecurrence"] = state?.hourlyRecurrence;
+            resourceInputs["labName"] = state?.labName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notificationSettings"] = state?.notificationSettings;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["taskType"] = state?.taskType;
+            resourceInputs["timeZoneId"] = state?.timeZoneId;
+            resourceInputs["weeklyRecurrence"] = state?.weeklyRecurrence;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.notificationSettings === undefined) && !opts.urn) {
+            if (args?.notificationSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationSettings'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.taskType === undefined) && !opts.urn) {
+            if (args?.taskType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'taskType'");
             }
-            if ((!args || args.timeZoneId === undefined) && !opts.urn) {
+            if (args?.timeZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZoneId'");
             }
-            resourceInputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
-            resourceInputs["hourlyRecurrence"] = args ? args.hourlyRecurrence : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationSettings"] = args ? args.notificationSettings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskType"] = args ? args.taskType : undefined;
-            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
-            resourceInputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
+            resourceInputs["dailyRecurrence"] = args?.dailyRecurrence;
+            resourceInputs["hourlyRecurrence"] = args?.hourlyRecurrence;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationSettings"] = args?.notificationSettings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskType"] = args?.taskType;
+            resourceInputs["timeZoneId"] = args?.timeZoneId;
+            resourceInputs["weeklyRecurrence"] = args?.weeklyRecurrence;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);

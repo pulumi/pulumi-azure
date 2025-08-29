@@ -133,51 +133,51 @@ export class Extension extends pulumi.CustomResource {
     /**
      * Specifies if the platform deploys the latest minor version update to the `typeHandlerVersion` specified.
      */
-    public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoUpgradeMinorVersion: pulumi.Output<boolean | undefined>;
     /**
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
      */
-    public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticUpgradeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      *
      * > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
-    public readonly failureSuppressionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly failureSuppressionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the virtual machine extension peering. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      *
      * > **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
-    public readonly protectedSettings!: pulumi.Output<string | undefined>;
+    declare public readonly protectedSettings: pulumi.Output<string | undefined>;
     /**
      * A `protectedSettingsFromKeyVault` block as defined below.
      *
      * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
      */
-    public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.ExtensionProtectedSettingsFromKeyVault | undefined>;
+    declare public readonly protectedSettingsFromKeyVault: pulumi.Output<outputs.compute.ExtensionProtectedSettingsFromKeyVault | undefined>;
     /**
      * Specifies the collection of extension names after which this extension needs to be provisioned.
      */
-    public readonly provisionAfterExtensions!: pulumi.Output<string[] | undefined>;
+    declare public readonly provisionAfterExtensions: pulumi.Output<string[] | undefined>;
     /**
      * The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
      */
-    public readonly publisher!: pulumi.Output<string>;
+    declare public readonly publisher: pulumi.Output<string>;
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
      *
      * > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
-    public readonly settings!: pulumi.Output<string | undefined>;
+    declare public readonly settings: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      *
@@ -187,15 +187,15 @@ export class Extension extends pulumi.CustomResource {
      * az vm extension image list --location westus -o table
      * ```
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      */
-    public readonly typeHandlerVersion!: pulumi.Output<string>;
+    declare public readonly typeHandlerVersion: pulumi.Output<string>;
     /**
      * The ID of the Virtual Machine. Changing this forces a new resource to be created
      */
-    public readonly virtualMachineId!: pulumi.Output<string>;
+    declare public readonly virtualMachineId: pulumi.Output<string>;
 
     /**
      * Create a Extension resource with the given unique name, arguments, and options.
@@ -210,46 +210,46 @@ export class Extension extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExtensionState | undefined;
-            resourceInputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
-            resourceInputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
-            resourceInputs["failureSuppressionEnabled"] = state ? state.failureSuppressionEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
-            resourceInputs["protectedSettingsFromKeyVault"] = state ? state.protectedSettingsFromKeyVault : undefined;
-            resourceInputs["provisionAfterExtensions"] = state ? state.provisionAfterExtensions : undefined;
-            resourceInputs["publisher"] = state ? state.publisher : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["typeHandlerVersion"] = state ? state.typeHandlerVersion : undefined;
-            resourceInputs["virtualMachineId"] = state ? state.virtualMachineId : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = state?.autoUpgradeMinorVersion;
+            resourceInputs["automaticUpgradeEnabled"] = state?.automaticUpgradeEnabled;
+            resourceInputs["failureSuppressionEnabled"] = state?.failureSuppressionEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protectedSettings"] = state?.protectedSettings;
+            resourceInputs["protectedSettingsFromKeyVault"] = state?.protectedSettingsFromKeyVault;
+            resourceInputs["provisionAfterExtensions"] = state?.provisionAfterExtensions;
+            resourceInputs["publisher"] = state?.publisher;
+            resourceInputs["settings"] = state?.settings;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["typeHandlerVersion"] = state?.typeHandlerVersion;
+            resourceInputs["virtualMachineId"] = state?.virtualMachineId;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
-            if ((!args || args.publisher === undefined) && !opts.urn) {
+            if (args?.publisher === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisher'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            if ((!args || args.typeHandlerVersion === undefined) && !opts.urn) {
+            if (args?.typeHandlerVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeHandlerVersion'");
             }
-            if ((!args || args.virtualMachineId === undefined) && !opts.urn) {
+            if (args?.virtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineId'");
             }
-            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
-            resourceInputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
-            resourceInputs["failureSuppressionEnabled"] = args ? args.failureSuppressionEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = args?.autoUpgradeMinorVersion;
+            resourceInputs["automaticUpgradeEnabled"] = args?.automaticUpgradeEnabled;
+            resourceInputs["failureSuppressionEnabled"] = args?.failureSuppressionEnabled;
+            resourceInputs["name"] = args?.name;
             resourceInputs["protectedSettings"] = args?.protectedSettings ? pulumi.secret(args.protectedSettings) : undefined;
-            resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
-            resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
-            resourceInputs["publisher"] = args ? args.publisher : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
-            resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
+            resourceInputs["protectedSettingsFromKeyVault"] = args?.protectedSettingsFromKeyVault;
+            resourceInputs["provisionAfterExtensions"] = args?.provisionAfterExtensions;
+            resourceInputs["publisher"] = args?.publisher;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeHandlerVersion"] = args?.typeHandlerVersion;
+            resourceInputs["virtualMachineId"] = args?.virtualMachineId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["protectedSettings"] };

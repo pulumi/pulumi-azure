@@ -82,16 +82,16 @@ export class VmwareReplicationPolicyAssociation extends pulumi.CustomResource {
     /**
      * The name of the replication policy association. Changing this forces a new association to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      */
-    public readonly policyId!: pulumi.Output<string>;
+    declare public readonly policyId: pulumi.Output<string>;
     /**
      * The ID of the Recovery Service Vault to which the policy should be associated.
      * Changing this forces a new association to be created.
      */
-    public readonly recoveryVaultId!: pulumi.Output<string>;
+    declare public readonly recoveryVaultId: pulumi.Output<string>;
 
     /**
      * Create a VmwareReplicationPolicyAssociation resource with the given unique name, arguments, and options.
@@ -106,20 +106,20 @@ export class VmwareReplicationPolicyAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VmwareReplicationPolicyAssociationState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["policyId"] = state ? state.policyId : undefined;
-            resourceInputs["recoveryVaultId"] = state ? state.recoveryVaultId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["policyId"] = state?.policyId;
+            resourceInputs["recoveryVaultId"] = state?.recoveryVaultId;
         } else {
             const args = argsOrState as VmwareReplicationPolicyAssociationArgs | undefined;
-            if ((!args || args.policyId === undefined) && !opts.urn) {
+            if (args?.policyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if ((!args || args.recoveryVaultId === undefined) && !opts.urn) {
+            if (args?.recoveryVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["recoveryVaultId"] = args ? args.recoveryVaultId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["recoveryVaultId"] = args?.recoveryVaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VmwareReplicationPolicyAssociation.__pulumiType, name, resourceInputs, opts);

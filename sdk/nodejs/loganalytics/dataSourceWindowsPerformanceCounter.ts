@@ -80,31 +80,31 @@ export class DataSourceWindowsPerformanceCounter extends pulumi.CustomResource {
     /**
      * The friendly name of the performance counter.
      */
-    public readonly counterName!: pulumi.Output<string>;
+    declare public readonly counterName: pulumi.Output<string>;
     /**
      * The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
      */
-    public readonly instanceName!: pulumi.Output<string>;
+    declare public readonly instanceName: pulumi.Output<string>;
     /**
      * The time of sample interval in seconds. Supports values between 10 and 2147483647.
      */
-    public readonly intervalSeconds!: pulumi.Output<number>;
+    declare public readonly intervalSeconds: pulumi.Output<number>;
     /**
      * The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The object name of the Log Analytics Windows Performance Counter DataSource.
      */
-    public readonly objectName!: pulumi.Output<string>;
+    declare public readonly objectName: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
      */
-    public readonly workspaceName!: pulumi.Output<string>;
+    declare public readonly workspaceName: pulumi.Output<string>;
 
     /**
      * Create a DataSourceWindowsPerformanceCounter resource with the given unique name, arguments, and options.
@@ -119,40 +119,40 @@ export class DataSourceWindowsPerformanceCounter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataSourceWindowsPerformanceCounterState | undefined;
-            resourceInputs["counterName"] = state ? state.counterName : undefined;
-            resourceInputs["instanceName"] = state ? state.instanceName : undefined;
-            resourceInputs["intervalSeconds"] = state ? state.intervalSeconds : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["objectName"] = state ? state.objectName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = state ? state.workspaceName : undefined;
+            resourceInputs["counterName"] = state?.counterName;
+            resourceInputs["instanceName"] = state?.instanceName;
+            resourceInputs["intervalSeconds"] = state?.intervalSeconds;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["objectName"] = state?.objectName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["workspaceName"] = state?.workspaceName;
         } else {
             const args = argsOrState as DataSourceWindowsPerformanceCounterArgs | undefined;
-            if ((!args || args.counterName === undefined) && !opts.urn) {
+            if (args?.counterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'counterName'");
             }
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
+            if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if ((!args || args.intervalSeconds === undefined) && !opts.urn) {
+            if (args?.intervalSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'intervalSeconds'");
             }
-            if ((!args || args.objectName === undefined) && !opts.urn) {
+            if (args?.objectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["counterName"] = args ? args.counterName : undefined;
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["intervalSeconds"] = args ? args.intervalSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["objectName"] = args ? args.objectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["counterName"] = args?.counterName;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["intervalSeconds"] = args?.intervalSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["objectName"] = args?.objectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataSourceWindowsPerformanceCounter.__pulumiType, name, resourceInputs, opts);

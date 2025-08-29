@@ -95,39 +95,39 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * The base64-encoded contents of the certificate.
      */
-    public readonly certificate!: pulumi.Output<string>;
+    declare public readonly certificate: pulumi.Output<string>;
     /**
      * The format of the certificate. Possible values are `Cer` or `Pfx`.
      */
-    public readonly format!: pulumi.Output<string>;
+    declare public readonly format: pulumi.Output<string>;
     /**
      * The generated name of the certificate.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The password to access the certificate's private key. This can only be specified when `format` is `Pfx`.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The public key of the certificate.
      */
-    public /*out*/ readonly publicData!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicData: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The thumbprint of the certificate. Changing this forces a new resource to be created.
      */
-    public readonly thumbprint!: pulumi.Output<string>;
+    declare public readonly thumbprint: pulumi.Output<string>;
     /**
      * The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created.
      */
-    public readonly thumbprintAlgorithm!: pulumi.Output<string>;
+    declare public readonly thumbprintAlgorithm: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -142,42 +142,42 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["format"] = state ? state.format : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["publicData"] = state ? state.publicData : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
-            resourceInputs["thumbprintAlgorithm"] = state ? state.thumbprintAlgorithm : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["format"] = state?.format;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["publicData"] = state?.publicData;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["thumbprint"] = state?.thumbprint;
+            resourceInputs["thumbprintAlgorithm"] = state?.thumbprintAlgorithm;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.certificate === undefined) && !opts.urn) {
+            if (args?.certificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificate'");
             }
-            if ((!args || args.format === undefined) && !opts.urn) {
+            if (args?.format === undefined && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.thumbprint === undefined) && !opts.urn) {
+            if (args?.thumbprint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'thumbprint'");
             }
-            if ((!args || args.thumbprintAlgorithm === undefined) && !opts.urn) {
+            if (args?.thumbprintAlgorithm === undefined && !opts.urn) {
                 throw new Error("Missing required property 'thumbprintAlgorithm'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
             resourceInputs["certificate"] = args?.certificate ? pulumi.secret(args.certificate) : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["format"] = args?.format;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
-            resourceInputs["thumbprintAlgorithm"] = args ? args.thumbprintAlgorithm : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["thumbprint"] = args?.thumbprint;
+            resourceInputs["thumbprintAlgorithm"] = args?.thumbprintAlgorithm;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["publicData"] = undefined /*out*/;
         }

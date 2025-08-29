@@ -76,45 +76,45 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
      */
-    public readonly inGuestUserPatchMode!: pulumi.Output<string | undefined>;
+    declare public readonly inGuestUserPatchMode: pulumi.Output<string | undefined>;
     /**
      * An `installPatches` block as defined below.
      *
      * > **Note:** `installPatches` must be specified when `scope` is `InGuestPatch`.
      */
-    public readonly installPatches!: pulumi.Output<outputs.maintenance.ConfigurationInstallPatches | undefined>;
+    declare public readonly installPatches: pulumi.Output<outputs.maintenance.ConfigurationInstallPatches | undefined>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of properties to assign to the resource.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly properties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      */
-    public readonly visibility!: pulumi.Output<string | undefined>;
+    declare public readonly visibility: pulumi.Output<string | undefined>;
     /**
      * A `window` block as defined below.
      */
-    public readonly window!: pulumi.Output<outputs.maintenance.ConfigurationWindow | undefined>;
+    declare public readonly window: pulumi.Output<outputs.maintenance.ConfigurationWindow | undefined>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -129,34 +129,34 @@ export class Configuration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
-            resourceInputs["inGuestUserPatchMode"] = state ? state.inGuestUserPatchMode : undefined;
-            resourceInputs["installPatches"] = state ? state.installPatches : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["properties"] = state ? state.properties : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["visibility"] = state ? state.visibility : undefined;
-            resourceInputs["window"] = state ? state.window : undefined;
+            resourceInputs["inGuestUserPatchMode"] = state?.inGuestUserPatchMode;
+            resourceInputs["installPatches"] = state?.installPatches;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["properties"] = state?.properties;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["visibility"] = state?.visibility;
+            resourceInputs["window"] = state?.window;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["inGuestUserPatchMode"] = args ? args.inGuestUserPatchMode : undefined;
-            resourceInputs["installPatches"] = args ? args.installPatches : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
-            resourceInputs["window"] = args ? args.window : undefined;
+            resourceInputs["inGuestUserPatchMode"] = args?.inGuestUserPatchMode;
+            resourceInputs["installPatches"] = args?.installPatches;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["visibility"] = args?.visibility;
+            resourceInputs["window"] = args?.window;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);

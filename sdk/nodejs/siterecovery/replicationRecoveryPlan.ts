@@ -250,35 +250,35 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     /**
      * An `azureToAzureSettings` block as defined below.
      */
-    public readonly azureToAzureSettings!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings | undefined>;
+    declare public readonly azureToAzureSettings: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings | undefined>;
     /**
      * One or more `bootRecoveryGroup` blocks as defined below.
      */
-    public readonly bootRecoveryGroups!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroup[]>;
+    declare public readonly bootRecoveryGroups: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroup[]>;
     /**
      * One `failoverRecoveryGroup` block as defined below.
      */
-    public readonly failoverRecoveryGroup!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroup>;
+    declare public readonly failoverRecoveryGroup: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroup>;
     /**
      * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the vault that should be updated. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultId!: pulumi.Output<string>;
+    declare public readonly recoveryVaultId: pulumi.Output<string>;
     /**
      * One `shutdownRecoveryGroup` block as defined below.
      */
-    public readonly shutdownRecoveryGroup!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroup>;
+    declare public readonly shutdownRecoveryGroup: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroup>;
     /**
      * ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
      */
-    public readonly sourceRecoveryFabricId!: pulumi.Output<string>;
+    declare public readonly sourceRecoveryFabricId: pulumi.Output<string>;
     /**
      * ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
      */
-    public readonly targetRecoveryFabricId!: pulumi.Output<string>;
+    declare public readonly targetRecoveryFabricId: pulumi.Output<string>;
 
     /**
      * Create a ReplicationRecoveryPlan resource with the given unique name, arguments, and options.
@@ -293,42 +293,42 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationRecoveryPlanState | undefined;
-            resourceInputs["azureToAzureSettings"] = state ? state.azureToAzureSettings : undefined;
-            resourceInputs["bootRecoveryGroups"] = state ? state.bootRecoveryGroups : undefined;
-            resourceInputs["failoverRecoveryGroup"] = state ? state.failoverRecoveryGroup : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryVaultId"] = state ? state.recoveryVaultId : undefined;
-            resourceInputs["shutdownRecoveryGroup"] = state ? state.shutdownRecoveryGroup : undefined;
-            resourceInputs["sourceRecoveryFabricId"] = state ? state.sourceRecoveryFabricId : undefined;
-            resourceInputs["targetRecoveryFabricId"] = state ? state.targetRecoveryFabricId : undefined;
+            resourceInputs["azureToAzureSettings"] = state?.azureToAzureSettings;
+            resourceInputs["bootRecoveryGroups"] = state?.bootRecoveryGroups;
+            resourceInputs["failoverRecoveryGroup"] = state?.failoverRecoveryGroup;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recoveryVaultId"] = state?.recoveryVaultId;
+            resourceInputs["shutdownRecoveryGroup"] = state?.shutdownRecoveryGroup;
+            resourceInputs["sourceRecoveryFabricId"] = state?.sourceRecoveryFabricId;
+            resourceInputs["targetRecoveryFabricId"] = state?.targetRecoveryFabricId;
         } else {
             const args = argsOrState as ReplicationRecoveryPlanArgs | undefined;
-            if ((!args || args.bootRecoveryGroups === undefined) && !opts.urn) {
+            if (args?.bootRecoveryGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bootRecoveryGroups'");
             }
-            if ((!args || args.failoverRecoveryGroup === undefined) && !opts.urn) {
+            if (args?.failoverRecoveryGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'failoverRecoveryGroup'");
             }
-            if ((!args || args.recoveryVaultId === undefined) && !opts.urn) {
+            if (args?.recoveryVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultId'");
             }
-            if ((!args || args.shutdownRecoveryGroup === undefined) && !opts.urn) {
+            if (args?.shutdownRecoveryGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shutdownRecoveryGroup'");
             }
-            if ((!args || args.sourceRecoveryFabricId === undefined) && !opts.urn) {
+            if (args?.sourceRecoveryFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceRecoveryFabricId'");
             }
-            if ((!args || args.targetRecoveryFabricId === undefined) && !opts.urn) {
+            if (args?.targetRecoveryFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetRecoveryFabricId'");
             }
-            resourceInputs["azureToAzureSettings"] = args ? args.azureToAzureSettings : undefined;
-            resourceInputs["bootRecoveryGroups"] = args ? args.bootRecoveryGroups : undefined;
-            resourceInputs["failoverRecoveryGroup"] = args ? args.failoverRecoveryGroup : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryVaultId"] = args ? args.recoveryVaultId : undefined;
-            resourceInputs["shutdownRecoveryGroup"] = args ? args.shutdownRecoveryGroup : undefined;
-            resourceInputs["sourceRecoveryFabricId"] = args ? args.sourceRecoveryFabricId : undefined;
-            resourceInputs["targetRecoveryFabricId"] = args ? args.targetRecoveryFabricId : undefined;
+            resourceInputs["azureToAzureSettings"] = args?.azureToAzureSettings;
+            resourceInputs["bootRecoveryGroups"] = args?.bootRecoveryGroups;
+            resourceInputs["failoverRecoveryGroup"] = args?.failoverRecoveryGroup;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recoveryVaultId"] = args?.recoveryVaultId;
+            resourceInputs["shutdownRecoveryGroup"] = args?.shutdownRecoveryGroup;
+            resourceInputs["sourceRecoveryFabricId"] = args?.sourceRecoveryFabricId;
+            resourceInputs["targetRecoveryFabricId"] = args?.targetRecoveryFabricId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReplicationRecoveryPlan.__pulumiType, name, resourceInputs, opts);

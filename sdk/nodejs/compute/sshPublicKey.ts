@@ -70,23 +70,23 @@ export class SshPublicKey extends pulumi.CustomResource {
     /**
      * The Azure Region where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this SSH Public Key. Changing this forces a new SSH Public Key to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * SSH public key used to authenticate to a virtual machine through ssh. the provided public key needs to be at least 2048-bit and in ssh-rsa format.
      */
-    public readonly publicKey!: pulumi.Output<string>;
+    declare public readonly publicKey: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the SSH Public Key.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SshPublicKey resource with the given unique name, arguments, and options.
@@ -101,24 +101,24 @@ export class SshPublicKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SshPublicKeyState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicKey"] = state?.publicKey;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SshPublicKeyArgs | undefined;
-            if ((!args || args.publicKey === undefined) && !opts.urn) {
+            if (args?.publicKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SshPublicKey.__pulumiType, name, resourceInputs, opts);

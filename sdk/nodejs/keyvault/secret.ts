@@ -87,53 +87,53 @@ export class Secret extends pulumi.CustomResource {
     /**
      * Specifies the content type for the Key Vault Secret.
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
     /**
      * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    declare public readonly expirationDate: pulumi.Output<string | undefined>;
     /**
      * The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      */
-    public readonly notBeforeDate!: pulumi.Output<string | undefined>;
+    declare public readonly notBeforeDate: pulumi.Output<string | undefined>;
     /**
      * The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services.
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
      */
-    public /*out*/ readonly resourceVersionlessId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceVersionlessId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
     /**
      * An integer value used to trigger an update for `valueWo`. This property should be incremented when updating `valueWo`.
      *
      * > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("mySecretFile"), "/\n/", "\n")` or `base64encode(file("mySecretFile"))`, respectively.
      */
-    public readonly valueWoVersion!: pulumi.Output<number | undefined>;
+    declare public readonly valueWoVersion: pulumi.Output<number | undefined>;
     /**
      * The current version of the Key Vault Secret.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
     /**
      * The Base ID of the Key Vault Secret.
      */
-    public /*out*/ readonly versionlessId!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionlessId: pulumi.Output<string>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -148,31 +148,31 @@ export class Secret extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretState | undefined;
-            resourceInputs["contentType"] = state ? state.contentType : undefined;
-            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["resourceVersionlessId"] = state ? state.resourceVersionlessId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
-            resourceInputs["valueWoVersion"] = state ? state.valueWoVersion : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["versionlessId"] = state ? state.versionlessId : undefined;
+            resourceInputs["contentType"] = state?.contentType;
+            resourceInputs["expirationDate"] = state?.expirationDate;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notBeforeDate"] = state?.notBeforeDate;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["resourceVersionlessId"] = state?.resourceVersionlessId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["value"] = state?.value;
+            resourceInputs["valueWoVersion"] = state?.valueWoVersion;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["versionlessId"] = state?.versionlessId;
         } else {
             const args = argsOrState as SecretArgs | undefined;
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
+            if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notBeforeDate"] = args?.notBeforeDate;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["value"] = args?.value ? pulumi.secret(args.value) : undefined;
-            resourceInputs["valueWoVersion"] = args ? args.valueWoVersion : undefined;
+            resourceInputs["valueWoVersion"] = args?.valueWoVersion;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceVersionlessId"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;

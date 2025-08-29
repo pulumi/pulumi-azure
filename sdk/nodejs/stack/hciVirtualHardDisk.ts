@@ -86,57 +86,57 @@ export class HciVirtualHardDisk extends pulumi.CustomResource {
     /**
      * The block size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly blockSizeInBytes!: pulumi.Output<number | undefined>;
+    declare public readonly blockSizeInBytes: pulumi.Output<number | undefined>;
     /**
      * The ID of the Custom Location where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly customLocationId!: pulumi.Output<string>;
+    declare public readonly customLocationId: pulumi.Output<string>;
     /**
      * The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly diskFileFormat!: pulumi.Output<string | undefined>;
+    declare public readonly diskFileFormat: pulumi.Output<string | undefined>;
     /**
      * The size of the disk in GB. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly diskSizeInGb!: pulumi.Output<number>;
+    declare public readonly diskSizeInGb: pulumi.Output<number>;
     /**
      * Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `false`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly dynamicEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dynamicEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The hypervisor generation of the Azure Stack HCI Virtual Hard Disk. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly hypervGeneration!: pulumi.Output<string | undefined>;
+    declare public readonly hypervGeneration: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The logical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly logicalSectorInBytes!: pulumi.Output<number | undefined>;
+    declare public readonly logicalSectorInBytes: pulumi.Output<number | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The physical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly physicalSectorInBytes!: pulumi.Output<number | undefined>;
+    declare public readonly physicalSectorInBytes: pulumi.Output<number | undefined>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
      *
      * > **Note:** If `storagePathId` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignoreChanges`.
      */
-    public readonly storagePathId!: pulumi.Output<string | undefined>;
+    declare public readonly storagePathId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Virtual Hard Disk.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a HciVirtualHardDisk resource with the given unique name, arguments, and options.
@@ -151,43 +151,43 @@ export class HciVirtualHardDisk extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HciVirtualHardDiskState | undefined;
-            resourceInputs["blockSizeInBytes"] = state ? state.blockSizeInBytes : undefined;
-            resourceInputs["customLocationId"] = state ? state.customLocationId : undefined;
-            resourceInputs["diskFileFormat"] = state ? state.diskFileFormat : undefined;
-            resourceInputs["diskSizeInGb"] = state ? state.diskSizeInGb : undefined;
-            resourceInputs["dynamicEnabled"] = state ? state.dynamicEnabled : undefined;
-            resourceInputs["hypervGeneration"] = state ? state.hypervGeneration : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logicalSectorInBytes"] = state ? state.logicalSectorInBytes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["physicalSectorInBytes"] = state ? state.physicalSectorInBytes : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storagePathId"] = state ? state.storagePathId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["blockSizeInBytes"] = state?.blockSizeInBytes;
+            resourceInputs["customLocationId"] = state?.customLocationId;
+            resourceInputs["diskFileFormat"] = state?.diskFileFormat;
+            resourceInputs["diskSizeInGb"] = state?.diskSizeInGb;
+            resourceInputs["dynamicEnabled"] = state?.dynamicEnabled;
+            resourceInputs["hypervGeneration"] = state?.hypervGeneration;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logicalSectorInBytes"] = state?.logicalSectorInBytes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["physicalSectorInBytes"] = state?.physicalSectorInBytes;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storagePathId"] = state?.storagePathId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as HciVirtualHardDiskArgs | undefined;
-            if ((!args || args.customLocationId === undefined) && !opts.urn) {
+            if (args?.customLocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customLocationId'");
             }
-            if ((!args || args.diskSizeInGb === undefined) && !opts.urn) {
+            if (args?.diskSizeInGb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'diskSizeInGb'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["blockSizeInBytes"] = args ? args.blockSizeInBytes : undefined;
-            resourceInputs["customLocationId"] = args ? args.customLocationId : undefined;
-            resourceInputs["diskFileFormat"] = args ? args.diskFileFormat : undefined;
-            resourceInputs["diskSizeInGb"] = args ? args.diskSizeInGb : undefined;
-            resourceInputs["dynamicEnabled"] = args ? args.dynamicEnabled : undefined;
-            resourceInputs["hypervGeneration"] = args ? args.hypervGeneration : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logicalSectorInBytes"] = args ? args.logicalSectorInBytes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["physicalSectorInBytes"] = args ? args.physicalSectorInBytes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storagePathId"] = args ? args.storagePathId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["blockSizeInBytes"] = args?.blockSizeInBytes;
+            resourceInputs["customLocationId"] = args?.customLocationId;
+            resourceInputs["diskFileFormat"] = args?.diskFileFormat;
+            resourceInputs["diskSizeInGb"] = args?.diskSizeInGb;
+            resourceInputs["dynamicEnabled"] = args?.dynamicEnabled;
+            resourceInputs["hypervGeneration"] = args?.hypervGeneration;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logicalSectorInBytes"] = args?.logicalSectorInBytes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["physicalSectorInBytes"] = args?.physicalSectorInBytes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storagePathId"] = args?.storagePathId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HciVirtualHardDisk.__pulumiType, name, resourceInputs, opts);

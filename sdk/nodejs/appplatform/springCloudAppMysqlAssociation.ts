@@ -94,27 +94,27 @@ export class SpringCloudAppMysqlAssociation extends pulumi.CustomResource {
     /**
      * Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
      */
-    public readonly mysqlServerId!: pulumi.Output<string>;
+    declare public readonly mysqlServerId: pulumi.Output<string>;
     /**
      * Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
      */
-    public readonly springCloudAppId!: pulumi.Output<string>;
+    declare public readonly springCloudAppId: pulumi.Output<string>;
     /**
      * Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudAppMysqlAssociation resource with the given unique name, arguments, and options.
@@ -129,35 +129,35 @@ export class SpringCloudAppMysqlAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppMysqlAssociationState | undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["mysqlServerId"] = state ? state.mysqlServerId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["mysqlServerId"] = state?.mysqlServerId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["springCloudAppId"] = state?.springCloudAppId;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as SpringCloudAppMysqlAssociationArgs | undefined;
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.mysqlServerId === undefined) && !opts.urn) {
+            if (args?.mysqlServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mysqlServerId'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
+            if (args?.springCloudAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["mysqlServerId"] = args ? args.mysqlServerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["mysqlServerId"] = args?.mysqlServerId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["springCloudAppId"] = args?.springCloudAppId;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

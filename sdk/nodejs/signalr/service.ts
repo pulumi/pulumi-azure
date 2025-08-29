@@ -92,115 +92,115 @@ export class Service extends pulumi.CustomResource {
     /**
      * Whether to enable AAD auth? Defaults to `true`.
      */
-    public readonly aadAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly aadAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
      */
-    public readonly connectivityLogsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly connectivityLogsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `cors` block as documented below.
      */
-    public readonly cors!: pulumi.Output<outputs.signalr.ServiceCor[]>;
+    declare public readonly cors: pulumi.Output<outputs.signalr.ServiceCor[]>;
     /**
      * The FQDN of the SignalR service.
      */
-    public /*out*/ readonly hostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostname: pulumi.Output<string>;
     /**
      * Specifies if Http Request Logs are enabled or not. Defaults to `false`.
      */
-    public readonly httpRequestLogsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpRequestLogsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.signalr.ServiceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.signalr.ServiceIdentity | undefined>;
     /**
      * The publicly accessible IP of the SignalR service.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * A `liveTrace` block as defined below.
      */
-    public readonly liveTrace!: pulumi.Output<outputs.signalr.ServiceLiveTrace | undefined>;
+    declare public readonly liveTrace: pulumi.Output<outputs.signalr.ServiceLiveTrace | undefined>;
     /**
      * @deprecated `liveTraceEnabled` has been deprecated in favor of `liveTrace` and will be removed in 4.0.
      */
-    public readonly liveTraceEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly liveTraceEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether to enable local auth? Defaults to `true`.
      */
-    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies if Messaging Logs are enabled or not. Defaults to `false`.
      */
-    public readonly messagingLogsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly messagingLogsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The primary access key for the SignalR service.
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * The primary connection string for the SignalR service.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * Whether to enable public network access? Defaults to `true`.
      *
      * > **Note:** `publicNetworkAccessEnabled` cannot be set to `false` in `Free` sku tier.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The publicly accessible port of the SignalR service which is designed for browser/client use.
      */
-    public /*out*/ readonly publicPort!: pulumi.Output<number>;
+    declare public /*out*/ readonly publicPort: pulumi.Output<number>;
     /**
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary access key for the SignalR service.
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * The secondary connection string for the SignalR service.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The publicly accessible port of the SignalR service which is designed for customer server side use.
      */
-    public /*out*/ readonly serverPort!: pulumi.Output<number>;
+    declare public /*out*/ readonly serverPort: pulumi.Output<number>;
     /**
      * Specifies the client connection timeout. Defaults to `30`.
      */
-    public readonly serverlessConnectionTimeoutInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly serverlessConnectionTimeoutInSeconds: pulumi.Output<number | undefined>;
     /**
      * Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
      */
-    public readonly serviceMode!: pulumi.Output<string | undefined>;
+    declare public readonly serviceMode: pulumi.Output<string | undefined>;
     /**
      * A `sku` block as documented below.
      */
-    public readonly sku!: pulumi.Output<outputs.signalr.ServiceSku>;
+    declare public readonly sku: pulumi.Output<outputs.signalr.ServiceSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether to request client certificate during TLS handshake? Defaults to `false`.
      *
      * > **Note:** `tlsClientCertEnabled` cannot be set to `true` in `Free` sku tier.
      */
-    public readonly tlsClientCertEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly tlsClientCertEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `upstreamEndpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
      */
-    public readonly upstreamEndpoints!: pulumi.Output<outputs.signalr.ServiceUpstreamEndpoint[] | undefined>;
+    declare public readonly upstreamEndpoints: pulumi.Output<outputs.signalr.ServiceUpstreamEndpoint[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -215,60 +215,60 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["aadAuthEnabled"] = state ? state.aadAuthEnabled : undefined;
-            resourceInputs["connectivityLogsEnabled"] = state ? state.connectivityLogsEnabled : undefined;
-            resourceInputs["cors"] = state ? state.cors : undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["httpRequestLogsEnabled"] = state ? state.httpRequestLogsEnabled : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["liveTrace"] = state ? state.liveTrace : undefined;
-            resourceInputs["liveTraceEnabled"] = state ? state.liveTraceEnabled : undefined;
-            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["messagingLogsEnabled"] = state ? state.messagingLogsEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["publicPort"] = state ? state.publicPort : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["serverPort"] = state ? state.serverPort : undefined;
-            resourceInputs["serverlessConnectionTimeoutInSeconds"] = state ? state.serverlessConnectionTimeoutInSeconds : undefined;
-            resourceInputs["serviceMode"] = state ? state.serviceMode : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tlsClientCertEnabled"] = state ? state.tlsClientCertEnabled : undefined;
-            resourceInputs["upstreamEndpoints"] = state ? state.upstreamEndpoints : undefined;
+            resourceInputs["aadAuthEnabled"] = state?.aadAuthEnabled;
+            resourceInputs["connectivityLogsEnabled"] = state?.connectivityLogsEnabled;
+            resourceInputs["cors"] = state?.cors;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["httpRequestLogsEnabled"] = state?.httpRequestLogsEnabled;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["liveTrace"] = state?.liveTrace;
+            resourceInputs["liveTraceEnabled"] = state?.liveTraceEnabled;
+            resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["messagingLogsEnabled"] = state?.messagingLogsEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["publicPort"] = state?.publicPort;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["serverPort"] = state?.serverPort;
+            resourceInputs["serverlessConnectionTimeoutInSeconds"] = state?.serverlessConnectionTimeoutInSeconds;
+            resourceInputs["serviceMode"] = state?.serviceMode;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tlsClientCertEnabled"] = state?.tlsClientCertEnabled;
+            resourceInputs["upstreamEndpoints"] = state?.upstreamEndpoints;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["aadAuthEnabled"] = args ? args.aadAuthEnabled : undefined;
-            resourceInputs["connectivityLogsEnabled"] = args ? args.connectivityLogsEnabled : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["httpRequestLogsEnabled"] = args ? args.httpRequestLogsEnabled : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["liveTrace"] = args ? args.liveTrace : undefined;
-            resourceInputs["liveTraceEnabled"] = args ? args.liveTraceEnabled : undefined;
-            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["messagingLogsEnabled"] = args ? args.messagingLogsEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverlessConnectionTimeoutInSeconds"] = args ? args.serverlessConnectionTimeoutInSeconds : undefined;
-            resourceInputs["serviceMode"] = args ? args.serviceMode : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tlsClientCertEnabled"] = args ? args.tlsClientCertEnabled : undefined;
-            resourceInputs["upstreamEndpoints"] = args ? args.upstreamEndpoints : undefined;
+            resourceInputs["aadAuthEnabled"] = args?.aadAuthEnabled;
+            resourceInputs["connectivityLogsEnabled"] = args?.connectivityLogsEnabled;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["httpRequestLogsEnabled"] = args?.httpRequestLogsEnabled;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["liveTrace"] = args?.liveTrace;
+            resourceInputs["liveTraceEnabled"] = args?.liveTraceEnabled;
+            resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["messagingLogsEnabled"] = args?.messagingLogsEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverlessConnectionTimeoutInSeconds"] = args?.serverlessConnectionTimeoutInSeconds;
+            resourceInputs["serviceMode"] = args?.serviceMode;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tlsClientCertEnabled"] = args?.tlsClientCertEnabled;
+            resourceInputs["upstreamEndpoints"] = args?.upstreamEndpoints;
             resourceInputs["hostname"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;

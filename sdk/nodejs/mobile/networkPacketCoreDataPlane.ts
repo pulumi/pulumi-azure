@@ -46,35 +46,35 @@ export class NetworkPacketCoreDataPlane extends pulumi.CustomResource {
     /**
      * Specifies the Azure Region where the Mobile Network Packet Core Data Plane should exist. Changing this forces a new Mobile Network Packet Core Data Plane to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the ID of the Mobile Network Packet Core Data Plane. Changing this forces a new Mobile Network Packet Core Data Plane to be created.
      */
-    public readonly mobileNetworkPacketCoreControlPlaneId!: pulumi.Output<string>;
+    declare public readonly mobileNetworkPacketCoreControlPlaneId: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Mobile Network Packet Core Data Plane. Changing this forces a new Mobile Network Packet Core Data Plane to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Mobile Network Packet Core Data Plane.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The IPv4 address for the user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly userPlaneAccessIpv4Address!: pulumi.Output<string | undefined>;
+    declare public readonly userPlaneAccessIpv4Address: pulumi.Output<string | undefined>;
     /**
      * The default IPv4 gateway for the user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly userPlaneAccessIpv4Gateway!: pulumi.Output<string | undefined>;
+    declare public readonly userPlaneAccessIpv4Gateway: pulumi.Output<string | undefined>;
     /**
      * The IPv4 subnet for the user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly userPlaneAccessIpv4Subnet!: pulumi.Output<string | undefined>;
+    declare public readonly userPlaneAccessIpv4Subnet: pulumi.Output<string | undefined>;
     /**
      * Specifies the logical name for thie user plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
      */
-    public readonly userPlaneAccessName!: pulumi.Output<string | undefined>;
+    declare public readonly userPlaneAccessName: pulumi.Output<string | undefined>;
 
     /**
      * Create a NetworkPacketCoreDataPlane resource with the given unique name, arguments, and options.
@@ -89,27 +89,27 @@ export class NetworkPacketCoreDataPlane extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkPacketCoreDataPlaneState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mobileNetworkPacketCoreControlPlaneId"] = state ? state.mobileNetworkPacketCoreControlPlaneId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["userPlaneAccessIpv4Address"] = state ? state.userPlaneAccessIpv4Address : undefined;
-            resourceInputs["userPlaneAccessIpv4Gateway"] = state ? state.userPlaneAccessIpv4Gateway : undefined;
-            resourceInputs["userPlaneAccessIpv4Subnet"] = state ? state.userPlaneAccessIpv4Subnet : undefined;
-            resourceInputs["userPlaneAccessName"] = state ? state.userPlaneAccessName : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mobileNetworkPacketCoreControlPlaneId"] = state?.mobileNetworkPacketCoreControlPlaneId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["userPlaneAccessIpv4Address"] = state?.userPlaneAccessIpv4Address;
+            resourceInputs["userPlaneAccessIpv4Gateway"] = state?.userPlaneAccessIpv4Gateway;
+            resourceInputs["userPlaneAccessIpv4Subnet"] = state?.userPlaneAccessIpv4Subnet;
+            resourceInputs["userPlaneAccessName"] = state?.userPlaneAccessName;
         } else {
             const args = argsOrState as NetworkPacketCoreDataPlaneArgs | undefined;
-            if ((!args || args.mobileNetworkPacketCoreControlPlaneId === undefined) && !opts.urn) {
+            if (args?.mobileNetworkPacketCoreControlPlaneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkPacketCoreControlPlaneId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkPacketCoreControlPlaneId"] = args ? args.mobileNetworkPacketCoreControlPlaneId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userPlaneAccessIpv4Address"] = args ? args.userPlaneAccessIpv4Address : undefined;
-            resourceInputs["userPlaneAccessIpv4Gateway"] = args ? args.userPlaneAccessIpv4Gateway : undefined;
-            resourceInputs["userPlaneAccessIpv4Subnet"] = args ? args.userPlaneAccessIpv4Subnet : undefined;
-            resourceInputs["userPlaneAccessName"] = args ? args.userPlaneAccessName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkPacketCoreControlPlaneId"] = args?.mobileNetworkPacketCoreControlPlaneId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userPlaneAccessIpv4Address"] = args?.userPlaneAccessIpv4Address;
+            resourceInputs["userPlaneAccessIpv4Gateway"] = args?.userPlaneAccessIpv4Gateway;
+            resourceInputs["userPlaneAccessIpv4Subnet"] = args?.userPlaneAccessIpv4Subnet;
+            resourceInputs["userPlaneAccessName"] = args?.userPlaneAccessName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkPacketCoreDataPlane.__pulumiType, name, resourceInputs, opts);

@@ -46,11 +46,11 @@ export class VirtualNetworkDnsServers extends pulumi.CustomResource {
     /**
      * List of IP addresses of DNS servers
      */
-    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsServers: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
      */
-    public readonly virtualNetworkId!: pulumi.Output<string>;
+    declare public readonly virtualNetworkId: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkDnsServers resource with the given unique name, arguments, and options.
@@ -65,15 +65,15 @@ export class VirtualNetworkDnsServers extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkDnsServersState | undefined;
-            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
-            resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
+            resourceInputs["dnsServers"] = state?.dnsServers;
+            resourceInputs["virtualNetworkId"] = state?.virtualNetworkId;
         } else {
             const args = argsOrState as VirtualNetworkDnsServersArgs | undefined;
-            if ((!args || args.virtualNetworkId === undefined) && !opts.urn) {
+            if (args?.virtualNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkId'");
             }
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualNetworkDnsServers.__pulumiType, name, resourceInputs, opts);

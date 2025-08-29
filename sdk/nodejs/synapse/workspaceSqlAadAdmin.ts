@@ -124,19 +124,19 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
     /**
      * The login name of the Azure AD Administrator of this Synapse Workspace.
      */
-    public readonly login!: pulumi.Output<string>;
+    declare public readonly login: pulumi.Output<string>;
     /**
      * The object id of the Azure AD Administrator of this Synapse Workspace.
      */
-    public readonly objectId!: pulumi.Output<string>;
+    declare public readonly objectId: pulumi.Output<string>;
     /**
      * The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
      */
-    public readonly synapseWorkspaceId!: pulumi.Output<string>;
+    declare public readonly synapseWorkspaceId: pulumi.Output<string>;
     /**
      * The tenant id of the Azure AD Administrator of this Synapse Workspace.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceSqlAadAdmin resource with the given unique name, arguments, and options.
@@ -151,28 +151,28 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceSqlAadAdminState | undefined;
-            resourceInputs["login"] = state ? state.login : undefined;
-            resourceInputs["objectId"] = state ? state.objectId : undefined;
-            resourceInputs["synapseWorkspaceId"] = state ? state.synapseWorkspaceId : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["login"] = state?.login;
+            resourceInputs["objectId"] = state?.objectId;
+            resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as WorkspaceSqlAadAdminArgs | undefined;
-            if ((!args || args.login === undefined) && !opts.urn) {
+            if (args?.login === undefined && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.synapseWorkspaceId === undefined) && !opts.urn) {
+            if (args?.synapseWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceId'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkspaceSqlAadAdmin.__pulumiType, name, resourceInputs, opts);

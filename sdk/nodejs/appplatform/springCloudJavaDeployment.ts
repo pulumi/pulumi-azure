@@ -92,31 +92,31 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
-    public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    public readonly instanceCount!: pulumi.Output<number | undefined>;
+    declare public readonly instanceCount: pulumi.Output<number | undefined>;
     /**
      * Specifies the jvm option of the Spring Cloud Deployment.
      */
-    public readonly jvmOptions!: pulumi.Output<string | undefined>;
+    declare public readonly jvmOptions: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Deployment. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `quota` block as defined below.
      */
-    public readonly quota!: pulumi.Output<outputs.appplatform.SpringCloudJavaDeploymentQuota>;
+    declare public readonly quota: pulumi.Output<outputs.appplatform.SpringCloudJavaDeploymentQuota>;
     /**
      * Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`.
      */
-    public readonly runtimeVersion!: pulumi.Output<string | undefined>;
+    declare public readonly runtimeVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies the id of the Spring Cloud Application in which to create the Deployment. Changing this forces a new resource to be created.
      */
-    public readonly springCloudAppId!: pulumi.Output<string>;
+    declare public readonly springCloudAppId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudJavaDeployment resource with the given unique name, arguments, and options.
@@ -131,25 +131,25 @@ export class SpringCloudJavaDeployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudJavaDeploymentState | undefined;
-            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
-            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
-            resourceInputs["jvmOptions"] = state ? state.jvmOptions : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["quota"] = state ? state.quota : undefined;
-            resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
-            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["environmentVariables"] = state?.environmentVariables;
+            resourceInputs["instanceCount"] = state?.instanceCount;
+            resourceInputs["jvmOptions"] = state?.jvmOptions;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["quota"] = state?.quota;
+            resourceInputs["runtimeVersion"] = state?.runtimeVersion;
+            resourceInputs["springCloudAppId"] = state?.springCloudAppId;
         } else {
             const args = argsOrState as SpringCloudJavaDeploymentArgs | undefined;
-            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
+            if (args?.springCloudAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["jvmOptions"] = args ? args.jvmOptions : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["quota"] = args ? args.quota : undefined;
-            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["jvmOptions"] = args?.jvmOptions;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["quota"] = args?.quota;
+            resourceInputs["runtimeVersion"] = args?.runtimeVersion;
+            resourceInputs["springCloudAppId"] = args?.springCloudAppId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudJavaDeployment.__pulumiType, name, resourceInputs, opts);

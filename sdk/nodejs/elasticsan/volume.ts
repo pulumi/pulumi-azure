@@ -135,37 +135,37 @@ export class Volume extends pulumi.CustomResource {
     /**
      * A `createSource` block as defined below.
      */
-    public readonly createSource!: pulumi.Output<outputs.elasticsan.VolumeCreateSource | undefined>;
+    declare public readonly createSource: pulumi.Output<outputs.elasticsan.VolumeCreateSource | undefined>;
     /**
      * Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      *
      * > **Note:** The size can only be increased. If `createSource` is specified, then the size must be equal to or greater than the source's size.
      */
-    public readonly sizeInGib!: pulumi.Output<number>;
+    declare public readonly sizeInGib: pulumi.Output<number>;
     /**
      * The iSCSI Target IQN of the Elastic SAN Volume.
      */
-    public /*out*/ readonly targetIqn!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetIqn: pulumi.Output<string>;
     /**
      * The iSCSI Target Portal Host Name of the Elastic SAN Volume.
      */
-    public /*out*/ readonly targetPortalHostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetPortalHostname: pulumi.Output<string>;
     /**
      * The iSCSI Target Portal Port of the Elastic SAN Volume.
      */
-    public /*out*/ readonly targetPortalPort!: pulumi.Output<number>;
+    declare public /*out*/ readonly targetPortalPort: pulumi.Output<number>;
     /**
      * Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
      */
-    public readonly volumeGroupId!: pulumi.Output<string>;
+    declare public readonly volumeGroupId: pulumi.Output<string>;
     /**
      * The UUID of the Elastic SAN Volume.
      */
-    public /*out*/ readonly volumeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly volumeId: pulumi.Output<string>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -180,26 +180,26 @@ export class Volume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeState | undefined;
-            resourceInputs["createSource"] = state ? state.createSource : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sizeInGib"] = state ? state.sizeInGib : undefined;
-            resourceInputs["targetIqn"] = state ? state.targetIqn : undefined;
-            resourceInputs["targetPortalHostname"] = state ? state.targetPortalHostname : undefined;
-            resourceInputs["targetPortalPort"] = state ? state.targetPortalPort : undefined;
-            resourceInputs["volumeGroupId"] = state ? state.volumeGroupId : undefined;
-            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["createSource"] = state?.createSource;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sizeInGib"] = state?.sizeInGib;
+            resourceInputs["targetIqn"] = state?.targetIqn;
+            resourceInputs["targetPortalHostname"] = state?.targetPortalHostname;
+            resourceInputs["targetPortalPort"] = state?.targetPortalPort;
+            resourceInputs["volumeGroupId"] = state?.volumeGroupId;
+            resourceInputs["volumeId"] = state?.volumeId;
         } else {
             const args = argsOrState as VolumeArgs | undefined;
-            if ((!args || args.sizeInGib === undefined) && !opts.urn) {
+            if (args?.sizeInGib === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sizeInGib'");
             }
-            if ((!args || args.volumeGroupId === undefined) && !opts.urn) {
+            if (args?.volumeGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeGroupId'");
             }
-            resourceInputs["createSource"] = args ? args.createSource : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sizeInGib"] = args ? args.sizeInGib : undefined;
-            resourceInputs["volumeGroupId"] = args ? args.volumeGroupId : undefined;
+            resourceInputs["createSource"] = args?.createSource;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sizeInGib"] = args?.sizeInGib;
+            resourceInputs["volumeGroupId"] = args?.volumeGroupId;
             resourceInputs["targetIqn"] = undefined /*out*/;
             resourceInputs["targetPortalHostname"] = undefined /*out*/;
             resourceInputs["targetPortalPort"] = undefined /*out*/;

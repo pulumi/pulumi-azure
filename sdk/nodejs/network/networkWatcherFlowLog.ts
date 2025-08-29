@@ -113,51 +113,51 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
     /**
      * Should Network Flow Logging be Enabled?
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * @deprecated The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
      */
-    public readonly networkSecurityGroupId!: pulumi.Output<string>;
+    declare public readonly networkSecurityGroupId: pulumi.Output<string>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
-    public readonly networkWatcherName!: pulumi.Output<string>;
+    declare public readonly networkWatcherName: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `retentionPolicy` block as documented below.
      */
-    public readonly retentionPolicy!: pulumi.Output<outputs.network.NetworkWatcherFlowLogRetentionPolicy>;
+    declare public readonly retentionPolicy: pulumi.Output<outputs.network.NetworkWatcherFlowLogRetentionPolicy>;
     /**
      * The ID of the Storage Account where flow logs are stored.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Network Watcher Flow Log.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the Resource for which to enable flow logs for. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * A `trafficAnalytics` block as documented below.
      */
-    public readonly trafficAnalytics!: pulumi.Output<outputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
+    declare public readonly trafficAnalytics: pulumi.Output<outputs.network.NetworkWatcherFlowLogTrafficAnalytics | undefined>;
     /**
      * The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
      */
-    public readonly version!: pulumi.Output<number | undefined>;
+    declare public readonly version: pulumi.Output<number | undefined>;
 
     /**
      * Create a NetworkWatcherFlowLog resource with the given unique name, arguments, and options.
@@ -172,47 +172,47 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkWatcherFlowLogState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
-            resourceInputs["networkWatcherName"] = state ? state.networkWatcherName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["trafficAnalytics"] = state ? state.trafficAnalytics : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkSecurityGroupId"] = state?.networkSecurityGroupId;
+            resourceInputs["networkWatcherName"] = state?.networkWatcherName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionPolicy"] = state?.retentionPolicy;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["trafficAnalytics"] = state?.trafficAnalytics;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as NetworkWatcherFlowLogArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
+            if (args?.networkWatcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.retentionPolicy === undefined) && !opts.urn) {
+            if (args?.retentionPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
-            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["trafficAnalytics"] = args ? args.trafficAnalytics : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkSecurityGroupId"] = args?.networkSecurityGroupId;
+            resourceInputs["networkWatcherName"] = args?.networkWatcherName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionPolicy"] = args?.retentionPolicy;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["trafficAnalytics"] = args?.trafficAnalytics;
+            resourceInputs["version"] = args?.version;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkWatcherFlowLog.__pulumiType, name, resourceInputs, opts);

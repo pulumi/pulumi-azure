@@ -121,73 +121,73 @@ export class Job extends pulumi.CustomResource {
     /**
      * The ID of the Container App Environment in which to create the Container App Job. Changing this forces a new resource to be created.
      */
-    public readonly containerAppEnvironmentId!: pulumi.Output<string>;
+    declare public readonly containerAppEnvironmentId: pulumi.Output<string>;
     /**
      * The endpoint for the Container App Job event stream.
      */
-    public /*out*/ readonly eventStreamEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventStreamEndpoint: pulumi.Output<string>;
     /**
      * A `eventTriggerConfig` block as defined below.
      */
-    public readonly eventTriggerConfig!: pulumi.Output<outputs.containerapp.JobEventTriggerConfig | undefined>;
+    declare public readonly eventTriggerConfig: pulumi.Output<outputs.containerapp.JobEventTriggerConfig | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.containerapp.JobIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerapp.JobIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `manualTriggerConfig` block as defined below.
      */
-    public readonly manualTriggerConfig!: pulumi.Output<outputs.containerapp.JobManualTriggerConfig | undefined>;
+    declare public readonly manualTriggerConfig: pulumi.Output<outputs.containerapp.JobManualTriggerConfig | undefined>;
     /**
      * Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of the Public IP Addresses which the Container App uses for outbound network access.
      */
-    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string[]>;
     /**
      * One or more `registry` blocks as defined below.
      */
-    public readonly registries!: pulumi.Output<outputs.containerapp.JobRegistry[] | undefined>;
+    declare public readonly registries: pulumi.Output<outputs.containerapp.JobRegistry[] | undefined>;
     /**
      * The maximum number of times a replica is allowed to retry.
      */
-    public readonly replicaRetryLimit!: pulumi.Output<number | undefined>;
+    declare public readonly replicaRetryLimit: pulumi.Output<number | undefined>;
     /**
      * The maximum number of seconds a replica is allowed to run.
      */
-    public readonly replicaTimeoutInSeconds!: pulumi.Output<number>;
+    declare public readonly replicaTimeoutInSeconds: pulumi.Output<number>;
     /**
      * The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `scheduleTriggerConfig` block as defined below.
      *
      * > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      */
-    public readonly scheduleTriggerConfig!: pulumi.Output<outputs.containerapp.JobScheduleTriggerConfig | undefined>;
+    declare public readonly scheduleTriggerConfig: pulumi.Output<outputs.containerapp.JobScheduleTriggerConfig | undefined>;
     /**
      * One or more `secret` blocks as defined below.
      */
-    public readonly secrets!: pulumi.Output<outputs.containerapp.JobSecret[] | undefined>;
+    declare public readonly secrets: pulumi.Output<outputs.containerapp.JobSecret[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `template` block as defined below.
      */
-    public readonly template!: pulumi.Output<outputs.containerapp.JobTemplate>;
+    declare public readonly template: pulumi.Output<outputs.containerapp.JobTemplate>;
     /**
      * The name of the workload profile to use for the Container App Job.
      */
-    public readonly workloadProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly workloadProfileName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -202,52 +202,52 @@ export class Job extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
-            resourceInputs["containerAppEnvironmentId"] = state ? state.containerAppEnvironmentId : undefined;
-            resourceInputs["eventStreamEndpoint"] = state ? state.eventStreamEndpoint : undefined;
-            resourceInputs["eventTriggerConfig"] = state ? state.eventTriggerConfig : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["manualTriggerConfig"] = state ? state.manualTriggerConfig : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
-            resourceInputs["registries"] = state ? state.registries : undefined;
-            resourceInputs["replicaRetryLimit"] = state ? state.replicaRetryLimit : undefined;
-            resourceInputs["replicaTimeoutInSeconds"] = state ? state.replicaTimeoutInSeconds : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scheduleTriggerConfig"] = state ? state.scheduleTriggerConfig : undefined;
-            resourceInputs["secrets"] = state ? state.secrets : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["template"] = state ? state.template : undefined;
-            resourceInputs["workloadProfileName"] = state ? state.workloadProfileName : undefined;
+            resourceInputs["containerAppEnvironmentId"] = state?.containerAppEnvironmentId;
+            resourceInputs["eventStreamEndpoint"] = state?.eventStreamEndpoint;
+            resourceInputs["eventTriggerConfig"] = state?.eventTriggerConfig;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["manualTriggerConfig"] = state?.manualTriggerConfig;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundIpAddresses"] = state?.outboundIpAddresses;
+            resourceInputs["registries"] = state?.registries;
+            resourceInputs["replicaRetryLimit"] = state?.replicaRetryLimit;
+            resourceInputs["replicaTimeoutInSeconds"] = state?.replicaTimeoutInSeconds;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scheduleTriggerConfig"] = state?.scheduleTriggerConfig;
+            resourceInputs["secrets"] = state?.secrets;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["template"] = state?.template;
+            resourceInputs["workloadProfileName"] = state?.workloadProfileName;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if ((!args || args.containerAppEnvironmentId === undefined) && !opts.urn) {
+            if (args?.containerAppEnvironmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppEnvironmentId'");
             }
-            if ((!args || args.replicaTimeoutInSeconds === undefined) && !opts.urn) {
+            if (args?.replicaTimeoutInSeconds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'replicaTimeoutInSeconds'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.template === undefined) && !opts.urn) {
+            if (args?.template === undefined && !opts.urn) {
                 throw new Error("Missing required property 'template'");
             }
-            resourceInputs["containerAppEnvironmentId"] = args ? args.containerAppEnvironmentId : undefined;
-            resourceInputs["eventTriggerConfig"] = args ? args.eventTriggerConfig : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["manualTriggerConfig"] = args ? args.manualTriggerConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["registries"] = args ? args.registries : undefined;
-            resourceInputs["replicaRetryLimit"] = args ? args.replicaRetryLimit : undefined;
-            resourceInputs["replicaTimeoutInSeconds"] = args ? args.replicaTimeoutInSeconds : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scheduleTriggerConfig"] = args ? args.scheduleTriggerConfig : undefined;
+            resourceInputs["containerAppEnvironmentId"] = args?.containerAppEnvironmentId;
+            resourceInputs["eventTriggerConfig"] = args?.eventTriggerConfig;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["manualTriggerConfig"] = args?.manualTriggerConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["registries"] = args?.registries;
+            resourceInputs["replicaRetryLimit"] = args?.replicaRetryLimit;
+            resourceInputs["replicaTimeoutInSeconds"] = args?.replicaTimeoutInSeconds;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scheduleTriggerConfig"] = args?.scheduleTriggerConfig;
             resourceInputs["secrets"] = args?.secrets ? pulumi.secret(args.secrets) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
-            resourceInputs["workloadProfileName"] = args ? args.workloadProfileName : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["template"] = args?.template;
+            resourceInputs["workloadProfileName"] = args?.workloadProfileName;
             resourceInputs["eventStreamEndpoint"] = undefined /*out*/;
             resourceInputs["outboundIpAddresses"] = undefined /*out*/;
         }

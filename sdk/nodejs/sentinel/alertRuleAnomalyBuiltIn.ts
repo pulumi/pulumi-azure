@@ -78,73 +78,73 @@ export class AlertRuleAnomalyBuiltIn extends pulumi.CustomResource {
     /**
      * The version of the Anomaly Security ML Analytics Settings.
      */
-    public /*out*/ readonly anomalySettingsVersion!: pulumi.Output<number>;
+    declare public /*out*/ readonly anomalySettingsVersion: pulumi.Output<number>;
     /**
      * The anomaly version of the Anomaly Alert Rule.
      */
-    public /*out*/ readonly anomalyVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly anomalyVersion: pulumi.Output<string>;
     /**
      * The description of the threshold observation.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * The Display Name of the built-in Anomaly Alert Rule.
      *
      * > **Note:** One of `name` or `displayName` block must be specified.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Should the Built-in Anomaly Alert Rule be enabled?
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The frequency the Anomaly Alert Rule will be run.
      */
-    public /*out*/ readonly frequency!: pulumi.Output<string>;
+    declare public /*out*/ readonly frequency: pulumi.Output<string>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * A list of `multiSelectObservation` blocks as defined below.
      */
-    public /*out*/ readonly multiSelectObservations!: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInMultiSelectObservation[]>;
+    declare public /*out*/ readonly multiSelectObservations: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInMultiSelectObservation[]>;
     /**
      * The Name of the built-in Anomaly Alert Rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of `prioritizedExcludeObservation` blocks as defined below.
      */
-    public /*out*/ readonly prioritizedExcludeObservations!: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInPrioritizedExcludeObservation[]>;
+    declare public /*out*/ readonly prioritizedExcludeObservations: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInPrioritizedExcludeObservation[]>;
     /**
      * A `requiredDataConnector` block as defined below.
      */
-    public /*out*/ readonly requiredDataConnectors!: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInRequiredDataConnector[]>;
+    declare public /*out*/ readonly requiredDataConnectors: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInRequiredDataConnector[]>;
     /**
      * The ID of the anomaly settings definition Id.
      */
-    public /*out*/ readonly settingsDefinitionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly settingsDefinitionId: pulumi.Output<string>;
     /**
      * A list of `singleSelectObservation` blocks as defined below.
      */
-    public /*out*/ readonly singleSelectObservations!: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInSingleSelectObservation[]>;
+    declare public /*out*/ readonly singleSelectObservations: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInSingleSelectObservation[]>;
     /**
      * A list of categories of attacks by which to classify the rule.
      */
-    public /*out*/ readonly tactics!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly tactics: pulumi.Output<string[]>;
     /**
      * A list of techniques of attacks by which to classify the rule.
      */
-    public /*out*/ readonly techniques!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly techniques: pulumi.Output<string[]>;
     /**
      * A list of `thresholdObservation` blocks as defined below.
      */
-    public /*out*/ readonly thresholdObservations!: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInThresholdObservation[]>;
+    declare public /*out*/ readonly thresholdObservations: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInThresholdObservation[]>;
 
     /**
      * Create a AlertRuleAnomalyBuiltIn resource with the given unique name, arguments, and options.
@@ -159,39 +159,39 @@ export class AlertRuleAnomalyBuiltIn extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertRuleAnomalyBuiltInState | undefined;
-            resourceInputs["anomalySettingsVersion"] = state ? state.anomalySettingsVersion : undefined;
-            resourceInputs["anomalyVersion"] = state ? state.anomalyVersion : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["multiSelectObservations"] = state ? state.multiSelectObservations : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["prioritizedExcludeObservations"] = state ? state.prioritizedExcludeObservations : undefined;
-            resourceInputs["requiredDataConnectors"] = state ? state.requiredDataConnectors : undefined;
-            resourceInputs["settingsDefinitionId"] = state ? state.settingsDefinitionId : undefined;
-            resourceInputs["singleSelectObservations"] = state ? state.singleSelectObservations : undefined;
-            resourceInputs["tactics"] = state ? state.tactics : undefined;
-            resourceInputs["techniques"] = state ? state.techniques : undefined;
-            resourceInputs["thresholdObservations"] = state ? state.thresholdObservations : undefined;
+            resourceInputs["anomalySettingsVersion"] = state?.anomalySettingsVersion;
+            resourceInputs["anomalyVersion"] = state?.anomalyVersion;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["multiSelectObservations"] = state?.multiSelectObservations;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["prioritizedExcludeObservations"] = state?.prioritizedExcludeObservations;
+            resourceInputs["requiredDataConnectors"] = state?.requiredDataConnectors;
+            resourceInputs["settingsDefinitionId"] = state?.settingsDefinitionId;
+            resourceInputs["singleSelectObservations"] = state?.singleSelectObservations;
+            resourceInputs["tactics"] = state?.tactics;
+            resourceInputs["techniques"] = state?.techniques;
+            resourceInputs["thresholdObservations"] = state?.thresholdObservations;
         } else {
             const args = argsOrState as AlertRuleAnomalyBuiltInArgs | undefined;
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
             resourceInputs["anomalySettingsVersion"] = undefined /*out*/;
             resourceInputs["anomalyVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

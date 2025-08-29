@@ -76,15 +76,15 @@ export class SpringCloudGatewayCustomDomain extends pulumi.CustomResource {
     /**
      * The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
      */
-    public readonly springCloudGatewayId!: pulumi.Output<string>;
+    declare public readonly springCloudGatewayId: pulumi.Output<string>;
     /**
      * Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Gateway Custom Domain.
      */
-    public readonly thumbprint!: pulumi.Output<string | undefined>;
+    declare public readonly thumbprint: pulumi.Output<string | undefined>;
 
     /**
      * Create a SpringCloudGatewayCustomDomain resource with the given unique name, arguments, and options.
@@ -99,17 +99,17 @@ export class SpringCloudGatewayCustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudGatewayCustomDomainState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudGatewayId"] = state ? state.springCloudGatewayId : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudGatewayId"] = state?.springCloudGatewayId;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as SpringCloudGatewayCustomDomainArgs | undefined;
-            if ((!args || args.springCloudGatewayId === undefined) && !opts.urn) {
+            if (args?.springCloudGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudGatewayId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudGatewayId"] = args ? args.springCloudGatewayId : undefined;
-            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudGatewayId"] = args?.springCloudGatewayId;
+            resourceInputs["thumbprint"] = args?.thumbprint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudGatewayCustomDomain.__pulumiType, name, resourceInputs, opts);

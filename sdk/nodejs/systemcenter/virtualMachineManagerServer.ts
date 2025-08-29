@@ -78,39 +78,39 @@ export class VirtualMachineManagerServer extends pulumi.CustomResource {
     /**
      * The ID of the Custom Location for the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    public readonly customLocationId!: pulumi.Output<string>;
+    declare public readonly customLocationId: pulumi.Output<string>;
     /**
      * The FQDN of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    public readonly fqdn!: pulumi.Output<string>;
+    declare public readonly fqdn: pulumi.Output<string>;
     /**
      * The Azure Region where the System Center Virtual Machine Manager Server should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password that is used to connect to the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * The port on which the System Center Virtual Machine Manager Server is listening. Possible values are between `1` and `65535`. Changing this forces a new resource to be created.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The name of the Resource Group where the System Center Virtual Machine Manager should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the System Center Virtual Machine Manager Server.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The username that is used to connect to the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineManagerServer resource with the given unique name, arguments, and options.
@@ -125,41 +125,41 @@ export class VirtualMachineManagerServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineManagerServerState | undefined;
-            resourceInputs["customLocationId"] = state ? state.customLocationId : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["customLocationId"] = state?.customLocationId;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as VirtualMachineManagerServerArgs | undefined;
-            if ((!args || args.customLocationId === undefined) && !opts.urn) {
+            if (args?.customLocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customLocationId'");
             }
-            if ((!args || args.fqdn === undefined) && !opts.urn) {
+            if (args?.fqdn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fqdn'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["customLocationId"] = args ? args.customLocationId : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["customLocationId"] = args?.customLocationId;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

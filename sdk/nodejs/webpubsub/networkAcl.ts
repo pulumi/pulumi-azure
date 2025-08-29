@@ -48,19 +48,19 @@ export class NetworkAcl extends pulumi.CustomResource {
     /**
      * The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
      */
-    public readonly defaultAction!: pulumi.Output<string | undefined>;
+    declare public readonly defaultAction: pulumi.Output<string | undefined>;
     /**
      * A `privateEndpoint` block as defined below.
      */
-    public readonly privateEndpoints!: pulumi.Output<outputs.webpubsub.NetworkAclPrivateEndpoint[] | undefined>;
+    declare public readonly privateEndpoints: pulumi.Output<outputs.webpubsub.NetworkAclPrivateEndpoint[] | undefined>;
     /**
      * A `publicNetwork` block as defined below.
      */
-    public readonly publicNetwork!: pulumi.Output<outputs.webpubsub.NetworkAclPublicNetwork>;
+    declare public readonly publicNetwork: pulumi.Output<outputs.webpubsub.NetworkAclPublicNetwork>;
     /**
      * The ID of the Web Pubsub service. Changing this forces a new resource to be created.
      */
-    public readonly webPubsubId!: pulumi.Output<string>;
+    declare public readonly webPubsubId: pulumi.Output<string>;
 
     /**
      * Create a NetworkAcl resource with the given unique name, arguments, and options.
@@ -75,22 +75,22 @@ export class NetworkAcl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkAclState | undefined;
-            resourceInputs["defaultAction"] = state ? state.defaultAction : undefined;
-            resourceInputs["privateEndpoints"] = state ? state.privateEndpoints : undefined;
-            resourceInputs["publicNetwork"] = state ? state.publicNetwork : undefined;
-            resourceInputs["webPubsubId"] = state ? state.webPubsubId : undefined;
+            resourceInputs["defaultAction"] = state?.defaultAction;
+            resourceInputs["privateEndpoints"] = state?.privateEndpoints;
+            resourceInputs["publicNetwork"] = state?.publicNetwork;
+            resourceInputs["webPubsubId"] = state?.webPubsubId;
         } else {
             const args = argsOrState as NetworkAclArgs | undefined;
-            if ((!args || args.publicNetwork === undefined) && !opts.urn) {
+            if (args?.publicNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicNetwork'");
             }
-            if ((!args || args.webPubsubId === undefined) && !opts.urn) {
+            if (args?.webPubsubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webPubsubId'");
             }
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["privateEndpoints"] = args ? args.privateEndpoints : undefined;
-            resourceInputs["publicNetwork"] = args ? args.publicNetwork : undefined;
-            resourceInputs["webPubsubId"] = args ? args.webPubsubId : undefined;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["privateEndpoints"] = args?.privateEndpoints;
+            resourceInputs["publicNetwork"] = args?.publicNetwork;
+            resourceInputs["webPubsubId"] = args?.webPubsubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkAcl.__pulumiType, name, resourceInputs, opts);

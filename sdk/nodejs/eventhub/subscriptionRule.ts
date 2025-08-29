@@ -53,28 +53,28 @@ export class SubscriptionRule extends pulumi.CustomResource {
     /**
      * Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
      */
-    public readonly action!: pulumi.Output<string | undefined>;
+    declare public readonly action: pulumi.Output<string | undefined>;
     /**
      * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
-    public readonly correlationFilter!: pulumi.Output<outputs.eventhub.SubscriptionRuleCorrelationFilter | undefined>;
+    declare public readonly correlationFilter: pulumi.Output<outputs.eventhub.SubscriptionRuleCorrelationFilter | undefined>;
     /**
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      */
-    public readonly filterType!: pulumi.Output<string>;
+    declare public readonly filterType: pulumi.Output<string>;
     /**
      * Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
-    public readonly sqlFilter!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly sqlFilterCompatibilityLevel!: pulumi.Output<number>;
+    declare public readonly sqlFilter: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly sqlFilterCompatibilityLevel: pulumi.Output<number>;
     /**
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionRule resource with the given unique name, arguments, and options.
@@ -92,27 +92,27 @@ export class SubscriptionRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubscriptionRuleState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["correlationFilter"] = state ? state.correlationFilter : undefined;
-            resourceInputs["filterType"] = state ? state.filterType : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["sqlFilter"] = state ? state.sqlFilter : undefined;
-            resourceInputs["sqlFilterCompatibilityLevel"] = state ? state.sqlFilterCompatibilityLevel : undefined;
-            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["correlationFilter"] = state?.correlationFilter;
+            resourceInputs["filterType"] = state?.filterType;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["sqlFilter"] = state?.sqlFilter;
+            resourceInputs["sqlFilterCompatibilityLevel"] = state?.sqlFilterCompatibilityLevel;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
         } else {
             const args = argsOrState as SubscriptionRuleArgs | undefined;
-            if ((!args || args.filterType === undefined) && !opts.urn) {
+            if (args?.filterType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filterType'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["correlationFilter"] = args ? args.correlationFilter : undefined;
-            resourceInputs["filterType"] = args ? args.filterType : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["sqlFilter"] = args ? args.sqlFilter : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["correlationFilter"] = args?.correlationFilter;
+            resourceInputs["filterType"] = args?.filterType;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["sqlFilter"] = args?.sqlFilter;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["sqlFilterCompatibilityLevel"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

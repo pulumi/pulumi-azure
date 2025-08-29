@@ -75,37 +75,37 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The idle timeout which should be used in minutes. Defaults to `4`.
      */
-    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly idleTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The resource GUID property of the NAT Gateway.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
      */
-    public readonly skuName!: pulumi.Output<string | undefined>;
+    declare public readonly skuName: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
      *
      * > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a NatGateway resource with the given unique name, arguments, and options.
@@ -120,26 +120,26 @@ export class NatGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NatGatewayState | undefined;
-            resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["resourceGuid"] = state ? state.resourceGuid : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = state?.idleTimeoutInMinutes;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["resourceGuid"] = state?.resourceGuid;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as NatGatewayArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = args?.idleTimeoutInMinutes;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["resourceGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

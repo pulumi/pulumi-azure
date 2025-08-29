@@ -74,51 +74,51 @@ export class Elasticsearch extends pulumi.CustomResource {
     /**
      * The ID of the Deployment within Elastic Cloud.
      */
-    public /*out*/ readonly elasticCloudDeploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly elasticCloudDeploymentId: pulumi.Output<string>;
     /**
      * Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
      */
-    public readonly elasticCloudEmailAddress!: pulumi.Output<string>;
+    declare public readonly elasticCloudEmailAddress: pulumi.Output<string>;
     /**
      * The Default URL used for Single Sign On (SSO) to Elastic Cloud.
      */
-    public /*out*/ readonly elasticCloudSsoDefaultUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly elasticCloudSsoDefaultUrl: pulumi.Output<string>;
     /**
      * The ID of the User Account within Elastic Cloud.
      */
-    public /*out*/ readonly elasticCloudUserId!: pulumi.Output<string>;
+    declare public /*out*/ readonly elasticCloudUserId: pulumi.Output<string>;
     /**
      * The URL to the Elasticsearch Service associated with this Elasticsearch.
      */
-    public /*out*/ readonly elasticsearchServiceUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly elasticsearchServiceUrl: pulumi.Output<string>;
     /**
      * The URL to the Kibana Dashboard associated with this Elasticsearch.
      */
-    public /*out*/ readonly kibanaServiceUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly kibanaServiceUrl: pulumi.Output<string>;
     /**
      * The URI used for SSO to the Kibana Dashboard associated with this Elasticsearch.
      */
-    public /*out*/ readonly kibanaSsoUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly kibanaSsoUri: pulumi.Output<string>;
     /**
      * The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `logs` block as defined below.
      */
-    public readonly logs!: pulumi.Output<outputs.elasticcloud.ElasticsearchLogs | undefined>;
+    declare public readonly logs: pulumi.Output<outputs.elasticcloud.ElasticsearchLogs | undefined>;
     /**
      * Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
      */
-    public readonly monitoringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoringEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
      *
@@ -126,11 +126,11 @@ export class Elasticsearch extends pulumi.CustomResource {
      * Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
      * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Elasticsearch resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Elasticsearch resource with the given unique name, arguments, and options.
@@ -145,39 +145,39 @@ export class Elasticsearch extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ElasticsearchState | undefined;
-            resourceInputs["elasticCloudDeploymentId"] = state ? state.elasticCloudDeploymentId : undefined;
-            resourceInputs["elasticCloudEmailAddress"] = state ? state.elasticCloudEmailAddress : undefined;
-            resourceInputs["elasticCloudSsoDefaultUrl"] = state ? state.elasticCloudSsoDefaultUrl : undefined;
-            resourceInputs["elasticCloudUserId"] = state ? state.elasticCloudUserId : undefined;
-            resourceInputs["elasticsearchServiceUrl"] = state ? state.elasticsearchServiceUrl : undefined;
-            resourceInputs["kibanaServiceUrl"] = state ? state.kibanaServiceUrl : undefined;
-            resourceInputs["kibanaSsoUri"] = state ? state.kibanaSsoUri : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logs"] = state ? state.logs : undefined;
-            resourceInputs["monitoringEnabled"] = state ? state.monitoringEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["elasticCloudDeploymentId"] = state?.elasticCloudDeploymentId;
+            resourceInputs["elasticCloudEmailAddress"] = state?.elasticCloudEmailAddress;
+            resourceInputs["elasticCloudSsoDefaultUrl"] = state?.elasticCloudSsoDefaultUrl;
+            resourceInputs["elasticCloudUserId"] = state?.elasticCloudUserId;
+            resourceInputs["elasticsearchServiceUrl"] = state?.elasticsearchServiceUrl;
+            resourceInputs["kibanaServiceUrl"] = state?.kibanaServiceUrl;
+            resourceInputs["kibanaSsoUri"] = state?.kibanaSsoUri;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logs"] = state?.logs;
+            resourceInputs["monitoringEnabled"] = state?.monitoringEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ElasticsearchArgs | undefined;
-            if ((!args || args.elasticCloudEmailAddress === undefined) && !opts.urn) {
+            if (args?.elasticCloudEmailAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticCloudEmailAddress'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["elasticCloudEmailAddress"] = args ? args.elasticCloudEmailAddress : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["monitoringEnabled"] = args ? args.monitoringEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["elasticCloudEmailAddress"] = args?.elasticCloudEmailAddress;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["monitoringEnabled"] = args?.monitoringEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["elasticCloudDeploymentId"] = undefined /*out*/;
             resourceInputs["elasticCloudSsoDefaultUrl"] = undefined /*out*/;
             resourceInputs["elasticCloudUserId"] = undefined /*out*/;

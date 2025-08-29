@@ -101,169 +101,168 @@ export class AppFlexConsumption extends pulumi.CustomResource {
     /**
      * One or more `alwaysReady` blocks as defined below.
      */
-    public readonly alwaysReadies!: pulumi.Output<outputs.appservice.AppFlexConsumptionAlwaysReady[] | undefined>;
+    declare public readonly alwaysReadies: pulumi.Output<outputs.appservice.AppFlexConsumptionAlwaysReady[] | undefined>;
     /**
-     * A map of key-value pairs for [App
-     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly appSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.AppFlexConsumptionAuthSettings | undefined>;
+    declare public readonly authSettings: pulumi.Output<outputs.appservice.AppFlexConsumptionAuthSettings | undefined>;
     /**
      * An `authSettingsV2` block as defined below.
      */
-    public readonly authSettingsV2!: pulumi.Output<outputs.appservice.AppFlexConsumptionAuthSettingsV2 | undefined>;
+    declare public readonly authSettingsV2: pulumi.Output<outputs.appservice.AppFlexConsumptionAuthSettingsV2 | undefined>;
     /**
      * Should the function app use Client Certificates.
      */
-    public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientCertificateEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
      */
-    public readonly clientCertificateExclusionPaths!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificateExclusionPaths: pulumi.Output<string | undefined>;
     /**
      * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
-    public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificateMode: pulumi.Output<string | undefined>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    public readonly connectionStrings!: pulumi.Output<outputs.appservice.AppFlexConsumptionConnectionString[] | undefined>;
+    declare public readonly connectionStrings: pulumi.Output<outputs.appservice.AppFlexConsumptionConnectionString[] | undefined>;
     /**
      * The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customDomainVerificationId: pulumi.Output<string>;
     /**
      * The default hostname of the Linux Function App.
      */
-    public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultHostname: pulumi.Output<string>;
     /**
      * Is the Function App enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the App Service Environment used by Function App.
      */
-    public /*out*/ readonly hostingEnvironmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostingEnvironmentId: pulumi.Output<string>;
     /**
      * Is Https Connection enforced to the function app. Defaults to `false`
      */
-    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsOnly: pulumi.Output<boolean | undefined>;
     /**
      * A `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.AppFlexConsumptionIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appservice.AppFlexConsumptionIdentity | undefined>;
     /**
      * The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
      */
-    public readonly instanceMemoryInMb!: pulumi.Output<number | undefined>;
+    declare public readonly instanceMemoryInMb: pulumi.Output<number | undefined>;
     /**
      * The Kind value for this Linux Function App.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The number of workers this function app can scale out to.
      */
-    public readonly maximumInstanceCount!: pulumi.Output<number | undefined>;
+    declare public readonly maximumInstanceCount: pulumi.Output<number | undefined>;
     /**
      * The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
      */
-    public /*out*/ readonly outboundIpAddressLists!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundIpAddressLists: pulumi.Output<string[]>;
     /**
      * A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
      */
-    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
     /**
      * A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outboundIpAddressList`. For example `["52.23.25.3", "52.143.43.12"]`.
      */
-    public /*out*/ readonly possibleOutboundIpAddressLists!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly possibleOutboundIpAddressLists: pulumi.Output<string[]>;
     /**
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
-    public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Function App should exist. Changing this forces a new Linux Function App to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
      */
-    public readonly runtimeName!: pulumi.Output<string>;
+    declare public readonly runtimeName: pulumi.Output<string>;
     /**
      * The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
      */
-    public readonly runtimeVersion!: pulumi.Output<string>;
+    declare public readonly runtimeVersion: pulumi.Output<string>;
     /**
      * The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
      */
-    public readonly servicePlanId!: pulumi.Output<string>;
+    declare public readonly servicePlanId: pulumi.Output<string>;
     /**
      * A `siteConfig` block as defined below.
      */
-    public readonly siteConfig!: pulumi.Output<outputs.appservice.AppFlexConsumptionSiteConfig>;
+    declare public readonly siteConfig: pulumi.Output<outputs.appservice.AppFlexConsumptionSiteConfig>;
     /**
      * A `siteCredential` block as defined below.
      */
-    public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.AppFlexConsumptionSiteCredential[]>;
+    declare public /*out*/ readonly siteCredentials: pulumi.Output<outputs.appservice.AppFlexConsumptionSiteCredential[]>;
     /**
      * A `stickySettings` block as defined below.
      */
-    public readonly stickySettings!: pulumi.Output<outputs.appservice.AppFlexConsumptionStickySettings | undefined>;
+    declare public readonly stickySettings: pulumi.Output<outputs.appservice.AppFlexConsumptionStickySettings | undefined>;
     /**
      * The access key which will be used to access the backend storage account for the Function App.
      *
      * > **Note:** The `storageAccessKey` must be specified when `storageAuthenticationType` is set to `StorageAccountConnectionString`.
      */
-    public readonly storageAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccessKey: pulumi.Output<string | undefined>;
     /**
      * The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
      */
-    public readonly storageAuthenticationType!: pulumi.Output<string>;
+    declare public readonly storageAuthenticationType: pulumi.Output<string>;
     /**
      * The backend storage container endpoint which will be used by this Function App.
      */
-    public readonly storageContainerEndpoint!: pulumi.Output<string>;
+    declare public readonly storageContainerEndpoint: pulumi.Output<string>;
     /**
      * The storage container type used for the Function App. The current supported type is `blobContainer`.
      */
-    public readonly storageContainerType!: pulumi.Output<string>;
+    declare public readonly storageContainerType: pulumi.Output<string>;
     /**
      * The user assigned Managed Identity to access the storage account. Conflicts with `storageAccessKey`.
      *
      * > **Note:** The `storageUserAssignedIdentityId` must be specified when `storageAuthenticationType` is set to `UserAssignedIdentity`.
      */
-    public readonly storageUserAssignedIdentityId!: pulumi.Output<string | undefined>;
+    declare public readonly storageUserAssignedIdentityId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Linux Function App.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly virtualNetworkSubnetId: pulumi.Output<string | undefined>;
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
      * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
-    public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly webdeployPublishBasicAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.
      *
      * > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
      */
-    public readonly zipDeployFile!: pulumi.Output<string>;
+    declare public readonly zipDeployFile: pulumi.Output<string>;
 
     /**
      * Create a AppFlexConsumption resource with the given unique name, arguments, and options.
@@ -278,103 +277,103 @@ export class AppFlexConsumption extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppFlexConsumptionState | undefined;
-            resourceInputs["alwaysReadies"] = state ? state.alwaysReadies : undefined;
-            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
-            resourceInputs["authSettings"] = state ? state.authSettings : undefined;
-            resourceInputs["authSettingsV2"] = state ? state.authSettingsV2 : undefined;
-            resourceInputs["clientCertificateEnabled"] = state ? state.clientCertificateEnabled : undefined;
-            resourceInputs["clientCertificateExclusionPaths"] = state ? state.clientCertificateExclusionPaths : undefined;
-            resourceInputs["clientCertificateMode"] = state ? state.clientCertificateMode : undefined;
-            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
-            resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
-            resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
-            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["instanceMemoryInMb"] = state ? state.instanceMemoryInMb : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maximumInstanceCount"] = state ? state.maximumInstanceCount : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundIpAddressLists"] = state ? state.outboundIpAddressLists : undefined;
-            resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
-            resourceInputs["possibleOutboundIpAddressLists"] = state ? state.possibleOutboundIpAddressLists : undefined;
-            resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["runtimeName"] = state ? state.runtimeName : undefined;
-            resourceInputs["runtimeVersion"] = state ? state.runtimeVersion : undefined;
-            resourceInputs["servicePlanId"] = state ? state.servicePlanId : undefined;
-            resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
-            resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
-            resourceInputs["stickySettings"] = state ? state.stickySettings : undefined;
-            resourceInputs["storageAccessKey"] = state ? state.storageAccessKey : undefined;
-            resourceInputs["storageAuthenticationType"] = state ? state.storageAuthenticationType : undefined;
-            resourceInputs["storageContainerEndpoint"] = state ? state.storageContainerEndpoint : undefined;
-            resourceInputs["storageContainerType"] = state ? state.storageContainerType : undefined;
-            resourceInputs["storageUserAssignedIdentityId"] = state ? state.storageUserAssignedIdentityId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
-            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
+            resourceInputs["alwaysReadies"] = state?.alwaysReadies;
+            resourceInputs["appSettings"] = state?.appSettings;
+            resourceInputs["authSettings"] = state?.authSettings;
+            resourceInputs["authSettingsV2"] = state?.authSettingsV2;
+            resourceInputs["clientCertificateEnabled"] = state?.clientCertificateEnabled;
+            resourceInputs["clientCertificateExclusionPaths"] = state?.clientCertificateExclusionPaths;
+            resourceInputs["clientCertificateMode"] = state?.clientCertificateMode;
+            resourceInputs["connectionStrings"] = state?.connectionStrings;
+            resourceInputs["customDomainVerificationId"] = state?.customDomainVerificationId;
+            resourceInputs["defaultHostname"] = state?.defaultHostname;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["hostingEnvironmentId"] = state?.hostingEnvironmentId;
+            resourceInputs["httpsOnly"] = state?.httpsOnly;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["instanceMemoryInMb"] = state?.instanceMemoryInMb;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maximumInstanceCount"] = state?.maximumInstanceCount;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundIpAddressLists"] = state?.outboundIpAddressLists;
+            resourceInputs["outboundIpAddresses"] = state?.outboundIpAddresses;
+            resourceInputs["possibleOutboundIpAddressLists"] = state?.possibleOutboundIpAddressLists;
+            resourceInputs["possibleOutboundIpAddresses"] = state?.possibleOutboundIpAddresses;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["runtimeName"] = state?.runtimeName;
+            resourceInputs["runtimeVersion"] = state?.runtimeVersion;
+            resourceInputs["servicePlanId"] = state?.servicePlanId;
+            resourceInputs["siteConfig"] = state?.siteConfig;
+            resourceInputs["siteCredentials"] = state?.siteCredentials;
+            resourceInputs["stickySettings"] = state?.stickySettings;
+            resourceInputs["storageAccessKey"] = state?.storageAccessKey;
+            resourceInputs["storageAuthenticationType"] = state?.storageAuthenticationType;
+            resourceInputs["storageContainerEndpoint"] = state?.storageContainerEndpoint;
+            resourceInputs["storageContainerType"] = state?.storageContainerType;
+            resourceInputs["storageUserAssignedIdentityId"] = state?.storageUserAssignedIdentityId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualNetworkSubnetId"] = state?.virtualNetworkSubnetId;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state?.webdeployPublishBasicAuthenticationEnabled;
+            resourceInputs["zipDeployFile"] = state?.zipDeployFile;
         } else {
             const args = argsOrState as AppFlexConsumptionArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runtimeName === undefined) && !opts.urn) {
+            if (args?.runtimeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeName'");
             }
-            if ((!args || args.runtimeVersion === undefined) && !opts.urn) {
+            if (args?.runtimeVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeVersion'");
             }
-            if ((!args || args.servicePlanId === undefined) && !opts.urn) {
+            if (args?.servicePlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servicePlanId'");
             }
-            if ((!args || args.siteConfig === undefined) && !opts.urn) {
+            if (args?.siteConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteConfig'");
             }
-            if ((!args || args.storageAuthenticationType === undefined) && !opts.urn) {
+            if (args?.storageAuthenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAuthenticationType'");
             }
-            if ((!args || args.storageContainerEndpoint === undefined) && !opts.urn) {
+            if (args?.storageContainerEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerEndpoint'");
             }
-            if ((!args || args.storageContainerType === undefined) && !opts.urn) {
+            if (args?.storageContainerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerType'");
             }
-            resourceInputs["alwaysReadies"] = args ? args.alwaysReadies : undefined;
-            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
-            resourceInputs["authSettings"] = args ? args.authSettings : undefined;
-            resourceInputs["authSettingsV2"] = args ? args.authSettingsV2 : undefined;
-            resourceInputs["clientCertificateEnabled"] = args ? args.clientCertificateEnabled : undefined;
-            resourceInputs["clientCertificateExclusionPaths"] = args ? args.clientCertificateExclusionPaths : undefined;
-            resourceInputs["clientCertificateMode"] = args ? args.clientCertificateMode : undefined;
-            resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["instanceMemoryInMb"] = args ? args.instanceMemoryInMb : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumInstanceCount"] = args ? args.maximumInstanceCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runtimeName"] = args ? args.runtimeName : undefined;
-            resourceInputs["runtimeVersion"] = args ? args.runtimeVersion : undefined;
-            resourceInputs["servicePlanId"] = args ? args.servicePlanId : undefined;
-            resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
-            resourceInputs["stickySettings"] = args ? args.stickySettings : undefined;
-            resourceInputs["storageAccessKey"] = args ? args.storageAccessKey : undefined;
-            resourceInputs["storageAuthenticationType"] = args ? args.storageAuthenticationType : undefined;
-            resourceInputs["storageContainerEndpoint"] = args ? args.storageContainerEndpoint : undefined;
-            resourceInputs["storageContainerType"] = args ? args.storageContainerType : undefined;
-            resourceInputs["storageUserAssignedIdentityId"] = args ? args.storageUserAssignedIdentityId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
-            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
-            resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
+            resourceInputs["alwaysReadies"] = args?.alwaysReadies;
+            resourceInputs["appSettings"] = args?.appSettings;
+            resourceInputs["authSettings"] = args?.authSettings;
+            resourceInputs["authSettingsV2"] = args?.authSettingsV2;
+            resourceInputs["clientCertificateEnabled"] = args?.clientCertificateEnabled;
+            resourceInputs["clientCertificateExclusionPaths"] = args?.clientCertificateExclusionPaths;
+            resourceInputs["clientCertificateMode"] = args?.clientCertificateMode;
+            resourceInputs["connectionStrings"] = args?.connectionStrings;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["httpsOnly"] = args?.httpsOnly;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["instanceMemoryInMb"] = args?.instanceMemoryInMb;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumInstanceCount"] = args?.maximumInstanceCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runtimeName"] = args?.runtimeName;
+            resourceInputs["runtimeVersion"] = args?.runtimeVersion;
+            resourceInputs["servicePlanId"] = args?.servicePlanId;
+            resourceInputs["siteConfig"] = args?.siteConfig;
+            resourceInputs["stickySettings"] = args?.stickySettings;
+            resourceInputs["storageAccessKey"] = args?.storageAccessKey;
+            resourceInputs["storageAuthenticationType"] = args?.storageAuthenticationType;
+            resourceInputs["storageContainerEndpoint"] = args?.storageContainerEndpoint;
+            resourceInputs["storageContainerType"] = args?.storageContainerType;
+            resourceInputs["storageUserAssignedIdentityId"] = args?.storageUserAssignedIdentityId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkSubnetId"] = args?.virtualNetworkSubnetId;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args?.webdeployPublishBasicAuthenticationEnabled;
+            resourceInputs["zipDeployFile"] = args?.zipDeployFile;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["hostingEnvironmentId"] = undefined /*out*/;
@@ -401,8 +400,7 @@ export interface AppFlexConsumptionState {
      */
     alwaysReadies?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionAlwaysReady>[]>;
     /**
-     * A map of key-value pairs for [App
-     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -573,8 +571,7 @@ export interface AppFlexConsumptionArgs {
      */
     alwaysReadies?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionAlwaysReady>[]>;
     /**
-     * A map of key-value pairs for [App
-     * Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
+     * A map of key-value pairs for [App Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

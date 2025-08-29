@@ -74,11 +74,11 @@ export class SyncGroup extends pulumi.CustomResource {
     /**
      * The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the Storage Sync where this Storage Sync Group is. Changing this forces a new Storage Sync Group to be created.
      */
-    public readonly storageSyncId!: pulumi.Output<string>;
+    declare public readonly storageSyncId: pulumi.Output<string>;
 
     /**
      * Create a SyncGroup resource with the given unique name, arguments, and options.
@@ -93,15 +93,15 @@ export class SyncGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SyncGroupState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["storageSyncId"] = state ? state.storageSyncId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["storageSyncId"] = state?.storageSyncId;
         } else {
             const args = argsOrState as SyncGroupArgs | undefined;
-            if ((!args || args.storageSyncId === undefined) && !opts.urn) {
+            if (args?.storageSyncId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageSyncId"] = args ? args.storageSyncId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageSyncId"] = args?.storageSyncId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SyncGroup.__pulumiType, name, resourceInputs, opts);

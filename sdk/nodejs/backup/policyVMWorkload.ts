@@ -98,27 +98,27 @@ export class PolicyVMWorkload extends pulumi.CustomResource {
     /**
      * The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `protectionPolicy` blocks as defined below.
      */
-    public readonly protectionPolicies!: pulumi.Output<outputs.backup.PolicyVMWorkloadProtectionPolicy[]>;
+    declare public readonly protectionPolicies: pulumi.Output<outputs.backup.PolicyVMWorkloadProtectionPolicy[]>;
     /**
      * The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName!: pulumi.Output<string>;
+    declare public readonly recoveryVaultName: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `settings` block as defined below.
      */
-    public readonly settings!: pulumi.Output<outputs.backup.PolicyVMWorkloadSettings>;
+    declare public readonly settings: pulumi.Output<outputs.backup.PolicyVMWorkloadSettings>;
     /**
      * The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
      */
-    public readonly workloadType!: pulumi.Output<string>;
+    declare public readonly workloadType: pulumi.Output<string>;
 
     /**
      * Create a PolicyVMWorkload resource with the given unique name, arguments, and options.
@@ -133,35 +133,35 @@ export class PolicyVMWorkload extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyVMWorkloadState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protectionPolicies"] = state ? state.protectionPolicies : undefined;
-            resourceInputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
-            resourceInputs["workloadType"] = state ? state.workloadType : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protectionPolicies"] = state?.protectionPolicies;
+            resourceInputs["recoveryVaultName"] = state?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["settings"] = state?.settings;
+            resourceInputs["workloadType"] = state?.workloadType;
         } else {
             const args = argsOrState as PolicyVMWorkloadArgs | undefined;
-            if ((!args || args.protectionPolicies === undefined) && !opts.urn) {
+            if (args?.protectionPolicies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protectionPolicies'");
             }
-            if ((!args || args.recoveryVaultName === undefined) && !opts.urn) {
+            if (args?.recoveryVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.settings === undefined) && !opts.urn) {
+            if (args?.settings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
-            if ((!args || args.workloadType === undefined) && !opts.urn) {
+            if (args?.workloadType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workloadType'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protectionPolicies"] = args ? args.protectionPolicies : undefined;
-            resourceInputs["recoveryVaultName"] = args ? args.recoveryVaultName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["workloadType"] = args ? args.workloadType : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protectionPolicies"] = args?.protectionPolicies;
+            resourceInputs["recoveryVaultName"] = args?.recoveryVaultName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["workloadType"] = args?.workloadType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PolicyVMWorkload.__pulumiType, name, resourceInputs, opts);

@@ -94,25 +94,25 @@ export class LinkedService extends pulumi.CustomResource {
     /**
      * The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
      */
-    public readonly readAccessId!: pulumi.Output<string>;
+    declare public readonly readAccessId: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Log Analytics Workspace that will contain the Log Analytics Linked Service resource.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
     /**
      * The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource.
      *
      * > **Note:** You must define at least one of the above access resource id attributes (e.g. `readAccessId` or `writeAccessId`).
      */
-    public readonly writeAccessId!: pulumi.Output<string | undefined>;
+    declare public readonly writeAccessId: pulumi.Output<string | undefined>;
 
     /**
      * Create a LinkedService resource with the given unique name, arguments, and options.
@@ -127,23 +127,23 @@ export class LinkedService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedServiceState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["readAccessId"] = state ? state.readAccessId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
-            resourceInputs["writeAccessId"] = state ? state.writeAccessId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["readAccessId"] = state?.readAccessId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["workspaceId"] = state?.workspaceId;
+            resourceInputs["writeAccessId"] = state?.writeAccessId;
         } else {
             const args = argsOrState as LinkedServiceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["readAccessId"] = args ? args.readAccessId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
-            resourceInputs["writeAccessId"] = args ? args.writeAccessId : undefined;
+            resourceInputs["readAccessId"] = args?.readAccessId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["writeAccessId"] = args?.writeAccessId;
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

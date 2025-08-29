@@ -97,21 +97,21 @@ export class MongoUserDefinition extends pulumi.CustomResource {
     /**
      * The resource ID of the Mongo DB. Changing this forces a new resource to be created.
      */
-    public readonly cosmosMongoDatabaseId!: pulumi.Output<string>;
+    declare public readonly cosmosMongoDatabaseId: pulumi.Output<string>;
     /**
      * A list of Mongo Roles that are inherited to the Mongo User Definition.
      *
      * > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmosMongoDatabaseId`.
      */
-    public readonly inheritedRoleNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly inheritedRoleNames: pulumi.Output<string[] | undefined>;
     /**
      * The password for the Mongo User Definition.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * The username for the Mongo User Definition. Changing this forces a new resource to be created.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a MongoUserDefinition resource with the given unique name, arguments, and options.
@@ -126,25 +126,25 @@ export class MongoUserDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MongoUserDefinitionState | undefined;
-            resourceInputs["cosmosMongoDatabaseId"] = state ? state.cosmosMongoDatabaseId : undefined;
-            resourceInputs["inheritedRoleNames"] = state ? state.inheritedRoleNames : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
+            resourceInputs["cosmosMongoDatabaseId"] = state?.cosmosMongoDatabaseId;
+            resourceInputs["inheritedRoleNames"] = state?.inheritedRoleNames;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["username"] = state?.username;
         } else {
             const args = argsOrState as MongoUserDefinitionArgs | undefined;
-            if ((!args || args.cosmosMongoDatabaseId === undefined) && !opts.urn) {
+            if (args?.cosmosMongoDatabaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosMongoDatabaseId'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["cosmosMongoDatabaseId"] = args ? args.cosmosMongoDatabaseId : undefined;
-            resourceInputs["inheritedRoleNames"] = args ? args.inheritedRoleNames : undefined;
+            resourceInputs["cosmosMongoDatabaseId"] = args?.cosmosMongoDatabaseId;
+            resourceInputs["inheritedRoleNames"] = args?.inheritedRoleNames;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["username"] = args?.username;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

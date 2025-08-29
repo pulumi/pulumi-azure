@@ -81,19 +81,19 @@ export class PrivateLinkScopedService extends pulumi.CustomResource {
     /**
      * The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      */
-    public readonly linkedResourceId!: pulumi.Output<string>;
+    declare public readonly linkedResourceId: pulumi.Output<string>;
     /**
      * The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
      */
-    public readonly scopeName!: pulumi.Output<string>;
+    declare public readonly scopeName: pulumi.Output<string>;
 
     /**
      * Create a PrivateLinkScopedService resource with the given unique name, arguments, and options.
@@ -108,25 +108,25 @@ export class PrivateLinkScopedService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateLinkScopedServiceState | undefined;
-            resourceInputs["linkedResourceId"] = state ? state.linkedResourceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scopeName"] = state ? state.scopeName : undefined;
+            resourceInputs["linkedResourceId"] = state?.linkedResourceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scopeName"] = state?.scopeName;
         } else {
             const args = argsOrState as PrivateLinkScopedServiceArgs | undefined;
-            if ((!args || args.linkedResourceId === undefined) && !opts.urn) {
+            if (args?.linkedResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeName === undefined) && !opts.urn) {
+            if (args?.scopeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopeName'");
             }
-            resourceInputs["linkedResourceId"] = args ? args.linkedResourceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopeName"] = args ? args.scopeName : undefined;
+            resourceInputs["linkedResourceId"] = args?.linkedResourceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopeName"] = args?.scopeName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PrivateLinkScopedService.__pulumiType, name, resourceInputs, opts);

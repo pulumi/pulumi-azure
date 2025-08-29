@@ -76,19 +76,19 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
     /**
      * The name of the Automation Account in which the Runbook Worker Group is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
     /**
      * The name of resource type `azure.automation.Credential` to use for hybrid worker.
      */
-    public readonly credentialName!: pulumi.Output<string | undefined>;
+    declare public readonly credentialName: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Automation Account Runbook Worker Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a HybridRunbookWorkerGroup resource with the given unique name, arguments, and options.
@@ -103,22 +103,22 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HybridRunbookWorkerGroupState | undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["credentialName"] = state ? state.credentialName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["credentialName"] = state?.credentialName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as HybridRunbookWorkerGroupArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["credentialName"] = args ? args.credentialName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["credentialName"] = args?.credentialName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HybridRunbookWorkerGroup.__pulumiType, name, resourceInputs, opts);

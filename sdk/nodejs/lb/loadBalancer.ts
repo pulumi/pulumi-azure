@@ -82,45 +82,45 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as documented below.
      */
-    public readonly frontendIpConfigurations!: pulumi.Output<outputs.lb.LoadBalancerFrontendIpConfiguration[] | undefined>;
+    declare public readonly frontendIpConfigurations: pulumi.Output<outputs.lb.LoadBalancerFrontendIpConfiguration[] | undefined>;
     /**
      * Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Private IP Address to assign to the Load Balancer.
      */
-    public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateIpAddress: pulumi.Output<string>;
     /**
      * The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
      */
-    public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly privateIpAddresses: pulumi.Output<string[]>;
     /**
      * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
      * > **Note:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
      */
-    public readonly skuTier!: pulumi.Output<string | undefined>;
+    declare public readonly skuTier: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -135,29 +135,29 @@ export class LoadBalancer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            resourceInputs["privateIpAddresses"] = state ? state.privateIpAddresses : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["frontendIpConfigurations"] = state?.frontendIpConfigurations;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateIpAddress"] = state?.privateIpAddress;
+            resourceInputs["privateIpAddresses"] = state?.privateIpAddresses;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["skuTier"] = state?.skuTier;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["frontendIpConfigurations"] = args?.frontendIpConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["skuTier"] = args?.skuTier;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
             resourceInputs["privateIpAddresses"] = undefined /*out*/;
         }

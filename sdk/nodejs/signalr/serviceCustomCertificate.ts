@@ -131,23 +131,23 @@ export class ServiceCustomCertificate extends pulumi.CustomResource {
     /**
      * The certificate version of the SignalR Custom Certificate service.
      */
-    public /*out*/ readonly certificateVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateVersion: pulumi.Output<string>;
     /**
      * The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created.
      *
      * > **Note:** Self assigned certificate is not supported and the provisioning status will fail.
      */
-    public readonly customCertificateId!: pulumi.Output<string>;
+    declare public readonly customCertificateId: pulumi.Output<string>;
     /**
      * The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created.
      *
      * > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
      */
-    public readonly signalrServiceId!: pulumi.Output<string>;
+    declare public readonly signalrServiceId: pulumi.Output<string>;
 
     /**
      * Create a ServiceCustomCertificate resource with the given unique name, arguments, and options.
@@ -162,21 +162,21 @@ export class ServiceCustomCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceCustomCertificateState | undefined;
-            resourceInputs["certificateVersion"] = state ? state.certificateVersion : undefined;
-            resourceInputs["customCertificateId"] = state ? state.customCertificateId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["signalrServiceId"] = state ? state.signalrServiceId : undefined;
+            resourceInputs["certificateVersion"] = state?.certificateVersion;
+            resourceInputs["customCertificateId"] = state?.customCertificateId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["signalrServiceId"] = state?.signalrServiceId;
         } else {
             const args = argsOrState as ServiceCustomCertificateArgs | undefined;
-            if ((!args || args.customCertificateId === undefined) && !opts.urn) {
+            if (args?.customCertificateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customCertificateId'");
             }
-            if ((!args || args.signalrServiceId === undefined) && !opts.urn) {
+            if (args?.signalrServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'signalrServiceId'");
             }
-            resourceInputs["customCertificateId"] = args ? args.customCertificateId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["signalrServiceId"] = args ? args.signalrServiceId : undefined;
+            resourceInputs["customCertificateId"] = args?.customCertificateId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["signalrServiceId"] = args?.signalrServiceId;
             resourceInputs["certificateVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

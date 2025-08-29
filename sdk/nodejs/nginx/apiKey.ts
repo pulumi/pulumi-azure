@@ -115,23 +115,23 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The RFC3339 formatted date-time after which this Dataplane API Key is no longer valid. The maximum value is now+2y.
      */
-    public readonly endDateTime!: pulumi.Output<string>;
+    declare public readonly endDateTime: pulumi.Output<string>;
     /**
      * The first three characters of the secret text to help identify it in use.
      */
-    public /*out*/ readonly hint!: pulumi.Output<string>;
+    declare public /*out*/ readonly hint: pulumi.Output<string>;
     /**
      * The name of the NGINX Dataplane API Key. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the NGINX Deployment that the API key is associated with. Changing this forces a new resource to be created.
      */
-    public readonly nginxDeploymentId!: pulumi.Output<string>;
+    declare public readonly nginxDeploymentId: pulumi.Output<string>;
     /**
      * The value used as the Dataplane API Key. The API key requirements can be found in the [NGINXaaS Documentation](https://docs.nginx.com/nginxaas/azure/quickstart/loadbalancer-kubernetes/#create-an-nginxaas-data-plane-api-key).
      */
-    public readonly secretText!: pulumi.Output<string>;
+    declare public readonly secretText: pulumi.Output<string>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -146,25 +146,25 @@ export class ApiKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            resourceInputs["endDateTime"] = state ? state.endDateTime : undefined;
-            resourceInputs["hint"] = state ? state.hint : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nginxDeploymentId"] = state ? state.nginxDeploymentId : undefined;
-            resourceInputs["secretText"] = state ? state.secretText : undefined;
+            resourceInputs["endDateTime"] = state?.endDateTime;
+            resourceInputs["hint"] = state?.hint;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nginxDeploymentId"] = state?.nginxDeploymentId;
+            resourceInputs["secretText"] = state?.secretText;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            if ((!args || args.endDateTime === undefined) && !opts.urn) {
+            if (args?.endDateTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endDateTime'");
             }
-            if ((!args || args.nginxDeploymentId === undefined) && !opts.urn) {
+            if (args?.nginxDeploymentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nginxDeploymentId'");
             }
-            if ((!args || args.secretText === undefined) && !opts.urn) {
+            if (args?.secretText === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretText'");
             }
-            resourceInputs["endDateTime"] = args ? args.endDateTime : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nginxDeploymentId"] = args ? args.nginxDeploymentId : undefined;
+            resourceInputs["endDateTime"] = args?.endDateTime;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nginxDeploymentId"] = args?.nginxDeploymentId;
             resourceInputs["secretText"] = args?.secretText ? pulumi.secret(args.secretText) : undefined;
             resourceInputs["hint"] = undefined /*out*/;
         }

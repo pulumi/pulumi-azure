@@ -70,27 +70,27 @@ export class DateTimeVariable extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName!: pulumi.Output<string>;
+    declare public readonly automationAccountName: pulumi.Output<string>;
     /**
      * The description of the Automation Variable.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies if the Automation Variable is encrypted. Defaults to `false`.
      */
-    public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    declare public readonly encrypted: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Automation Variable. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6).
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
 
     /**
      * Create a DateTimeVariable resource with the given unique name, arguments, and options.
@@ -105,26 +105,26 @@ export class DateTimeVariable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DateTimeVariableState | undefined;
-            resourceInputs["automationAccountName"] = state ? state.automationAccountName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
+            resourceInputs["automationAccountName"] = state?.automationAccountName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["encrypted"] = state?.encrypted;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["value"] = state?.value;
         } else {
             const args = argsOrState as DateTimeVariableArgs | undefined;
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encrypted"] = args?.encrypted;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["value"] = args?.value;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DateTimeVariable.__pulumiType, name, resourceInputs, opts);

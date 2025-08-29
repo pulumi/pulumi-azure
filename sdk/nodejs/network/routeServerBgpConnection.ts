@@ -102,19 +102,19 @@ export class RouteServerBgpConnection extends pulumi.CustomResource {
     /**
      * The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created.
      */
-    public readonly peerAsn!: pulumi.Output<number>;
+    declare public readonly peerAsn: pulumi.Output<number>;
     /**
      * The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created.
      */
-    public readonly peerIp!: pulumi.Output<string>;
+    declare public readonly peerIp: pulumi.Output<string>;
     /**
      * The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created.
      */
-    public readonly routeServerId!: pulumi.Output<string>;
+    declare public readonly routeServerId: pulumi.Output<string>;
 
     /**
      * Create a RouteServerBgpConnection resource with the given unique name, arguments, and options.
@@ -129,25 +129,25 @@ export class RouteServerBgpConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteServerBgpConnectionState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["peerAsn"] = state ? state.peerAsn : undefined;
-            resourceInputs["peerIp"] = state ? state.peerIp : undefined;
-            resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["peerAsn"] = state?.peerAsn;
+            resourceInputs["peerIp"] = state?.peerIp;
+            resourceInputs["routeServerId"] = state?.routeServerId;
         } else {
             const args = argsOrState as RouteServerBgpConnectionArgs | undefined;
-            if ((!args || args.peerAsn === undefined) && !opts.urn) {
+            if (args?.peerAsn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerAsn'");
             }
-            if ((!args || args.peerIp === undefined) && !opts.urn) {
+            if (args?.peerIp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peerIp'");
             }
-            if ((!args || args.routeServerId === undefined) && !opts.urn) {
+            if (args?.routeServerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeServerId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
-            resourceInputs["peerIp"] = args ? args.peerIp : undefined;
-            resourceInputs["routeServerId"] = args ? args.routeServerId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerAsn"] = args?.peerAsn;
+            resourceInputs["peerIp"] = args?.peerIp;
+            resourceInputs["routeServerId"] = args?.routeServerId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RouteServerBgpConnection.__pulumiType, name, resourceInputs, opts);

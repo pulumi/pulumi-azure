@@ -80,33 +80,33 @@ export class DevBoxDefinition extends pulumi.CustomResource {
     /**
      * The ID of the associated Dev Center. Changing this forces a new resource to be created.
      */
-    public readonly devCenterId!: pulumi.Output<string>;
+    declare public readonly devCenterId: pulumi.Output<string>;
     /**
      * Whether the Dev Boxes created with this definition are capable of hibernation. Defaults to `false`.
      *
      * > **Note:** Not all images are capable of supporting hibernation, for more information see https://aka.ms/devbox/hibernate.
      */
-    public readonly hibernateSupportEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly hibernateSupportEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the image for the Dev Center Dev Box Definition.
      */
-    public readonly imageReferenceId!: pulumi.Output<string>;
+    declare public readonly imageReferenceId: pulumi.Output<string>;
     /**
      * The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the SKU for the Dev Center Dev Box Definition.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Dev Box Definition.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DevBoxDefinition resource with the given unique name, arguments, and options.
@@ -121,31 +121,31 @@ export class DevBoxDefinition extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DevBoxDefinitionState | undefined;
-            resourceInputs["devCenterId"] = state ? state.devCenterId : undefined;
-            resourceInputs["hibernateSupportEnabled"] = state ? state.hibernateSupportEnabled : undefined;
-            resourceInputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["devCenterId"] = state?.devCenterId;
+            resourceInputs["hibernateSupportEnabled"] = state?.hibernateSupportEnabled;
+            resourceInputs["imageReferenceId"] = state?.imageReferenceId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as DevBoxDefinitionArgs | undefined;
-            if ((!args || args.devCenterId === undefined) && !opts.urn) {
+            if (args?.devCenterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterId'");
             }
-            if ((!args || args.imageReferenceId === undefined) && !opts.urn) {
+            if (args?.imageReferenceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageReferenceId'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
-            resourceInputs["hibernateSupportEnabled"] = args ? args.hibernateSupportEnabled : undefined;
-            resourceInputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devCenterId"] = args?.devCenterId;
+            resourceInputs["hibernateSupportEnabled"] = args?.hibernateSupportEnabled;
+            resourceInputs["imageReferenceId"] = args?.imageReferenceId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DevBoxDefinition.__pulumiType, name, resourceInputs, opts);

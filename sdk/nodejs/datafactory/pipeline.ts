@@ -102,43 +102,43 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
      */
-    public readonly activitiesJson!: pulumi.Output<string | undefined>;
+    declare public readonly activitiesJson: pulumi.Output<string | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
      */
-    public readonly concurrency!: pulumi.Output<number | undefined>;
+    declare public readonly concurrency: pulumi.Output<number | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Pipeline.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<string | undefined>;
+    declare public readonly folder: pulumi.Output<string | undefined>;
     /**
      * The TimeSpan value after which an Azure Monitoring Metric is fired.
      */
-    public readonly moniterMetricsAfterDuration!: pulumi.Output<string | undefined>;
+    declare public readonly moniterMetricsAfterDuration: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Pipeline.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
-    public readonly variables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly variables: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -153,31 +153,31 @@ export class Pipeline extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
-            resourceInputs["activitiesJson"] = state ? state.activitiesJson : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["concurrency"] = state ? state.concurrency : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["folder"] = state ? state.folder : undefined;
-            resourceInputs["moniterMetricsAfterDuration"] = state ? state.moniterMetricsAfterDuration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["activitiesJson"] = state?.activitiesJson;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["concurrency"] = state?.concurrency;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["folder"] = state?.folder;
+            resourceInputs["moniterMetricsAfterDuration"] = state?.moniterMetricsAfterDuration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["variables"] = state?.variables;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["activitiesJson"] = args ? args.activitiesJson : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["concurrency"] = args ? args.concurrency : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["moniterMetricsAfterDuration"] = args ? args.moniterMetricsAfterDuration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["activitiesJson"] = args?.activitiesJson;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["concurrency"] = args?.concurrency;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["moniterMetricsAfterDuration"] = args?.moniterMetricsAfterDuration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["variables"] = args?.variables;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);

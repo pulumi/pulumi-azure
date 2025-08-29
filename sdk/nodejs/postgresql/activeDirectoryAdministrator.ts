@@ -85,23 +85,23 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
     /**
      * The login name of the principal to set as the server administrator
      */
-    public readonly login!: pulumi.Output<string>;
+    declare public readonly login: pulumi.Output<string>;
     /**
      * The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity.
      */
-    public readonly objectId!: pulumi.Output<string>;
+    declare public readonly objectId: pulumi.Output<string>;
     /**
      * The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created.
      */
-    public readonly serverName!: pulumi.Output<string>;
+    declare public readonly serverName: pulumi.Output<string>;
     /**
      * The Azure Tenant ID
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a ActiveDirectoryAdministrator resource with the given unique name, arguments, and options.
@@ -116,33 +116,33 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActiveDirectoryAdministratorState | undefined;
-            resourceInputs["login"] = state ? state.login : undefined;
-            resourceInputs["objectId"] = state ? state.objectId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serverName"] = state ? state.serverName : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["login"] = state?.login;
+            resourceInputs["objectId"] = state?.objectId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serverName"] = state?.serverName;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as ActiveDirectoryAdministratorArgs | undefined;
-            if ((!args || args.login === undefined) && !opts.urn) {
+            if (args?.login === undefined && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts);

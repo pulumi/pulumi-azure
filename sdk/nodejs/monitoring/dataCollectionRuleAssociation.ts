@@ -139,27 +139,27 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     /**
      * The ID of the Data Collection Endpoint which will be associated to the target resource.
      */
-    public readonly dataCollectionEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly dataCollectionEndpointId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Data Collection Rule which will be associated to the target resource.
      *
      * > **Note:** Exactly one of `dataCollectionEndpointId` and `dataCollectionRuleId` blocks must be specified.
      */
-    public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
+    declare public readonly dataCollectionRuleId: pulumi.Output<string | undefined>;
     /**
      * The description of the Data Collection Rule Association.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Data Collection Rule Association. Changing this forces a new Data Collection Rule Association to be created. Defaults to `configurationAccessEndpoint`.
      *
      * > **Note:** `name` is required when `dataCollectionRuleId` is specified. And when `dataCollectionEndpointId` is specified, the `name` is populated with `configurationAccessEndpoint`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Azure Resource which to associate to a Data Collection Rule or a Data Collection Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
 
     /**
      * Create a DataCollectionRuleAssociation resource with the given unique name, arguments, and options.
@@ -174,21 +174,21 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataCollectionRuleAssociationState | undefined;
-            resourceInputs["dataCollectionEndpointId"] = state ? state.dataCollectionEndpointId : undefined;
-            resourceInputs["dataCollectionRuleId"] = state ? state.dataCollectionRuleId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["dataCollectionEndpointId"] = state?.dataCollectionEndpointId;
+            resourceInputs["dataCollectionRuleId"] = state?.dataCollectionRuleId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
         } else {
             const args = argsOrState as DataCollectionRuleAssociationArgs | undefined;
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
-            resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["dataCollectionEndpointId"] = args?.dataCollectionEndpointId;
+            resourceInputs["dataCollectionRuleId"] = args?.dataCollectionRuleId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataCollectionRuleAssociation.__pulumiType, name, resourceInputs, opts);

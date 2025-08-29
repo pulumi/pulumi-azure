@@ -120,41 +120,41 @@ export class VirtualMachineManagerVirtualMachineInstance extends pulumi.CustomRe
     /**
      * The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
      */
-    public readonly customLocationId!: pulumi.Output<string>;
+    declare public readonly customLocationId: pulumi.Output<string>;
     /**
      * A `hardware` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** This resource will be restarted while updating `hardware`.
      */
-    public readonly hardware!: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceHardware | undefined>;
+    declare public readonly hardware: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceHardware | undefined>;
     /**
      * An `infrastructure` block as defined below.
      */
-    public readonly infrastructure!: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceInfrastructure>;
+    declare public readonly infrastructure: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceInfrastructure>;
     /**
      * A `networkInterface` block as defined below.
      *
      * > **Note:** This resource will be restarted while updating `networkInterface`.
      */
-    public readonly networkInterfaces!: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceNetworkInterface[] | undefined>;
+    declare public readonly networkInterfaces: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceNetworkInterface[] | undefined>;
     /**
      * An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly operatingSystem!: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceOperatingSystem | undefined>;
+    declare public readonly operatingSystem: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceOperatingSystem | undefined>;
     /**
      * The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
      */
-    public readonly scopedResourceId!: pulumi.Output<string>;
+    declare public readonly scopedResourceId: pulumi.Output<string>;
     /**
      * A `storageDisk` block as defined below.
      *
      * > **Note:** This resource will be restarted while updating `storageDisk`.
      */
-    public readonly storageDisks!: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceStorageDisk[] | undefined>;
+    declare public readonly storageDisks: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceStorageDisk[] | undefined>;
     /**
      * A list of IDs of System Center Virtual Machine Manager Availability Set.
      */
-    public readonly systemCenterVirtualMachineManagerAvailabilitySetIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly systemCenterVirtualMachineManagerAvailabilitySetIds: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VirtualMachineManagerVirtualMachineInstance resource with the given unique name, arguments, and options.
@@ -169,33 +169,33 @@ export class VirtualMachineManagerVirtualMachineInstance extends pulumi.CustomRe
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineManagerVirtualMachineInstanceState | undefined;
-            resourceInputs["customLocationId"] = state ? state.customLocationId : undefined;
-            resourceInputs["hardware"] = state ? state.hardware : undefined;
-            resourceInputs["infrastructure"] = state ? state.infrastructure : undefined;
-            resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
-            resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
-            resourceInputs["scopedResourceId"] = state ? state.scopedResourceId : undefined;
-            resourceInputs["storageDisks"] = state ? state.storageDisks : undefined;
-            resourceInputs["systemCenterVirtualMachineManagerAvailabilitySetIds"] = state ? state.systemCenterVirtualMachineManagerAvailabilitySetIds : undefined;
+            resourceInputs["customLocationId"] = state?.customLocationId;
+            resourceInputs["hardware"] = state?.hardware;
+            resourceInputs["infrastructure"] = state?.infrastructure;
+            resourceInputs["networkInterfaces"] = state?.networkInterfaces;
+            resourceInputs["operatingSystem"] = state?.operatingSystem;
+            resourceInputs["scopedResourceId"] = state?.scopedResourceId;
+            resourceInputs["storageDisks"] = state?.storageDisks;
+            resourceInputs["systemCenterVirtualMachineManagerAvailabilitySetIds"] = state?.systemCenterVirtualMachineManagerAvailabilitySetIds;
         } else {
             const args = argsOrState as VirtualMachineManagerVirtualMachineInstanceArgs | undefined;
-            if ((!args || args.customLocationId === undefined) && !opts.urn) {
+            if (args?.customLocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customLocationId'");
             }
-            if ((!args || args.infrastructure === undefined) && !opts.urn) {
+            if (args?.infrastructure === undefined && !opts.urn) {
                 throw new Error("Missing required property 'infrastructure'");
             }
-            if ((!args || args.scopedResourceId === undefined) && !opts.urn) {
+            if (args?.scopedResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopedResourceId'");
             }
-            resourceInputs["customLocationId"] = args ? args.customLocationId : undefined;
-            resourceInputs["hardware"] = args ? args.hardware : undefined;
-            resourceInputs["infrastructure"] = args ? args.infrastructure : undefined;
-            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["scopedResourceId"] = args ? args.scopedResourceId : undefined;
-            resourceInputs["storageDisks"] = args ? args.storageDisks : undefined;
-            resourceInputs["systemCenterVirtualMachineManagerAvailabilitySetIds"] = args ? args.systemCenterVirtualMachineManagerAvailabilitySetIds : undefined;
+            resourceInputs["customLocationId"] = args?.customLocationId;
+            resourceInputs["hardware"] = args?.hardware;
+            resourceInputs["infrastructure"] = args?.infrastructure;
+            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["operatingSystem"] = args?.operatingSystem;
+            resourceInputs["scopedResourceId"] = args?.scopedResourceId;
+            resourceInputs["storageDisks"] = args?.storageDisks;
+            resourceInputs["systemCenterVirtualMachineManagerAvailabilitySetIds"] = args?.systemCenterVirtualMachineManagerAvailabilitySetIds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualMachineManagerVirtualMachineInstance.__pulumiType, name, resourceInputs, opts);

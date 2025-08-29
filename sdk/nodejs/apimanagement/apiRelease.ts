@@ -90,15 +90,15 @@ export class ApiRelease extends pulumi.CustomResource {
     /**
      * The ID of the API Management API. Changing this forces a new API Management API Release to be created.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Release Notes.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiRelease resource with the given unique name, arguments, and options.
@@ -113,17 +113,17 @@ export class ApiRelease extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiReleaseState | undefined;
-            resourceInputs["apiId"] = state ? state.apiId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["apiId"] = state?.apiId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notes"] = state?.notes;
         } else {
             const args = argsOrState as ApiReleaseArgs | undefined;
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notes"] = args?.notes;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiRelease.__pulumiType, name, resourceInputs, opts);

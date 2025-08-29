@@ -95,37 +95,37 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
     /**
      * Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
      */
-    public readonly disabledAlerts!: pulumi.Output<string[] | undefined>;
+    declare public readonly disabledAlerts: pulumi.Output<string[] | undefined>;
     /**
      * Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
      */
-    public readonly emailAccountAdmins!: pulumi.Output<boolean | undefined>;
+    declare public readonly emailAccountAdmins: pulumi.Output<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */
-    public readonly emailAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly emailAddresses: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
      */
-    public readonly retentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionDays: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
-    public readonly serverName!: pulumi.Output<string>;
+    declare public readonly serverName: pulumi.Output<string>;
     /**
      * Specifies the state of the policy. Possible values are `Disabled` or `Enabled`.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
      *
      * > **Note:** The `storageAccountAccessKey` only applies if the storage account is not behind a virtual network or a firewall.
      */
-    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountAccessKey: pulumi.Output<string | undefined>;
     /**
      * Specifies the blob storage endpoint that will hold all Threat Detection audit logs (e.g., `https://example.blob.core.windows.net`).
      *
@@ -133,7 +133,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
      *
      * > **Note:** Storage accounts configured with `sharedAccessKeyEnabled = false` cannot be used for the `storageEndpoint` field.
      */
-    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly storageEndpoint: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerSecurityAlertPolicy resource with the given unique name, arguments, and options.
@@ -148,35 +148,35 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerSecurityAlertPolicyState | undefined;
-            resourceInputs["disabledAlerts"] = state ? state.disabledAlerts : undefined;
-            resourceInputs["emailAccountAdmins"] = state ? state.emailAccountAdmins : undefined;
-            resourceInputs["emailAddresses"] = state ? state.emailAddresses : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionDays"] = state ? state.retentionDays : undefined;
-            resourceInputs["serverName"] = state ? state.serverName : undefined;
-            resourceInputs["state"] = state ? state.state : undefined;
-            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
+            resourceInputs["disabledAlerts"] = state?.disabledAlerts;
+            resourceInputs["emailAccountAdmins"] = state?.emailAccountAdmins;
+            resourceInputs["emailAddresses"] = state?.emailAddresses;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionDays"] = state?.retentionDays;
+            resourceInputs["serverName"] = state?.serverName;
+            resourceInputs["state"] = state?.state;
+            resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
+            resourceInputs["storageEndpoint"] = state?.storageEndpoint;
         } else {
             const args = argsOrState as ServerSecurityAlertPolicyArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            resourceInputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
-            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["disabledAlerts"] = args?.disabledAlerts;
+            resourceInputs["emailAccountAdmins"] = args?.emailAccountAdmins;
+            resourceInputs["emailAddresses"] = args?.emailAddresses;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDays"] = args?.retentionDays;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["state"] = args?.state;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };

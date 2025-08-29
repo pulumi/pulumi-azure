@@ -80,19 +80,19 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Specifies the ID of the API Management Service in which the API Management Workspace should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementId!: pulumi.Output<string>;
+    declare public readonly apiManagementId: pulumi.Output<string>;
     /**
      * The description of the API Management Workspace.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the API Management Workspace.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this API Management Workspace. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -107,22 +107,22 @@ export class Workspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            resourceInputs["apiManagementId"] = state ? state.apiManagementId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["apiManagementId"] = state?.apiManagementId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            if ((!args || args.apiManagementId === undefined) && !opts.urn) {
+            if (args?.apiManagementId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            resourceInputs["apiManagementId"] = args ? args.apiManagementId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiManagementId"] = args?.apiManagementId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);

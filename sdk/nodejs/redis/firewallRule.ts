@@ -46,23 +46,23 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * The highest IP address included in the range.
      */
-    public readonly endIp!: pulumi.Output<string>;
+    declare public readonly endIp: pulumi.Output<string>;
     /**
      * The name of the Firewall Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Redis Cache. Changing this forces a new resource to be created.
      */
-    public readonly redisCacheName!: pulumi.Output<string>;
+    declare public readonly redisCacheName: pulumi.Output<string>;
     /**
      * The name of the resource group in which this Redis Cache exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The lowest IP address included in the range
      */
-    public readonly startIp!: pulumi.Output<string>;
+    declare public readonly startIp: pulumi.Output<string>;
 
     /**
      * Create a FirewallRule resource with the given unique name, arguments, and options.
@@ -77,30 +77,30 @@ export class FirewallRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallRuleState | undefined;
-            resourceInputs["endIp"] = state ? state.endIp : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["redisCacheName"] = state ? state.redisCacheName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["startIp"] = state ? state.startIp : undefined;
+            resourceInputs["endIp"] = state?.endIp;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["redisCacheName"] = state?.redisCacheName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["startIp"] = state?.startIp;
         } else {
             const args = argsOrState as FirewallRuleArgs | undefined;
-            if ((!args || args.endIp === undefined) && !opts.urn) {
+            if (args?.endIp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endIp'");
             }
-            if ((!args || args.redisCacheName === undefined) && !opts.urn) {
+            if (args?.redisCacheName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'redisCacheName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startIp === undefined) && !opts.urn) {
+            if (args?.startIp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startIp'");
             }
-            resourceInputs["endIp"] = args ? args.endIp : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["redisCacheName"] = args ? args.redisCacheName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["startIp"] = args ? args.startIp : undefined;
+            resourceInputs["endIp"] = args?.endIp;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["redisCacheName"] = args?.redisCacheName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["startIp"] = args?.startIp;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FirewallRule.__pulumiType, name, resourceInputs, opts);

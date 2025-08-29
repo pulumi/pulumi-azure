@@ -93,27 +93,27 @@ export class FlexibleServerActiveDirectoryAdministrator extends pulumi.CustomRes
     /**
      * The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
      */
-    public readonly objectId!: pulumi.Output<string>;
+    declare public readonly objectId: pulumi.Output<string>;
     /**
      * The name of Azure Active Directory principal. Changing this forces a new resource to be created.
      */
-    public readonly principalName!: pulumi.Output<string>;
+    declare public readonly principalName: pulumi.Output<string>;
     /**
      * The type of Azure Active Directory principal. Possible values are `Group`, `ServicePrincipal` and `User`. Changing this forces a new resource to be created.
      */
-    public readonly principalType!: pulumi.Output<string>;
+    declare public readonly principalType: pulumi.Output<string>;
     /**
      * The name of the resource group for the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the PostgreSQL Flexible Server on which to set the administrator. Changing this forces a new resource to be created.
      */
-    public readonly serverName!: pulumi.Output<string>;
+    declare public readonly serverName: pulumi.Output<string>;
     /**
      * The Azure Tenant ID. Changing this forces a new resource to be created.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a FlexibleServerActiveDirectoryAdministrator resource with the given unique name, arguments, and options.
@@ -128,38 +128,38 @@ export class FlexibleServerActiveDirectoryAdministrator extends pulumi.CustomRes
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerActiveDirectoryAdministratorState | undefined;
-            resourceInputs["objectId"] = state ? state.objectId : undefined;
-            resourceInputs["principalName"] = state ? state.principalName : undefined;
-            resourceInputs["principalType"] = state ? state.principalType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serverName"] = state ? state.serverName : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["objectId"] = state?.objectId;
+            resourceInputs["principalName"] = state?.principalName;
+            resourceInputs["principalType"] = state?.principalType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serverName"] = state?.serverName;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as FlexibleServerActiveDirectoryAdministratorArgs | undefined;
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.principalName === undefined) && !opts.urn) {
+            if (args?.principalName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalName'");
             }
-            if ((!args || args.principalType === undefined) && !opts.urn) {
+            if (args?.principalType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["principalName"] = args ? args.principalName : undefined;
-            resourceInputs["principalType"] = args ? args.principalType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["principalName"] = args?.principalName;
+            resourceInputs["principalType"] = args?.principalType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FlexibleServerActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts);

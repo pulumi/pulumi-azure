@@ -89,51 +89,51 @@ export class SpringCloudAppDynamicsApplicationPerformanceMonitoring extends pulu
     /**
      * Specifies the account access key used to authenticate with the Controller.
      */
-    public readonly agentAccountAccessKey!: pulumi.Output<string>;
+    declare public readonly agentAccountAccessKey: pulumi.Output<string>;
     /**
      * Specifies the account name of the App Dynamics account.
      */
-    public readonly agentAccountName!: pulumi.Output<string>;
+    declare public readonly agentAccountName: pulumi.Output<string>;
     /**
      * Specifies the name of the logical business application that this JVM node belongs to.
      */
-    public readonly agentApplicationName!: pulumi.Output<string | undefined>;
+    declare public readonly agentApplicationName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the node. Where JVMs are dynamically created.
      */
-    public readonly agentNodeName!: pulumi.Output<string | undefined>;
+    declare public readonly agentNodeName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the tier that this JVM node belongs to.
      */
-    public readonly agentTierName!: pulumi.Output<string | undefined>;
+    declare public readonly agentTierName: pulumi.Output<string | undefined>;
     /**
      * Specifies the unique host ID which is used to Logically partition a single physical host or virtual machine such that it appears to the Controller that the application is running on different machines.
      */
-    public readonly agentUniqueHostId!: pulumi.Output<string | undefined>;
+    declare public readonly agentUniqueHostId: pulumi.Output<string | undefined>;
     /**
      * Specifies the hostname or the IP address of the AppDynamics Controller.
      */
-    public readonly controllerHostName!: pulumi.Output<string>;
+    declare public readonly controllerHostName: pulumi.Output<string>;
     /**
      * Specifies the HTTP(S) port of the AppDynamics Controller. This is the port used to access the AppDynamics browser-based user interface.
      */
-    public readonly controllerPort!: pulumi.Output<number | undefined>;
+    declare public readonly controllerPort: pulumi.Output<number | undefined>;
     /**
      * Specifies whether enable use SSL (HTTPS) to connect to the AppDynamics Controller.
      */
-    public readonly controllerSslEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly controllerSslEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    public readonly globallyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly globallyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for App Dynamics. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudAppDynamicsApplicationPerformanceMonitoring resource with the given unique name, arguments, and options.
@@ -148,44 +148,44 @@ export class SpringCloudAppDynamicsApplicationPerformanceMonitoring extends pulu
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudAppDynamicsApplicationPerformanceMonitoringState | undefined;
-            resourceInputs["agentAccountAccessKey"] = state ? state.agentAccountAccessKey : undefined;
-            resourceInputs["agentAccountName"] = state ? state.agentAccountName : undefined;
-            resourceInputs["agentApplicationName"] = state ? state.agentApplicationName : undefined;
-            resourceInputs["agentNodeName"] = state ? state.agentNodeName : undefined;
-            resourceInputs["agentTierName"] = state ? state.agentTierName : undefined;
-            resourceInputs["agentUniqueHostId"] = state ? state.agentUniqueHostId : undefined;
-            resourceInputs["controllerHostName"] = state ? state.controllerHostName : undefined;
-            resourceInputs["controllerPort"] = state ? state.controllerPort : undefined;
-            resourceInputs["controllerSslEnabled"] = state ? state.controllerSslEnabled : undefined;
-            resourceInputs["globallyEnabled"] = state ? state.globallyEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
+            resourceInputs["agentAccountAccessKey"] = state?.agentAccountAccessKey;
+            resourceInputs["agentAccountName"] = state?.agentAccountName;
+            resourceInputs["agentApplicationName"] = state?.agentApplicationName;
+            resourceInputs["agentNodeName"] = state?.agentNodeName;
+            resourceInputs["agentTierName"] = state?.agentTierName;
+            resourceInputs["agentUniqueHostId"] = state?.agentUniqueHostId;
+            resourceInputs["controllerHostName"] = state?.controllerHostName;
+            resourceInputs["controllerPort"] = state?.controllerPort;
+            resourceInputs["controllerSslEnabled"] = state?.controllerSslEnabled;
+            resourceInputs["globallyEnabled"] = state?.globallyEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
         } else {
             const args = argsOrState as SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs | undefined;
-            if ((!args || args.agentAccountAccessKey === undefined) && !opts.urn) {
+            if (args?.agentAccountAccessKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentAccountAccessKey'");
             }
-            if ((!args || args.agentAccountName === undefined) && !opts.urn) {
+            if (args?.agentAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentAccountName'");
             }
-            if ((!args || args.controllerHostName === undefined) && !opts.urn) {
+            if (args?.controllerHostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controllerHostName'");
             }
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
             resourceInputs["agentAccountAccessKey"] = args?.agentAccountAccessKey ? pulumi.secret(args.agentAccountAccessKey) : undefined;
             resourceInputs["agentAccountName"] = args?.agentAccountName ? pulumi.secret(args.agentAccountName) : undefined;
-            resourceInputs["agentApplicationName"] = args ? args.agentApplicationName : undefined;
-            resourceInputs["agentNodeName"] = args ? args.agentNodeName : undefined;
-            resourceInputs["agentTierName"] = args ? args.agentTierName : undefined;
-            resourceInputs["agentUniqueHostId"] = args ? args.agentUniqueHostId : undefined;
-            resourceInputs["controllerHostName"] = args ? args.controllerHostName : undefined;
-            resourceInputs["controllerPort"] = args ? args.controllerPort : undefined;
-            resourceInputs["controllerSslEnabled"] = args ? args.controllerSslEnabled : undefined;
-            resourceInputs["globallyEnabled"] = args ? args.globallyEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
+            resourceInputs["agentApplicationName"] = args?.agentApplicationName;
+            resourceInputs["agentNodeName"] = args?.agentNodeName;
+            resourceInputs["agentTierName"] = args?.agentTierName;
+            resourceInputs["agentUniqueHostId"] = args?.agentUniqueHostId;
+            resourceInputs["controllerHostName"] = args?.controllerHostName;
+            resourceInputs["controllerPort"] = args?.controllerPort;
+            resourceInputs["controllerSslEnabled"] = args?.controllerSslEnabled;
+            resourceInputs["globallyEnabled"] = args?.globallyEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["agentAccountAccessKey", "agentAccountName"] };

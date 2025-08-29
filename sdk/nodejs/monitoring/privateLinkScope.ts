@@ -71,23 +71,23 @@ export class PrivateLinkScope extends pulumi.CustomResource {
     /**
      * The default ingestion access mode for the associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      */
-    public readonly ingestionAccessMode!: pulumi.Output<string | undefined>;
+    declare public readonly ingestionAccessMode: pulumi.Output<string | undefined>;
     /**
      * The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The default query access mode for hte associated private endpoints in scope. Possible values are `Open` and `PrivateOnly`. Defaults to `Open`.
      */
-    public readonly queryAccessMode!: pulumi.Output<string | undefined>;
+    declare public readonly queryAccessMode: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Azure Monitor Private Link Scope.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PrivateLinkScope resource with the given unique name, arguments, and options.
@@ -102,21 +102,21 @@ export class PrivateLinkScope extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrivateLinkScopeState | undefined;
-            resourceInputs["ingestionAccessMode"] = state ? state.ingestionAccessMode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["queryAccessMode"] = state ? state.queryAccessMode : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["ingestionAccessMode"] = state?.ingestionAccessMode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["queryAccessMode"] = state?.queryAccessMode;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as PrivateLinkScopeArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["ingestionAccessMode"] = args ? args.ingestionAccessMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["queryAccessMode"] = args ? args.queryAccessMode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ingestionAccessMode"] = args?.ingestionAccessMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["queryAccessMode"] = args?.queryAccessMode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PrivateLinkScope.__pulumiType, name, resourceInputs, opts);

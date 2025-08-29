@@ -76,35 +76,35 @@ export class ChannelSlack extends pulumi.CustomResource {
     /**
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
-    public readonly botName!: pulumi.Output<string>;
+    declare public readonly botName: pulumi.Output<string>;
     /**
      * The Client ID that will be used to authenticate with Slack.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * The Client Secret that will be used to authenticate with Slack.
      */
-    public readonly clientSecret!: pulumi.Output<string>;
+    declare public readonly clientSecret: pulumi.Output<string>;
     /**
      * The Slack Landing Page URL.
      */
-    public readonly landingPageUrl!: pulumi.Output<string | undefined>;
+    declare public readonly landingPageUrl: pulumi.Output<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Signing Secret that will be used to sign the requests.
      */
-    public readonly signingSecret!: pulumi.Output<string | undefined>;
+    declare public readonly signingSecret: pulumi.Output<string | undefined>;
     /**
      * The Verification Token that will be used to authenticate with Slack.
      */
-    public readonly verificationToken!: pulumi.Output<string>;
+    declare public readonly verificationToken: pulumi.Output<string>;
 
     /**
      * Create a ChannelSlack resource with the given unique name, arguments, and options.
@@ -119,37 +119,37 @@ export class ChannelSlack extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ChannelSlackState | undefined;
-            resourceInputs["botName"] = state ? state.botName : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["landingPageUrl"] = state ? state.landingPageUrl : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["signingSecret"] = state ? state.signingSecret : undefined;
-            resourceInputs["verificationToken"] = state ? state.verificationToken : undefined;
+            resourceInputs["botName"] = state?.botName;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["landingPageUrl"] = state?.landingPageUrl;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["signingSecret"] = state?.signingSecret;
+            resourceInputs["verificationToken"] = state?.verificationToken;
         } else {
             const args = argsOrState as ChannelSlackArgs | undefined;
-            if ((!args || args.botName === undefined) && !opts.urn) {
+            if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !opts.urn) {
+            if (args?.clientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.verificationToken === undefined) && !opts.urn) {
+            if (args?.verificationToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'verificationToken'");
             }
-            resourceInputs["botName"] = args ? args.botName : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["botName"] = args?.botName;
+            resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["landingPageUrl"] = args ? args.landingPageUrl : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["landingPageUrl"] = args?.landingPageUrl;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["signingSecret"] = args?.signingSecret ? pulumi.secret(args.signingSecret) : undefined;
             resourceInputs["verificationToken"] = args?.verificationToken ? pulumi.secret(args.verificationToken) : undefined;
         }

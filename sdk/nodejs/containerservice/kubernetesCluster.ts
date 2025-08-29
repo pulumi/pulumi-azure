@@ -90,15 +90,15 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `aciConnectorLinux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
      */
-    public readonly aciConnectorLinux!: pulumi.Output<outputs.containerservice.KubernetesClusterAciConnectorLinux | undefined>;
+    declare public readonly aciConnectorLinux: pulumi.Output<outputs.containerservice.KubernetesClusterAciConnectorLinux | undefined>;
     /**
      * An `apiServerAccessProfile` block as defined below.
      */
-    public readonly apiServerAccessProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterApiServerAccessProfile | undefined>;
+    declare public readonly apiServerAccessProfile: pulumi.Output<outputs.containerservice.KubernetesClusterApiServerAccessProfile | undefined>;
     /**
      * A `autoScalerProfile` block as defined below.
      */
-    public readonly autoScalerProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterAutoScalerProfile>;
+    declare public readonly autoScalerProfile: pulumi.Output<outputs.containerservice.KubernetesClusterAutoScalerProfile>;
     /**
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      *
@@ -106,43 +106,43 @@ export class KubernetesCluster extends pulumi.CustomResource {
      *
      * > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      */
-    public readonly automaticUpgradeChannel!: pulumi.Output<string | undefined>;
+    declare public readonly automaticUpgradeChannel: pulumi.Output<string | undefined>;
     /**
      * A `azureActiveDirectoryRoleBasedAccessControl` block as defined below.
      */
-    public readonly azureActiveDirectoryRoleBasedAccessControl!: pulumi.Output<outputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl | undefined>;
+    declare public readonly azureActiveDirectoryRoleBasedAccessControl: pulumi.Output<outputs.containerservice.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl | undefined>;
     /**
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
-    public readonly azurePolicyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly azurePolicyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      */
-    public readonly confidentialComputing!: pulumi.Output<outputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
+    declare public readonly confidentialComputing: pulumi.Output<outputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
     /**
      * Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `skuTier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
      */
-    public readonly costAnalysisEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly costAnalysisEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The current version running on the Azure Kubernetes Managed Cluster.
      */
-    public /*out*/ readonly currentKubernetesVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly currentKubernetesVersion: pulumi.Output<string>;
     /**
      * A list of up to 10 base64 encoded CA certificates that will be added to the trust store on nodes.
      */
-    public readonly customCaTrustCertificatesBase64s!: pulumi.Output<string[] | undefined>;
+    declare public readonly customCaTrustCertificatesBase64s: pulumi.Output<string[] | undefined>;
     /**
      * Specifies configuration for "System" mode node pool. A `defaultNodePool` block as defined below.
      */
-    public readonly defaultNodePool!: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
+    declare public readonly defaultNodePool: pulumi.Output<outputs.containerservice.KubernetesClusterDefaultNodePool>;
     /**
      * The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
      */
-    public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
+    declare public readonly diskEncryptionSetId: pulumi.Output<string | undefined>;
     /**
      * DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
      */
-    public readonly dnsPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly dnsPrefix: pulumi.Output<string | undefined>;
     /**
      * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
      *
@@ -150,169 +150,169 @@ export class KubernetesCluster extends pulumi.CustomResource {
      *
      * In addition, one of either `identity` or `servicePrincipal` blocks must be specified.
      */
-    public readonly dnsPrefixPrivateCluster!: pulumi.Output<string | undefined>;
+    declare public readonly dnsPrefixPrivateCluster: pulumi.Output<string | undefined>;
     /**
      * Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * Should HTTP Application Routing be enabled?
      *
      * > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
      */
-    public readonly httpApplicationRoutingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpApplicationRoutingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Zone Name of the HTTP Application Routing.
      */
-    public /*out*/ readonly httpApplicationRoutingZoneName!: pulumi.Output<string>;
+    declare public /*out*/ readonly httpApplicationRoutingZoneName: pulumi.Output<string>;
     /**
      * A `httpProxyConfig` block as defined below.
      */
-    public readonly httpProxyConfig!: pulumi.Output<outputs.containerservice.KubernetesClusterHttpProxyConfig | undefined>;
+    declare public readonly httpProxyConfig: pulumi.Output<outputs.containerservice.KubernetesClusterHttpProxyConfig | undefined>;
     /**
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      *
      * !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      */
-    public readonly identity!: pulumi.Output<outputs.containerservice.KubernetesClusterIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerservice.KubernetesClusterIdentity | undefined>;
     /**
      * Specifies whether Image Cleaner is enabled.
      */
-    public readonly imageCleanerEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly imageCleanerEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the interval in hours when images should be cleaned up.
      */
-    public readonly imageCleanerIntervalHours!: pulumi.Output<number | undefined>;
+    declare public readonly imageCleanerIntervalHours: pulumi.Output<number | undefined>;
     /**
      * A `ingressApplicationGateway` block as defined below.
      *
      * > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
      */
-    public readonly ingressApplicationGateway!: pulumi.Output<outputs.containerservice.KubernetesClusterIngressApplicationGateway | undefined>;
+    declare public readonly ingressApplicationGateway: pulumi.Output<outputs.containerservice.KubernetesClusterIngressApplicationGateway | undefined>;
     /**
      * A `keyManagementService` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
      */
-    public readonly keyManagementService!: pulumi.Output<outputs.containerservice.KubernetesClusterKeyManagementService | undefined>;
+    declare public readonly keyManagementService: pulumi.Output<outputs.containerservice.KubernetesClusterKeyManagementService | undefined>;
     /**
      * A `keyVaultSecretsProvider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
      */
-    public readonly keyVaultSecretsProvider!: pulumi.Output<outputs.containerservice.KubernetesClusterKeyVaultSecretsProvider | undefined>;
+    declare public readonly keyVaultSecretsProvider: pulumi.Output<outputs.containerservice.KubernetesClusterKeyVaultSecretsProvider | undefined>;
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
      */
-    public /*out*/ readonly kubeAdminConfigRaw!: pulumi.Output<string>;
+    declare public /*out*/ readonly kubeAdminConfigRaw: pulumi.Output<string>;
     /**
      * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
      */
-    public /*out*/ readonly kubeAdminConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeAdminConfig[]>;
+    declare public /*out*/ readonly kubeAdminConfigs: pulumi.Output<outputs.containerservice.KubernetesClusterKubeAdminConfig[]>;
     /**
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
      */
-    public /*out*/ readonly kubeConfigRaw!: pulumi.Output<string>;
+    declare public /*out*/ readonly kubeConfigRaw: pulumi.Output<string>;
     /**
      * A `kubeConfig` block as defined below.
      */
-    public /*out*/ readonly kubeConfigs!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig[]>;
+    declare public /*out*/ readonly kubeConfigs: pulumi.Output<outputs.containerservice.KubernetesClusterKubeConfig[]>;
     /**
      * A `kubeletIdentity` block as defined below.
      */
-    public readonly kubeletIdentity!: pulumi.Output<outputs.containerservice.KubernetesClusterKubeletIdentity>;
+    declare public readonly kubeletIdentity: pulumi.Output<outputs.containerservice.KubernetesClusterKubeletIdentity>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      *
      * > **Note:** Upgrading your cluster may take up to 10 minutes per node.
      */
-    public readonly kubernetesVersion!: pulumi.Output<string>;
+    declare public readonly kubernetesVersion: pulumi.Output<string>;
     /**
      * A `linuxProfile` block as defined below.
      */
-    public readonly linuxProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterLinuxProfile | undefined>;
+    declare public readonly linuxProfile: pulumi.Output<outputs.containerservice.KubernetesClusterLinuxProfile | undefined>;
     /**
      * If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
      *
      * > **Note:** If `localAccountDisabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
      */
-    public readonly localAccountDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAccountDisabled: pulumi.Output<boolean | undefined>;
     /**
      * The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
-    public readonly maintenanceWindow!: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindow | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindow | undefined>;
     /**
      * A `maintenanceWindowAutoUpgrade` block as defined below.
      */
-    public readonly maintenanceWindowAutoUpgrade!: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindowAutoUpgrade | undefined>;
+    declare public readonly maintenanceWindowAutoUpgrade: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindowAutoUpgrade | undefined>;
     /**
      * A `maintenanceWindowNodeOs` block as defined below.
      */
-    public readonly maintenanceWindowNodeOs!: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindowNodeOs | undefined>;
+    declare public readonly maintenanceWindowNodeOs: pulumi.Output<outputs.containerservice.KubernetesClusterMaintenanceWindowNodeOs | undefined>;
     /**
      * A `microsoftDefender` block as defined below.
      */
-    public readonly microsoftDefender!: pulumi.Output<outputs.containerservice.KubernetesClusterMicrosoftDefender | undefined>;
+    declare public readonly microsoftDefender: pulumi.Output<outputs.containerservice.KubernetesClusterMicrosoftDefender | undefined>;
     /**
      * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitorMetrics` block as defined below.
      *
      * > **Note:** If deploying Managed Prometheus, the `monitorMetrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      */
-    public readonly monitorMetrics!: pulumi.Output<outputs.containerservice.KubernetesClusterMonitorMetrics | undefined>;
+    declare public readonly monitorMetrics: pulumi.Output<outputs.containerservice.KubernetesClusterMonitorMetrics | undefined>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
      *
      * > **Note:** If `networkProfile` is not defined, `kubenet` profile will be used by default.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterNetworkProfile>;
+    declare public readonly networkProfile: pulumi.Output<outputs.containerservice.KubernetesClusterNetworkProfile>;
     /**
      * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
      *
      * > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
      */
-    public readonly nodeOsUpgradeChannel!: pulumi.Output<string | undefined>;
+    declare public readonly nodeOsUpgradeChannel: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
      * > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
      */
-    public readonly nodeResourceGroup!: pulumi.Output<string>;
+    declare public readonly nodeResourceGroup: pulumi.Output<string>;
     /**
      * The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
      */
-    public /*out*/ readonly nodeResourceGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly nodeResourceGroupId: pulumi.Output<string>;
     /**
      * Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
      */
-    public readonly oidcIssuerEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly oidcIssuerEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The OIDC issuer URL that is associated with the cluster.
      */
-    public /*out*/ readonly oidcIssuerUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly oidcIssuerUrl: pulumi.Output<string>;
     /**
      * A `omsAgent` block as defined below.
      */
-    public readonly omsAgent!: pulumi.Output<outputs.containerservice.KubernetesClusterOmsAgent | undefined>;
+    declare public readonly omsAgent: pulumi.Output<outputs.containerservice.KubernetesClusterOmsAgent | undefined>;
     /**
      * Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
      */
-    public readonly openServiceMeshEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly openServiceMeshEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
-    public /*out*/ readonly portalFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalFqdn: pulumi.Output<string>;
     /**
      * Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly privateClusterEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly privateClusterEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
      *
@@ -352,71 +352,71 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * });
      * ```
      */
-    public readonly privateClusterPublicFqdnEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly privateClusterPublicFqdnEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
      */
-    public readonly privateDnsZoneId!: pulumi.Output<string>;
+    declare public readonly privateDnsZoneId: pulumi.Output<string>;
     /**
      * The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
      */
-    public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateFqdn: pulumi.Output<string>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    public readonly roleBasedAccessControlEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly roleBasedAccessControlEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether to enable run command for the cluster or not. Defaults to `true`.
      */
-    public readonly runCommandEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly runCommandEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `serviceMeshProfile` block as defined below.
      */
-    public readonly serviceMeshProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterServiceMeshProfile | undefined>;
+    declare public readonly serviceMeshProfile: pulumi.Output<outputs.containerservice.KubernetesClusterServiceMeshProfile | undefined>;
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      *
      * !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      */
-    public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
+    declare public readonly servicePrincipal: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**
      * The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
      *
      * > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
      */
-    public readonly skuTier!: pulumi.Output<string | undefined>;
+    declare public readonly skuTier: pulumi.Output<string | undefined>;
     /**
      * A `storageProfile` block as defined below.
      */
-    public readonly storageProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterStorageProfile | undefined>;
+    declare public readonly storageProfile: pulumi.Output<outputs.containerservice.KubernetesClusterStorageProfile | undefined>;
     /**
      * Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
      */
-    public readonly supportPlan!: pulumi.Output<string | undefined>;
+    declare public readonly supportPlan: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `upgradeOverride` block as defined below.
      */
-    public readonly upgradeOverride!: pulumi.Output<outputs.containerservice.KubernetesClusterUpgradeOverride | undefined>;
+    declare public readonly upgradeOverride: pulumi.Output<outputs.containerservice.KubernetesClusterUpgradeOverride | undefined>;
     /**
      * A `webAppRouting` block as defined below.
      */
-    public readonly webAppRouting!: pulumi.Output<outputs.containerservice.KubernetesClusterWebAppRouting | undefined>;
+    declare public readonly webAppRouting: pulumi.Output<outputs.containerservice.KubernetesClusterWebAppRouting | undefined>;
     /**
      * A `windowsProfile` block as defined below.
      */
-    public readonly windowsProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterWindowsProfile>;
+    declare public readonly windowsProfile: pulumi.Output<outputs.containerservice.KubernetesClusterWindowsProfile>;
     /**
      * A `workloadAutoscalerProfile` block defined below.
      */
-    public readonly workloadAutoscalerProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterWorkloadAutoscalerProfile | undefined>;
+    declare public readonly workloadAutoscalerProfile: pulumi.Output<outputs.containerservice.KubernetesClusterWorkloadAutoscalerProfile | undefined>;
     /**
      * Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
      *
@@ -424,7 +424,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      *
      * > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
      */
-    public readonly workloadIdentityEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly workloadIdentityEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a KubernetesCluster resource with the given unique name, arguments, and options.
@@ -439,137 +439,137 @@ export class KubernetesCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KubernetesClusterState | undefined;
-            resourceInputs["aciConnectorLinux"] = state ? state.aciConnectorLinux : undefined;
-            resourceInputs["apiServerAccessProfile"] = state ? state.apiServerAccessProfile : undefined;
-            resourceInputs["autoScalerProfile"] = state ? state.autoScalerProfile : undefined;
-            resourceInputs["automaticUpgradeChannel"] = state ? state.automaticUpgradeChannel : undefined;
-            resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = state ? state.azureActiveDirectoryRoleBasedAccessControl : undefined;
-            resourceInputs["azurePolicyEnabled"] = state ? state.azurePolicyEnabled : undefined;
-            resourceInputs["confidentialComputing"] = state ? state.confidentialComputing : undefined;
-            resourceInputs["costAnalysisEnabled"] = state ? state.costAnalysisEnabled : undefined;
-            resourceInputs["currentKubernetesVersion"] = state ? state.currentKubernetesVersion : undefined;
-            resourceInputs["customCaTrustCertificatesBase64s"] = state ? state.customCaTrustCertificatesBase64s : undefined;
-            resourceInputs["defaultNodePool"] = state ? state.defaultNodePool : undefined;
-            resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
-            resourceInputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
-            resourceInputs["dnsPrefixPrivateCluster"] = state ? state.dnsPrefixPrivateCluster : undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["httpApplicationRoutingEnabled"] = state ? state.httpApplicationRoutingEnabled : undefined;
-            resourceInputs["httpApplicationRoutingZoneName"] = state ? state.httpApplicationRoutingZoneName : undefined;
-            resourceInputs["httpProxyConfig"] = state ? state.httpProxyConfig : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["imageCleanerEnabled"] = state ? state.imageCleanerEnabled : undefined;
-            resourceInputs["imageCleanerIntervalHours"] = state ? state.imageCleanerIntervalHours : undefined;
-            resourceInputs["ingressApplicationGateway"] = state ? state.ingressApplicationGateway : undefined;
-            resourceInputs["keyManagementService"] = state ? state.keyManagementService : undefined;
-            resourceInputs["keyVaultSecretsProvider"] = state ? state.keyVaultSecretsProvider : undefined;
-            resourceInputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
-            resourceInputs["kubeAdminConfigs"] = state ? state.kubeAdminConfigs : undefined;
-            resourceInputs["kubeConfigRaw"] = state ? state.kubeConfigRaw : undefined;
-            resourceInputs["kubeConfigs"] = state ? state.kubeConfigs : undefined;
-            resourceInputs["kubeletIdentity"] = state ? state.kubeletIdentity : undefined;
-            resourceInputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
-            resourceInputs["linuxProfile"] = state ? state.linuxProfile : undefined;
-            resourceInputs["localAccountDisabled"] = state ? state.localAccountDisabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            resourceInputs["maintenanceWindowAutoUpgrade"] = state ? state.maintenanceWindowAutoUpgrade : undefined;
-            resourceInputs["maintenanceWindowNodeOs"] = state ? state.maintenanceWindowNodeOs : undefined;
-            resourceInputs["microsoftDefender"] = state ? state.microsoftDefender : undefined;
-            resourceInputs["monitorMetrics"] = state ? state.monitorMetrics : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
-            resourceInputs["nodeOsUpgradeChannel"] = state ? state.nodeOsUpgradeChannel : undefined;
-            resourceInputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
-            resourceInputs["nodeResourceGroupId"] = state ? state.nodeResourceGroupId : undefined;
-            resourceInputs["oidcIssuerEnabled"] = state ? state.oidcIssuerEnabled : undefined;
-            resourceInputs["oidcIssuerUrl"] = state ? state.oidcIssuerUrl : undefined;
-            resourceInputs["omsAgent"] = state ? state.omsAgent : undefined;
-            resourceInputs["openServiceMeshEnabled"] = state ? state.openServiceMeshEnabled : undefined;
-            resourceInputs["portalFqdn"] = state ? state.portalFqdn : undefined;
-            resourceInputs["privateClusterEnabled"] = state ? state.privateClusterEnabled : undefined;
-            resourceInputs["privateClusterPublicFqdnEnabled"] = state ? state.privateClusterPublicFqdnEnabled : undefined;
-            resourceInputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
-            resourceInputs["privateFqdn"] = state ? state.privateFqdn : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["roleBasedAccessControlEnabled"] = state ? state.roleBasedAccessControlEnabled : undefined;
-            resourceInputs["runCommandEnabled"] = state ? state.runCommandEnabled : undefined;
-            resourceInputs["serviceMeshProfile"] = state ? state.serviceMeshProfile : undefined;
-            resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
-            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
-            resourceInputs["storageProfile"] = state ? state.storageProfile : undefined;
-            resourceInputs["supportPlan"] = state ? state.supportPlan : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["upgradeOverride"] = state ? state.upgradeOverride : undefined;
-            resourceInputs["webAppRouting"] = state ? state.webAppRouting : undefined;
-            resourceInputs["windowsProfile"] = state ? state.windowsProfile : undefined;
-            resourceInputs["workloadAutoscalerProfile"] = state ? state.workloadAutoscalerProfile : undefined;
-            resourceInputs["workloadIdentityEnabled"] = state ? state.workloadIdentityEnabled : undefined;
+            resourceInputs["aciConnectorLinux"] = state?.aciConnectorLinux;
+            resourceInputs["apiServerAccessProfile"] = state?.apiServerAccessProfile;
+            resourceInputs["autoScalerProfile"] = state?.autoScalerProfile;
+            resourceInputs["automaticUpgradeChannel"] = state?.automaticUpgradeChannel;
+            resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = state?.azureActiveDirectoryRoleBasedAccessControl;
+            resourceInputs["azurePolicyEnabled"] = state?.azurePolicyEnabled;
+            resourceInputs["confidentialComputing"] = state?.confidentialComputing;
+            resourceInputs["costAnalysisEnabled"] = state?.costAnalysisEnabled;
+            resourceInputs["currentKubernetesVersion"] = state?.currentKubernetesVersion;
+            resourceInputs["customCaTrustCertificatesBase64s"] = state?.customCaTrustCertificatesBase64s;
+            resourceInputs["defaultNodePool"] = state?.defaultNodePool;
+            resourceInputs["diskEncryptionSetId"] = state?.diskEncryptionSetId;
+            resourceInputs["dnsPrefix"] = state?.dnsPrefix;
+            resourceInputs["dnsPrefixPrivateCluster"] = state?.dnsPrefixPrivateCluster;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["httpApplicationRoutingEnabled"] = state?.httpApplicationRoutingEnabled;
+            resourceInputs["httpApplicationRoutingZoneName"] = state?.httpApplicationRoutingZoneName;
+            resourceInputs["httpProxyConfig"] = state?.httpProxyConfig;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["imageCleanerEnabled"] = state?.imageCleanerEnabled;
+            resourceInputs["imageCleanerIntervalHours"] = state?.imageCleanerIntervalHours;
+            resourceInputs["ingressApplicationGateway"] = state?.ingressApplicationGateway;
+            resourceInputs["keyManagementService"] = state?.keyManagementService;
+            resourceInputs["keyVaultSecretsProvider"] = state?.keyVaultSecretsProvider;
+            resourceInputs["kubeAdminConfigRaw"] = state?.kubeAdminConfigRaw;
+            resourceInputs["kubeAdminConfigs"] = state?.kubeAdminConfigs;
+            resourceInputs["kubeConfigRaw"] = state?.kubeConfigRaw;
+            resourceInputs["kubeConfigs"] = state?.kubeConfigs;
+            resourceInputs["kubeletIdentity"] = state?.kubeletIdentity;
+            resourceInputs["kubernetesVersion"] = state?.kubernetesVersion;
+            resourceInputs["linuxProfile"] = state?.linuxProfile;
+            resourceInputs["localAccountDisabled"] = state?.localAccountDisabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maintenanceWindow"] = state?.maintenanceWindow;
+            resourceInputs["maintenanceWindowAutoUpgrade"] = state?.maintenanceWindowAutoUpgrade;
+            resourceInputs["maintenanceWindowNodeOs"] = state?.maintenanceWindowNodeOs;
+            resourceInputs["microsoftDefender"] = state?.microsoftDefender;
+            resourceInputs["monitorMetrics"] = state?.monitorMetrics;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkProfile"] = state?.networkProfile;
+            resourceInputs["nodeOsUpgradeChannel"] = state?.nodeOsUpgradeChannel;
+            resourceInputs["nodeResourceGroup"] = state?.nodeResourceGroup;
+            resourceInputs["nodeResourceGroupId"] = state?.nodeResourceGroupId;
+            resourceInputs["oidcIssuerEnabled"] = state?.oidcIssuerEnabled;
+            resourceInputs["oidcIssuerUrl"] = state?.oidcIssuerUrl;
+            resourceInputs["omsAgent"] = state?.omsAgent;
+            resourceInputs["openServiceMeshEnabled"] = state?.openServiceMeshEnabled;
+            resourceInputs["portalFqdn"] = state?.portalFqdn;
+            resourceInputs["privateClusterEnabled"] = state?.privateClusterEnabled;
+            resourceInputs["privateClusterPublicFqdnEnabled"] = state?.privateClusterPublicFqdnEnabled;
+            resourceInputs["privateDnsZoneId"] = state?.privateDnsZoneId;
+            resourceInputs["privateFqdn"] = state?.privateFqdn;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["roleBasedAccessControlEnabled"] = state?.roleBasedAccessControlEnabled;
+            resourceInputs["runCommandEnabled"] = state?.runCommandEnabled;
+            resourceInputs["serviceMeshProfile"] = state?.serviceMeshProfile;
+            resourceInputs["servicePrincipal"] = state?.servicePrincipal;
+            resourceInputs["skuTier"] = state?.skuTier;
+            resourceInputs["storageProfile"] = state?.storageProfile;
+            resourceInputs["supportPlan"] = state?.supportPlan;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["upgradeOverride"] = state?.upgradeOverride;
+            resourceInputs["webAppRouting"] = state?.webAppRouting;
+            resourceInputs["windowsProfile"] = state?.windowsProfile;
+            resourceInputs["workloadAutoscalerProfile"] = state?.workloadAutoscalerProfile;
+            resourceInputs["workloadIdentityEnabled"] = state?.workloadIdentityEnabled;
         } else {
             const args = argsOrState as KubernetesClusterArgs | undefined;
-            if ((!args || args.defaultNodePool === undefined) && !opts.urn) {
+            if (args?.defaultNodePool === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultNodePool'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aciConnectorLinux"] = args ? args.aciConnectorLinux : undefined;
-            resourceInputs["apiServerAccessProfile"] = args ? args.apiServerAccessProfile : undefined;
-            resourceInputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
-            resourceInputs["automaticUpgradeChannel"] = args ? args.automaticUpgradeChannel : undefined;
-            resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = args ? args.azureActiveDirectoryRoleBasedAccessControl : undefined;
-            resourceInputs["azurePolicyEnabled"] = args ? args.azurePolicyEnabled : undefined;
-            resourceInputs["confidentialComputing"] = args ? args.confidentialComputing : undefined;
-            resourceInputs["costAnalysisEnabled"] = args ? args.costAnalysisEnabled : undefined;
-            resourceInputs["customCaTrustCertificatesBase64s"] = args ? args.customCaTrustCertificatesBase64s : undefined;
-            resourceInputs["defaultNodePool"] = args ? args.defaultNodePool : undefined;
-            resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
-            resourceInputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
-            resourceInputs["dnsPrefixPrivateCluster"] = args ? args.dnsPrefixPrivateCluster : undefined;
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["httpApplicationRoutingEnabled"] = args ? args.httpApplicationRoutingEnabled : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["imageCleanerEnabled"] = args ? args.imageCleanerEnabled : undefined;
-            resourceInputs["imageCleanerIntervalHours"] = args ? args.imageCleanerIntervalHours : undefined;
-            resourceInputs["ingressApplicationGateway"] = args ? args.ingressApplicationGateway : undefined;
-            resourceInputs["keyManagementService"] = args ? args.keyManagementService : undefined;
-            resourceInputs["keyVaultSecretsProvider"] = args ? args.keyVaultSecretsProvider : undefined;
-            resourceInputs["kubeletIdentity"] = args ? args.kubeletIdentity : undefined;
-            resourceInputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
-            resourceInputs["linuxProfile"] = args ? args.linuxProfile : undefined;
-            resourceInputs["localAccountDisabled"] = args ? args.localAccountDisabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["maintenanceWindowAutoUpgrade"] = args ? args.maintenanceWindowAutoUpgrade : undefined;
-            resourceInputs["maintenanceWindowNodeOs"] = args ? args.maintenanceWindowNodeOs : undefined;
-            resourceInputs["microsoftDefender"] = args ? args.microsoftDefender : undefined;
-            resourceInputs["monitorMetrics"] = args ? args.monitorMetrics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["nodeOsUpgradeChannel"] = args ? args.nodeOsUpgradeChannel : undefined;
-            resourceInputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
-            resourceInputs["oidcIssuerEnabled"] = args ? args.oidcIssuerEnabled : undefined;
-            resourceInputs["omsAgent"] = args ? args.omsAgent : undefined;
-            resourceInputs["openServiceMeshEnabled"] = args ? args.openServiceMeshEnabled : undefined;
-            resourceInputs["privateClusterEnabled"] = args ? args.privateClusterEnabled : undefined;
-            resourceInputs["privateClusterPublicFqdnEnabled"] = args ? args.privateClusterPublicFqdnEnabled : undefined;
-            resourceInputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleBasedAccessControlEnabled"] = args ? args.roleBasedAccessControlEnabled : undefined;
-            resourceInputs["runCommandEnabled"] = args ? args.runCommandEnabled : undefined;
-            resourceInputs["serviceMeshProfile"] = args ? args.serviceMeshProfile : undefined;
-            resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
-            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["supportPlan"] = args ? args.supportPlan : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradeOverride"] = args ? args.upgradeOverride : undefined;
-            resourceInputs["webAppRouting"] = args ? args.webAppRouting : undefined;
-            resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
-            resourceInputs["workloadAutoscalerProfile"] = args ? args.workloadAutoscalerProfile : undefined;
-            resourceInputs["workloadIdentityEnabled"] = args ? args.workloadIdentityEnabled : undefined;
+            resourceInputs["aciConnectorLinux"] = args?.aciConnectorLinux;
+            resourceInputs["apiServerAccessProfile"] = args?.apiServerAccessProfile;
+            resourceInputs["autoScalerProfile"] = args?.autoScalerProfile;
+            resourceInputs["automaticUpgradeChannel"] = args?.automaticUpgradeChannel;
+            resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = args?.azureActiveDirectoryRoleBasedAccessControl;
+            resourceInputs["azurePolicyEnabled"] = args?.azurePolicyEnabled;
+            resourceInputs["confidentialComputing"] = args?.confidentialComputing;
+            resourceInputs["costAnalysisEnabled"] = args?.costAnalysisEnabled;
+            resourceInputs["customCaTrustCertificatesBase64s"] = args?.customCaTrustCertificatesBase64s;
+            resourceInputs["defaultNodePool"] = args?.defaultNodePool;
+            resourceInputs["diskEncryptionSetId"] = args?.diskEncryptionSetId;
+            resourceInputs["dnsPrefix"] = args?.dnsPrefix;
+            resourceInputs["dnsPrefixPrivateCluster"] = args?.dnsPrefixPrivateCluster;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["httpApplicationRoutingEnabled"] = args?.httpApplicationRoutingEnabled;
+            resourceInputs["httpProxyConfig"] = args?.httpProxyConfig;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["imageCleanerEnabled"] = args?.imageCleanerEnabled;
+            resourceInputs["imageCleanerIntervalHours"] = args?.imageCleanerIntervalHours;
+            resourceInputs["ingressApplicationGateway"] = args?.ingressApplicationGateway;
+            resourceInputs["keyManagementService"] = args?.keyManagementService;
+            resourceInputs["keyVaultSecretsProvider"] = args?.keyVaultSecretsProvider;
+            resourceInputs["kubeletIdentity"] = args?.kubeletIdentity;
+            resourceInputs["kubernetesVersion"] = args?.kubernetesVersion;
+            resourceInputs["linuxProfile"] = args?.linuxProfile;
+            resourceInputs["localAccountDisabled"] = args?.localAccountDisabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["maintenanceWindowAutoUpgrade"] = args?.maintenanceWindowAutoUpgrade;
+            resourceInputs["maintenanceWindowNodeOs"] = args?.maintenanceWindowNodeOs;
+            resourceInputs["microsoftDefender"] = args?.microsoftDefender;
+            resourceInputs["monitorMetrics"] = args?.monitorMetrics;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["nodeOsUpgradeChannel"] = args?.nodeOsUpgradeChannel;
+            resourceInputs["nodeResourceGroup"] = args?.nodeResourceGroup;
+            resourceInputs["oidcIssuerEnabled"] = args?.oidcIssuerEnabled;
+            resourceInputs["omsAgent"] = args?.omsAgent;
+            resourceInputs["openServiceMeshEnabled"] = args?.openServiceMeshEnabled;
+            resourceInputs["privateClusterEnabled"] = args?.privateClusterEnabled;
+            resourceInputs["privateClusterPublicFqdnEnabled"] = args?.privateClusterPublicFqdnEnabled;
+            resourceInputs["privateDnsZoneId"] = args?.privateDnsZoneId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleBasedAccessControlEnabled"] = args?.roleBasedAccessControlEnabled;
+            resourceInputs["runCommandEnabled"] = args?.runCommandEnabled;
+            resourceInputs["serviceMeshProfile"] = args?.serviceMeshProfile;
+            resourceInputs["servicePrincipal"] = args?.servicePrincipal;
+            resourceInputs["skuTier"] = args?.skuTier;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["supportPlan"] = args?.supportPlan;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradeOverride"] = args?.upgradeOverride;
+            resourceInputs["webAppRouting"] = args?.webAppRouting;
+            resourceInputs["windowsProfile"] = args?.windowsProfile;
+            resourceInputs["workloadAutoscalerProfile"] = args?.workloadAutoscalerProfile;
+            resourceInputs["workloadIdentityEnabled"] = args?.workloadIdentityEnabled;
             resourceInputs["currentKubernetesVersion"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["httpApplicationRoutingZoneName"] = undefined /*out*/;

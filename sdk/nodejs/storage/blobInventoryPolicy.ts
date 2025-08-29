@@ -96,11 +96,11 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
     /**
      * One or more `rules` blocks as defined below.
      */
-    public readonly rules!: pulumi.Output<outputs.storage.BlobInventoryPolicyRule[]>;
+    declare public readonly rules: pulumi.Output<outputs.storage.BlobInventoryPolicyRule[]>;
     /**
      * The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a BlobInventoryPolicy resource with the given unique name, arguments, and options.
@@ -115,18 +115,18 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BlobInventoryPolicyState | undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["rules"] = state?.rules;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
         } else {
             const args = argsOrState as BlobInventoryPolicyArgs | undefined;
-            if ((!args || args.rules === undefined) && !opts.urn) {
+            if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BlobInventoryPolicy.__pulumiType, name, resourceInputs, opts);

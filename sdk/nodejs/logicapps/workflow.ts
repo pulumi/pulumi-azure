@@ -72,77 +72,77 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * A `accessControl` block as defined below.
      */
-    public readonly accessControl!: pulumi.Output<outputs.logicapps.WorkflowAccessControl | undefined>;
+    declare public readonly accessControl: pulumi.Output<outputs.logicapps.WorkflowAccessControl | undefined>;
     /**
      * The Access Endpoint for the Logic App Workflow.
      */
-    public /*out*/ readonly accessEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessEndpoint: pulumi.Output<string>;
     /**
      * The list of access endpoint IP addresses of connector.
      */
-    public /*out*/ readonly connectorEndpointIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly connectorEndpointIpAddresses: pulumi.Output<string[]>;
     /**
      * The list of outgoing IP addresses of connector.
      */
-    public /*out*/ readonly connectorOutboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly connectorOutboundIpAddresses: pulumi.Output<string[]>;
     /**
      * Is the Logic App Workflow enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.logicapps.WorkflowIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.logicapps.WorkflowIdentity | undefined>;
     /**
      * The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created.
      */
-    public readonly integrationServiceEnvironmentId!: pulumi.Output<string | undefined>;
+    declare public readonly integrationServiceEnvironmentId: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ID of the integration account linked by this Logic App Workflow.
      */
-    public readonly logicAppIntegrationAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly logicAppIntegrationAccountId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A map of Key-Value pairs.
      *
      * > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The list of access endpoint IP addresses of workflow.
      */
-    public /*out*/ readonly workflowEndpointIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly workflowEndpointIpAddresses: pulumi.Output<string[]>;
     /**
      * The list of outgoing IP addresses of workflow.
      */
-    public /*out*/ readonly workflowOutboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly workflowOutboundIpAddresses: pulumi.Output<string[]>;
     /**
      * Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>).
      */
-    public readonly workflowParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly workflowParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      */
-    public readonly workflowSchema!: pulumi.Output<string | undefined>;
+    declare public readonly workflowSchema: pulumi.Output<string | undefined>;
     /**
      * Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created.
      */
-    public readonly workflowVersion!: pulumi.Output<string | undefined>;
+    declare public readonly workflowVersion: pulumi.Output<string | undefined>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -157,42 +157,42 @@ export class Workflow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkflowState | undefined;
-            resourceInputs["accessControl"] = state ? state.accessControl : undefined;
-            resourceInputs["accessEndpoint"] = state ? state.accessEndpoint : undefined;
-            resourceInputs["connectorEndpointIpAddresses"] = state ? state.connectorEndpointIpAddresses : undefined;
-            resourceInputs["connectorOutboundIpAddresses"] = state ? state.connectorOutboundIpAddresses : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["integrationServiceEnvironmentId"] = state ? state.integrationServiceEnvironmentId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logicAppIntegrationAccountId"] = state ? state.logicAppIntegrationAccountId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workflowEndpointIpAddresses"] = state ? state.workflowEndpointIpAddresses : undefined;
-            resourceInputs["workflowOutboundIpAddresses"] = state ? state.workflowOutboundIpAddresses : undefined;
-            resourceInputs["workflowParameters"] = state ? state.workflowParameters : undefined;
-            resourceInputs["workflowSchema"] = state ? state.workflowSchema : undefined;
-            resourceInputs["workflowVersion"] = state ? state.workflowVersion : undefined;
+            resourceInputs["accessControl"] = state?.accessControl;
+            resourceInputs["accessEndpoint"] = state?.accessEndpoint;
+            resourceInputs["connectorEndpointIpAddresses"] = state?.connectorEndpointIpAddresses;
+            resourceInputs["connectorOutboundIpAddresses"] = state?.connectorOutboundIpAddresses;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["integrationServiceEnvironmentId"] = state?.integrationServiceEnvironmentId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logicAppIntegrationAccountId"] = state?.logicAppIntegrationAccountId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workflowEndpointIpAddresses"] = state?.workflowEndpointIpAddresses;
+            resourceInputs["workflowOutboundIpAddresses"] = state?.workflowOutboundIpAddresses;
+            resourceInputs["workflowParameters"] = state?.workflowParameters;
+            resourceInputs["workflowSchema"] = state?.workflowSchema;
+            resourceInputs["workflowVersion"] = state?.workflowVersion;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessControl"] = args ? args.accessControl : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["integrationServiceEnvironmentId"] = args ? args.integrationServiceEnvironmentId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logicAppIntegrationAccountId"] = args ? args.logicAppIntegrationAccountId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowParameters"] = args ? args.workflowParameters : undefined;
-            resourceInputs["workflowSchema"] = args ? args.workflowSchema : undefined;
-            resourceInputs["workflowVersion"] = args ? args.workflowVersion : undefined;
+            resourceInputs["accessControl"] = args?.accessControl;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["integrationServiceEnvironmentId"] = args?.integrationServiceEnvironmentId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logicAppIntegrationAccountId"] = args?.logicAppIntegrationAccountId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowParameters"] = args?.workflowParameters;
+            resourceInputs["workflowSchema"] = args?.workflowSchema;
+            resourceInputs["workflowVersion"] = args?.workflowVersion;
             resourceInputs["accessEndpoint"] = undefined /*out*/;
             resourceInputs["connectorEndpointIpAddresses"] = undefined /*out*/;
             resourceInputs["connectorOutboundIpAddresses"] = undefined /*out*/;

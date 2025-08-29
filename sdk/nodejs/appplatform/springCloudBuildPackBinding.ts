@@ -97,19 +97,19 @@ export class SpringCloudBuildPackBinding extends pulumi.CustomResource {
     /**
      * Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
      */
-    public readonly bindingType!: pulumi.Output<string | undefined>;
+    declare public readonly bindingType: pulumi.Output<string | undefined>;
     /**
      * A `launch` block as defined below.
      */
-    public readonly launch!: pulumi.Output<outputs.appplatform.SpringCloudBuildPackBindingLaunch | undefined>;
+    declare public readonly launch: pulumi.Output<outputs.appplatform.SpringCloudBuildPackBindingLaunch | undefined>;
     /**
      * The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
      */
-    public readonly springCloudBuilderId!: pulumi.Output<string>;
+    declare public readonly springCloudBuilderId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudBuildPackBinding resource with the given unique name, arguments, and options.
@@ -124,19 +124,19 @@ export class SpringCloudBuildPackBinding extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudBuildPackBindingState | undefined;
-            resourceInputs["bindingType"] = state ? state.bindingType : undefined;
-            resourceInputs["launch"] = state ? state.launch : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudBuilderId"] = state ? state.springCloudBuilderId : undefined;
+            resourceInputs["bindingType"] = state?.bindingType;
+            resourceInputs["launch"] = state?.launch;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudBuilderId"] = state?.springCloudBuilderId;
         } else {
             const args = argsOrState as SpringCloudBuildPackBindingArgs | undefined;
-            if ((!args || args.springCloudBuilderId === undefined) && !opts.urn) {
+            if (args?.springCloudBuilderId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudBuilderId'");
             }
-            resourceInputs["bindingType"] = args ? args.bindingType : undefined;
-            resourceInputs["launch"] = args ? args.launch : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudBuilderId"] = args ? args.springCloudBuilderId : undefined;
+            resourceInputs["bindingType"] = args?.bindingType;
+            resourceInputs["launch"] = args?.launch;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudBuilderId"] = args?.springCloudBuilderId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudBuildPackBinding.__pulumiType, name, resourceInputs, opts);

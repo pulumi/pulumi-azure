@@ -98,43 +98,43 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
     /**
      * The hostname of the endpoint.
      */
-    public readonly hostname!: pulumi.Output<string>;
+    declare public readonly hostname: pulumi.Output<string>;
     /**
      * The name of the Relay Namespace.
      */
-    public /*out*/ readonly namespaceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly namespaceName: pulumi.Output<string>;
     /**
      * The port to use for the endpoint.
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * The ID of the Relay Hybrid Connection to use. Changing this forces a new resource to be created.
      */
-    public readonly relayId!: pulumi.Output<string>;
+    declare public readonly relayId: pulumi.Output<string>;
     /**
      * The name of the Relay in use.
      */
-    public /*out*/ readonly relayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly relayName: pulumi.Output<string>;
     /**
      * The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey`
      */
-    public readonly sendKeyName!: pulumi.Output<string | undefined>;
+    declare public readonly sendKeyName: pulumi.Output<string | undefined>;
     /**
      * The Primary Access Key for the `sendKeyName`
      */
-    public /*out*/ readonly sendKeyValue!: pulumi.Output<string>;
+    declare public /*out*/ readonly sendKeyValue: pulumi.Output<string>;
     /**
      * The Service Bus Namespace.
      */
-    public /*out*/ readonly serviceBusNamespace!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceBusNamespace: pulumi.Output<string>;
     /**
      * The suffix for the endpoint.
      */
-    public /*out*/ readonly serviceBusSuffix!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceBusSuffix: pulumi.Output<string>;
     /**
      * The ID of the Web App for this Hybrid Connection. Changing this forces a new resource to be created.
      */
-    public readonly webAppId!: pulumi.Output<string>;
+    declare public readonly webAppId: pulumi.Output<string>;
 
     /**
      * Create a WebAppHybridConnection resource with the given unique name, arguments, and options.
@@ -149,35 +149,35 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAppHybridConnectionState | undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["port"] = state ? state.port : undefined;
-            resourceInputs["relayId"] = state ? state.relayId : undefined;
-            resourceInputs["relayName"] = state ? state.relayName : undefined;
-            resourceInputs["sendKeyName"] = state ? state.sendKeyName : undefined;
-            resourceInputs["sendKeyValue"] = state ? state.sendKeyValue : undefined;
-            resourceInputs["serviceBusNamespace"] = state ? state.serviceBusNamespace : undefined;
-            resourceInputs["serviceBusSuffix"] = state ? state.serviceBusSuffix : undefined;
-            resourceInputs["webAppId"] = state ? state.webAppId : undefined;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["port"] = state?.port;
+            resourceInputs["relayId"] = state?.relayId;
+            resourceInputs["relayName"] = state?.relayName;
+            resourceInputs["sendKeyName"] = state?.sendKeyName;
+            resourceInputs["sendKeyValue"] = state?.sendKeyValue;
+            resourceInputs["serviceBusNamespace"] = state?.serviceBusNamespace;
+            resourceInputs["serviceBusSuffix"] = state?.serviceBusSuffix;
+            resourceInputs["webAppId"] = state?.webAppId;
         } else {
             const args = argsOrState as WebAppHybridConnectionArgs | undefined;
-            if ((!args || args.hostname === undefined) && !opts.urn) {
+            if (args?.hostname === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostname'");
             }
-            if ((!args || args.port === undefined) && !opts.urn) {
+            if (args?.port === undefined && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            if ((!args || args.relayId === undefined) && !opts.urn) {
+            if (args?.relayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relayId'");
             }
-            if ((!args || args.webAppId === undefined) && !opts.urn) {
+            if (args?.webAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webAppId'");
             }
-            resourceInputs["hostname"] = args ? args.hostname : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["relayId"] = args ? args.relayId : undefined;
-            resourceInputs["sendKeyName"] = args ? args.sendKeyName : undefined;
-            resourceInputs["webAppId"] = args ? args.webAppId : undefined;
+            resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["relayId"] = args?.relayId;
+            resourceInputs["sendKeyName"] = args?.sendKeyName;
+            resourceInputs["webAppId"] = args?.webAppId;
             resourceInputs["namespaceName"] = undefined /*out*/;
             resourceInputs["relayName"] = undefined /*out*/;
             resourceInputs["sendKeyValue"] = undefined /*out*/;

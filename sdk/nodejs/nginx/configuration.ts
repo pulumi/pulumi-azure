@@ -148,23 +148,23 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * One or more `configFile` blocks as defined below.
      */
-    public readonly configFiles!: pulumi.Output<outputs.nginx.ConfigurationConfigFile[] | undefined>;
+    declare public readonly configFiles: pulumi.Output<outputs.nginx.ConfigurationConfigFile[] | undefined>;
     /**
      * The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
      */
-    public readonly nginxDeploymentId!: pulumi.Output<string>;
+    declare public readonly nginxDeploymentId: pulumi.Output<string>;
     /**
      * Specifies the package data for this configuration.
      */
-    public readonly packageData!: pulumi.Output<string | undefined>;
+    declare public readonly packageData: pulumi.Output<string | undefined>;
     /**
      * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      */
-    public readonly protectedFiles!: pulumi.Output<outputs.nginx.ConfigurationProtectedFile[] | undefined>;
+    declare public readonly protectedFiles: pulumi.Output<outputs.nginx.ConfigurationProtectedFile[] | undefined>;
     /**
      * Specifies the root file path of this Nginx Configuration.
      */
-    public readonly rootFile!: pulumi.Output<string>;
+    declare public readonly rootFile: pulumi.Output<string>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -179,24 +179,24 @@ export class Configuration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
-            resourceInputs["configFiles"] = state ? state.configFiles : undefined;
-            resourceInputs["nginxDeploymentId"] = state ? state.nginxDeploymentId : undefined;
-            resourceInputs["packageData"] = state ? state.packageData : undefined;
-            resourceInputs["protectedFiles"] = state ? state.protectedFiles : undefined;
-            resourceInputs["rootFile"] = state ? state.rootFile : undefined;
+            resourceInputs["configFiles"] = state?.configFiles;
+            resourceInputs["nginxDeploymentId"] = state?.nginxDeploymentId;
+            resourceInputs["packageData"] = state?.packageData;
+            resourceInputs["protectedFiles"] = state?.protectedFiles;
+            resourceInputs["rootFile"] = state?.rootFile;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
-            if ((!args || args.nginxDeploymentId === undefined) && !opts.urn) {
+            if (args?.nginxDeploymentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nginxDeploymentId'");
             }
-            if ((!args || args.rootFile === undefined) && !opts.urn) {
+            if (args?.rootFile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rootFile'");
             }
-            resourceInputs["configFiles"] = args ? args.configFiles : undefined;
-            resourceInputs["nginxDeploymentId"] = args ? args.nginxDeploymentId : undefined;
-            resourceInputs["packageData"] = args ? args.packageData : undefined;
-            resourceInputs["protectedFiles"] = args ? args.protectedFiles : undefined;
-            resourceInputs["rootFile"] = args ? args.rootFile : undefined;
+            resourceInputs["configFiles"] = args?.configFiles;
+            resourceInputs["nginxDeploymentId"] = args?.nginxDeploymentId;
+            resourceInputs["packageData"] = args?.packageData;
+            resourceInputs["protectedFiles"] = args?.protectedFiles;
+            resourceInputs["rootFile"] = args?.rootFile;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);

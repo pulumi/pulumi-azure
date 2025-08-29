@@ -48,37 +48,37 @@ export class HciNetworkInterface extends pulumi.CustomResource {
     /**
      * The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
      */
-    public readonly customLocationId!: pulumi.Output<string>;
+    declare public readonly customLocationId: pulumi.Output<string>;
     /**
      * A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsServers: pulumi.Output<string[] | undefined>;
     /**
      * An `ipConfiguration` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly ipConfiguration!: pulumi.Output<outputs.stack.HciNetworkInterfaceIpConfiguration>;
+    declare public readonly ipConfiguration: pulumi.Output<outputs.stack.HciNetworkInterfaceIpConfiguration>;
     /**
      * The Azure Region where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The MAC address of the Network Interface. Changing this forces a new resource to be created.
      *
      * > **Note:** If `macAddress` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
      */
-    public readonly macAddress!: pulumi.Output<string | undefined>;
+    declare public readonly macAddress: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Network Interface.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a HciNetworkInterface resource with the given unique name, arguments, and options.
@@ -93,33 +93,33 @@ export class HciNetworkInterface extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HciNetworkInterfaceState | undefined;
-            resourceInputs["customLocationId"] = state ? state.customLocationId : undefined;
-            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
-            resourceInputs["ipConfiguration"] = state ? state.ipConfiguration : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["macAddress"] = state ? state.macAddress : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customLocationId"] = state?.customLocationId;
+            resourceInputs["dnsServers"] = state?.dnsServers;
+            resourceInputs["ipConfiguration"] = state?.ipConfiguration;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["macAddress"] = state?.macAddress;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as HciNetworkInterfaceArgs | undefined;
-            if ((!args || args.customLocationId === undefined) && !opts.urn) {
+            if (args?.customLocationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customLocationId'");
             }
-            if ((!args || args.ipConfiguration === undefined) && !opts.urn) {
+            if (args?.ipConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipConfiguration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customLocationId"] = args ? args.customLocationId : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["macAddress"] = args ? args.macAddress : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customLocationId"] = args?.customLocationId;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["ipConfiguration"] = args?.ipConfiguration;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["macAddress"] = args?.macAddress;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HciNetworkInterface.__pulumiType, name, resourceInputs, opts);

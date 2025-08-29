@@ -91,57 +91,57 @@ export class AuthorizationRule extends pulumi.CustomResource {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
-    public readonly eventhubName!: pulumi.Output<string>;
+    declare public readonly eventhubName: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
      */
-    public readonly listen!: pulumi.Output<boolean | undefined>;
+    declare public readonly listen: pulumi.Output<boolean | undefined>;
     /**
      * Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    public readonly manage!: pulumi.Output<boolean | undefined>;
+    declare public readonly manage: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * The Primary Connection String for the Event Hubs authorization Rule.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The alias of the Primary Connection String for the Event Hubs authorization Rule, which is generated when disaster recovery is enabled.
      */
-    public /*out*/ readonly primaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionStringAlias: pulumi.Output<string>;
     /**
      * The Primary Key for the Event Hubs authorization Rule.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      *
      * > **Note:** At least one of the 3 permissions below needs to be set.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the Event Hubs Authorization Rule.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The alias of the Secondary Connection String for the Event Hubs Authorization Rule, which is generated when disaster recovery is enabled.
      */
-    public /*out*/ readonly secondaryConnectionStringAlias!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionStringAlias: pulumi.Output<string>;
     /**
      * The Secondary Key for the Event Hubs Authorization Rule.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
      */
-    public readonly send!: pulumi.Output<boolean | undefined>;
+    declare public readonly send: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AuthorizationRule resource with the given unique name, arguments, and options.
@@ -156,37 +156,37 @@ export class AuthorizationRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizationRuleState | undefined;
-            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
-            resourceInputs["listen"] = state ? state.listen : undefined;
-            resourceInputs["manage"] = state ? state.manage : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["primaryConnectionStringAlias"] = state ? state.primaryConnectionStringAlias : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["secondaryConnectionStringAlias"] = state ? state.secondaryConnectionStringAlias : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["send"] = state ? state.send : undefined;
+            resourceInputs["eventhubName"] = state?.eventhubName;
+            resourceInputs["listen"] = state?.listen;
+            resourceInputs["manage"] = state?.manage;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["primaryConnectionStringAlias"] = state?.primaryConnectionStringAlias;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["secondaryConnectionStringAlias"] = state?.secondaryConnectionStringAlias;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["send"] = state?.send;
         } else {
             const args = argsOrState as AuthorizationRuleArgs | undefined;
-            if ((!args || args.eventhubName === undefined) && !opts.urn) {
+            if (args?.eventhubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
-            resourceInputs["listen"] = args ? args.listen : undefined;
-            resourceInputs["manage"] = args ? args.manage : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["send"] = args ? args.send : undefined;
+            resourceInputs["eventhubName"] = args?.eventhubName;
+            resourceInputs["listen"] = args?.listen;
+            resourceInputs["manage"] = args?.manage;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["send"] = args?.send;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryConnectionStringAlias"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;

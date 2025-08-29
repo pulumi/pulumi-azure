@@ -67,81 +67,81 @@ export class CertificateOrder extends pulumi.CustomResource {
     /**
      * Reasons why App Service Certificate is not renewable at the current moment.
      */
-    public /*out*/ readonly appServiceCertificateNotRenewableReasons!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly appServiceCertificateNotRenewableReasons: pulumi.Output<string[]>;
     /**
      * true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
      */
-    public readonly autoRenew!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoRenew: pulumi.Output<boolean | undefined>;
     /**
      * State of the Key Vault secret. A `certificates` block as defined below.
      */
-    public /*out*/ readonly certificates!: pulumi.Output<outputs.appservice.CertificateOrderCertificate[]>;
+    declare public /*out*/ readonly certificates: pulumi.Output<outputs.appservice.CertificateOrderCertificate[]>;
     /**
      * Last CSR that was created for this order.
      */
-    public readonly csr!: pulumi.Output<string>;
+    declare public readonly csr: pulumi.Output<string>;
     /**
      * The Distinguished Name for the App Service Certificate Order.
      *
      * > **Note:** Either `csr` or `distinguishedName` must be set - but not both.
      */
-    public readonly distinguishedName!: pulumi.Output<string>;
+    declare public readonly distinguishedName: pulumi.Output<string>;
     /**
      * Domain verification token.
      */
-    public /*out*/ readonly domainVerificationToken!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainVerificationToken: pulumi.Output<string>;
     /**
      * Certificate expiration time.
      */
-    public /*out*/ readonly expirationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationTime: pulumi.Output<string>;
     /**
      * Certificate thumbprint intermediate certificate.
      */
-    public /*out*/ readonly intermediateThumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly intermediateThumbprint: pulumi.Output<string>;
     /**
      * Whether the private key is external or not.
      */
-    public /*out*/ readonly isPrivateKeyExternal!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isPrivateKeyExternal: pulumi.Output<boolean>;
     /**
      * Certificate key size. Defaults to `2048`.
      */
-    public readonly keySize!: pulumi.Output<number | undefined>;
+    declare public readonly keySize: pulumi.Output<number | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the certificate. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      */
-    public readonly productType!: pulumi.Output<string | undefined>;
+    declare public readonly productType: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Certificate thumbprint for root certificate.
      */
-    public /*out*/ readonly rootThumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly rootThumbprint: pulumi.Output<string>;
     /**
      * Certificate thumbprint for signed certificate.
      */
-    public /*out*/ readonly signedCertificateThumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly signedCertificateThumbprint: pulumi.Output<string>;
     /**
      * Current order status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * (Optional) A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Duration in years (must be between `1` and `3`). Defaults to `1`.
      */
-    public readonly validityInYears!: pulumi.Output<number | undefined>;
+    declare public readonly validityInYears: pulumi.Output<number | undefined>;
 
     /**
      * Create a CertificateOrder resource with the given unique name, arguments, and options.
@@ -156,40 +156,40 @@ export class CertificateOrder extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateOrderState | undefined;
-            resourceInputs["appServiceCertificateNotRenewableReasons"] = state ? state.appServiceCertificateNotRenewableReasons : undefined;
-            resourceInputs["autoRenew"] = state ? state.autoRenew : undefined;
-            resourceInputs["certificates"] = state ? state.certificates : undefined;
-            resourceInputs["csr"] = state ? state.csr : undefined;
-            resourceInputs["distinguishedName"] = state ? state.distinguishedName : undefined;
-            resourceInputs["domainVerificationToken"] = state ? state.domainVerificationToken : undefined;
-            resourceInputs["expirationTime"] = state ? state.expirationTime : undefined;
-            resourceInputs["intermediateThumbprint"] = state ? state.intermediateThumbprint : undefined;
-            resourceInputs["isPrivateKeyExternal"] = state ? state.isPrivateKeyExternal : undefined;
-            resourceInputs["keySize"] = state ? state.keySize : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["productType"] = state ? state.productType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rootThumbprint"] = state ? state.rootThumbprint : undefined;
-            resourceInputs["signedCertificateThumbprint"] = state ? state.signedCertificateThumbprint : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["validityInYears"] = state ? state.validityInYears : undefined;
+            resourceInputs["appServiceCertificateNotRenewableReasons"] = state?.appServiceCertificateNotRenewableReasons;
+            resourceInputs["autoRenew"] = state?.autoRenew;
+            resourceInputs["certificates"] = state?.certificates;
+            resourceInputs["csr"] = state?.csr;
+            resourceInputs["distinguishedName"] = state?.distinguishedName;
+            resourceInputs["domainVerificationToken"] = state?.domainVerificationToken;
+            resourceInputs["expirationTime"] = state?.expirationTime;
+            resourceInputs["intermediateThumbprint"] = state?.intermediateThumbprint;
+            resourceInputs["isPrivateKeyExternal"] = state?.isPrivateKeyExternal;
+            resourceInputs["keySize"] = state?.keySize;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["productType"] = state?.productType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rootThumbprint"] = state?.rootThumbprint;
+            resourceInputs["signedCertificateThumbprint"] = state?.signedCertificateThumbprint;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["validityInYears"] = state?.validityInYears;
         } else {
             const args = argsOrState as CertificateOrderArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoRenew"] = args ? args.autoRenew : undefined;
-            resourceInputs["csr"] = args ? args.csr : undefined;
-            resourceInputs["distinguishedName"] = args ? args.distinguishedName : undefined;
-            resourceInputs["keySize"] = args ? args.keySize : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["productType"] = args ? args.productType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validityInYears"] = args ? args.validityInYears : undefined;
+            resourceInputs["autoRenew"] = args?.autoRenew;
+            resourceInputs["csr"] = args?.csr;
+            resourceInputs["distinguishedName"] = args?.distinguishedName;
+            resourceInputs["keySize"] = args?.keySize;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["productType"] = args?.productType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validityInYears"] = args?.validityInYears;
             resourceInputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
             resourceInputs["certificates"] = undefined /*out*/;
             resourceInputs["domainVerificationToken"] = undefined /*out*/;

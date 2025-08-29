@@ -99,23 +99,23 @@ export class ResolverOutboundEndpoint extends pulumi.CustomResource {
     /**
      * Specifies the Azure Region where the Private DNS Resolver Outbound Endpoint should exist. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the ID of the Private DNS Resolver Outbound Endpoint. Changing this forces a new Private DNS Resolver Outbound Endpoint to be created.
      */
-    public readonly privateDnsResolverId!: pulumi.Output<string>;
+    declare public readonly privateDnsResolverId: pulumi.Output<string>;
     /**
      * The ID of the Subnet that is linked to the Private DNS Resolver Outbound Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Private DNS Resolver Outbound Endpoint.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ResolverOutboundEndpoint resource with the given unique name, arguments, and options.
@@ -130,24 +130,24 @@ export class ResolverOutboundEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverOutboundEndpointState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateDnsResolverId"] = state ? state.privateDnsResolverId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateDnsResolverId"] = state?.privateDnsResolverId;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ResolverOutboundEndpointArgs | undefined;
-            if ((!args || args.privateDnsResolverId === undefined) && !opts.urn) {
+            if (args?.privateDnsResolverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateDnsResolverId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateDnsResolverId"] = args ? args.privateDnsResolverId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateDnsResolverId"] = args?.privateDnsResolverId;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverOutboundEndpoint.__pulumiType, name, resourceInputs, opts);

@@ -87,31 +87,31 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     /**
      * Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
      */
-    public readonly allowNonVirtualWanTraffic!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowNonVirtualWanTraffic: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
      */
-    public readonly scaleUnits!: pulumi.Output<number>;
+    declare public readonly scaleUnits: pulumi.Output<number>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
 
     /**
      * Create a ExpressRouteGateway resource with the given unique name, arguments, and options.
@@ -126,31 +126,31 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExpressRouteGatewayState | undefined;
-            resourceInputs["allowNonVirtualWanTraffic"] = state ? state.allowNonVirtualWanTraffic : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scaleUnits"] = state ? state.scaleUnits : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["allowNonVirtualWanTraffic"] = state?.allowNonVirtualWanTraffic;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scaleUnits"] = state?.scaleUnits;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
         } else {
             const args = argsOrState as ExpressRouteGatewayArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scaleUnits === undefined) && !opts.urn) {
+            if (args?.scaleUnits === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scaleUnits'");
             }
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["allowNonVirtualWanTraffic"] = args ? args.allowNonVirtualWanTraffic : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["allowNonVirtualWanTraffic"] = args?.allowNonVirtualWanTraffic;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scaleUnits"] = args?.scaleUnits;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ExpressRouteGateway.__pulumiType, name, resourceInputs, opts);

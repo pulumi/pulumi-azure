@@ -85,47 +85,47 @@ export class Server extends pulumi.CustomResource {
     /**
      * List of email addresses of admin users.
      */
-    public readonly adminUsers!: pulumi.Output<string[] | undefined>;
+    declare public readonly adminUsers: pulumi.Output<string[] | undefined>;
     /**
      * URI and SAS token for a blob container to store backups.
      */
-    public readonly backupBlobContainerUri!: pulumi.Output<string | undefined>;
+    declare public readonly backupBlobContainerUri: pulumi.Output<string | undefined>;
     /**
      * One or more `ipv4FirewallRule` block(s) as defined below.
      */
-    public readonly ipv4FirewallRules!: pulumi.Output<outputs.analysisservices.ServerIpv4FirewallRule[] | undefined>;
+    declare public readonly ipv4FirewallRules: pulumi.Output<outputs.analysisservices.ServerIpv4FirewallRule[] | undefined>;
     /**
      * The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Indicates if the Power BI service is allowed to access or not.
      */
-    public readonly powerBiServiceEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly powerBiServiceEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. Defaults to `All`.
      */
-    public readonly querypoolConnectionMode!: pulumi.Output<string | undefined>;
+    declare public readonly querypoolConnectionMode: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The full name of the Analysis Services Server.
      */
-    public /*out*/ readonly serverFullName!: pulumi.Output<string>;
+    declare public /*out*/ readonly serverFullName: pulumi.Output<string>;
     /**
      * SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -140,35 +140,35 @@ export class Server extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            resourceInputs["adminUsers"] = state ? state.adminUsers : undefined;
-            resourceInputs["backupBlobContainerUri"] = state ? state.backupBlobContainerUri : undefined;
-            resourceInputs["ipv4FirewallRules"] = state ? state.ipv4FirewallRules : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["powerBiServiceEnabled"] = state ? state.powerBiServiceEnabled : undefined;
-            resourceInputs["querypoolConnectionMode"] = state ? state.querypoolConnectionMode : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serverFullName"] = state ? state.serverFullName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["adminUsers"] = state?.adminUsers;
+            resourceInputs["backupBlobContainerUri"] = state?.backupBlobContainerUri;
+            resourceInputs["ipv4FirewallRules"] = state?.ipv4FirewallRules;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["powerBiServiceEnabled"] = state?.powerBiServiceEnabled;
+            resourceInputs["querypoolConnectionMode"] = state?.querypoolConnectionMode;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serverFullName"] = state?.serverFullName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["adminUsers"] = args ? args.adminUsers : undefined;
+            resourceInputs["adminUsers"] = args?.adminUsers;
             resourceInputs["backupBlobContainerUri"] = args?.backupBlobContainerUri ? pulumi.secret(args.backupBlobContainerUri) : undefined;
-            resourceInputs["ipv4FirewallRules"] = args ? args.ipv4FirewallRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["powerBiServiceEnabled"] = args ? args.powerBiServiceEnabled : undefined;
-            resourceInputs["querypoolConnectionMode"] = args ? args.querypoolConnectionMode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ipv4FirewallRules"] = args?.ipv4FirewallRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["powerBiServiceEnabled"] = args?.powerBiServiceEnabled;
+            resourceInputs["querypoolConnectionMode"] = args?.querypoolConnectionMode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["serverFullName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -119,59 +119,59 @@ export class JobStep extends pulumi.CustomResource {
     /**
      * The initial retry interval in seconds. Defaults to `1`.
      */
-    public readonly initialRetryIntervalSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly initialRetryIntervalSeconds: pulumi.Output<number | undefined>;
     /**
      * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
      *
      * !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      */
-    public readonly jobCredentialId!: pulumi.Output<string | undefined>;
+    declare public readonly jobCredentialId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
      */
-    public readonly jobId!: pulumi.Output<string>;
+    declare public readonly jobId: pulumi.Output<string>;
     /**
      * The index at which to insert this Elastic Job Step into the Elastic Job.
      *
      * > **Note:** This value must be greater than or equal to 1 and less than or equal to the number of job steps in the Elastic Job.
      */
-    public readonly jobStepIndex!: pulumi.Output<number>;
+    declare public readonly jobStepIndex: pulumi.Output<number>;
     /**
      * The ID of the Elastic Job Target Group.
      */
-    public readonly jobTargetGroupId!: pulumi.Output<string>;
+    declare public readonly jobTargetGroupId: pulumi.Output<string>;
     /**
      * The maximum retry interval in seconds. Defaults to `120`.
      *
      * > **Note:** `maximumRetryIntervalSeconds` must be greater than `initialRetryIntervalSeconds`.
      */
-    public readonly maximumRetryIntervalSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly maximumRetryIntervalSeconds: pulumi.Output<number | undefined>;
     /**
      * The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * An `outputTarget` block as defined below.
      */
-    public readonly outputTarget!: pulumi.Output<outputs.mssql.JobStepOutputTarget | undefined>;
+    declare public readonly outputTarget: pulumi.Output<outputs.mssql.JobStepOutputTarget | undefined>;
     /**
      * The number of retry attempts. Defaults to `10`.
      */
-    public readonly retryAttempts!: pulumi.Output<number | undefined>;
+    declare public readonly retryAttempts: pulumi.Output<number | undefined>;
     /**
      * The multiplier for time between retries. Defaults to `2`.
      */
-    public readonly retryIntervalBackoffMultiplier!: pulumi.Output<number | undefined>;
+    declare public readonly retryIntervalBackoffMultiplier: pulumi.Output<number | undefined>;
     /**
      * The T-SQL script to be executed by this Elastic Job Step.
      *
      * > **Note:** While Azure places no restrictions on the script provided here, it is recommended to ensure the script is idempotent.
      */
-    public readonly sqlScript!: pulumi.Output<string>;
+    declare public readonly sqlScript: pulumi.Output<string>;
     /**
      * The execution timeout in seconds for this Elastic Job Step. Defaults to `43200`.
      */
-    public readonly timeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly timeoutSeconds: pulumi.Output<number | undefined>;
 
     /**
      * Create a JobStep resource with the given unique name, arguments, and options.
@@ -186,44 +186,44 @@ export class JobStep extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobStepState | undefined;
-            resourceInputs["initialRetryIntervalSeconds"] = state ? state.initialRetryIntervalSeconds : undefined;
-            resourceInputs["jobCredentialId"] = state ? state.jobCredentialId : undefined;
-            resourceInputs["jobId"] = state ? state.jobId : undefined;
-            resourceInputs["jobStepIndex"] = state ? state.jobStepIndex : undefined;
-            resourceInputs["jobTargetGroupId"] = state ? state.jobTargetGroupId : undefined;
-            resourceInputs["maximumRetryIntervalSeconds"] = state ? state.maximumRetryIntervalSeconds : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputTarget"] = state ? state.outputTarget : undefined;
-            resourceInputs["retryAttempts"] = state ? state.retryAttempts : undefined;
-            resourceInputs["retryIntervalBackoffMultiplier"] = state ? state.retryIntervalBackoffMultiplier : undefined;
-            resourceInputs["sqlScript"] = state ? state.sqlScript : undefined;
-            resourceInputs["timeoutSeconds"] = state ? state.timeoutSeconds : undefined;
+            resourceInputs["initialRetryIntervalSeconds"] = state?.initialRetryIntervalSeconds;
+            resourceInputs["jobCredentialId"] = state?.jobCredentialId;
+            resourceInputs["jobId"] = state?.jobId;
+            resourceInputs["jobStepIndex"] = state?.jobStepIndex;
+            resourceInputs["jobTargetGroupId"] = state?.jobTargetGroupId;
+            resourceInputs["maximumRetryIntervalSeconds"] = state?.maximumRetryIntervalSeconds;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputTarget"] = state?.outputTarget;
+            resourceInputs["retryAttempts"] = state?.retryAttempts;
+            resourceInputs["retryIntervalBackoffMultiplier"] = state?.retryIntervalBackoffMultiplier;
+            resourceInputs["sqlScript"] = state?.sqlScript;
+            resourceInputs["timeoutSeconds"] = state?.timeoutSeconds;
         } else {
             const args = argsOrState as JobStepArgs | undefined;
-            if ((!args || args.jobId === undefined) && !opts.urn) {
+            if (args?.jobId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobId'");
             }
-            if ((!args || args.jobStepIndex === undefined) && !opts.urn) {
+            if (args?.jobStepIndex === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobStepIndex'");
             }
-            if ((!args || args.jobTargetGroupId === undefined) && !opts.urn) {
+            if (args?.jobTargetGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobTargetGroupId'");
             }
-            if ((!args || args.sqlScript === undefined) && !opts.urn) {
+            if (args?.sqlScript === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlScript'");
             }
-            resourceInputs["initialRetryIntervalSeconds"] = args ? args.initialRetryIntervalSeconds : undefined;
-            resourceInputs["jobCredentialId"] = args ? args.jobCredentialId : undefined;
-            resourceInputs["jobId"] = args ? args.jobId : undefined;
-            resourceInputs["jobStepIndex"] = args ? args.jobStepIndex : undefined;
-            resourceInputs["jobTargetGroupId"] = args ? args.jobTargetGroupId : undefined;
-            resourceInputs["maximumRetryIntervalSeconds"] = args ? args.maximumRetryIntervalSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputTarget"] = args ? args.outputTarget : undefined;
-            resourceInputs["retryAttempts"] = args ? args.retryAttempts : undefined;
-            resourceInputs["retryIntervalBackoffMultiplier"] = args ? args.retryIntervalBackoffMultiplier : undefined;
-            resourceInputs["sqlScript"] = args ? args.sqlScript : undefined;
-            resourceInputs["timeoutSeconds"] = args ? args.timeoutSeconds : undefined;
+            resourceInputs["initialRetryIntervalSeconds"] = args?.initialRetryIntervalSeconds;
+            resourceInputs["jobCredentialId"] = args?.jobCredentialId;
+            resourceInputs["jobId"] = args?.jobId;
+            resourceInputs["jobStepIndex"] = args?.jobStepIndex;
+            resourceInputs["jobTargetGroupId"] = args?.jobTargetGroupId;
+            resourceInputs["maximumRetryIntervalSeconds"] = args?.maximumRetryIntervalSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputTarget"] = args?.outputTarget;
+            resourceInputs["retryAttempts"] = args?.retryAttempts;
+            resourceInputs["retryIntervalBackoffMultiplier"] = args?.retryIntervalBackoffMultiplier;
+            resourceInputs["sqlScript"] = args?.sqlScript;
+            resourceInputs["timeoutSeconds"] = args?.timeoutSeconds;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(JobStep.__pulumiType, name, resourceInputs, opts);

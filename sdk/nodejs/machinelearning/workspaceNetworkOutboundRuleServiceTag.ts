@@ -107,23 +107,23 @@ export class WorkspaceNetworkOutboundRuleServiceTag extends pulumi.CustomResourc
     /**
      * Specifies the name of the Machine Learning Workspace Network Outbound Rule Service Tag. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies which ports traffic will be allowed by this rule. You can specify a single port (e.g. ` 80`) ,  a port range  (e.g. `1024-655535`) or a comma-separated list of single ports and/or port ranges(e.g. `80,1024-655535`). `*` can be used to allow traffic on any port.
      */
-    public readonly portRanges!: pulumi.Output<string>;
+    declare public readonly portRanges: pulumi.Output<string>;
     /**
      * Specifies the network protocol. Possible values are `*`, `TCP`, `UDP` and `ICMP`
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * Specifies the fully qualified domain name to allow for outbound traffic. Possible values are `AppConfiguration`,`AppService`,`AzureActiveDirectory`,`AzureAdvancedThreatProtection`,`AzureArcInfrastructure`,`AzureAttestation`,`AzureBackup`,`AzureBotService`,`AzureContainerRegistry`,`AzureCosmosDB`,`AzureDataLake`,`AzureDevSpaces`,`AzureInformationProtection`,`AzureIoTHub`,`AzureKeyVault`,`AzureManagedGrafana`,`AzureMonitor`,`AzureOpenDatasets`,`AzurePlatformDNS`,`AzurePlatformIMDS`,`AzurePlatformLKM`,`AzureResourceManager`,`AzureSignalR`,`AzureSiteRecovery`,`AzureSpringCloud`,`AzureStack`,`AzureUpdateDelivery`,`DataFactoryManagement`,`EventHub`,`GuestAndHybridManagement`,`M365ManagementActivityApi`,`M365ManagementActivityApi`,`MicrosoftAzureFluidRelay`,`MicrosoftCloudAppSecurity`,`MicrosoftContainerRegistry`,`PowerPlatformInfra`,`ServiceBus`,`Sql`,`Storage`,`WindowsAdminCenter`,`AppServiceManagement`,`AutonomousDevelopmentPlatform`,`AzureActiveDirectoryDomainServices`,`AzureCloud`,`AzureConnectors`,`AzureContainerAppsService`,`AzureDatabricks`,`AzureDeviceUpdate`,`AzureEventGrid`,`AzureFrontDoor.Frontend`,`AzureFrontDoor.Backend`,`AzureFrontDoor.FirstParty`,`AzureHealthcareAPIs`,`AzureLoadBalancer`,`AzureMachineLearning`,`AzureSphere`,`AzureWebPubSub`,`BatchNodeManagement`,`ChaosStudio`,`CognitiveServicesFrontend`,`CognitiveServicesManagement`,`DataFactory`,`Dynamics365ForMarketingEmail`,`Dynamics365BusinessCentral`,`EOPExternalPublishedIPs`,`Internet`,`LogicApps`,`Marketplace`,`MicrosoftDefenderForEndpoint`,`PowerBI`,`PowerQueryOnline`,`ServiceFabric`,`SqlManagement`,`StorageSyncService`,`WindowsVirtualDesktop` and `VirtualNetwork`.
      */
-    public readonly serviceTag!: pulumi.Output<string>;
+    declare public readonly serviceTag: pulumi.Output<string>;
     /**
      * Specifies the ID of the Machine Learning Workspace. Changing this forces a new resource to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceNetworkOutboundRuleServiceTag resource with the given unique name, arguments, and options.
@@ -138,30 +138,30 @@ export class WorkspaceNetworkOutboundRuleServiceTag extends pulumi.CustomResourc
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceNetworkOutboundRuleServiceTagState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["portRanges"] = state ? state.portRanges : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["serviceTag"] = state ? state.serviceTag : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["portRanges"] = state?.portRanges;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["serviceTag"] = state?.serviceTag;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as WorkspaceNetworkOutboundRuleServiceTagArgs | undefined;
-            if ((!args || args.portRanges === undefined) && !opts.urn) {
+            if (args?.portRanges === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portRanges'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.serviceTag === undefined) && !opts.urn) {
+            if (args?.serviceTag === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceTag'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["portRanges"] = args ? args.portRanges : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["serviceTag"] = args ? args.serviceTag : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["portRanges"] = args?.portRanges;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["serviceTag"] = args?.serviceTag;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WorkspaceNetworkOutboundRuleServiceTag.__pulumiType, name, resourceInputs, opts);

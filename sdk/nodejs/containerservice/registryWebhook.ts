@@ -85,43 +85,43 @@ export class RegistryWebhook extends pulumi.CustomResource {
     /**
      * A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chartPush`, `chartDelete`
      */
-    public readonly actions!: pulumi.Output<string[]>;
+    declare public readonly actions: pulumi.Output<string[]>;
     /**
      * Custom headers that will be added to the webhook notifications request.
      */
-    public readonly customHeaders!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly customHeaders: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
      */
-    public readonly registryName!: pulumi.Output<string>;
+    declare public readonly registryName: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Container Registry Webhook. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * Specifies the service URI for the Webhook to post notifications.
      */
-    public readonly serviceUri!: pulumi.Output<string>;
+    declare public readonly serviceUri: pulumi.Output<string>;
     /**
      * Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RegistryWebhook resource with the given unique name, arguments, and options.
@@ -136,40 +136,40 @@ export class RegistryWebhook extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryWebhookState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["registryName"] = state ? state.registryName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["serviceUri"] = state ? state.serviceUri : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["customHeaders"] = state?.customHeaders;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["registryName"] = state?.registryName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["serviceUri"] = state?.serviceUri;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as RegistryWebhookArgs | undefined;
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceUri === undefined) && !opts.urn) {
+            if (args?.serviceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceUri'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["serviceUri"] = args ? args.serviceUri : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["customHeaders"] = args?.customHeaders;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["serviceUri"] = args?.serviceUri;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:containerservice/registryWebook:RegistryWebook" }] };

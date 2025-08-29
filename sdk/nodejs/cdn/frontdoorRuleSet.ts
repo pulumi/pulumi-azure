@@ -74,11 +74,11 @@ export class FrontdoorRuleSet extends pulumi.CustomResource {
     /**
      * The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
      */
-    public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorProfileId: pulumi.Output<string>;
     /**
      * The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a FrontdoorRuleSet resource with the given unique name, arguments, and options.
@@ -93,15 +93,15 @@ export class FrontdoorRuleSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorRuleSetState | undefined;
-            resourceInputs["cdnFrontdoorProfileId"] = state ? state.cdnFrontdoorProfileId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = state?.cdnFrontdoorProfileId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as FrontdoorRuleSetArgs | undefined;
-            if ((!args || args.cdnFrontdoorProfileId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorProfileId'");
             }
-            resourceInputs["cdnFrontdoorProfileId"] = args ? args.cdnFrontdoorProfileId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = args?.cdnFrontdoorProfileId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FrontdoorRuleSet.__pulumiType, name, resourceInputs, opts);

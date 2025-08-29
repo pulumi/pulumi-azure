@@ -82,47 +82,47 @@ export class DiscoveryVirtualInstance extends pulumi.CustomResource {
     /**
      * The ID of the Virtual Machine of the Central Server. Changing this forces a new resource to be created.
      */
-    public readonly centralServerVirtualMachineId!: pulumi.Output<string>;
+    declare public readonly centralServerVirtualMachineId: pulumi.Output<string>;
     /**
      * The environment type for the SAP Discovery Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
      */
-    public readonly environment!: pulumi.Output<string>;
+    declare public readonly environment: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.workloadssap.DiscoveryVirtualInstanceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.workloadssap.DiscoveryVirtualInstanceIdentity | undefined>;
     /**
      * The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
      */
-    public readonly managedResourceGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourceGroupName: pulumi.Output<string | undefined>;
     /**
      * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
      */
-    public readonly managedResourcesNetworkAccessType!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourcesNetworkAccessType: pulumi.Output<string | undefined>;
     /**
      * The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
      */
-    public readonly managedStorageAccountName!: pulumi.Output<string | undefined>;
+    declare public readonly managedStorageAccountName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SAP Product type for the SAP Discovery Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
      */
-    public readonly sapProduct!: pulumi.Output<string>;
+    declare public readonly sapProduct: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the SAP Discovery Virtual Instance.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DiscoveryVirtualInstance resource with the given unique name, arguments, and options.
@@ -137,42 +137,42 @@ export class DiscoveryVirtualInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DiscoveryVirtualInstanceState | undefined;
-            resourceInputs["centralServerVirtualMachineId"] = state ? state.centralServerVirtualMachineId : undefined;
-            resourceInputs["environment"] = state ? state.environment : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
-            resourceInputs["managedResourcesNetworkAccessType"] = state ? state.managedResourcesNetworkAccessType : undefined;
-            resourceInputs["managedStorageAccountName"] = state ? state.managedStorageAccountName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sapProduct"] = state ? state.sapProduct : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["centralServerVirtualMachineId"] = state?.centralServerVirtualMachineId;
+            resourceInputs["environment"] = state?.environment;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedResourceGroupName"] = state?.managedResourceGroupName;
+            resourceInputs["managedResourcesNetworkAccessType"] = state?.managedResourcesNetworkAccessType;
+            resourceInputs["managedStorageAccountName"] = state?.managedStorageAccountName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sapProduct"] = state?.sapProduct;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as DiscoveryVirtualInstanceArgs | undefined;
-            if ((!args || args.centralServerVirtualMachineId === undefined) && !opts.urn) {
+            if (args?.centralServerVirtualMachineId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'centralServerVirtualMachineId'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapProduct === undefined) && !opts.urn) {
+            if (args?.sapProduct === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapProduct'");
             }
-            resourceInputs["centralServerVirtualMachineId"] = args ? args.centralServerVirtualMachineId : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["managedResourcesNetworkAccessType"] = args ? args.managedResourcesNetworkAccessType : undefined;
-            resourceInputs["managedStorageAccountName"] = args ? args.managedStorageAccountName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapProduct"] = args ? args.sapProduct : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["centralServerVirtualMachineId"] = args?.centralServerVirtualMachineId;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["managedResourcesNetworkAccessType"] = args?.managedResourcesNetworkAccessType;
+            resourceInputs["managedStorageAccountName"] = args?.managedStorageAccountName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapProduct"] = args?.sapProduct;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DiscoveryVirtualInstance.__pulumiType, name, resourceInputs, opts);

@@ -137,141 +137,141 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * One or more `authenticationCertificate` blocks as defined below.
      */
-    public readonly authenticationCertificates!: pulumi.Output<outputs.network.ApplicationGatewayAuthenticationCertificate[] | undefined>;
+    declare public readonly authenticationCertificates: pulumi.Output<outputs.network.ApplicationGatewayAuthenticationCertificate[] | undefined>;
     /**
      * An `autoscaleConfiguration` block as defined below.
      */
-    public readonly autoscaleConfiguration!: pulumi.Output<outputs.network.ApplicationGatewayAutoscaleConfiguration | undefined>;
+    declare public readonly autoscaleConfiguration: pulumi.Output<outputs.network.ApplicationGatewayAutoscaleConfiguration | undefined>;
     /**
      * One or more `backendAddressPool` blocks as defined below.
      */
-    public readonly backendAddressPools!: pulumi.Output<outputs.network.ApplicationGatewayBackendAddressPool[]>;
+    declare public readonly backendAddressPools: pulumi.Output<outputs.network.ApplicationGatewayBackendAddressPool[]>;
     /**
      * One or more `backendHttpSettings` blocks as defined below.
      */
-    public readonly backendHttpSettings!: pulumi.Output<outputs.network.ApplicationGatewayBackendHttpSetting[]>;
+    declare public readonly backendHttpSettings: pulumi.Output<outputs.network.ApplicationGatewayBackendHttpSetting[]>;
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
-    public readonly customErrorConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorConfiguration[] | undefined>;
+    declare public readonly customErrorConfigurations: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorConfiguration[] | undefined>;
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
-    public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableHttp2: pulumi.Output<boolean | undefined>;
     /**
      * Is FIPS enabled on the Application Gateway?
      */
-    public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly fipsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Web Application Firewall Policy.
      */
-    public readonly firewallPolicyId!: pulumi.Output<string | undefined>;
+    declare public readonly firewallPolicyId: pulumi.Output<string | undefined>;
     /**
      * Is the Firewall Policy associated with the Application Gateway?
      */
-    public readonly forceFirewallPolicyAssociation!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceFirewallPolicyAssociation: pulumi.Output<boolean | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    public readonly frontendIpConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayFrontendIpConfiguration[]>;
+    declare public readonly frontendIpConfigurations: pulumi.Output<outputs.network.ApplicationGatewayFrontendIpConfiguration[]>;
     /**
      * One or more `frontendPort` blocks as defined below.
      */
-    public readonly frontendPorts!: pulumi.Output<outputs.network.ApplicationGatewayFrontendPort[]>;
+    declare public readonly frontendPorts: pulumi.Output<outputs.network.ApplicationGatewayFrontendPort[]>;
     /**
      * One or more `gatewayIpConfiguration` blocks as defined below.
      */
-    public readonly gatewayIpConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayGatewayIpConfiguration[]>;
+    declare public readonly gatewayIpConfigurations: pulumi.Output<outputs.network.ApplicationGatewayGatewayIpConfiguration[]>;
     /**
      * A `global` block as defined below.
      */
-    public readonly global!: pulumi.Output<outputs.network.ApplicationGatewayGlobal | undefined>;
+    declare public readonly global: pulumi.Output<outputs.network.ApplicationGatewayGlobal | undefined>;
     /**
      * One or more `httpListener` blocks as defined below.
      */
-    public readonly httpListeners!: pulumi.Output<outputs.network.ApplicationGatewayHttpListener[]>;
+    declare public readonly httpListeners: pulumi.Output<outputs.network.ApplicationGatewayHttpListener[]>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.network.ApplicationGatewayIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.network.ApplicationGatewayIdentity | undefined>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Application Gateway. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of `privateEndpointConnection` blocks as defined below.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.network.ApplicationGatewayPrivateEndpointConnection[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.network.ApplicationGatewayPrivateEndpointConnection[]>;
     /**
      * One or more `privateLinkConfiguration` blocks as defined below.
      */
-    public readonly privateLinkConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayPrivateLinkConfiguration[] | undefined>;
+    declare public readonly privateLinkConfigurations: pulumi.Output<outputs.network.ApplicationGatewayPrivateLinkConfiguration[] | undefined>;
     /**
      * One or more `probe` blocks as defined below.
      */
-    public readonly probes!: pulumi.Output<outputs.network.ApplicationGatewayProbe[] | undefined>;
+    declare public readonly probes: pulumi.Output<outputs.network.ApplicationGatewayProbe[] | undefined>;
     /**
      * One or more `redirectConfiguration` blocks as defined below.
      */
-    public readonly redirectConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayRedirectConfiguration[] | undefined>;
+    declare public readonly redirectConfigurations: pulumi.Output<outputs.network.ApplicationGatewayRedirectConfiguration[] | undefined>;
     /**
      * One or more `requestRoutingRule` blocks as defined below.
      */
-    public readonly requestRoutingRules!: pulumi.Output<outputs.network.ApplicationGatewayRequestRoutingRule[]>;
+    declare public readonly requestRoutingRules: pulumi.Output<outputs.network.ApplicationGatewayRequestRoutingRule[]>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 WAF and Standard SKUs.
      */
-    public readonly rewriteRuleSets!: pulumi.Output<outputs.network.ApplicationGatewayRewriteRuleSet[] | undefined>;
+    declare public readonly rewriteRuleSets: pulumi.Output<outputs.network.ApplicationGatewayRewriteRuleSet[] | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<outputs.network.ApplicationGatewaySku>;
+    declare public readonly sku: pulumi.Output<outputs.network.ApplicationGatewaySku>;
     /**
      * One or more `sslCertificate` blocks as defined below.
      */
-    public readonly sslCertificates!: pulumi.Output<outputs.network.ApplicationGatewaySslCertificate[] | undefined>;
+    declare public readonly sslCertificates: pulumi.Output<outputs.network.ApplicationGatewaySslCertificate[] | undefined>;
     /**
      * a `sslPolicy` block as defined below.
      */
-    public readonly sslPolicy!: pulumi.Output<outputs.network.ApplicationGatewaySslPolicy>;
+    declare public readonly sslPolicy: pulumi.Output<outputs.network.ApplicationGatewaySslPolicy>;
     /**
      * One or more `sslProfile` blocks as defined below.
      */
-    public readonly sslProfiles!: pulumi.Output<outputs.network.ApplicationGatewaySslProfile[] | undefined>;
+    declare public readonly sslProfiles: pulumi.Output<outputs.network.ApplicationGatewaySslProfile[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * One or more `trustedClientCertificate` blocks as defined below.
      */
-    public readonly trustedClientCertificates!: pulumi.Output<outputs.network.ApplicationGatewayTrustedClientCertificate[] | undefined>;
+    declare public readonly trustedClientCertificates: pulumi.Output<outputs.network.ApplicationGatewayTrustedClientCertificate[] | undefined>;
     /**
      * One or more `trustedRootCertificate` blocks as defined below.
      */
-    public readonly trustedRootCertificates!: pulumi.Output<outputs.network.ApplicationGatewayTrustedRootCertificate[] | undefined>;
+    declare public readonly trustedRootCertificates: pulumi.Output<outputs.network.ApplicationGatewayTrustedRootCertificate[] | undefined>;
     /**
      * One or more `urlPathMap` blocks as defined below.
      */
-    public readonly urlPathMaps!: pulumi.Output<outputs.network.ApplicationGatewayUrlPathMap[] | undefined>;
+    declare public readonly urlPathMaps: pulumi.Output<outputs.network.ApplicationGatewayUrlPathMap[] | undefined>;
     /**
      * A `wafConfiguration` block as defined below.
      */
-    public readonly wafConfiguration!: pulumi.Output<outputs.network.ApplicationGatewayWafConfiguration | undefined>;
+    declare public readonly wafConfiguration: pulumi.Output<outputs.network.ApplicationGatewayWafConfiguration | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
      *
      * > **Note:** Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ApplicationGateway resource with the given unique name, arguments, and options.
@@ -286,102 +286,102 @@ export class ApplicationGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationGatewayState | undefined;
-            resourceInputs["authenticationCertificates"] = state ? state.authenticationCertificates : undefined;
-            resourceInputs["autoscaleConfiguration"] = state ? state.autoscaleConfiguration : undefined;
-            resourceInputs["backendAddressPools"] = state ? state.backendAddressPools : undefined;
-            resourceInputs["backendHttpSettings"] = state ? state.backendHttpSettings : undefined;
-            resourceInputs["customErrorConfigurations"] = state ? state.customErrorConfigurations : undefined;
-            resourceInputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
-            resourceInputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
-            resourceInputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
-            resourceInputs["forceFirewallPolicyAssociation"] = state ? state.forceFirewallPolicyAssociation : undefined;
-            resourceInputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
-            resourceInputs["frontendPorts"] = state ? state.frontendPorts : undefined;
-            resourceInputs["gatewayIpConfigurations"] = state ? state.gatewayIpConfigurations : undefined;
-            resourceInputs["global"] = state ? state.global : undefined;
-            resourceInputs["httpListeners"] = state ? state.httpListeners : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateEndpointConnections"] = state ? state.privateEndpointConnections : undefined;
-            resourceInputs["privateLinkConfigurations"] = state ? state.privateLinkConfigurations : undefined;
-            resourceInputs["probes"] = state ? state.probes : undefined;
-            resourceInputs["redirectConfigurations"] = state ? state.redirectConfigurations : undefined;
-            resourceInputs["requestRoutingRules"] = state ? state.requestRoutingRules : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rewriteRuleSets"] = state ? state.rewriteRuleSets : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["sslCertificates"] = state ? state.sslCertificates : undefined;
-            resourceInputs["sslPolicy"] = state ? state.sslPolicy : undefined;
-            resourceInputs["sslProfiles"] = state ? state.sslProfiles : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["trustedClientCertificates"] = state ? state.trustedClientCertificates : undefined;
-            resourceInputs["trustedRootCertificates"] = state ? state.trustedRootCertificates : undefined;
-            resourceInputs["urlPathMaps"] = state ? state.urlPathMaps : undefined;
-            resourceInputs["wafConfiguration"] = state ? state.wafConfiguration : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["authenticationCertificates"] = state?.authenticationCertificates;
+            resourceInputs["autoscaleConfiguration"] = state?.autoscaleConfiguration;
+            resourceInputs["backendAddressPools"] = state?.backendAddressPools;
+            resourceInputs["backendHttpSettings"] = state?.backendHttpSettings;
+            resourceInputs["customErrorConfigurations"] = state?.customErrorConfigurations;
+            resourceInputs["enableHttp2"] = state?.enableHttp2;
+            resourceInputs["fipsEnabled"] = state?.fipsEnabled;
+            resourceInputs["firewallPolicyId"] = state?.firewallPolicyId;
+            resourceInputs["forceFirewallPolicyAssociation"] = state?.forceFirewallPolicyAssociation;
+            resourceInputs["frontendIpConfigurations"] = state?.frontendIpConfigurations;
+            resourceInputs["frontendPorts"] = state?.frontendPorts;
+            resourceInputs["gatewayIpConfigurations"] = state?.gatewayIpConfigurations;
+            resourceInputs["global"] = state?.global;
+            resourceInputs["httpListeners"] = state?.httpListeners;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateEndpointConnections"] = state?.privateEndpointConnections;
+            resourceInputs["privateLinkConfigurations"] = state?.privateLinkConfigurations;
+            resourceInputs["probes"] = state?.probes;
+            resourceInputs["redirectConfigurations"] = state?.redirectConfigurations;
+            resourceInputs["requestRoutingRules"] = state?.requestRoutingRules;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rewriteRuleSets"] = state?.rewriteRuleSets;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["sslCertificates"] = state?.sslCertificates;
+            resourceInputs["sslPolicy"] = state?.sslPolicy;
+            resourceInputs["sslProfiles"] = state?.sslProfiles;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["trustedClientCertificates"] = state?.trustedClientCertificates;
+            resourceInputs["trustedRootCertificates"] = state?.trustedRootCertificates;
+            resourceInputs["urlPathMaps"] = state?.urlPathMaps;
+            resourceInputs["wafConfiguration"] = state?.wafConfiguration;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as ApplicationGatewayArgs | undefined;
-            if ((!args || args.backendAddressPools === undefined) && !opts.urn) {
+            if (args?.backendAddressPools === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backendAddressPools'");
             }
-            if ((!args || args.backendHttpSettings === undefined) && !opts.urn) {
+            if (args?.backendHttpSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backendHttpSettings'");
             }
-            if ((!args || args.frontendIpConfigurations === undefined) && !opts.urn) {
+            if (args?.frontendIpConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontendIpConfigurations'");
             }
-            if ((!args || args.frontendPorts === undefined) && !opts.urn) {
+            if (args?.frontendPorts === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontendPorts'");
             }
-            if ((!args || args.gatewayIpConfigurations === undefined) && !opts.urn) {
+            if (args?.gatewayIpConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayIpConfigurations'");
             }
-            if ((!args || args.httpListeners === undefined) && !opts.urn) {
+            if (args?.httpListeners === undefined && !opts.urn) {
                 throw new Error("Missing required property 'httpListeners'");
             }
-            if ((!args || args.requestRoutingRules === undefined) && !opts.urn) {
+            if (args?.requestRoutingRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestRoutingRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["authenticationCertificates"] = args ? args.authenticationCertificates : undefined;
-            resourceInputs["autoscaleConfiguration"] = args ? args.autoscaleConfiguration : undefined;
-            resourceInputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
-            resourceInputs["backendHttpSettings"] = args ? args.backendHttpSettings : undefined;
-            resourceInputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
-            resourceInputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
-            resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
-            resourceInputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
-            resourceInputs["forceFirewallPolicyAssociation"] = args ? args.forceFirewallPolicyAssociation : undefined;
-            resourceInputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
-            resourceInputs["frontendPorts"] = args ? args.frontendPorts : undefined;
-            resourceInputs["gatewayIpConfigurations"] = args ? args.gatewayIpConfigurations : undefined;
-            resourceInputs["global"] = args ? args.global : undefined;
-            resourceInputs["httpListeners"] = args ? args.httpListeners : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateLinkConfigurations"] = args ? args.privateLinkConfigurations : undefined;
-            resourceInputs["probes"] = args ? args.probes : undefined;
-            resourceInputs["redirectConfigurations"] = args ? args.redirectConfigurations : undefined;
-            resourceInputs["requestRoutingRules"] = args ? args.requestRoutingRules : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rewriteRuleSets"] = args ? args.rewriteRuleSets : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["sslCertificates"] = args ? args.sslCertificates : undefined;
-            resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
-            resourceInputs["sslProfiles"] = args ? args.sslProfiles : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustedClientCertificates"] = args ? args.trustedClientCertificates : undefined;
-            resourceInputs["trustedRootCertificates"] = args ? args.trustedRootCertificates : undefined;
-            resourceInputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
-            resourceInputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["authenticationCertificates"] = args?.authenticationCertificates;
+            resourceInputs["autoscaleConfiguration"] = args?.autoscaleConfiguration;
+            resourceInputs["backendAddressPools"] = args?.backendAddressPools;
+            resourceInputs["backendHttpSettings"] = args?.backendHttpSettings;
+            resourceInputs["customErrorConfigurations"] = args?.customErrorConfigurations;
+            resourceInputs["enableHttp2"] = args?.enableHttp2;
+            resourceInputs["fipsEnabled"] = args?.fipsEnabled;
+            resourceInputs["firewallPolicyId"] = args?.firewallPolicyId;
+            resourceInputs["forceFirewallPolicyAssociation"] = args?.forceFirewallPolicyAssociation;
+            resourceInputs["frontendIpConfigurations"] = args?.frontendIpConfigurations;
+            resourceInputs["frontendPorts"] = args?.frontendPorts;
+            resourceInputs["gatewayIpConfigurations"] = args?.gatewayIpConfigurations;
+            resourceInputs["global"] = args?.global;
+            resourceInputs["httpListeners"] = args?.httpListeners;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateLinkConfigurations"] = args?.privateLinkConfigurations;
+            resourceInputs["probes"] = args?.probes;
+            resourceInputs["redirectConfigurations"] = args?.redirectConfigurations;
+            resourceInputs["requestRoutingRules"] = args?.requestRoutingRules;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rewriteRuleSets"] = args?.rewriteRuleSets;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["sslCertificates"] = args?.sslCertificates;
+            resourceInputs["sslPolicy"] = args?.sslPolicy;
+            resourceInputs["sslProfiles"] = args?.sslProfiles;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustedClientCertificates"] = args?.trustedClientCertificates;
+            resourceInputs["trustedRootCertificates"] = args?.trustedRootCertificates;
+            resourceInputs["urlPathMaps"] = args?.urlPathMaps;
+            resourceInputs["wafConfiguration"] = args?.wafConfiguration;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

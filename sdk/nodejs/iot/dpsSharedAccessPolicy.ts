@@ -83,57 +83,57 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
      *
      * > **Note:** When `enrollmentRead` is set to `true`, `registrationRead` must also be set to true. This is a limitation of the Azure REST API
      */
-    public readonly enrollmentRead!: pulumi.Output<boolean | undefined>;
+    declare public readonly enrollmentRead: pulumi.Output<boolean | undefined>;
     /**
      * Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
      *
      * > **Note:** When `registrationWrite` is set to `true`, `enrollmentRead`, `registrationRead`, and `registrationWrite` must also be set to true. This is a requirement of the Azure API.
      */
-    public readonly enrollmentWrite!: pulumi.Output<boolean | undefined>;
+    declare public readonly enrollmentWrite: pulumi.Output<boolean | undefined>;
     /**
      * The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      */
-    public readonly iothubDpsName!: pulumi.Output<string>;
+    declare public readonly iothubDpsName: pulumi.Output<string>;
     /**
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The primary connection string of the Shared Access Policy.
      */
-    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The primary key used to create the authentication token.
      */
-    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
      * Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
      */
-    public readonly registrationRead!: pulumi.Output<boolean | undefined>;
+    declare public readonly registrationRead: pulumi.Output<boolean | undefined>;
     /**
      * Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
      *
      * > **Note:** When `registrationWrite` is set to `true`, `registrationRead` must also be set to true. This is a requirement of the Azure API.
      */
-    public readonly registrationWrite!: pulumi.Output<boolean | undefined>;
+    declare public readonly registrationWrite: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary connection string of the Shared Access Policy.
      */
-    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
      * The secondary key used to create the authentication token.
      */
-    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
      *
      * > **Note:** At least one of `registrationRead`, `registrationWrite`, `serviceConfig`, `enrollmentRead`, `enrollmentWrite` permissions must be set to `true`.
      */
-    public readonly serviceConfig!: pulumi.Output<boolean | undefined>;
+    declare public readonly serviceConfig: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DpsSharedAccessPolicy resource with the given unique name, arguments, and options.
@@ -148,34 +148,34 @@ export class DpsSharedAccessPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DpsSharedAccessPolicyState | undefined;
-            resourceInputs["enrollmentRead"] = state ? state.enrollmentRead : undefined;
-            resourceInputs["enrollmentWrite"] = state ? state.enrollmentWrite : undefined;
-            resourceInputs["iothubDpsName"] = state ? state.iothubDpsName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
-            resourceInputs["primaryKey"] = state ? state.primaryKey : undefined;
-            resourceInputs["registrationRead"] = state ? state.registrationRead : undefined;
-            resourceInputs["registrationWrite"] = state ? state.registrationWrite : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
-            resourceInputs["secondaryKey"] = state ? state.secondaryKey : undefined;
-            resourceInputs["serviceConfig"] = state ? state.serviceConfig : undefined;
+            resourceInputs["enrollmentRead"] = state?.enrollmentRead;
+            resourceInputs["enrollmentWrite"] = state?.enrollmentWrite;
+            resourceInputs["iothubDpsName"] = state?.iothubDpsName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primaryConnectionString"] = state?.primaryConnectionString;
+            resourceInputs["primaryKey"] = state?.primaryKey;
+            resourceInputs["registrationRead"] = state?.registrationRead;
+            resourceInputs["registrationWrite"] = state?.registrationWrite;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryConnectionString"] = state?.secondaryConnectionString;
+            resourceInputs["secondaryKey"] = state?.secondaryKey;
+            resourceInputs["serviceConfig"] = state?.serviceConfig;
         } else {
             const args = argsOrState as DpsSharedAccessPolicyArgs | undefined;
-            if ((!args || args.iothubDpsName === undefined) && !opts.urn) {
+            if (args?.iothubDpsName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubDpsName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["enrollmentRead"] = args ? args.enrollmentRead : undefined;
-            resourceInputs["enrollmentWrite"] = args ? args.enrollmentWrite : undefined;
-            resourceInputs["iothubDpsName"] = args ? args.iothubDpsName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["registrationRead"] = args ? args.registrationRead : undefined;
-            resourceInputs["registrationWrite"] = args ? args.registrationWrite : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceConfig"] = args ? args.serviceConfig : undefined;
+            resourceInputs["enrollmentRead"] = args?.enrollmentRead;
+            resourceInputs["enrollmentWrite"] = args?.enrollmentWrite;
+            resourceInputs["iothubDpsName"] = args?.iothubDpsName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["registrationRead"] = args?.registrationRead;
+            resourceInputs["registrationWrite"] = args?.registrationWrite;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceConfig"] = args?.serviceConfig;
             resourceInputs["primaryConnectionString"] = undefined /*out*/;
             resourceInputs["primaryKey"] = undefined /*out*/;
             resourceInputs["secondaryConnectionString"] = undefined /*out*/;

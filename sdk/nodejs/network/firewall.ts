@@ -98,65 +98,65 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to `true`. It will be set to `true` if `dnsServers` provided with a not empty list.
      */
-    public readonly dnsProxyEnabled!: pulumi.Output<boolean>;
+    declare public readonly dnsProxyEnabled: pulumi.Output<boolean>;
     /**
      * A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution.
      */
-    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsServers: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the Firewall Policy applied to this Firewall.
      */
-    public readonly firewallPolicyId!: pulumi.Output<string | undefined>;
+    declare public readonly firewallPolicyId: pulumi.Output<string | undefined>;
     /**
      * An `ipConfiguration` block as documented below.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.FirewallIpConfiguration[] | undefined>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.network.FirewallIpConfiguration[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `managementIpConfiguration` block as documented below, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnetId` in an existing block forces a new resource to be created. Changing this forces a new resource to be created.
      */
-    public readonly managementIpConfiguration!: pulumi.Output<outputs.network.FirewallManagementIpConfiguration | undefined>;
+    declare public readonly managementIpConfiguration: pulumi.Output<outputs.network.FirewallManagementIpConfiguration | undefined>;
     /**
      * Specifies the name of the Firewall. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
      */
-    public readonly privateIpRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly privateIpRanges: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`. Changing this forces a new resource to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
      */
-    public readonly skuTier!: pulumi.Output<string>;
+    declare public readonly skuTier: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
      */
-    public readonly threatIntelMode!: pulumi.Output<string>;
+    declare public readonly threatIntelMode: pulumi.Output<string>;
     /**
      * A `virtualHub` block as documented below.
      */
-    public readonly virtualHub!: pulumi.Output<outputs.network.FirewallVirtualHub | undefined>;
+    declare public readonly virtualHub: pulumi.Output<outputs.network.FirewallVirtualHub | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
      *
      * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Firewall resource with the given unique name, arguments, and options.
@@ -171,47 +171,47 @@ export class Firewall extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallState | undefined;
-            resourceInputs["dnsProxyEnabled"] = state ? state.dnsProxyEnabled : undefined;
-            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
-            resourceInputs["firewallPolicyId"] = state ? state.firewallPolicyId : undefined;
-            resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managementIpConfiguration"] = state ? state.managementIpConfiguration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateIpRanges"] = state ? state.privateIpRanges : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["threatIntelMode"] = state ? state.threatIntelMode : undefined;
-            resourceInputs["virtualHub"] = state ? state.virtualHub : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["dnsProxyEnabled"] = state?.dnsProxyEnabled;
+            resourceInputs["dnsServers"] = state?.dnsServers;
+            resourceInputs["firewallPolicyId"] = state?.firewallPolicyId;
+            resourceInputs["ipConfigurations"] = state?.ipConfigurations;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managementIpConfiguration"] = state?.managementIpConfiguration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateIpRanges"] = state?.privateIpRanges;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["skuTier"] = state?.skuTier;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["threatIntelMode"] = state?.threatIntelMode;
+            resourceInputs["virtualHub"] = state?.virtualHub;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.skuTier === undefined) && !opts.urn) {
+            if (args?.skuTier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuTier'");
             }
-            resourceInputs["dnsProxyEnabled"] = args ? args.dnsProxyEnabled : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["firewallPolicyId"] = args ? args.firewallPolicyId : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementIpConfiguration"] = args ? args.managementIpConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
-            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["dnsProxyEnabled"] = args?.dnsProxyEnabled;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["firewallPolicyId"] = args?.firewallPolicyId;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementIpConfiguration"] = args?.managementIpConfiguration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateIpRanges"] = args?.privateIpRanges;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["skuTier"] = args?.skuTier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threatIntelMode"] = args?.threatIntelMode;
+            resourceInputs["virtualHub"] = args?.virtualHub;
+            resourceInputs["zones"] = args?.zones;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Firewall.__pulumiType, name, resourceInputs, opts);

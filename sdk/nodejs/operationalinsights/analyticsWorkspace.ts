@@ -74,73 +74,73 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     /**
      * Specifies if the log Analytics Workspace allows users accessing to data associated with the resources they have permission to view, without permission to workspace. Defaults to `true`.
      */
-    public readonly allowResourceOnlyPermissions!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowResourceOnlyPermissions: pulumi.Output<boolean | undefined>;
     /**
      * Is Customer Managed Storage mandatory for query management?
      */
-    public readonly cmkForQueryForced!: pulumi.Output<boolean | undefined>;
+    declare public readonly cmkForQueryForced: pulumi.Output<boolean | undefined>;
     /**
      * The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
      */
-    public readonly dailyQuotaGb!: pulumi.Output<number | undefined>;
+    declare public readonly dailyQuotaGb: pulumi.Output<number | undefined>;
     /**
      * The ID of the Data Collection Rule to use for this workspace.
      */
-    public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
+    declare public readonly dataCollectionRuleId: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.operationalinsights.AnalyticsWorkspaceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.operationalinsights.AnalyticsWorkspaceIdentity | undefined>;
     /**
      * Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
      */
-    public readonly immediateDataPurgeOn30DaysEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly immediateDataPurgeOn30DaysEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */
-    public readonly internetIngestionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internetIngestionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
      */
-    public readonly internetQueryEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internetQueryEnabled: pulumi.Output<boolean | undefined>;
     /**
      * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
      */
-    public readonly localAuthenticationDisabled!: pulumi.Output<boolean>;
+    declare public readonly localAuthenticationDisabled: pulumi.Output<boolean>;
     /**
      * Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
      */
-    public readonly localAuthenticationEnabled!: pulumi.Output<boolean>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Primary shared key for the Log Analytics Workspace.
      */
-    public /*out*/ readonly primarySharedKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primarySharedKey: pulumi.Output<string>;
     /**
      * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
      *
      * > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
-    public readonly reservationCapacityInGbPerDay!: pulumi.Output<number | undefined>;
+    declare public readonly reservationCapacityInGbPerDay: pulumi.Output<number | undefined>;
     /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The workspace data retention in days. Possible values are between `30` and `730`.
      */
-    public readonly retentionInDays!: pulumi.Output<number>;
+    declare public readonly retentionInDays: pulumi.Output<number>;
     /**
      * The Secondary shared key for the Log Analytics Workspace.
      */
-    public /*out*/ readonly secondarySharedKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondarySharedKey: pulumi.Output<string>;
     /**
      * Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
      *
@@ -150,15 +150,15 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      *
      * > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
      */
-    public readonly sku!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Workspace (or Customer) ID for the Log Analytics Workspace.
      */
-    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a AnalyticsWorkspace resource with the given unique name, arguments, and options.
@@ -173,48 +173,48 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsWorkspaceState | undefined;
-            resourceInputs["allowResourceOnlyPermissions"] = state ? state.allowResourceOnlyPermissions : undefined;
-            resourceInputs["cmkForQueryForced"] = state ? state.cmkForQueryForced : undefined;
-            resourceInputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
-            resourceInputs["dataCollectionRuleId"] = state ? state.dataCollectionRuleId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["immediateDataPurgeOn30DaysEnabled"] = state ? state.immediateDataPurgeOn30DaysEnabled : undefined;
-            resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
-            resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
-            resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
-            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["primarySharedKey"] = state ? state.primarySharedKey : undefined;
-            resourceInputs["reservationCapacityInGbPerDay"] = state ? state.reservationCapacityInGbPerDay : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            resourceInputs["secondarySharedKey"] = state ? state.secondarySharedKey : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["allowResourceOnlyPermissions"] = state?.allowResourceOnlyPermissions;
+            resourceInputs["cmkForQueryForced"] = state?.cmkForQueryForced;
+            resourceInputs["dailyQuotaGb"] = state?.dailyQuotaGb;
+            resourceInputs["dataCollectionRuleId"] = state?.dataCollectionRuleId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["immediateDataPurgeOn30DaysEnabled"] = state?.immediateDataPurgeOn30DaysEnabled;
+            resourceInputs["internetIngestionEnabled"] = state?.internetIngestionEnabled;
+            resourceInputs["internetQueryEnabled"] = state?.internetQueryEnabled;
+            resourceInputs["localAuthenticationDisabled"] = state?.localAuthenticationDisabled;
+            resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["primarySharedKey"] = state?.primarySharedKey;
+            resourceInputs["reservationCapacityInGbPerDay"] = state?.reservationCapacityInGbPerDay;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["retentionInDays"] = state?.retentionInDays;
+            resourceInputs["secondarySharedKey"] = state?.secondarySharedKey;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as AnalyticsWorkspaceArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowResourceOnlyPermissions"] = args ? args.allowResourceOnlyPermissions : undefined;
-            resourceInputs["cmkForQueryForced"] = args ? args.cmkForQueryForced : undefined;
-            resourceInputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
-            resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["immediateDataPurgeOn30DaysEnabled"] = args ? args.immediateDataPurgeOn30DaysEnabled : undefined;
-            resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
-            resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
-            resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
-            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reservationCapacityInGbPerDay"] = args ? args.reservationCapacityInGbPerDay : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowResourceOnlyPermissions"] = args?.allowResourceOnlyPermissions;
+            resourceInputs["cmkForQueryForced"] = args?.cmkForQueryForced;
+            resourceInputs["dailyQuotaGb"] = args?.dailyQuotaGb;
+            resourceInputs["dataCollectionRuleId"] = args?.dataCollectionRuleId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["immediateDataPurgeOn30DaysEnabled"] = args?.immediateDataPurgeOn30DaysEnabled;
+            resourceInputs["internetIngestionEnabled"] = args?.internetIngestionEnabled;
+            resourceInputs["internetQueryEnabled"] = args?.internetQueryEnabled;
+            resourceInputs["localAuthenticationDisabled"] = args?.localAuthenticationDisabled;
+            resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reservationCapacityInGbPerDay"] = args?.reservationCapacityInGbPerDay;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["primarySharedKey"] = undefined /*out*/;
             resourceInputs["secondarySharedKey"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;

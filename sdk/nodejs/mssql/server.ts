@@ -168,41 +168,41 @@ export class Server extends pulumi.CustomResource {
     /**
      * The administrator login name for the new server. Required unless `azureadAuthenticationOnly` in the `azureadAdministrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
      */
-    public readonly administratorLogin!: pulumi.Output<string>;
+    declare public readonly administratorLogin: pulumi.Output<string>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
      */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    declare public readonly administratorLoginPassword: pulumi.Output<string | undefined>;
     /**
      * An integer value used to trigger an update for `administratorLoginPasswordWo`. This property should be incremented when updating `administratorLoginPasswordWo`.
      */
-    public readonly administratorLoginPasswordWoVersion!: pulumi.Output<number | undefined>;
+    declare public readonly administratorLoginPasswordWoVersion: pulumi.Output<number | undefined>;
     /**
      * An `azureadAdministrator` block as defined below.
      */
-    public readonly azureadAdministrator!: pulumi.Output<outputs.mssql.ServerAzureadAdministrator | undefined>;
+    declare public readonly azureadAdministrator: pulumi.Output<outputs.mssql.ServerAzureadAdministrator | undefined>;
     /**
      * The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
      */
-    public readonly connectionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly connectionPolicy: pulumi.Output<string | undefined>;
     /**
      * Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
      *
      * > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `azure.mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `expressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
      */
-    public readonly expressVulnerabilityAssessmentEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly expressVulnerabilityAssessmentEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
-    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedDomainName: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.mssql.ServerIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.mssql.ServerIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
      *
@@ -210,35 +210,35 @@ export class Server extends pulumi.CustomResource {
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Whether outbound network traffic is restricted for this server. Defaults to `false`.
      */
-    public readonly outboundNetworkRestrictionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly outboundNetworkRestrictionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identityIds`.
      */
-    public readonly primaryUserAssignedIdentityId!: pulumi.Output<string>;
+    declare public readonly primaryUserAssignedIdentityId: pulumi.Output<string>;
     /**
      * Whether public network access is allowed for this server. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Microsoft SQL Server. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A list of dropped restorable database IDs on the server.
      */
-    public /*out*/ readonly restorableDroppedDatabaseIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly restorableDroppedDatabaseIds: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
      *
@@ -248,11 +248,11 @@ export class Server extends pulumi.CustomResource {
      *
      * > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
      */
-    public readonly transparentDataEncryptionKeyVaultKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly transparentDataEncryptionKeyVaultKeyId: pulumi.Output<string | undefined>;
     /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -267,50 +267,50 @@ export class Server extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerState | undefined;
-            resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
-            resourceInputs["administratorLoginPasswordWoVersion"] = state ? state.administratorLoginPasswordWoVersion : undefined;
-            resourceInputs["azureadAdministrator"] = state ? state.azureadAdministrator : undefined;
-            resourceInputs["connectionPolicy"] = state ? state.connectionPolicy : undefined;
-            resourceInputs["expressVulnerabilityAssessmentEnabled"] = state ? state.expressVulnerabilityAssessmentEnabled : undefined;
-            resourceInputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundNetworkRestrictionEnabled"] = state ? state.outboundNetworkRestrictionEnabled : undefined;
-            resourceInputs["primaryUserAssignedIdentityId"] = state ? state.primaryUserAssignedIdentityId : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["restorableDroppedDatabaseIds"] = state ? state.restorableDroppedDatabaseIds : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["transparentDataEncryptionKeyVaultKeyId"] = state ? state.transparentDataEncryptionKeyVaultKeyId : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["administratorLogin"] = state?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = state?.administratorLoginPassword;
+            resourceInputs["administratorLoginPasswordWoVersion"] = state?.administratorLoginPasswordWoVersion;
+            resourceInputs["azureadAdministrator"] = state?.azureadAdministrator;
+            resourceInputs["connectionPolicy"] = state?.connectionPolicy;
+            resourceInputs["expressVulnerabilityAssessmentEnabled"] = state?.expressVulnerabilityAssessmentEnabled;
+            resourceInputs["fullyQualifiedDomainName"] = state?.fullyQualifiedDomainName;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["minimumTlsVersion"] = state?.minimumTlsVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundNetworkRestrictionEnabled"] = state?.outboundNetworkRestrictionEnabled;
+            resourceInputs["primaryUserAssignedIdentityId"] = state?.primaryUserAssignedIdentityId;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["restorableDroppedDatabaseIds"] = state?.restorableDroppedDatabaseIds;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["transparentDataEncryptionKeyVaultKeyId"] = state?.transparentDataEncryptionKeyVaultKeyId;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ServerArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
-            resourceInputs["administratorLoginPasswordWoVersion"] = args ? args.administratorLoginPasswordWoVersion : undefined;
-            resourceInputs["azureadAdministrator"] = args ? args.azureadAdministrator : undefined;
-            resourceInputs["connectionPolicy"] = args ? args.connectionPolicy : undefined;
-            resourceInputs["expressVulnerabilityAssessmentEnabled"] = args ? args.expressVulnerabilityAssessmentEnabled : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outboundNetworkRestrictionEnabled"] = args ? args.outboundNetworkRestrictionEnabled : undefined;
-            resourceInputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transparentDataEncryptionKeyVaultKeyId"] = args ? args.transparentDataEncryptionKeyVaultKeyId : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["administratorLoginPasswordWoVersion"] = args?.administratorLoginPasswordWoVersion;
+            resourceInputs["azureadAdministrator"] = args?.azureadAdministrator;
+            resourceInputs["connectionPolicy"] = args?.connectionPolicy;
+            resourceInputs["expressVulnerabilityAssessmentEnabled"] = args?.expressVulnerabilityAssessmentEnabled;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outboundNetworkRestrictionEnabled"] = args?.outboundNetworkRestrictionEnabled;
+            resourceInputs["primaryUserAssignedIdentityId"] = args?.primaryUserAssignedIdentityId;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transparentDataEncryptionKeyVaultKeyId"] = args?.transparentDataEncryptionKeyVaultKeyId;
+            resourceInputs["version"] = args?.version;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["restorableDroppedDatabaseIds"] = undefined /*out*/;
         }

@@ -225,19 +225,19 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === DiskEncryptionSet.__pulumiType;
     }
 
-    public readonly autoKeyRotationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoKeyRotationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
      */
-    public readonly encryptionType!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionType: pulumi.Output<string | undefined>;
     /**
      * Multi-tenant application client id to access key vault in a different tenant.
      */
-    public readonly federatedClientId!: pulumi.Output<string | undefined>;
+    declare public readonly federatedClientId: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.DiskEncryptionSetIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.compute.DiskEncryptionSetIdentity>;
     /**
      * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      *
@@ -246,31 +246,31 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
     /**
      * The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
      */
-    public /*out*/ readonly keyVaultKeyUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyVaultKeyUrl: pulumi.Output<string>;
     /**
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      */
-    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
+    declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
     /**
      * The name of the Disk Encryption Set. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Disk Encryption Set.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a DiskEncryptionSet resource with the given unique name, arguments, and options.
@@ -285,35 +285,35 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DiskEncryptionSetState | undefined;
-            resourceInputs["autoKeyRotationEnabled"] = state ? state.autoKeyRotationEnabled : undefined;
-            resourceInputs["encryptionType"] = state ? state.encryptionType : undefined;
-            resourceInputs["federatedClientId"] = state ? state.federatedClientId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
-            resourceInputs["keyVaultKeyUrl"] = state ? state.keyVaultKeyUrl : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["autoKeyRotationEnabled"] = state?.autoKeyRotationEnabled;
+            resourceInputs["encryptionType"] = state?.encryptionType;
+            resourceInputs["federatedClientId"] = state?.federatedClientId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
+            resourceInputs["keyVaultKeyUrl"] = state?.keyVaultKeyUrl;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as DiskEncryptionSetArgs | undefined;
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoKeyRotationEnabled"] = args ? args.autoKeyRotationEnabled : undefined;
-            resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
-            resourceInputs["federatedClientId"] = args ? args.federatedClientId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoKeyRotationEnabled"] = args?.autoKeyRotationEnabled;
+            resourceInputs["encryptionType"] = args?.encryptionType;
+            resourceInputs["federatedClientId"] = args?.federatedClientId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["keyVaultKeyUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -96,39 +96,39 @@ export class SpringCloudApiPortal extends pulumi.CustomResource {
     /**
      * Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
      */
-    public readonly apiTryOutEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly apiTryOutEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies a list of Spring Cloud Gateway.
      */
-    public readonly gatewayIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly gatewayIds: pulumi.Output<string[] | undefined>;
     /**
      * is only https is allowed?
      */
-    public readonly httpsOnlyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsOnlyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    public readonly instanceCount!: pulumi.Output<number | undefined>;
+    declare public readonly instanceCount: pulumi.Output<number | undefined>;
     /**
      * The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Is the public network access enabled?
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
     /**
      * A `sso` block as defined below.
      */
-    public readonly sso!: pulumi.Output<outputs.appplatform.SpringCloudApiPortalSso | undefined>;
+    declare public readonly sso: pulumi.Output<outputs.appplatform.SpringCloudApiPortalSso | undefined>;
     /**
      * TODO.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudApiPortal resource with the given unique name, arguments, and options.
@@ -143,28 +143,28 @@ export class SpringCloudApiPortal extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudApiPortalState | undefined;
-            resourceInputs["apiTryOutEnabled"] = state ? state.apiTryOutEnabled : undefined;
-            resourceInputs["gatewayIds"] = state ? state.gatewayIds : undefined;
-            resourceInputs["httpsOnlyEnabled"] = state ? state.httpsOnlyEnabled : undefined;
-            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
-            resourceInputs["sso"] = state ? state.sso : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["apiTryOutEnabled"] = state?.apiTryOutEnabled;
+            resourceInputs["gatewayIds"] = state?.gatewayIds;
+            resourceInputs["httpsOnlyEnabled"] = state?.httpsOnlyEnabled;
+            resourceInputs["instanceCount"] = state?.instanceCount;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
+            resourceInputs["sso"] = state?.sso;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as SpringCloudApiPortalArgs | undefined;
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            resourceInputs["apiTryOutEnabled"] = args ? args.apiTryOutEnabled : undefined;
-            resourceInputs["gatewayIds"] = args ? args.gatewayIds : undefined;
-            resourceInputs["httpsOnlyEnabled"] = args ? args.httpsOnlyEnabled : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
-            resourceInputs["sso"] = args ? args.sso : undefined;
+            resourceInputs["apiTryOutEnabled"] = args?.apiTryOutEnabled;
+            resourceInputs["gatewayIds"] = args?.gatewayIds;
+            resourceInputs["httpsOnlyEnabled"] = args?.httpsOnlyEnabled;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
+            resourceInputs["sso"] = args?.sso;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

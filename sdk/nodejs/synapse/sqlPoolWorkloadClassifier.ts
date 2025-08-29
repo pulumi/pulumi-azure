@@ -107,35 +107,35 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
     /**
      * Specifies the session context value that a request can be classified against.
      */
-    public readonly context!: pulumi.Output<string | undefined>;
+    declare public readonly context: pulumi.Output<string | undefined>;
     /**
      * The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
      */
-    public readonly endTime!: pulumi.Output<string | undefined>;
+    declare public readonly endTime: pulumi.Output<string | undefined>;
     /**
      * The workload classifier importance. The allowed values are `low`, `belowNormal`, `normal`, `aboveNormal` and `high`.
      */
-    public readonly importance!: pulumi.Output<string | undefined>;
+    declare public readonly importance: pulumi.Output<string | undefined>;
     /**
      * Specifies the label value that a request can be classified against.
      */
-    public readonly label!: pulumi.Output<string | undefined>;
+    declare public readonly label: pulumi.Output<string | undefined>;
     /**
      * The workload classifier member name used to classified against.
      */
-    public readonly memberName!: pulumi.Output<string>;
+    declare public readonly memberName: pulumi.Output<string>;
     /**
      * The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
      */
-    public readonly startTime!: pulumi.Output<string | undefined>;
+    declare public readonly startTime: pulumi.Output<string | undefined>;
     /**
      * The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
      */
-    public readonly workloadGroupId!: pulumi.Output<string>;
+    declare public readonly workloadGroupId: pulumi.Output<string>;
 
     /**
      * Create a SqlPoolWorkloadClassifier resource with the given unique name, arguments, and options.
@@ -150,30 +150,30 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlPoolWorkloadClassifierState | undefined;
-            resourceInputs["context"] = state ? state.context : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["importance"] = state ? state.importance : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["memberName"] = state ? state.memberName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["workloadGroupId"] = state ? state.workloadGroupId : undefined;
+            resourceInputs["context"] = state?.context;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["importance"] = state?.importance;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["memberName"] = state?.memberName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["workloadGroupId"] = state?.workloadGroupId;
         } else {
             const args = argsOrState as SqlPoolWorkloadClassifierArgs | undefined;
-            if ((!args || args.memberName === undefined) && !opts.urn) {
+            if (args?.memberName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memberName'");
             }
-            if ((!args || args.workloadGroupId === undefined) && !opts.urn) {
+            if (args?.workloadGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workloadGroupId'");
             }
-            resourceInputs["context"] = args ? args.context : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["importance"] = args ? args.importance : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["memberName"] = args ? args.memberName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["workloadGroupId"] = args ? args.workloadGroupId : undefined;
+            resourceInputs["context"] = args?.context;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["importance"] = args?.importance;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["memberName"] = args?.memberName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["workloadGroupId"] = args?.workloadGroupId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SqlPoolWorkloadClassifier.__pulumiType, name, resourceInputs, opts);

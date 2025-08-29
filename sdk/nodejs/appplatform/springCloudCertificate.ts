@@ -147,31 +147,31 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
     /**
      * The content of uploaded certificate. Changing this forces a new resource to be created.
      */
-    public readonly certificateContent!: pulumi.Output<string | undefined>;
+    declare public readonly certificateContent: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      */
-    public readonly excludePrivateKey!: pulumi.Output<boolean | undefined>;
+    declare public readonly excludePrivateKey: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultCertificateId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultCertificateId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      */
-    public readonly serviceName!: pulumi.Output<string>;
+    declare public readonly serviceName: pulumi.Output<string>;
     /**
      * The thumbprint of the Spring Cloud certificate.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudCertificate resource with the given unique name, arguments, and options.
@@ -186,27 +186,27 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudCertificateState | undefined;
-            resourceInputs["certificateContent"] = state ? state.certificateContent : undefined;
-            resourceInputs["excludePrivateKey"] = state ? state.excludePrivateKey : undefined;
-            resourceInputs["keyVaultCertificateId"] = state ? state.keyVaultCertificateId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
+            resourceInputs["certificateContent"] = state?.certificateContent;
+            resourceInputs["excludePrivateKey"] = state?.excludePrivateKey;
+            resourceInputs["keyVaultCertificateId"] = state?.keyVaultCertificateId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serviceName"] = state?.serviceName;
+            resourceInputs["thumbprint"] = state?.thumbprint;
         } else {
             const args = argsOrState as SpringCloudCertificateArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["certificateContent"] = args ? args.certificateContent : undefined;
-            resourceInputs["excludePrivateKey"] = args ? args.excludePrivateKey : undefined;
-            resourceInputs["keyVaultCertificateId"] = args ? args.keyVaultCertificateId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["certificateContent"] = args?.certificateContent;
+            resourceInputs["excludePrivateKey"] = args?.excludePrivateKey;
+            resourceInputs["keyVaultCertificateId"] = args?.keyVaultCertificateId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["thumbprint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -102,39 +102,39 @@ export class FluxConfiguration extends pulumi.CustomResource {
     /**
      * An `blobStorage` block as defined below.
      */
-    public readonly blobStorage!: pulumi.Output<outputs.arckubernetes.FluxConfigurationBlobStorage | undefined>;
+    declare public readonly blobStorage: pulumi.Output<outputs.arckubernetes.FluxConfigurationBlobStorage | undefined>;
     /**
      * A `bucket` block as defined below.
      */
-    public readonly bucket!: pulumi.Output<outputs.arckubernetes.FluxConfigurationBucket | undefined>;
+    declare public readonly bucket: pulumi.Output<outputs.arckubernetes.FluxConfigurationBucket | undefined>;
     /**
      * Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`.
      */
-    public readonly continuousReconciliationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly continuousReconciliationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `gitRepository` block as defined below.
      */
-    public readonly gitRepository!: pulumi.Output<outputs.arckubernetes.FluxConfigurationGitRepository | undefined>;
+    declare public readonly gitRepository: pulumi.Output<outputs.arckubernetes.FluxConfigurationGitRepository | undefined>;
     /**
      * A `kustomizations` block as defined below.
      */
-    public readonly kustomizations!: pulumi.Output<outputs.arckubernetes.FluxConfigurationKustomization[]>;
+    declare public readonly kustomizations: pulumi.Output<outputs.arckubernetes.FluxConfigurationKustomization[]>;
     /**
      * Specifies the name which should be used for this Arc Kubernetes Flux Configuration. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the namespace to which this configuration is installed to. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Arc Kubernetes Flux Configuration to be created.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
 
     /**
      * Create a FluxConfiguration resource with the given unique name, arguments, and options.
@@ -149,35 +149,35 @@ export class FluxConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FluxConfigurationState | undefined;
-            resourceInputs["blobStorage"] = state ? state.blobStorage : undefined;
-            resourceInputs["bucket"] = state ? state.bucket : undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["continuousReconciliationEnabled"] = state ? state.continuousReconciliationEnabled : undefined;
-            resourceInputs["gitRepository"] = state ? state.gitRepository : undefined;
-            resourceInputs["kustomizations"] = state ? state.kustomizations : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespace"] = state ? state.namespace : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["blobStorage"] = state?.blobStorage;
+            resourceInputs["bucket"] = state?.bucket;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["continuousReconciliationEnabled"] = state?.continuousReconciliationEnabled;
+            resourceInputs["gitRepository"] = state?.gitRepository;
+            resourceInputs["kustomizations"] = state?.kustomizations;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespace"] = state?.namespace;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as FluxConfigurationArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.kustomizations === undefined) && !opts.urn) {
+            if (args?.kustomizations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustomizations'");
             }
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            resourceInputs["blobStorage"] = args ? args.blobStorage : undefined;
-            resourceInputs["bucket"] = args ? args.bucket : undefined;
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["continuousReconciliationEnabled"] = args ? args.continuousReconciliationEnabled : undefined;
-            resourceInputs["gitRepository"] = args ? args.gitRepository : undefined;
-            resourceInputs["kustomizations"] = args ? args.kustomizations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["blobStorage"] = args?.blobStorage;
+            resourceInputs["bucket"] = args?.bucket;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["continuousReconciliationEnabled"] = args?.continuousReconciliationEnabled;
+            resourceInputs["gitRepository"] = args?.gitRepository;
+            resourceInputs["kustomizations"] = args?.kustomizations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["scope"] = args?.scope;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FluxConfiguration.__pulumiType, name, resourceInputs, opts);

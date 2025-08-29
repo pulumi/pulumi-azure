@@ -127,52 +127,52 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * A `antimalware` block as defined below.
      */
-    public readonly antimalware!: pulumi.Output<outputs.automanage.ConfigurationAntimalware | undefined>;
+    declare public readonly antimalware: pulumi.Output<outputs.automanage.ConfigurationAntimalware | undefined>;
     /**
      * Whether the automation account is enabled. Defaults to `false`.
      */
-    public readonly automationAccountEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly automationAccountEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `azureSecurityBaseline` block as defined below.
      */
-    public readonly azureSecurityBaseline!: pulumi.Output<outputs.automanage.ConfigurationAzureSecurityBaseline | undefined>;
+    declare public readonly azureSecurityBaseline: pulumi.Output<outputs.automanage.ConfigurationAzureSecurityBaseline | undefined>;
     /**
      * A `backup` block as defined below.
      */
-    public readonly backup!: pulumi.Output<outputs.automanage.ConfigurationBackup | undefined>;
+    declare public readonly backup: pulumi.Output<outputs.automanage.ConfigurationBackup | undefined>;
     /**
      * Whether the boot diagnostics are enabled. Defaults to `false`.
      */
-    public readonly bootDiagnosticsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly bootDiagnosticsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether the defender for cloud is enabled. Defaults to `false`.
      */
-    public readonly defenderForCloudEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly defenderForCloudEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether the guest configuration is enabled. Defaults to `false`.
      */
-    public readonly guestConfigurationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly guestConfigurationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure Region where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Whether log analytics are enabled. Defaults to `false`.
      */
-    public readonly logAnalyticsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly logAnalyticsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Whether the status change alert is enabled. Defaults to `false`.
      */
-    public readonly statusChangeAlertEnabled!: pulumi.Output<boolean | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly statusChangeAlertEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -187,37 +187,37 @@ export class Configuration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
-            resourceInputs["antimalware"] = state ? state.antimalware : undefined;
-            resourceInputs["automationAccountEnabled"] = state ? state.automationAccountEnabled : undefined;
-            resourceInputs["azureSecurityBaseline"] = state ? state.azureSecurityBaseline : undefined;
-            resourceInputs["backup"] = state ? state.backup : undefined;
-            resourceInputs["bootDiagnosticsEnabled"] = state ? state.bootDiagnosticsEnabled : undefined;
-            resourceInputs["defenderForCloudEnabled"] = state ? state.defenderForCloudEnabled : undefined;
-            resourceInputs["guestConfigurationEnabled"] = state ? state.guestConfigurationEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logAnalyticsEnabled"] = state ? state.logAnalyticsEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["statusChangeAlertEnabled"] = state ? state.statusChangeAlertEnabled : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["antimalware"] = state?.antimalware;
+            resourceInputs["automationAccountEnabled"] = state?.automationAccountEnabled;
+            resourceInputs["azureSecurityBaseline"] = state?.azureSecurityBaseline;
+            resourceInputs["backup"] = state?.backup;
+            resourceInputs["bootDiagnosticsEnabled"] = state?.bootDiagnosticsEnabled;
+            resourceInputs["defenderForCloudEnabled"] = state?.defenderForCloudEnabled;
+            resourceInputs["guestConfigurationEnabled"] = state?.guestConfigurationEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logAnalyticsEnabled"] = state?.logAnalyticsEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["statusChangeAlertEnabled"] = state?.statusChangeAlertEnabled;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["antimalware"] = args ? args.antimalware : undefined;
-            resourceInputs["automationAccountEnabled"] = args ? args.automationAccountEnabled : undefined;
-            resourceInputs["azureSecurityBaseline"] = args ? args.azureSecurityBaseline : undefined;
-            resourceInputs["backup"] = args ? args.backup : undefined;
-            resourceInputs["bootDiagnosticsEnabled"] = args ? args.bootDiagnosticsEnabled : undefined;
-            resourceInputs["defenderForCloudEnabled"] = args ? args.defenderForCloudEnabled : undefined;
-            resourceInputs["guestConfigurationEnabled"] = args ? args.guestConfigurationEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logAnalyticsEnabled"] = args ? args.logAnalyticsEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["statusChangeAlertEnabled"] = args ? args.statusChangeAlertEnabled : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["antimalware"] = args?.antimalware;
+            resourceInputs["automationAccountEnabled"] = args?.automationAccountEnabled;
+            resourceInputs["azureSecurityBaseline"] = args?.azureSecurityBaseline;
+            resourceInputs["backup"] = args?.backup;
+            resourceInputs["bootDiagnosticsEnabled"] = args?.bootDiagnosticsEnabled;
+            resourceInputs["defenderForCloudEnabled"] = args?.defenderForCloudEnabled;
+            resourceInputs["guestConfigurationEnabled"] = args?.guestConfigurationEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logAnalyticsEnabled"] = args?.logAnalyticsEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["statusChangeAlertEnabled"] = args?.statusChangeAlertEnabled;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);

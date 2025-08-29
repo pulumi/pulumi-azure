@@ -84,49 +84,49 @@ export class HciCluster extends pulumi.CustomResource {
     /**
      * The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
      */
-    public readonly automanageConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly automanageConfigurationId: pulumi.Output<string | undefined>;
     /**
      * The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      */
-    public readonly clientId!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string | undefined>;
     /**
      * An immutable UUID for the Azure Stack HCI Cluster.
      */
-    public /*out*/ readonly cloudId!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloudId: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.stack.HciClusterIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.stack.HciClusterIdentity | undefined>;
     /**
      * The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The object ID of the Resource Provider Service Principal.
      */
-    public /*out*/ readonly resourceProviderObjectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceProviderObjectId: pulumi.Output<string>;
     /**
      * The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
      */
-    public /*out*/ readonly serviceEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceEndpoint: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Azure Stack HCI Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      *
      * > **Note:** If unspecified the Tenant ID of the Provider will be used.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a HciCluster resource with the given unique name, arguments, and options.
@@ -141,30 +141,30 @@ export class HciCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HciClusterState | undefined;
-            resourceInputs["automanageConfigurationId"] = state ? state.automanageConfigurationId : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["cloudId"] = state ? state.cloudId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["resourceProviderObjectId"] = state ? state.resourceProviderObjectId : undefined;
-            resourceInputs["serviceEndpoint"] = state ? state.serviceEndpoint : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["automanageConfigurationId"] = state?.automanageConfigurationId;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["cloudId"] = state?.cloudId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["resourceProviderObjectId"] = state?.resourceProviderObjectId;
+            resourceInputs["serviceEndpoint"] = state?.serviceEndpoint;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as HciClusterArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automanageConfigurationId"] = args ? args.automanageConfigurationId : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["automanageConfigurationId"] = args?.automanageConfigurationId;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["cloudId"] = undefined /*out*/;
             resourceInputs["resourceProviderObjectId"] = undefined /*out*/;
             resourceInputs["serviceEndpoint"] = undefined /*out*/;

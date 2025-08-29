@@ -70,21 +70,21 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Data Connector to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created.
      */
-    public readonly microsoftEmergingThreatFeedLookbackDate!: pulumi.Output<string>;
+    declare public readonly microsoftEmergingThreatFeedLookbackDate: pulumi.Output<string>;
     /**
      * The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
 
     /**
      * Create a DataConnectorMicrosoftThreatIntelligence resource with the given unique name, arguments, and options.
@@ -99,22 +99,22 @@ export class DataConnectorMicrosoftThreatIntelligence extends pulumi.CustomResou
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorMicrosoftThreatIntelligenceState | undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["microsoftEmergingThreatFeedLookbackDate"] = state ? state.microsoftEmergingThreatFeedLookbackDate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["microsoftEmergingThreatFeedLookbackDate"] = state?.microsoftEmergingThreatFeedLookbackDate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tenantId"] = state?.tenantId;
         } else {
             const args = argsOrState as DataConnectorMicrosoftThreatIntelligenceArgs | undefined;
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.microsoftEmergingThreatFeedLookbackDate === undefined) && !opts.urn) {
+            if (args?.microsoftEmergingThreatFeedLookbackDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'microsoftEmergingThreatFeedLookbackDate'");
             }
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["microsoftEmergingThreatFeedLookbackDate"] = args ? args.microsoftEmergingThreatFeedLookbackDate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["microsoftEmergingThreatFeedLookbackDate"] = args?.microsoftEmergingThreatFeedLookbackDate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tenantId"] = args?.tenantId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataConnectorMicrosoftThreatIntelligence.__pulumiType, name, resourceInputs, opts);

@@ -90,27 +90,27 @@ export class Share extends pulumi.CustomResource {
     /**
      * The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
      */
-    public readonly accountId!: pulumi.Output<string>;
+    declare public readonly accountId: pulumi.Output<string>;
     /**
      * The Data Share's description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `snapshotSchedule` block as defined below.
      */
-    public readonly snapshotSchedule!: pulumi.Output<outputs.datashare.ShareSnapshotSchedule | undefined>;
+    declare public readonly snapshotSchedule: pulumi.Output<outputs.datashare.ShareSnapshotSchedule | undefined>;
     /**
      * The terms of the Data Share.
      */
-    public readonly terms!: pulumi.Output<string | undefined>;
+    declare public readonly terms: pulumi.Output<string | undefined>;
 
     /**
      * Create a Share resource with the given unique name, arguments, and options.
@@ -125,26 +125,26 @@ export class Share extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ShareState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["snapshotSchedule"] = state ? state.snapshotSchedule : undefined;
-            resourceInputs["terms"] = state ? state.terms : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["snapshotSchedule"] = state?.snapshotSchedule;
+            resourceInputs["terms"] = state?.terms;
         } else {
             const args = argsOrState as ShareArgs | undefined;
-            if ((!args || args.accountId === undefined) && !opts.urn) {
+            if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["snapshotSchedule"] = args ? args.snapshotSchedule : undefined;
-            resourceInputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["snapshotSchedule"] = args?.snapshotSchedule;
+            resourceInputs["terms"] = args?.terms;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Share.__pulumiType, name, resourceInputs, opts);

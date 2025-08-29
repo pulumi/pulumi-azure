@@ -246,55 +246,55 @@ export class ManagedInstance extends pulumi.CustomResource {
     /**
      * The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    public readonly administratorLogin!: pulumi.Output<string>;
+    declare public readonly administratorLogin: pulumi.Output<string>;
     /**
      * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      *
      * > **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administratorLogin` and `administratorLoginPassword` are required.
      */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    declare public readonly administratorLoginPassword: pulumi.Output<string | undefined>;
     /**
      * An `azureActiveDirectoryAdministrator` block as defined below.
      */
-    public readonly azureActiveDirectoryAdministrator!: pulumi.Output<outputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator | undefined>;
+    declare public readonly azureActiveDirectoryAdministrator: pulumi.Output<outputs.mssql.ManagedInstanceAzureActiveDirectoryAdministrator | undefined>;
     /**
      * Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
-    public readonly collation!: pulumi.Output<string | undefined>;
+    declare public readonly collation: pulumi.Output<string | undefined>;
     /**
      * Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
      *
      * > **Note:** Changing `databaseFormat` from `AlwaysUpToDate` to `SQLServer2022` forces a new SQL Managed Instance to be created.
      */
-    public readonly databaseFormat!: pulumi.Output<string | undefined>;
+    declare public readonly databaseFormat: pulumi.Output<string | undefined>;
     /**
      * The Dns Zone where the SQL Managed Instance is located.
      */
-    public /*out*/ readonly dnsZone!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsZone: pulumi.Output<string>;
     /**
      * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermSqlManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
-    public readonly dnsZonePartnerId!: pulumi.Output<string | undefined>;
+    declare public readonly dnsZonePartnerId: pulumi.Output<string | undefined>;
     /**
      * The fully qualified domain name of the Azure Managed SQL Instance
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
      */
-    public readonly hybridSecondaryUsage!: pulumi.Output<string | undefined>;
+    declare public readonly hybridSecondaryUsage: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.mssql.ManagedInstanceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.mssql.ManagedInstanceIdentity | undefined>;
     /**
      * What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
      */
-    public readonly licenseType!: pulumi.Output<string>;
+    declare public readonly licenseType: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Possible values are `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
      *
@@ -302,60 +302,60 @@ export class ManagedInstance extends pulumi.CustomResource {
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    public readonly maintenanceConfigurationName!: pulumi.Output<string | undefined>;
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly maintenanceConfigurationName: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
      */
-    public readonly proxyOverride!: pulumi.Output<string | undefined>;
+    declare public readonly proxyOverride: pulumi.Output<string | undefined>;
     /**
      * Is the public data endpoint enabled? Defaults to `false`.
      */
-    public readonly publicDataEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicDataEndpointEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The service principal type. The only possible value is `SystemAssigned`.
      */
-    public readonly servicePrincipalType!: pulumi.Output<string | undefined>;
+    declare public readonly servicePrincipalType: pulumi.Output<string | undefined>;
     /**
      * Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
      */
-    public readonly storageAccountType!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountType: pulumi.Output<string | undefined>;
     /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      */
-    public readonly storageSizeInGb!: pulumi.Output<number>;
+    declare public readonly storageSizeInGb: pulumi.Output<number>;
     /**
      * The subnet resource id that the SQL Managed Instance will be associated with.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
      */
-    public readonly timezoneId!: pulumi.Output<string | undefined>;
+    declare public readonly timezoneId: pulumi.Output<string | undefined>;
     /**
      * Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
      */
-    public readonly vcores!: pulumi.Output<number>;
+    declare public readonly vcores: pulumi.Output<number>;
     /**
      * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      */
-    public readonly zoneRedundantEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundantEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ManagedInstance resource with the given unique name, arguments, and options.
@@ -370,78 +370,78 @@ export class ManagedInstance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedInstanceState | undefined;
-            resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
-            resourceInputs["azureActiveDirectoryAdministrator"] = state ? state.azureActiveDirectoryAdministrator : undefined;
-            resourceInputs["collation"] = state ? state.collation : undefined;
-            resourceInputs["databaseFormat"] = state ? state.databaseFormat : undefined;
-            resourceInputs["dnsZone"] = state ? state.dnsZone : undefined;
-            resourceInputs["dnsZonePartnerId"] = state ? state.dnsZonePartnerId : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["hybridSecondaryUsage"] = state ? state.hybridSecondaryUsage : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maintenanceConfigurationName"] = state ? state.maintenanceConfigurationName : undefined;
-            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["proxyOverride"] = state ? state.proxyOverride : undefined;
-            resourceInputs["publicDataEndpointEnabled"] = state ? state.publicDataEndpointEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["servicePrincipalType"] = state ? state.servicePrincipalType : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["storageAccountType"] = state ? state.storageAccountType : undefined;
-            resourceInputs["storageSizeInGb"] = state ? state.storageSizeInGb : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["timezoneId"] = state ? state.timezoneId : undefined;
-            resourceInputs["vcores"] = state ? state.vcores : undefined;
-            resourceInputs["zoneRedundantEnabled"] = state ? state.zoneRedundantEnabled : undefined;
+            resourceInputs["administratorLogin"] = state?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = state?.administratorLoginPassword;
+            resourceInputs["azureActiveDirectoryAdministrator"] = state?.azureActiveDirectoryAdministrator;
+            resourceInputs["collation"] = state?.collation;
+            resourceInputs["databaseFormat"] = state?.databaseFormat;
+            resourceInputs["dnsZone"] = state?.dnsZone;
+            resourceInputs["dnsZonePartnerId"] = state?.dnsZonePartnerId;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["hybridSecondaryUsage"] = state?.hybridSecondaryUsage;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maintenanceConfigurationName"] = state?.maintenanceConfigurationName;
+            resourceInputs["minimumTlsVersion"] = state?.minimumTlsVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["proxyOverride"] = state?.proxyOverride;
+            resourceInputs["publicDataEndpointEnabled"] = state?.publicDataEndpointEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["servicePrincipalType"] = state?.servicePrincipalType;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["storageAccountType"] = state?.storageAccountType;
+            resourceInputs["storageSizeInGb"] = state?.storageSizeInGb;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["timezoneId"] = state?.timezoneId;
+            resourceInputs["vcores"] = state?.vcores;
+            resourceInputs["zoneRedundantEnabled"] = state?.zoneRedundantEnabled;
         } else {
             const args = argsOrState as ManagedInstanceArgs | undefined;
-            if ((!args || args.licenseType === undefined) && !opts.urn) {
+            if (args?.licenseType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.storageSizeInGb === undefined) && !opts.urn) {
+            if (args?.storageSizeInGb === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSizeInGb'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.vcores === undefined) && !opts.urn) {
+            if (args?.vcores === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vcores'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
-            resourceInputs["azureActiveDirectoryAdministrator"] = args ? args.azureActiveDirectoryAdministrator : undefined;
-            resourceInputs["collation"] = args ? args.collation : undefined;
-            resourceInputs["databaseFormat"] = args ? args.databaseFormat : undefined;
-            resourceInputs["dnsZonePartnerId"] = args ? args.dnsZonePartnerId : undefined;
-            resourceInputs["hybridSecondaryUsage"] = args ? args.hybridSecondaryUsage : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationName"] = args ? args.maintenanceConfigurationName : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["proxyOverride"] = args ? args.proxyOverride : undefined;
-            resourceInputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["servicePrincipalType"] = args ? args.servicePrincipalType : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
-            resourceInputs["storageSizeInGb"] = args ? args.storageSizeInGb : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timezoneId"] = args ? args.timezoneId : undefined;
-            resourceInputs["vcores"] = args ? args.vcores : undefined;
-            resourceInputs["zoneRedundantEnabled"] = args ? args.zoneRedundantEnabled : undefined;
+            resourceInputs["azureActiveDirectoryAdministrator"] = args?.azureActiveDirectoryAdministrator;
+            resourceInputs["collation"] = args?.collation;
+            resourceInputs["databaseFormat"] = args?.databaseFormat;
+            resourceInputs["dnsZonePartnerId"] = args?.dnsZonePartnerId;
+            resourceInputs["hybridSecondaryUsage"] = args?.hybridSecondaryUsage;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationName"] = args?.maintenanceConfigurationName;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["proxyOverride"] = args?.proxyOverride;
+            resourceInputs["publicDataEndpointEnabled"] = args?.publicDataEndpointEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["servicePrincipalType"] = args?.servicePrincipalType;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["storageAccountType"] = args?.storageAccountType;
+            resourceInputs["storageSizeInGb"] = args?.storageSizeInGb;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timezoneId"] = args?.timezoneId;
+            resourceInputs["vcores"] = args?.vcores;
+            resourceInputs["zoneRedundantEnabled"] = args?.zoneRedundantEnabled;
             resourceInputs["dnsZone"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;
         }

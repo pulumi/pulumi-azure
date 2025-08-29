@@ -100,39 +100,39 @@ export class MedtechService extends pulumi.CustomResource {
     /**
      * Specifies the Device Mappings of the Med Tech Service.
      */
-    public readonly deviceMappingJson!: pulumi.Output<string>;
+    declare public readonly deviceMappingJson: pulumi.Output<string>;
     /**
      * Specifies the Consumer Group of the Event Hub to connect to.
      */
-    public readonly eventhubConsumerGroupName!: pulumi.Output<string>;
+    declare public readonly eventhubConsumerGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the Event Hub to connect to.
      */
-    public readonly eventhubName!: pulumi.Output<string>;
+    declare public readonly eventhubName: pulumi.Output<string>;
     /**
      * Specifies the namespace name of the Event Hub to connect to.
      */
-    public readonly eventhubNamespaceName!: pulumi.Output<string>;
+    declare public readonly eventhubNamespaceName: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcare.MedtechServiceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.healthcare.MedtechServiceIdentity | undefined>;
     /**
      * Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the Healthcare Med Tech Service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a MedtechService resource with the given unique name, arguments, and options.
@@ -147,41 +147,41 @@ export class MedtechService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MedtechServiceState | undefined;
-            resourceInputs["deviceMappingJson"] = state ? state.deviceMappingJson : undefined;
-            resourceInputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
-            resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
-            resourceInputs["eventhubNamespaceName"] = state ? state.eventhubNamespaceName : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["deviceMappingJson"] = state?.deviceMappingJson;
+            resourceInputs["eventhubConsumerGroupName"] = state?.eventhubConsumerGroupName;
+            resourceInputs["eventhubName"] = state?.eventhubName;
+            resourceInputs["eventhubNamespaceName"] = state?.eventhubNamespaceName;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as MedtechServiceArgs | undefined;
-            if ((!args || args.deviceMappingJson === undefined) && !opts.urn) {
+            if (args?.deviceMappingJson === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceMappingJson'");
             }
-            if ((!args || args.eventhubConsumerGroupName === undefined) && !opts.urn) {
+            if (args?.eventhubConsumerGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubConsumerGroupName'");
             }
-            if ((!args || args.eventhubName === undefined) && !opts.urn) {
+            if (args?.eventhubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubName'");
             }
-            if ((!args || args.eventhubNamespaceName === undefined) && !opts.urn) {
+            if (args?.eventhubNamespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventhubNamespaceName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["deviceMappingJson"] = args ? args.deviceMappingJson : undefined;
-            resourceInputs["eventhubConsumerGroupName"] = args ? args.eventhubConsumerGroupName : undefined;
-            resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
-            resourceInputs["eventhubNamespaceName"] = args ? args.eventhubNamespaceName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["deviceMappingJson"] = args?.deviceMappingJson;
+            resourceInputs["eventhubConsumerGroupName"] = args?.eventhubConsumerGroupName;
+            resourceInputs["eventhubName"] = args?.eventhubName;
+            resourceInputs["eventhubNamespaceName"] = args?.eventhubNamespaceName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MedtechService.__pulumiType, name, resourceInputs, opts);

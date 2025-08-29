@@ -72,27 +72,27 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
     /**
      * The domain of the Spatial Anchors Account.
      */
-    public /*out*/ readonly accountDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountDomain: pulumi.Output<string>;
     /**
      * The account ID of the Spatial Anchors Account.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a SpatialAnchorsAccount resource with the given unique name, arguments, and options.
@@ -107,21 +107,21 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpatialAnchorsAccountState | undefined;
-            resourceInputs["accountDomain"] = state ? state.accountDomain : undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["accountDomain"] = state?.accountDomain;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SpatialAnchorsAccountArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountDomain"] = undefined /*out*/;
             resourceInputs["accountId"] = undefined /*out*/;
         }

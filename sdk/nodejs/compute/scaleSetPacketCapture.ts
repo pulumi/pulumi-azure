@@ -140,39 +140,39 @@ export class ScaleSetPacketCapture extends pulumi.CustomResource {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly filters!: pulumi.Output<outputs.compute.ScaleSetPacketCaptureFilter[] | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.compute.ScaleSetPacketCaptureFilter[] | undefined>;
     /**
      * A `machineScope` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly machineScope!: pulumi.Output<outputs.compute.ScaleSetPacketCaptureMachineScope | undefined>;
+    declare public readonly machineScope: pulumi.Output<outputs.compute.ScaleSetPacketCaptureMachineScope | undefined>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
-    public readonly maximumBytesPerPacket!: pulumi.Output<number | undefined>;
+    declare public readonly maximumBytesPerPacket: pulumi.Output<number | undefined>;
     /**
      * Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
      */
-    public readonly maximumBytesPerSession!: pulumi.Output<number | undefined>;
+    declare public readonly maximumBytesPerSession: pulumi.Output<number | undefined>;
     /**
      * The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
      */
-    public readonly maximumCaptureDurationInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly maximumCaptureDurationInSeconds: pulumi.Output<number | undefined>;
     /**
      * The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the Network Watcher. Changing this forces a new resource to be created.
      */
-    public readonly networkWatcherId!: pulumi.Output<string>;
+    declare public readonly networkWatcherId: pulumi.Output<string>;
     /**
      * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly storageLocation!: pulumi.Output<outputs.compute.ScaleSetPacketCaptureStorageLocation>;
+    declare public readonly storageLocation: pulumi.Output<outputs.compute.ScaleSetPacketCaptureStorageLocation>;
     /**
      * The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineScaleSetId!: pulumi.Output<string>;
+    declare public readonly virtualMachineScaleSetId: pulumi.Output<string>;
 
     /**
      * Create a ScaleSetPacketCapture resource with the given unique name, arguments, and options.
@@ -187,35 +187,35 @@ export class ScaleSetPacketCapture extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScaleSetPacketCaptureState | undefined;
-            resourceInputs["filters"] = state ? state.filters : undefined;
-            resourceInputs["machineScope"] = state ? state.machineScope : undefined;
-            resourceInputs["maximumBytesPerPacket"] = state ? state.maximumBytesPerPacket : undefined;
-            resourceInputs["maximumBytesPerSession"] = state ? state.maximumBytesPerSession : undefined;
-            resourceInputs["maximumCaptureDurationInSeconds"] = state ? state.maximumCaptureDurationInSeconds : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkWatcherId"] = state ? state.networkWatcherId : undefined;
-            resourceInputs["storageLocation"] = state ? state.storageLocation : undefined;
-            resourceInputs["virtualMachineScaleSetId"] = state ? state.virtualMachineScaleSetId : undefined;
+            resourceInputs["filters"] = state?.filters;
+            resourceInputs["machineScope"] = state?.machineScope;
+            resourceInputs["maximumBytesPerPacket"] = state?.maximumBytesPerPacket;
+            resourceInputs["maximumBytesPerSession"] = state?.maximumBytesPerSession;
+            resourceInputs["maximumCaptureDurationInSeconds"] = state?.maximumCaptureDurationInSeconds;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkWatcherId"] = state?.networkWatcherId;
+            resourceInputs["storageLocation"] = state?.storageLocation;
+            resourceInputs["virtualMachineScaleSetId"] = state?.virtualMachineScaleSetId;
         } else {
             const args = argsOrState as ScaleSetPacketCaptureArgs | undefined;
-            if ((!args || args.networkWatcherId === undefined) && !opts.urn) {
+            if (args?.networkWatcherId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherId'");
             }
-            if ((!args || args.storageLocation === undefined) && !opts.urn) {
+            if (args?.storageLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            if ((!args || args.virtualMachineScaleSetId === undefined) && !opts.urn) {
+            if (args?.virtualMachineScaleSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineScaleSetId'");
             }
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["machineScope"] = args ? args.machineScope : undefined;
-            resourceInputs["maximumBytesPerPacket"] = args ? args.maximumBytesPerPacket : undefined;
-            resourceInputs["maximumBytesPerSession"] = args ? args.maximumBytesPerSession : undefined;
-            resourceInputs["maximumCaptureDurationInSeconds"] = args ? args.maximumCaptureDurationInSeconds : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkWatcherId"] = args ? args.networkWatcherId : undefined;
-            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
-            resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["machineScope"] = args?.machineScope;
+            resourceInputs["maximumBytesPerPacket"] = args?.maximumBytesPerPacket;
+            resourceInputs["maximumBytesPerSession"] = args?.maximumBytesPerSession;
+            resourceInputs["maximumCaptureDurationInSeconds"] = args?.maximumCaptureDurationInSeconds;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkWatcherId"] = args?.networkWatcherId;
+            resourceInputs["storageLocation"] = args?.storageLocation;
+            resourceInputs["virtualMachineScaleSetId"] = args?.virtualMachineScaleSetId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ScaleSetPacketCapture.__pulumiType, name, resourceInputs, opts);

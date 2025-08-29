@@ -142,24 +142,24 @@ export class RulesEngine extends pulumi.CustomResource {
     /**
      * Whether this Rules engine configuration is enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Front Door instance. Changing this forces a new resource to be created.
      */
-    public readonly frontdoorName!: pulumi.Output<string>;
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public readonly frontdoorName: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the Rules engine configuration. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `rule` block as defined below.
      */
-    public readonly rules!: pulumi.Output<outputs.frontdoor.RulesEngineRule[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.frontdoor.RulesEngineRule[] | undefined>;
 
     /**
      * Create a RulesEngine resource with the given unique name, arguments, and options.
@@ -174,25 +174,25 @@ export class RulesEngine extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RulesEngineState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["frontdoorName"] = state ? state.frontdoorName : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["frontdoorName"] = state?.frontdoorName;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rules"] = state?.rules;
         } else {
             const args = argsOrState as RulesEngineArgs | undefined;
-            if ((!args || args.frontdoorName === undefined) && !opts.urn) {
+            if (args?.frontdoorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontdoorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["frontdoorName"] = args ? args.frontdoorName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["frontdoorName"] = args?.frontdoorName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rules"] = args?.rules;
             resourceInputs["location"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -147,41 +147,41 @@ export class ConfigurationKey extends pulumi.CustomResource {
     /**
      * Specifies the id of the App Configuration. Changing this forces a new resource to be created.
      */
-    public readonly configurationStoreId!: pulumi.Output<string>;
+    declare public readonly configurationStoreId: pulumi.Output<string>;
     /**
      * The content type of the App Configuration Key. This should only be set when type is set to `kv`.
      */
-    public readonly contentType!: pulumi.Output<string>;
+    declare public readonly contentType: pulumi.Output<string>;
     /**
      * (Optional) The ETag of the key.
      */
-    public readonly etag!: pulumi.Output<string>;
+    declare public readonly etag: pulumi.Output<string>;
     /**
      * The name of the App Configuration Key to create. Changing this forces a new resource to be created.
      */
-    public readonly key!: pulumi.Output<string>;
+    declare public readonly key: pulumi.Output<string>;
     /**
      * The label of the App Configuration Key. Changing this forces a new resource to be created.
      */
-    public readonly label!: pulumi.Output<string | undefined>;
+    declare public readonly label: pulumi.Output<string | undefined>;
     /**
      * Should this App Configuration Key be Locked to prevent changes?
      */
-    public readonly locked!: pulumi.Output<boolean | undefined>;
+    declare public readonly locked: pulumi.Output<boolean | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * The value of the App Configuration Key. This should only be set when type is set to `kv`.
      *
      * > **Note:** `value` and `vaultKeyReference` are mutually exclusive.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
     /**
      * The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
      *
@@ -189,7 +189,7 @@ export class ConfigurationKey extends pulumi.CustomResource {
      *
      * > **Note:** When setting the `vaultKeyReference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionlessId`
      */
-    public readonly vaultKeyReference!: pulumi.Output<string | undefined>;
+    declare public readonly vaultKeyReference: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConfigurationKey resource with the given unique name, arguments, and options.
@@ -204,34 +204,34 @@ export class ConfigurationKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationKeyState | undefined;
-            resourceInputs["configurationStoreId"] = state ? state.configurationStoreId : undefined;
-            resourceInputs["contentType"] = state ? state.contentType : undefined;
-            resourceInputs["etag"] = state ? state.etag : undefined;
-            resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["label"] = state ? state.label : undefined;
-            resourceInputs["locked"] = state ? state.locked : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["value"] = state ? state.value : undefined;
-            resourceInputs["vaultKeyReference"] = state ? state.vaultKeyReference : undefined;
+            resourceInputs["configurationStoreId"] = state?.configurationStoreId;
+            resourceInputs["contentType"] = state?.contentType;
+            resourceInputs["etag"] = state?.etag;
+            resourceInputs["key"] = state?.key;
+            resourceInputs["label"] = state?.label;
+            resourceInputs["locked"] = state?.locked;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["value"] = state?.value;
+            resourceInputs["vaultKeyReference"] = state?.vaultKeyReference;
         } else {
             const args = argsOrState as ConfigurationKeyArgs | undefined;
-            if ((!args || args.configurationStoreId === undefined) && !opts.urn) {
+            if (args?.configurationStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationStoreId'");
             }
-            if ((!args || args.key === undefined) && !opts.urn) {
+            if (args?.key === undefined && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            resourceInputs["configurationStoreId"] = args ? args.configurationStoreId : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["etag"] = args ? args.etag : undefined;
-            resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["label"] = args ? args.label : undefined;
-            resourceInputs["locked"] = args ? args.locked : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
-            resourceInputs["vaultKeyReference"] = args ? args.vaultKeyReference : undefined;
+            resourceInputs["configurationStoreId"] = args?.configurationStoreId;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["etag"] = args?.etag;
+            resourceInputs["key"] = args?.key;
+            resourceInputs["label"] = args?.label;
+            resourceInputs["locked"] = args?.locked;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["value"] = args?.value;
+            resourceInputs["vaultKeyReference"] = args?.vaultKeyReference;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationKey.__pulumiType, name, resourceInputs, opts);

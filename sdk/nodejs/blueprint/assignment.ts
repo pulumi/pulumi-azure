@@ -129,60 +129,60 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * The name of the blueprint assigned
      */
-    public /*out*/ readonly blueprintName!: pulumi.Output<string>;
+    declare public /*out*/ readonly blueprintName: pulumi.Output<string>;
     /**
      * The Description on the Blueprint
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * The display name of the blueprint
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.blueprint.AssignmentIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.blueprint.AssignmentIdentity>;
     /**
      * The Azure location of the Assignment. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
      */
-    public readonly lockExcludeActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly lockExcludeActions: pulumi.Output<string[] | undefined>;
     /**
      * a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
      */
-    public readonly lockExcludePrincipals!: pulumi.Output<string[] | undefined>;
+    declare public readonly lockExcludePrincipals: pulumi.Output<string[] | undefined>;
     /**
      * The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
      */
-    public readonly lockMode!: pulumi.Output<string | undefined>;
+    declare public readonly lockMode: pulumi.Output<string | undefined>;
     /**
      * The name of the Blueprint Assignment. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      *
      * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
-    public readonly parameterValues!: pulumi.Output<string | undefined>;
+    declare public readonly parameterValues: pulumi.Output<string | undefined>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      *
      * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
-    public readonly resourceGroups!: pulumi.Output<string | undefined>;
+    declare public readonly resourceGroups: pulumi.Output<string | undefined>;
     /**
      * The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
      */
-    public readonly targetSubscriptionId!: pulumi.Output<string>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public readonly targetSubscriptionId: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The ID of the Published Version of the blueprint to be assigned.
      */
-    public readonly versionId!: pulumi.Output<string>;
+    declare public readonly versionId: pulumi.Output<string>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -197,41 +197,41 @@ export class Assignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
-            resourceInputs["blueprintName"] = state ? state.blueprintName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["lockExcludeActions"] = state ? state.lockExcludeActions : undefined;
-            resourceInputs["lockExcludePrincipals"] = state ? state.lockExcludePrincipals : undefined;
-            resourceInputs["lockMode"] = state ? state.lockMode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameterValues"] = state ? state.parameterValues : undefined;
-            resourceInputs["resourceGroups"] = state ? state.resourceGroups : undefined;
-            resourceInputs["targetSubscriptionId"] = state ? state.targetSubscriptionId : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["blueprintName"] = state?.blueprintName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["lockExcludeActions"] = state?.lockExcludeActions;
+            resourceInputs["lockExcludePrincipals"] = state?.lockExcludePrincipals;
+            resourceInputs["lockMode"] = state?.lockMode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameterValues"] = state?.parameterValues;
+            resourceInputs["resourceGroups"] = state?.resourceGroups;
+            resourceInputs["targetSubscriptionId"] = state?.targetSubscriptionId;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["versionId"] = state?.versionId;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.targetSubscriptionId === undefined) && !opts.urn) {
+            if (args?.targetSubscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetSubscriptionId'");
             }
-            if ((!args || args.versionId === undefined) && !opts.urn) {
+            if (args?.versionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versionId'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["lockExcludeActions"] = args ? args.lockExcludeActions : undefined;
-            resourceInputs["lockExcludePrincipals"] = args ? args.lockExcludePrincipals : undefined;
-            resourceInputs["lockMode"] = args ? args.lockMode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
-            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
-            resourceInputs["targetSubscriptionId"] = args ? args.targetSubscriptionId : undefined;
-            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["lockExcludeActions"] = args?.lockExcludeActions;
+            resourceInputs["lockExcludePrincipals"] = args?.lockExcludePrincipals;
+            resourceInputs["lockMode"] = args?.lockMode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameterValues"] = args?.parameterValues;
+            resourceInputs["resourceGroups"] = args?.resourceGroups;
+            resourceInputs["targetSubscriptionId"] = args?.targetSubscriptionId;
+            resourceInputs["versionId"] = args?.versionId;
             resourceInputs["blueprintName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

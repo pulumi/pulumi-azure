@@ -84,27 +84,27 @@ export class SlotCustomHostnameBinding extends pulumi.CustomResource {
     /**
      * The ID of the App Service Slot. Changing this forces a new resource to be created.
      */
-    public readonly appServiceSlotId!: pulumi.Output<string>;
+    declare public readonly appServiceSlotId: pulumi.Output<string>;
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      *
      * > **Note:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
      */
-    public readonly hostname!: pulumi.Output<string>;
+    declare public readonly hostname: pulumi.Output<string>;
     /**
      * The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
      */
-    public readonly sslState!: pulumi.Output<string>;
+    declare public readonly sslState: pulumi.Output<string>;
     /**
      * The SSL certificate thumbprint. Changing this forces a new resource to be created.
      *
      * > **Note:** `thumbprint` must be specified when `sslState` is set.
      */
-    public readonly thumbprint!: pulumi.Output<string>;
+    declare public readonly thumbprint: pulumi.Output<string>;
     /**
      * The virtual IP address assigned to the hostname if IP based SSL is enabled.
      */
-    public /*out*/ readonly virtualIp!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualIp: pulumi.Output<string>;
 
     /**
      * Create a SlotCustomHostnameBinding resource with the given unique name, arguments, and options.
@@ -119,23 +119,23 @@ export class SlotCustomHostnameBinding extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlotCustomHostnameBindingState | undefined;
-            resourceInputs["appServiceSlotId"] = state ? state.appServiceSlotId : undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["sslState"] = state ? state.sslState : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
-            resourceInputs["virtualIp"] = state ? state.virtualIp : undefined;
+            resourceInputs["appServiceSlotId"] = state?.appServiceSlotId;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["sslState"] = state?.sslState;
+            resourceInputs["thumbprint"] = state?.thumbprint;
+            resourceInputs["virtualIp"] = state?.virtualIp;
         } else {
             const args = argsOrState as SlotCustomHostnameBindingArgs | undefined;
-            if ((!args || args.appServiceSlotId === undefined) && !opts.urn) {
+            if (args?.appServiceSlotId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServiceSlotId'");
             }
-            if ((!args || args.hostname === undefined) && !opts.urn) {
+            if (args?.hostname === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostname'");
             }
-            resourceInputs["appServiceSlotId"] = args ? args.appServiceSlotId : undefined;
-            resourceInputs["hostname"] = args ? args.hostname : undefined;
-            resourceInputs["sslState"] = args ? args.sslState : undefined;
-            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["appServiceSlotId"] = args?.appServiceSlotId;
+            resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["sslState"] = args?.sslState;
+            resourceInputs["thumbprint"] = args?.thumbprint;
             resourceInputs["virtualIp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

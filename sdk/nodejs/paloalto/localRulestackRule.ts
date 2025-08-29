@@ -86,83 +86,83 @@ export class LocalRulestackRule extends pulumi.CustomResource {
     /**
      * The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * Specifies a list of Applications.
      */
-    public readonly applications!: pulumi.Output<string[]>;
+    declare public readonly applications: pulumi.Output<string[]>;
     /**
      * The comment for Audit purposes.
      */
-    public readonly auditComment!: pulumi.Output<string | undefined>;
+    declare public readonly auditComment: pulumi.Output<string | undefined>;
     /**
      * A `category` block as defined below.
      */
-    public readonly category!: pulumi.Output<outputs.paloalto.LocalRulestackRuleCategory | undefined>;
+    declare public readonly category: pulumi.Output<outputs.paloalto.LocalRulestackRuleCategory | undefined>;
     /**
      * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      */
-    public readonly decryptionRuleType!: pulumi.Output<string | undefined>;
+    declare public readonly decryptionRuleType: pulumi.Output<string | undefined>;
     /**
      * The description for the rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * One or more `destination` blocks as defined below.
      */
-    public readonly destination!: pulumi.Output<outputs.paloalto.LocalRulestackRuleDestination>;
+    declare public readonly destination: pulumi.Output<outputs.paloalto.LocalRulestackRuleDestination>;
     /**
      * Should this Rule be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the certificate for inbound inspection. Only valid when `decryptionRuleType` is set to `SSLInboundInspection`.
      */
-    public readonly inspectionCertificateId!: pulumi.Output<string | undefined>;
+    declare public readonly inspectionCertificateId: pulumi.Output<string | undefined>;
     /**
      * Should Logging be enabled? Defaults to `false`.
      */
-    public readonly loggingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly loggingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Palo Alto Local Rulestack Rule.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Should the inverse of the Destination configuration be used. Defaults to `false`.
      */
-    public readonly negateDestination!: pulumi.Output<boolean | undefined>;
+    declare public readonly negateDestination: pulumi.Output<boolean | undefined>;
     /**
      * Should the inverse of the Source configuration be used. Defaults to `false`.
      */
-    public readonly negateSource!: pulumi.Output<boolean | undefined>;
+    declare public readonly negateSource: pulumi.Output<boolean | undefined>;
     /**
      * The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      *
      * > **Note:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
      *
      * > **Note:** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
      */
-    public readonly protocolPorts!: pulumi.Output<string[] | undefined>;
+    declare public readonly protocolPorts: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
      */
-    public readonly rulestackId!: pulumi.Output<string>;
+    declare public readonly rulestackId: pulumi.Output<string>;
     /**
      * One or more `source` blocks as defined below.
      */
-    public readonly source!: pulumi.Output<outputs.paloalto.LocalRulestackRuleSource>;
+    declare public readonly source: pulumi.Output<outputs.paloalto.LocalRulestackRuleSource>;
     /**
      * A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a LocalRulestackRule resource with the given unique name, arguments, and options.
@@ -177,64 +177,64 @@ export class LocalRulestackRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRulestackRuleState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["applications"] = state ? state.applications : undefined;
-            resourceInputs["auditComment"] = state ? state.auditComment : undefined;
-            resourceInputs["category"] = state ? state.category : undefined;
-            resourceInputs["decryptionRuleType"] = state ? state.decryptionRuleType : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destination"] = state ? state.destination : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["inspectionCertificateId"] = state ? state.inspectionCertificateId : undefined;
-            resourceInputs["loggingEnabled"] = state ? state.loggingEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["negateDestination"] = state ? state.negateDestination : undefined;
-            resourceInputs["negateSource"] = state ? state.negateSource : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["protocolPorts"] = state ? state.protocolPorts : undefined;
-            resourceInputs["rulestackId"] = state ? state.rulestackId : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["applications"] = state?.applications;
+            resourceInputs["auditComment"] = state?.auditComment;
+            resourceInputs["category"] = state?.category;
+            resourceInputs["decryptionRuleType"] = state?.decryptionRuleType;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destination"] = state?.destination;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["inspectionCertificateId"] = state?.inspectionCertificateId;
+            resourceInputs["loggingEnabled"] = state?.loggingEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["negateDestination"] = state?.negateDestination;
+            resourceInputs["negateSource"] = state?.negateSource;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["protocolPorts"] = state?.protocolPorts;
+            resourceInputs["rulestackId"] = state?.rulestackId;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LocalRulestackRuleArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.applications === undefined) && !opts.urn) {
+            if (args?.applications === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applications'");
             }
-            if ((!args || args.destination === undefined) && !opts.urn) {
+            if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.rulestackId === undefined) && !opts.urn) {
+            if (args?.rulestackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulestackId'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["applications"] = args ? args.applications : undefined;
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["decryptionRuleType"] = args ? args.decryptionRuleType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["inspectionCertificateId"] = args ? args.inspectionCertificateId : undefined;
-            resourceInputs["loggingEnabled"] = args ? args.loggingEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["negateDestination"] = args ? args.negateDestination : undefined;
-            resourceInputs["negateSource"] = args ? args.negateSource : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["protocolPorts"] = args ? args.protocolPorts : undefined;
-            resourceInputs["rulestackId"] = args ? args.rulestackId : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["applications"] = args?.applications;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["decryptionRuleType"] = args?.decryptionRuleType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["inspectionCertificateId"] = args?.inspectionCertificateId;
+            resourceInputs["loggingEnabled"] = args?.loggingEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["negateDestination"] = args?.negateDestination;
+            resourceInputs["negateSource"] = args?.negateSource;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["protocolPorts"] = args?.protocolPorts;
+            resourceInputs["rulestackId"] = args?.rulestackId;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalRulestackRule.__pulumiType, name, resourceInputs, opts);

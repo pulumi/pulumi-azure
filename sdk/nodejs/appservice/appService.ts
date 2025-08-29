@@ -93,111 +93,111 @@ export class AppService extends pulumi.CustomResource {
     /**
      * The ID of the App Service Plan within which to create this App Service.
      */
-    public readonly appServicePlanId!: pulumi.Output<string>;
+    declare public readonly appServicePlanId: pulumi.Output<string>;
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly appSettings: pulumi.Output<{[key: string]: string}>;
     /**
      * A `authSettings` block as defined below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.AppServiceAuthSettings>;
+    declare public readonly authSettings: pulumi.Output<outputs.appservice.AppServiceAuthSettings>;
     /**
      * A `backup` block as defined below.
      */
-    public readonly backup!: pulumi.Output<outputs.appservice.AppServiceBackup | undefined>;
+    declare public readonly backup: pulumi.Output<outputs.appservice.AppServiceBackup | undefined>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    public readonly clientAffinityEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientAffinityEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Does the App Service require client certificates for incoming requests? Defaults to `false`.
      */
-    public readonly clientCertEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly clientCertEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `clientCertEnabled` must be set to `true`, otherwise this parameter is ignored.
      */
-    public readonly clientCertMode!: pulumi.Output<string>;
+    declare public readonly clientCertMode: pulumi.Output<string>;
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    public readonly connectionStrings!: pulumi.Output<outputs.appservice.AppServiceConnectionString[]>;
+    declare public readonly connectionStrings: pulumi.Output<outputs.appservice.AppServiceConnectionString[]>;
     /**
      * An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      */
-    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customDomainVerificationId: pulumi.Output<string>;
     /**
      * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      */
-    public /*out*/ readonly defaultSiteHostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultSiteHostname: pulumi.Output<string>;
     /**
      * Is the App Service Enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Can the App Service only be accessed via HTTPS? Defaults to `false`.
      */
-    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsOnly: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.AppServiceIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appservice.AppServiceIdentity | undefined>;
     /**
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
-    public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
+    declare public readonly keyVaultReferenceIdentityId: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `logs` block as defined below.
      */
-    public readonly logs!: pulumi.Output<outputs.appservice.AppServiceLogs>;
+    declare public readonly logs: pulumi.Output<outputs.appservice.AppServiceLogs>;
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
      */
-    public /*out*/ readonly outboundIpAddressLists!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundIpAddressLists: pulumi.Output<string[]>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
-    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outboundIpAddressList`.
      */
-    public /*out*/ readonly possibleOutboundIpAddressLists!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly possibleOutboundIpAddressLists: pulumi.Output<string[]>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
-    public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    declare public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `siteConfig` block as defined below.
      */
-    public readonly siteConfig!: pulumi.Output<outputs.appservice.AppServiceSiteConfig>;
+    declare public readonly siteConfig: pulumi.Output<outputs.appservice.AppServiceSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.AppServiceSiteCredential[]>;
+    declare public /*out*/ readonly siteCredentials: pulumi.Output<outputs.appservice.AppServiceSiteCredential[]>;
     /**
      * A `sourceControl` block as defined below.
      */
-    public readonly sourceControl!: pulumi.Output<outputs.appservice.AppServiceSourceControl>;
+    declare public readonly sourceControl: pulumi.Output<outputs.appservice.AppServiceSourceControl>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.appservice.AppServiceStorageAccount[]>;
+    declare public readonly storageAccounts: pulumi.Output<outputs.appservice.AppServiceStorageAccount[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a AppService resource with the given unique name, arguments, and options.
@@ -212,61 +212,61 @@ export class AppService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppServiceState | undefined;
-            resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
-            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
-            resourceInputs["authSettings"] = state ? state.authSettings : undefined;
-            resourceInputs["backup"] = state ? state.backup : undefined;
-            resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
-            resourceInputs["clientCertEnabled"] = state ? state.clientCertEnabled : undefined;
-            resourceInputs["clientCertMode"] = state ? state.clientCertMode : undefined;
-            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
-            resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
-            resourceInputs["defaultSiteHostname"] = state ? state.defaultSiteHostname : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logs"] = state ? state.logs : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outboundIpAddressLists"] = state ? state.outboundIpAddressLists : undefined;
-            resourceInputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
-            resourceInputs["possibleOutboundIpAddressLists"] = state ? state.possibleOutboundIpAddressLists : undefined;
-            resourceInputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
-            resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
-            resourceInputs["sourceControl"] = state ? state.sourceControl : undefined;
-            resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["appServicePlanId"] = state?.appServicePlanId;
+            resourceInputs["appSettings"] = state?.appSettings;
+            resourceInputs["authSettings"] = state?.authSettings;
+            resourceInputs["backup"] = state?.backup;
+            resourceInputs["clientAffinityEnabled"] = state?.clientAffinityEnabled;
+            resourceInputs["clientCertEnabled"] = state?.clientCertEnabled;
+            resourceInputs["clientCertMode"] = state?.clientCertMode;
+            resourceInputs["connectionStrings"] = state?.connectionStrings;
+            resourceInputs["customDomainVerificationId"] = state?.customDomainVerificationId;
+            resourceInputs["defaultSiteHostname"] = state?.defaultSiteHostname;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["httpsOnly"] = state?.httpsOnly;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = state?.keyVaultReferenceIdentityId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logs"] = state?.logs;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outboundIpAddressLists"] = state?.outboundIpAddressLists;
+            resourceInputs["outboundIpAddresses"] = state?.outboundIpAddresses;
+            resourceInputs["possibleOutboundIpAddressLists"] = state?.possibleOutboundIpAddressLists;
+            resourceInputs["possibleOutboundIpAddresses"] = state?.possibleOutboundIpAddresses;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["siteConfig"] = state?.siteConfig;
+            resourceInputs["siteCredentials"] = state?.siteCredentials;
+            resourceInputs["sourceControl"] = state?.sourceControl;
+            resourceInputs["storageAccounts"] = state?.storageAccounts;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AppServiceArgs | undefined;
-            if ((!args || args.appServicePlanId === undefined) && !opts.urn) {
+            if (args?.appServicePlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServicePlanId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
-            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
-            resourceInputs["authSettings"] = args ? args.authSettings : undefined;
-            resourceInputs["backup"] = args ? args.backup : undefined;
-            resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
-            resourceInputs["clientCertEnabled"] = args ? args.clientCertEnabled : undefined;
-            resourceInputs["clientCertMode"] = args ? args.clientCertMode : undefined;
-            resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
-            resourceInputs["sourceControl"] = args ? args.sourceControl : undefined;
-            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appServicePlanId"] = args?.appServicePlanId;
+            resourceInputs["appSettings"] = args?.appSettings;
+            resourceInputs["authSettings"] = args?.authSettings;
+            resourceInputs["backup"] = args?.backup;
+            resourceInputs["clientAffinityEnabled"] = args?.clientAffinityEnabled;
+            resourceInputs["clientCertEnabled"] = args?.clientCertEnabled;
+            resourceInputs["clientCertMode"] = args?.clientCertMode;
+            resourceInputs["connectionStrings"] = args?.connectionStrings;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["httpsOnly"] = args?.httpsOnly;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = args?.keyVaultReferenceIdentityId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteConfig"] = args?.siteConfig;
+            resourceInputs["sourceControl"] = args?.sourceControl;
+            resourceInputs["storageAccounts"] = args?.storageAccounts;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultSiteHostname"] = undefined /*out*/;
             resourceInputs["outboundIpAddressLists"] = undefined /*out*/;

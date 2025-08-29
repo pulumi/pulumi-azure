@@ -99,61 +99,61 @@ export class ResourceGroupPolicyAssignment extends pulumi.CustomResource {
     /**
      * A description which should be used for this Policy Assignment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Display Name for this Policy Assignment.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Specifies if this Policy should be enforced or not? Defaults to `true`.
      */
-    public readonly enforce!: pulumi.Output<boolean | undefined>;
+    declare public readonly enforce: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      *
      * > **Note:** The `location` field must also be specified when `identity` is specified.
      */
-    public readonly identity!: pulumi.Output<outputs.core.ResourceGroupPolicyAssignmentIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.core.ResourceGroupPolicyAssignmentIdentity | undefined>;
     /**
      * The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A JSON mapping of any Metadata for this Policy.
      */
-    public readonly metadata!: pulumi.Output<string>;
+    declare public readonly metadata: pulumi.Output<string>;
     /**
      * The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `nonComplianceMessage` blocks as defined below.
      */
-    public readonly nonComplianceMessages!: pulumi.Output<outputs.core.ResourceGroupPolicyAssignmentNonComplianceMessage[] | undefined>;
+    declare public readonly nonComplianceMessages: pulumi.Output<outputs.core.ResourceGroupPolicyAssignmentNonComplianceMessage[] | undefined>;
     /**
      * Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
      */
-    public readonly notScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly notScopes: pulumi.Output<string[] | undefined>;
     /**
      * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
      */
-    public readonly overrides!: pulumi.Output<outputs.core.ResourceGroupPolicyAssignmentOverride[] | undefined>;
+    declare public readonly overrides: pulumi.Output<outputs.core.ResourceGroupPolicyAssignmentOverride[] | undefined>;
     /**
      * A JSON mapping of any Parameters for this Policy.
      */
-    public readonly parameters!: pulumi.Output<string | undefined>;
+    declare public readonly parameters: pulumi.Output<string | undefined>;
     /**
      * The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
      */
-    public readonly policyDefinitionId!: pulumi.Output<string>;
+    declare public readonly policyDefinitionId: pulumi.Output<string>;
     /**
      * The ID of the Resource Group where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
      */
-    public readonly resourceGroupId!: pulumi.Output<string>;
+    declare public readonly resourceGroupId: pulumi.Output<string>;
     /**
      * One or more `resourceSelectors` blocks as defined below to filter polices by resource properties.
      */
-    public readonly resourceSelectors!: pulumi.Output<outputs.core.ResourceGroupPolicyAssignmentResourceSelector[] | undefined>;
+    declare public readonly resourceSelectors: pulumi.Output<outputs.core.ResourceGroupPolicyAssignmentResourceSelector[] | undefined>;
 
     /**
      * Create a ResourceGroupPolicyAssignment resource with the given unique name, arguments, and options.
@@ -168,42 +168,42 @@ export class ResourceGroupPolicyAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceGroupPolicyAssignmentState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enforce"] = state ? state.enforce : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nonComplianceMessages"] = state ? state.nonComplianceMessages : undefined;
-            resourceInputs["notScopes"] = state ? state.notScopes : undefined;
-            resourceInputs["overrides"] = state ? state.overrides : undefined;
-            resourceInputs["parameters"] = state ? state.parameters : undefined;
-            resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
-            resourceInputs["resourceGroupId"] = state ? state.resourceGroupId : undefined;
-            resourceInputs["resourceSelectors"] = state ? state.resourceSelectors : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enforce"] = state?.enforce;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nonComplianceMessages"] = state?.nonComplianceMessages;
+            resourceInputs["notScopes"] = state?.notScopes;
+            resourceInputs["overrides"] = state?.overrides;
+            resourceInputs["parameters"] = state?.parameters;
+            resourceInputs["policyDefinitionId"] = state?.policyDefinitionId;
+            resourceInputs["resourceGroupId"] = state?.resourceGroupId;
+            resourceInputs["resourceSelectors"] = state?.resourceSelectors;
         } else {
             const args = argsOrState as ResourceGroupPolicyAssignmentArgs | undefined;
-            if ((!args || args.policyDefinitionId === undefined) && !opts.urn) {
+            if (args?.policyDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitionId'");
             }
-            if ((!args || args.resourceGroupId === undefined) && !opts.urn) {
+            if (args?.resourceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enforce"] = args ? args.enforce : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
-            resourceInputs["notScopes"] = args ? args.notScopes : undefined;
-            resourceInputs["overrides"] = args ? args.overrides : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
-            resourceInputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
-            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enforce"] = args?.enforce;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nonComplianceMessages"] = args?.nonComplianceMessages;
+            resourceInputs["notScopes"] = args?.notScopes;
+            resourceInputs["overrides"] = args?.overrides;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyDefinitionId"] = args?.policyDefinitionId;
+            resourceInputs["resourceGroupId"] = args?.resourceGroupId;
+            resourceInputs["resourceSelectors"] = args?.resourceSelectors;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceGroupPolicyAssignment.__pulumiType, name, resourceInputs, opts);

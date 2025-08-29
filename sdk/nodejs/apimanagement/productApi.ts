@@ -82,19 +82,19 @@ export class ProductApi extends pulumi.CustomResource {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiName!: pulumi.Output<string>;
+    declare public readonly apiName: pulumi.Output<string>;
     /**
      * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly productId!: pulumi.Output<string>;
+    declare public readonly productId: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a ProductApi resource with the given unique name, arguments, and options.
@@ -109,28 +109,28 @@ export class ProductApi extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductApiState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["apiName"] = state ? state.apiName : undefined;
-            resourceInputs["productId"] = state ? state.productId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["apiName"] = state?.apiName;
+            resourceInputs["productId"] = state?.productId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as ProductApiArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.apiName === undefined) && !opts.urn) {
+            if (args?.apiName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.productId === undefined) && !opts.urn) {
+            if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProductApi.__pulumiType, name, resourceInputs, opts);

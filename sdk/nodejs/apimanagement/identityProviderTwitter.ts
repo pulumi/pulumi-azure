@@ -79,19 +79,19 @@ export class IdentityProviderTwitter extends pulumi.CustomResource {
     /**
      * App Consumer API key for Twitter.
      */
-    public readonly apiKey!: pulumi.Output<string>;
+    declare public readonly apiKey: pulumi.Output<string>;
     /**
      * The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * App Consumer API secret key for Twitter.
      */
-    public readonly apiSecretKey!: pulumi.Output<string>;
+    declare public readonly apiSecretKey: pulumi.Output<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IdentityProviderTwitter resource with the given unique name, arguments, and options.
@@ -106,28 +106,28 @@ export class IdentityProviderTwitter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderTwitterState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["apiSecretKey"] = state ? state.apiSecretKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["apiSecretKey"] = state?.apiSecretKey;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IdentityProviderTwitterArgs | undefined;
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
+            if (args?.apiKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiKey'");
             }
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.apiSecretKey === undefined) && !opts.urn) {
+            if (args?.apiSecretKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiSecretKey'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
             resourceInputs["apiSecretKey"] = args?.apiSecretKey ? pulumi.secret(args.apiSecretKey) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey", "apiSecretKey"] };

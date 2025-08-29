@@ -102,63 +102,63 @@ export class TriggerTumblingWindow extends pulumi.CustomResource {
     /**
      * Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
      */
-    public readonly activated!: pulumi.Output<boolean | undefined>;
+    declare public readonly activated: pulumi.Output<boolean | undefined>;
     /**
      * A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
      */
-    public readonly delay!: pulumi.Output<string | undefined>;
+    declare public readonly delay: pulumi.Output<string | undefined>;
     /**
      * The description for the Data Factory Tumbling Window Trigger.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
      */
-    public readonly endTime!: pulumi.Output<string | undefined>;
+    declare public readonly endTime: pulumi.Output<string | undefined>;
     /**
      * Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
      */
-    public readonly frequency!: pulumi.Output<string>;
+    declare public readonly frequency: pulumi.Output<string>;
     /**
      * Specifies the interval of Tumbling Window. Changing this forces a new resource.
      */
-    public readonly interval!: pulumi.Output<number>;
+    declare public readonly interval: pulumi.Output<number>;
     /**
      * The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
      */
-    public readonly maxConcurrency!: pulumi.Output<number | undefined>;
+    declare public readonly maxConcurrency: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `pipeline` block as defined below.
      */
-    public readonly pipeline!: pulumi.Output<outputs.datafactory.TriggerTumblingWindowPipeline>;
+    declare public readonly pipeline: pulumi.Output<outputs.datafactory.TriggerTumblingWindowPipeline>;
     /**
      * A `retry` block as defined below.
      */
-    public readonly retry!: pulumi.Output<outputs.datafactory.TriggerTumblingWindowRetry | undefined>;
+    declare public readonly retry: pulumi.Output<outputs.datafactory.TriggerTumblingWindowRetry | undefined>;
     /**
      * Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
      */
-    public readonly startTime!: pulumi.Output<string>;
+    declare public readonly startTime: pulumi.Output<string>;
     /**
      * One or more `triggerDependency` block as defined below.
      */
-    public readonly triggerDependencies!: pulumi.Output<outputs.datafactory.TriggerTumblingWindowTriggerDependency[] | undefined>;
+    declare public readonly triggerDependencies: pulumi.Output<outputs.datafactory.TriggerTumblingWindowTriggerDependency[] | undefined>;
 
     /**
      * Create a TriggerTumblingWindow resource with the given unique name, arguments, and options.
@@ -173,53 +173,53 @@ export class TriggerTumblingWindow extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TriggerTumblingWindowState | undefined;
-            resourceInputs["activated"] = state ? state.activated : undefined;
-            resourceInputs["additionalProperties"] = state ? state.additionalProperties : undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["delay"] = state ? state.delay : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["endTime"] = state ? state.endTime : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["interval"] = state ? state.interval : undefined;
-            resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pipeline"] = state ? state.pipeline : undefined;
-            resourceInputs["retry"] = state ? state.retry : undefined;
-            resourceInputs["startTime"] = state ? state.startTime : undefined;
-            resourceInputs["triggerDependencies"] = state ? state.triggerDependencies : undefined;
+            resourceInputs["activated"] = state?.activated;
+            resourceInputs["additionalProperties"] = state?.additionalProperties;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["delay"] = state?.delay;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["endTime"] = state?.endTime;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["interval"] = state?.interval;
+            resourceInputs["maxConcurrency"] = state?.maxConcurrency;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pipeline"] = state?.pipeline;
+            resourceInputs["retry"] = state?.retry;
+            resourceInputs["startTime"] = state?.startTime;
+            resourceInputs["triggerDependencies"] = state?.triggerDependencies;
         } else {
             const args = argsOrState as TriggerTumblingWindowArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.interval === undefined) && !opts.urn) {
+            if (args?.interval === undefined && !opts.urn) {
                 throw new Error("Missing required property 'interval'");
             }
-            if ((!args || args.pipeline === undefined) && !opts.urn) {
+            if (args?.pipeline === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipeline'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
+            if (args?.startTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            resourceInputs["activated"] = args ? args.activated : undefined;
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["delay"] = args ? args.delay : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endTime"] = args ? args.endTime : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pipeline"] = args ? args.pipeline : undefined;
-            resourceInputs["retry"] = args ? args.retry : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["triggerDependencies"] = args ? args.triggerDependencies : undefined;
+            resourceInputs["activated"] = args?.activated;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["delay"] = args?.delay;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endTime"] = args?.endTime;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["maxConcurrency"] = args?.maxConcurrency;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pipeline"] = args?.pipeline;
+            resourceInputs["retry"] = args?.retry;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["triggerDependencies"] = args?.triggerDependencies;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TriggerTumblingWindow.__pulumiType, name, resourceInputs, opts);

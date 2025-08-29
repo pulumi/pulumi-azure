@@ -87,24 +87,24 @@ export class ApiConnection extends pulumi.CustomResource {
     /**
      * A display name for this API Connection.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
      */
-    public readonly managedApiId!: pulumi.Output<string>;
+    declare public readonly managedApiId: pulumi.Output<string>;
     /**
      * The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly parameterValues!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly parameterValues: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the API Connection.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ApiConnection resource with the given unique name, arguments, and options.
@@ -119,26 +119,26 @@ export class ApiConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiConnectionState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["managedApiId"] = state ? state.managedApiId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parameterValues"] = state ? state.parameterValues : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["managedApiId"] = state?.managedApiId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parameterValues"] = state?.parameterValues;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ApiConnectionArgs | undefined;
-            if ((!args || args.managedApiId === undefined) && !opts.urn) {
+            if (args?.managedApiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedApiId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["managedApiId"] = args ? args.managedApiId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["managedApiId"] = args?.managedApiId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parameterValues"] = args?.parameterValues;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiConnection.__pulumiType, name, resourceInputs, opts);

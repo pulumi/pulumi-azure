@@ -75,39 +75,39 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
     /**
      * Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
      */
-    public readonly cleanupEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly cleanupEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
      */
-    public readonly computeType!: pulumi.Output<string | undefined>;
+    declare public readonly computeType: pulumi.Output<string | undefined>;
     /**
      * Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
      */
-    public readonly coreCount!: pulumi.Output<number | undefined>;
+    declare public readonly coreCount: pulumi.Output<number | undefined>;
     /**
      * The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * Integration runtime description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
      */
-    public readonly timeToLiveMin!: pulumi.Output<number | undefined>;
+    declare public readonly timeToLiveMin: pulumi.Output<number | undefined>;
     /**
      * Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
      */
-    public readonly virtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly virtualNetworkEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a IntegrationRuntimeRule resource with the given unique name, arguments, and options.
@@ -122,29 +122,29 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationRuntimeRuleState | undefined;
-            resourceInputs["cleanupEnabled"] = state ? state.cleanupEnabled : undefined;
-            resourceInputs["computeType"] = state ? state.computeType : undefined;
-            resourceInputs["coreCount"] = state ? state.coreCount : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["timeToLiveMin"] = state ? state.timeToLiveMin : undefined;
-            resourceInputs["virtualNetworkEnabled"] = state ? state.virtualNetworkEnabled : undefined;
+            resourceInputs["cleanupEnabled"] = state?.cleanupEnabled;
+            resourceInputs["computeType"] = state?.computeType;
+            resourceInputs["coreCount"] = state?.coreCount;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["timeToLiveMin"] = state?.timeToLiveMin;
+            resourceInputs["virtualNetworkEnabled"] = state?.virtualNetworkEnabled;
         } else {
             const args = argsOrState as IntegrationRuntimeRuleArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            resourceInputs["cleanupEnabled"] = args ? args.cleanupEnabled : undefined;
-            resourceInputs["computeType"] = args ? args.computeType : undefined;
-            resourceInputs["coreCount"] = args ? args.coreCount : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
-            resourceInputs["virtualNetworkEnabled"] = args ? args.virtualNetworkEnabled : undefined;
+            resourceInputs["cleanupEnabled"] = args?.cleanupEnabled;
+            resourceInputs["computeType"] = args?.computeType;
+            resourceInputs["coreCount"] = args?.coreCount;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["timeToLiveMin"] = args?.timeToLiveMin;
+            resourceInputs["virtualNetworkEnabled"] = args?.virtualNetworkEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationRuntimeRule.__pulumiType, name, resourceInputs, opts);

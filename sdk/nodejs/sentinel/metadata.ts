@@ -102,87 +102,87 @@ export class Metadata extends pulumi.CustomResource {
     /**
      * An `author` blocks as defined below.
      */
-    public readonly author!: pulumi.Output<outputs.sentinel.MetadataAuthor | undefined>;
+    declare public readonly author: pulumi.Output<outputs.sentinel.MetadataAuthor | undefined>;
     /**
      * A `category` block as defined below.
      */
-    public readonly category!: pulumi.Output<outputs.sentinel.MetadataCategory | undefined>;
+    declare public readonly category: pulumi.Output<outputs.sentinel.MetadataCategory | undefined>;
     /**
      * The ID of the content. Used to identify dependencies and content from solutions or community.
      */
-    public readonly contentId!: pulumi.Output<string>;
+    declare public readonly contentId: pulumi.Output<string>;
     /**
      * Schema version of the content. Can be used to distinguish between flow based on the schema version.
      */
-    public readonly contentSchemaVersion!: pulumi.Output<string | undefined>;
+    declare public readonly contentSchemaVersion: pulumi.Output<string | undefined>;
     /**
      * The Custom version of the content.
      */
-    public readonly customVersion!: pulumi.Output<string | undefined>;
+    declare public readonly customVersion: pulumi.Output<string | undefined>;
     /**
      * A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
      */
-    public readonly dependency!: pulumi.Output<string | undefined>;
+    declare public readonly dependency: pulumi.Output<string | undefined>;
     /**
      * The first publish date of solution content item.
      */
-    public readonly firstPublishDate!: pulumi.Output<string | undefined>;
+    declare public readonly firstPublishDate: pulumi.Output<string | undefined>;
     /**
      * The ID of the icon, this id can be fetched from the solution template.
      */
-    public readonly iconId!: pulumi.Output<string | undefined>;
+    declare public readonly iconId: pulumi.Output<string | undefined>;
     /**
      * The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`.
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * The last publish date of solution content item.
      */
-    public readonly lastPublishDate!: pulumi.Output<string | undefined>;
+    declare public readonly lastPublishDate: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the parent resource ID of the content item, which the metadata belongs to.
      */
-    public readonly parentId!: pulumi.Output<string>;
+    declare public readonly parentId: pulumi.Output<string>;
     /**
      * Specifies a list of preview image file names. These will be taken from solution artifacts.
      */
-    public readonly previewImages!: pulumi.Output<string[] | undefined>;
+    declare public readonly previewImages: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
      */
-    public readonly previewImagesDarks!: pulumi.Output<string[] | undefined>;
+    declare public readonly previewImagesDarks: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a list of providers for the solution content item.
      */
-    public readonly providers!: pulumi.Output<string[] | undefined>;
+    declare public readonly providers: pulumi.Output<string[] | undefined>;
     /**
      * A `source` block as defined below.
      */
-    public readonly source!: pulumi.Output<outputs.sentinel.MetadataSource>;
+    declare public readonly source: pulumi.Output<outputs.sentinel.MetadataSource>;
     /**
      * A `support` block as defined below.
      */
-    public readonly support!: pulumi.Output<outputs.sentinel.MetadataSupport | undefined>;
+    declare public readonly support: pulumi.Output<outputs.sentinel.MetadataSupport | undefined>;
     /**
      * Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      */
-    public readonly threatAnalysisTactics!: pulumi.Output<string[] | undefined>;
+    declare public readonly threatAnalysisTactics: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a list of techniques the resource covers.
      */
-    public readonly threatAnalysisTechniques!: pulumi.Output<string[] | undefined>;
+    declare public readonly threatAnalysisTechniques: pulumi.Output<string[] | undefined>;
     /**
      * Version of the content.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a Metadata resource with the given unique name, arguments, and options.
@@ -197,62 +197,62 @@ export class Metadata extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetadataState | undefined;
-            resourceInputs["author"] = state ? state.author : undefined;
-            resourceInputs["category"] = state ? state.category : undefined;
-            resourceInputs["contentId"] = state ? state.contentId : undefined;
-            resourceInputs["contentSchemaVersion"] = state ? state.contentSchemaVersion : undefined;
-            resourceInputs["customVersion"] = state ? state.customVersion : undefined;
-            resourceInputs["dependency"] = state ? state.dependency : undefined;
-            resourceInputs["firstPublishDate"] = state ? state.firstPublishDate : undefined;
-            resourceInputs["iconId"] = state ? state.iconId : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["lastPublishDate"] = state ? state.lastPublishDate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["parentId"] = state ? state.parentId : undefined;
-            resourceInputs["previewImages"] = state ? state.previewImages : undefined;
-            resourceInputs["previewImagesDarks"] = state ? state.previewImagesDarks : undefined;
-            resourceInputs["providers"] = state ? state.providers : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
-            resourceInputs["support"] = state ? state.support : undefined;
-            resourceInputs["threatAnalysisTactics"] = state ? state.threatAnalysisTactics : undefined;
-            resourceInputs["threatAnalysisTechniques"] = state ? state.threatAnalysisTechniques : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["author"] = state?.author;
+            resourceInputs["category"] = state?.category;
+            resourceInputs["contentId"] = state?.contentId;
+            resourceInputs["contentSchemaVersion"] = state?.contentSchemaVersion;
+            resourceInputs["customVersion"] = state?.customVersion;
+            resourceInputs["dependency"] = state?.dependency;
+            resourceInputs["firstPublishDate"] = state?.firstPublishDate;
+            resourceInputs["iconId"] = state?.iconId;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["lastPublishDate"] = state?.lastPublishDate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["parentId"] = state?.parentId;
+            resourceInputs["previewImages"] = state?.previewImages;
+            resourceInputs["previewImagesDarks"] = state?.previewImagesDarks;
+            resourceInputs["providers"] = state?.providers;
+            resourceInputs["source"] = state?.source;
+            resourceInputs["support"] = state?.support;
+            resourceInputs["threatAnalysisTactics"] = state?.threatAnalysisTactics;
+            resourceInputs["threatAnalysisTechniques"] = state?.threatAnalysisTechniques;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as MetadataArgs | undefined;
-            if ((!args || args.contentId === undefined) && !opts.urn) {
+            if (args?.contentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentId'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.parentId === undefined) && !opts.urn) {
+            if (args?.parentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["contentId"] = args ? args.contentId : undefined;
-            resourceInputs["contentSchemaVersion"] = args ? args.contentSchemaVersion : undefined;
-            resourceInputs["customVersion"] = args ? args.customVersion : undefined;
-            resourceInputs["dependency"] = args ? args.dependency : undefined;
-            resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
-            resourceInputs["iconId"] = args ? args.iconId : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parentId"] = args ? args.parentId : undefined;
-            resourceInputs["previewImages"] = args ? args.previewImages : undefined;
-            resourceInputs["previewImagesDarks"] = args ? args.previewImagesDarks : undefined;
-            resourceInputs["providers"] = args ? args.providers : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["support"] = args ? args.support : undefined;
-            resourceInputs["threatAnalysisTactics"] = args ? args.threatAnalysisTactics : undefined;
-            resourceInputs["threatAnalysisTechniques"] = args ? args.threatAnalysisTechniques : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["contentId"] = args?.contentId;
+            resourceInputs["contentSchemaVersion"] = args?.contentSchemaVersion;
+            resourceInputs["customVersion"] = args?.customVersion;
+            resourceInputs["dependency"] = args?.dependency;
+            resourceInputs["firstPublishDate"] = args?.firstPublishDate;
+            resourceInputs["iconId"] = args?.iconId;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["lastPublishDate"] = args?.lastPublishDate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parentId"] = args?.parentId;
+            resourceInputs["previewImages"] = args?.previewImages;
+            resourceInputs["previewImagesDarks"] = args?.previewImagesDarks;
+            resourceInputs["providers"] = args?.providers;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["support"] = args?.support;
+            resourceInputs["threatAnalysisTactics"] = args?.threatAnalysisTactics;
+            resourceInputs["threatAnalysisTechniques"] = args?.threatAnalysisTechniques;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Metadata.__pulumiType, name, resourceInputs, opts);

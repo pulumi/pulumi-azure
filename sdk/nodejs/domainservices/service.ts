@@ -183,62 +183,62 @@ export class Service extends pulumi.CustomResource {
     /**
      * A unique ID for the managed domain deployment.
      */
-    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
      */
-    public readonly domainConfigurationType!: pulumi.Output<string | undefined>;
+    declare public readonly domainConfigurationType: pulumi.Output<string | undefined>;
     /**
      * The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
      */
-    public readonly filteredSyncEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly filteredSyncEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `initialReplicaSet` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
      */
-    public readonly initialReplicaSet!: pulumi.Output<outputs.domainservices.ServiceInitialReplicaSet>;
+    declare public readonly initialReplicaSet: pulumi.Output<outputs.domainservices.ServiceInitialReplicaSet>;
     /**
      * The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `notifications` block as defined below.
      */
-    public readonly notifications!: pulumi.Output<outputs.domainservices.ServiceNotifications>;
+    declare public readonly notifications: pulumi.Output<outputs.domainservices.ServiceNotifications>;
     /**
      * The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The Azure resource ID for the domain service.
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * A `secureLdap` block as defined below.
      */
-    public readonly secureLdap!: pulumi.Output<outputs.domainservices.ServiceSecureLdap>;
+    declare public readonly secureLdap: pulumi.Output<outputs.domainservices.ServiceSecureLdap>;
     /**
      * A `security` block as defined below.
      */
-    public readonly security!: pulumi.Output<outputs.domainservices.ServiceSecurity>;
+    declare public readonly security: pulumi.Output<outputs.domainservices.ServiceSecurity>;
     /**
      * The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
      */
-    public readonly sku!: pulumi.Output<string>;
-    public /*out*/ readonly syncOwner!: pulumi.Output<string>;
+    declare public readonly sku: pulumi.Output<string>;
+    declare public /*out*/ readonly syncOwner: pulumi.Output<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -253,49 +253,49 @@ export class Service extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            resourceInputs["deploymentId"] = state ? state.deploymentId : undefined;
-            resourceInputs["domainConfigurationType"] = state ? state.domainConfigurationType : undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["filteredSyncEnabled"] = state ? state.filteredSyncEnabled : undefined;
-            resourceInputs["initialReplicaSet"] = state ? state.initialReplicaSet : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notifications"] = state ? state.notifications : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["secureLdap"] = state ? state.secureLdap : undefined;
-            resourceInputs["security"] = state ? state.security : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["syncOwner"] = state ? state.syncOwner : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["deploymentId"] = state?.deploymentId;
+            resourceInputs["domainConfigurationType"] = state?.domainConfigurationType;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["filteredSyncEnabled"] = state?.filteredSyncEnabled;
+            resourceInputs["initialReplicaSet"] = state?.initialReplicaSet;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notifications"] = state?.notifications;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["secureLdap"] = state?.secureLdap;
+            resourceInputs["security"] = state?.security;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["syncOwner"] = state?.syncOwner;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.initialReplicaSet === undefined) && !opts.urn) {
+            if (args?.initialReplicaSet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'initialReplicaSet'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["filteredSyncEnabled"] = args ? args.filteredSyncEnabled : undefined;
-            resourceInputs["initialReplicaSet"] = args ? args.initialReplicaSet : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secureLdap"] = args ? args.secureLdap : undefined;
-            resourceInputs["security"] = args ? args.security : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainConfigurationType"] = args?.domainConfigurationType;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["filteredSyncEnabled"] = args?.filteredSyncEnabled;
+            resourceInputs["initialReplicaSet"] = args?.initialReplicaSet;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secureLdap"] = args?.secureLdap;
+            resourceInputs["security"] = args?.security;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["syncOwner"] = undefined /*out*/;

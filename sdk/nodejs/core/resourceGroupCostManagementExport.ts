@@ -94,39 +94,39 @@ export class ResourceGroupCostManagementExport extends pulumi.CustomResource {
     /**
      * Is the cost management export active? Default is `true`.
      */
-    public readonly active!: pulumi.Output<boolean | undefined>;
+    declare public readonly active: pulumi.Output<boolean | undefined>;
     /**
      * A `exportDataOptions` block as defined below.
      */
-    public readonly exportDataOptions!: pulumi.Output<outputs.core.ResourceGroupCostManagementExportExportDataOptions>;
+    declare public readonly exportDataOptions: pulumi.Output<outputs.core.ResourceGroupCostManagementExportExportDataOptions>;
     /**
      * A `exportDataStorageLocation` block as defined below.
      */
-    public readonly exportDataStorageLocation!: pulumi.Output<outputs.core.ResourceGroupCostManagementExportExportDataStorageLocation>;
+    declare public readonly exportDataStorageLocation: pulumi.Output<outputs.core.ResourceGroupCostManagementExportExportDataStorageLocation>;
     /**
      * Format for export. Valid values are `Csv` only. Default is `Csv`.
      */
-    public readonly fileFormat!: pulumi.Output<string | undefined>;
+    declare public readonly fileFormat: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The date the export will stop capturing information.
      */
-    public readonly recurrencePeriodEndDate!: pulumi.Output<string>;
+    declare public readonly recurrencePeriodEndDate: pulumi.Output<string>;
     /**
      * The date the export will start capturing information.
      */
-    public readonly recurrencePeriodStartDate!: pulumi.Output<string>;
+    declare public readonly recurrencePeriodStartDate: pulumi.Output<string>;
     /**
      * How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
      */
-    public readonly recurrenceType!: pulumi.Output<string>;
+    declare public readonly recurrenceType: pulumi.Output<string>;
     /**
      * The id of the resource group on which to create an export. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupId!: pulumi.Output<string>;
+    declare public readonly resourceGroupId: pulumi.Output<string>;
 
     /**
      * Create a ResourceGroupCostManagementExport resource with the given unique name, arguments, and options.
@@ -141,44 +141,44 @@ export class ResourceGroupCostManagementExport extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceGroupCostManagementExportState | undefined;
-            resourceInputs["active"] = state ? state.active : undefined;
-            resourceInputs["exportDataOptions"] = state ? state.exportDataOptions : undefined;
-            resourceInputs["exportDataStorageLocation"] = state ? state.exportDataStorageLocation : undefined;
-            resourceInputs["fileFormat"] = state ? state.fileFormat : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recurrencePeriodEndDate"] = state ? state.recurrencePeriodEndDate : undefined;
-            resourceInputs["recurrencePeriodStartDate"] = state ? state.recurrencePeriodStartDate : undefined;
-            resourceInputs["recurrenceType"] = state ? state.recurrenceType : undefined;
-            resourceInputs["resourceGroupId"] = state ? state.resourceGroupId : undefined;
+            resourceInputs["active"] = state?.active;
+            resourceInputs["exportDataOptions"] = state?.exportDataOptions;
+            resourceInputs["exportDataStorageLocation"] = state?.exportDataStorageLocation;
+            resourceInputs["fileFormat"] = state?.fileFormat;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recurrencePeriodEndDate"] = state?.recurrencePeriodEndDate;
+            resourceInputs["recurrencePeriodStartDate"] = state?.recurrencePeriodStartDate;
+            resourceInputs["recurrenceType"] = state?.recurrenceType;
+            resourceInputs["resourceGroupId"] = state?.resourceGroupId;
         } else {
             const args = argsOrState as ResourceGroupCostManagementExportArgs | undefined;
-            if ((!args || args.exportDataOptions === undefined) && !opts.urn) {
+            if (args?.exportDataOptions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exportDataOptions'");
             }
-            if ((!args || args.exportDataStorageLocation === undefined) && !opts.urn) {
+            if (args?.exportDataStorageLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exportDataStorageLocation'");
             }
-            if ((!args || args.recurrencePeriodEndDate === undefined) && !opts.urn) {
+            if (args?.recurrencePeriodEndDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrencePeriodEndDate'");
             }
-            if ((!args || args.recurrencePeriodStartDate === undefined) && !opts.urn) {
+            if (args?.recurrencePeriodStartDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrencePeriodStartDate'");
             }
-            if ((!args || args.recurrenceType === undefined) && !opts.urn) {
+            if (args?.recurrenceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrenceType'");
             }
-            if ((!args || args.resourceGroupId === undefined) && !opts.urn) {
+            if (args?.resourceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupId'");
             }
-            resourceInputs["active"] = args ? args.active : undefined;
-            resourceInputs["exportDataOptions"] = args ? args.exportDataOptions : undefined;
-            resourceInputs["exportDataStorageLocation"] = args ? args.exportDataStorageLocation : undefined;
-            resourceInputs["fileFormat"] = args ? args.fileFormat : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recurrencePeriodEndDate"] = args ? args.recurrencePeriodEndDate : undefined;
-            resourceInputs["recurrencePeriodStartDate"] = args ? args.recurrencePeriodStartDate : undefined;
-            resourceInputs["recurrenceType"] = args ? args.recurrenceType : undefined;
-            resourceInputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
+            resourceInputs["active"] = args?.active;
+            resourceInputs["exportDataOptions"] = args?.exportDataOptions;
+            resourceInputs["exportDataStorageLocation"] = args?.exportDataStorageLocation;
+            resourceInputs["fileFormat"] = args?.fileFormat;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recurrencePeriodEndDate"] = args?.recurrencePeriodEndDate;
+            resourceInputs["recurrencePeriodStartDate"] = args?.recurrencePeriodStartDate;
+            resourceInputs["recurrenceType"] = args?.recurrenceType;
+            resourceInputs["resourceGroupId"] = args?.resourceGroupId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceGroupCostManagementExport.__pulumiType, name, resourceInputs, opts);

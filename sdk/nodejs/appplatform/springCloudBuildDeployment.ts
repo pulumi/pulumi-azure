@@ -89,35 +89,35 @@ export class SpringCloudBuildDeployment extends pulumi.CustomResource {
     /**
      * A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
      */
-    public readonly addonJson!: pulumi.Output<string>;
+    declare public readonly addonJson: pulumi.Output<string>;
     /**
      * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
      */
-    public readonly applicationPerformanceMonitoringIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly applicationPerformanceMonitoringIds: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the Spring Cloud Build Result.
      */
-    public readonly buildResultId!: pulumi.Output<string>;
+    declare public readonly buildResultId: pulumi.Output<string>;
     /**
      * Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
      */
-    public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
      */
-    public readonly instanceCount!: pulumi.Output<number | undefined>;
+    declare public readonly instanceCount: pulumi.Output<number | undefined>;
     /**
      * The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `quota` block as defined below.
      */
-    public readonly quota!: pulumi.Output<outputs.appplatform.SpringCloudBuildDeploymentQuota>;
+    declare public readonly quota: pulumi.Output<outputs.appplatform.SpringCloudBuildDeploymentQuota>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
      */
-    public readonly springCloudAppId!: pulumi.Output<string>;
+    declare public readonly springCloudAppId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudBuildDeployment resource with the given unique name, arguments, and options.
@@ -132,30 +132,30 @@ export class SpringCloudBuildDeployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudBuildDeploymentState | undefined;
-            resourceInputs["addonJson"] = state ? state.addonJson : undefined;
-            resourceInputs["applicationPerformanceMonitoringIds"] = state ? state.applicationPerformanceMonitoringIds : undefined;
-            resourceInputs["buildResultId"] = state ? state.buildResultId : undefined;
-            resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
-            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["quota"] = state ? state.quota : undefined;
-            resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
+            resourceInputs["addonJson"] = state?.addonJson;
+            resourceInputs["applicationPerformanceMonitoringIds"] = state?.applicationPerformanceMonitoringIds;
+            resourceInputs["buildResultId"] = state?.buildResultId;
+            resourceInputs["environmentVariables"] = state?.environmentVariables;
+            resourceInputs["instanceCount"] = state?.instanceCount;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["quota"] = state?.quota;
+            resourceInputs["springCloudAppId"] = state?.springCloudAppId;
         } else {
             const args = argsOrState as SpringCloudBuildDeploymentArgs | undefined;
-            if ((!args || args.buildResultId === undefined) && !opts.urn) {
+            if (args?.buildResultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'buildResultId'");
             }
-            if ((!args || args.springCloudAppId === undefined) && !opts.urn) {
+            if (args?.springCloudAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
-            resourceInputs["addonJson"] = args ? args.addonJson : undefined;
-            resourceInputs["applicationPerformanceMonitoringIds"] = args ? args.applicationPerformanceMonitoringIds : undefined;
-            resourceInputs["buildResultId"] = args ? args.buildResultId : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["quota"] = args ? args.quota : undefined;
-            resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
+            resourceInputs["addonJson"] = args?.addonJson;
+            resourceInputs["applicationPerformanceMonitoringIds"] = args?.applicationPerformanceMonitoringIds;
+            resourceInputs["buildResultId"] = args?.buildResultId;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["instanceCount"] = args?.instanceCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["quota"] = args?.quota;
+            resourceInputs["springCloudAppId"] = args?.springCloudAppId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpringCloudBuildDeployment.__pulumiType, name, resourceInputs, opts);

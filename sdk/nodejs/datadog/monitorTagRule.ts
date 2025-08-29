@@ -98,19 +98,19 @@ export class MonitorTagRule extends pulumi.CustomResource {
     /**
      * The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
      */
-    public readonly datadogMonitorId!: pulumi.Output<string>;
+    declare public readonly datadogMonitorId: pulumi.Output<string>;
     /**
      * A `log` block as defined below.
      */
-    public readonly logs!: pulumi.Output<outputs.datadog.MonitorTagRuleLog[] | undefined>;
+    declare public readonly logs: pulumi.Output<outputs.datadog.MonitorTagRuleLog[] | undefined>;
     /**
      * A `metric` block as defined below.
      */
-    public readonly metrics!: pulumi.Output<outputs.datadog.MonitorTagRuleMetric[] | undefined>;
+    declare public readonly metrics: pulumi.Output<outputs.datadog.MonitorTagRuleMetric[] | undefined>;
     /**
      * The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a MonitorTagRule resource with the given unique name, arguments, and options.
@@ -125,19 +125,19 @@ export class MonitorTagRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorTagRuleState | undefined;
-            resourceInputs["datadogMonitorId"] = state ? state.datadogMonitorId : undefined;
-            resourceInputs["logs"] = state ? state.logs : undefined;
-            resourceInputs["metrics"] = state ? state.metrics : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["datadogMonitorId"] = state?.datadogMonitorId;
+            resourceInputs["logs"] = state?.logs;
+            resourceInputs["metrics"] = state?.metrics;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as MonitorTagRuleArgs | undefined;
-            if ((!args || args.datadogMonitorId === undefined) && !opts.urn) {
+            if (args?.datadogMonitorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datadogMonitorId'");
             }
-            resourceInputs["datadogMonitorId"] = args ? args.datadogMonitorId : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["datadogMonitorId"] = args?.datadogMonitorId;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["metrics"] = args?.metrics;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MonitorTagRule.__pulumiType, name, resourceInputs, opts);

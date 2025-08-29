@@ -79,19 +79,19 @@ export class IdentityProviderMicrosoft extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * Client Id of the Azure AD Application.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * Client secret of the Azure AD Application.
      */
-    public readonly clientSecret!: pulumi.Output<string>;
+    declare public readonly clientSecret: pulumi.Output<string>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IdentityProviderMicrosoft resource with the given unique name, arguments, and options.
@@ -106,28 +106,28 @@ export class IdentityProviderMicrosoft extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderMicrosoftState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IdentityProviderMicrosoftArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !opts.urn) {
+            if (args?.clientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["clientId"] = args?.clientId;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };

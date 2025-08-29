@@ -79,37 +79,37 @@ export class Account extends pulumi.CustomResource {
     /**
      * If `kind` is `TextAnalytics` this specifies the ID of the Search service.
      */
-    public readonly customQuestionAnsweringSearchServiceId!: pulumi.Output<string | undefined>;
+    declare public readonly customQuestionAnsweringSearchServiceId: pulumi.Output<string | undefined>;
     /**
      * If `kind` is `TextAnalytics` this specifies the key of the Search service.
      *
      * > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
      */
-    public readonly customQuestionAnsweringSearchServiceKey!: pulumi.Output<string | undefined>;
+    declare public readonly customQuestionAnsweringSearchServiceKey: pulumi.Output<string | undefined>;
     /**
      * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
      */
-    public readonly customSubdomainName!: pulumi.Output<string | undefined>;
+    declare public readonly customSubdomainName: pulumi.Output<string | undefined>;
     /**
      * A `customerManagedKey` block as documented below.
      */
-    public readonly customerManagedKey!: pulumi.Output<outputs.cognitive.AccountCustomerManagedKey | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<outputs.cognitive.AccountCustomerManagedKey | undefined>;
     /**
      * Whether to enable the dynamic throttling for this Cognitive Service Account.
      */
-    public readonly dynamicThrottlingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly dynamicThrottlingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The endpoint used to connect to the Cognitive Service Account.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * List of FQDNs allowed for the Cognitive Account.
      */
-    public readonly fqdns!: pulumi.Output<string[] | undefined>;
+    declare public readonly fqdns: pulumi.Output<string[] | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.cognitive.AccountIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.cognitive.AccountIdentity | undefined>;
     /**
      * Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
      *
@@ -117,79 +117,79 @@ export class Account extends pulumi.CustomResource {
      *
      * > **Note:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
      */
-    public readonly localAuthEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly localAuthEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
      */
-    public readonly metricsAdvisorAadClientId!: pulumi.Output<string | undefined>;
+    declare public readonly metricsAdvisorAadClientId: pulumi.Output<string | undefined>;
     /**
      * The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
      */
-    public readonly metricsAdvisorAadTenantId!: pulumi.Output<string | undefined>;
+    declare public readonly metricsAdvisorAadTenantId: pulumi.Output<string | undefined>;
     /**
      * The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
      */
-    public readonly metricsAdvisorSuperUserName!: pulumi.Output<string | undefined>;
+    declare public readonly metricsAdvisorSuperUserName: pulumi.Output<string | undefined>;
     /**
      * The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
      *
      * > **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
      */
-    public readonly metricsAdvisorWebsiteName!: pulumi.Output<string | undefined>;
+    declare public readonly metricsAdvisorWebsiteName: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkAcls` block as defined below. When this property is specified, `customSubdomainName` is also required to be set.
      */
-    public readonly networkAcls!: pulumi.Output<outputs.cognitive.AccountNetworkAcls | undefined>;
+    declare public readonly networkAcls: pulumi.Output<outputs.cognitive.AccountNetworkAcls | undefined>;
     /**
      * Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
      */
-    public readonly outboundNetworkAccessRestricted!: pulumi.Output<boolean | undefined>;
+    declare public readonly outboundNetworkAccessRestricted: pulumi.Output<boolean | undefined>;
     /**
      * A primary access key which can be used to connect to the Cognitive Service Account.
      */
-    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
      * Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A URL to link a QnAMaker cognitive account to a QnA runtime.
      */
-    public readonly qnaRuntimeEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly qnaRuntimeEndpoint: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The secondary access key which can be used to connect to the Cognitive Service Account.
      */
-    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
      *
      * > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A `storage` block as defined below.
      */
-    public readonly storages!: pulumi.Output<outputs.cognitive.AccountStorage[] | undefined>;
+    declare public readonly storages: pulumi.Output<outputs.cognitive.AccountStorage[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -204,66 +204,66 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            resourceInputs["customQuestionAnsweringSearchServiceId"] = state ? state.customQuestionAnsweringSearchServiceId : undefined;
-            resourceInputs["customQuestionAnsweringSearchServiceKey"] = state ? state.customQuestionAnsweringSearchServiceKey : undefined;
-            resourceInputs["customSubdomainName"] = state ? state.customSubdomainName : undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["dynamicThrottlingEnabled"] = state ? state.dynamicThrottlingEnabled : undefined;
-            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
-            resourceInputs["fqdns"] = state ? state.fqdns : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["kind"] = state ? state.kind : undefined;
-            resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["metricsAdvisorAadClientId"] = state ? state.metricsAdvisorAadClientId : undefined;
-            resourceInputs["metricsAdvisorAadTenantId"] = state ? state.metricsAdvisorAadTenantId : undefined;
-            resourceInputs["metricsAdvisorSuperUserName"] = state ? state.metricsAdvisorSuperUserName : undefined;
-            resourceInputs["metricsAdvisorWebsiteName"] = state ? state.metricsAdvisorWebsiteName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkAcls"] = state ? state.networkAcls : undefined;
-            resourceInputs["outboundNetworkAccessRestricted"] = state ? state.outboundNetworkAccessRestricted : undefined;
-            resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["qnaRuntimeEndpoint"] = state ? state.qnaRuntimeEndpoint : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["storages"] = state ? state.storages : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["customQuestionAnsweringSearchServiceId"] = state?.customQuestionAnsweringSearchServiceId;
+            resourceInputs["customQuestionAnsweringSearchServiceKey"] = state?.customQuestionAnsweringSearchServiceKey;
+            resourceInputs["customSubdomainName"] = state?.customSubdomainName;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["dynamicThrottlingEnabled"] = state?.dynamicThrottlingEnabled;
+            resourceInputs["endpoint"] = state?.endpoint;
+            resourceInputs["fqdns"] = state?.fqdns;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["kind"] = state?.kind;
+            resourceInputs["localAuthEnabled"] = state?.localAuthEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["metricsAdvisorAadClientId"] = state?.metricsAdvisorAadClientId;
+            resourceInputs["metricsAdvisorAadTenantId"] = state?.metricsAdvisorAadTenantId;
+            resourceInputs["metricsAdvisorSuperUserName"] = state?.metricsAdvisorSuperUserName;
+            resourceInputs["metricsAdvisorWebsiteName"] = state?.metricsAdvisorWebsiteName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkAcls"] = state?.networkAcls;
+            resourceInputs["outboundNetworkAccessRestricted"] = state?.outboundNetworkAccessRestricted;
+            resourceInputs["primaryAccessKey"] = state?.primaryAccessKey;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["qnaRuntimeEndpoint"] = state?.qnaRuntimeEndpoint;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secondaryAccessKey"] = state?.secondaryAccessKey;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["storages"] = state?.storages;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["customQuestionAnsweringSearchServiceId"] = args ? args.customQuestionAnsweringSearchServiceId : undefined;
+            resourceInputs["customQuestionAnsweringSearchServiceId"] = args?.customQuestionAnsweringSearchServiceId;
             resourceInputs["customQuestionAnsweringSearchServiceKey"] = args?.customQuestionAnsweringSearchServiceKey ? pulumi.secret(args.customQuestionAnsweringSearchServiceKey) : undefined;
-            resourceInputs["customSubdomainName"] = args ? args.customSubdomainName : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["dynamicThrottlingEnabled"] = args ? args.dynamicThrottlingEnabled : undefined;
-            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metricsAdvisorAadClientId"] = args ? args.metricsAdvisorAadClientId : undefined;
-            resourceInputs["metricsAdvisorAadTenantId"] = args ? args.metricsAdvisorAadTenantId : undefined;
-            resourceInputs["metricsAdvisorSuperUserName"] = args ? args.metricsAdvisorSuperUserName : undefined;
-            resourceInputs["metricsAdvisorWebsiteName"] = args ? args.metricsAdvisorWebsiteName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["outboundNetworkAccessRestricted"] = args ? args.outboundNetworkAccessRestricted : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["qnaRuntimeEndpoint"] = args ? args.qnaRuntimeEndpoint : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["storages"] = args ? args.storages : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customSubdomainName"] = args?.customSubdomainName;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["dynamicThrottlingEnabled"] = args?.dynamicThrottlingEnabled;
+            resourceInputs["fqdns"] = args?.fqdns;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["localAuthEnabled"] = args?.localAuthEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["metricsAdvisorAadClientId"] = args?.metricsAdvisorAadClientId;
+            resourceInputs["metricsAdvisorAadTenantId"] = args?.metricsAdvisorAadTenantId;
+            resourceInputs["metricsAdvisorSuperUserName"] = args?.metricsAdvisorSuperUserName;
+            resourceInputs["metricsAdvisorWebsiteName"] = args?.metricsAdvisorWebsiteName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["outboundNetworkAccessRestricted"] = args?.outboundNetworkAccessRestricted;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["qnaRuntimeEndpoint"] = args?.qnaRuntimeEndpoint;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["storages"] = args?.storages;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
             resourceInputs["secondaryAccessKey"] = undefined /*out*/;

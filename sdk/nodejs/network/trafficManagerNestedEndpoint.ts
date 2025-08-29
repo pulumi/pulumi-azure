@@ -116,57 +116,57 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
     /**
      * One or more `customHeader` blocks as defined below.
      */
-    public readonly customHeaders!: pulumi.Output<outputs.network.TrafficManagerNestedEndpointCustomHeader[] | undefined>;
+    declare public readonly customHeaders: pulumi.Output<outputs.network.TrafficManagerNestedEndpointCustomHeader[] | undefined>;
     /**
      * Is the endpoint enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Azure location of the Endpoint, this must be specified for Profiles using the `Performance` routing method.
      */
-    public readonly endpointLocation!: pulumi.Output<string>;
+    declare public readonly endpointLocation: pulumi.Output<string>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
-    public readonly geoMappings!: pulumi.Output<string[] | undefined>;
+    declare public readonly geoMappings: pulumi.Output<string[] | undefined>;
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      *
      * > **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
      */
-    public readonly minimumChildEndpoints!: pulumi.Output<number>;
+    declare public readonly minimumChildEndpoints: pulumi.Output<number>;
     /**
      * This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      */
-    public readonly minimumRequiredChildEndpointsIpv4!: pulumi.Output<number | undefined>;
+    declare public readonly minimumRequiredChildEndpointsIpv4: pulumi.Output<number | undefined>;
     /**
      * This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
      */
-    public readonly minimumRequiredChildEndpointsIpv6!: pulumi.Output<number | undefined>;
+    declare public readonly minimumRequiredChildEndpointsIpv6: pulumi.Output<number | undefined>;
     /**
      * The name of the External Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
      */
-    public readonly profileId!: pulumi.Output<string>;
+    declare public readonly profileId: pulumi.Output<string>;
     /**
      * One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly subnets!: pulumi.Output<outputs.network.TrafficManagerNestedEndpointSubnet[] | undefined>;
+    declare public readonly subnets: pulumi.Output<outputs.network.TrafficManagerNestedEndpointSubnet[] | undefined>;
     /**
      * The resource id of an Azure resource to target.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
      */
-    public readonly weight!: pulumi.Output<number | undefined>;
+    declare public readonly weight: pulumi.Output<number | undefined>;
 
     /**
      * Create a TrafficManagerNestedEndpoint resource with the given unique name, arguments, and options.
@@ -181,43 +181,43 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficManagerNestedEndpointState | undefined;
-            resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["endpointLocation"] = state ? state.endpointLocation : undefined;
-            resourceInputs["geoMappings"] = state ? state.geoMappings : undefined;
-            resourceInputs["minimumChildEndpoints"] = state ? state.minimumChildEndpoints : undefined;
-            resourceInputs["minimumRequiredChildEndpointsIpv4"] = state ? state.minimumRequiredChildEndpointsIpv4 : undefined;
-            resourceInputs["minimumRequiredChildEndpointsIpv6"] = state ? state.minimumRequiredChildEndpointsIpv6 : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["profileId"] = state ? state.profileId : undefined;
-            resourceInputs["subnets"] = state ? state.subnets : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
-            resourceInputs["weight"] = state ? state.weight : undefined;
+            resourceInputs["customHeaders"] = state?.customHeaders;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["endpointLocation"] = state?.endpointLocation;
+            resourceInputs["geoMappings"] = state?.geoMappings;
+            resourceInputs["minimumChildEndpoints"] = state?.minimumChildEndpoints;
+            resourceInputs["minimumRequiredChildEndpointsIpv4"] = state?.minimumRequiredChildEndpointsIpv4;
+            resourceInputs["minimumRequiredChildEndpointsIpv6"] = state?.minimumRequiredChildEndpointsIpv6;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["profileId"] = state?.profileId;
+            resourceInputs["subnets"] = state?.subnets;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
+            resourceInputs["weight"] = state?.weight;
         } else {
             const args = argsOrState as TrafficManagerNestedEndpointArgs | undefined;
-            if ((!args || args.minimumChildEndpoints === undefined) && !opts.urn) {
+            if (args?.minimumChildEndpoints === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minimumChildEndpoints'");
             }
-            if ((!args || args.profileId === undefined) && !opts.urn) {
+            if (args?.profileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["endpointLocation"] = args ? args.endpointLocation : undefined;
-            resourceInputs["geoMappings"] = args ? args.geoMappings : undefined;
-            resourceInputs["minimumChildEndpoints"] = args ? args.minimumChildEndpoints : undefined;
-            resourceInputs["minimumRequiredChildEndpointsIpv4"] = args ? args.minimumRequiredChildEndpointsIpv4 : undefined;
-            resourceInputs["minimumRequiredChildEndpointsIpv6"] = args ? args.minimumRequiredChildEndpointsIpv6 : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["profileId"] = args ? args.profileId : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["customHeaders"] = args?.customHeaders;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["endpointLocation"] = args?.endpointLocation;
+            resourceInputs["geoMappings"] = args?.geoMappings;
+            resourceInputs["minimumChildEndpoints"] = args?.minimumChildEndpoints;
+            resourceInputs["minimumRequiredChildEndpointsIpv4"] = args?.minimumRequiredChildEndpointsIpv4;
+            resourceInputs["minimumRequiredChildEndpointsIpv6"] = args?.minimumRequiredChildEndpointsIpv6;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["profileId"] = args?.profileId;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["weight"] = args?.weight;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TrafficManagerNestedEndpoint.__pulumiType, name, resourceInputs, opts);

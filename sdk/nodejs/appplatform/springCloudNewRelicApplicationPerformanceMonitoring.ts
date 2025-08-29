@@ -87,51 +87,51 @@ export class SpringCloudNewRelicApplicationPerformanceMonitoring extends pulumi.
     /**
      * Specifies whether enable the agent. Defaults to `true`.
      */
-    public readonly agentEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly agentEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the application name used to report data to New Relic.
      */
-    public readonly appName!: pulumi.Output<string>;
+    declare public readonly appName: pulumi.Output<string>;
     /**
      * Specifies the port number to differentiate JVMs for the same app on the same machine.
      */
-    public readonly appServerPort!: pulumi.Output<number | undefined>;
+    declare public readonly appServerPort: pulumi.Output<number | undefined>;
     /**
      * Specifies whether enable plain text logging of all data sent to New Relic to the agent logfile. Defaults to `false`.
      */
-    public readonly auditModeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly auditModeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether enable the reporting of data separately for each web app. Defaults to `false`.
      */
-    public readonly autoAppNamingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoAppNamingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether enable the component-based transaction naming. Defaults to `true`.
      */
-    public readonly autoTransactionNamingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoTransactionNamingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether enable all instrumentation using an `@Trace` annotation. Disabling this causes `@Trace` annotations to be ignored. Defaults to `true`.
      */
-    public readonly customTracingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly customTracingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
      */
-    public readonly globallyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly globallyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies a mapping of labels to be added to the New Relic application.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the license key associated with the New Relic account. This key binds your agent's data to your account in New Relic service.
      */
-    public readonly licenseKey!: pulumi.Output<string>;
+    declare public readonly licenseKey: pulumi.Output<string>;
     /**
      * The name which should be used for this Spring Cloud Application Performance Monitoring resource for New Relic. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
      */
-    public readonly springCloudServiceId!: pulumi.Output<string>;
+    declare public readonly springCloudServiceId: pulumi.Output<string>;
 
     /**
      * Create a SpringCloudNewRelicApplicationPerformanceMonitoring resource with the given unique name, arguments, and options.
@@ -146,41 +146,41 @@ export class SpringCloudNewRelicApplicationPerformanceMonitoring extends pulumi.
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpringCloudNewRelicApplicationPerformanceMonitoringState | undefined;
-            resourceInputs["agentEnabled"] = state ? state.agentEnabled : undefined;
-            resourceInputs["appName"] = state ? state.appName : undefined;
-            resourceInputs["appServerPort"] = state ? state.appServerPort : undefined;
-            resourceInputs["auditModeEnabled"] = state ? state.auditModeEnabled : undefined;
-            resourceInputs["autoAppNamingEnabled"] = state ? state.autoAppNamingEnabled : undefined;
-            resourceInputs["autoTransactionNamingEnabled"] = state ? state.autoTransactionNamingEnabled : undefined;
-            resourceInputs["customTracingEnabled"] = state ? state.customTracingEnabled : undefined;
-            resourceInputs["globallyEnabled"] = state ? state.globallyEnabled : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["licenseKey"] = state ? state.licenseKey : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["springCloudServiceId"] = state ? state.springCloudServiceId : undefined;
+            resourceInputs["agentEnabled"] = state?.agentEnabled;
+            resourceInputs["appName"] = state?.appName;
+            resourceInputs["appServerPort"] = state?.appServerPort;
+            resourceInputs["auditModeEnabled"] = state?.auditModeEnabled;
+            resourceInputs["autoAppNamingEnabled"] = state?.autoAppNamingEnabled;
+            resourceInputs["autoTransactionNamingEnabled"] = state?.autoTransactionNamingEnabled;
+            resourceInputs["customTracingEnabled"] = state?.customTracingEnabled;
+            resourceInputs["globallyEnabled"] = state?.globallyEnabled;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["licenseKey"] = state?.licenseKey;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["springCloudServiceId"] = state?.springCloudServiceId;
         } else {
             const args = argsOrState as SpringCloudNewRelicApplicationPerformanceMonitoringArgs | undefined;
-            if ((!args || args.appName === undefined) && !opts.urn) {
+            if (args?.appName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
-            if ((!args || args.licenseKey === undefined) && !opts.urn) {
+            if (args?.licenseKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseKey'");
             }
-            if ((!args || args.springCloudServiceId === undefined) && !opts.urn) {
+            if (args?.springCloudServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'springCloudServiceId'");
             }
-            resourceInputs["agentEnabled"] = args ? args.agentEnabled : undefined;
-            resourceInputs["appName"] = args ? args.appName : undefined;
-            resourceInputs["appServerPort"] = args ? args.appServerPort : undefined;
-            resourceInputs["auditModeEnabled"] = args ? args.auditModeEnabled : undefined;
-            resourceInputs["autoAppNamingEnabled"] = args ? args.autoAppNamingEnabled : undefined;
-            resourceInputs["autoTransactionNamingEnabled"] = args ? args.autoTransactionNamingEnabled : undefined;
-            resourceInputs["customTracingEnabled"] = args ? args.customTracingEnabled : undefined;
-            resourceInputs["globallyEnabled"] = args ? args.globallyEnabled : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["agentEnabled"] = args?.agentEnabled;
+            resourceInputs["appName"] = args?.appName;
+            resourceInputs["appServerPort"] = args?.appServerPort;
+            resourceInputs["auditModeEnabled"] = args?.auditModeEnabled;
+            resourceInputs["autoAppNamingEnabled"] = args?.autoAppNamingEnabled;
+            resourceInputs["autoTransactionNamingEnabled"] = args?.autoTransactionNamingEnabled;
+            resourceInputs["customTracingEnabled"] = args?.customTracingEnabled;
+            resourceInputs["globallyEnabled"] = args?.globallyEnabled;
+            resourceInputs["labels"] = args?.labels;
             resourceInputs["licenseKey"] = args?.licenseKey ? pulumi.secret(args.licenseKey) : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["springCloudServiceId"] = args?.springCloudServiceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["licenseKey"] };

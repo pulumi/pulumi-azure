@@ -99,57 +99,57 @@ export class ElasticPool extends pulumi.CustomResource {
      *
      * > **Note:** The default value for `enclaveType` field is unset not `Default`.
      */
-    public readonly enclaveType!: pulumi.Output<string>;
+    declare public readonly enclaveType: pulumi.Output<string>;
     /**
      * Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
      */
-    public readonly licenseType!: pulumi.Output<string>;
+    declare public readonly licenseType: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`, `SQL_SwedenCentral_DB_1`, `SQL_SwedenCentral_DB_2`. Defaults to `SQL_Default`.
      */
-    public readonly maintenanceConfigurationName!: pulumi.Output<string | undefined>;
+    declare public readonly maintenanceConfigurationName: pulumi.Output<string | undefined>;
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      *
      * > **Note:** One of either `maxSizeGb` or `maxSizeBytes` must be specified.
      */
-    public readonly maxSizeBytes!: pulumi.Output<number>;
+    declare public readonly maxSizeBytes: pulumi.Output<number>;
     /**
      * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`.
      */
-    public readonly maxSizeGb!: pulumi.Output<number>;
+    declare public readonly maxSizeGb: pulumi.Output<number>;
     /**
      * The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `perDatabaseSettings` block as defined below.
      */
-    public readonly perDatabaseSettings!: pulumi.Output<outputs.mssql.ElasticPoolPerDatabaseSettings>;
+    declare public readonly perDatabaseSettings: pulumi.Output<outputs.mssql.ElasticPoolPerDatabaseSettings>;
     /**
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
      */
-    public readonly serverName!: pulumi.Output<string>;
+    declare public readonly serverName: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<outputs.mssql.ElasticPoolSku>;
+    declare public readonly sku: pulumi.Output<outputs.mssql.ElasticPoolSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ElasticPool resource with the given unique name, arguments, and options.
@@ -164,46 +164,46 @@ export class ElasticPool extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ElasticPoolState | undefined;
-            resourceInputs["enclaveType"] = state ? state.enclaveType : undefined;
-            resourceInputs["licenseType"] = state ? state.licenseType : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maintenanceConfigurationName"] = state ? state.maintenanceConfigurationName : undefined;
-            resourceInputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
-            resourceInputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["perDatabaseSettings"] = state ? state.perDatabaseSettings : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serverName"] = state ? state.serverName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
+            resourceInputs["enclaveType"] = state?.enclaveType;
+            resourceInputs["licenseType"] = state?.licenseType;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maintenanceConfigurationName"] = state?.maintenanceConfigurationName;
+            resourceInputs["maxSizeBytes"] = state?.maxSizeBytes;
+            resourceInputs["maxSizeGb"] = state?.maxSizeGb;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["perDatabaseSettings"] = state?.perDatabaseSettings;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serverName"] = state?.serverName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zoneRedundant"] = state?.zoneRedundant;
         } else {
             const args = argsOrState as ElasticPoolArgs | undefined;
-            if ((!args || args.perDatabaseSettings === undefined) && !opts.urn) {
+            if (args?.perDatabaseSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'perDatabaseSettings'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["enclaveType"] = args ? args.enclaveType : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationName"] = args ? args.maintenanceConfigurationName : undefined;
-            resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            resourceInputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["perDatabaseSettings"] = args ? args.perDatabaseSettings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["enclaveType"] = args?.enclaveType;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationName"] = args?.maintenanceConfigurationName;
+            resourceInputs["maxSizeBytes"] = args?.maxSizeBytes;
+            resourceInputs["maxSizeGb"] = args?.maxSizeGb;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["perDatabaseSettings"] = args?.perDatabaseSettings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ElasticPool.__pulumiType, name, resourceInputs, opts);

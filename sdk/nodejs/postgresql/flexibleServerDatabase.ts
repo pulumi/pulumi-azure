@@ -79,19 +79,19 @@ export class FlexibleServerDatabase extends pulumi.CustomResource {
     /**
      * Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
-    public readonly charset!: pulumi.Output<string | undefined>;
+    declare public readonly charset: pulumi.Output<string | undefined>;
     /**
      * Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
-    public readonly collation!: pulumi.Output<string | undefined>;
+    declare public readonly collation: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
 
     /**
      * Create a FlexibleServerDatabase resource with the given unique name, arguments, and options.
@@ -106,19 +106,19 @@ export class FlexibleServerDatabase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerDatabaseState | undefined;
-            resourceInputs["charset"] = state ? state.charset : undefined;
-            resourceInputs["collation"] = state ? state.collation : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["charset"] = state?.charset;
+            resourceInputs["collation"] = state?.collation;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as FlexibleServerDatabaseArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["charset"] = args ? args.charset : undefined;
-            resourceInputs["collation"] = args ? args.collation : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["charset"] = args?.charset;
+            resourceInputs["collation"] = args?.collation;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serverId"] = args?.serverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FlexibleServerDatabase.__pulumiType, name, resourceInputs, opts);

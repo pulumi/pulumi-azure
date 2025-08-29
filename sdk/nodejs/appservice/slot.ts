@@ -168,79 +168,79 @@ export class Slot extends pulumi.CustomResource {
     /**
      * The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
      */
-    public readonly appServiceName!: pulumi.Output<string>;
+    declare public readonly appServiceName: pulumi.Output<string>;
     /**
      * The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
      */
-    public readonly appServicePlanId!: pulumi.Output<string>;
+    declare public readonly appServicePlanId: pulumi.Output<string>;
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly appSettings: pulumi.Output<{[key: string]: string}>;
     /**
      * A `authSettings` block as defined below.
      */
-    public readonly authSettings!: pulumi.Output<outputs.appservice.SlotAuthSettings>;
+    declare public readonly authSettings: pulumi.Output<outputs.appservice.SlotAuthSettings>;
     /**
      * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
+    declare public readonly clientAffinityEnabled: pulumi.Output<boolean>;
     /**
      * An `connectionString` block as defined below.
      */
-    public readonly connectionStrings!: pulumi.Output<outputs.appservice.SlotConnectionString[]>;
+    declare public readonly connectionStrings: pulumi.Output<outputs.appservice.SlotConnectionString[]>;
     /**
      * The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
      */
-    public /*out*/ readonly defaultSiteHostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultSiteHostname: pulumi.Output<string>;
     /**
      * Is the App Service Slot Enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
      */
-    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly httpsOnly: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.SlotIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appservice.SlotIdentity | undefined>;
     /**
      * The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
      */
-    public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
+    declare public readonly keyVaultReferenceIdentityId: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `logs` block as defined below.
      */
-    public readonly logs!: pulumi.Output<outputs.appservice.SlotLogs>;
+    declare public readonly logs: pulumi.Output<outputs.appservice.SlotLogs>;
     /**
      * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `siteConfig` object as defined below.
      */
-    public readonly siteConfig!: pulumi.Output<outputs.appservice.SlotSiteConfig>;
+    declare public readonly siteConfig: pulumi.Output<outputs.appservice.SlotSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
      */
-    public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.SlotSiteCredential[]>;
+    declare public /*out*/ readonly siteCredentials: pulumi.Output<outputs.appservice.SlotSiteCredential[]>;
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<outputs.appservice.SlotStorageAccount[]>;
+    declare public readonly storageAccounts: pulumi.Output<outputs.appservice.SlotStorageAccount[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Slot resource with the given unique name, arguments, and options.
@@ -255,53 +255,53 @@ export class Slot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlotState | undefined;
-            resourceInputs["appServiceName"] = state ? state.appServiceName : undefined;
-            resourceInputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
-            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
-            resourceInputs["authSettings"] = state ? state.authSettings : undefined;
-            resourceInputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
-            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
-            resourceInputs["defaultSiteHostname"] = state ? state.defaultSiteHostname : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["keyVaultReferenceIdentityId"] = state ? state.keyVaultReferenceIdentityId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logs"] = state ? state.logs : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["siteConfig"] = state ? state.siteConfig : undefined;
-            resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
-            resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["appServiceName"] = state?.appServiceName;
+            resourceInputs["appServicePlanId"] = state?.appServicePlanId;
+            resourceInputs["appSettings"] = state?.appSettings;
+            resourceInputs["authSettings"] = state?.authSettings;
+            resourceInputs["clientAffinityEnabled"] = state?.clientAffinityEnabled;
+            resourceInputs["connectionStrings"] = state?.connectionStrings;
+            resourceInputs["defaultSiteHostname"] = state?.defaultSiteHostname;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["httpsOnly"] = state?.httpsOnly;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = state?.keyVaultReferenceIdentityId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logs"] = state?.logs;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["siteConfig"] = state?.siteConfig;
+            resourceInputs["siteCredentials"] = state?.siteCredentials;
+            resourceInputs["storageAccounts"] = state?.storageAccounts;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as SlotArgs | undefined;
-            if ((!args || args.appServiceName === undefined) && !opts.urn) {
+            if (args?.appServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServiceName'");
             }
-            if ((!args || args.appServicePlanId === undefined) && !opts.urn) {
+            if (args?.appServicePlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appServicePlanId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appServiceName"] = args ? args.appServiceName : undefined;
-            resourceInputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
-            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
-            resourceInputs["authSettings"] = args ? args.authSettings : undefined;
-            resourceInputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
-            resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
-            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appServiceName"] = args?.appServiceName;
+            resourceInputs["appServicePlanId"] = args?.appServicePlanId;
+            resourceInputs["appSettings"] = args?.appSettings;
+            resourceInputs["authSettings"] = args?.authSettings;
+            resourceInputs["clientAffinityEnabled"] = args?.clientAffinityEnabled;
+            resourceInputs["connectionStrings"] = args?.connectionStrings;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["httpsOnly"] = args?.httpsOnly;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = args?.keyVaultReferenceIdentityId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteConfig"] = args?.siteConfig;
+            resourceInputs["storageAccounts"] = args?.storageAccounts;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["defaultSiteHostname"] = undefined /*out*/;
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }

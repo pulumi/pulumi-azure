@@ -63,23 +63,23 @@ export class Contact extends pulumi.CustomResource {
     /**
      * Whether to send security alerts notifications to the security contact.
      */
-    public readonly alertNotifications!: pulumi.Output<boolean>;
+    declare public readonly alertNotifications: pulumi.Output<boolean>;
     /**
      * Whether to send security alerts notifications to subscription admins.
      */
-    public readonly alertsToAdmins!: pulumi.Output<boolean>;
+    declare public readonly alertsToAdmins: pulumi.Output<boolean>;
     /**
      * The email of the Security Center Contact.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * The name of the Security Center Contact. Changing this forces a new Security Center Contact to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The phone number of the Security Center Contact.
      */
-    public readonly phone!: pulumi.Output<string | undefined>;
+    declare public readonly phone: pulumi.Output<string | undefined>;
 
     /**
      * Create a Contact resource with the given unique name, arguments, and options.
@@ -94,27 +94,27 @@ export class Contact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContactState | undefined;
-            resourceInputs["alertNotifications"] = state ? state.alertNotifications : undefined;
-            resourceInputs["alertsToAdmins"] = state ? state.alertsToAdmins : undefined;
-            resourceInputs["email"] = state ? state.email : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["phone"] = state ? state.phone : undefined;
+            resourceInputs["alertNotifications"] = state?.alertNotifications;
+            resourceInputs["alertsToAdmins"] = state?.alertsToAdmins;
+            resourceInputs["email"] = state?.email;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["phone"] = state?.phone;
         } else {
             const args = argsOrState as ContactArgs | undefined;
-            if ((!args || args.alertNotifications === undefined) && !opts.urn) {
+            if (args?.alertNotifications === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertNotifications'");
             }
-            if ((!args || args.alertsToAdmins === undefined) && !opts.urn) {
+            if (args?.alertsToAdmins === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertsToAdmins'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["alertNotifications"] = args ? args.alertNotifications : undefined;
-            resourceInputs["alertsToAdmins"] = args ? args.alertsToAdmins : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["phone"] = args ? args.phone : undefined;
+            resourceInputs["alertNotifications"] = args?.alertNotifications;
+            resourceInputs["alertsToAdmins"] = args?.alertsToAdmins;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["phone"] = args?.phone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Contact.__pulumiType, name, resourceInputs, opts);

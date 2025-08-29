@@ -212,57 +212,57 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
      */
-    public readonly condition!: pulumi.Output<string | undefined>;
+    declare public readonly condition: pulumi.Output<string | undefined>;
     /**
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      *
      * > **Note:** `condition` is required when `conditionVersion` is set.
      */
-    public readonly conditionVersion!: pulumi.Output<string>;
+    declare public readonly conditionVersion: pulumi.Output<string>;
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      *
      * > **Note:** This field is only used in cross tenant scenarios.
      */
-    public readonly delegatedManagedIdentityResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly delegatedManagedIdentityResourceId: pulumi.Output<string | undefined>;
     /**
      * The description for this Role Assignment. Changing this forces a new resource to be created.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      *
      * > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
      */
-    public readonly principalId!: pulumi.Output<string>;
+    declare public readonly principalId: pulumi.Output<string>;
     /**
      * The type of the `principalId`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      */
-    public readonly principalType!: pulumi.Output<string>;
+    declare public readonly principalType: pulumi.Output<string>;
     /**
      * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    declare public readonly roleDefinitionId: pulumi.Output<string>;
     /**
      * The name of a built-in Role. Changing this forces a new resource to be created.
      *
      * > **Note:** Either `roleDefinitionId` or `roleDefinitionName` must be set.
      */
-    public readonly roleDefinitionName!: pulumi.Output<string>;
+    declare public readonly roleDefinitionName: pulumi.Output<string>;
     /**
      * The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. Defaults to `false`.
      *
      * > **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      */
-    public readonly skipServicePrincipalAadCheck!: pulumi.Output<boolean>;
+    declare public readonly skipServicePrincipalAadCheck: pulumi.Output<boolean>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -280,36 +280,36 @@ export class Assignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssignmentState | undefined;
-            resourceInputs["condition"] = state ? state.condition : undefined;
-            resourceInputs["conditionVersion"] = state ? state.conditionVersion : undefined;
-            resourceInputs["delegatedManagedIdentityResourceId"] = state ? state.delegatedManagedIdentityResourceId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["principalId"] = state ? state.principalId : undefined;
-            resourceInputs["principalType"] = state ? state.principalType : undefined;
-            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            resourceInputs["roleDefinitionName"] = state ? state.roleDefinitionName : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["skipServicePrincipalAadCheck"] = state ? state.skipServicePrincipalAadCheck : undefined;
+            resourceInputs["condition"] = state?.condition;
+            resourceInputs["conditionVersion"] = state?.conditionVersion;
+            resourceInputs["delegatedManagedIdentityResourceId"] = state?.delegatedManagedIdentityResourceId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["principalId"] = state?.principalId;
+            resourceInputs["principalType"] = state?.principalType;
+            resourceInputs["roleDefinitionId"] = state?.roleDefinitionId;
+            resourceInputs["roleDefinitionName"] = state?.roleDefinitionName;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["skipServicePrincipalAadCheck"] = state?.skipServicePrincipalAadCheck;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["conditionVersion"] = args ? args.conditionVersion : undefined;
-            resourceInputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["principalType"] = args ? args.principalType : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["roleDefinitionName"] = args ? args.roleDefinitionName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["skipServicePrincipalAadCheck"] = args ? args.skipServicePrincipalAadCheck : undefined;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["conditionVersion"] = args?.conditionVersion;
+            resourceInputs["delegatedManagedIdentityResourceId"] = args?.delegatedManagedIdentityResourceId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["principalType"] = args?.principalType;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["roleDefinitionName"] = args?.roleDefinitionName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["skipServicePrincipalAadCheck"] = args?.skipServicePrincipalAadCheck;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Assignment.__pulumiType, name, resourceInputs, opts);

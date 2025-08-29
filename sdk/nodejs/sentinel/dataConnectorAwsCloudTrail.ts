@@ -70,15 +70,15 @@ export class DataConnectorAwsCloudTrail extends pulumi.CustomResource {
     /**
      * The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
      */
-    public readonly awsRoleArn!: pulumi.Output<string>;
+    declare public readonly awsRoleArn: pulumi.Output<string>;
     /**
      * The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a DataConnectorAwsCloudTrail resource with the given unique name, arguments, and options.
@@ -93,20 +93,20 @@ export class DataConnectorAwsCloudTrail extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorAwsCloudTrailState | undefined;
-            resourceInputs["awsRoleArn"] = state ? state.awsRoleArn : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["awsRoleArn"] = state?.awsRoleArn;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as DataConnectorAwsCloudTrailArgs | undefined;
-            if ((!args || args.awsRoleArn === undefined) && !opts.urn) {
+            if (args?.awsRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsRoleArn'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            resourceInputs["awsRoleArn"] = args ? args.awsRoleArn : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["awsRoleArn"] = args?.awsRoleArn;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataConnectorAwsCloudTrail.__pulumiType, name, resourceInputs, opts);

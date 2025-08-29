@@ -78,85 +78,85 @@ export class AuthorizationServer extends pulumi.CustomResource {
     /**
      * The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The OAUTH Authorization Endpoint.
      */
-    public readonly authorizationEndpoint!: pulumi.Output<string>;
+    declare public readonly authorizationEndpoint: pulumi.Output<string>;
     /**
      * The HTTP Verbs supported by the Authorization Endpoint. Possible values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, `PUT` and `TRACE`.
      *
      * > **Note:** `GET` must always be present.
      */
-    public readonly authorizationMethods!: pulumi.Output<string[]>;
+    declare public readonly authorizationMethods: pulumi.Output<string[]>;
     /**
      * The mechanism by which Access Tokens are passed to the API. Possible values are `authorizationHeader` and `query`.
      */
-    public readonly bearerTokenSendingMethods!: pulumi.Output<string[] | undefined>;
+    declare public readonly bearerTokenSendingMethods: pulumi.Output<string[] | undefined>;
     /**
      * The Authentication Methods supported by the Token endpoint of this Authorization Server.. Possible values are `Basic` and `Body`.
      */
-    public readonly clientAuthenticationMethods!: pulumi.Output<string[] | undefined>;
+    declare public readonly clientAuthenticationMethods: pulumi.Output<string[] | undefined>;
     /**
      * The Client/App ID registered with this Authorization Server.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * The URI of page where Client/App Registration is performed for this Authorization Server.
      */
-    public readonly clientRegistrationEndpoint!: pulumi.Output<string>;
+    declare public readonly clientRegistrationEndpoint: pulumi.Output<string>;
     /**
      * The Client/App Secret registered with this Authorization Server.
      */
-    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
     /**
      * The Default Scope used when requesting an Access Token, specified as a string containing space-delimited values.
      */
-    public readonly defaultScope!: pulumi.Output<string | undefined>;
+    declare public readonly defaultScope: pulumi.Output<string | undefined>;
     /**
      * A description of the Authorization Server, which may contain HTML formatting tags.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The user-friendly name of this Authorization Server.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Form of Authorization Grants required when requesting an Access Token. Possible values are `authorizationCode`, `clientCredentials`, `implicit` and `resourceOwnerPassword`.
      */
-    public readonly grantTypes!: pulumi.Output<string[]>;
+    declare public readonly grantTypes: pulumi.Output<string[]>;
     /**
      * The name of this Authorization Server. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The password associated with the Resource Owner.
      *
      * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
-    public readonly resourceOwnerPassword!: pulumi.Output<string | undefined>;
+    declare public readonly resourceOwnerPassword: pulumi.Output<string | undefined>;
     /**
      * The username associated with the Resource Owner.
      *
      * > **Note:** This can only be specified when `grantType` includes `resourceOwnerPassword`.
      */
-    public readonly resourceOwnerUsername!: pulumi.Output<string | undefined>;
+    declare public readonly resourceOwnerUsername: pulumi.Output<string | undefined>;
     /**
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
-    public readonly supportState!: pulumi.Output<boolean | undefined>;
+    declare public readonly supportState: pulumi.Output<boolean | undefined>;
     /**
      * A `tokenBodyParameter` block as defined below.
      */
-    public readonly tokenBodyParameters!: pulumi.Output<outputs.apimanagement.AuthorizationServerTokenBodyParameter[] | undefined>;
+    declare public readonly tokenBodyParameters: pulumi.Output<outputs.apimanagement.AuthorizationServerTokenBodyParameter[] | undefined>;
     /**
      * The OAUTH Token Endpoint.
      */
-    public readonly tokenEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly tokenEndpoint: pulumi.Output<string | undefined>;
 
     /**
      * Create a AuthorizationServer resource with the given unique name, arguments, and options.
@@ -171,70 +171,70 @@ export class AuthorizationServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizationServerState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["authorizationEndpoint"] = state ? state.authorizationEndpoint : undefined;
-            resourceInputs["authorizationMethods"] = state ? state.authorizationMethods : undefined;
-            resourceInputs["bearerTokenSendingMethods"] = state ? state.bearerTokenSendingMethods : undefined;
-            resourceInputs["clientAuthenticationMethods"] = state ? state.clientAuthenticationMethods : undefined;
-            resourceInputs["clientId"] = state ? state.clientId : undefined;
-            resourceInputs["clientRegistrationEndpoint"] = state ? state.clientRegistrationEndpoint : undefined;
-            resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
-            resourceInputs["defaultScope"] = state ? state.defaultScope : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["grantTypes"] = state ? state.grantTypes : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["resourceOwnerPassword"] = state ? state.resourceOwnerPassword : undefined;
-            resourceInputs["resourceOwnerUsername"] = state ? state.resourceOwnerUsername : undefined;
-            resourceInputs["supportState"] = state ? state.supportState : undefined;
-            resourceInputs["tokenBodyParameters"] = state ? state.tokenBodyParameters : undefined;
-            resourceInputs["tokenEndpoint"] = state ? state.tokenEndpoint : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["authorizationEndpoint"] = state?.authorizationEndpoint;
+            resourceInputs["authorizationMethods"] = state?.authorizationMethods;
+            resourceInputs["bearerTokenSendingMethods"] = state?.bearerTokenSendingMethods;
+            resourceInputs["clientAuthenticationMethods"] = state?.clientAuthenticationMethods;
+            resourceInputs["clientId"] = state?.clientId;
+            resourceInputs["clientRegistrationEndpoint"] = state?.clientRegistrationEndpoint;
+            resourceInputs["clientSecret"] = state?.clientSecret;
+            resourceInputs["defaultScope"] = state?.defaultScope;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["grantTypes"] = state?.grantTypes;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["resourceOwnerPassword"] = state?.resourceOwnerPassword;
+            resourceInputs["resourceOwnerUsername"] = state?.resourceOwnerUsername;
+            resourceInputs["supportState"] = state?.supportState;
+            resourceInputs["tokenBodyParameters"] = state?.tokenBodyParameters;
+            resourceInputs["tokenEndpoint"] = state?.tokenEndpoint;
         } else {
             const args = argsOrState as AuthorizationServerArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.authorizationEndpoint === undefined) && !opts.urn) {
+            if (args?.authorizationEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
-            if ((!args || args.authorizationMethods === undefined) && !opts.urn) {
+            if (args?.authorizationMethods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationMethods'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientRegistrationEndpoint === undefined) && !opts.urn) {
+            if (args?.clientRegistrationEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientRegistrationEndpoint'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.grantTypes === undefined) && !opts.urn) {
+            if (args?.grantTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'grantTypes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
-            resourceInputs["authorizationMethods"] = args ? args.authorizationMethods : undefined;
-            resourceInputs["bearerTokenSendingMethods"] = args ? args.bearerTokenSendingMethods : undefined;
-            resourceInputs["clientAuthenticationMethods"] = args ? args.clientAuthenticationMethods : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientRegistrationEndpoint"] = args ? args.clientRegistrationEndpoint : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["authorizationEndpoint"] = args?.authorizationEndpoint;
+            resourceInputs["authorizationMethods"] = args?.authorizationMethods;
+            resourceInputs["bearerTokenSendingMethods"] = args?.bearerTokenSendingMethods;
+            resourceInputs["clientAuthenticationMethods"] = args?.clientAuthenticationMethods;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientRegistrationEndpoint"] = args?.clientRegistrationEndpoint;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            resourceInputs["defaultScope"] = args ? args.defaultScope : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["grantTypes"] = args ? args.grantTypes : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["defaultScope"] = args?.defaultScope;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["grantTypes"] = args?.grantTypes;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceOwnerPassword"] = args?.resourceOwnerPassword ? pulumi.secret(args.resourceOwnerPassword) : undefined;
-            resourceInputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
-            resourceInputs["supportState"] = args ? args.supportState : undefined;
-            resourceInputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
-            resourceInputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
+            resourceInputs["resourceOwnerUsername"] = args?.resourceOwnerUsername;
+            resourceInputs["supportState"] = args?.supportState;
+            resourceInputs["tokenBodyParameters"] = args?.tokenBodyParameters;
+            resourceInputs["tokenEndpoint"] = args?.tokenEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret", "resourceOwnerPassword"] };

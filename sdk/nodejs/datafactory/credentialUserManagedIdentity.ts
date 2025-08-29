@@ -91,25 +91,25 @@ export class CredentialUserManagedIdentity extends pulumi.CustomResource {
      *
      * > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
      */
-    public readonly annotations!: pulumi.Output<string[] | undefined>;
+    declare public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
      */
-    public readonly dataFactoryId!: pulumi.Output<string>;
+    declare public readonly dataFactoryId: pulumi.Output<string>;
     /**
      * The description for the Data Factory Credential.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
      *
      * > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
      */
-    public readonly identityId!: pulumi.Output<string>;
+    declare public readonly identityId: pulumi.Output<string>;
     /**
      * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a CredentialUserManagedIdentity resource with the given unique name, arguments, and options.
@@ -124,24 +124,24 @@ export class CredentialUserManagedIdentity extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CredentialUserManagedIdentityState | undefined;
-            resourceInputs["annotations"] = state ? state.annotations : undefined;
-            resourceInputs["dataFactoryId"] = state ? state.dataFactoryId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["identityId"] = state ? state.identityId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["annotations"] = state?.annotations;
+            resourceInputs["dataFactoryId"] = state?.dataFactoryId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["identityId"] = state?.identityId;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as CredentialUserManagedIdentityArgs | undefined;
-            if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
+            if (args?.dataFactoryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
             }
-            if ((!args || args.identityId === undefined) && !opts.urn) {
+            if (args?.identityId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityId'");
             }
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["identityId"] = args ? args.identityId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["dataFactoryId"] = args?.dataFactoryId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["identityId"] = args?.identityId;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CredentialUserManagedIdentity.__pulumiType, name, resourceInputs, opts);

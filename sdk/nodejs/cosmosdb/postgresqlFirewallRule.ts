@@ -80,19 +80,19 @@ export class PostgresqlFirewallRule extends pulumi.CustomResource {
     /**
      * The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      */
-    public readonly clusterId!: pulumi.Output<string>;
+    declare public readonly clusterId: pulumi.Output<string>;
     /**
      * The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
      */
-    public readonly endIpAddress!: pulumi.Output<string>;
+    declare public readonly endIpAddress: pulumi.Output<string>;
     /**
      * The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule.
      */
-    public readonly startIpAddress!: pulumi.Output<string>;
+    declare public readonly startIpAddress: pulumi.Output<string>;
 
     /**
      * Create a PostgresqlFirewallRule resource with the given unique name, arguments, and options.
@@ -107,25 +107,25 @@ export class PostgresqlFirewallRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PostgresqlFirewallRuleState | undefined;
-            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
-            resourceInputs["endIpAddress"] = state ? state.endIpAddress : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["startIpAddress"] = state ? state.startIpAddress : undefined;
+            resourceInputs["clusterId"] = state?.clusterId;
+            resourceInputs["endIpAddress"] = state?.endIpAddress;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["startIpAddress"] = state?.startIpAddress;
         } else {
             const args = argsOrState as PostgresqlFirewallRuleArgs | undefined;
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
+            if (args?.endIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
+            if (args?.startIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["endIpAddress"] = args ? args.endIpAddress : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["endIpAddress"] = args?.endIpAddress;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["startIpAddress"] = args?.startIpAddress;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PostgresqlFirewallRule.__pulumiType, name, resourceInputs, opts);

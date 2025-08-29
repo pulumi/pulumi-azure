@@ -80,19 +80,19 @@ export class Powershell72Module extends pulumi.CustomResource {
     /**
      * The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
      */
-    public readonly automationAccountId!: pulumi.Output<string>;
+    declare public readonly automationAccountId: pulumi.Output<string>;
     /**
      * A `moduleLink` block as defined below.
      */
-    public readonly moduleLink!: pulumi.Output<outputs.automation.Powershell72ModuleModuleLink>;
+    declare public readonly moduleLink: pulumi.Output<outputs.automation.Powershell72ModuleModuleLink>;
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Powershell72Module resource with the given unique name, arguments, and options.
@@ -107,22 +107,22 @@ export class Powershell72Module extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as Powershell72ModuleState | undefined;
-            resourceInputs["automationAccountId"] = state ? state.automationAccountId : undefined;
-            resourceInputs["moduleLink"] = state ? state.moduleLink : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["automationAccountId"] = state?.automationAccountId;
+            resourceInputs["moduleLink"] = state?.moduleLink;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as Powershell72ModuleArgs | undefined;
-            if ((!args || args.automationAccountId === undefined) && !opts.urn) {
+            if (args?.automationAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountId'");
             }
-            if ((!args || args.moduleLink === undefined) && !opts.urn) {
+            if (args?.moduleLink === undefined && !opts.urn) {
                 throw new Error("Missing required property 'moduleLink'");
             }
-            resourceInputs["automationAccountId"] = args ? args.automationAccountId : undefined;
-            resourceInputs["moduleLink"] = args ? args.moduleLink : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["automationAccountId"] = args?.automationAccountId;
+            resourceInputs["moduleLink"] = args?.moduleLink;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Powershell72Module.__pulumiType, name, resourceInputs, opts);

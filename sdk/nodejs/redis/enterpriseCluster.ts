@@ -71,37 +71,37 @@ export class EnterpriseCluster extends pulumi.CustomResource {
     /**
      * DNS name of the cluster endpoint.
      */
-    public /*out*/ readonly hostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostname: pulumi.Output<string>;
     /**
      * The Azure Region where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created.
      *
      * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Redis Enterprise Cluster. Changing this forces a new Redis Enterprise Cluster to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Redis Enterprise Cluster should exist. Changing this forces a new Redis Enterprise Cluster to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The `skuName` is comprised of two segments separated by a hyphen (e.g. `Enterprise_E10-2`). The first segment of the `skuName` defines the `name` of the SKU, possible values are `Enterprise_E5`, `Enterprise_E10`, `Enterprise_E20`, `Enterprise_E50`, `Enterprise_E100`, `Enterprise_E200`, `Enterprise_E400`, `EnterpriseFlash_F300`, `EnterpriseFlash_F700` or `EnterpriseFlash_F1500`. The second segment defines the `capacity` of the `skuName`, possible values for `Enteprise` SKUs are (`2`, `4`, `6`, ...). Possible values for `EnterpriseFlash` SKUs are (`3`, `9`, `15`, ...). Changing this forces a new Redis Enterprise Cluster to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Redis Enterprise Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a EnterpriseCluster resource with the given unique name, arguments, and options.
@@ -116,29 +116,29 @@ export class EnterpriseCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EnterpriseClusterState | undefined;
-            resourceInputs["hostname"] = state ? state.hostname : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["hostname"] = state?.hostname;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["minimumTlsVersion"] = state?.minimumTlsVersion;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as EnterpriseClusterArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["hostname"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

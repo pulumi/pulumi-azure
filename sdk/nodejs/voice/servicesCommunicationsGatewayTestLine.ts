@@ -79,27 +79,27 @@ export class ServicesCommunicationsGatewayTestLine extends pulumi.CustomResource
     /**
      * Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the phone number.
      */
-    public readonly phoneNumber!: pulumi.Output<string>;
+    declare public readonly phoneNumber: pulumi.Output<string>;
     /**
      * The purpose of the Voice Services Communications Gateway Test Line. Possible values are `Automated` or `Manual`.
      */
-    public readonly purpose!: pulumi.Output<string>;
+    declare public readonly purpose: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created.
      */
-    public readonly voiceServicesCommunicationsGatewayId!: pulumi.Output<string>;
+    declare public readonly voiceServicesCommunicationsGatewayId: pulumi.Output<string>;
 
     /**
      * Create a ServicesCommunicationsGatewayTestLine resource with the given unique name, arguments, and options.
@@ -114,29 +114,29 @@ export class ServicesCommunicationsGatewayTestLine extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServicesCommunicationsGatewayTestLineState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
-            resourceInputs["purpose"] = state ? state.purpose : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["voiceServicesCommunicationsGatewayId"] = state ? state.voiceServicesCommunicationsGatewayId : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["phoneNumber"] = state?.phoneNumber;
+            resourceInputs["purpose"] = state?.purpose;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["voiceServicesCommunicationsGatewayId"] = state?.voiceServicesCommunicationsGatewayId;
         } else {
             const args = argsOrState as ServicesCommunicationsGatewayTestLineArgs | undefined;
-            if ((!args || args.phoneNumber === undefined) && !opts.urn) {
+            if (args?.phoneNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phoneNumber'");
             }
-            if ((!args || args.purpose === undefined) && !opts.urn) {
+            if (args?.purpose === undefined && !opts.urn) {
                 throw new Error("Missing required property 'purpose'");
             }
-            if ((!args || args.voiceServicesCommunicationsGatewayId === undefined) && !opts.urn) {
+            if (args?.voiceServicesCommunicationsGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'voiceServicesCommunicationsGatewayId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            resourceInputs["purpose"] = args ? args.purpose : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["voiceServicesCommunicationsGatewayId"] = args ? args.voiceServicesCommunicationsGatewayId : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["phoneNumber"] = args?.phoneNumber;
+            resourceInputs["purpose"] = args?.purpose;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["voiceServicesCommunicationsGatewayId"] = args?.voiceServicesCommunicationsGatewayId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServicesCommunicationsGatewayTestLine.__pulumiType, name, resourceInputs, opts);

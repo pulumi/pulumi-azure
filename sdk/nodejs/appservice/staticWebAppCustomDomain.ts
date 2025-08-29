@@ -113,16 +113,16 @@ export class StaticWebAppCustomDomain extends pulumi.CustomResource {
     /**
      * The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
      */
-    public readonly staticWebAppId!: pulumi.Output<string>;
+    declare public readonly staticWebAppId: pulumi.Output<string>;
     /**
      * Token to be used with `dns-txt-token` validation.
      */
-    public /*out*/ readonly validationToken!: pulumi.Output<string>;
-    public readonly validationType!: pulumi.Output<string>;
+    declare public /*out*/ readonly validationToken: pulumi.Output<string>;
+    declare public readonly validationType: pulumi.Output<string>;
 
     /**
      * Create a StaticWebAppCustomDomain resource with the given unique name, arguments, and options.
@@ -137,24 +137,24 @@ export class StaticWebAppCustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticWebAppCustomDomainState | undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["staticWebAppId"] = state ? state.staticWebAppId : undefined;
-            resourceInputs["validationToken"] = state ? state.validationToken : undefined;
-            resourceInputs["validationType"] = state ? state.validationType : undefined;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["staticWebAppId"] = state?.staticWebAppId;
+            resourceInputs["validationToken"] = state?.validationToken;
+            resourceInputs["validationType"] = state?.validationType;
         } else {
             const args = argsOrState as StaticWebAppCustomDomainArgs | undefined;
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.staticWebAppId === undefined) && !opts.urn) {
+            if (args?.staticWebAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'staticWebAppId'");
             }
-            if ((!args || args.validationType === undefined) && !opts.urn) {
+            if (args?.validationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'validationType'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["staticWebAppId"] = args ? args.staticWebAppId : undefined;
-            resourceInputs["validationType"] = args ? args.validationType : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["staticWebAppId"] = args?.staticWebAppId;
+            resourceInputs["validationType"] = args?.validationType;
             resourceInputs["validationToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

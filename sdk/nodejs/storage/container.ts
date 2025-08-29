@@ -82,43 +82,43 @@ export class Container extends pulumi.CustomResource {
      *
      * > **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
      */
-    public readonly containerAccessType!: pulumi.Output<string | undefined>;
+    declare public readonly containerAccessType: pulumi.Output<string | undefined>;
     /**
      * The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
      */
-    public readonly defaultEncryptionScope!: pulumi.Output<string>;
+    declare public readonly defaultEncryptionScope: pulumi.Output<string>;
     /**
      * Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `defaultEncryptionScope`. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    public readonly encryptionScopeOverrideEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly encryptionScopeOverrideEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Is there an Immutability Policy configured on this Storage Container?
      */
-    public /*out*/ readonly hasImmutabilityPolicy!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly hasImmutabilityPolicy: pulumi.Output<boolean>;
     /**
      * Is there a Legal Hold configured on this Storage Container?
      */
-    public /*out*/ readonly hasLegalHold!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly hasLegalHold: pulumi.Output<boolean>;
     /**
      * A mapping of MetaData for this Container. All metadata keys should be lowercase.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Resource Manager ID of this Storage Container.
      *
      * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      */
-    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceManagerId: pulumi.Output<string>;
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      *
      * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
      *
@@ -126,7 +126,7 @@ export class Container extends pulumi.CustomResource {
      *
      * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      */
-    public readonly storageAccountName!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Container resource with the given unique name, arguments, and options.
@@ -141,25 +141,25 @@ export class Container extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContainerState | undefined;
-            resourceInputs["containerAccessType"] = state ? state.containerAccessType : undefined;
-            resourceInputs["defaultEncryptionScope"] = state ? state.defaultEncryptionScope : undefined;
-            resourceInputs["encryptionScopeOverrideEnabled"] = state ? state.encryptionScopeOverrideEnabled : undefined;
-            resourceInputs["hasImmutabilityPolicy"] = state ? state.hasImmutabilityPolicy : undefined;
-            resourceInputs["hasLegalHold"] = state ? state.hasLegalHold : undefined;
-            resourceInputs["metadata"] = state ? state.metadata : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
+            resourceInputs["containerAccessType"] = state?.containerAccessType;
+            resourceInputs["defaultEncryptionScope"] = state?.defaultEncryptionScope;
+            resourceInputs["encryptionScopeOverrideEnabled"] = state?.encryptionScopeOverrideEnabled;
+            resourceInputs["hasImmutabilityPolicy"] = state?.hasImmutabilityPolicy;
+            resourceInputs["hasLegalHold"] = state?.hasLegalHold;
+            resourceInputs["metadata"] = state?.metadata;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceManagerId"] = state?.resourceManagerId;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
         } else {
             const args = argsOrState as ContainerArgs | undefined;
-            resourceInputs["containerAccessType"] = args ? args.containerAccessType : undefined;
-            resourceInputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
-            resourceInputs["encryptionScopeOverrideEnabled"] = args ? args.encryptionScopeOverrideEnabled : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["containerAccessType"] = args?.containerAccessType;
+            resourceInputs["defaultEncryptionScope"] = args?.defaultEncryptionScope;
+            resourceInputs["encryptionScopeOverrideEnabled"] = args?.encryptionScopeOverrideEnabled;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
             resourceInputs["hasImmutabilityPolicy"] = undefined /*out*/;
             resourceInputs["hasLegalHold"] = undefined /*out*/;
             resourceInputs["resourceManagerId"] = undefined /*out*/;

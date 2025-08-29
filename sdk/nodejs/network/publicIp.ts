@@ -78,95 +78,95 @@ export class PublicIp extends pulumi.CustomResource {
      *
      * > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      */
-    public readonly allocationMethod!: pulumi.Output<string>;
+    declare public readonly allocationMethod: pulumi.Output<string>;
     /**
      * The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
      */
-    public readonly ddosProtectionMode!: pulumi.Output<string | undefined>;
+    declare public readonly ddosProtectionMode: pulumi.Output<string | undefined>;
     /**
      * The ID of DDoS protection plan associated with the public IP. 
      *
      * > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      */
-    public readonly ddosProtectionPlanId!: pulumi.Output<string | undefined>;
+    declare public readonly ddosProtectionPlanId: pulumi.Output<string | undefined>;
     /**
      * Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
-    public readonly domainNameLabel!: pulumi.Output<string | undefined>;
+    declare public readonly domainNameLabel: pulumi.Output<string | undefined>;
     /**
      * Scope for the domain name label. If a domain name label scope is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN. Possible values are `NoReuse`, `ResourceGroupReuse`, `SubscriptionReuse` and `TenantReuse`. Changing this forces a new Public IP to be created.
      */
-    public readonly domainNameLabelScope!: pulumi.Output<string | undefined>;
+    declare public readonly domainNameLabelScope: pulumi.Output<string | undefined>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name of the A DNS record associated with the public IP. `domainNameLabel` must be specified to get the `fqdn`. This is the concatenation of the `domainNameLabel` and the regionalized DNS zone
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
      */
-    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly idleTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * The IP address value that was allocated.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      *
      * > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      */
-    public readonly ipTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly ipTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      *
      * > **Note** Only `static` IP address allocation is supported for IPv6.
      */
-    public readonly ipVersion!: pulumi.Output<string | undefined>;
+    declare public readonly ipVersion: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Public IP. Changing this forces a new Public IP to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created.
      */
-    public readonly publicIpPrefixId!: pulumi.Output<string | undefined>;
+    declare public readonly publicIpPrefixId: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
      */
-    public readonly reverseFqdn!: pulumi.Output<string | undefined>;
+    declare public readonly reverseFqdn: pulumi.Output<string | undefined>;
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
      * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      *
      * > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      */
-    public readonly skuTier!: pulumi.Output<string | undefined>;
+    declare public readonly skuTier: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created.
      *
      * > **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PublicIp resource with the given unique name, arguments, and options.
@@ -181,52 +181,52 @@ export class PublicIp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PublicIpState | undefined;
-            resourceInputs["allocationMethod"] = state ? state.allocationMethod : undefined;
-            resourceInputs["ddosProtectionMode"] = state ? state.ddosProtectionMode : undefined;
-            resourceInputs["ddosProtectionPlanId"] = state ? state.ddosProtectionPlanId : undefined;
-            resourceInputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
-            resourceInputs["domainNameLabelScope"] = state ? state.domainNameLabelScope : undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
-            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
-            resourceInputs["ipTags"] = state ? state.ipTags : undefined;
-            resourceInputs["ipVersion"] = state ? state.ipVersion : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicIpPrefixId"] = state ? state.publicIpPrefixId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["reverseFqdn"] = state ? state.reverseFqdn : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["skuTier"] = state ? state.skuTier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["allocationMethod"] = state?.allocationMethod;
+            resourceInputs["ddosProtectionMode"] = state?.ddosProtectionMode;
+            resourceInputs["ddosProtectionPlanId"] = state?.ddosProtectionPlanId;
+            resourceInputs["domainNameLabel"] = state?.domainNameLabel;
+            resourceInputs["domainNameLabelScope"] = state?.domainNameLabelScope;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["idleTimeoutInMinutes"] = state?.idleTimeoutInMinutes;
+            resourceInputs["ipAddress"] = state?.ipAddress;
+            resourceInputs["ipTags"] = state?.ipTags;
+            resourceInputs["ipVersion"] = state?.ipVersion;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicIpPrefixId"] = state?.publicIpPrefixId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["reverseFqdn"] = state?.reverseFqdn;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["skuTier"] = state?.skuTier;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as PublicIpArgs | undefined;
-            if ((!args || args.allocationMethod === undefined) && !opts.urn) {
+            if (args?.allocationMethod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'allocationMethod'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allocationMethod"] = args ? args.allocationMethod : undefined;
-            resourceInputs["ddosProtectionMode"] = args ? args.ddosProtectionMode : undefined;
-            resourceInputs["ddosProtectionPlanId"] = args ? args.ddosProtectionPlanId : undefined;
-            resourceInputs["domainNameLabel"] = args ? args.domainNameLabel : undefined;
-            resourceInputs["domainNameLabelScope"] = args ? args.domainNameLabelScope : undefined;
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            resourceInputs["ipTags"] = args ? args.ipTags : undefined;
-            resourceInputs["ipVersion"] = args ? args.ipVersion : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicIpPrefixId"] = args ? args.publicIpPrefixId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["reverseFqdn"] = args ? args.reverseFqdn : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["skuTier"] = args ? args.skuTier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["allocationMethod"] = args?.allocationMethod;
+            resourceInputs["ddosProtectionMode"] = args?.ddosProtectionMode;
+            resourceInputs["ddosProtectionPlanId"] = args?.ddosProtectionPlanId;
+            resourceInputs["domainNameLabel"] = args?.domainNameLabel;
+            resourceInputs["domainNameLabelScope"] = args?.domainNameLabelScope;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["idleTimeoutInMinutes"] = args?.idleTimeoutInMinutes;
+            resourceInputs["ipTags"] = args?.ipTags;
+            resourceInputs["ipVersion"] = args?.ipVersion;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicIpPrefixId"] = args?.publicIpPrefixId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["reverseFqdn"] = args?.reverseFqdn;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["skuTier"] = args?.skuTier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["fqdn"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
         }

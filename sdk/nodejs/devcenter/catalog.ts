@@ -94,23 +94,23 @@ export class Catalog extends pulumi.CustomResource {
     /**
      * A `catalogAdogit` block as defined below.
      */
-    public readonly catalogAdogit!: pulumi.Output<outputs.devcenter.CatalogCatalogAdogit | undefined>;
+    declare public readonly catalogAdogit: pulumi.Output<outputs.devcenter.CatalogCatalogAdogit | undefined>;
     /**
      * A `catalogGithub` block as defined below.
      */
-    public readonly catalogGithub!: pulumi.Output<outputs.devcenter.CatalogCatalogGithub | undefined>;
+    declare public readonly catalogGithub: pulumi.Output<outputs.devcenter.CatalogCatalogGithub | undefined>;
     /**
      * Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
      */
-    public readonly devCenterId!: pulumi.Output<string>;
+    declare public readonly devCenterId: pulumi.Output<string>;
     /**
      * Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a Catalog resource with the given unique name, arguments, and options.
@@ -125,24 +125,24 @@ export class Catalog extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CatalogState | undefined;
-            resourceInputs["catalogAdogit"] = state ? state.catalogAdogit : undefined;
-            resourceInputs["catalogGithub"] = state ? state.catalogGithub : undefined;
-            resourceInputs["devCenterId"] = state ? state.devCenterId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["catalogAdogit"] = state?.catalogAdogit;
+            resourceInputs["catalogGithub"] = state?.catalogGithub;
+            resourceInputs["devCenterId"] = state?.devCenterId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as CatalogArgs | undefined;
-            if ((!args || args.devCenterId === undefined) && !opts.urn) {
+            if (args?.devCenterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["catalogAdogit"] = args ? args.catalogAdogit : undefined;
-            resourceInputs["catalogGithub"] = args ? args.catalogGithub : undefined;
-            resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["catalogAdogit"] = args?.catalogAdogit;
+            resourceInputs["catalogGithub"] = args?.catalogGithub;
+            resourceInputs["devCenterId"] = args?.devCenterId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Catalog.__pulumiType, name, resourceInputs, opts);

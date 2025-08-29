@@ -174,15 +174,15 @@ export class AccountCustomerManagedKey extends pulumi.CustomResource {
     /**
      * The ID of the Cognitive Account. Changing this forces a new resource to be created.
      */
-    public readonly cognitiveAccountId!: pulumi.Output<string>;
+    declare public readonly cognitiveAccountId: pulumi.Output<string>;
     /**
      * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
      */
-    public readonly identityClientId!: pulumi.Output<string | undefined>;
+    declare public readonly identityClientId: pulumi.Output<string | undefined>;
     /**
      * The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string>;
 
     /**
      * Create a AccountCustomerManagedKey resource with the given unique name, arguments, and options.
@@ -197,20 +197,20 @@ export class AccountCustomerManagedKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountCustomerManagedKeyState | undefined;
-            resourceInputs["cognitiveAccountId"] = state ? state.cognitiveAccountId : undefined;
-            resourceInputs["identityClientId"] = state ? state.identityClientId : undefined;
-            resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["cognitiveAccountId"] = state?.cognitiveAccountId;
+            resourceInputs["identityClientId"] = state?.identityClientId;
+            resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
         } else {
             const args = argsOrState as AccountCustomerManagedKeyArgs | undefined;
-            if ((!args || args.cognitiveAccountId === undefined) && !opts.urn) {
+            if (args?.cognitiveAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cognitiveAccountId'");
             }
-            if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
+            if (args?.keyVaultKeyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultKeyId'");
             }
-            resourceInputs["cognitiveAccountId"] = args ? args.cognitiveAccountId : undefined;
-            resourceInputs["identityClientId"] = args ? args.identityClientId : undefined;
-            resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
+            resourceInputs["cognitiveAccountId"] = args?.cognitiveAccountId;
+            resourceInputs["identityClientId"] = args?.identityClientId;
+            resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountCustomerManagedKey.__pulumiType, name, resourceInputs, opts);

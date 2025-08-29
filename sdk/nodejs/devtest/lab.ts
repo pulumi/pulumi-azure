@@ -73,43 +73,43 @@ export class Lab extends pulumi.CustomResource {
     /**
      * The ID of the Storage Account used for Artifact Storage.
      */
-    public /*out*/ readonly artifactsStorageAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly artifactsStorageAccountId: pulumi.Output<string>;
     /**
      * The ID of the Default Premium Storage Account for this Dev Test Lab.
      */
-    public /*out*/ readonly defaultPremiumStorageAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultPremiumStorageAccountId: pulumi.Output<string>;
     /**
      * The ID of the Default Storage Account for this Dev Test Lab.
      */
-    public /*out*/ readonly defaultStorageAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultStorageAccountId: pulumi.Output<string>;
     /**
      * The ID of the Key used for this Dev Test Lab.
      */
-    public /*out*/ readonly keyVaultId!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyVaultId: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Storage Account used for Storage of Premium Data Disk.
      */
-    public /*out*/ readonly premiumDataDiskStorageAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly premiumDataDiskStorageAccountId: pulumi.Output<string>;
     /**
      * The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The unique immutable identifier of the Dev Test Lab.
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
 
     /**
      * Create a Lab resource with the given unique name, arguments, and options.
@@ -124,25 +124,25 @@ export class Lab extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LabState | undefined;
-            resourceInputs["artifactsStorageAccountId"] = state ? state.artifactsStorageAccountId : undefined;
-            resourceInputs["defaultPremiumStorageAccountId"] = state ? state.defaultPremiumStorageAccountId : undefined;
-            resourceInputs["defaultStorageAccountId"] = state ? state.defaultStorageAccountId : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["premiumDataDiskStorageAccountId"] = state ? state.premiumDataDiskStorageAccountId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
+            resourceInputs["artifactsStorageAccountId"] = state?.artifactsStorageAccountId;
+            resourceInputs["defaultPremiumStorageAccountId"] = state?.defaultPremiumStorageAccountId;
+            resourceInputs["defaultStorageAccountId"] = state?.defaultStorageAccountId;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["premiumDataDiskStorageAccountId"] = state?.premiumDataDiskStorageAccountId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["uniqueIdentifier"] = state?.uniqueIdentifier;
         } else {
             const args = argsOrState as LabArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["artifactsStorageAccountId"] = undefined /*out*/;
             resourceInputs["defaultPremiumStorageAccountId"] = undefined /*out*/;
             resourceInputs["defaultStorageAccountId"] = undefined /*out*/;

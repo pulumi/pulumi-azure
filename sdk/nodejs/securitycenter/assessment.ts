@@ -118,19 +118,19 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * A map of additional data to associate with the assessment.
      */
-    public readonly additionalData!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalData: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
      */
-    public readonly assessmentPolicyId!: pulumi.Output<string>;
+    declare public readonly assessmentPolicyId: pulumi.Output<string>;
     /**
      * A `status` block as defined below.
      */
-    public readonly status!: pulumi.Output<outputs.securitycenter.AssessmentStatus>;
+    declare public readonly status: pulumi.Output<outputs.securitycenter.AssessmentStatus>;
     /**
      * The ID of the target resource. Changing this forces a new security Assessment to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
 
     /**
      * Create a Assessment resource with the given unique name, arguments, and options.
@@ -145,25 +145,25 @@ export class Assessment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentState | undefined;
-            resourceInputs["additionalData"] = state ? state.additionalData : undefined;
-            resourceInputs["assessmentPolicyId"] = state ? state.assessmentPolicyId : undefined;
-            resourceInputs["status"] = state ? state.status : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["additionalData"] = state?.additionalData;
+            resourceInputs["assessmentPolicyId"] = state?.assessmentPolicyId;
+            resourceInputs["status"] = state?.status;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
         } else {
             const args = argsOrState as AssessmentArgs | undefined;
-            if ((!args || args.assessmentPolicyId === undefined) && !opts.urn) {
+            if (args?.assessmentPolicyId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assessmentPolicyId'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["additionalData"] = args ? args.additionalData : undefined;
-            resourceInputs["assessmentPolicyId"] = args ? args.assessmentPolicyId : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["additionalData"] = args?.additionalData;
+            resourceInputs["assessmentPolicyId"] = args?.assessmentPolicyId;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Assessment.__pulumiType, name, resourceInputs, opts);

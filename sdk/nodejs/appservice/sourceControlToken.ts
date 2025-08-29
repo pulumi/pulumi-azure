@@ -63,17 +63,17 @@ export class SourceControlToken extends pulumi.CustomResource {
     /**
      * The Access Token.
      */
-    public readonly token!: pulumi.Output<string>;
+    declare public readonly token: pulumi.Output<string>;
     /**
      * The Access Token Secret.
      *
      * > **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      */
-    public readonly tokenSecret!: pulumi.Output<string | undefined>;
+    declare public readonly tokenSecret: pulumi.Output<string | undefined>;
     /**
      * The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a SourceControlToken resource with the given unique name, arguments, and options.
@@ -88,20 +88,20 @@ export class SourceControlToken extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SourceControlTokenState | undefined;
-            resourceInputs["token"] = state ? state.token : undefined;
-            resourceInputs["tokenSecret"] = state ? state.tokenSecret : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["token"] = state?.token;
+            resourceInputs["tokenSecret"] = state?.tokenSecret;
+            resourceInputs["type"] = state?.type;
         } else {
             const args = argsOrState as SourceControlTokenArgs | undefined;
-            if ((!args || args.token === undefined) && !opts.urn) {
+            if (args?.token === undefined && !opts.urn) {
                 throw new Error("Missing required property 'token'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["tokenSecret"] = args?.tokenSecret ? pulumi.secret(args.tokenSecret) : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["type"] = args?.type;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["token", "tokenSecret"] };

@@ -63,20 +63,20 @@ export class Agreement extends pulumi.CustomResource {
         return obj['__pulumiType'] === Agreement.__pulumiType;
     }
 
-    public /*out*/ readonly licenseTextLink!: pulumi.Output<string>;
+    declare public /*out*/ readonly licenseTextLink: pulumi.Output<string>;
     /**
      * The Offer of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    public readonly offer!: pulumi.Output<string>;
+    declare public readonly offer: pulumi.Output<string>;
     /**
      * The Plan of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    public readonly plan!: pulumi.Output<string>;
-    public /*out*/ readonly privacyPolicyLink!: pulumi.Output<string>;
+    declare public readonly plan: pulumi.Output<string>;
+    declare public /*out*/ readonly privacyPolicyLink: pulumi.Output<string>;
     /**
      * The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
      */
-    public readonly publisher!: pulumi.Output<string>;
+    declare public readonly publisher: pulumi.Output<string>;
 
     /**
      * Create a Agreement resource with the given unique name, arguments, and options.
@@ -91,25 +91,25 @@ export class Agreement extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgreementState | undefined;
-            resourceInputs["licenseTextLink"] = state ? state.licenseTextLink : undefined;
-            resourceInputs["offer"] = state ? state.offer : undefined;
-            resourceInputs["plan"] = state ? state.plan : undefined;
-            resourceInputs["privacyPolicyLink"] = state ? state.privacyPolicyLink : undefined;
-            resourceInputs["publisher"] = state ? state.publisher : undefined;
+            resourceInputs["licenseTextLink"] = state?.licenseTextLink;
+            resourceInputs["offer"] = state?.offer;
+            resourceInputs["plan"] = state?.plan;
+            resourceInputs["privacyPolicyLink"] = state?.privacyPolicyLink;
+            resourceInputs["publisher"] = state?.publisher;
         } else {
             const args = argsOrState as AgreementArgs | undefined;
-            if ((!args || args.offer === undefined) && !opts.urn) {
+            if (args?.offer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'offer'");
             }
-            if ((!args || args.plan === undefined) && !opts.urn) {
+            if (args?.plan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'plan'");
             }
-            if ((!args || args.publisher === undefined) && !opts.urn) {
+            if (args?.publisher === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisher'");
             }
-            resourceInputs["offer"] = args ? args.offer : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["publisher"] = args ? args.publisher : undefined;
+            resourceInputs["offer"] = args?.offer;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["publisher"] = args?.publisher;
             resourceInputs["licenseTextLink"] = undefined /*out*/;
             resourceInputs["privacyPolicyLink"] = undefined /*out*/;
         }

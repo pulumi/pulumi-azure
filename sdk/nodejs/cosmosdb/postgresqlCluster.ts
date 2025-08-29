@@ -76,105 +76,105 @@ export class PostgresqlCluster extends pulumi.CustomResource {
     /**
      * The password of the administrator login. This is required when `sourceResourceId` is not set.
      */
-    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
+    declare public readonly administratorLoginPassword: pulumi.Output<string | undefined>;
     /**
      * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      */
-    public readonly citusVersion!: pulumi.Output<string>;
+    declare public readonly citusVersion: pulumi.Output<string>;
     /**
      * Is public access enabled on coordinator? Defaults to `true`.
      */
-    public readonly coordinatorPublicIpAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly coordinatorPublicIpAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
      */
-    public readonly coordinatorServerEdition!: pulumi.Output<string | undefined>;
+    declare public readonly coordinatorServerEdition: pulumi.Output<string | undefined>;
     /**
      * The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
      *
      * > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      */
-    public readonly coordinatorStorageQuotaInMb!: pulumi.Output<number | undefined>;
+    declare public readonly coordinatorStorageQuotaInMb: pulumi.Output<number | undefined>;
     /**
      * The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      */
-    public readonly coordinatorVcoreCount!: pulumi.Output<number | undefined>;
+    declare public readonly coordinatorVcoreCount: pulumi.Output<number | undefined>;
     /**
      * The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
      */
-    public /*out*/ readonly earliestRestoreTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly earliestRestoreTime: pulumi.Output<string>;
     /**
      * Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
      */
-    public readonly haEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly haEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
-    public readonly maintenanceWindow!: pulumi.Output<outputs.cosmosdb.PostgresqlClusterMaintenanceWindow | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.cosmosdb.PostgresqlClusterMaintenanceWindow | undefined>;
     /**
      * The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
      */
-    public readonly nodeCount!: pulumi.Output<number>;
+    declare public readonly nodeCount: pulumi.Output<number>;
     /**
      * Is public access enabled on worker nodes. Defaults to `false`.
      */
-    public readonly nodePublicIpAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly nodePublicIpAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The edition of the node server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `MemoryOptimized`.
      */
-    public readonly nodeServerEdition!: pulumi.Output<string | undefined>;
+    declare public readonly nodeServerEdition: pulumi.Output<string | undefined>;
     /**
      * The storage quota in MB on each worker node. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`.
      */
-    public readonly nodeStorageQuotaInMb!: pulumi.Output<number>;
+    declare public readonly nodeStorageQuotaInMb: pulumi.Output<number>;
     /**
      * The vCores count on each worker node. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96` and `104`.
      */
-    public readonly nodeVcores!: pulumi.Output<number>;
+    declare public readonly nodeVcores: pulumi.Output<number>;
     /**
      * The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created.
      */
-    public readonly pointInTimeInUtc!: pulumi.Output<string | undefined>;
+    declare public readonly pointInTimeInUtc: pulumi.Output<string | undefined>;
     /**
      * The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster.
      */
-    public readonly preferredPrimaryZone!: pulumi.Output<string | undefined>;
+    declare public readonly preferredPrimaryZone: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `servers` block as defined below.
      */
-    public /*out*/ readonly servers!: pulumi.Output<outputs.cosmosdb.PostgresqlClusterServer[]>;
+    declare public /*out*/ readonly servers: pulumi.Output<outputs.cosmosdb.PostgresqlClusterServer[]>;
     /**
      * Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
      */
-    public readonly shardsOnCoordinatorEnabled!: pulumi.Output<boolean>;
+    declare public readonly shardsOnCoordinatorEnabled: pulumi.Output<boolean>;
     /**
      * The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
      */
-    public readonly sourceLocation!: pulumi.Output<string | undefined>;
+    declare public readonly sourceLocation: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
      */
-    public readonly sourceResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceResourceId: pulumi.Output<string | undefined>;
     /**
      * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      */
-    public readonly sqlVersion!: pulumi.Output<string>;
+    declare public readonly sqlVersion: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a PostgresqlCluster resource with the given unique name, arguments, and options.
@@ -189,62 +189,62 @@ export class PostgresqlCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PostgresqlClusterState | undefined;
-            resourceInputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
-            resourceInputs["citusVersion"] = state ? state.citusVersion : undefined;
-            resourceInputs["coordinatorPublicIpAccessEnabled"] = state ? state.coordinatorPublicIpAccessEnabled : undefined;
-            resourceInputs["coordinatorServerEdition"] = state ? state.coordinatorServerEdition : undefined;
-            resourceInputs["coordinatorStorageQuotaInMb"] = state ? state.coordinatorStorageQuotaInMb : undefined;
-            resourceInputs["coordinatorVcoreCount"] = state ? state.coordinatorVcoreCount : undefined;
-            resourceInputs["earliestRestoreTime"] = state ? state.earliestRestoreTime : undefined;
-            resourceInputs["haEnabled"] = state ? state.haEnabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["nodeCount"] = state ? state.nodeCount : undefined;
-            resourceInputs["nodePublicIpAccessEnabled"] = state ? state.nodePublicIpAccessEnabled : undefined;
-            resourceInputs["nodeServerEdition"] = state ? state.nodeServerEdition : undefined;
-            resourceInputs["nodeStorageQuotaInMb"] = state ? state.nodeStorageQuotaInMb : undefined;
-            resourceInputs["nodeVcores"] = state ? state.nodeVcores : undefined;
-            resourceInputs["pointInTimeInUtc"] = state ? state.pointInTimeInUtc : undefined;
-            resourceInputs["preferredPrimaryZone"] = state ? state.preferredPrimaryZone : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["servers"] = state ? state.servers : undefined;
-            resourceInputs["shardsOnCoordinatorEnabled"] = state ? state.shardsOnCoordinatorEnabled : undefined;
-            resourceInputs["sourceLocation"] = state ? state.sourceLocation : undefined;
-            resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
-            resourceInputs["sqlVersion"] = state ? state.sqlVersion : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["administratorLoginPassword"] = state?.administratorLoginPassword;
+            resourceInputs["citusVersion"] = state?.citusVersion;
+            resourceInputs["coordinatorPublicIpAccessEnabled"] = state?.coordinatorPublicIpAccessEnabled;
+            resourceInputs["coordinatorServerEdition"] = state?.coordinatorServerEdition;
+            resourceInputs["coordinatorStorageQuotaInMb"] = state?.coordinatorStorageQuotaInMb;
+            resourceInputs["coordinatorVcoreCount"] = state?.coordinatorVcoreCount;
+            resourceInputs["earliestRestoreTime"] = state?.earliestRestoreTime;
+            resourceInputs["haEnabled"] = state?.haEnabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maintenanceWindow"] = state?.maintenanceWindow;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["nodeCount"] = state?.nodeCount;
+            resourceInputs["nodePublicIpAccessEnabled"] = state?.nodePublicIpAccessEnabled;
+            resourceInputs["nodeServerEdition"] = state?.nodeServerEdition;
+            resourceInputs["nodeStorageQuotaInMb"] = state?.nodeStorageQuotaInMb;
+            resourceInputs["nodeVcores"] = state?.nodeVcores;
+            resourceInputs["pointInTimeInUtc"] = state?.pointInTimeInUtc;
+            resourceInputs["preferredPrimaryZone"] = state?.preferredPrimaryZone;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["servers"] = state?.servers;
+            resourceInputs["shardsOnCoordinatorEnabled"] = state?.shardsOnCoordinatorEnabled;
+            resourceInputs["sourceLocation"] = state?.sourceLocation;
+            resourceInputs["sourceResourceId"] = state?.sourceResourceId;
+            resourceInputs["sqlVersion"] = state?.sqlVersion;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as PostgresqlClusterArgs | undefined;
-            if ((!args || args.nodeCount === undefined) && !opts.urn) {
+            if (args?.nodeCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nodeCount'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword ? pulumi.secret(args.administratorLoginPassword) : undefined;
-            resourceInputs["citusVersion"] = args ? args.citusVersion : undefined;
-            resourceInputs["coordinatorPublicIpAccessEnabled"] = args ? args.coordinatorPublicIpAccessEnabled : undefined;
-            resourceInputs["coordinatorServerEdition"] = args ? args.coordinatorServerEdition : undefined;
-            resourceInputs["coordinatorStorageQuotaInMb"] = args ? args.coordinatorStorageQuotaInMb : undefined;
-            resourceInputs["coordinatorVcoreCount"] = args ? args.coordinatorVcoreCount : undefined;
-            resourceInputs["haEnabled"] = args ? args.haEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
-            resourceInputs["nodePublicIpAccessEnabled"] = args ? args.nodePublicIpAccessEnabled : undefined;
-            resourceInputs["nodeServerEdition"] = args ? args.nodeServerEdition : undefined;
-            resourceInputs["nodeStorageQuotaInMb"] = args ? args.nodeStorageQuotaInMb : undefined;
-            resourceInputs["nodeVcores"] = args ? args.nodeVcores : undefined;
-            resourceInputs["pointInTimeInUtc"] = args ? args.pointInTimeInUtc : undefined;
-            resourceInputs["preferredPrimaryZone"] = args ? args.preferredPrimaryZone : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shardsOnCoordinatorEnabled"] = args ? args.shardsOnCoordinatorEnabled : undefined;
-            resourceInputs["sourceLocation"] = args ? args.sourceLocation : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["sqlVersion"] = args ? args.sqlVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["citusVersion"] = args?.citusVersion;
+            resourceInputs["coordinatorPublicIpAccessEnabled"] = args?.coordinatorPublicIpAccessEnabled;
+            resourceInputs["coordinatorServerEdition"] = args?.coordinatorServerEdition;
+            resourceInputs["coordinatorStorageQuotaInMb"] = args?.coordinatorStorageQuotaInMb;
+            resourceInputs["coordinatorVcoreCount"] = args?.coordinatorVcoreCount;
+            resourceInputs["haEnabled"] = args?.haEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nodeCount"] = args?.nodeCount;
+            resourceInputs["nodePublicIpAccessEnabled"] = args?.nodePublicIpAccessEnabled;
+            resourceInputs["nodeServerEdition"] = args?.nodeServerEdition;
+            resourceInputs["nodeStorageQuotaInMb"] = args?.nodeStorageQuotaInMb;
+            resourceInputs["nodeVcores"] = args?.nodeVcores;
+            resourceInputs["pointInTimeInUtc"] = args?.pointInTimeInUtc;
+            resourceInputs["preferredPrimaryZone"] = args?.preferredPrimaryZone;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shardsOnCoordinatorEnabled"] = args?.shardsOnCoordinatorEnabled;
+            resourceInputs["sourceLocation"] = args?.sourceLocation;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["sqlVersion"] = args?.sqlVersion;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["earliestRestoreTime"] = undefined /*out*/;
             resourceInputs["servers"] = undefined /*out*/;
         }

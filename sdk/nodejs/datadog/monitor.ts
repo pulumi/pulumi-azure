@@ -107,43 +107,43 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * A `datadogOrganization` block as defined below.
      */
-    public readonly datadogOrganization!: pulumi.Output<outputs.datadog.MonitorDatadogOrganization>;
+    declare public readonly datadogOrganization: pulumi.Output<outputs.datadog.MonitorDatadogOrganization>;
     /**
      * A `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.datadog.MonitorIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.datadog.MonitorIdentity | undefined>;
     /**
      * The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
      */
-    public /*out*/ readonly marketplaceSubscriptionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly marketplaceSubscriptionStatus: pulumi.Output<string>;
     /**
      * Is monitoring enabled? Defaults to `true`.
      */
-    public readonly monitoringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly monitoringEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name which should be used for this sku.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Datadog Monitor.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `user` block as defined below.
      */
-    public readonly user!: pulumi.Output<outputs.datadog.MonitorUser>;
+    declare public readonly user: pulumi.Output<outputs.datadog.MonitorUser>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -158,39 +158,39 @@ export class Monitor extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
-            resourceInputs["datadogOrganization"] = state ? state.datadogOrganization : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["marketplaceSubscriptionStatus"] = state ? state.marketplaceSubscriptionStatus : undefined;
-            resourceInputs["monitoringEnabled"] = state ? state.monitoringEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["user"] = state ? state.user : undefined;
+            resourceInputs["datadogOrganization"] = state?.datadogOrganization;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["marketplaceSubscriptionStatus"] = state?.marketplaceSubscriptionStatus;
+            resourceInputs["monitoringEnabled"] = state?.monitoringEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["user"] = state?.user;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
-            if ((!args || args.datadogOrganization === undefined) && !opts.urn) {
+            if (args?.datadogOrganization === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datadogOrganization'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.user === undefined) && !opts.urn) {
+            if (args?.user === undefined && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            resourceInputs["datadogOrganization"] = args ? args.datadogOrganization : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monitoringEnabled"] = args ? args.monitoringEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["datadogOrganization"] = args?.datadogOrganization;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["monitoringEnabled"] = args?.monitoringEnabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["user"] = args?.user;
             resourceInputs["marketplaceSubscriptionStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

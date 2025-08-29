@@ -90,33 +90,33 @@ export class EmailTemplate extends pulumi.CustomResource {
     /**
      * The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The body of the Email. Its format has to be a well-formed HTML document.
      *
      * > **Note:** In `subject` and `body` predefined parameters can be used. The available parameters depend on the template. Schema to use a parameter: `$` followed by the `parameter.name` - `$<parameter.name>`. The available parameters can be seen in the Notification templates section of the API-Management Service instance within the Azure Portal.
      */
-    public readonly body!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string>;
     /**
      * The description of the Email Template.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The subject of the Email.
      */
-    public readonly subject!: pulumi.Output<string>;
+    declare public readonly subject: pulumi.Output<string>;
     /**
      * The name of the Email Template. Possible values are `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`. Changing this forces a new API Management Email Template to be created.
      */
-    public readonly templateName!: pulumi.Output<string>;
+    declare public readonly templateName: pulumi.Output<string>;
     /**
      * The title of the Email Template.
      */
-    public /*out*/ readonly title!: pulumi.Output<string>;
+    declare public /*out*/ readonly title: pulumi.Output<string>;
 
     /**
      * Create a EmailTemplate resource with the given unique name, arguments, and options.
@@ -131,35 +131,35 @@ export class EmailTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailTemplateState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["body"] = state ? state.body : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subject"] = state ? state.subject : undefined;
-            resourceInputs["templateName"] = state ? state.templateName : undefined;
-            resourceInputs["title"] = state ? state.title : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["body"] = state?.body;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subject"] = state?.subject;
+            resourceInputs["templateName"] = state?.templateName;
+            resourceInputs["title"] = state?.title;
         } else {
             const args = argsOrState as EmailTemplateArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.body === undefined) && !opts.urn) {
+            if (args?.body === undefined && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subject === undefined) && !opts.urn) {
+            if (args?.subject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subject'");
             }
-            if ((!args || args.templateName === undefined) && !opts.urn) {
+            if (args?.templateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subject"] = args ? args.subject : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subject"] = args?.subject;
+            resourceInputs["templateName"] = args?.templateName;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["title"] = undefined /*out*/;
         }

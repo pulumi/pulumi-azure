@@ -48,19 +48,19 @@ export class CustomDomain extends pulumi.CustomResource {
      *
      * > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      */
-    public readonly webPubsubCustomCertificateId!: pulumi.Output<string>;
+    declare public readonly webPubsubCustomCertificateId: pulumi.Output<string>;
     /**
      * Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      */
-    public readonly webPubsubId!: pulumi.Output<string>;
+    declare public readonly webPubsubId: pulumi.Output<string>;
 
     /**
      * Create a CustomDomain resource with the given unique name, arguments, and options.
@@ -75,25 +75,25 @@ export class CustomDomain extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomDomainState | undefined;
-            resourceInputs["domainName"] = state ? state.domainName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["webPubsubCustomCertificateId"] = state ? state.webPubsubCustomCertificateId : undefined;
-            resourceInputs["webPubsubId"] = state ? state.webPubsubId : undefined;
+            resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["webPubsubCustomCertificateId"] = state?.webPubsubCustomCertificateId;
+            resourceInputs["webPubsubId"] = state?.webPubsubId;
         } else {
             const args = argsOrState as CustomDomainArgs | undefined;
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.webPubsubCustomCertificateId === undefined) && !opts.urn) {
+            if (args?.webPubsubCustomCertificateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webPubsubCustomCertificateId'");
             }
-            if ((!args || args.webPubsubId === undefined) && !opts.urn) {
+            if (args?.webPubsubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webPubsubId'");
             }
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["webPubsubCustomCertificateId"] = args ? args.webPubsubCustomCertificateId : undefined;
-            resourceInputs["webPubsubId"] = args ? args.webPubsubId : undefined;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["webPubsubCustomCertificateId"] = args?.webPubsubCustomCertificateId;
+            resourceInputs["webPubsubId"] = args?.webPubsubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomDomain.__pulumiType, name, resourceInputs, opts);

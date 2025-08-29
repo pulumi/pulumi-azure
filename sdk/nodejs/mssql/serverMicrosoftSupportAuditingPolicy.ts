@@ -78,29 +78,29 @@ export class ServerMicrosoftSupportAuditingPolicy extends pulumi.CustomResource 
     /**
      * The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
      */
-    public readonly blobStorageEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly blobStorageEndpoint: pulumi.Output<string | undefined>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
      */
-    public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly logMonitoringEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    public readonly serverId!: pulumi.Output<string>;
+    declare public readonly serverId: pulumi.Output<string>;
     /**
      * The access key to use for the auditing storage account.
      */
-    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountAccessKey: pulumi.Output<string | undefined>;
     /**
      * The ID of the Subscription containing the Storage Account.
      */
-    public readonly storageAccountSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountSubscriptionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerMicrosoftSupportAuditingPolicy resource with the given unique name, arguments, and options.
@@ -115,21 +115,21 @@ export class ServerMicrosoftSupportAuditingPolicy extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServerMicrosoftSupportAuditingPolicyState | undefined;
-            resourceInputs["blobStorageEndpoint"] = state ? state.blobStorageEndpoint : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
-            resourceInputs["serverId"] = state ? state.serverId : undefined;
-            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            resourceInputs["storageAccountSubscriptionId"] = state ? state.storageAccountSubscriptionId : undefined;
+            resourceInputs["blobStorageEndpoint"] = state?.blobStorageEndpoint;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["logMonitoringEnabled"] = state?.logMonitoringEnabled;
+            resourceInputs["serverId"] = state?.serverId;
+            resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
+            resourceInputs["storageAccountSubscriptionId"] = state?.storageAccountSubscriptionId;
         } else {
             const args = argsOrState as ServerMicrosoftSupportAuditingPolicyArgs | undefined;
-            if ((!args || args.serverId === undefined) && !opts.urn) {
+            if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            resourceInputs["blobStorageEndpoint"] = args ? args.blobStorageEndpoint : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["blobStorageEndpoint"] = args?.blobStorageEndpoint;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["logMonitoringEnabled"] = args?.logMonitoringEnabled;
+            resourceInputs["serverId"] = args?.serverId;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageAccountSubscriptionId"] = args?.storageAccountSubscriptionId ? pulumi.secret(args.storageAccountSubscriptionId) : undefined;
         }

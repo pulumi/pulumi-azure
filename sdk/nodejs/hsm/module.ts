@@ -144,41 +144,41 @@ export class Module extends pulumi.CustomResource {
     /**
      * The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `managementNetworkProfile` block as defined below.
      *
      * > **Note:** The `managementNetworkProfile` should not be specified when `skuName` is `SafeNet Luna Network HSM A790`.
      */
-    public readonly managementNetworkProfile!: pulumi.Output<outputs.hsm.ModuleManagementNetworkProfile | undefined>;
+    declare public readonly managementNetworkProfile: pulumi.Output<outputs.hsm.ModuleManagementNetworkProfile | undefined>;
     /**
      * The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `networkProfile` block as defined below.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.hsm.ModuleNetworkProfile>;
+    declare public readonly networkProfile: pulumi.Output<outputs.hsm.ModuleNetworkProfile>;
     /**
      * The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    public readonly stampId!: pulumi.Output<string | undefined>;
+    declare public readonly stampId: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags which should be assigned to the Dedicated Hardware Security Module.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Module resource with the given unique name, arguments, and options.
@@ -193,35 +193,35 @@ export class Module extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModuleState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managementNetworkProfile"] = state ? state.managementNetworkProfile : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkProfile"] = state ? state.networkProfile : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["stampId"] = state ? state.stampId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["zones"] = state ? state.zones : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managementNetworkProfile"] = state?.managementNetworkProfile;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkProfile"] = state?.networkProfile;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["stampId"] = state?.stampId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["zones"] = state?.zones;
         } else {
             const args = argsOrState as ModuleArgs | undefined;
-            if ((!args || args.networkProfile === undefined) && !opts.urn) {
+            if (args?.networkProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementNetworkProfile"] = args ? args.managementNetworkProfile : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["stampId"] = args ? args.stampId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementNetworkProfile"] = args?.managementNetworkProfile;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["stampId"] = args?.stampId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Module.__pulumiType, name, resourceInputs, opts);

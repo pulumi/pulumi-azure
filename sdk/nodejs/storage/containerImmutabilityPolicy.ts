@@ -86,25 +86,25 @@ export class ContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
      * The time interval in days that the data needs to be kept in a non-erasable and non-modifiable state.
      */
-    public readonly immutabilityPeriodInDays!: pulumi.Output<number>;
+    declare public readonly immutabilityPeriodInDays: pulumi.Output<number>;
     /**
      * Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
      *
      * !> **Note:** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retentionPeriodInDays` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
      */
-    public readonly locked!: pulumi.Output<boolean | undefined>;
+    declare public readonly locked: pulumi.Output<boolean | undefined>;
     /**
      * Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesEnabled`.
      */
-    public readonly protectedAppendWritesAllEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly protectedAppendWritesAllEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protectedAppendWritesAllEnabled`.
      */
-    public readonly protectedAppendWritesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly protectedAppendWritesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Resource Manager ID of the Storage Container where this Immutability Policy should be applied. Changing this forces a new resource to be created.
      */
-    public readonly storageContainerResourceManagerId!: pulumi.Output<string>;
+    declare public readonly storageContainerResourceManagerId: pulumi.Output<string>;
 
     /**
      * Create a ContainerImmutabilityPolicy resource with the given unique name, arguments, and options.
@@ -119,24 +119,24 @@ export class ContainerImmutabilityPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContainerImmutabilityPolicyState | undefined;
-            resourceInputs["immutabilityPeriodInDays"] = state ? state.immutabilityPeriodInDays : undefined;
-            resourceInputs["locked"] = state ? state.locked : undefined;
-            resourceInputs["protectedAppendWritesAllEnabled"] = state ? state.protectedAppendWritesAllEnabled : undefined;
-            resourceInputs["protectedAppendWritesEnabled"] = state ? state.protectedAppendWritesEnabled : undefined;
-            resourceInputs["storageContainerResourceManagerId"] = state ? state.storageContainerResourceManagerId : undefined;
+            resourceInputs["immutabilityPeriodInDays"] = state?.immutabilityPeriodInDays;
+            resourceInputs["locked"] = state?.locked;
+            resourceInputs["protectedAppendWritesAllEnabled"] = state?.protectedAppendWritesAllEnabled;
+            resourceInputs["protectedAppendWritesEnabled"] = state?.protectedAppendWritesEnabled;
+            resourceInputs["storageContainerResourceManagerId"] = state?.storageContainerResourceManagerId;
         } else {
             const args = argsOrState as ContainerImmutabilityPolicyArgs | undefined;
-            if ((!args || args.immutabilityPeriodInDays === undefined) && !opts.urn) {
+            if (args?.immutabilityPeriodInDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'immutabilityPeriodInDays'");
             }
-            if ((!args || args.storageContainerResourceManagerId === undefined) && !opts.urn) {
+            if (args?.storageContainerResourceManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerResourceManagerId'");
             }
-            resourceInputs["immutabilityPeriodInDays"] = args ? args.immutabilityPeriodInDays : undefined;
-            resourceInputs["locked"] = args ? args.locked : undefined;
-            resourceInputs["protectedAppendWritesAllEnabled"] = args ? args.protectedAppendWritesAllEnabled : undefined;
-            resourceInputs["protectedAppendWritesEnabled"] = args ? args.protectedAppendWritesEnabled : undefined;
-            resourceInputs["storageContainerResourceManagerId"] = args ? args.storageContainerResourceManagerId : undefined;
+            resourceInputs["immutabilityPeriodInDays"] = args?.immutabilityPeriodInDays;
+            resourceInputs["locked"] = args?.locked;
+            resourceInputs["protectedAppendWritesAllEnabled"] = args?.protectedAppendWritesAllEnabled;
+            resourceInputs["protectedAppendWritesEnabled"] = args?.protectedAppendWritesEnabled;
+            resourceInputs["storageContainerResourceManagerId"] = args?.storageContainerResourceManagerId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ContainerImmutabilityPolicy.__pulumiType, name, resourceInputs, opts);

@@ -100,15 +100,15 @@ export class JobTargetGroup extends pulumi.CustomResource {
     /**
      * The ID of the Elastic Job Agent. Changing this forces a new Job Target Group to be created.
      */
-    public readonly jobAgentId!: pulumi.Output<string>;
+    declare public readonly jobAgentId: pulumi.Output<string>;
     /**
      * One or more `jobTarget` blocks as defined below.
      */
-    public readonly jobTargets!: pulumi.Output<outputs.mssql.JobTargetGroupJobTarget[] | undefined>;
+    declare public readonly jobTargets: pulumi.Output<outputs.mssql.JobTargetGroupJobTarget[] | undefined>;
     /**
      * The name which should be used for this Job Target Group. Changing this forces a new Job Target Group to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a JobTargetGroup resource with the given unique name, arguments, and options.
@@ -123,17 +123,17 @@ export class JobTargetGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobTargetGroupState | undefined;
-            resourceInputs["jobAgentId"] = state ? state.jobAgentId : undefined;
-            resourceInputs["jobTargets"] = state ? state.jobTargets : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["jobAgentId"] = state?.jobAgentId;
+            resourceInputs["jobTargets"] = state?.jobTargets;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as JobTargetGroupArgs | undefined;
-            if ((!args || args.jobAgentId === undefined) && !opts.urn) {
+            if (args?.jobAgentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentId'");
             }
-            resourceInputs["jobAgentId"] = args ? args.jobAgentId : undefined;
-            resourceInputs["jobTargets"] = args ? args.jobTargets : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["jobAgentId"] = args?.jobAgentId;
+            resourceInputs["jobTargets"] = args?.jobTargets;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(JobTargetGroup.__pulumiType, name, resourceInputs, opts);

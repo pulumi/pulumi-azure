@@ -82,37 +82,37 @@ export class Hub extends pulumi.CustomResource {
      *
      * > **Note:** Removing the `apnsCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
-    public readonly apnsCredential!: pulumi.Output<outputs.notificationhub.HubApnsCredential | undefined>;
+    declare public readonly apnsCredential: pulumi.Output<outputs.notificationhub.HubApnsCredential | undefined>;
     /**
      * A `browserCredential` block as defined below.
      */
-    public readonly browserCredential!: pulumi.Output<outputs.notificationhub.HubBrowserCredential | undefined>;
+    declare public readonly browserCredential: pulumi.Output<outputs.notificationhub.HubBrowserCredential | undefined>;
     /**
      * A `gcmCredential` block as defined below.
      *
      * > **Note:** Removing the `gcmCredential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
      */
-    public readonly gcmCredential!: pulumi.Output<outputs.notificationhub.HubGcmCredential | undefined>;
+    declare public readonly gcmCredential: pulumi.Output<outputs.notificationhub.HubGcmCredential | undefined>;
     /**
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name to use for this Notification Hub. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName!: pulumi.Output<string>;
+    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Hub resource with the given unique name, arguments, and options.
@@ -127,30 +127,30 @@ export class Hub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HubState | undefined;
-            resourceInputs["apnsCredential"] = state ? state.apnsCredential : undefined;
-            resourceInputs["browserCredential"] = state ? state.browserCredential : undefined;
-            resourceInputs["gcmCredential"] = state ? state.gcmCredential : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["apnsCredential"] = state?.apnsCredential;
+            resourceInputs["browserCredential"] = state?.browserCredential;
+            resourceInputs["gcmCredential"] = state?.gcmCredential;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["namespaceName"] = state?.namespaceName;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as HubArgs | undefined;
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apnsCredential"] = args ? args.apnsCredential : undefined;
-            resourceInputs["browserCredential"] = args ? args.browserCredential : undefined;
-            resourceInputs["gcmCredential"] = args ? args.gcmCredential : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apnsCredential"] = args?.apnsCredential;
+            resourceInputs["browserCredential"] = args?.browserCredential;
+            resourceInputs["gcmCredential"] = args?.gcmCredential;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Hub.__pulumiType, name, resourceInputs, opts);

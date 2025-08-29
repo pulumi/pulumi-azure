@@ -80,19 +80,19 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
     /**
      * The content of the Logic App Integration Account Session.
      */
-    public readonly content!: pulumi.Output<string>;
+    declare public readonly content: pulumi.Output<string>;
     /**
      * The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Session to be created.
      */
-    public readonly integrationAccountName!: pulumi.Output<string>;
+    declare public readonly integrationAccountName: pulumi.Output<string>;
     /**
      * The name which should be used for this Logic App Integration Account Session. Changing this forces a new Logic App Integration Account Session to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Logic App Integration Account Session should exist. Changing this forces a new Logic App Integration Account Session to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAccountSession resource with the given unique name, arguments, and options.
@@ -107,25 +107,25 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationAccountSessionState | undefined;
-            resourceInputs["content"] = state ? state.content : undefined;
-            resourceInputs["integrationAccountName"] = state ? state.integrationAccountName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["content"] = state?.content;
+            resourceInputs["integrationAccountName"] = state?.integrationAccountName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as IntegrationAccountSessionArgs | undefined;
-            if ((!args || args.content === undefined) && !opts.urn) {
+            if (args?.content === undefined && !opts.urn) {
                 throw new Error("Missing required property 'content'");
             }
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IntegrationAccountSession.__pulumiType, name, resourceInputs, opts);

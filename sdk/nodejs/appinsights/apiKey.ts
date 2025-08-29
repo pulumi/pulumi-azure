@@ -113,25 +113,25 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The API Key secret (Sensitive).
      */
-    public /*out*/ readonly apiKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiKey: pulumi.Output<string>;
     /**
      * The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
      */
-    public readonly applicationInsightsId!: pulumi.Output<string>;
+    declare public readonly applicationInsightsId: pulumi.Output<string>;
     /**
      * Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
-    public readonly readPermissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly readPermissions: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      *
      * > **Note:** At least one read or write permission must be defined.
      */
-    public readonly writePermissions!: pulumi.Output<string[] | undefined>;
+    declare public readonly writePermissions: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -146,20 +146,20 @@ export class ApiKey extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
-            resourceInputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["readPermissions"] = state ? state.readPermissions : undefined;
-            resourceInputs["writePermissions"] = state ? state.writePermissions : undefined;
+            resourceInputs["apiKey"] = state?.apiKey;
+            resourceInputs["applicationInsightsId"] = state?.applicationInsightsId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["readPermissions"] = state?.readPermissions;
+            resourceInputs["writePermissions"] = state?.writePermissions;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
+            if (args?.applicationInsightsId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationInsightsId'");
             }
-            resourceInputs["applicationInsightsId"] = args ? args.applicationInsightsId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["readPermissions"] = args ? args.readPermissions : undefined;
-            resourceInputs["writePermissions"] = args ? args.writePermissions : undefined;
+            resourceInputs["applicationInsightsId"] = args?.applicationInsightsId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["readPermissions"] = args?.readPermissions;
+            resourceInputs["writePermissions"] = args?.writePermissions;
             resourceInputs["apiKey"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

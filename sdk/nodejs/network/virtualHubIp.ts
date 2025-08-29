@@ -100,27 +100,27 @@ export class VirtualHubIp extends pulumi.CustomResource {
     /**
      * The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The private IP address of the IP configuration.
      */
-    public readonly privateIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly privateIpAddress: pulumi.Output<string | undefined>;
     /**
      * The private IP address allocation method. Possible values are `Static` and `Dynamic` is allowed. Defaults to `Dynamic`.
      */
-    public readonly privateIpAllocationMethod!: pulumi.Output<string | undefined>;
+    declare public readonly privateIpAllocationMethod: pulumi.Output<string | undefined>;
     /**
      * The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
      */
-    public readonly publicIpAddressId!: pulumi.Output<string>;
+    declare public readonly publicIpAddressId: pulumi.Output<string>;
     /**
      * The ID of the Subnet that the IP will reside. Changing this forces a new resource to be created.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * The ID of the Virtual Hub within which this IP configuration should be created. Changing this forces a new resource to be created.
      */
-    public readonly virtualHubId!: pulumi.Output<string>;
+    declare public readonly virtualHubId: pulumi.Output<string>;
 
     /**
      * Create a VirtualHubIp resource with the given unique name, arguments, and options.
@@ -135,29 +135,29 @@ export class VirtualHubIp extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualHubIpState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            resourceInputs["privateIpAllocationMethod"] = state ? state.privateIpAllocationMethod : undefined;
-            resourceInputs["publicIpAddressId"] = state ? state.publicIpAddressId : undefined;
-            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
-            resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateIpAddress"] = state?.privateIpAddress;
+            resourceInputs["privateIpAllocationMethod"] = state?.privateIpAllocationMethod;
+            resourceInputs["publicIpAddressId"] = state?.publicIpAddressId;
+            resourceInputs["subnetId"] = state?.subnetId;
+            resourceInputs["virtualHubId"] = state?.virtualHubId;
         } else {
             const args = argsOrState as VirtualHubIpArgs | undefined;
-            if ((!args || args.publicIpAddressId === undefined) && !opts.urn) {
+            if (args?.publicIpAddressId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publicIpAddressId'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.virtualHubId === undefined) && !opts.urn) {
+            if (args?.virtualHubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
-            resourceInputs["privateIpAllocationMethod"] = args ? args.privateIpAllocationMethod : undefined;
-            resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateIpAddress"] = args?.privateIpAddress;
+            resourceInputs["privateIpAllocationMethod"] = args?.privateIpAllocationMethod;
+            resourceInputs["publicIpAddressId"] = args?.publicIpAddressId;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["virtualHubId"] = args?.virtualHubId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualHubIp.__pulumiType, name, resourceInputs, opts);

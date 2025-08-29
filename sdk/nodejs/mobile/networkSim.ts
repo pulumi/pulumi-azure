@@ -112,51 +112,51 @@ export class NetworkSim extends pulumi.CustomResource {
     /**
      * The Ki value for the SIM.
      */
-    public readonly authenticationKey!: pulumi.Output<string>;
+    declare public readonly authenticationKey: pulumi.Output<string>;
     /**
      * An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value.
      */
-    public readonly deviceType!: pulumi.Output<string | undefined>;
+    declare public readonly deviceType: pulumi.Output<string | undefined>;
     /**
      * The integrated circuit card ID (ICCID) for the SIM. Changing this forces a new Mobile Network Sim to be created.
      */
-    public readonly integratedCircuitCardIdentifier!: pulumi.Output<string>;
+    declare public readonly integratedCircuitCardIdentifier: pulumi.Output<string>;
     /**
      * The international mobile subscriber identity (IMSI) for the SIM. Changing this forces a new Mobile Network Sim to be created.
      */
-    public readonly internationalMobileSubscriberIdentity!: pulumi.Output<string>;
+    declare public readonly internationalMobileSubscriberIdentity: pulumi.Output<string>;
     /**
      * The ID of the Mobile Network which the Mobile Network Sim belongs to. Changing this forces a new Mobile Network Sim to be created.
      */
-    public readonly mobileNetworkSimGroupId!: pulumi.Output<string>;
+    declare public readonly mobileNetworkSimGroupId: pulumi.Output<string>;
     /**
      * The name which should be used for this Mobile Network Sim. Changing this forces a new Mobile Network Sim to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Opc value for the SIM.
      */
-    public readonly operatorKeyCode!: pulumi.Output<string>;
+    declare public readonly operatorKeyCode: pulumi.Output<string>;
     /**
      * The ID of SIM policy used by this SIM.
      */
-    public readonly simPolicyId!: pulumi.Output<string | undefined>;
+    declare public readonly simPolicyId: pulumi.Output<string | undefined>;
     /**
      * The state of the SIM resource.
      */
-    public /*out*/ readonly simState!: pulumi.Output<string>;
+    declare public /*out*/ readonly simState: pulumi.Output<string>;
     /**
      * A `staticIpConfiguration` block as defined below.
      */
-    public readonly staticIpConfigurations!: pulumi.Output<outputs.mobile.NetworkSimStaticIpConfiguration[] | undefined>;
+    declare public readonly staticIpConfigurations: pulumi.Output<outputs.mobile.NetworkSimStaticIpConfiguration[] | undefined>;
     /**
      * The public key fingerprint of the SIM vendor who provided this SIM, if any.
      */
-    public /*out*/ readonly vendorKeyFingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly vendorKeyFingerprint: pulumi.Output<string>;
     /**
      * The name of the SIM vendor who provided this SIM, if any.
      */
-    public /*out*/ readonly vendorName!: pulumi.Output<string>;
+    declare public /*out*/ readonly vendorName: pulumi.Output<string>;
 
     /**
      * Create a NetworkSim resource with the given unique name, arguments, and options.
@@ -171,44 +171,44 @@ export class NetworkSim extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkSimState | undefined;
-            resourceInputs["authenticationKey"] = state ? state.authenticationKey : undefined;
-            resourceInputs["deviceType"] = state ? state.deviceType : undefined;
-            resourceInputs["integratedCircuitCardIdentifier"] = state ? state.integratedCircuitCardIdentifier : undefined;
-            resourceInputs["internationalMobileSubscriberIdentity"] = state ? state.internationalMobileSubscriberIdentity : undefined;
-            resourceInputs["mobileNetworkSimGroupId"] = state ? state.mobileNetworkSimGroupId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["operatorKeyCode"] = state ? state.operatorKeyCode : undefined;
-            resourceInputs["simPolicyId"] = state ? state.simPolicyId : undefined;
-            resourceInputs["simState"] = state ? state.simState : undefined;
-            resourceInputs["staticIpConfigurations"] = state ? state.staticIpConfigurations : undefined;
-            resourceInputs["vendorKeyFingerprint"] = state ? state.vendorKeyFingerprint : undefined;
-            resourceInputs["vendorName"] = state ? state.vendorName : undefined;
+            resourceInputs["authenticationKey"] = state?.authenticationKey;
+            resourceInputs["deviceType"] = state?.deviceType;
+            resourceInputs["integratedCircuitCardIdentifier"] = state?.integratedCircuitCardIdentifier;
+            resourceInputs["internationalMobileSubscriberIdentity"] = state?.internationalMobileSubscriberIdentity;
+            resourceInputs["mobileNetworkSimGroupId"] = state?.mobileNetworkSimGroupId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["operatorKeyCode"] = state?.operatorKeyCode;
+            resourceInputs["simPolicyId"] = state?.simPolicyId;
+            resourceInputs["simState"] = state?.simState;
+            resourceInputs["staticIpConfigurations"] = state?.staticIpConfigurations;
+            resourceInputs["vendorKeyFingerprint"] = state?.vendorKeyFingerprint;
+            resourceInputs["vendorName"] = state?.vendorName;
         } else {
             const args = argsOrState as NetworkSimArgs | undefined;
-            if ((!args || args.authenticationKey === undefined) && !opts.urn) {
+            if (args?.authenticationKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationKey'");
             }
-            if ((!args || args.integratedCircuitCardIdentifier === undefined) && !opts.urn) {
+            if (args?.integratedCircuitCardIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integratedCircuitCardIdentifier'");
             }
-            if ((!args || args.internationalMobileSubscriberIdentity === undefined) && !opts.urn) {
+            if (args?.internationalMobileSubscriberIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'internationalMobileSubscriberIdentity'");
             }
-            if ((!args || args.mobileNetworkSimGroupId === undefined) && !opts.urn) {
+            if (args?.mobileNetworkSimGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkSimGroupId'");
             }
-            if ((!args || args.operatorKeyCode === undefined) && !opts.urn) {
+            if (args?.operatorKeyCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operatorKeyCode'");
             }
             resourceInputs["authenticationKey"] = args?.authenticationKey ? pulumi.secret(args.authenticationKey) : undefined;
-            resourceInputs["deviceType"] = args ? args.deviceType : undefined;
-            resourceInputs["integratedCircuitCardIdentifier"] = args ? args.integratedCircuitCardIdentifier : undefined;
-            resourceInputs["internationalMobileSubscriberIdentity"] = args ? args.internationalMobileSubscriberIdentity : undefined;
-            resourceInputs["mobileNetworkSimGroupId"] = args ? args.mobileNetworkSimGroupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["deviceType"] = args?.deviceType;
+            resourceInputs["integratedCircuitCardIdentifier"] = args?.integratedCircuitCardIdentifier;
+            resourceInputs["internationalMobileSubscriberIdentity"] = args?.internationalMobileSubscriberIdentity;
+            resourceInputs["mobileNetworkSimGroupId"] = args?.mobileNetworkSimGroupId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["operatorKeyCode"] = args?.operatorKeyCode ? pulumi.secret(args.operatorKeyCode) : undefined;
-            resourceInputs["simPolicyId"] = args ? args.simPolicyId : undefined;
-            resourceInputs["staticIpConfigurations"] = args ? args.staticIpConfigurations : undefined;
+            resourceInputs["simPolicyId"] = args?.simPolicyId;
+            resourceInputs["staticIpConfigurations"] = args?.staticIpConfigurations;
             resourceInputs["simState"] = undefined /*out*/;
             resourceInputs["vendorKeyFingerprint"] = undefined /*out*/;
             resourceInputs["vendorName"] = undefined /*out*/;

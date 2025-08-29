@@ -91,36 +91,36 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
     /**
      * The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
      */
-    public readonly databaseId!: pulumi.Output<string>;
+    declare public readonly databaseId: pulumi.Output<string>;
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
      * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Enable audit events to Azure Monitor? Defaults to `true`.
      *
      * > **Note:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
      * To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
      */
-    public readonly logMonitoringEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly logMonitoringEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The number of days to retain logs for in the storage account. Defaults to `0`.
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
      * The access key to use for the auditing storage account.
      */
-    public readonly storageAccountAccessKey!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountAccessKey: pulumi.Output<string | undefined>;
     /**
      * Is `storageAccountAccessKey` value the storage's secondary key?
      */
-    public readonly storageAccountAccessKeyIsSecondary!: pulumi.Output<boolean | undefined>;
+    declare public readonly storageAccountAccessKeyIsSecondary: pulumi.Output<boolean | undefined>;
     /**
      * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
      */
-    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly storageEndpoint: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatabaseExtendedAuditingPolicy resource with the given unique name, arguments, and options.
@@ -135,25 +135,25 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatabaseExtendedAuditingPolicyState | undefined;
-            resourceInputs["databaseId"] = state ? state.databaseId : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["logMonitoringEnabled"] = state ? state.logMonitoringEnabled : undefined;
-            resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
-            resourceInputs["storageAccountAccessKey"] = state ? state.storageAccountAccessKey : undefined;
-            resourceInputs["storageAccountAccessKeyIsSecondary"] = state ? state.storageAccountAccessKeyIsSecondary : undefined;
-            resourceInputs["storageEndpoint"] = state ? state.storageEndpoint : undefined;
+            resourceInputs["databaseId"] = state?.databaseId;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["logMonitoringEnabled"] = state?.logMonitoringEnabled;
+            resourceInputs["retentionInDays"] = state?.retentionInDays;
+            resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = state?.storageAccountAccessKeyIsSecondary;
+            resourceInputs["storageEndpoint"] = state?.storageEndpoint;
         } else {
             const args = argsOrState as DatabaseExtendedAuditingPolicyArgs | undefined;
-            if ((!args || args.databaseId === undefined) && !opts.urn) {
+            if (args?.databaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
-            resourceInputs["databaseId"] = args ? args.databaseId : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["logMonitoringEnabled"] = args ? args.logMonitoringEnabled : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            resourceInputs["databaseId"] = args?.databaseId;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["logMonitoringEnabled"] = args?.logMonitoringEnabled;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
-            resourceInputs["storageAccountAccessKeyIsSecondary"] = args ? args.storageAccountAccessKeyIsSecondary : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["storageAccountAccessKeyIsSecondary"] = args?.storageAccountAccessKeyIsSecondary;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };

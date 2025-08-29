@@ -121,55 +121,55 @@ export class IotHubDataConnection extends pulumi.CustomResource {
     /**
      * Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
      */
-    public readonly clusterName!: pulumi.Output<string>;
+    declare public readonly clusterName: pulumi.Output<string>;
     /**
      * Specifies the IotHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    public readonly consumerGroup!: pulumi.Output<string>;
+    declare public readonly consumerGroup: pulumi.Output<string>;
     /**
      * Specifies the data format of the IoTHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. Changing this forces a new resource to be created.
      */
-    public readonly dataFormat!: pulumi.Output<string | undefined>;
+    declare public readonly dataFormat: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
-    public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
+    declare public readonly databaseRoutingType: pulumi.Output<string | undefined>;
     /**
      * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      */
-    public readonly eventSystemProperties!: pulumi.Output<string[] | undefined>;
+    declare public readonly eventSystemProperties: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
-    public readonly iothubId!: pulumi.Output<string>;
+    declare public readonly iothubId: pulumi.Output<string>;
     /**
      * The location where the Kusto Database should be created. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. Changing this forces a new resource to be created.
      */
-    public readonly mappingRuleName!: pulumi.Output<string | undefined>;
+    declare public readonly mappingRuleName: pulumi.Output<string | undefined>;
     /**
      * The name of the Kusto IotHub Data Connection to create. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the IotHub Shared Access Policy this data connection will use for ingestion, which must have read permission. Changing this forces a new resource to be created.
      */
-    public readonly sharedAccessPolicyName!: pulumi.Output<string>;
+    declare public readonly sharedAccessPolicyName: pulumi.Output<string>;
     /**
      * Specifies the target table name used for the message ingestion. Table must exist before resource is created. Changing this forces a new resource to be created.
      */
-    public readonly tableName!: pulumi.Output<string | undefined>;
+    declare public readonly tableName: pulumi.Output<string | undefined>;
 
     /**
      * Create a IotHubDataConnection resource with the given unique name, arguments, and options.
@@ -184,52 +184,52 @@ export class IotHubDataConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IotHubDataConnectionState | undefined;
-            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
-            resourceInputs["consumerGroup"] = state ? state.consumerGroup : undefined;
-            resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
-            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
-            resourceInputs["databaseRoutingType"] = state ? state.databaseRoutingType : undefined;
-            resourceInputs["eventSystemProperties"] = state ? state.eventSystemProperties : undefined;
-            resourceInputs["iothubId"] = state ? state.iothubId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sharedAccessPolicyName"] = state ? state.sharedAccessPolicyName : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["clusterName"] = state?.clusterName;
+            resourceInputs["consumerGroup"] = state?.consumerGroup;
+            resourceInputs["dataFormat"] = state?.dataFormat;
+            resourceInputs["databaseName"] = state?.databaseName;
+            resourceInputs["databaseRoutingType"] = state?.databaseRoutingType;
+            resourceInputs["eventSystemProperties"] = state?.eventSystemProperties;
+            resourceInputs["iothubId"] = state?.iothubId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["mappingRuleName"] = state?.mappingRuleName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sharedAccessPolicyName"] = state?.sharedAccessPolicyName;
+            resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as IotHubDataConnectionArgs | undefined;
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.consumerGroup === undefined) && !opts.urn) {
+            if (args?.consumerGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerGroup'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.iothubId === undefined) && !opts.urn) {
+            if (args?.iothubId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iothubId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sharedAccessPolicyName === undefined) && !opts.urn) {
+            if (args?.sharedAccessPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["databaseRoutingType"] = args ? args.databaseRoutingType : undefined;
-            resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
-            resourceInputs["iothubId"] = args ? args.iothubId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["consumerGroup"] = args?.consumerGroup;
+            resourceInputs["dataFormat"] = args?.dataFormat;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["databaseRoutingType"] = args?.databaseRoutingType;
+            resourceInputs["eventSystemProperties"] = args?.eventSystemProperties;
+            resourceInputs["iothubId"] = args?.iothubId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mappingRuleName"] = args?.mappingRuleName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedAccessPolicyName"] = args?.sharedAccessPolicyName;
+            resourceInputs["tableName"] = args?.tableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IotHubDataConnection.__pulumiType, name, resourceInputs, opts);

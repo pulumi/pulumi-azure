@@ -90,35 +90,35 @@ export class Spacecraft extends pulumi.CustomResource {
     /**
      * A `links` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly links!: pulumi.Output<outputs.orbital.SpacecraftLink[]>;
+    declare public readonly links: pulumi.Output<outputs.orbital.SpacecraftLink[]>;
     /**
      * The location where the Spacecraft exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Spacecraft. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * NORAD ID of the Spacecraft.
      */
-    public readonly noradId!: pulumi.Output<string>;
+    declare public readonly noradId: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Title of the two line elements (TLE).
      */
-    public readonly titleLine!: pulumi.Output<string>;
+    declare public readonly titleLine: pulumi.Output<string>;
     /**
      * A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
      */
-    public readonly twoLineElements!: pulumi.Output<string[]>;
+    declare public readonly twoLineElements: pulumi.Output<string[]>;
 
     /**
      * Create a Spacecraft resource with the given unique name, arguments, and options.
@@ -133,39 +133,39 @@ export class Spacecraft extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpacecraftState | undefined;
-            resourceInputs["links"] = state ? state.links : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["noradId"] = state ? state.noradId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["titleLine"] = state ? state.titleLine : undefined;
-            resourceInputs["twoLineElements"] = state ? state.twoLineElements : undefined;
+            resourceInputs["links"] = state?.links;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["noradId"] = state?.noradId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["titleLine"] = state?.titleLine;
+            resourceInputs["twoLineElements"] = state?.twoLineElements;
         } else {
             const args = argsOrState as SpacecraftArgs | undefined;
-            if ((!args || args.links === undefined) && !opts.urn) {
+            if (args?.links === undefined && !opts.urn) {
                 throw new Error("Missing required property 'links'");
             }
-            if ((!args || args.noradId === undefined) && !opts.urn) {
+            if (args?.noradId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'noradId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.titleLine === undefined) && !opts.urn) {
+            if (args?.titleLine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'titleLine'");
             }
-            if ((!args || args.twoLineElements === undefined) && !opts.urn) {
+            if (args?.twoLineElements === undefined && !opts.urn) {
                 throw new Error("Missing required property 'twoLineElements'");
             }
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["noradId"] = args ? args.noradId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["titleLine"] = args ? args.titleLine : undefined;
-            resourceInputs["twoLineElements"] = args ? args.twoLineElements : undefined;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["noradId"] = args?.noradId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["titleLine"] = args?.titleLine;
+            resourceInputs["twoLineElements"] = args?.twoLineElements;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Spacecraft.__pulumiType, name, resourceInputs, opts);

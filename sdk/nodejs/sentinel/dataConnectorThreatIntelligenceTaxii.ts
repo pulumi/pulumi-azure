@@ -79,45 +79,45 @@ export class DataConnectorThreatIntelligenceTaxii extends pulumi.CustomResource 
     /**
      * The API root URI of the TAXII server.
      */
-    public readonly apiRootUrl!: pulumi.Output<string>;
+    declare public readonly apiRootUrl: pulumi.Output<string>;
     /**
      * The collection ID of the TAXII server.
      */
-    public readonly collectionId!: pulumi.Output<string>;
+    declare public readonly collectionId: pulumi.Output<string>;
     /**
      * The friendly name which should be used for this Threat Intelligence TAXII Data Connector.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The ID of the Log Analytics Workspace that this Threat Intelligence TAXII Data Connector resides in. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
      */
-    public readonly lookbackDate!: pulumi.Output<string | undefined>;
+    declare public readonly lookbackDate: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password for the TAXII server.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`.
      */
-    public readonly pollingFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly pollingFrequency: pulumi.Output<string | undefined>;
     /**
      * The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created.
      *
      * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
     /**
      * The user name for the TAXII server.
      */
-    public readonly userName!: pulumi.Output<string | undefined>;
+    declare public readonly userName: pulumi.Output<string | undefined>;
 
     /**
      * Create a DataConnectorThreatIntelligenceTaxii resource with the given unique name, arguments, and options.
@@ -132,39 +132,39 @@ export class DataConnectorThreatIntelligenceTaxii extends pulumi.CustomResource 
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataConnectorThreatIntelligenceTaxiiState | undefined;
-            resourceInputs["apiRootUrl"] = state ? state.apiRootUrl : undefined;
-            resourceInputs["collectionId"] = state ? state.collectionId : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["lookbackDate"] = state ? state.lookbackDate : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["pollingFrequency"] = state ? state.pollingFrequency : undefined;
-            resourceInputs["tenantId"] = state ? state.tenantId : undefined;
-            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["apiRootUrl"] = state?.apiRootUrl;
+            resourceInputs["collectionId"] = state?.collectionId;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["lookbackDate"] = state?.lookbackDate;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["pollingFrequency"] = state?.pollingFrequency;
+            resourceInputs["tenantId"] = state?.tenantId;
+            resourceInputs["userName"] = state?.userName;
         } else {
             const args = argsOrState as DataConnectorThreatIntelligenceTaxiiArgs | undefined;
-            if ((!args || args.apiRootUrl === undefined) && !opts.urn) {
+            if (args?.apiRootUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiRootUrl'");
             }
-            if ((!args || args.collectionId === undefined) && !opts.urn) {
+            if (args?.collectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collectionId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            resourceInputs["apiRootUrl"] = args ? args.apiRootUrl : undefined;
-            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["lookbackDate"] = args ? args.lookbackDate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["apiRootUrl"] = args?.apiRootUrl;
+            resourceInputs["collectionId"] = args?.collectionId;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["lookbackDate"] = args?.lookbackDate;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["pollingFrequency"] = args ? args.pollingFrequency : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["pollingFrequency"] = args?.pollingFrequency;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["userName"] = args?.userName ? pulumi.secret(args.userName) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

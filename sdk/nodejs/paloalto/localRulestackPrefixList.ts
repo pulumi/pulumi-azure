@@ -75,23 +75,23 @@ export class LocalRulestackPrefixList extends pulumi.CustomResource {
     /**
      * The comment for Audit purposes.
      */
-    public readonly auditComment!: pulumi.Output<string | undefined>;
+    declare public readonly auditComment: pulumi.Output<string | undefined>;
     /**
      * The description for the Prefix List.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Palo Alto Local Rulestack Prefix List.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a list of Prefixes.
      */
-    public readonly prefixLists!: pulumi.Output<string[]>;
+    declare public readonly prefixLists: pulumi.Output<string[]>;
     /**
      * The ID of the Local Rulestack on which to create this Prefix List. Changing this forces a new Palo Alto Local Rulestack Prefix List to be created.
      */
-    public readonly rulestackId!: pulumi.Output<string>;
+    declare public readonly rulestackId: pulumi.Output<string>;
 
     /**
      * Create a LocalRulestackPrefixList resource with the given unique name, arguments, and options.
@@ -106,24 +106,24 @@ export class LocalRulestackPrefixList extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRulestackPrefixListState | undefined;
-            resourceInputs["auditComment"] = state ? state.auditComment : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["prefixLists"] = state ? state.prefixLists : undefined;
-            resourceInputs["rulestackId"] = state ? state.rulestackId : undefined;
+            resourceInputs["auditComment"] = state?.auditComment;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["prefixLists"] = state?.prefixLists;
+            resourceInputs["rulestackId"] = state?.rulestackId;
         } else {
             const args = argsOrState as LocalRulestackPrefixListArgs | undefined;
-            if ((!args || args.prefixLists === undefined) && !opts.urn) {
+            if (args?.prefixLists === undefined && !opts.urn) {
                 throw new Error("Missing required property 'prefixLists'");
             }
-            if ((!args || args.rulestackId === undefined) && !opts.urn) {
+            if (args?.rulestackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulestackId'");
             }
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["prefixLists"] = args ? args.prefixLists : undefined;
-            resourceInputs["rulestackId"] = args ? args.rulestackId : undefined;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["prefixLists"] = args?.prefixLists;
+            resourceInputs["rulestackId"] = args?.rulestackId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalRulestackPrefixList.__pulumiType, name, resourceInputs, opts);

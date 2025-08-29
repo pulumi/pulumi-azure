@@ -46,35 +46,35 @@ export class CosmosdbDataConnection extends pulumi.CustomResource {
     /**
      * The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    public readonly cosmosdbContainerId!: pulumi.Output<string>;
+    declare public readonly cosmosdbContainerId: pulumi.Output<string>;
     /**
      * The name of the database in the Kusto cluster. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    public readonly kustoDatabaseId!: pulumi.Output<string>;
+    declare public readonly kustoDatabaseId: pulumi.Output<string>;
     /**
      * The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    public readonly managedIdentityId!: pulumi.Output<string>;
+    declare public readonly managedIdentityId: pulumi.Output<string>;
     /**
      * The name of an existing mapping rule to use when ingesting the retrieved data. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    public readonly mappingRuleName!: pulumi.Output<string | undefined>;
+    declare public readonly mappingRuleName: pulumi.Output<string | undefined>;
     /**
      * The name of the data connection. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    public readonly retrievalStartDate!: pulumi.Output<string | undefined>;
+    declare public readonly retrievalStartDate: pulumi.Output<string | undefined>;
     /**
      * The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table. Changing this forces a new Kusto Cosmos DB Connection to be created.
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
 
     /**
      * Create a CosmosdbDataConnection resource with the given unique name, arguments, and options.
@@ -89,36 +89,36 @@ export class CosmosdbDataConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CosmosdbDataConnectionState | undefined;
-            resourceInputs["cosmosdbContainerId"] = state ? state.cosmosdbContainerId : undefined;
-            resourceInputs["kustoDatabaseId"] = state ? state.kustoDatabaseId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["managedIdentityId"] = state ? state.managedIdentityId : undefined;
-            resourceInputs["mappingRuleName"] = state ? state.mappingRuleName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["retrievalStartDate"] = state ? state.retrievalStartDate : undefined;
-            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["cosmosdbContainerId"] = state?.cosmosdbContainerId;
+            resourceInputs["kustoDatabaseId"] = state?.kustoDatabaseId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["managedIdentityId"] = state?.managedIdentityId;
+            resourceInputs["mappingRuleName"] = state?.mappingRuleName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["retrievalStartDate"] = state?.retrievalStartDate;
+            resourceInputs["tableName"] = state?.tableName;
         } else {
             const args = argsOrState as CosmosdbDataConnectionArgs | undefined;
-            if ((!args || args.cosmosdbContainerId === undefined) && !opts.urn) {
+            if (args?.cosmosdbContainerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosdbContainerId'");
             }
-            if ((!args || args.kustoDatabaseId === undefined) && !opts.urn) {
+            if (args?.kustoDatabaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoDatabaseId'");
             }
-            if ((!args || args.managedIdentityId === undefined) && !opts.urn) {
+            if (args?.managedIdentityId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedIdentityId'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["cosmosdbContainerId"] = args ? args.cosmosdbContainerId : undefined;
-            resourceInputs["kustoDatabaseId"] = args ? args.kustoDatabaseId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedIdentityId"] = args ? args.managedIdentityId : undefined;
-            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retrievalStartDate"] = args ? args.retrievalStartDate : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["cosmosdbContainerId"] = args?.cosmosdbContainerId;
+            resourceInputs["kustoDatabaseId"] = args?.kustoDatabaseId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedIdentityId"] = args?.managedIdentityId;
+            resourceInputs["mappingRuleName"] = args?.mappingRuleName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retrievalStartDate"] = args?.retrievalStartDate;
+            resourceInputs["tableName"] = args?.tableName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CosmosdbDataConnection.__pulumiType, name, resourceInputs, opts);

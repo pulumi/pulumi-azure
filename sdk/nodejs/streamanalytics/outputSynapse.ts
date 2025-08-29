@@ -103,35 +103,35 @@ export class OutputSynapse extends pulumi.CustomResource {
     /**
      * The name of the Azure SQL database. Changing this forces a new resource to be created.
      */
-    public readonly database!: pulumi.Output<string>;
+    declare public readonly database: pulumi.Output<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password that will be used to connect to the Azure SQL database.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
      */
-    public readonly server!: pulumi.Output<string>;
+    declare public readonly server: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobName: pulumi.Output<string>;
     /**
      * The name of the table in the Azure SQL database. Changing this forces a new resource to be created.
      */
-    public readonly table!: pulumi.Output<string>;
+    declare public readonly table: pulumi.Output<string>;
     /**
      * The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
      */
-    public readonly user!: pulumi.Output<string>;
+    declare public readonly user: pulumi.Output<string>;
 
     /**
      * Create a OutputSynapse resource with the given unique name, arguments, and options.
@@ -146,45 +146,45 @@ export class OutputSynapse extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputSynapseState | undefined;
-            resourceInputs["database"] = state ? state.database : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["server"] = state ? state.server : undefined;
-            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
-            resourceInputs["user"] = state ? state.user : undefined;
+            resourceInputs["database"] = state?.database;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["server"] = state?.server;
+            resourceInputs["streamAnalyticsJobName"] = state?.streamAnalyticsJobName;
+            resourceInputs["table"] = state?.table;
+            resourceInputs["user"] = state?.user;
         } else {
             const args = argsOrState as OutputSynapseArgs | undefined;
-            if ((!args || args.database === undefined) && !opts.urn) {
+            if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.server === undefined) && !opts.urn) {
+            if (args?.server === undefined && !opts.urn) {
                 throw new Error("Missing required property 'server'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if ((!args || args.table === undefined) && !opts.urn) {
+            if (args?.table === undefined && !opts.urn) {
                 throw new Error("Missing required property 'table'");
             }
-            if ((!args || args.user === undefined) && !opts.urn) {
+            if (args?.user === undefined && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            resourceInputs["database"] = args ? args.database : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["database"] = args?.database;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["server"] = args ? args.server : undefined;
-            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
-            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["server"] = args?.server;
+            resourceInputs["streamAnalyticsJobName"] = args?.streamAnalyticsJobName;
+            resourceInputs["table"] = args?.table;
+            resourceInputs["user"] = args?.user;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

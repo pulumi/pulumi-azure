@@ -77,31 +77,31 @@ export class SharedImageGallery extends pulumi.CustomResource {
     /**
      * A description for this Shared Image Gallery.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `sharing` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly sharing!: pulumi.Output<outputs.compute.SharedImageGallerySharing | undefined>;
+    declare public readonly sharing: pulumi.Output<outputs.compute.SharedImageGallerySharing | undefined>;
     /**
      * A mapping of tags to assign to the Shared Image Gallery.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Unique Name for this Shared Image Gallery.
      */
-    public /*out*/ readonly uniqueName!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueName: pulumi.Output<string>;
 
     /**
      * Create a SharedImageGallery resource with the given unique name, arguments, and options.
@@ -116,24 +116,24 @@ export class SharedImageGallery extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedImageGalleryState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sharing"] = state ? state.sharing : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["uniqueName"] = state ? state.uniqueName : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sharing"] = state?.sharing;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["uniqueName"] = state?.uniqueName;
         } else {
             const args = argsOrState as SharedImageGalleryArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharing"] = args ? args.sharing : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharing"] = args?.sharing;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["uniqueName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

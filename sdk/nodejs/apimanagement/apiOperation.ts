@@ -87,47 +87,47 @@ export class ApiOperation extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiName!: pulumi.Output<string>;
+    declare public readonly apiName: pulumi.Output<string>;
     /**
      * A description for this API Operation, which may include HTML formatting tags.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Display Name for this API Management Operation.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
      */
-    public readonly method!: pulumi.Output<string>;
+    declare public readonly method: pulumi.Output<string>;
     /**
      * A unique identifier for this API Operation. Changing this forces a new resource to be created.
      */
-    public readonly operationId!: pulumi.Output<string>;
+    declare public readonly operationId: pulumi.Output<string>;
     /**
      * A `request` block as defined below.
      */
-    public readonly request!: pulumi.Output<outputs.apimanagement.ApiOperationRequest>;
+    declare public readonly request: pulumi.Output<outputs.apimanagement.ApiOperationRequest>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * One or more `response` blocks as defined below.
      */
-    public readonly responses!: pulumi.Output<outputs.apimanagement.ApiOperationResponse[] | undefined>;
+    declare public readonly responses: pulumi.Output<outputs.apimanagement.ApiOperationResponse[] | undefined>;
     /**
      * One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      */
-    public readonly templateParameters!: pulumi.Output<outputs.apimanagement.ApiOperationTemplateParameter[] | undefined>;
+    declare public readonly templateParameters: pulumi.Output<outputs.apimanagement.ApiOperationTemplateParameter[] | undefined>;
     /**
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      */
-    public readonly urlTemplate!: pulumi.Output<string>;
+    declare public readonly urlTemplate: pulumi.Output<string>;
 
     /**
      * Create a ApiOperation resource with the given unique name, arguments, and options.
@@ -142,51 +142,51 @@ export class ApiOperation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiOperationState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["apiName"] = state ? state.apiName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["method"] = state ? state.method : undefined;
-            resourceInputs["operationId"] = state ? state.operationId : undefined;
-            resourceInputs["request"] = state ? state.request : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["responses"] = state ? state.responses : undefined;
-            resourceInputs["templateParameters"] = state ? state.templateParameters : undefined;
-            resourceInputs["urlTemplate"] = state ? state.urlTemplate : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["apiName"] = state?.apiName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["method"] = state?.method;
+            resourceInputs["operationId"] = state?.operationId;
+            resourceInputs["request"] = state?.request;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["responses"] = state?.responses;
+            resourceInputs["templateParameters"] = state?.templateParameters;
+            resourceInputs["urlTemplate"] = state?.urlTemplate;
         } else {
             const args = argsOrState as ApiOperationArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.apiName === undefined) && !opts.urn) {
+            if (args?.apiName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.method === undefined) && !opts.urn) {
+            if (args?.method === undefined && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.operationId === undefined) && !opts.urn) {
+            if (args?.operationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operationId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.urlTemplate === undefined) && !opts.urn) {
+            if (args?.urlTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'urlTemplate'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["method"] = args ? args.method : undefined;
-            resourceInputs["operationId"] = args ? args.operationId : undefined;
-            resourceInputs["request"] = args ? args.request : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["responses"] = args ? args.responses : undefined;
-            resourceInputs["templateParameters"] = args ? args.templateParameters : undefined;
-            resourceInputs["urlTemplate"] = args ? args.urlTemplate : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["method"] = args?.method;
+            resourceInputs["operationId"] = args?.operationId;
+            resourceInputs["request"] = args?.request;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["responses"] = args?.responses;
+            resourceInputs["templateParameters"] = args?.templateParameters;
+            resourceInputs["urlTemplate"] = args?.urlTemplate;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiOperation.__pulumiType, name, resourceInputs, opts);

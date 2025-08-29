@@ -84,31 +84,31 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * A description for the Virtual Network.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
      */
-    public readonly labName!: pulumi.Output<string>;
+    declare public readonly labName: pulumi.Output<string>;
     /**
      * Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `subnet` block as defined below.
      */
-    public readonly subnet!: pulumi.Output<outputs.devtest.VirtualNetworkSubnet>;
+    declare public readonly subnet: pulumi.Output<outputs.devtest.VirtualNetworkSubnet>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The unique immutable identifier of the Dev Test Virtual Network.
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -123,27 +123,27 @@ export class VirtualNetwork extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkState | undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["labName"] = state ? state.labName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["subnet"] = state ? state.subnet : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["uniqueIdentifier"] = state ? state.uniqueIdentifier : undefined;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["labName"] = state?.labName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subnet"] = state?.subnet;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["uniqueIdentifier"] = state?.uniqueIdentifier;
         } else {
             const args = argsOrState as VirtualNetworkArgs | undefined;
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnet"] = args ? args.subnet : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnet"] = args?.subnet;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

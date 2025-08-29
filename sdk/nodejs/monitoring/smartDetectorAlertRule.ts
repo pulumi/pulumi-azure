@@ -89,47 +89,47 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**
      * An `actionGroup` block as defined below.
      */
-    public readonly actionGroup!: pulumi.Output<outputs.monitoring.SmartDetectorAlertRuleActionGroup>;
+    declare public readonly actionGroup: pulumi.Output<outputs.monitoring.SmartDetectorAlertRuleActionGroup>;
     /**
      * Specifies a description for the Smart Detector Alert Rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
      */
-    public readonly detectorType!: pulumi.Output<string>;
+    declare public readonly detectorType: pulumi.Output<string>;
     /**
      * Is the Smart Detector Alert Rule enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
      */
-    public readonly frequency!: pulumi.Output<string>;
+    declare public readonly frequency: pulumi.Output<string>;
     /**
      * Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the scopes of this Smart Detector Alert Rule.
      */
-    public readonly scopeResourceIds!: pulumi.Output<string[]>;
+    declare public readonly scopeResourceIds: pulumi.Output<string[]>;
     /**
      * Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
      */
-    public readonly severity!: pulumi.Output<string>;
+    declare public readonly severity: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
      */
-    public readonly throttlingDuration!: pulumi.Output<string | undefined>;
+    declare public readonly throttlingDuration: pulumi.Output<string | undefined>;
 
     /**
      * Create a SmartDetectorAlertRule resource with the given unique name, arguments, and options.
@@ -144,48 +144,48 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SmartDetectorAlertRuleState | undefined;
-            resourceInputs["actionGroup"] = state ? state.actionGroup : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["detectorType"] = state ? state.detectorType : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["frequency"] = state ? state.frequency : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scopeResourceIds"] = state ? state.scopeResourceIds : undefined;
-            resourceInputs["severity"] = state ? state.severity : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["throttlingDuration"] = state ? state.throttlingDuration : undefined;
+            resourceInputs["actionGroup"] = state?.actionGroup;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["detectorType"] = state?.detectorType;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["frequency"] = state?.frequency;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scopeResourceIds"] = state?.scopeResourceIds;
+            resourceInputs["severity"] = state?.severity;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["throttlingDuration"] = state?.throttlingDuration;
         } else {
             const args = argsOrState as SmartDetectorAlertRuleArgs | undefined;
-            if ((!args || args.actionGroup === undefined) && !opts.urn) {
+            if (args?.actionGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionGroup'");
             }
-            if ((!args || args.detectorType === undefined) && !opts.urn) {
+            if (args?.detectorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detectorType'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeResourceIds === undefined) && !opts.urn) {
+            if (args?.scopeResourceIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopeResourceIds'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            resourceInputs["actionGroup"] = args ? args.actionGroup : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["detectorType"] = args ? args.detectorType : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopeResourceIds"] = args ? args.scopeResourceIds : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throttlingDuration"] = args ? args.throttlingDuration : undefined;
+            resourceInputs["actionGroup"] = args?.actionGroup;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["detectorType"] = args?.detectorType;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopeResourceIds"] = args?.scopeResourceIds;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throttlingDuration"] = args?.throttlingDuration;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SmartDetectorAlertRule.__pulumiType, name, resourceInputs, opts);

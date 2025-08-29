@@ -84,27 +84,27 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The count of the Azure VMware Solution Cluster nodes.
      */
-    public readonly clusterNodeCount!: pulumi.Output<number>;
+    declare public readonly clusterNodeCount: pulumi.Output<number>;
     /**
      * A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
      */
-    public /*out*/ readonly clusterNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly clusterNumber: pulumi.Output<number>;
     /**
      * A list of hosts in the Azure VMware Solution Cluster.
      */
-    public /*out*/ readonly hosts!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly hosts: pulumi.Output<string[]>;
     /**
      * The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av48`, `av48t`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
      */
-    public readonly vmwareCloudId!: pulumi.Output<string>;
+    declare public readonly vmwareCloudId: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -119,27 +119,27 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["clusterNodeCount"] = state ? state.clusterNodeCount : undefined;
-            resourceInputs["clusterNumber"] = state ? state.clusterNumber : undefined;
-            resourceInputs["hosts"] = state ? state.hosts : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["vmwareCloudId"] = state ? state.vmwareCloudId : undefined;
+            resourceInputs["clusterNodeCount"] = state?.clusterNodeCount;
+            resourceInputs["clusterNumber"] = state?.clusterNumber;
+            resourceInputs["hosts"] = state?.hosts;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["vmwareCloudId"] = state?.vmwareCloudId;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.clusterNodeCount === undefined) && !opts.urn) {
+            if (args?.clusterNodeCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterNodeCount'");
             }
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.vmwareCloudId === undefined) && !opts.urn) {
+            if (args?.vmwareCloudId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmwareCloudId'");
             }
-            resourceInputs["clusterNodeCount"] = args ? args.clusterNodeCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["vmwareCloudId"] = args ? args.vmwareCloudId : undefined;
+            resourceInputs["clusterNodeCount"] = args?.clusterNodeCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["vmwareCloudId"] = args?.vmwareCloudId;
             resourceInputs["clusterNumber"] = undefined /*out*/;
             resourceInputs["hosts"] = undefined /*out*/;
         }

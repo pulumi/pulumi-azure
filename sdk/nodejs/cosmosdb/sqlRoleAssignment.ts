@@ -91,27 +91,27 @@ export class SqlRoleAssignment extends pulumi.CustomResource {
     /**
      * The name of the Cosmos DB Account. Changing this forces a new resource to be created.
      */
-    public readonly accountName!: pulumi.Output<string>;
+    declare public readonly accountName: pulumi.Output<string>;
     /**
      * The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created.
      */
-    public readonly principalId!: pulumi.Output<string>;
+    declare public readonly principalId: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Cosmos DB SQL Role Assignment is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The resource ID of the Cosmos DB SQL Role Definition.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    declare public readonly roleDefinitionId: pulumi.Output<string>;
     /**
      * The data plane resource path for which access is being granted through this Cosmos DB SQL Role Assignment. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
 
     /**
      * Create a SqlRoleAssignment resource with the given unique name, arguments, and options.
@@ -126,35 +126,35 @@ export class SqlRoleAssignment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SqlRoleAssignmentState | undefined;
-            resourceInputs["accountName"] = state ? state.accountName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["principalId"] = state ? state.principalId : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["accountName"] = state?.accountName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["principalId"] = state?.principalId;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["roleDefinitionId"] = state?.roleDefinitionId;
+            resourceInputs["scope"] = state?.scope;
         } else {
             const args = argsOrState as SqlRoleAssignmentArgs | undefined;
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
+            if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["scope"] = args?.scope;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SqlRoleAssignment.__pulumiType, name, resourceInputs, opts);

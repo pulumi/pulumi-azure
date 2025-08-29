@@ -79,11 +79,11 @@ export class GatewayApi extends pulumi.CustomResource {
     /**
      * The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created.
      */
-    public readonly apiId!: pulumi.Output<string>;
+    declare public readonly apiId: pulumi.Output<string>;
     /**
      * The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created.
      */
-    public readonly gatewayId!: pulumi.Output<string>;
+    declare public readonly gatewayId: pulumi.Output<string>;
 
     /**
      * Create a GatewayApi resource with the given unique name, arguments, and options.
@@ -98,18 +98,18 @@ export class GatewayApi extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayApiState | undefined;
-            resourceInputs["apiId"] = state ? state.apiId : undefined;
-            resourceInputs["gatewayId"] = state ? state.gatewayId : undefined;
+            resourceInputs["apiId"] = state?.apiId;
+            resourceInputs["gatewayId"] = state?.gatewayId;
         } else {
             const args = argsOrState as GatewayApiArgs | undefined;
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.gatewayId === undefined) && !opts.urn) {
+            if (args?.gatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["gatewayId"] = args?.gatewayId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GatewayApi.__pulumiType, name, resourceInputs, opts);

@@ -141,103 +141,103 @@ export class FlexibleServer extends pulumi.CustomResource {
      *
      * > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      */
-    public readonly administratorLogin!: pulumi.Output<string>;
+    declare public readonly administratorLogin: pulumi.Output<string>;
     /**
      * The Password associated with the `administratorLogin` for the PostgreSQL Flexible Server.
      */
-    public readonly administratorPassword!: pulumi.Output<string | undefined>;
+    declare public readonly administratorPassword: pulumi.Output<string | undefined>;
     /**
      * An integer value used to trigger an update for `administratorPasswordWo`. This property should be incremented when updating `administratorPasswordWo`.
      */
-    public readonly administratorPasswordWoVersion!: pulumi.Output<number | undefined>;
+    declare public readonly administratorPasswordWoVersion: pulumi.Output<number | undefined>;
     /**
      * An `authentication` block as defined below.
      */
-    public readonly authentication!: pulumi.Output<outputs.postgresql.FlexibleServerAuthentication>;
+    declare public readonly authentication: pulumi.Output<outputs.postgresql.FlexibleServerAuthentication>;
     /**
      * Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
      */
-    public readonly autoGrowEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoGrowEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
      */
-    public readonly backupRetentionDays!: pulumi.Output<number>;
+    declare public readonly backupRetentionDays: pulumi.Output<number>;
     /**
      * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
      */
-    public readonly createMode!: pulumi.Output<string | undefined>;
+    declare public readonly createMode: pulumi.Output<string | undefined>;
     /**
      * A `customerManagedKey` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly customerManagedKey!: pulumi.Output<outputs.postgresql.FlexibleServerCustomerManagedKey | undefined>;
+    declare public readonly customerManagedKey: pulumi.Output<outputs.postgresql.FlexibleServerCustomerManagedKey | undefined>;
     /**
      * The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    public readonly delegatedSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly delegatedSubnetId: pulumi.Output<string | undefined>;
     /**
      * The FQDN of the PostgreSQL Flexible Server.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    public readonly geoRedundantBackupEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly geoRedundantBackupEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A `highAvailability` block as defined below.
      */
-    public readonly highAvailability!: pulumi.Output<outputs.postgresql.FlexibleServerHighAvailability | undefined>;
+    declare public readonly highAvailability: pulumi.Output<outputs.postgresql.FlexibleServerHighAvailability | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.postgresql.FlexibleServerIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.postgresql.FlexibleServerIdentity | undefined>;
     /**
      * The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A `maintenanceWindow` block as defined below.
      */
-    public readonly maintenanceWindow!: pulumi.Output<outputs.postgresql.FlexibleServerMaintenanceWindow | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.postgresql.FlexibleServerMaintenanceWindow | undefined>;
     /**
      * The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      *
      * > **Note:** This must be unique across the entire Azure service, not just within the resource group.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The point in time to restore from `sourceServerId` when `createMode` is `GeoRestore`, `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    public readonly pointInTimeRestoreTimeInUtc!: pulumi.Output<string | undefined>;
+    declare public readonly pointInTimeRestoreTimeInUtc: pulumi.Output<string | undefined>;
     /**
      * The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      *
      * > **Note:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      */
-    public readonly privateDnsZoneId!: pulumi.Output<string>;
+    declare public readonly privateDnsZoneId: pulumi.Output<string>;
     /**
      * Specifies whether this PostgreSQL Flexible Server is publicly accessible. Defaults to `true`.
      *
      * > **Note:** `publicNetworkAccessEnabled` must be set to `false` when `delegatedSubnetId` and `privateDnsZoneId` have a value.
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The replication role for the PostgreSQL Flexible Server. Possible value is `None`.
      *
      * > **Note:** The `replicationRole` cannot be set while creating and only can be updated to `None` for replica server.
      */
-    public readonly replicationRole!: pulumi.Output<string | undefined>;
+    declare public readonly replicationRole: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
      */
-    public readonly skuName!: pulumi.Output<string>;
+    declare public readonly skuName: pulumi.Output<string>;
     /**
      * The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `createMode` is `GeoRestore`, `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
-    public readonly sourceServerId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceServerId: pulumi.Output<string | undefined>;
     /**
      * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`.
      *
@@ -245,17 +245,17 @@ export class FlexibleServer extends pulumi.CustomResource {
      *
      * > **Note:** The `storageMb` can only be scaled up, for example, you can scale the `storageMb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storageMb` forces a new PostgreSQL Flexible Server to be created.
      */
-    public readonly storageMb!: pulumi.Output<number>;
+    declare public readonly storageMb: pulumi.Output<number>;
     /**
      * The name of storage performance tier for IOPS of the PostgreSQL Flexible Server. Possible values are `P4`, `P6`, `P10`, `P15`,`P20`, `P30`,`P40`, `P50`,`P60`, `P70` or `P80`. Default value is dependant on the `storageMb` value. Please see the `storageTier` defaults based on `storageMb` table below.
      *
      * > **Note:** The `storageTier` can be scaled once every 12 hours, this restriction is in place to ensure stability and performance after any changes to your PostgreSQL Flexible Server's configuration.
      */
-    public readonly storageTier!: pulumi.Output<string>;
+    declare public readonly storageTier: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
      *
@@ -263,8 +263,8 @@ export class FlexibleServer extends pulumi.CustomResource {
      *
      * > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
      */
-    public readonly version!: pulumi.Output<string>;
-    public readonly zone!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string>;
+    declare public readonly zone: pulumi.Output<string | undefined>;
 
     /**
      * Create a FlexibleServer resource with the given unique name, arguments, and options.
@@ -279,66 +279,66 @@ export class FlexibleServer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlexibleServerState | undefined;
-            resourceInputs["administratorLogin"] = state ? state.administratorLogin : undefined;
-            resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
-            resourceInputs["administratorPasswordWoVersion"] = state ? state.administratorPasswordWoVersion : undefined;
-            resourceInputs["authentication"] = state ? state.authentication : undefined;
-            resourceInputs["autoGrowEnabled"] = state ? state.autoGrowEnabled : undefined;
-            resourceInputs["backupRetentionDays"] = state ? state.backupRetentionDays : undefined;
-            resourceInputs["createMode"] = state ? state.createMode : undefined;
-            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
-            resourceInputs["delegatedSubnetId"] = state ? state.delegatedSubnetId : undefined;
-            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
-            resourceInputs["geoRedundantBackupEnabled"] = state ? state.geoRedundantBackupEnabled : undefined;
-            resourceInputs["highAvailability"] = state ? state.highAvailability : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["pointInTimeRestoreTimeInUtc"] = state ? state.pointInTimeRestoreTimeInUtc : undefined;
-            resourceInputs["privateDnsZoneId"] = state ? state.privateDnsZoneId : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["replicationRole"] = state ? state.replicationRole : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["skuName"] = state ? state.skuName : undefined;
-            resourceInputs["sourceServerId"] = state ? state.sourceServerId : undefined;
-            resourceInputs["storageMb"] = state ? state.storageMb : undefined;
-            resourceInputs["storageTier"] = state ? state.storageTier : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["administratorLogin"] = state?.administratorLogin;
+            resourceInputs["administratorPassword"] = state?.administratorPassword;
+            resourceInputs["administratorPasswordWoVersion"] = state?.administratorPasswordWoVersion;
+            resourceInputs["authentication"] = state?.authentication;
+            resourceInputs["autoGrowEnabled"] = state?.autoGrowEnabled;
+            resourceInputs["backupRetentionDays"] = state?.backupRetentionDays;
+            resourceInputs["createMode"] = state?.createMode;
+            resourceInputs["customerManagedKey"] = state?.customerManagedKey;
+            resourceInputs["delegatedSubnetId"] = state?.delegatedSubnetId;
+            resourceInputs["fqdn"] = state?.fqdn;
+            resourceInputs["geoRedundantBackupEnabled"] = state?.geoRedundantBackupEnabled;
+            resourceInputs["highAvailability"] = state?.highAvailability;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["maintenanceWindow"] = state?.maintenanceWindow;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["pointInTimeRestoreTimeInUtc"] = state?.pointInTimeRestoreTimeInUtc;
+            resourceInputs["privateDnsZoneId"] = state?.privateDnsZoneId;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["replicationRole"] = state?.replicationRole;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["sourceServerId"] = state?.sourceServerId;
+            resourceInputs["storageMb"] = state?.storageMb;
+            resourceInputs["storageTier"] = state?.storageTier;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as FlexibleServerArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
             resourceInputs["administratorPassword"] = args?.administratorPassword ? pulumi.secret(args.administratorPassword) : undefined;
-            resourceInputs["administratorPasswordWoVersion"] = args ? args.administratorPasswordWoVersion : undefined;
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["autoGrowEnabled"] = args ? args.autoGrowEnabled : undefined;
-            resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
-            resourceInputs["delegatedSubnetId"] = args ? args.delegatedSubnetId : undefined;
-            resourceInputs["geoRedundantBackupEnabled"] = args ? args.geoRedundantBackupEnabled : undefined;
-            resourceInputs["highAvailability"] = args ? args.highAvailability : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["pointInTimeRestoreTimeInUtc"] = args ? args.pointInTimeRestoreTimeInUtc : undefined;
-            resourceInputs["privateDnsZoneId"] = args ? args.privateDnsZoneId : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["replicationRole"] = args ? args.replicationRole : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["sourceServerId"] = args ? args.sourceServerId : undefined;
-            resourceInputs["storageMb"] = args ? args.storageMb : undefined;
-            resourceInputs["storageTier"] = args ? args.storageTier : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["administratorPasswordWoVersion"] = args?.administratorPasswordWoVersion;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["autoGrowEnabled"] = args?.autoGrowEnabled;
+            resourceInputs["backupRetentionDays"] = args?.backupRetentionDays;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["customerManagedKey"] = args?.customerManagedKey;
+            resourceInputs["delegatedSubnetId"] = args?.delegatedSubnetId;
+            resourceInputs["geoRedundantBackupEnabled"] = args?.geoRedundantBackupEnabled;
+            resourceInputs["highAvailability"] = args?.highAvailability;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["pointInTimeRestoreTimeInUtc"] = args?.pointInTimeRestoreTimeInUtc;
+            resourceInputs["privateDnsZoneId"] = args?.privateDnsZoneId;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["replicationRole"] = args?.replicationRole;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["sourceServerId"] = args?.sourceServerId;
+            resourceInputs["storageMb"] = args?.storageMb;
+            resourceInputs["storageTier"] = args?.storageTier;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["zone"] = args?.zone;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

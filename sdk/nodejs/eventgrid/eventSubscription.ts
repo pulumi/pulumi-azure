@@ -89,91 +89,91 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * A `advancedFilter` block as defined below.
      */
-    public readonly advancedFilter!: pulumi.Output<outputs.eventgrid.EventSubscriptionAdvancedFilter | undefined>;
+    declare public readonly advancedFilter: pulumi.Output<outputs.eventgrid.EventSubscriptionAdvancedFilter | undefined>;
     /**
      * Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
      */
-    public readonly advancedFilteringOnArraysEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly advancedFilteringOnArraysEnabled: pulumi.Output<boolean | undefined>;
     /**
      * An `azureFunctionEndpoint` block as defined below.
      */
-    public readonly azureFunctionEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionAzureFunctionEndpoint | undefined>;
+    declare public readonly azureFunctionEndpoint: pulumi.Output<outputs.eventgrid.EventSubscriptionAzureFunctionEndpoint | undefined>;
     /**
      * A `deadLetterIdentity` block as defined below.
      *
      * > **Note:** `storageBlobDeadLetterDestination` must be specified when a `deadLetterIdentity` is specified
      */
-    public readonly deadLetterIdentity!: pulumi.Output<outputs.eventgrid.EventSubscriptionDeadLetterIdentity | undefined>;
+    declare public readonly deadLetterIdentity: pulumi.Output<outputs.eventgrid.EventSubscriptionDeadLetterIdentity | undefined>;
     /**
      * A `deliveryIdentity` block as defined below.
      */
-    public readonly deliveryIdentity!: pulumi.Output<outputs.eventgrid.EventSubscriptionDeliveryIdentity | undefined>;
+    declare public readonly deliveryIdentity: pulumi.Output<outputs.eventgrid.EventSubscriptionDeliveryIdentity | undefined>;
     /**
      * One or more `deliveryProperty` blocks as defined below.
      */
-    public readonly deliveryProperties!: pulumi.Output<outputs.eventgrid.EventSubscriptionDeliveryProperty[] | undefined>;
+    declare public readonly deliveryProperties: pulumi.Output<outputs.eventgrid.EventSubscriptionDeliveryProperty[] | undefined>;
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
-    public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
+    declare public readonly eventDeliverySchema: pulumi.Output<string | undefined>;
     /**
      * Specifies the id where the Event Hub is located.
      */
-    public readonly eventhubEndpointId!: pulumi.Output<string>;
+    declare public readonly eventhubEndpointId: pulumi.Output<string>;
     /**
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
      */
-    public readonly expirationTimeUtc!: pulumi.Output<string | undefined>;
+    declare public readonly expirationTimeUtc: pulumi.Output<string | undefined>;
     /**
      * Specifies the id where the Hybrid Connection is located.
      */
-    public readonly hybridConnectionEndpointId!: pulumi.Output<string>;
+    declare public readonly hybridConnectionEndpointId: pulumi.Output<string>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
      */
-    public readonly includedEventTypes!: pulumi.Output<string[]>;
+    declare public readonly includedEventTypes: pulumi.Output<string[]>;
     /**
      * A list of labels to assign to the event subscription.
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `retryPolicy` block as defined below.
      */
-    public readonly retryPolicy!: pulumi.Output<outputs.eventgrid.EventSubscriptionRetryPolicy>;
+    declare public readonly retryPolicy: pulumi.Output<outputs.eventgrid.EventSubscriptionRetryPolicy>;
     /**
      * Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * Specifies the id where the Service Bus Queue is located.
      */
-    public readonly serviceBusQueueEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly serviceBusQueueEndpointId: pulumi.Output<string | undefined>;
     /**
      * Specifies the id where the Service Bus Topic is located.
      */
-    public readonly serviceBusTopicEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly serviceBusTopicEndpointId: pulumi.Output<string | undefined>;
     /**
      * A `storageBlobDeadLetterDestination` block as defined below.
      */
-    public readonly storageBlobDeadLetterDestination!: pulumi.Output<outputs.eventgrid.EventSubscriptionStorageBlobDeadLetterDestination | undefined>;
+    declare public readonly storageBlobDeadLetterDestination: pulumi.Output<outputs.eventgrid.EventSubscriptionStorageBlobDeadLetterDestination | undefined>;
     /**
      * A `storageQueueEndpoint` block as defined below.
      */
-    public readonly storageQueueEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionStorageQueueEndpoint | undefined>;
+    declare public readonly storageQueueEndpoint: pulumi.Output<outputs.eventgrid.EventSubscriptionStorageQueueEndpoint | undefined>;
     /**
      * A `subjectFilter` block as defined below.
      */
-    public readonly subjectFilter!: pulumi.Output<outputs.eventgrid.EventSubscriptionSubjectFilter | undefined>;
+    declare public readonly subjectFilter: pulumi.Output<outputs.eventgrid.EventSubscriptionSubjectFilter | undefined>;
     /**
      * A `webhookEndpoint` block as defined below.
      *
      * > **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
      */
-    public readonly webhookEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionWebhookEndpoint | undefined>;
+    declare public readonly webhookEndpoint: pulumi.Output<outputs.eventgrid.EventSubscriptionWebhookEndpoint | undefined>;
 
     /**
      * Create a EventSubscription resource with the given unique name, arguments, and options.
@@ -188,53 +188,53 @@ export class EventSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventSubscriptionState | undefined;
-            resourceInputs["advancedFilter"] = state ? state.advancedFilter : undefined;
-            resourceInputs["advancedFilteringOnArraysEnabled"] = state ? state.advancedFilteringOnArraysEnabled : undefined;
-            resourceInputs["azureFunctionEndpoint"] = state ? state.azureFunctionEndpoint : undefined;
-            resourceInputs["deadLetterIdentity"] = state ? state.deadLetterIdentity : undefined;
-            resourceInputs["deliveryIdentity"] = state ? state.deliveryIdentity : undefined;
-            resourceInputs["deliveryProperties"] = state ? state.deliveryProperties : undefined;
-            resourceInputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
-            resourceInputs["eventhubEndpointId"] = state ? state.eventhubEndpointId : undefined;
-            resourceInputs["expirationTimeUtc"] = state ? state.expirationTimeUtc : undefined;
-            resourceInputs["hybridConnectionEndpointId"] = state ? state.hybridConnectionEndpointId : undefined;
-            resourceInputs["includedEventTypes"] = state ? state.includedEventTypes : undefined;
-            resourceInputs["labels"] = state ? state.labels : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["retryPolicy"] = state ? state.retryPolicy : undefined;
-            resourceInputs["scope"] = state ? state.scope : undefined;
-            resourceInputs["serviceBusQueueEndpointId"] = state ? state.serviceBusQueueEndpointId : undefined;
-            resourceInputs["serviceBusTopicEndpointId"] = state ? state.serviceBusTopicEndpointId : undefined;
-            resourceInputs["storageBlobDeadLetterDestination"] = state ? state.storageBlobDeadLetterDestination : undefined;
-            resourceInputs["storageQueueEndpoint"] = state ? state.storageQueueEndpoint : undefined;
-            resourceInputs["subjectFilter"] = state ? state.subjectFilter : undefined;
-            resourceInputs["webhookEndpoint"] = state ? state.webhookEndpoint : undefined;
+            resourceInputs["advancedFilter"] = state?.advancedFilter;
+            resourceInputs["advancedFilteringOnArraysEnabled"] = state?.advancedFilteringOnArraysEnabled;
+            resourceInputs["azureFunctionEndpoint"] = state?.azureFunctionEndpoint;
+            resourceInputs["deadLetterIdentity"] = state?.deadLetterIdentity;
+            resourceInputs["deliveryIdentity"] = state?.deliveryIdentity;
+            resourceInputs["deliveryProperties"] = state?.deliveryProperties;
+            resourceInputs["eventDeliverySchema"] = state?.eventDeliverySchema;
+            resourceInputs["eventhubEndpointId"] = state?.eventhubEndpointId;
+            resourceInputs["expirationTimeUtc"] = state?.expirationTimeUtc;
+            resourceInputs["hybridConnectionEndpointId"] = state?.hybridConnectionEndpointId;
+            resourceInputs["includedEventTypes"] = state?.includedEventTypes;
+            resourceInputs["labels"] = state?.labels;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["retryPolicy"] = state?.retryPolicy;
+            resourceInputs["scope"] = state?.scope;
+            resourceInputs["serviceBusQueueEndpointId"] = state?.serviceBusQueueEndpointId;
+            resourceInputs["serviceBusTopicEndpointId"] = state?.serviceBusTopicEndpointId;
+            resourceInputs["storageBlobDeadLetterDestination"] = state?.storageBlobDeadLetterDestination;
+            resourceInputs["storageQueueEndpoint"] = state?.storageQueueEndpoint;
+            resourceInputs["subjectFilter"] = state?.subjectFilter;
+            resourceInputs["webhookEndpoint"] = state?.webhookEndpoint;
         } else {
             const args = argsOrState as EventSubscriptionArgs | undefined;
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["advancedFilter"] = args ? args.advancedFilter : undefined;
-            resourceInputs["advancedFilteringOnArraysEnabled"] = args ? args.advancedFilteringOnArraysEnabled : undefined;
-            resourceInputs["azureFunctionEndpoint"] = args ? args.azureFunctionEndpoint : undefined;
-            resourceInputs["deadLetterIdentity"] = args ? args.deadLetterIdentity : undefined;
-            resourceInputs["deliveryIdentity"] = args ? args.deliveryIdentity : undefined;
-            resourceInputs["deliveryProperties"] = args ? args.deliveryProperties : undefined;
-            resourceInputs["eventDeliverySchema"] = args ? args.eventDeliverySchema : undefined;
-            resourceInputs["eventhubEndpointId"] = args ? args.eventhubEndpointId : undefined;
-            resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
-            resourceInputs["hybridConnectionEndpointId"] = args ? args.hybridConnectionEndpointId : undefined;
-            resourceInputs["includedEventTypes"] = args ? args.includedEventTypes : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retryPolicy"] = args ? args.retryPolicy : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["serviceBusQueueEndpointId"] = args ? args.serviceBusQueueEndpointId : undefined;
-            resourceInputs["serviceBusTopicEndpointId"] = args ? args.serviceBusTopicEndpointId : undefined;
-            resourceInputs["storageBlobDeadLetterDestination"] = args ? args.storageBlobDeadLetterDestination : undefined;
-            resourceInputs["storageQueueEndpoint"] = args ? args.storageQueueEndpoint : undefined;
-            resourceInputs["subjectFilter"] = args ? args.subjectFilter : undefined;
-            resourceInputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
+            resourceInputs["advancedFilter"] = args?.advancedFilter;
+            resourceInputs["advancedFilteringOnArraysEnabled"] = args?.advancedFilteringOnArraysEnabled;
+            resourceInputs["azureFunctionEndpoint"] = args?.azureFunctionEndpoint;
+            resourceInputs["deadLetterIdentity"] = args?.deadLetterIdentity;
+            resourceInputs["deliveryIdentity"] = args?.deliveryIdentity;
+            resourceInputs["deliveryProperties"] = args?.deliveryProperties;
+            resourceInputs["eventDeliverySchema"] = args?.eventDeliverySchema;
+            resourceInputs["eventhubEndpointId"] = args?.eventhubEndpointId;
+            resourceInputs["expirationTimeUtc"] = args?.expirationTimeUtc;
+            resourceInputs["hybridConnectionEndpointId"] = args?.hybridConnectionEndpointId;
+            resourceInputs["includedEventTypes"] = args?.includedEventTypes;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retryPolicy"] = args?.retryPolicy;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["serviceBusQueueEndpointId"] = args?.serviceBusQueueEndpointId;
+            resourceInputs["serviceBusTopicEndpointId"] = args?.serviceBusTopicEndpointId;
+            resourceInputs["storageBlobDeadLetterDestination"] = args?.storageBlobDeadLetterDestination;
+            resourceInputs["storageQueueEndpoint"] = args?.storageQueueEndpoint;
+            resourceInputs["subjectFilter"] = args?.subjectFilter;
+            resourceInputs["webhookEndpoint"] = args?.webhookEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/eventSubscription:EventSubscription" }] };

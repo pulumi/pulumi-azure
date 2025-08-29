@@ -76,31 +76,31 @@ export class CertificateIssuer extends pulumi.CustomResource {
     /**
      * The account number with the third-party Certificate Issuer.
      */
-    public readonly accountId!: pulumi.Output<string | undefined>;
+    declare public readonly accountId: pulumi.Output<string | undefined>;
     /**
      * One or more `admin` blocks as defined below.
      */
-    public readonly admins!: pulumi.Output<outputs.keyvault.CertificateIssuerAdmin[] | undefined>;
+    declare public readonly admins: pulumi.Output<outputs.keyvault.CertificateIssuerAdmin[] | undefined>;
     /**
      * The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string>;
     /**
      * The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the organization as provided to the issuer.
      */
-    public readonly orgId!: pulumi.Output<string | undefined>;
+    declare public readonly orgId: pulumi.Output<string | undefined>;
     /**
      * The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
      */
-    public readonly providerName!: pulumi.Output<string>;
+    declare public readonly providerName: pulumi.Output<string>;
 
     /**
      * Create a CertificateIssuer resource with the given unique name, arguments, and options.
@@ -115,28 +115,28 @@ export class CertificateIssuer extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateIssuerState | undefined;
-            resourceInputs["accountId"] = state ? state.accountId : undefined;
-            resourceInputs["admins"] = state ? state.admins : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["orgId"] = state ? state.orgId : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["accountId"] = state?.accountId;
+            resourceInputs["admins"] = state?.admins;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["orgId"] = state?.orgId;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["providerName"] = state?.providerName;
         } else {
             const args = argsOrState as CertificateIssuerArgs | undefined;
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
+            if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            if ((!args || args.providerName === undefined) && !opts.urn) {
+            if (args?.providerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
-            resourceInputs["admins"] = args ? args.admins : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["orgId"] = args ? args.orgId : undefined;
+            resourceInputs["accountId"] = args?.accountId;
+            resourceInputs["admins"] = args?.admins;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["orgId"] = args?.orgId;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["providerName"] = args?.providerName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

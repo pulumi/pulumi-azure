@@ -70,19 +70,19 @@ export class EmailService extends pulumi.CustomResource {
     /**
      * The location where the Email Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK` `usgov` and `United States`. Changing this forces a new Email Communication Service to be created.
      */
-    public readonly dataLocation!: pulumi.Output<string>;
+    declare public readonly dataLocation: pulumi.Output<string>;
     /**
      * The name of the Email Communication Service resource. Changing this forces a new Email Communication Service to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Email Communication Service should exist. Changing this forces a new Email Communication Service to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Email Communication Service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a EmailService resource with the given unique name, arguments, and options.
@@ -97,22 +97,22 @@ export class EmailService extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EmailServiceState | undefined;
-            resourceInputs["dataLocation"] = state ? state.dataLocation : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["dataLocation"] = state?.dataLocation;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as EmailServiceArgs | undefined;
-            if ((!args || args.dataLocation === undefined) && !opts.urn) {
+            if (args?.dataLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataLocation"] = args?.dataLocation;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EmailService.__pulumiType, name, resourceInputs, opts);

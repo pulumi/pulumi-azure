@@ -86,55 +86,55 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    public readonly agentPublicKeyCertificate!: pulumi.Output<string>;
+    declare public readonly agentPublicKeyCertificate: pulumi.Output<string>;
     /**
      * Version of the agent running on the cluster resource.
      */
-    public /*out*/ readonly agentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentVersion: pulumi.Output<string>;
     /**
      * The distribution running on this Arc Kubernetes Cluster.
      */
-    public /*out*/ readonly distribution!: pulumi.Output<string>;
+    declare public /*out*/ readonly distribution: pulumi.Output<string>;
     /**
      * An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.arckubernetes.ClusterIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.arckubernetes.ClusterIdentity>;
     /**
      * The infrastructure on which the Arc Kubernetes Cluster is running on.
      */
-    public /*out*/ readonly infrastructure!: pulumi.Output<string>;
+    declare public /*out*/ readonly infrastructure: pulumi.Output<string>;
     /**
      * The Kubernetes version of the cluster resource.
      */
-    public /*out*/ readonly kubernetesVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly kubernetesVersion: pulumi.Output<string>;
     /**
      * Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The cluster offering.
      */
-    public /*out*/ readonly offering!: pulumi.Output<string>;
+    declare public /*out*/ readonly offering: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Arc Kubernetes Cluster.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Number of CPU cores present in the cluster resource.
      */
-    public /*out*/ readonly totalCoreCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalCoreCount: pulumi.Output<number>;
     /**
      * Number of nodes present in the cluster resource.
      */
-    public /*out*/ readonly totalNodeCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalNodeCount: pulumi.Output<number>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -149,36 +149,36 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            resourceInputs["agentPublicKeyCertificate"] = state ? state.agentPublicKeyCertificate : undefined;
-            resourceInputs["agentVersion"] = state ? state.agentVersion : undefined;
-            resourceInputs["distribution"] = state ? state.distribution : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["infrastructure"] = state ? state.infrastructure : undefined;
-            resourceInputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["offering"] = state ? state.offering : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["totalCoreCount"] = state ? state.totalCoreCount : undefined;
-            resourceInputs["totalNodeCount"] = state ? state.totalNodeCount : undefined;
+            resourceInputs["agentPublicKeyCertificate"] = state?.agentPublicKeyCertificate;
+            resourceInputs["agentVersion"] = state?.agentVersion;
+            resourceInputs["distribution"] = state?.distribution;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["infrastructure"] = state?.infrastructure;
+            resourceInputs["kubernetesVersion"] = state?.kubernetesVersion;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["offering"] = state?.offering;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["totalCoreCount"] = state?.totalCoreCount;
+            resourceInputs["totalNodeCount"] = state?.totalNodeCount;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if ((!args || args.agentPublicKeyCertificate === undefined) && !opts.urn) {
+            if (args?.agentPublicKeyCertificate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentPublicKeyCertificate'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentPublicKeyCertificate"] = args ? args.agentPublicKeyCertificate : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agentPublicKeyCertificate"] = args?.agentPublicKeyCertificate;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["distribution"] = undefined /*out*/;
             resourceInputs["infrastructure"] = undefined /*out*/;

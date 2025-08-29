@@ -242,65 +242,65 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
      */
-    public readonly certificate!: pulumi.Output<outputs.keyvault.CertificateCertificate | undefined>;
+    declare public readonly certificate: pulumi.Output<outputs.keyvault.CertificateCertificate | undefined>;
     /**
      * A `certificateAttribute` block as defined below.
      */
-    public /*out*/ readonly certificateAttributes!: pulumi.Output<outputs.keyvault.CertificateCertificateAttribute[]>;
+    declare public /*out*/ readonly certificateAttributes: pulumi.Output<outputs.keyvault.CertificateCertificateAttribute[]>;
     /**
      * The raw Key Vault Certificate data represented as a hexadecimal string.
      */
-    public /*out*/ readonly certificateData!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateData: pulumi.Output<string>;
     /**
      * The Base64 encoded Key Vault Certificate data.
      */
-    public /*out*/ readonly certificateDataBase64!: pulumi.Output<string>;
+    declare public /*out*/ readonly certificateDataBase64: pulumi.Output<string>;
     /**
      * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      *
      * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
-    public readonly certificatePolicy!: pulumi.Output<outputs.keyvault.CertificateCertificatePolicy>;
+    declare public readonly certificatePolicy: pulumi.Output<outputs.keyvault.CertificateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
      */
-    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceManagerId: pulumi.Output<string>;
     /**
      * The Versionless ID of the Key Vault Certificate. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Certificate is updated.
      */
-    public /*out*/ readonly resourceManagerVersionlessId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceManagerVersionlessId: pulumi.Output<string>;
     /**
      * The ID of the associated Key Vault Secret.
      */
-    public /*out*/ readonly secretId!: pulumi.Output<string>;
+    declare public /*out*/ readonly secretId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Certificate.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
     /**
      * The Base ID of the Key Vault Certificate.
      */
-    public /*out*/ readonly versionlessId!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionlessId: pulumi.Output<string>;
     /**
      * The Base ID of the Key Vault Secret.
      */
-    public /*out*/ readonly versionlessSecretId!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionlessSecretId: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -315,31 +315,31 @@ export class Certificate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            resourceInputs["certificate"] = state ? state.certificate : undefined;
-            resourceInputs["certificateAttributes"] = state ? state.certificateAttributes : undefined;
-            resourceInputs["certificateData"] = state ? state.certificateData : undefined;
-            resourceInputs["certificateDataBase64"] = state ? state.certificateDataBase64 : undefined;
-            resourceInputs["certificatePolicy"] = state ? state.certificatePolicy : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
-            resourceInputs["resourceManagerVersionlessId"] = state ? state.resourceManagerVersionlessId : undefined;
-            resourceInputs["secretId"] = state ? state.secretId : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["thumbprint"] = state ? state.thumbprint : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["versionlessId"] = state ? state.versionlessId : undefined;
-            resourceInputs["versionlessSecretId"] = state ? state.versionlessSecretId : undefined;
+            resourceInputs["certificate"] = state?.certificate;
+            resourceInputs["certificateAttributes"] = state?.certificateAttributes;
+            resourceInputs["certificateData"] = state?.certificateData;
+            resourceInputs["certificateDataBase64"] = state?.certificateDataBase64;
+            resourceInputs["certificatePolicy"] = state?.certificatePolicy;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceManagerId"] = state?.resourceManagerId;
+            resourceInputs["resourceManagerVersionlessId"] = state?.resourceManagerVersionlessId;
+            resourceInputs["secretId"] = state?.secretId;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["thumbprint"] = state?.thumbprint;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["versionlessId"] = state?.versionlessId;
+            resourceInputs["versionlessSecretId"] = state?.versionlessSecretId;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
+            if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
-            resourceInputs["certificatePolicy"] = args ? args.certificatePolicy : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["certificate"] = args?.certificate;
+            resourceInputs["certificatePolicy"] = args?.certificatePolicy;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["certificateAttributes"] = undefined /*out*/;
             resourceInputs["certificateData"] = undefined /*out*/;
             resourceInputs["certificateDataBase64"] = undefined /*out*/;

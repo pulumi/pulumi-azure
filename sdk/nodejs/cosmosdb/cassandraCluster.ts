@@ -99,61 +99,61 @@ export class CassandraCluster extends pulumi.CustomResource {
     /**
      * The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
      */
-    public readonly authenticationMethod!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationMethod: pulumi.Output<string | undefined>;
     /**
      * A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
      */
-    public readonly clientCertificatePems!: pulumi.Output<string[] | undefined>;
+    declare public readonly clientCertificatePems: pulumi.Output<string[] | undefined>;
     /**
      * The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created.
      */
-    public readonly defaultAdminPassword!: pulumi.Output<string>;
+    declare public readonly defaultAdminPassword: pulumi.Output<string>;
     /**
      * The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
      */
-    public readonly delegatedManagementSubnetId!: pulumi.Output<string>;
+    declare public readonly delegatedManagementSubnetId: pulumi.Output<string>;
     /**
      * A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
      */
-    public readonly externalGossipCertificatePems!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalGossipCertificatePems: pulumi.Output<string[] | undefined>;
     /**
      * A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
      */
-    public readonly externalSeedNodeIpAddresses!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalSeedNodeIpAddresses: pulumi.Output<string[] | undefined>;
     /**
      * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
      *
      * > **Note:** To disable this feature, set this property to `0`.
      */
-    public readonly hoursBetweenBackups!: pulumi.Output<number | undefined>;
+    declare public readonly hoursBetweenBackups: pulumi.Output<number | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.cosmosdb.CassandraClusterIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.cosmosdb.CassandraClusterIdentity | undefined>;
     /**
      * The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
      */
-    public readonly repairEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly repairEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a CassandraCluster resource with the given unique name, arguments, and options.
@@ -168,45 +168,45 @@ export class CassandraCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CassandraClusterState | undefined;
-            resourceInputs["authenticationMethod"] = state ? state.authenticationMethod : undefined;
-            resourceInputs["clientCertificatePems"] = state ? state.clientCertificatePems : undefined;
-            resourceInputs["defaultAdminPassword"] = state ? state.defaultAdminPassword : undefined;
-            resourceInputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
-            resourceInputs["externalGossipCertificatePems"] = state ? state.externalGossipCertificatePems : undefined;
-            resourceInputs["externalSeedNodeIpAddresses"] = state ? state.externalSeedNodeIpAddresses : undefined;
-            resourceInputs["hoursBetweenBackups"] = state ? state.hoursBetweenBackups : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["repairEnabled"] = state ? state.repairEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["authenticationMethod"] = state?.authenticationMethod;
+            resourceInputs["clientCertificatePems"] = state?.clientCertificatePems;
+            resourceInputs["defaultAdminPassword"] = state?.defaultAdminPassword;
+            resourceInputs["delegatedManagementSubnetId"] = state?.delegatedManagementSubnetId;
+            resourceInputs["externalGossipCertificatePems"] = state?.externalGossipCertificatePems;
+            resourceInputs["externalSeedNodeIpAddresses"] = state?.externalSeedNodeIpAddresses;
+            resourceInputs["hoursBetweenBackups"] = state?.hoursBetweenBackups;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["repairEnabled"] = state?.repairEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["version"] = state?.version;
         } else {
             const args = argsOrState as CassandraClusterArgs | undefined;
-            if ((!args || args.defaultAdminPassword === undefined) && !opts.urn) {
+            if (args?.defaultAdminPassword === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAdminPassword'");
             }
-            if ((!args || args.delegatedManagementSubnetId === undefined) && !opts.urn) {
+            if (args?.delegatedManagementSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'delegatedManagementSubnetId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authenticationMethod"] = args ? args.authenticationMethod : undefined;
-            resourceInputs["clientCertificatePems"] = args ? args.clientCertificatePems : undefined;
+            resourceInputs["authenticationMethod"] = args?.authenticationMethod;
+            resourceInputs["clientCertificatePems"] = args?.clientCertificatePems;
             resourceInputs["defaultAdminPassword"] = args?.defaultAdminPassword ? pulumi.secret(args.defaultAdminPassword) : undefined;
-            resourceInputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
-            resourceInputs["externalGossipCertificatePems"] = args ? args.externalGossipCertificatePems : undefined;
-            resourceInputs["externalSeedNodeIpAddresses"] = args ? args.externalSeedNodeIpAddresses : undefined;
-            resourceInputs["hoursBetweenBackups"] = args ? args.hoursBetweenBackups : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["repairEnabled"] = args ? args.repairEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["delegatedManagementSubnetId"] = args?.delegatedManagementSubnetId;
+            resourceInputs["externalGossipCertificatePems"] = args?.externalGossipCertificatePems;
+            resourceInputs["externalSeedNodeIpAddresses"] = args?.externalSeedNodeIpAddresses;
+            resourceInputs["hoursBetweenBackups"] = args?.hoursBetweenBackups;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["repairEnabled"] = args?.repairEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["defaultAdminPassword"] };

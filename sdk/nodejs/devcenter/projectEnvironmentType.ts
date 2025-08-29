@@ -97,35 +97,35 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
     /**
      * A list of roles to assign to the environment creator.
      */
-    public readonly creatorRoleAssignmentRoles!: pulumi.Output<string[] | undefined>;
+    declare public readonly creatorRoleAssignmentRoles: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
      */
-    public readonly deploymentTargetId!: pulumi.Output<string>;
+    declare public readonly deploymentTargetId: pulumi.Output<string>;
     /**
      * The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
      */
-    public readonly devCenterProjectId!: pulumi.Output<string>;
+    declare public readonly devCenterProjectId: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.devcenter.ProjectEnvironmentTypeIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.devcenter.ProjectEnvironmentTypeIdentity>;
     /**
      * The Azure Region where the Dev Center Project Environment Type should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of this Dev Center Project Environment Type. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Dev Center Project Environment Type.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `userRoleAssignment` block as defined below.
      */
-    public readonly userRoleAssignments!: pulumi.Output<outputs.devcenter.ProjectEnvironmentTypeUserRoleAssignment[] | undefined>;
+    declare public readonly userRoleAssignments: pulumi.Output<outputs.devcenter.ProjectEnvironmentTypeUserRoleAssignment[] | undefined>;
 
     /**
      * Create a ProjectEnvironmentType resource with the given unique name, arguments, and options.
@@ -140,33 +140,33 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectEnvironmentTypeState | undefined;
-            resourceInputs["creatorRoleAssignmentRoles"] = state ? state.creatorRoleAssignmentRoles : undefined;
-            resourceInputs["deploymentTargetId"] = state ? state.deploymentTargetId : undefined;
-            resourceInputs["devCenterProjectId"] = state ? state.devCenterProjectId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["userRoleAssignments"] = state ? state.userRoleAssignments : undefined;
+            resourceInputs["creatorRoleAssignmentRoles"] = state?.creatorRoleAssignmentRoles;
+            resourceInputs["deploymentTargetId"] = state?.deploymentTargetId;
+            resourceInputs["devCenterProjectId"] = state?.devCenterProjectId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["userRoleAssignments"] = state?.userRoleAssignments;
         } else {
             const args = argsOrState as ProjectEnvironmentTypeArgs | undefined;
-            if ((!args || args.deploymentTargetId === undefined) && !opts.urn) {
+            if (args?.deploymentTargetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentTargetId'");
             }
-            if ((!args || args.devCenterProjectId === undefined) && !opts.urn) {
+            if (args?.devCenterProjectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterProjectId'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            resourceInputs["creatorRoleAssignmentRoles"] = args ? args.creatorRoleAssignmentRoles : undefined;
-            resourceInputs["deploymentTargetId"] = args ? args.deploymentTargetId : undefined;
-            resourceInputs["devCenterProjectId"] = args ? args.devCenterProjectId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userRoleAssignments"] = args ? args.userRoleAssignments : undefined;
+            resourceInputs["creatorRoleAssignmentRoles"] = args?.creatorRoleAssignmentRoles;
+            resourceInputs["deploymentTargetId"] = args?.deploymentTargetId;
+            resourceInputs["devCenterProjectId"] = args?.devCenterProjectId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userRoleAssignments"] = args?.userRoleAssignments;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProjectEnvironmentType.__pulumiType, name, resourceInputs, opts);

@@ -30,91 +30,83 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The Azure DevOps Pipeline Service Connection ID.
      */
-    public readonly adoPipelineServiceConnectionId!: pulumi.Output<string | undefined>;
+    declare public readonly adoPipelineServiceConnectionId: pulumi.Output<string | undefined>;
     /**
      * Base64 encoded PKCS#12 certificate bundle to use when authenticating as a Service Principal using a Client Certificate
      */
-    public readonly clientCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificate: pulumi.Output<string | undefined>;
     /**
-     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-     * Certificate
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
      */
-    public readonly clientCertificatePassword!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificatePassword: pulumi.Output<string | undefined>;
     /**
-     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-     * Principal using a Client Certificate.
+     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
      */
-    public readonly clientCertificatePath!: pulumi.Output<string | undefined>;
+    declare public readonly clientCertificatePath: pulumi.Output<string | undefined>;
     /**
      * The Client ID which should be used.
      */
-    public readonly clientId!: pulumi.Output<string | undefined>;
+    declare public readonly clientId: pulumi.Output<string | undefined>;
     /**
      * The path to a file containing the Client ID which should be used.
      */
-    public readonly clientIdFilePath!: pulumi.Output<string | undefined>;
+    declare public readonly clientIdFilePath: pulumi.Output<string | undefined>;
     /**
      * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
-    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
     /**
-     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-     * using a Client Secret.
+     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
-    public readonly clientSecretFilePath!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecretFilePath: pulumi.Output<string | undefined>;
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-     * used and should not be specified when `metadataHost` is specified.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
      */
-    public readonly environment!: pulumi.Output<string | undefined>;
+    declare public readonly environment: pulumi.Output<string | undefined>;
     /**
      * The Hostname which should be used for the Azure Metadata Service.
      */
-    public readonly metadataHost!: pulumi.Output<string | undefined>;
+    declare public readonly metadataHost: pulumi.Output<string | undefined>;
     /**
-     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-     * the endpoint. e.g. for Azure Container Apps.
+     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
      */
-    public readonly msiApiVersion!: pulumi.Output<string | undefined>;
+    declare public readonly msiApiVersion: pulumi.Output<string | undefined>;
     /**
-     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-     * automatically.
+     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      */
-    public readonly msiEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly msiEndpoint: pulumi.Output<string | undefined>;
     /**
-     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-     * Connect.
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      */
-    public readonly oidcRequestToken!: pulumi.Output<string | undefined>;
+    declare public readonly oidcRequestToken: pulumi.Output<string | undefined>;
     /**
-     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-     * using OpenID Connect.
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      */
-    public readonly oidcRequestUrl!: pulumi.Output<string | undefined>;
+    declare public readonly oidcRequestUrl: pulumi.Output<string | undefined>;
     /**
      * The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
      */
-    public readonly oidcToken!: pulumi.Output<string | undefined>;
+    declare public readonly oidcToken: pulumi.Output<string | undefined>;
     /**
      * The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
      */
-    public readonly oidcTokenFilePath!: pulumi.Output<string | undefined>;
+    declare public readonly oidcTokenFilePath: pulumi.Output<string | undefined>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
-    public readonly partnerId!: pulumi.Output<string | undefined>;
+    declare public readonly partnerId: pulumi.Output<string | undefined>;
     /**
      * The set of Resource Providers which should be automatically registered for the subscription.
      */
-    public readonly resourceProviderRegistrations!: pulumi.Output<string | undefined>;
+    declare public readonly resourceProviderRegistrations: pulumi.Output<string | undefined>;
     /**
      * The Subscription ID which should be used.
      */
-    public readonly subscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly subscriptionId: pulumi.Output<string | undefined>;
     /**
      * The Tenant ID which should be used.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -127,7 +119,7 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["adoPipelineServiceConnectionId"] = args ? args.adoPipelineServiceConnectionId : undefined;
+            resourceInputs["adoPipelineServiceConnectionId"] = args?.adoPipelineServiceConnectionId;
             resourceInputs["auxiliaryTenantIds"] = pulumi.output(args?.auxiliaryTenantIds ? pulumi.secret(args.auxiliaryTenantIds) : undefined).apply(JSON.stringify);
             resourceInputs["clientCertificate"] = args?.clientCertificate ? pulumi.secret(args.clientCertificate) : undefined;
             resourceInputs["clientCertificatePassword"] = args?.clientCertificatePassword ? pulumi.secret(args.clientCertificatePassword) : undefined;
@@ -136,28 +128,28 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["clientIdFilePath"] = args?.clientIdFilePath ? pulumi.secret(args.clientIdFilePath) : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["clientSecretFilePath"] = args?.clientSecretFilePath ? pulumi.secret(args.clientSecretFilePath) : undefined;
-            resourceInputs["disableCorrelationRequestId"] = pulumi.output(args ? args.disableCorrelationRequestId : undefined).apply(JSON.stringify);
-            resourceInputs["disableTerraformPartnerId"] = pulumi.output(args ? args.disableTerraformPartnerId : undefined).apply(JSON.stringify);
-            resourceInputs["environment"] = (args ? args.environment : undefined) ?? (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
-            resourceInputs["features"] = pulumi.output(args ? args.features : undefined).apply(JSON.stringify);
-            resourceInputs["metadataHost"] = (args ? args.metadataHost : undefined) ?? utilities.getEnv("ARM_METADATA_HOSTNAME");
-            resourceInputs["msiApiVersion"] = args ? args.msiApiVersion : undefined;
-            resourceInputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
+            resourceInputs["disableCorrelationRequestId"] = pulumi.output(args?.disableCorrelationRequestId).apply(JSON.stringify);
+            resourceInputs["disableTerraformPartnerId"] = pulumi.output(args?.disableTerraformPartnerId).apply(JSON.stringify);
+            resourceInputs["environment"] = (args?.environment) ?? (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
+            resourceInputs["features"] = pulumi.output(args?.features).apply(JSON.stringify);
+            resourceInputs["metadataHost"] = (args?.metadataHost) ?? utilities.getEnv("ARM_METADATA_HOSTNAME");
+            resourceInputs["msiApiVersion"] = args?.msiApiVersion;
+            resourceInputs["msiEndpoint"] = args?.msiEndpoint;
             resourceInputs["oidcRequestToken"] = args?.oidcRequestToken ? pulumi.secret(args.oidcRequestToken) : undefined;
-            resourceInputs["oidcRequestUrl"] = args ? args.oidcRequestUrl : undefined;
+            resourceInputs["oidcRequestUrl"] = args?.oidcRequestUrl;
             resourceInputs["oidcToken"] = args?.oidcToken ? pulumi.secret(args.oidcToken) : undefined;
             resourceInputs["oidcTokenFilePath"] = args?.oidcTokenFilePath ? pulumi.secret(args.oidcTokenFilePath) : undefined;
-            resourceInputs["partnerId"] = args ? args.partnerId : undefined;
-            resourceInputs["resourceProviderRegistrations"] = args ? args.resourceProviderRegistrations : undefined;
-            resourceInputs["resourceProvidersToRegisters"] = pulumi.output(args ? args.resourceProvidersToRegisters : undefined).apply(JSON.stringify);
-            resourceInputs["skipProviderRegistration"] = pulumi.output((args ? args.skipProviderRegistration : undefined) ?? (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
-            resourceInputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
+            resourceInputs["partnerId"] = args?.partnerId;
+            resourceInputs["resourceProviderRegistrations"] = args?.resourceProviderRegistrations;
+            resourceInputs["resourceProvidersToRegisters"] = pulumi.output(args?.resourceProvidersToRegisters).apply(JSON.stringify);
+            resourceInputs["skipProviderRegistration"] = pulumi.output((args?.skipProviderRegistration) ?? (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
+            resourceInputs["storageUseAzuread"] = pulumi.output((args?.storageUseAzuread) ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
             resourceInputs["subscriptionId"] = (args?.subscriptionId ? pulumi.secret(args.subscriptionId) : undefined) ?? (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
             resourceInputs["tenantId"] = args?.tenantId ? pulumi.secret(args.tenantId) : undefined;
-            resourceInputs["useAksWorkloadIdentity"] = pulumi.output(args ? args.useAksWorkloadIdentity : undefined).apply(JSON.stringify);
-            resourceInputs["useCli"] = pulumi.output(args ? args.useCli : undefined).apply(JSON.stringify);
-            resourceInputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
-            resourceInputs["useOidc"] = pulumi.output(args ? args.useOidc : undefined).apply(JSON.stringify);
+            resourceInputs["useAksWorkloadIdentity"] = pulumi.output(args?.useAksWorkloadIdentity).apply(JSON.stringify);
+            resourceInputs["useCli"] = pulumi.output(args?.useCli).apply(JSON.stringify);
+            resourceInputs["useMsi"] = pulumi.output(args?.useMsi).apply(JSON.stringify);
+            resourceInputs["useOidc"] = pulumi.output(args?.useOidc).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientCertificate", "clientCertificatePassword", "clientCertificatePath", "clientId", "clientIdFilePath", "clientSecret", "clientSecretFilePath", "oidcRequestToken", "oidcToken", "oidcTokenFilePath", "subscriptionId", "tenantId"] };
@@ -189,13 +181,11 @@ export interface ProviderArgs {
      */
     clientCertificate?: pulumi.Input<string>;
     /**
-     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-     * Certificate
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
      */
     clientCertificatePassword?: pulumi.Input<string>;
     /**
-     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-     * Principal using a Client Certificate.
+     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
      */
     clientCertificatePath?: pulumi.Input<string>;
     /**
@@ -211,8 +201,7 @@ export interface ProviderArgs {
      */
     clientSecret?: pulumi.Input<string>;
     /**
-     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-     * using a Client Secret.
+     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
     clientSecretFilePath?: pulumi.Input<string>;
     /**
@@ -221,8 +210,7 @@ export interface ProviderArgs {
     disableCorrelationRequestId?: pulumi.Input<boolean>;
     disableTerraformPartnerId?: pulumi.Input<boolean>;
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-     * used and should not be specified when `metadataHost` is specified.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
      */
     environment?: pulumi.Input<string>;
     features?: pulumi.Input<inputs.ProviderFeatures>;
@@ -231,23 +219,19 @@ export interface ProviderArgs {
      */
     metadataHost?: pulumi.Input<string>;
     /**
-     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-     * the endpoint. e.g. for Azure Container Apps.
+     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
      */
     msiApiVersion?: pulumi.Input<string>;
     /**
-     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-     * automatically.
+     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      */
     msiEndpoint?: pulumi.Input<string>;
     /**
-     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-     * Connect.
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      */
     oidcRequestToken?: pulumi.Input<string>;
     /**
-     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-     * using OpenID Connect.
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      */
     oidcRequestUrl?: pulumi.Input<string>;
     /**
@@ -267,13 +251,11 @@ export interface ProviderArgs {
      */
     resourceProviderRegistrations?: pulumi.Input<string>;
     /**
-     * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the
-     * `resourceProviderRegistrations` property.
+     * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
      */
     resourceProvidersToRegisters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
-     * registered?
+     * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
      *
      * @deprecated This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
      */

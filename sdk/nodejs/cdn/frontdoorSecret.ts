@@ -136,19 +136,19 @@ export class FrontdoorSecret extends pulumi.CustomResource {
     /**
      * The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
      */
-    public readonly cdnFrontdoorProfileId!: pulumi.Output<string>;
+    declare public readonly cdnFrontdoorProfileId: pulumi.Output<string>;
     /**
      * The name of the Front Door Profile containing this Front Door Secret.
      */
-    public /*out*/ readonly cdnFrontdoorProfileName!: pulumi.Output<string>;
+    declare public /*out*/ readonly cdnFrontdoorProfileName: pulumi.Output<string>;
     /**
      * The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
      */
-    public readonly secret!: pulumi.Output<outputs.cdn.FrontdoorSecretSecret>;
+    declare public readonly secret: pulumi.Output<outputs.cdn.FrontdoorSecretSecret>;
 
     /**
      * Create a FrontdoorSecret resource with the given unique name, arguments, and options.
@@ -163,21 +163,21 @@ export class FrontdoorSecret extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FrontdoorSecretState | undefined;
-            resourceInputs["cdnFrontdoorProfileId"] = state ? state.cdnFrontdoorProfileId : undefined;
-            resourceInputs["cdnFrontdoorProfileName"] = state ? state.cdnFrontdoorProfileName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["secret"] = state ? state.secret : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = state?.cdnFrontdoorProfileId;
+            resourceInputs["cdnFrontdoorProfileName"] = state?.cdnFrontdoorProfileName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["secret"] = state?.secret;
         } else {
             const args = argsOrState as FrontdoorSecretArgs | undefined;
-            if ((!args || args.cdnFrontdoorProfileId === undefined) && !opts.urn) {
+            if (args?.cdnFrontdoorProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cdnFrontdoorProfileId'");
             }
-            if ((!args || args.secret === undefined) && !opts.urn) {
+            if (args?.secret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secret'");
             }
-            resourceInputs["cdnFrontdoorProfileId"] = args ? args.cdnFrontdoorProfileId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["secret"] = args ? args.secret : undefined;
+            resourceInputs["cdnFrontdoorProfileId"] = args?.cdnFrontdoorProfileId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["secret"] = args?.secret;
             resourceInputs["cdnFrontdoorProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

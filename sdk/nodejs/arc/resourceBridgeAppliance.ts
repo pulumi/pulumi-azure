@@ -80,35 +80,35 @@ export class ResourceBridgeAppliance extends pulumi.CustomResource {
     /**
      * Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
      */
-    public readonly distro!: pulumi.Output<string>;
+    declare public readonly distro: pulumi.Output<string>;
     /**
      * An `identity` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly identity!: pulumi.Output<outputs.arc.ResourceBridgeApplianceIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.arc.ResourceBridgeApplianceIdentity>;
     /**
      * The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created.
      */
-    public readonly infrastructureProvider!: pulumi.Output<string>;
+    declare public readonly infrastructureProvider: pulumi.Output<string>;
     /**
      * The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Name which should be used for this Arc Resource Bridge Appliance. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The `publicKeyBase64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created.
      */
-    public readonly publicKeyBase64!: pulumi.Output<string | undefined>;
+    declare public readonly publicKeyBase64: pulumi.Output<string | undefined>;
     /**
      * Specifies the resource group where the Arc Resource Bridge Appliance exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Arc Resource Bridge Appliance.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ResourceBridgeAppliance resource with the given unique name, arguments, and options.
@@ -123,36 +123,36 @@ export class ResourceBridgeAppliance extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceBridgeApplianceState | undefined;
-            resourceInputs["distro"] = state ? state.distro : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["infrastructureProvider"] = state ? state.infrastructureProvider : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["publicKeyBase64"] = state ? state.publicKeyBase64 : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["distro"] = state?.distro;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["infrastructureProvider"] = state?.infrastructureProvider;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["publicKeyBase64"] = state?.publicKeyBase64;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ResourceBridgeApplianceArgs | undefined;
-            if ((!args || args.distro === undefined) && !opts.urn) {
+            if (args?.distro === undefined && !opts.urn) {
                 throw new Error("Missing required property 'distro'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.infrastructureProvider === undefined) && !opts.urn) {
+            if (args?.infrastructureProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureProvider'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["distro"] = args ? args.distro : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["infrastructureProvider"] = args ? args.infrastructureProvider : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicKeyBase64"] = args ? args.publicKeyBase64 : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["distro"] = args?.distro;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["infrastructureProvider"] = args?.infrastructureProvider;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicKeyBase64"] = args?.publicKeyBase64;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourceBridgeAppliance.__pulumiType, name, resourceInputs, opts);

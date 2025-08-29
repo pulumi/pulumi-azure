@@ -79,45 +79,45 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
     /**
      * The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    public readonly alertRuleTemplateGuid!: pulumi.Output<string | undefined>;
+    declare public readonly alertRuleTemplateGuid: pulumi.Output<string | undefined>;
     /**
      * The description of this Sentinel MS Security Incident Alert Rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The friendly name of this Sentinel MS Security Incident Alert Rule.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Only create incidents when the alert display name doesn't contain text from this list.
      */
-    public readonly displayNameExcludeFilters!: pulumi.Output<string[] | undefined>;
+    declare public readonly displayNameExcludeFilters: pulumi.Output<string[] | undefined>;
     /**
      * Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
      */
-    public readonly displayNameFilters!: pulumi.Output<string[] | undefined>;
+    declare public readonly displayNameFilters: pulumi.Output<string[] | undefined>;
     /**
      * Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
      */
-    public readonly productFilter!: pulumi.Output<string>;
+    declare public readonly productFilter: pulumi.Output<string>;
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      *
      * > **Note:** At least one of the severity filters need to be set.
      */
-    public readonly severityFilters!: pulumi.Output<string[]>;
+    declare public readonly severityFilters: pulumi.Output<string[]>;
 
     /**
      * Create a AlertRuleMsSecurityIncident resource with the given unique name, arguments, and options.
@@ -132,40 +132,40 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertRuleMsSecurityIncidentState | undefined;
-            resourceInputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["displayNameExcludeFilters"] = state ? state.displayNameExcludeFilters : undefined;
-            resourceInputs["displayNameFilters"] = state ? state.displayNameFilters : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["productFilter"] = state ? state.productFilter : undefined;
-            resourceInputs["severityFilters"] = state ? state.severityFilters : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = state?.alertRuleTemplateGuid;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["displayNameExcludeFilters"] = state?.displayNameExcludeFilters;
+            resourceInputs["displayNameFilters"] = state?.displayNameFilters;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["productFilter"] = state?.productFilter;
+            resourceInputs["severityFilters"] = state?.severityFilters;
         } else {
             const args = argsOrState as AlertRuleMsSecurityIncidentArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.productFilter === undefined) && !opts.urn) {
+            if (args?.productFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productFilter'");
             }
-            if ((!args || args.severityFilters === undefined) && !opts.urn) {
+            if (args?.severityFilters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severityFilters'");
             }
-            resourceInputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["displayNameExcludeFilters"] = args ? args.displayNameExcludeFilters : undefined;
-            resourceInputs["displayNameFilters"] = args ? args.displayNameFilters : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["productFilter"] = args ? args.productFilter : undefined;
-            resourceInputs["severityFilters"] = args ? args.severityFilters : undefined;
+            resourceInputs["alertRuleTemplateGuid"] = args?.alertRuleTemplateGuid;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["displayNameExcludeFilters"] = args?.displayNameExcludeFilters;
+            resourceInputs["displayNameFilters"] = args?.displayNameFilters;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["productFilter"] = args?.productFilter;
+            resourceInputs["severityFilters"] = args?.severityFilters;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertRuleMsSecurityIncident.__pulumiType, name, resourceInputs, opts);

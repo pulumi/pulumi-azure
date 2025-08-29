@@ -118,35 +118,35 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
     /**
      * One or more `externalMapping` blocks as documented below.
      */
-    public readonly externalMappings!: pulumi.Output<outputs.network.VirtualNetworkGatewayNatRuleExternalMapping[]>;
+    declare public readonly externalMappings: pulumi.Output<outputs.network.VirtualNetworkGatewayNatRuleExternalMapping[]>;
     /**
      * One or more `internalMapping` blocks as documented below.
      */
-    public readonly internalMappings!: pulumi.Output<outputs.network.VirtualNetworkGatewayNatRuleInternalMapping[]>;
+    declare public readonly internalMappings: pulumi.Output<outputs.network.VirtualNetworkGatewayNatRuleInternalMapping[]>;
     /**
      * The ID of the IP Configuration this Virtual Network Gateway Nat Rule applies to.
      */
-    public readonly ipConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly ipConfigurationId: pulumi.Output<string | undefined>;
     /**
      * The source Nat direction of the Virtual Network Gateway Nat. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Name of the Resource Group in which this Virtual Network Gateway Nat Rule should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The type of the Virtual Network Gateway Nat Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * The ID of the Virtual Network Gateway that this Virtual Network Gateway Nat Rule belongs to. Changing this forces a new resource to be created.
      */
-    public readonly virtualNetworkGatewayId!: pulumi.Output<string>;
+    declare public readonly virtualNetworkGatewayId: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkGatewayNatRule resource with the given unique name, arguments, and options.
@@ -161,36 +161,36 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualNetworkGatewayNatRuleState | undefined;
-            resourceInputs["externalMappings"] = state ? state.externalMappings : undefined;
-            resourceInputs["internalMappings"] = state ? state.internalMappings : undefined;
-            resourceInputs["ipConfigurationId"] = state ? state.ipConfigurationId : undefined;
-            resourceInputs["mode"] = state ? state.mode : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["virtualNetworkGatewayId"] = state ? state.virtualNetworkGatewayId : undefined;
+            resourceInputs["externalMappings"] = state?.externalMappings;
+            resourceInputs["internalMappings"] = state?.internalMappings;
+            resourceInputs["ipConfigurationId"] = state?.ipConfigurationId;
+            resourceInputs["mode"] = state?.mode;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["virtualNetworkGatewayId"] = state?.virtualNetworkGatewayId;
         } else {
             const args = argsOrState as VirtualNetworkGatewayNatRuleArgs | undefined;
-            if ((!args || args.externalMappings === undefined) && !opts.urn) {
+            if (args?.externalMappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'externalMappings'");
             }
-            if ((!args || args.internalMappings === undefined) && !opts.urn) {
+            if (args?.internalMappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'internalMappings'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkGatewayId === undefined) && !opts.urn) {
+            if (args?.virtualNetworkGatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGatewayId'");
             }
-            resourceInputs["externalMappings"] = args ? args.externalMappings : undefined;
-            resourceInputs["internalMappings"] = args ? args.internalMappings : undefined;
-            resourceInputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
+            resourceInputs["externalMappings"] = args?.externalMappings;
+            resourceInputs["internalMappings"] = args?.internalMappings;
+            resourceInputs["ipConfigurationId"] = args?.ipConfigurationId;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["virtualNetworkGatewayId"] = args?.virtualNetworkGatewayId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualNetworkGatewayNatRule.__pulumiType, name, resourceInputs, opts);

@@ -78,31 +78,31 @@ export class VirtualMachineGroup extends pulumi.CustomResource {
     /**
      * The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for the Microsoft SQL Virtual Machine Group. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created.
      */
-    public readonly sqlImageOffer!: pulumi.Output<string>;
+    declare public readonly sqlImageOffer: pulumi.Output<string>;
     /**
      * The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`.
      */
-    public readonly sqlImageSku!: pulumi.Output<string>;
+    declare public readonly sqlImageSku: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `wsfcDomainProfile` block as defined below.
      */
-    public readonly wsfcDomainProfile!: pulumi.Output<outputs.mssql.VirtualMachineGroupWsfcDomainProfile>;
+    declare public readonly wsfcDomainProfile: pulumi.Output<outputs.mssql.VirtualMachineGroupWsfcDomainProfile>;
 
     /**
      * Create a VirtualMachineGroup resource with the given unique name, arguments, and options.
@@ -117,34 +117,34 @@ export class VirtualMachineGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualMachineGroupState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sqlImageOffer"] = state ? state.sqlImageOffer : undefined;
-            resourceInputs["sqlImageSku"] = state ? state.sqlImageSku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["wsfcDomainProfile"] = state ? state.wsfcDomainProfile : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sqlImageOffer"] = state?.sqlImageOffer;
+            resourceInputs["sqlImageSku"] = state?.sqlImageSku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["wsfcDomainProfile"] = state?.wsfcDomainProfile;
         } else {
             const args = argsOrState as VirtualMachineGroupArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlImageOffer === undefined) && !opts.urn) {
+            if (args?.sqlImageOffer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlImageOffer'");
             }
-            if ((!args || args.sqlImageSku === undefined) && !opts.urn) {
+            if (args?.sqlImageSku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlImageSku'");
             }
-            if ((!args || args.wsfcDomainProfile === undefined) && !opts.urn) {
+            if (args?.wsfcDomainProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'wsfcDomainProfile'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlImageOffer"] = args ? args.sqlImageOffer : undefined;
-            resourceInputs["sqlImageSku"] = args ? args.sqlImageSku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["wsfcDomainProfile"] = args ? args.wsfcDomainProfile : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlImageOffer"] = args?.sqlImageOffer;
+            resourceInputs["sqlImageSku"] = args?.sqlImageSku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["wsfcDomainProfile"] = args?.wsfcDomainProfile;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VirtualMachineGroup.__pulumiType, name, resourceInputs, opts);

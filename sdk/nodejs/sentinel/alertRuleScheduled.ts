@@ -85,101 +85,101 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
     /**
      * An `alertDetailsOverride` block as defined below.
      */
-    public readonly alertDetailsOverrides!: pulumi.Output<outputs.sentinel.AlertRuleScheduledAlertDetailsOverride[] | undefined>;
+    declare public readonly alertDetailsOverrides: pulumi.Output<outputs.sentinel.AlertRuleScheduledAlertDetailsOverride[] | undefined>;
     /**
      * The GUID of the alert rule template which is used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    public readonly alertRuleTemplateGuid!: pulumi.Output<string | undefined>;
+    declare public readonly alertRuleTemplateGuid: pulumi.Output<string | undefined>;
     /**
      * The version of the alert rule template which is used for this Sentinel Scheduled Alert Rule.
      */
-    public readonly alertRuleTemplateVersion!: pulumi.Output<string | undefined>;
+    declare public readonly alertRuleTemplateVersion: pulumi.Output<string | undefined>;
     /**
      * A map of string key-value pairs of columns to be attached to this Sentinel Scheduled Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
      */
-    public readonly customDetails!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly customDetails: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The description of this Sentinel Scheduled Alert Rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The friendly name of this Sentinel Scheduled Alert Rule.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Should the Sentinel Scheduled Alert Rule be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of `entityMapping` blocks as defined below.
      */
-    public readonly entityMappings!: pulumi.Output<outputs.sentinel.AlertRuleScheduledEntityMapping[] | undefined>;
+    declare public readonly entityMappings: pulumi.Output<outputs.sentinel.AlertRuleScheduledEntityMapping[] | undefined>;
     /**
      * A `eventGrouping` block as defined below.
      */
-    public readonly eventGrouping!: pulumi.Output<outputs.sentinel.AlertRuleScheduledEventGrouping | undefined>;
+    declare public readonly eventGrouping: pulumi.Output<outputs.sentinel.AlertRuleScheduledEventGrouping | undefined>;
     /**
      * A `incident` block as defined below.
      */
-    public readonly incident!: pulumi.Output<outputs.sentinel.AlertRuleScheduledIncident>;
+    declare public readonly incident: pulumi.Output<outputs.sentinel.AlertRuleScheduledIncident>;
     /**
      * The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
+    declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The query of this Sentinel Scheduled Alert Rule.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * The ISO 8601 timespan duration between two consecutive queries. Defaults to `PT5H`.
      */
-    public readonly queryFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly queryFrequency: pulumi.Output<string | undefined>;
     /**
      * The ISO 8601 timespan duration, which determine the time period of the data covered by the query. For example, it can query the past 10 minutes of data, or the past 6 hours of data. Defaults to `PT5H`.
      *
      * > **Note:** `queryPeriod` must larger than or equal to `queryFrequency`, which ensures there is no gaps in the overall query coverage.
      */
-    public readonly queryPeriod!: pulumi.Output<string | undefined>;
+    declare public readonly queryPeriod: pulumi.Output<string | undefined>;
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
      *
      * > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 10.
      */
-    public readonly sentinelEntityMappings!: pulumi.Output<outputs.sentinel.AlertRuleScheduledSentinelEntityMapping[] | undefined>;
+    declare public readonly sentinelEntityMappings: pulumi.Output<outputs.sentinel.AlertRuleScheduledSentinelEntityMapping[] | undefined>;
     /**
      * The alert severity of this Sentinel Scheduled Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
      */
-    public readonly severity!: pulumi.Output<string>;
+    declare public readonly severity: pulumi.Output<string>;
     /**
      * If `suppressionEnabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
      *
      * > **Note:** `suppressionDuration` must larger than or equal to `queryFrequency`, otherwise the suppression has no actual effect since no query will happen during the suppression duration.
      */
-    public readonly suppressionDuration!: pulumi.Output<string | undefined>;
+    declare public readonly suppressionDuration: pulumi.Output<string | undefined>;
     /**
      * Should the Sentinel Scheduled Alert Rulea stop running query after alert is generated? Defaults to `false`.
      */
-    public readonly suppressionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly suppressionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `ImpairProcessControl`, `InhibitResponseFunction`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`, `PrivilegeEscalation`, `PreAttack`, `Reconnaissance` and `ResourceDevelopment`.
      */
-    public readonly tactics!: pulumi.Output<string[] | undefined>;
+    declare public readonly tactics: pulumi.Output<string[] | undefined>;
     /**
      * A list of techniques of attacks by which to classify the rule.
      */
-    public readonly techniques!: pulumi.Output<string[] | undefined>;
+    declare public readonly techniques: pulumi.Output<string[] | undefined>;
     /**
      * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      */
-    public readonly triggerOperator!: pulumi.Output<string | undefined>;
+    declare public readonly triggerOperator: pulumi.Output<string | undefined>;
     /**
      * The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
      */
-    public readonly triggerThreshold!: pulumi.Output<number | undefined>;
+    declare public readonly triggerThreshold: pulumi.Output<number | undefined>;
 
     /**
      * Create a AlertRuleScheduled resource with the given unique name, arguments, and options.
@@ -194,66 +194,66 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlertRuleScheduledState | undefined;
-            resourceInputs["alertDetailsOverrides"] = state ? state.alertDetailsOverrides : undefined;
-            resourceInputs["alertRuleTemplateGuid"] = state ? state.alertRuleTemplateGuid : undefined;
-            resourceInputs["alertRuleTemplateVersion"] = state ? state.alertRuleTemplateVersion : undefined;
-            resourceInputs["customDetails"] = state ? state.customDetails : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["entityMappings"] = state ? state.entityMappings : undefined;
-            resourceInputs["eventGrouping"] = state ? state.eventGrouping : undefined;
-            resourceInputs["incident"] = state ? state.incident : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["query"] = state ? state.query : undefined;
-            resourceInputs["queryFrequency"] = state ? state.queryFrequency : undefined;
-            resourceInputs["queryPeriod"] = state ? state.queryPeriod : undefined;
-            resourceInputs["sentinelEntityMappings"] = state ? state.sentinelEntityMappings : undefined;
-            resourceInputs["severity"] = state ? state.severity : undefined;
-            resourceInputs["suppressionDuration"] = state ? state.suppressionDuration : undefined;
-            resourceInputs["suppressionEnabled"] = state ? state.suppressionEnabled : undefined;
-            resourceInputs["tactics"] = state ? state.tactics : undefined;
-            resourceInputs["techniques"] = state ? state.techniques : undefined;
-            resourceInputs["triggerOperator"] = state ? state.triggerOperator : undefined;
-            resourceInputs["triggerThreshold"] = state ? state.triggerThreshold : undefined;
+            resourceInputs["alertDetailsOverrides"] = state?.alertDetailsOverrides;
+            resourceInputs["alertRuleTemplateGuid"] = state?.alertRuleTemplateGuid;
+            resourceInputs["alertRuleTemplateVersion"] = state?.alertRuleTemplateVersion;
+            resourceInputs["customDetails"] = state?.customDetails;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["entityMappings"] = state?.entityMappings;
+            resourceInputs["eventGrouping"] = state?.eventGrouping;
+            resourceInputs["incident"] = state?.incident;
+            resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["query"] = state?.query;
+            resourceInputs["queryFrequency"] = state?.queryFrequency;
+            resourceInputs["queryPeriod"] = state?.queryPeriod;
+            resourceInputs["sentinelEntityMappings"] = state?.sentinelEntityMappings;
+            resourceInputs["severity"] = state?.severity;
+            resourceInputs["suppressionDuration"] = state?.suppressionDuration;
+            resourceInputs["suppressionEnabled"] = state?.suppressionEnabled;
+            resourceInputs["tactics"] = state?.tactics;
+            resourceInputs["techniques"] = state?.techniques;
+            resourceInputs["triggerOperator"] = state?.triggerOperator;
+            resourceInputs["triggerThreshold"] = state?.triggerThreshold;
         } else {
             const args = argsOrState as AlertRuleScheduledArgs | undefined;
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.logAnalyticsWorkspaceId === undefined) && !opts.urn) {
+            if (args?.logAnalyticsWorkspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logAnalyticsWorkspaceId'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            resourceInputs["alertDetailsOverrides"] = args ? args.alertDetailsOverrides : undefined;
-            resourceInputs["alertRuleTemplateGuid"] = args ? args.alertRuleTemplateGuid : undefined;
-            resourceInputs["alertRuleTemplateVersion"] = args ? args.alertRuleTemplateVersion : undefined;
-            resourceInputs["customDetails"] = args ? args.customDetails : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
-            resourceInputs["eventGrouping"] = args ? args.eventGrouping : undefined;
-            resourceInputs["incident"] = args ? args.incident : undefined;
-            resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["queryFrequency"] = args ? args.queryFrequency : undefined;
-            resourceInputs["queryPeriod"] = args ? args.queryPeriod : undefined;
-            resourceInputs["sentinelEntityMappings"] = args ? args.sentinelEntityMappings : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
-            resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
-            resourceInputs["tactics"] = args ? args.tactics : undefined;
-            resourceInputs["techniques"] = args ? args.techniques : undefined;
-            resourceInputs["triggerOperator"] = args ? args.triggerOperator : undefined;
-            resourceInputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
+            resourceInputs["alertDetailsOverrides"] = args?.alertDetailsOverrides;
+            resourceInputs["alertRuleTemplateGuid"] = args?.alertRuleTemplateGuid;
+            resourceInputs["alertRuleTemplateVersion"] = args?.alertRuleTemplateVersion;
+            resourceInputs["customDetails"] = args?.customDetails;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entityMappings"] = args?.entityMappings;
+            resourceInputs["eventGrouping"] = args?.eventGrouping;
+            resourceInputs["incident"] = args?.incident;
+            resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["queryFrequency"] = args?.queryFrequency;
+            resourceInputs["queryPeriod"] = args?.queryPeriod;
+            resourceInputs["sentinelEntityMappings"] = args?.sentinelEntityMappings;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["suppressionDuration"] = args?.suppressionDuration;
+            resourceInputs["suppressionEnabled"] = args?.suppressionEnabled;
+            resourceInputs["tactics"] = args?.tactics;
+            resourceInputs["techniques"] = args?.techniques;
+            resourceInputs["triggerOperator"] = args?.triggerOperator;
+            resourceInputs["triggerThreshold"] = args?.triggerThreshold;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AlertRuleScheduled.__pulumiType, name, resourceInputs, opts);

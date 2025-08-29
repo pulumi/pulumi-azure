@@ -122,13 +122,13 @@ export class ManagedDisk extends pulumi.CustomResource {
      * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `sourceResourceId`).
      * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `uploadSizeBytes`).
      */
-    public readonly createOption!: pulumi.Output<string>;
+    declare public readonly createOption: pulumi.Output<string>;
     /**
      * The ID of the disk access resource for using private endpoints on disks.
      *
      * > **Note:** `diskAccessId` is only supported when `networkAccessPolicy` is set to `AllowPrivate`.
      */
-    public readonly diskAccessId!: pulumi.Output<string | undefined>;
+    declare public readonly diskAccessId: pulumi.Output<string | undefined>;
     /**
      * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secureVmDiskEncryptionSetId`.
      *
@@ -136,106 +136,106 @@ export class ManagedDisk extends pulumi.CustomResource {
      *
      * > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
      */
-    public readonly diskEncryptionSetId!: pulumi.Output<string | undefined>;
+    declare public readonly diskEncryptionSetId: pulumi.Output<string | undefined>;
     /**
      * The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes.
      */
-    public readonly diskIopsReadOnly!: pulumi.Output<number>;
+    declare public readonly diskIopsReadOnly: pulumi.Output<number>;
     /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes.
      */
-    public readonly diskIopsReadWrite!: pulumi.Output<number>;
+    declare public readonly diskIopsReadWrite: pulumi.Output<number>;
     /**
      * The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second.
      */
-    public readonly diskMbpsReadOnly!: pulumi.Output<number>;
+    declare public readonly diskMbpsReadOnly: pulumi.Output<number>;
     /**
      * The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second.
      */
-    public readonly diskMbpsReadWrite!: pulumi.Output<number>;
-    public readonly diskSizeGb!: pulumi.Output<number>;
+    declare public readonly diskMbpsReadWrite: pulumi.Output<number>;
+    declare public readonly diskSizeGb: pulumi.Output<number>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
      */
-    public readonly edgeZone!: pulumi.Output<string | undefined>;
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * A `encryptionSettings` block as defined below.
      *
      * > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
      */
-    public readonly encryptionSettings!: pulumi.Output<outputs.compute.ManagedDiskEncryptionSettings | undefined>;
+    declare public readonly encryptionSettings: pulumi.Output<outputs.compute.ManagedDiskEncryptionSettings | undefined>;
     /**
      * ID of a Gallery Image Version to copy when `createOption` is `FromImage`. This field cannot be specified if imageReferenceId is specified. Changing this forces a new resource to be created.
      */
-    public readonly galleryImageReferenceId!: pulumi.Output<string | undefined>;
+    declare public readonly galleryImageReferenceId: pulumi.Output<string | undefined>;
     /**
      * The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created.
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    declare public readonly hyperVGeneration: pulumi.Output<string | undefined>;
     /**
      * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`. This field cannot be specified if galleryImageReferenceId is specified. Changing this forces a new resource to be created.
      */
-    public readonly imageReferenceId!: pulumi.Output<string | undefined>;
+    declare public readonly imageReferenceId: pulumi.Output<string | undefined>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
      */
-    public readonly logicalSectorSize!: pulumi.Output<number>;
+    declare public readonly logicalSectorSize: pulumi.Output<number>;
     /**
      * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
      *
      * > **Note:** Premium SSD maxShares limit: `P15` and `P20` disks: 2. `P30`,`P40`,`P50` disks: 5. `P60`,`P70`,`P80` disks: 10. For ultra disks the `maxShares` minimum value is 1 and the maximum is 5.
      */
-    public readonly maxShares!: pulumi.Output<number>;
+    declare public readonly maxShares: pulumi.Output<number>;
     /**
      * Specifies the name of the Managed Disk. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`.
      */
-    public readonly networkAccessPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly networkAccessPolicy: pulumi.Output<string | undefined>;
     /**
      * Specifies if On-Demand Bursting is enabled for the Managed Disk.
      *
      * > **Note:** Credit-Based Bursting is enabled by default on all eligible disks. More information on [Credit-Based and On-Demand Bursting can be found in the documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting).
      */
-    public readonly onDemandBurstingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly onDemandBurstingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`.
      *
      * > **Note:** Setting `optimizedFrequentAttachEnabled` to `true` causes the disks to not align with the fault domain of the Virtual Machine, which can have operational implications.
      */
-    public readonly optimizedFrequentAttachEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly optimizedFrequentAttachEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    declare public readonly osType: pulumi.Output<string | undefined>;
     /**
      * Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created.
      */
-    public readonly performancePlusEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly performancePlusEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether it is allowed to access the disk via public network. Defaults to `true`.
      *
      * For more information on managed disks, such as sizing options and pricing, please check out the [Azure Documentation](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
      */
-    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** `secureVmDiskEncryptionSetId` can only be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      */
-    public readonly secureVmDiskEncryptionSetId!: pulumi.Output<string | undefined>;
+    declare public readonly secureVmDiskEncryptionSetId: pulumi.Output<string | undefined>;
     /**
      * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      *
@@ -246,46 +246,46 @@ export class ManagedDisk extends pulumi.CustomResource {
      *
      * > **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      */
-    public readonly securityType!: pulumi.Output<string | undefined>;
+    declare public readonly securityType: pulumi.Output<string | undefined>;
     /**
      * The ID of an existing Managed Disk or Snapshot to copy when `createOption` is `Copy` or the recovery point to restore when `createOption` is `Restore`. Changing this forces a new resource to be created.
      */
-    public readonly sourceResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceResourceId: pulumi.Output<string | undefined>;
     /**
      * URI to a valid VHD file to be used when `createOption` is `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      */
-    public readonly sourceUri!: pulumi.Output<string>;
+    declare public readonly sourceUri: pulumi.Output<string>;
     /**
      * The ID of the Storage Account where the `sourceUri` is located. Required when `createOption` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      *
      * > **Note:** Azure Ultra Disk Storage is only available in a region that support availability zones and can only enabled on the following VM series: `ESv3`, `DSv3`, `FSv3`, `LSv2`, `M` and `Mv2`. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd).
      */
-    public readonly storageAccountType!: pulumi.Output<string>;
+    declare public readonly storageAccountType: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tier!: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tier: pulumi.Output<string>;
     /**
      * Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created.
      *
      * > **Note:** Trusted Launch can only be enabled when `createOption` is `FromImage` or `Import`.
      */
-    public readonly trustedLaunchEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly trustedLaunchEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the size of the managed disk to create in bytes. Required when `createOption` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created.
      */
-    public readonly uploadSizeBytes!: pulumi.Output<number | undefined>;
+    declare public readonly uploadSizeBytes: pulumi.Output<number | undefined>;
     /**
      * Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created.
      *
      * > **Note:** Availability Zones are [only supported in select regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
-    public readonly zone!: pulumi.Output<string | undefined>;
+    declare public readonly zone: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedDisk resource with the given unique name, arguments, and options.
@@ -300,87 +300,87 @@ export class ManagedDisk extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedDiskState | undefined;
-            resourceInputs["createOption"] = state ? state.createOption : undefined;
-            resourceInputs["diskAccessId"] = state ? state.diskAccessId : undefined;
-            resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
-            resourceInputs["diskIopsReadOnly"] = state ? state.diskIopsReadOnly : undefined;
-            resourceInputs["diskIopsReadWrite"] = state ? state.diskIopsReadWrite : undefined;
-            resourceInputs["diskMbpsReadOnly"] = state ? state.diskMbpsReadOnly : undefined;
-            resourceInputs["diskMbpsReadWrite"] = state ? state.diskMbpsReadWrite : undefined;
-            resourceInputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
-            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
-            resourceInputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;
-            resourceInputs["galleryImageReferenceId"] = state ? state.galleryImageReferenceId : undefined;
-            resourceInputs["hyperVGeneration"] = state ? state.hyperVGeneration : undefined;
-            resourceInputs["imageReferenceId"] = state ? state.imageReferenceId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["logicalSectorSize"] = state ? state.logicalSectorSize : undefined;
-            resourceInputs["maxShares"] = state ? state.maxShares : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["networkAccessPolicy"] = state ? state.networkAccessPolicy : undefined;
-            resourceInputs["onDemandBurstingEnabled"] = state ? state.onDemandBurstingEnabled : undefined;
-            resourceInputs["optimizedFrequentAttachEnabled"] = state ? state.optimizedFrequentAttachEnabled : undefined;
-            resourceInputs["osType"] = state ? state.osType : undefined;
-            resourceInputs["performancePlusEnabled"] = state ? state.performancePlusEnabled : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["secureVmDiskEncryptionSetId"] = state ? state.secureVmDiskEncryptionSetId : undefined;
-            resourceInputs["securityType"] = state ? state.securityType : undefined;
-            resourceInputs["sourceResourceId"] = state ? state.sourceResourceId : undefined;
-            resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["storageAccountType"] = state ? state.storageAccountType : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["tier"] = state ? state.tier : undefined;
-            resourceInputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
-            resourceInputs["uploadSizeBytes"] = state ? state.uploadSizeBytes : undefined;
-            resourceInputs["zone"] = state ? state.zone : undefined;
+            resourceInputs["createOption"] = state?.createOption;
+            resourceInputs["diskAccessId"] = state?.diskAccessId;
+            resourceInputs["diskEncryptionSetId"] = state?.diskEncryptionSetId;
+            resourceInputs["diskIopsReadOnly"] = state?.diskIopsReadOnly;
+            resourceInputs["diskIopsReadWrite"] = state?.diskIopsReadWrite;
+            resourceInputs["diskMbpsReadOnly"] = state?.diskMbpsReadOnly;
+            resourceInputs["diskMbpsReadWrite"] = state?.diskMbpsReadWrite;
+            resourceInputs["diskSizeGb"] = state?.diskSizeGb;
+            resourceInputs["edgeZone"] = state?.edgeZone;
+            resourceInputs["encryptionSettings"] = state?.encryptionSettings;
+            resourceInputs["galleryImageReferenceId"] = state?.galleryImageReferenceId;
+            resourceInputs["hyperVGeneration"] = state?.hyperVGeneration;
+            resourceInputs["imageReferenceId"] = state?.imageReferenceId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["logicalSectorSize"] = state?.logicalSectorSize;
+            resourceInputs["maxShares"] = state?.maxShares;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["networkAccessPolicy"] = state?.networkAccessPolicy;
+            resourceInputs["onDemandBurstingEnabled"] = state?.onDemandBurstingEnabled;
+            resourceInputs["optimizedFrequentAttachEnabled"] = state?.optimizedFrequentAttachEnabled;
+            resourceInputs["osType"] = state?.osType;
+            resourceInputs["performancePlusEnabled"] = state?.performancePlusEnabled;
+            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["secureVmDiskEncryptionSetId"] = state?.secureVmDiskEncryptionSetId;
+            resourceInputs["securityType"] = state?.securityType;
+            resourceInputs["sourceResourceId"] = state?.sourceResourceId;
+            resourceInputs["sourceUri"] = state?.sourceUri;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["storageAccountType"] = state?.storageAccountType;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tier"] = state?.tier;
+            resourceInputs["trustedLaunchEnabled"] = state?.trustedLaunchEnabled;
+            resourceInputs["uploadSizeBytes"] = state?.uploadSizeBytes;
+            resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as ManagedDiskArgs | undefined;
-            if ((!args || args.createOption === undefined) && !opts.urn) {
+            if (args?.createOption === undefined && !opts.urn) {
                 throw new Error("Missing required property 'createOption'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountType === undefined) && !opts.urn) {
+            if (args?.storageAccountType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountType'");
             }
-            resourceInputs["createOption"] = args ? args.createOption : undefined;
-            resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
-            resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
-            resourceInputs["diskIopsReadOnly"] = args ? args.diskIopsReadOnly : undefined;
-            resourceInputs["diskIopsReadWrite"] = args ? args.diskIopsReadWrite : undefined;
-            resourceInputs["diskMbpsReadOnly"] = args ? args.diskMbpsReadOnly : undefined;
-            resourceInputs["diskMbpsReadWrite"] = args ? args.diskMbpsReadWrite : undefined;
-            resourceInputs["diskSizeGb"] = args ? args.diskSizeGb : undefined;
-            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
-            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            resourceInputs["galleryImageReferenceId"] = args ? args.galleryImageReferenceId : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["imageReferenceId"] = args ? args.imageReferenceId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logicalSectorSize"] = args ? args.logicalSectorSize : undefined;
-            resourceInputs["maxShares"] = args ? args.maxShares : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
-            resourceInputs["onDemandBurstingEnabled"] = args ? args.onDemandBurstingEnabled : undefined;
-            resourceInputs["optimizedFrequentAttachEnabled"] = args ? args.optimizedFrequentAttachEnabled : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["performancePlusEnabled"] = args ? args.performancePlusEnabled : undefined;
-            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secureVmDiskEncryptionSetId"] = args ? args.secureVmDiskEncryptionSetId : undefined;
-            resourceInputs["securityType"] = args ? args.securityType : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["trustedLaunchEnabled"] = args ? args.trustedLaunchEnabled : undefined;
-            resourceInputs["uploadSizeBytes"] = args ? args.uploadSizeBytes : undefined;
-            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["createOption"] = args?.createOption;
+            resourceInputs["diskAccessId"] = args?.diskAccessId;
+            resourceInputs["diskEncryptionSetId"] = args?.diskEncryptionSetId;
+            resourceInputs["diskIopsReadOnly"] = args?.diskIopsReadOnly;
+            resourceInputs["diskIopsReadWrite"] = args?.diskIopsReadWrite;
+            resourceInputs["diskMbpsReadOnly"] = args?.diskMbpsReadOnly;
+            resourceInputs["diskMbpsReadWrite"] = args?.diskMbpsReadWrite;
+            resourceInputs["diskSizeGb"] = args?.diskSizeGb;
+            resourceInputs["edgeZone"] = args?.edgeZone;
+            resourceInputs["encryptionSettings"] = args?.encryptionSettings;
+            resourceInputs["galleryImageReferenceId"] = args?.galleryImageReferenceId;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["imageReferenceId"] = args?.imageReferenceId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logicalSectorSize"] = args?.logicalSectorSize;
+            resourceInputs["maxShares"] = args?.maxShares;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkAccessPolicy"] = args?.networkAccessPolicy;
+            resourceInputs["onDemandBurstingEnabled"] = args?.onDemandBurstingEnabled;
+            resourceInputs["optimizedFrequentAttachEnabled"] = args?.optimizedFrequentAttachEnabled;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["performancePlusEnabled"] = args?.performancePlusEnabled;
+            resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secureVmDiskEncryptionSetId"] = args?.secureVmDiskEncryptionSetId;
+            resourceInputs["securityType"] = args?.securityType;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["sourceUri"] = args?.sourceUri;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["storageAccountType"] = args?.storageAccountType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["trustedLaunchEnabled"] = args?.trustedLaunchEnabled;
+            resourceInputs["uploadSizeBytes"] = args?.uploadSizeBytes;
+            resourceInputs["zone"] = args?.zone;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedDisk.__pulumiType, name, resourceInputs, opts);

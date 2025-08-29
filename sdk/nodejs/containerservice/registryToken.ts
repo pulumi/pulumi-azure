@@ -95,23 +95,23 @@ export class RegistryToken extends pulumi.CustomResource {
     /**
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
-    public readonly containerRegistryName!: pulumi.Output<string>;
+    declare public readonly containerRegistryName: pulumi.Output<string>;
     /**
      * Should the Container Registry token be enabled? Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the token. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Container Registry Scope Map associated with the token.
      */
-    public readonly scopeMapId!: pulumi.Output<string>;
+    declare public readonly scopeMapId: pulumi.Output<string>;
 
     /**
      * Create a RegistryToken resource with the given unique name, arguments, and options.
@@ -126,27 +126,27 @@ export class RegistryToken extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryTokenState | undefined;
-            resourceInputs["containerRegistryName"] = state ? state.containerRegistryName : undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["scopeMapId"] = state ? state.scopeMapId : undefined;
+            resourceInputs["containerRegistryName"] = state?.containerRegistryName;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["scopeMapId"] = state?.scopeMapId;
         } else {
             const args = argsOrState as RegistryTokenArgs | undefined;
-            if ((!args || args.containerRegistryName === undefined) && !opts.urn) {
+            if (args?.containerRegistryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeMapId === undefined) && !opts.urn) {
+            if (args?.scopeMapId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopeMapId'");
             }
-            resourceInputs["containerRegistryName"] = args ? args.containerRegistryName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopeMapId"] = args ? args.scopeMapId : undefined;
+            resourceInputs["containerRegistryName"] = args?.containerRegistryName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopeMapId"] = args?.scopeMapId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RegistryToken.__pulumiType, name, resourceInputs, opts);

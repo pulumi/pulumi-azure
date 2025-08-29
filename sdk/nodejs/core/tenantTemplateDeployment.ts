@@ -62,35 +62,35 @@ export class TenantTemplateDeployment extends pulumi.CustomResource {
     /**
      * The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
      */
-    public readonly debugLevel!: pulumi.Output<string | undefined>;
+    declare public readonly debugLevel: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the Template should exist. Changing this forces a new Template to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name which should be used for this Template. Changing this forces a new Template to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The JSON Content of the Outputs of the ARM Template Deployment.
      */
-    public /*out*/ readonly outputContent!: pulumi.Output<string>;
+    declare public /*out*/ readonly outputContent: pulumi.Output<string>;
     /**
      * The contents of the ARM Template parameters file - containing a JSON list of parameters.
      */
-    public readonly parametersContent!: pulumi.Output<string>;
+    declare public readonly parametersContent: pulumi.Output<string>;
     /**
      * A mapping of tags which should be assigned to the Template.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `templateSpecVersionId`.
      */
-    public readonly templateContent!: pulumi.Output<string>;
+    declare public readonly templateContent: pulumi.Output<string>;
     /**
      * The ID of the Template Spec Version to deploy. Cannot be specified with `templateContent`.
      */
-    public readonly templateSpecVersionId!: pulumi.Output<string | undefined>;
+    declare public readonly templateSpecVersionId: pulumi.Output<string | undefined>;
 
     /**
      * Create a TenantTemplateDeployment resource with the given unique name, arguments, and options.
@@ -105,23 +105,23 @@ export class TenantTemplateDeployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TenantTemplateDeploymentState | undefined;
-            resourceInputs["debugLevel"] = state ? state.debugLevel : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["outputContent"] = state ? state.outputContent : undefined;
-            resourceInputs["parametersContent"] = state ? state.parametersContent : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["templateContent"] = state ? state.templateContent : undefined;
-            resourceInputs["templateSpecVersionId"] = state ? state.templateSpecVersionId : undefined;
+            resourceInputs["debugLevel"] = state?.debugLevel;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["outputContent"] = state?.outputContent;
+            resourceInputs["parametersContent"] = state?.parametersContent;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["templateContent"] = state?.templateContent;
+            resourceInputs["templateSpecVersionId"] = state?.templateSpecVersionId;
         } else {
             const args = argsOrState as TenantTemplateDeploymentArgs | undefined;
-            resourceInputs["debugLevel"] = args ? args.debugLevel : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["parametersContent"] = args ? args.parametersContent : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateContent"] = args ? args.templateContent : undefined;
-            resourceInputs["templateSpecVersionId"] = args ? args.templateSpecVersionId : undefined;
+            resourceInputs["debugLevel"] = args?.debugLevel;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["parametersContent"] = args?.parametersContent;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateContent"] = args?.templateContent;
+            resourceInputs["templateSpecVersionId"] = args?.templateSpecVersionId;
             resourceInputs["outputContent"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

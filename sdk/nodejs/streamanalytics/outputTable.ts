@@ -91,43 +91,43 @@ export class OutputTable extends pulumi.CustomResource {
     /**
      * The number of records for a batch operation. Must be between `1` and `100`.
      */
-    public readonly batchSize!: pulumi.Output<number>;
+    declare public readonly batchSize: pulumi.Output<number>;
     /**
      * A list of the column names to be removed from output event entities.
      */
-    public readonly columnsToRemoves!: pulumi.Output<string[] | undefined>;
+    declare public readonly columnsToRemoves: pulumi.Output<string[] | undefined>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the output column that contains the partition key.
      */
-    public readonly partitionKey!: pulumi.Output<string>;
+    declare public readonly partitionKey: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the output column that contains the row key.
      */
-    public readonly rowKey!: pulumi.Output<string>;
+    declare public readonly rowKey: pulumi.Output<string>;
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
-    public readonly storageAccountKey!: pulumi.Output<string>;
+    declare public readonly storageAccountKey: pulumi.Output<string>;
     /**
      * The name of the Storage Account.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
+    declare public readonly streamAnalyticsJobName: pulumi.Output<string>;
     /**
      * The name of the table where the stream should be output to.
      */
-    public readonly table!: pulumi.Output<string>;
+    declare public readonly table: pulumi.Output<string>;
 
     /**
      * Create a OutputTable resource with the given unique name, arguments, and options.
@@ -142,52 +142,52 @@ export class OutputTable extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputTableState | undefined;
-            resourceInputs["batchSize"] = state ? state.batchSize : undefined;
-            resourceInputs["columnsToRemoves"] = state ? state.columnsToRemoves : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rowKey"] = state ? state.rowKey : undefined;
-            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            resourceInputs["storageAccountName"] = state ? state.storageAccountName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
-            resourceInputs["table"] = state ? state.table : undefined;
+            resourceInputs["batchSize"] = state?.batchSize;
+            resourceInputs["columnsToRemoves"] = state?.columnsToRemoves;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["partitionKey"] = state?.partitionKey;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rowKey"] = state?.rowKey;
+            resourceInputs["storageAccountKey"] = state?.storageAccountKey;
+            resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["streamAnalyticsJobName"] = state?.streamAnalyticsJobName;
+            resourceInputs["table"] = state?.table;
         } else {
             const args = argsOrState as OutputTableArgs | undefined;
-            if ((!args || args.batchSize === undefined) && !opts.urn) {
+            if (args?.batchSize === undefined && !opts.urn) {
                 throw new Error("Missing required property 'batchSize'");
             }
-            if ((!args || args.partitionKey === undefined) && !opts.urn) {
+            if (args?.partitionKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionKey'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rowKey === undefined) && !opts.urn) {
+            if (args?.rowKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rowKey'");
             }
-            if ((!args || args.storageAccountKey === undefined) && !opts.urn) {
+            if (args?.storageAccountKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountKey'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
+            if (args?.streamAnalyticsJobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
-            if ((!args || args.table === undefined) && !opts.urn) {
+            if (args?.table === undefined && !opts.urn) {
                 throw new Error("Missing required property 'table'");
             }
-            resourceInputs["batchSize"] = args ? args.batchSize : undefined;
-            resourceInputs["columnsToRemoves"] = args ? args.columnsToRemoves : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rowKey"] = args ? args.rowKey : undefined;
+            resourceInputs["batchSize"] = args?.batchSize;
+            resourceInputs["columnsToRemoves"] = args?.columnsToRemoves;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["partitionKey"] = args?.partitionKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rowKey"] = args?.rowKey;
             resourceInputs["storageAccountKey"] = args?.storageAccountKey ? pulumi.secret(args.storageAccountKey) : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
-            resourceInputs["table"] = args ? args.table : undefined;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["streamAnalyticsJobName"] = args?.streamAnalyticsJobName;
+            resourceInputs["table"] = args?.table;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountKey"] };

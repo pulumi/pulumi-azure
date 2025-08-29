@@ -84,23 +84,23 @@ export class HypervNetworkMapping extends pulumi.CustomResource {
     /**
      * The name of the HyperV network mapping. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultId!: pulumi.Output<string>;
+    declare public readonly recoveryVaultId: pulumi.Output<string>;
     /**
      * The Name of the primary network. Changing this forces a new resource to be created.
      */
-    public readonly sourceNetworkName!: pulumi.Output<string>;
+    declare public readonly sourceNetworkName: pulumi.Output<string>;
     /**
      * Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created.
      */
-    public readonly sourceSystemCenterVirtualMachineManagerName!: pulumi.Output<string>;
+    declare public readonly sourceSystemCenterVirtualMachineManagerName: pulumi.Output<string>;
     /**
      * The id of the recovery network. Changing this forces a new resource to be created.
      */
-    public readonly targetNetworkId!: pulumi.Output<string>;
+    declare public readonly targetNetworkId: pulumi.Output<string>;
 
     /**
      * Create a HypervNetworkMapping resource with the given unique name, arguments, and options.
@@ -115,30 +115,30 @@ export class HypervNetworkMapping extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HypervNetworkMappingState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["recoveryVaultId"] = state ? state.recoveryVaultId : undefined;
-            resourceInputs["sourceNetworkName"] = state ? state.sourceNetworkName : undefined;
-            resourceInputs["sourceSystemCenterVirtualMachineManagerName"] = state ? state.sourceSystemCenterVirtualMachineManagerName : undefined;
-            resourceInputs["targetNetworkId"] = state ? state.targetNetworkId : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["recoveryVaultId"] = state?.recoveryVaultId;
+            resourceInputs["sourceNetworkName"] = state?.sourceNetworkName;
+            resourceInputs["sourceSystemCenterVirtualMachineManagerName"] = state?.sourceSystemCenterVirtualMachineManagerName;
+            resourceInputs["targetNetworkId"] = state?.targetNetworkId;
         } else {
             const args = argsOrState as HypervNetworkMappingArgs | undefined;
-            if ((!args || args.recoveryVaultId === undefined) && !opts.urn) {
+            if (args?.recoveryVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recoveryVaultId'");
             }
-            if ((!args || args.sourceNetworkName === undefined) && !opts.urn) {
+            if (args?.sourceNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceNetworkName'");
             }
-            if ((!args || args.sourceSystemCenterVirtualMachineManagerName === undefined) && !opts.urn) {
+            if (args?.sourceSystemCenterVirtualMachineManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceSystemCenterVirtualMachineManagerName'");
             }
-            if ((!args || args.targetNetworkId === undefined) && !opts.urn) {
+            if (args?.targetNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetNetworkId'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recoveryVaultId"] = args ? args.recoveryVaultId : undefined;
-            resourceInputs["sourceNetworkName"] = args ? args.sourceNetworkName : undefined;
-            resourceInputs["sourceSystemCenterVirtualMachineManagerName"] = args ? args.sourceSystemCenterVirtualMachineManagerName : undefined;
-            resourceInputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recoveryVaultId"] = args?.recoveryVaultId;
+            resourceInputs["sourceNetworkName"] = args?.sourceNetworkName;
+            resourceInputs["sourceSystemCenterVirtualMachineManagerName"] = args?.sourceSystemCenterVirtualMachineManagerName;
+            resourceInputs["targetNetworkId"] = args?.targetNetworkId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HypervNetworkMapping.__pulumiType, name, resourceInputs, opts);

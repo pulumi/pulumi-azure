@@ -86,31 +86,31 @@ export class StorageInsights extends pulumi.CustomResource {
     /**
      * The names of the blob containers that the workspace should read.
      */
-    public readonly blobContainerNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly blobContainerNames: pulumi.Output<string[] | undefined>;
     /**
      * The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The ID of the Storage Account used by this Log Analytics Storage Insights.
      */
-    public readonly storageAccountId!: pulumi.Output<string>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
     /**
      * The storage access key to be used to connect to the storage account.
      */
-    public readonly storageAccountKey!: pulumi.Output<string>;
+    declare public readonly storageAccountKey: pulumi.Output<string>;
     /**
      * The names of the Azure tables that the workspace should read.
      */
-    public readonly tableNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly tableNames: pulumi.Output<string[] | undefined>;
     /**
      * The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
 
     /**
      * Create a StorageInsights resource with the given unique name, arguments, and options.
@@ -125,34 +125,34 @@ export class StorageInsights extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StorageInsightsState | undefined;
-            resourceInputs["blobContainerNames"] = state ? state.blobContainerNames : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
-            resourceInputs["storageAccountKey"] = state ? state.storageAccountKey : undefined;
-            resourceInputs["tableNames"] = state ? state.tableNames : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
+            resourceInputs["blobContainerNames"] = state?.blobContainerNames;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storageAccountId"] = state?.storageAccountId;
+            resourceInputs["storageAccountKey"] = state?.storageAccountKey;
+            resourceInputs["tableNames"] = state?.tableNames;
+            resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as StorageInsightsArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountId === undefined) && !opts.urn) {
+            if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
-            if ((!args || args.storageAccountKey === undefined) && !opts.urn) {
+            if (args?.storageAccountKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountKey'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["blobContainerNames"] = args ? args.blobContainerNames : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["blobContainerNames"] = args?.blobContainerNames;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
             resourceInputs["storageAccountKey"] = args?.storageAccountKey ? pulumi.secret(args.storageAccountKey) : undefined;
-            resourceInputs["tableNames"] = args ? args.tableNames : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["tableNames"] = args?.tableNames;
+            resourceInputs["workspaceId"] = args?.workspaceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountKey"] };

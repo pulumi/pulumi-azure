@@ -75,23 +75,23 @@ export class ServiceTrust extends pulumi.CustomResource {
     /**
      * The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created.
      */
-    public readonly domainServiceId!: pulumi.Output<string>;
+    declare public readonly domainServiceId: pulumi.Output<string>;
     /**
      * The name which should be used for this Active Directory Domain Service Trust. Changing this forces a new Active Directory Domain Service Trust to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The password of the inbound trust set in the on-premise Active Directory Domain Service.
      */
-    public readonly password!: pulumi.Output<string>;
+    declare public readonly password: pulumi.Output<string>;
     /**
      * Specifies a list of DNS IPs that are used to resolve the on-premise Active Directory Domain Service.
      */
-    public readonly trustedDomainDnsIps!: pulumi.Output<string[]>;
+    declare public readonly trustedDomainDnsIps: pulumi.Output<string[]>;
     /**
      * The FQDN of the on-premise Active Directory Domain Service.
      */
-    public readonly trustedDomainFqdn!: pulumi.Output<string>;
+    declare public readonly trustedDomainFqdn: pulumi.Output<string>;
 
     /**
      * Create a ServiceTrust resource with the given unique name, arguments, and options.
@@ -106,30 +106,30 @@ export class ServiceTrust extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceTrustState | undefined;
-            resourceInputs["domainServiceId"] = state ? state.domainServiceId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["trustedDomainDnsIps"] = state ? state.trustedDomainDnsIps : undefined;
-            resourceInputs["trustedDomainFqdn"] = state ? state.trustedDomainFqdn : undefined;
+            resourceInputs["domainServiceId"] = state?.domainServiceId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["password"] = state?.password;
+            resourceInputs["trustedDomainDnsIps"] = state?.trustedDomainDnsIps;
+            resourceInputs["trustedDomainFqdn"] = state?.trustedDomainFqdn;
         } else {
             const args = argsOrState as ServiceTrustArgs | undefined;
-            if ((!args || args.domainServiceId === undefined) && !opts.urn) {
+            if (args?.domainServiceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainServiceId'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
+            if (args?.password === undefined && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.trustedDomainDnsIps === undefined) && !opts.urn) {
+            if (args?.trustedDomainDnsIps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trustedDomainDnsIps'");
             }
-            if ((!args || args.trustedDomainFqdn === undefined) && !opts.urn) {
+            if (args?.trustedDomainFqdn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trustedDomainFqdn'");
             }
-            resourceInputs["domainServiceId"] = args ? args.domainServiceId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["domainServiceId"] = args?.domainServiceId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
-            resourceInputs["trustedDomainDnsIps"] = args ? args.trustedDomainDnsIps : undefined;
-            resourceInputs["trustedDomainFqdn"] = args ? args.trustedDomainFqdn : undefined;
+            resourceInputs["trustedDomainDnsIps"] = args?.trustedDomainDnsIps;
+            resourceInputs["trustedDomainFqdn"] = args?.trustedDomainFqdn;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };

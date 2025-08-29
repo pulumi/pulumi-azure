@@ -97,25 +97,25 @@ export class Subnet extends pulumi.CustomResource {
      *
      * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      */
-    public readonly addressPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly addressPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * Enable default outbound access to the internet for the subnet. Defaults to `true`.
      */
-    public readonly defaultOutboundAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly defaultOutboundAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `delegation` blocks as defined below.
      */
-    public readonly delegations!: pulumi.Output<outputs.network.SubnetDelegation[] | undefined>;
+    declare public readonly delegations: pulumi.Output<outputs.network.SubnetDelegation[] | undefined>;
     /**
      * An `ipAddressPool` block as defined below.
      *
      * > **Note:** Exactly one of `addressPrefixes` or `ipAddressPool` must be specified.
      */
-    public readonly ipAddressPool!: pulumi.Output<outputs.network.SubnetIpAddressPool | undefined>;
+    declare public readonly ipAddressPool: pulumi.Output<outputs.network.SubnetIpAddressPool | undefined>;
     /**
      * The name of the subnet. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      *
@@ -125,31 +125,31 @@ export class Subnet extends pulumi.CustomResource {
      *
      * > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
      */
-    public readonly privateEndpointNetworkPolicies!: pulumi.Output<string | undefined>;
+    declare public readonly privateEndpointNetworkPolicies: pulumi.Output<string | undefined>;
     /**
      * Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
      *
      * > **NOTE:** When configuring Azure Private Link service, the explicit setting `privateLinkServiceNetworkPoliciesEnabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
      */
-    public readonly privateLinkServiceNetworkPoliciesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly privateLinkServiceNetworkPoliciesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      */
-    public readonly serviceEndpointPolicyIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly serviceEndpointPolicyIds: pulumi.Output<string[] | undefined>;
     /**
      * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
      *
      * > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
      */
-    public readonly serviceEndpoints!: pulumi.Output<string[] | undefined>;
+    declare public readonly serviceEndpoints: pulumi.Output<string[] | undefined>;
     /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      */
-    public readonly virtualNetworkName!: pulumi.Output<string>;
+    declare public readonly virtualNetworkName: pulumi.Output<string>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -164,36 +164,36 @@ export class Subnet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetState | undefined;
-            resourceInputs["addressPrefixes"] = state ? state.addressPrefixes : undefined;
-            resourceInputs["defaultOutboundAccessEnabled"] = state ? state.defaultOutboundAccessEnabled : undefined;
-            resourceInputs["delegations"] = state ? state.delegations : undefined;
-            resourceInputs["ipAddressPool"] = state ? state.ipAddressPool : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["privateEndpointNetworkPolicies"] = state ? state.privateEndpointNetworkPolicies : undefined;
-            resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = state ? state.privateLinkServiceNetworkPoliciesEnabled : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["serviceEndpointPolicyIds"] = state ? state.serviceEndpointPolicyIds : undefined;
-            resourceInputs["serviceEndpoints"] = state ? state.serviceEndpoints : undefined;
-            resourceInputs["virtualNetworkName"] = state ? state.virtualNetworkName : undefined;
+            resourceInputs["addressPrefixes"] = state?.addressPrefixes;
+            resourceInputs["defaultOutboundAccessEnabled"] = state?.defaultOutboundAccessEnabled;
+            resourceInputs["delegations"] = state?.delegations;
+            resourceInputs["ipAddressPool"] = state?.ipAddressPool;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["privateEndpointNetworkPolicies"] = state?.privateEndpointNetworkPolicies;
+            resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = state?.privateLinkServiceNetworkPoliciesEnabled;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["serviceEndpointPolicyIds"] = state?.serviceEndpointPolicyIds;
+            resourceInputs["serviceEndpoints"] = state?.serviceEndpoints;
+            resourceInputs["virtualNetworkName"] = state?.virtualNetworkName;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
+            if (args?.virtualNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
-            resourceInputs["defaultOutboundAccessEnabled"] = args ? args.defaultOutboundAccessEnabled : undefined;
-            resourceInputs["delegations"] = args ? args.delegations : undefined;
-            resourceInputs["ipAddressPool"] = args ? args.ipAddressPool : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateEndpointNetworkPolicies"] = args ? args.privateEndpointNetworkPolicies : undefined;
-            resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = args ? args.privateLinkServiceNetworkPoliciesEnabled : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceEndpointPolicyIds"] = args ? args.serviceEndpointPolicyIds : undefined;
-            resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
-            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["addressPrefixes"] = args?.addressPrefixes;
+            resourceInputs["defaultOutboundAccessEnabled"] = args?.defaultOutboundAccessEnabled;
+            resourceInputs["delegations"] = args?.delegations;
+            resourceInputs["ipAddressPool"] = args?.ipAddressPool;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateEndpointNetworkPolicies"] = args?.privateEndpointNetworkPolicies;
+            resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = args?.privateLinkServiceNetworkPoliciesEnabled;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceEndpointPolicyIds"] = args?.serviceEndpointPolicyIds;
+            resourceInputs["serviceEndpoints"] = args?.serviceEndpoints;
+            resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Subnet.__pulumiType, name, resourceInputs, opts);

@@ -100,31 +100,31 @@ export class StandaloneGateway extends pulumi.CustomResource {
     /**
      * Specifies the subnet ID in which the backend systems are hosted. Changing this forces a new resource to be created.
      */
-    public readonly backendSubnetId!: pulumi.Output<string | undefined>;
+    declare public readonly backendSubnetId: pulumi.Output<string | undefined>;
     /**
      * Specifies the Azure Region where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this API Management Standalone Gateway. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<outputs.apimanagement.StandaloneGatewaySku>;
+    declare public readonly sku: pulumi.Output<outputs.apimanagement.StandaloneGatewaySku>;
     /**
      * A mapping of tags which should be assigned to the API Management Standalone Gateway. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the type of VPN in which API Management gateway needs to be configured. Possible values are `External` and `Internal`. Changing this forces a new resource to be created.
      */
-    public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkType: pulumi.Output<string | undefined>;
 
     /**
      * Create a StandaloneGateway resource with the given unique name, arguments, and options.
@@ -139,28 +139,28 @@ export class StandaloneGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandaloneGatewayState | undefined;
-            resourceInputs["backendSubnetId"] = state ? state.backendSubnetId : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["sku"] = state ? state.sku : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["virtualNetworkType"] = state ? state.virtualNetworkType : undefined;
+            resourceInputs["backendSubnetId"] = state?.backendSubnetId;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["sku"] = state?.sku;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["virtualNetworkType"] = state?.virtualNetworkType;
         } else {
             const args = argsOrState as StandaloneGatewayArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["backendSubnetId"] = args ? args.backendSubnetId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            resourceInputs["backendSubnetId"] = args?.backendSubnetId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkType"] = args?.virtualNetworkType;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StandaloneGateway.__pulumiType, name, resourceInputs, opts);

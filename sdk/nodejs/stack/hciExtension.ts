@@ -74,41 +74,41 @@ export class HciExtension extends pulumi.CustomResource {
     /**
      * The ID of the Azure Stack HCI Cluster Arc Setting. Changing this forces a new resource to be created.
      */
-    public readonly arcSettingId!: pulumi.Output<string>;
+    declare public readonly arcSettingId: pulumi.Output<string>;
     /**
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Changing this forces a new resource to be created. Possible values are `true` and `false`. Defaults to `true`.
      */
-    public readonly autoUpgradeMinorVersionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoUpgradeMinorVersionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Possible values are `true` and `false`. Defaults to `true`.
      */
-    public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticUpgradeEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name which should be used for this Azure Stack HCI Extension. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The json formatted protected settings for the extension.
      */
-    public readonly protectedSettings!: pulumi.Output<string | undefined>;
+    declare public readonly protectedSettings: pulumi.Output<string | undefined>;
     /**
      * The name of the extension handler publisher, such as `Microsoft.Azure.Monitor`. Changing this forces a new resource to be created.
      */
-    public readonly publisher!: pulumi.Output<string>;
+    declare public readonly publisher: pulumi.Output<string>;
     /**
      * The json formatted public settings for the extension.
      */
-    public readonly settings!: pulumi.Output<string | undefined>;
+    declare public readonly settings: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of the extension. For example `CustomScriptExtension` or `AzureMonitorLinuxAgent`. Changing this forces a new resource to be created.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Specifies the version of the script handler.
      *
      * > **Note:** `typeHandlerVersion` cannot be set when `automaticUpgradeEnabled` is set to `true`.
      */
-    public readonly typeHandlerVersion!: pulumi.Output<string | undefined>;
+    declare public readonly typeHandlerVersion: pulumi.Output<string | undefined>;
 
     /**
      * Create a HciExtension resource with the given unique name, arguments, and options.
@@ -123,35 +123,35 @@ export class HciExtension extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HciExtensionState | undefined;
-            resourceInputs["arcSettingId"] = state ? state.arcSettingId : undefined;
-            resourceInputs["autoUpgradeMinorVersionEnabled"] = state ? state.autoUpgradeMinorVersionEnabled : undefined;
-            resourceInputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
-            resourceInputs["publisher"] = state ? state.publisher : undefined;
-            resourceInputs["settings"] = state ? state.settings : undefined;
-            resourceInputs["type"] = state ? state.type : undefined;
-            resourceInputs["typeHandlerVersion"] = state ? state.typeHandlerVersion : undefined;
+            resourceInputs["arcSettingId"] = state?.arcSettingId;
+            resourceInputs["autoUpgradeMinorVersionEnabled"] = state?.autoUpgradeMinorVersionEnabled;
+            resourceInputs["automaticUpgradeEnabled"] = state?.automaticUpgradeEnabled;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["protectedSettings"] = state?.protectedSettings;
+            resourceInputs["publisher"] = state?.publisher;
+            resourceInputs["settings"] = state?.settings;
+            resourceInputs["type"] = state?.type;
+            resourceInputs["typeHandlerVersion"] = state?.typeHandlerVersion;
         } else {
             const args = argsOrState as HciExtensionArgs | undefined;
-            if ((!args || args.arcSettingId === undefined) && !opts.urn) {
+            if (args?.arcSettingId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'arcSettingId'");
             }
-            if ((!args || args.publisher === undefined) && !opts.urn) {
+            if (args?.publisher === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisher'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["arcSettingId"] = args ? args.arcSettingId : undefined;
-            resourceInputs["autoUpgradeMinorVersionEnabled"] = args ? args.autoUpgradeMinorVersionEnabled : undefined;
-            resourceInputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arcSettingId"] = args?.arcSettingId;
+            resourceInputs["autoUpgradeMinorVersionEnabled"] = args?.autoUpgradeMinorVersionEnabled;
+            resourceInputs["automaticUpgradeEnabled"] = args?.automaticUpgradeEnabled;
+            resourceInputs["name"] = args?.name;
             resourceInputs["protectedSettings"] = args?.protectedSettings ? pulumi.secret(args.protectedSettings) : undefined;
-            resourceInputs["publisher"] = args ? args.publisher : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            resourceInputs["publisher"] = args?.publisher;
+            resourceInputs["settings"] = args?.settings;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["typeHandlerVersion"] = args?.typeHandlerVersion;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["protectedSettings"] };

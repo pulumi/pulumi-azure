@@ -52,32 +52,28 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.clientCertificate);
     }
     /**
-     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-     * Certificate
+     * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
      * 
      */
     @Export(name="clientCertificatePassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificatePassword;
 
     /**
-     * @return The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
-     * Certificate
+     * @return The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
      * 
      */
     public Output<Optional<String>> clientCertificatePassword() {
         return Codegen.optional(this.clientCertificatePassword);
     }
     /**
-     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-     * Principal using a Client Certificate.
+     * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     @Export(name="clientCertificatePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificatePath;
 
     /**
-     * @return The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
-     * Principal using a Client Certificate.
+     * @return The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
      * 
      */
     public Output<Optional<String>> clientCertificatePath() {
@@ -126,32 +122,28 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.clientSecret);
     }
     /**
-     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-     * using a Client Secret.
+     * The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      * 
      */
     @Export(name="clientSecretFilePath", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientSecretFilePath;
 
     /**
-     * @return The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal
-     * using a Client Secret.
+     * @return The path to a file containing the Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      * 
      */
     public Output<Optional<String>> clientSecretFilePath() {
         return Codegen.optional(this.clientSecretFilePath);
     }
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-     * used and should not be specified when `metadata_host` is specified.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
      * 
      */
     @Export(name="environment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> environment;
 
     /**
-     * @return The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
-     * used and should not be specified when `metadata_host` is specified.
+     * @return The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
      * 
      */
     public Output<Optional<String>> environment() {
@@ -172,64 +164,56 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.metadataHost);
     }
     /**
-     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-     * the endpoint. e.g. for Azure Container Apps.
+     * The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
      * 
      */
     @Export(name="msiApiVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> msiApiVersion;
 
     /**
-     * @return The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by
-     * the endpoint. e.g. for Azure Container Apps.
+     * @return The API version to use for Managed Service Identity (IMDS) - for cases where the default API version is not supported by the endpoint. e.g. for Azure Container Apps.
      * 
      */
     public Output<Optional<String>> msiApiVersion() {
         return Codegen.optional(this.msiApiVersion);
     }
     /**
-     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-     * automatically.
+     * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      * 
      */
     @Export(name="msiEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> msiEndpoint;
 
     /**
-     * @return The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
-     * automatically.
+     * @return The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
      * 
      */
     public Output<Optional<String>> msiEndpoint() {
         return Codegen.optional(this.msiEndpoint);
     }
     /**
-     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-     * Connect.
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     @Export(name="oidcRequestToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcRequestToken;
 
     /**
-     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
-     * Connect.
+     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     public Output<Optional<String>> oidcRequestToken() {
         return Codegen.optional(this.oidcRequestToken);
     }
     /**
-     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-     * using OpenID Connect.
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     @Export(name="oidcRequestUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oidcRequestUrl;
 
     /**
-     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
-     * using OpenID Connect.
+     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal using OpenID Connect.
      * 
      */
     public Output<Optional<String>> oidcRequestUrl() {

@@ -111,87 +111,87 @@ export class Key extends pulumi.CustomResource {
     /**
      * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
      */
-    public readonly curve!: pulumi.Output<string>;
+    declare public readonly curve: pulumi.Output<string>;
     /**
      * The RSA public exponent of this Key Vault Key.
      */
-    public /*out*/ readonly e!: pulumi.Output<string>;
+    declare public /*out*/ readonly e: pulumi.Output<string>;
     /**
      * Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
      *
      * > **Note:** Removing this field from the config forces a new resource to be created.
      */
-    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    declare public readonly expirationDate: pulumi.Output<string | undefined>;
     /**
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
      */
-    public readonly keyOpts!: pulumi.Output<string[]>;
+    declare public readonly keyOpts: pulumi.Output<string[]>;
     /**
      * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      */
-    public readonly keySize!: pulumi.Output<number | undefined>;
+    declare public readonly keySize: pulumi.Output<number | undefined>;
     /**
      * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
-    public readonly keyType!: pulumi.Output<string>;
+    declare public readonly keyType: pulumi.Output<string>;
     /**
      * The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
      */
-    public readonly keyVaultId!: pulumi.Output<string>;
+    declare public readonly keyVaultId: pulumi.Output<string>;
     /**
      * The RSA modulus of this Key Vault Key.
      */
-    public /*out*/ readonly n!: pulumi.Output<string>;
+    declare public /*out*/ readonly n: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
      *
      * > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
      */
-    public readonly notBeforeDate!: pulumi.Output<string | undefined>;
+    declare public readonly notBeforeDate: pulumi.Output<string | undefined>;
     /**
      * The OpenSSH encoded public key of this Key Vault Key.
      */
-    public /*out*/ readonly publicKeyOpenssh!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicKeyOpenssh: pulumi.Output<string>;
     /**
      * The PEM encoded public key of this Key Vault Key.
      */
-    public /*out*/ readonly publicKeyPem!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicKeyPem: pulumi.Output<string>;
     /**
      * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
      */
-    public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceId: pulumi.Output<string>;
     /**
      * The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
      */
-    public /*out*/ readonly resourceVersionlessId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceVersionlessId: pulumi.Output<string>;
     /**
      * A `rotationPolicy` block as defined below.
      */
-    public readonly rotationPolicy!: pulumi.Output<outputs.keyvault.KeyRotationPolicy | undefined>;
+    declare public readonly rotationPolicy: pulumi.Output<outputs.keyvault.KeyRotationPolicy | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The current version of the Key Vault Key.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
     /**
      * The Base ID of the Key Vault Key.
      */
-    public /*out*/ readonly versionlessId!: pulumi.Output<string>;
+    declare public /*out*/ readonly versionlessId: pulumi.Output<string>;
     /**
      * The EC X component of this Key Vault Key.
      */
-    public /*out*/ readonly x!: pulumi.Output<string>;
+    declare public /*out*/ readonly x: pulumi.Output<string>;
     /**
      * The EC Y component of this Key Vault Key.
      */
-    public /*out*/ readonly y!: pulumi.Output<string>;
+    declare public /*out*/ readonly y: pulumi.Output<string>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -206,47 +206,47 @@ export class Key extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyState | undefined;
-            resourceInputs["curve"] = state ? state.curve : undefined;
-            resourceInputs["e"] = state ? state.e : undefined;
-            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
-            resourceInputs["keyOpts"] = state ? state.keyOpts : undefined;
-            resourceInputs["keySize"] = state ? state.keySize : undefined;
-            resourceInputs["keyType"] = state ? state.keyType : undefined;
-            resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
-            resourceInputs["n"] = state ? state.n : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notBeforeDate"] = state ? state.notBeforeDate : undefined;
-            resourceInputs["publicKeyOpenssh"] = state ? state.publicKeyOpenssh : undefined;
-            resourceInputs["publicKeyPem"] = state ? state.publicKeyPem : undefined;
-            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
-            resourceInputs["resourceVersionlessId"] = state ? state.resourceVersionlessId : undefined;
-            resourceInputs["rotationPolicy"] = state ? state.rotationPolicy : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["version"] = state ? state.version : undefined;
-            resourceInputs["versionlessId"] = state ? state.versionlessId : undefined;
-            resourceInputs["x"] = state ? state.x : undefined;
-            resourceInputs["y"] = state ? state.y : undefined;
+            resourceInputs["curve"] = state?.curve;
+            resourceInputs["e"] = state?.e;
+            resourceInputs["expirationDate"] = state?.expirationDate;
+            resourceInputs["keyOpts"] = state?.keyOpts;
+            resourceInputs["keySize"] = state?.keySize;
+            resourceInputs["keyType"] = state?.keyType;
+            resourceInputs["keyVaultId"] = state?.keyVaultId;
+            resourceInputs["n"] = state?.n;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notBeforeDate"] = state?.notBeforeDate;
+            resourceInputs["publicKeyOpenssh"] = state?.publicKeyOpenssh;
+            resourceInputs["publicKeyPem"] = state?.publicKeyPem;
+            resourceInputs["resourceId"] = state?.resourceId;
+            resourceInputs["resourceVersionlessId"] = state?.resourceVersionlessId;
+            resourceInputs["rotationPolicy"] = state?.rotationPolicy;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["version"] = state?.version;
+            resourceInputs["versionlessId"] = state?.versionlessId;
+            resourceInputs["x"] = state?.x;
+            resourceInputs["y"] = state?.y;
         } else {
             const args = argsOrState as KeyArgs | undefined;
-            if ((!args || args.keyOpts === undefined) && !opts.urn) {
+            if (args?.keyOpts === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyOpts'");
             }
-            if ((!args || args.keyType === undefined) && !opts.urn) {
+            if (args?.keyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyType'");
             }
-            if ((!args || args.keyVaultId === undefined) && !opts.urn) {
+            if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
-            resourceInputs["curve"] = args ? args.curve : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["keyOpts"] = args ? args.keyOpts : undefined;
-            resourceInputs["keySize"] = args ? args.keySize : undefined;
-            resourceInputs["keyType"] = args ? args.keyType : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notBeforeDate"] = args ? args.notBeforeDate : undefined;
-            resourceInputs["rotationPolicy"] = args ? args.rotationPolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["curve"] = args?.curve;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["keyOpts"] = args?.keyOpts;
+            resourceInputs["keySize"] = args?.keySize;
+            resourceInputs["keyType"] = args?.keyType;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notBeforeDate"] = args?.notBeforeDate;
+            resourceInputs["rotationPolicy"] = args?.rotationPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["e"] = undefined /*out*/;
             resourceInputs["n"] = undefined /*out*/;
             resourceInputs["publicKeyOpenssh"] = undefined /*out*/;

@@ -122,47 +122,47 @@ export class NetworkManagerAdminRule extends pulumi.CustomResource {
     /**
      * Specifies the action allowed for this Network Manager Admin Rule. Possible values are `Allow`, `AlwaysAllow`, and `Deny`.
      */
-    public readonly action!: pulumi.Output<string>;
+    declare public readonly action: pulumi.Output<string>;
     /**
      * Specifies the ID of the Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule to be created.
      */
-    public readonly adminRuleCollectionId!: pulumi.Output<string>;
+    declare public readonly adminRuleCollectionId: pulumi.Output<string>;
     /**
      * A description of the Network Manager Admin Rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
      */
-    public readonly destinationPortRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly destinationPortRanges: pulumi.Output<string[] | undefined>;
     /**
      * One or more `destination` blocks as defined below.
      */
-    public readonly destinations!: pulumi.Output<outputs.network.NetworkManagerAdminRuleDestination[] | undefined>;
+    declare public readonly destinations: pulumi.Output<outputs.network.NetworkManagerAdminRuleDestination[] | undefined>;
     /**
      * Indicates if the traffic matched against the rule in inbound or outbound. Possible values are `Inbound` and `Outbound`.
      */
-    public readonly direction!: pulumi.Output<string>;
+    declare public readonly direction: pulumi.Output<string>;
     /**
      * Specifies the name which should be used for this Network Manager Admin Rule. Changing this forces a new Network Manager Admin Rule to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The priority of the rule. Possible values are integers between `1` and `4096`. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Specifies which network protocol this Network Manager Admin Rule applies to. Possible values are `Ah`, `Any`, `Esp`, `Icmp`, `Tcp`, and `Udp`.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
      */
-    public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly sourcePortRanges: pulumi.Output<string[] | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    public readonly sources!: pulumi.Output<outputs.network.NetworkManagerAdminRuleSource[] | undefined>;
+    declare public readonly sources: pulumi.Output<outputs.network.NetworkManagerAdminRuleSource[] | undefined>;
 
     /**
      * Create a NetworkManagerAdminRule resource with the given unique name, arguments, and options.
@@ -177,45 +177,45 @@ export class NetworkManagerAdminRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkManagerAdminRuleState | undefined;
-            resourceInputs["action"] = state ? state.action : undefined;
-            resourceInputs["adminRuleCollectionId"] = state ? state.adminRuleCollectionId : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["destinationPortRanges"] = state ? state.destinationPortRanges : undefined;
-            resourceInputs["destinations"] = state ? state.destinations : undefined;
-            resourceInputs["direction"] = state ? state.direction : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["protocol"] = state ? state.protocol : undefined;
-            resourceInputs["sourcePortRanges"] = state ? state.sourcePortRanges : undefined;
-            resourceInputs["sources"] = state ? state.sources : undefined;
+            resourceInputs["action"] = state?.action;
+            resourceInputs["adminRuleCollectionId"] = state?.adminRuleCollectionId;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["destinationPortRanges"] = state?.destinationPortRanges;
+            resourceInputs["destinations"] = state?.destinations;
+            resourceInputs["direction"] = state?.direction;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["priority"] = state?.priority;
+            resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["sourcePortRanges"] = state?.sourcePortRanges;
+            resourceInputs["sources"] = state?.sources;
         } else {
             const args = argsOrState as NetworkManagerAdminRuleArgs | undefined;
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.adminRuleCollectionId === undefined) && !opts.urn) {
+            if (args?.adminRuleCollectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminRuleCollectionId'");
             }
-            if ((!args || args.direction === undefined) && !opts.urn) {
+            if (args?.direction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'direction'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["adminRuleCollectionId"] = args ? args.adminRuleCollectionId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["adminRuleCollectionId"] = args?.adminRuleCollectionId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationPortRanges"] = args?.destinationPortRanges;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["direction"] = args?.direction;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["sourcePortRanges"] = args?.sourcePortRanges;
+            resourceInputs["sources"] = args?.sources;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerAdminRule.__pulumiType, name, resourceInputs, opts);

@@ -89,23 +89,23 @@ export class RegistryScopeMap extends pulumi.CustomResource {
     /**
      * A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
      */
-    public readonly actions!: pulumi.Output<string[]>;
+    declare public readonly actions: pulumi.Output<string[]>;
     /**
      * The name of the Container Registry. Changing this forces a new resource to be created.
      */
-    public readonly containerRegistryName!: pulumi.Output<string>;
+    declare public readonly containerRegistryName: pulumi.Output<string>;
     /**
      * The description of the Container Registry.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the scope map. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
      * Create a RegistryScopeMap resource with the given unique name, arguments, and options.
@@ -120,27 +120,27 @@ export class RegistryScopeMap extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryScopeMapState | undefined;
-            resourceInputs["actions"] = state ? state.actions : undefined;
-            resourceInputs["containerRegistryName"] = state ? state.containerRegistryName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["actions"] = state?.actions;
+            resourceInputs["containerRegistryName"] = state?.containerRegistryName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
             const args = argsOrState as RegistryScopeMapArgs | undefined;
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.containerRegistryName === undefined) && !opts.urn) {
+            if (args?.containerRegistryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["containerRegistryName"] = args ? args.containerRegistryName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["containerRegistryName"] = args?.containerRegistryName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RegistryScopeMap.__pulumiType, name, resourceInputs, opts);

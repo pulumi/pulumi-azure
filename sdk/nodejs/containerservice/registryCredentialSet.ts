@@ -158,23 +158,23 @@ export class RegistryCredentialSet extends pulumi.CustomResource {
     /**
      * A `authenticationCredentials` block as defined below.
      */
-    public readonly authenticationCredentials!: pulumi.Output<outputs.containerservice.RegistryCredentialSetAuthenticationCredentials>;
+    declare public readonly authenticationCredentials: pulumi.Output<outputs.containerservice.RegistryCredentialSetAuthenticationCredentials>;
     /**
      * The ID of the Container Registry. Changing this forces a new Container Registry Credential Set to be created.
      */
-    public readonly containerRegistryId!: pulumi.Output<string>;
+    declare public readonly containerRegistryId: pulumi.Output<string>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.containerservice.RegistryCredentialSetIdentity>;
+    declare public readonly identity: pulumi.Output<outputs.containerservice.RegistryCredentialSetIdentity>;
     /**
      * The login server for the Credential Set. Changing this forces a new Container Registry Credential Set to be created.
      */
-    public readonly loginServer!: pulumi.Output<string>;
+    declare public readonly loginServer: pulumi.Output<string>;
     /**
      * The name which should be used for this Container Registry Credential Set. Changing this forces a new Container Registry Credential Set to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
 
     /**
      * Create a RegistryCredentialSet resource with the given unique name, arguments, and options.
@@ -189,30 +189,30 @@ export class RegistryCredentialSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegistryCredentialSetState | undefined;
-            resourceInputs["authenticationCredentials"] = state ? state.authenticationCredentials : undefined;
-            resourceInputs["containerRegistryId"] = state ? state.containerRegistryId : undefined;
-            resourceInputs["identity"] = state ? state.identity : undefined;
-            resourceInputs["loginServer"] = state ? state.loginServer : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["authenticationCredentials"] = state?.authenticationCredentials;
+            resourceInputs["containerRegistryId"] = state?.containerRegistryId;
+            resourceInputs["identity"] = state?.identity;
+            resourceInputs["loginServer"] = state?.loginServer;
+            resourceInputs["name"] = state?.name;
         } else {
             const args = argsOrState as RegistryCredentialSetArgs | undefined;
-            if ((!args || args.authenticationCredentials === undefined) && !opts.urn) {
+            if (args?.authenticationCredentials === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationCredentials'");
             }
-            if ((!args || args.containerRegistryId === undefined) && !opts.urn) {
+            if (args?.containerRegistryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerRegistryId'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.loginServer === undefined) && !opts.urn) {
+            if (args?.loginServer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loginServer'");
             }
-            resourceInputs["authenticationCredentials"] = args ? args.authenticationCredentials : undefined;
-            resourceInputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["loginServer"] = args ? args.loginServer : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["authenticationCredentials"] = args?.authenticationCredentials;
+            resourceInputs["containerRegistryId"] = args?.containerRegistryId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["loginServer"] = args?.loginServer;
+            resourceInputs["name"] = args?.name;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RegistryCredentialSet.__pulumiType, name, resourceInputs, opts);

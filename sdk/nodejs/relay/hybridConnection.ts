@@ -81,23 +81,23 @@ export class HybridConnection extends pulumi.CustomResource {
     /**
      * Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Azure Relay in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
      */
-    public readonly relayNamespaceName!: pulumi.Output<string>;
+    declare public readonly relayNamespaceName: pulumi.Output<string>;
     /**
      * Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
      */
-    public readonly requiresClientAuthorization!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiresClientAuthorization: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
      */
-    public readonly userMetadata!: pulumi.Output<string | undefined>;
+    declare public readonly userMetadata: pulumi.Output<string | undefined>;
 
     /**
      * Create a HybridConnection resource with the given unique name, arguments, and options.
@@ -112,24 +112,24 @@ export class HybridConnection extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HybridConnectionState | undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["relayNamespaceName"] = state ? state.relayNamespaceName : undefined;
-            resourceInputs["requiresClientAuthorization"] = state ? state.requiresClientAuthorization : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["userMetadata"] = state ? state.userMetadata : undefined;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["relayNamespaceName"] = state?.relayNamespaceName;
+            resourceInputs["requiresClientAuthorization"] = state?.requiresClientAuthorization;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["userMetadata"] = state?.userMetadata;
         } else {
             const args = argsOrState as HybridConnectionArgs | undefined;
-            if ((!args || args.relayNamespaceName === undefined) && !opts.urn) {
+            if (args?.relayNamespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relayNamespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["relayNamespaceName"] = args ? args.relayNamespaceName : undefined;
-            resourceInputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["relayNamespaceName"] = args?.relayNamespaceName;
+            resourceInputs["requiresClientAuthorization"] = args?.requiresClientAuthorization;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["userMetadata"] = args?.userMetadata;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HybridConnection.__pulumiType, name, resourceInputs, opts);

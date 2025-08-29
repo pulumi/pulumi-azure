@@ -74,23 +74,23 @@ export class RouteFilter extends pulumi.CustomResource {
     /**
      * The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Name which should be used for this Route Filter.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `rule` block as defined below.
      */
-    public readonly rule!: pulumi.Output<outputs.network.RouteFilterRule>;
+    declare public readonly rule: pulumi.Output<outputs.network.RouteFilterRule>;
     /**
      * A mapping of tags which should be assigned to the Route Filter.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a RouteFilter resource with the given unique name, arguments, and options.
@@ -105,21 +105,21 @@ export class RouteFilter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteFilterState | undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["rule"] = state ? state.rule : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["rule"] = state?.rule;
+            resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as RouteFilterArgs | undefined;
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rule"] = args ? args.rule : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rule"] = args?.rule;
+            resourceInputs["tags"] = args?.tags;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RouteFilter.__pulumiType, name, resourceInputs, opts);

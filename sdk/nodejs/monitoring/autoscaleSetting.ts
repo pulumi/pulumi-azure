@@ -425,39 +425,39 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     /**
      * Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies a `notification` block as defined below.
      */
-    public readonly notification!: pulumi.Output<outputs.monitoring.AutoscaleSettingNotification | undefined>;
+    declare public readonly notification: pulumi.Output<outputs.monitoring.AutoscaleSettingNotification | undefined>;
     /**
      * A `predictive` block as defined below.
      */
-    public readonly predictive!: pulumi.Output<outputs.monitoring.AutoscaleSettingPredictive | undefined>;
+    declare public readonly predictive: pulumi.Output<outputs.monitoring.AutoscaleSettingPredictive | undefined>;
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */
-    public readonly profiles!: pulumi.Output<outputs.monitoring.AutoscaleSettingProfile[]>;
+    declare public readonly profiles: pulumi.Output<outputs.monitoring.AutoscaleSettingProfile[]>;
     /**
      * The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
 
     /**
      * Create a AutoscaleSetting resource with the given unique name, arguments, and options.
@@ -472,35 +472,35 @@ export class AutoscaleSetting extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AutoscaleSettingState | undefined;
-            resourceInputs["enabled"] = state ? state.enabled : undefined;
-            resourceInputs["location"] = state ? state.location : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["notification"] = state ? state.notification : undefined;
-            resourceInputs["predictive"] = state ? state.predictive : undefined;
-            resourceInputs["profiles"] = state ? state.profiles : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
+            resourceInputs["enabled"] = state?.enabled;
+            resourceInputs["location"] = state?.location;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["notification"] = state?.notification;
+            resourceInputs["predictive"] = state?.predictive;
+            resourceInputs["profiles"] = state?.profiles;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["targetResourceId"] = state?.targetResourceId;
         } else {
             const args = argsOrState as AutoscaleSettingArgs | undefined;
-            if ((!args || args.profiles === undefined) && !opts.urn) {
+            if (args?.profiles === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profiles'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notification"] = args ? args.notification : undefined;
-            resourceInputs["predictive"] = args ? args.predictive : undefined;
-            resourceInputs["profiles"] = args ? args.profiles : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notification"] = args?.notification;
+            resourceInputs["predictive"] = args?.predictive;
+            resourceInputs["profiles"] = args?.profiles;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AutoscaleSetting.__pulumiType, name, resourceInputs, opts);

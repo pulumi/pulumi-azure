@@ -105,23 +105,23 @@ export class DatasetKustoDatabase extends pulumi.CustomResource {
     /**
      * The name of the Data Share Dataset.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * The location of the Kusto Cluster.
      */
-    public /*out*/ readonly kustoClusterLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly kustoClusterLocation: pulumi.Output<string>;
     /**
      * The resource ID of the Kusto Cluster Database to be shared with the receiver. Changing this forces a new Data Share Kusto Database Dataset to be created.
      */
-    public readonly kustoDatabaseId!: pulumi.Output<string>;
+    declare public readonly kustoDatabaseId: pulumi.Output<string>;
     /**
      * The name which should be used for this Data Share Kusto Database Dataset. Changing this forces a new Data Share Kusto Database Dataset to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the Data Share where this Data Share Kusto Database Dataset should be created. Changing this forces a new Data Share Kusto Database Dataset to be created.
      */
-    public readonly shareId!: pulumi.Output<string>;
+    declare public readonly shareId: pulumi.Output<string>;
 
     /**
      * Create a DatasetKustoDatabase resource with the given unique name, arguments, and options.
@@ -136,22 +136,22 @@ export class DatasetKustoDatabase extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DatasetKustoDatabaseState | undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["kustoClusterLocation"] = state ? state.kustoClusterLocation : undefined;
-            resourceInputs["kustoDatabaseId"] = state ? state.kustoDatabaseId : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["shareId"] = state ? state.shareId : undefined;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["kustoClusterLocation"] = state?.kustoClusterLocation;
+            resourceInputs["kustoDatabaseId"] = state?.kustoDatabaseId;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["shareId"] = state?.shareId;
         } else {
             const args = argsOrState as DatasetKustoDatabaseArgs | undefined;
-            if ((!args || args.kustoDatabaseId === undefined) && !opts.urn) {
+            if (args?.kustoDatabaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoDatabaseId'");
             }
-            if ((!args || args.shareId === undefined) && !opts.urn) {
+            if (args?.shareId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareId'");
             }
-            resourceInputs["kustoDatabaseId"] = args ? args.kustoDatabaseId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["shareId"] = args ? args.shareId : undefined;
+            resourceInputs["kustoDatabaseId"] = args?.kustoDatabaseId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["shareId"] = args?.shareId;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["kustoClusterLocation"] = undefined /*out*/;
         }

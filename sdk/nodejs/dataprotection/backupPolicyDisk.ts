@@ -99,27 +99,27 @@ export class BackupPolicyDisk extends pulumi.CustomResource {
     /**
      * Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
      */
-    public readonly backupRepeatingTimeIntervals!: pulumi.Output<string[]>;
+    declare public readonly backupRepeatingTimeIntervals: pulumi.Output<string[]>;
     /**
      * The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
      */
-    public readonly defaultRetentionDuration!: pulumi.Output<string>;
+    declare public readonly defaultRetentionDuration: pulumi.Output<string>;
     /**
      * The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * One or more `retentionRule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
      */
-    public readonly retentionRules!: pulumi.Output<outputs.dataprotection.BackupPolicyDiskRetentionRule[] | undefined>;
+    declare public readonly retentionRules: pulumi.Output<outputs.dataprotection.BackupPolicyDiskRetentionRule[] | undefined>;
     /**
      * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
      */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
+    declare public readonly timeZone: pulumi.Output<string | undefined>;
     /**
      * The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
      */
-    public readonly vaultId!: pulumi.Output<string>;
+    declare public readonly vaultId: pulumi.Output<string>;
 
     /**
      * Create a BackupPolicyDisk resource with the given unique name, arguments, and options.
@@ -134,29 +134,29 @@ export class BackupPolicyDisk extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackupPolicyDiskState | undefined;
-            resourceInputs["backupRepeatingTimeIntervals"] = state ? state.backupRepeatingTimeIntervals : undefined;
-            resourceInputs["defaultRetentionDuration"] = state ? state.defaultRetentionDuration : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["retentionRules"] = state ? state.retentionRules : undefined;
-            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
-            resourceInputs["vaultId"] = state ? state.vaultId : undefined;
+            resourceInputs["backupRepeatingTimeIntervals"] = state?.backupRepeatingTimeIntervals;
+            resourceInputs["defaultRetentionDuration"] = state?.defaultRetentionDuration;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["retentionRules"] = state?.retentionRules;
+            resourceInputs["timeZone"] = state?.timeZone;
+            resourceInputs["vaultId"] = state?.vaultId;
         } else {
             const args = argsOrState as BackupPolicyDiskArgs | undefined;
-            if ((!args || args.backupRepeatingTimeIntervals === undefined) && !opts.urn) {
+            if (args?.backupRepeatingTimeIntervals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupRepeatingTimeIntervals'");
             }
-            if ((!args || args.defaultRetentionDuration === undefined) && !opts.urn) {
+            if (args?.defaultRetentionDuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultRetentionDuration'");
             }
-            if ((!args || args.vaultId === undefined) && !opts.urn) {
+            if (args?.vaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultId'");
             }
-            resourceInputs["backupRepeatingTimeIntervals"] = args ? args.backupRepeatingTimeIntervals : undefined;
-            resourceInputs["defaultRetentionDuration"] = args ? args.defaultRetentionDuration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["retentionRules"] = args ? args.retentionRules : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
-            resourceInputs["vaultId"] = args ? args.vaultId : undefined;
+            resourceInputs["backupRepeatingTimeIntervals"] = args?.backupRepeatingTimeIntervals;
+            resourceInputs["defaultRetentionDuration"] = args?.defaultRetentionDuration;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["retentionRules"] = args?.retentionRules;
+            resourceInputs["timeZone"] = args?.timeZone;
+            resourceInputs["vaultId"] = args?.vaultId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupPolicyDisk.__pulumiType, name, resourceInputs, opts);

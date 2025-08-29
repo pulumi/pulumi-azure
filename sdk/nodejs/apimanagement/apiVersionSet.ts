@@ -80,39 +80,39 @@ export class ApiVersionSet extends pulumi.CustomResource {
     /**
      * The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName!: pulumi.Output<string>;
+    declare public readonly apiManagementName: pulumi.Output<string>;
     /**
      * The description of API Version Set.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of this API Version Set.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The name of the API Version Set. May only contain alphanumeric characters and dashes up to 80 characters in length. Changing this forces a new resource to be created.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
      *
      * > **Note:** This must be specified when `versioningScheme` is set to `Header`.
      */
-    public readonly versionHeaderName!: pulumi.Output<string | undefined>;
+    declare public readonly versionHeaderName: pulumi.Output<string | undefined>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
      *
      * > **Note:** This must be specified when `versioningScheme` is set to `Query`.
      */
-    public readonly versionQueryName!: pulumi.Output<string | undefined>;
+    declare public readonly versionQueryName: pulumi.Output<string | undefined>;
     /**
      * Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
      */
-    public readonly versioningScheme!: pulumi.Output<string>;
+    declare public readonly versioningScheme: pulumi.Output<string>;
 
     /**
      * Create a ApiVersionSet resource with the given unique name, arguments, and options.
@@ -127,36 +127,36 @@ export class ApiVersionSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiVersionSetState | undefined;
-            resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["displayName"] = state ? state.displayName : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["versionHeaderName"] = state ? state.versionHeaderName : undefined;
-            resourceInputs["versionQueryName"] = state ? state.versionQueryName : undefined;
-            resourceInputs["versioningScheme"] = state ? state.versioningScheme : undefined;
+            resourceInputs["apiManagementName"] = state?.apiManagementName;
+            resourceInputs["description"] = state?.description;
+            resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["name"] = state?.name;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["versionHeaderName"] = state?.versionHeaderName;
+            resourceInputs["versionQueryName"] = state?.versionQueryName;
+            resourceInputs["versioningScheme"] = state?.versioningScheme;
         } else {
             const args = argsOrState as ApiVersionSetArgs | undefined;
-            if ((!args || args.apiManagementName === undefined) && !opts.urn) {
+            if (args?.apiManagementName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.versioningScheme === undefined) && !opts.urn) {
+            if (args?.versioningScheme === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versioningScheme'");
             }
-            resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["versionHeaderName"] = args ? args.versionHeaderName : undefined;
-            resourceInputs["versionQueryName"] = args ? args.versionQueryName : undefined;
-            resourceInputs["versioningScheme"] = args ? args.versioningScheme : undefined;
+            resourceInputs["apiManagementName"] = args?.apiManagementName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["versionHeaderName"] = args?.versionHeaderName;
+            resourceInputs["versionQueryName"] = args?.versionQueryName;
+            resourceInputs["versioningScheme"] = args?.versioningScheme;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApiVersionSet.__pulumiType, name, resourceInputs, opts);

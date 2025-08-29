@@ -84,20 +84,20 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
     /**
      * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    public readonly dataSourceType!: pulumi.Output<string>;
+    declare public readonly dataSourceType: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * The storage account resource ids to be linked.
      */
-    public readonly storageAccountIds!: pulumi.Output<string[]>;
+    declare public readonly storageAccountIds: pulumi.Output<string[]>;
     /**
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      */
-    public readonly workspaceId!: pulumi.Output<string>;
-    public readonly workspaceResourceId!: pulumi.Output<string>;
+    declare public readonly workspaceId: pulumi.Output<string>;
+    declare public readonly workspaceResourceId: pulumi.Output<string>;
 
     /**
      * Create a LinkedStorageAccount resource with the given unique name, arguments, and options.
@@ -112,27 +112,27 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkedStorageAccountState | undefined;
-            resourceInputs["dataSourceType"] = state ? state.dataSourceType : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
-            resourceInputs["storageAccountIds"] = state ? state.storageAccountIds : undefined;
-            resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
-            resourceInputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
+            resourceInputs["dataSourceType"] = state?.dataSourceType;
+            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["storageAccountIds"] = state?.storageAccountIds;
+            resourceInputs["workspaceId"] = state?.workspaceId;
+            resourceInputs["workspaceResourceId"] = state?.workspaceResourceId;
         } else {
             const args = argsOrState as LinkedStorageAccountArgs | undefined;
-            if ((!args || args.dataSourceType === undefined) && !opts.urn) {
+            if (args?.dataSourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountIds === undefined) && !opts.urn) {
+            if (args?.storageAccountIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountIds'");
             }
-            resourceInputs["dataSourceType"] = args ? args.dataSourceType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountIds"] = args ? args.storageAccountIds : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
-            resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
+            resourceInputs["dataSourceType"] = args?.dataSourceType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountIds"] = args?.storageAccountIds;
+            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["workspaceResourceId"] = args?.workspaceResourceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LinkedStorageAccount.__pulumiType, name, resourceInputs, opts);
