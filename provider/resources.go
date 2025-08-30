@@ -457,13 +457,13 @@ func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) er
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 
-	metaDataHost := tfbridge.ConfigStringValue(vars, "metadataHost", []string{"ARM_METADATA_HOSTNAME"})
+	metadataHost := tfbridge.ConfigStringValue(vars, "metadataHost", []string{"ARM_METADATA_HOSTNAME"})
 	var env *environments.Environment
 	var err error
-	if metaDataHost != "" {
-		env, err = environments.FromEndpoint(ctx, fmt.Sprintf("https://%s", metaDataHost))
+	if metadataHost != "" {
+		env, err = environments.FromEndpoint(ctx, fmt.Sprintf("https://%s", metadataHost))
 		if err != nil {
-			return fmt.Errorf("failed to read Azure environment from metadata host \"%s\": %v", metaDataHost, err)
+			return fmt.Errorf("failed to read Azure environment from metadata host \"%s\": %v", metadataHost, err)
 		}
 	} else {
 		envName := tfbridge.ConfigStringValue(vars, "environment", []string{"ARM_ENVIRONMENT"})
