@@ -3307,6 +3307,9 @@
                                 }
                             }
                         }
+                    },
+                    "log_scrubbing_rule": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -5209,6 +5212,10 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "azurerm_data_factory_customer_managed_key": {
+                "current": "azure:datafactory/customerManagedKey:CustomerManagedKey",
+                "majorVersion": 6
             },
             "azurerm_data_factory_data_flow": {
                 "current": "azure:datafactory/dataFlow:DataFlow",
@@ -16068,6 +16075,15 @@
                     }
                 }
             },
+            "azurerm_network_manager_ipam_pool_static_cidr": {
+                "current": "azure:network/networkManagerIpamPoolStaticCidr:NetworkManagerIpamPoolStaticCidr",
+                "majorVersion": 6,
+                "fields": {
+                    "address_prefixes": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_network_manager_management_group_connection": {
                 "current": "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection",
                 "majorVersion": 6
@@ -16079,6 +16095,15 @@
             "azurerm_network_manager_routing_configuration": {
                 "current": "azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration",
                 "majorVersion": 6
+            },
+            "azurerm_network_manager_routing_rule_collection": {
+                "current": "azure:network/networkManagerRoutingRuleCollection:NetworkManagerRoutingRuleCollection",
+                "majorVersion": 6,
+                "fields": {
+                    "network_group_ids": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_network_manager_scope_connection": {
                 "current": "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection",
@@ -16371,6 +16396,10 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "azurerm_oracle_autonomous_database_backup": {
+                "current": "azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup",
+                "majorVersion": 6
             },
             "azurerm_oracle_cloud_vm_cluster": {
                 "current": "azure:oracle/cloudVmCluster:CloudVmCluster",
@@ -18561,6 +18590,9 @@
                             }
                         }
                     },
+                    "action_incident_task": {
+                        "maxItemsOne": false
+                    },
                     "action_playbook": {
                         "maxItemsOne": false
                     }
@@ -18579,6 +18611,9 @@
                                 }
                             }
                         }
+                    },
+                    "action_incident_task": {
+                        "maxItemsOne": false
                     },
                     "action_playbook": {
                         "maxItemsOne": false
@@ -25383,6 +25418,9 @@
                                 }
                             }
                         }
+                    },
+                    "log_scrubbing_rule": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -28393,6 +28431,35 @@
                     }
                 }
             },
+            "azurerm_managed_disks": {
+                "current": "azure:compute/get:get",
+                "majorVersion": 6,
+                "fields": {
+                    "disk": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "encryption_settings": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "disk_encryption_key": {
+                                                "maxItemsOne": false
+                                            },
+                                            "key_encryption_key": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "zones": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_management_group": {
                 "current": "azure:management/getGroup:getGroup",
                 "majorVersion": 6,
@@ -29524,6 +29591,19 @@
                         "maxItemsOne": false
                     },
                     "supported_regions_to_clone_to": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_oracle_autonomous_database_backup": {
+                "current": "azure:oracle/getAutonomousDatabaseBackup:getAutonomousDatabaseBackup",
+                "majorVersion": 6
+            },
+            "azurerm_oracle_autonomous_database_backups": {
+                "current": "azure:oracle/getAutonomousDatabaseBackups:getAutonomousDatabaseBackups",
+                "majorVersion": 6,
+                "fields": {
+                    "autonomous_database_backups": {
                         "maxItemsOne": false
                     }
                 }
@@ -32110,6 +32190,17 @@
             }
         },
         "datasources": {
+            "azurerm_cdn_frontdoor_profile": {
+                "maxItemsOneOverrides": {
+                    "identity": true
+                }
+            },
+            "azurerm_logic_app_standard": {
+                "maxItemsOneOverrides": {
+                    "site_config": true,
+                    "site_config.$.cors": true
+                }
+            },
             "azurerm_portal_dashboard": {
                 "renames": [
                     "azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard"

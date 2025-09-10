@@ -305,6 +305,7 @@ var moduleMap = map[string]string{
 	"machine_learning":    azureMachineLearning,
 	"maintenance":         azureMaintenance,
 	"managed_application": azureManagedApplication,
+	"managed_disks":       azureCompute,
 	"managed_lustre":      azureManagedLustre,
 	"management":          azureManagement,
 	"resource_management": azureManagement,
