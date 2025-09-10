@@ -70,7 +70,7 @@ namespace Pulumi.Azure.PostgreSql
     public partial class FlexibleServerFirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        /// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         /// </summary>
         [Output("endIpAddress")]
         public Output<string> EndIpAddress { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> ServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        /// The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         /// </summary>
         [Output("startIpAddress")]
         public Output<string> StartIpAddress { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class FlexibleServerFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        /// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         /// </summary>
         [Input("endIpAddress", required: true)]
         public Input<string> EndIpAddress { get; set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string> ServerId { get; set; } = null!;
 
         /// <summary>
-        /// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        /// The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         /// </summary>
         [Input("startIpAddress", required: true)]
         public Input<string> StartIpAddress { get; set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class FlexibleServerFirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        /// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         /// </summary>
         [Input("endIpAddress")]
         public Input<string>? EndIpAddress { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? ServerId { get; set; }
 
         /// <summary>
-        /// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+        /// The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
         /// </summary>
         [Input("startIpAddress")]
         public Input<string>? StartIpAddress { get; set; }

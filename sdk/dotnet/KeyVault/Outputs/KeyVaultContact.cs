@@ -13,17 +13,11 @@ namespace Pulumi.Azure.KeyVault.Outputs
     [OutputType]
     public sealed class KeyVaultContact
     {
-        /// <summary>
-        /// E-mail address of the contact.
-        /// </summary>
         public readonly string Email;
         /// <summary>
-        /// Name of the contact.
+        /// Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// Phone number of the contact.
-        /// </summary>
         public readonly string? Phone;
 
         [OutputConstructor]

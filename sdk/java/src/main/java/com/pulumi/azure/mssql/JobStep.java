@@ -90,8 +90,8 @@ import javax.annotation.Nullable;
  *         var exampleJobCredential = new JobCredential("exampleJobCredential", JobCredentialArgs.builder()
  *             .name("example-job-credential")
  *             .jobAgentId(exampleJobAgent.id())
- *             .username("testusername")
- *             .password("testpassword")
+ *             .username("exampleusername")
+ *             .password("examplepassword")
  *             .build());
  * 
  *         var exampleJobTargetGroup = new JobTargetGroup("exampleJobTargetGroup", JobTargetGroupArgs.builder()
@@ -288,14 +288,14 @@ public class JobStep extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retryAttempts);
     }
     /**
-     * The multiplier for time between retries. Defaults to `2`.
+     * The multiplier for time between retries. Defaults to `2.0`.
      * 
      */
     @Export(name="retryIntervalBackoffMultiplier", refs={Double.class}, tree="[0]")
     private Output</* @Nullable */ Double> retryIntervalBackoffMultiplier;
 
     /**
-     * @return The multiplier for time between retries. Defaults to `2`.
+     * @return The multiplier for time between retries. Defaults to `2.0`.
      * 
      */
     public Output<Optional<Double>> retryIntervalBackoffMultiplier() {

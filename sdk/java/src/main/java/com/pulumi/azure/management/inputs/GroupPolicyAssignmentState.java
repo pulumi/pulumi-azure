@@ -176,14 +176,14 @@ public final class GroupPolicyAssignmentState extends com.pulumi.resources.Resou
     }
 
     /**
-     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     @Import(name="overrides")
     private @Nullable Output<List<GroupPolicyAssignmentOverrideArgs>> overrides;
 
     /**
-     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     * @return One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      * 
      */
     public Optional<Output<List<GroupPolicyAssignmentOverrideArgs>>> overrides() {
@@ -507,7 +507,7 @@ public final class GroupPolicyAssignmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class GroupPolicyAssignmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class GroupPolicyAssignmentState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+         * @param overrides One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
          * 
          * @return builder
          * 

@@ -28,7 +28,7 @@ public final class GetStandardSiteConfigIpRestriction {
      * @return The IP Address used for this IP Restriction in CIDR notation.
      * 
      */
-    private @Nullable String ipAddress;
+    private String ipAddress;
     /**
      * @return The name of the Logic App.
      * 
@@ -43,12 +43,12 @@ public final class GetStandardSiteConfigIpRestriction {
      * @return The Service Tag used for this IP Restriction.
      * 
      */
-    private @Nullable String serviceTag;
+    private String serviceTag;
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      */
-    private @Nullable String virtualNetworkSubnetId;
+    private String virtualNetworkSubnetId;
 
     private GetStandardSiteConfigIpRestriction() {}
     /**
@@ -69,8 +69,8 @@ public final class GetStandardSiteConfigIpRestriction {
      * @return The IP Address used for this IP Restriction in CIDR notation.
      * 
      */
-    public Optional<String> ipAddress() {
-        return Optional.ofNullable(this.ipAddress);
+    public String ipAddress() {
+        return this.ipAddress;
     }
     /**
      * @return The name of the Logic App.
@@ -90,15 +90,15 @@ public final class GetStandardSiteConfigIpRestriction {
      * @return The Service Tag used for this IP Restriction.
      * 
      */
-    public Optional<String> serviceTag() {
-        return Optional.ofNullable(this.serviceTag);
+    public String serviceTag() {
+        return this.serviceTag;
     }
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      */
-    public Optional<String> virtualNetworkSubnetId() {
-        return Optional.ofNullable(this.virtualNetworkSubnetId);
+    public String virtualNetworkSubnetId() {
+        return this.virtualNetworkSubnetId;
     }
 
     public static Builder builder() {
@@ -112,11 +112,11 @@ public final class GetStandardSiteConfigIpRestriction {
     public static final class Builder {
         private @Nullable String action;
         private GetStandardSiteConfigIpRestrictionHeaders headers;
-        private @Nullable String ipAddress;
+        private String ipAddress;
         private String name;
         private @Nullable Integer priority;
-        private @Nullable String serviceTag;
-        private @Nullable String virtualNetworkSubnetId;
+        private String serviceTag;
+        private String virtualNetworkSubnetId;
         public Builder() {}
         public Builder(GetStandardSiteConfigIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -144,8 +144,10 @@ public final class GetStandardSiteConfigIpRestriction {
             return this;
         }
         @CustomType.Setter
-        public Builder ipAddress(@Nullable String ipAddress) {
-
+        public Builder ipAddress(String ipAddress) {
+            if (ipAddress == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestriction", "ipAddress");
+            }
             this.ipAddress = ipAddress;
             return this;
         }
@@ -164,14 +166,18 @@ public final class GetStandardSiteConfigIpRestriction {
             return this;
         }
         @CustomType.Setter
-        public Builder serviceTag(@Nullable String serviceTag) {
-
+        public Builder serviceTag(String serviceTag) {
+            if (serviceTag == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestriction", "serviceTag");
+            }
             this.serviceTag = serviceTag;
             return this;
         }
         @CustomType.Setter
-        public Builder virtualNetworkSubnetId(@Nullable String virtualNetworkSubnetId) {
-
+        public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
+            if (virtualNetworkSubnetId == null) {
+              throw new MissingRequiredPropertyException("GetStandardSiteConfigIpRestriction", "virtualNetworkSubnetId");
+            }
             this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
         }

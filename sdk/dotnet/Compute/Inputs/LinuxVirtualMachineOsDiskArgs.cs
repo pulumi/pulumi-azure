@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+        /// &gt; **Note:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `os_managed_disk_id`.
         /// </summary>
         [Input("diffDiskSettings")]
         public Input<Inputs.LinuxVirtualMachineOsDiskDiffDiskSettingsArgs>? DiffDiskSettings { get; set; }
@@ -50,6 +50,8 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `os_managed_disk_id`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -74,9 +76,11 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
-        [Input("storageAccountType", required: true)]
-        public Input<string> StorageAccountType { get; set; } = null!;
+        [Input("storageAccountType")]
+        public Input<string>? StorageAccountType { get; set; }
 
         /// <summary>
         /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.

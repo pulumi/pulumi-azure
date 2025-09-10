@@ -79,6 +79,8 @@ type LookupProjectPoolResult struct {
 	// The Azure Region where the Dev Center Project Pool exists.
 	Location string `pulumi:"location"`
 	Name     string `pulumi:"name"`
+	// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled.
+	SingleSignOnEnabled bool `pulumi:"singleSignOnEnabled"`
 	// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected.
 	StopOnDisconnectGracePeriodMinutes int `pulumi:"stopOnDisconnectGracePeriodMinutes"`
 	// A mapping of tags assigned to the Dev Center Project Pool.
@@ -152,6 +154,11 @@ func (o LookupProjectPoolResultOutput) Location() pulumi.StringOutput {
 
 func (o LookupProjectPoolResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProjectPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled.
+func (o LookupProjectPoolResultOutput) SingleSignOnEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupProjectPoolResult) bool { return v.SingleSignOnEnabled }).(pulumi.BoolOutput)
 }
 
 // The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected.

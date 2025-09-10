@@ -107,7 +107,7 @@ type SubscriptionPolicyAssignment struct {
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayOutput `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayOutput `pulumi:"notScopes"`
-	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
 	Overrides SubscriptionPolicyAssignmentOverrideArrayOutput `pulumi:"overrides"`
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters pulumi.StringPtrOutput `pulumi:"parameters"`
@@ -175,7 +175,7 @@ type subscriptionPolicyAssignmentState struct {
 	NonComplianceMessages []SubscriptionPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes []string `pulumi:"notScopes"`
-	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
 	Overrides []SubscriptionPolicyAssignmentOverride `pulumi:"overrides"`
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters *string `pulumi:"parameters"`
@@ -208,7 +208,7 @@ type SubscriptionPolicyAssignmentState struct {
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayInput
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayInput
-	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
 	Overrides SubscriptionPolicyAssignmentOverrideArrayInput
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters pulumi.StringPtrInput
@@ -245,7 +245,7 @@ type subscriptionPolicyAssignmentArgs struct {
 	NonComplianceMessages []SubscriptionPolicyAssignmentNonComplianceMessage `pulumi:"nonComplianceMessages"`
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes []string `pulumi:"notScopes"`
-	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
 	Overrides []SubscriptionPolicyAssignmentOverride `pulumi:"overrides"`
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters *string `pulumi:"parameters"`
@@ -279,7 +279,7 @@ type SubscriptionPolicyAssignmentArgs struct {
 	NonComplianceMessages SubscriptionPolicyAssignmentNonComplianceMessageArrayInput
 	// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
 	NotScopes pulumi.StringArrayInput
-	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+	// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
 	Overrides SubscriptionPolicyAssignmentOverrideArrayInput
 	// A JSON mapping of any Parameters for this Policy.
 	Parameters pulumi.StringPtrInput
@@ -427,7 +427,7 @@ func (o SubscriptionPolicyAssignmentOutput) NotScopes() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) pulumi.StringArrayOutput { return v.NotScopes }).(pulumi.StringArrayOutput)
 }
 
-// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+// One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
 func (o SubscriptionPolicyAssignmentOutput) Overrides() SubscriptionPolicyAssignmentOverrideArrayOutput {
 	return o.ApplyT(func(v *SubscriptionPolicyAssignment) SubscriptionPolicyAssignmentOverrideArrayOutput {
 		return v.Overrides

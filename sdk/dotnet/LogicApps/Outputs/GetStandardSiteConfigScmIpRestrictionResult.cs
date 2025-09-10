@@ -24,7 +24,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// The IP Address used for this IP Restriction in CIDR notation.
         /// </summary>
-        public readonly string? IpAddress;
+        public readonly string IpAddress;
         /// <summary>
         /// The name of the Logic App.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// The Service Tag used for this IP Restriction.
         /// </summary>
-        public readonly string? ServiceTag;
+        public readonly string ServiceTag;
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// </summary>
-        public readonly string? VirtualNetworkSubnetId;
+        public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetStandardSiteConfigScmIpRestrictionResult(
@@ -48,15 +48,15 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             Outputs.GetStandardSiteConfigScmIpRestrictionHeadersResult headers,
 
-            string? ipAddress,
+            string ipAddress,
 
             string name,
 
             int? priority,
 
-            string? serviceTag,
+            string serviceTag,
 
-            string? virtualNetworkSubnetId)
+            string virtualNetworkSubnetId)
         {
             Action = action;
             Headers = headers;

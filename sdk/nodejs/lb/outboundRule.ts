@@ -103,9 +103,9 @@ export class OutboundRule extends pulumi.CustomResource {
      */
     declare public readonly backendAddressPoolId: pulumi.Output<string>;
     /**
-     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      */
-    declare public readonly enableTcpReset: pulumi.Output<boolean | undefined>;
+    declare public readonly enableTcpReset: pulumi.Output<boolean>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
@@ -126,6 +126,10 @@ export class OutboundRule extends pulumi.CustomResource {
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
     declare public readonly protocol: pulumi.Output<string>;
+    /**
+     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     */
+    declare public readonly tcpResetEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a OutboundRule resource with the given unique name, arguments, and options.
@@ -148,6 +152,7 @@ export class OutboundRule extends pulumi.CustomResource {
             resourceInputs["loadbalancerId"] = state?.loadbalancerId;
             resourceInputs["name"] = state?.name;
             resourceInputs["protocol"] = state?.protocol;
+            resourceInputs["tcpResetEnabled"] = state?.tcpResetEnabled;
         } else {
             const args = argsOrState as OutboundRuleArgs | undefined;
             if (args?.backendAddressPoolId === undefined && !opts.urn) {
@@ -167,6 +172,7 @@ export class OutboundRule extends pulumi.CustomResource {
             resourceInputs["loadbalancerId"] = args?.loadbalancerId;
             resourceInputs["name"] = args?.name;
             resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["tcpResetEnabled"] = args?.tcpResetEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OutboundRule.__pulumiType, name, resourceInputs, opts);
@@ -186,7 +192,7 @@ export interface OutboundRuleState {
      */
     backendAddressPoolId?: pulumi.Input<string>;
     /**
-     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      */
     enableTcpReset?: pulumi.Input<boolean>;
     /**
@@ -209,6 +215,10 @@ export interface OutboundRuleState {
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
     protocol?: pulumi.Input<string>;
+    /**
+     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     */
+    tcpResetEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -224,7 +234,7 @@ export interface OutboundRuleArgs {
      */
     backendAddressPoolId: pulumi.Input<string>;
     /**
-     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
      */
     enableTcpReset?: pulumi.Input<boolean>;
     /**
@@ -247,4 +257,8 @@ export interface OutboundRuleArgs {
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
     protocol: pulumi.Input<string>;
+    /**
+     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     */
+    tcpResetEnabled?: pulumi.Input<boolean>;
 }

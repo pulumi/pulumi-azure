@@ -19,10 +19,23 @@ import * as utilities from "../utilities";
  *     name: "example-resources",
  *     location: "West Europe",
  * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     location: example.location,
+ *     name: "example-identity",
+ *     resourceGroupName: example.name,
+ * });
  * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
  *     name: "example-cdn-profile",
  *     resourceGroupName: example.name,
- *     skuName: "Standard_AzureFrontDoor",
+ *     skuName: "Premium_AzureFrontDoor",
+ *     responseTimeoutSeconds: 120,
+ *     identity: {
+ *         type: "SystemAssigned, UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ *     logScrubbingRules: [{
+ *         matchVariable: "RequestIPAddress",
+ *     }],
  *     tags: {
  *         environment: "Production",
  *     },
@@ -77,6 +90,12 @@ export class FrontdoorProfile extends pulumi.CustomResource {
      */
     declare public readonly identity: pulumi.Output<outputs.cdn.FrontdoorProfileIdentity | undefined>;
     /**
+     * One or more `logScrubbingRule` blocks as defined below.
+     *
+     * > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
+     */
+    declare public readonly logScrubbingRules: pulumi.Output<outputs.cdn.FrontdoorProfileLogScrubbingRule[] | undefined>;
+    /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -115,6 +134,7 @@ export class FrontdoorProfile extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FrontdoorProfileState | undefined;
             resourceInputs["identity"] = state?.identity;
+            resourceInputs["logScrubbingRules"] = state?.logScrubbingRules;
             resourceInputs["name"] = state?.name;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["resourceGuid"] = state?.resourceGuid;
@@ -130,6 +150,7 @@ export class FrontdoorProfile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'skuName'");
             }
             resourceInputs["identity"] = args?.identity;
+            resourceInputs["logScrubbingRules"] = args?.logScrubbingRules;
             resourceInputs["name"] = args?.name;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["responseTimeoutSeconds"] = args?.responseTimeoutSeconds;
@@ -150,6 +171,12 @@ export interface FrontdoorProfileState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.cdn.FrontdoorProfileIdentity>;
+    /**
+     * One or more `logScrubbingRule` blocks as defined below.
+     *
+     * > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
+     */
+    logScrubbingRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorProfileLogScrubbingRule>[]>;
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */
@@ -184,6 +211,12 @@ export interface FrontdoorProfileArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.cdn.FrontdoorProfileIdentity>;
+    /**
+     * One or more `logScrubbingRule` blocks as defined below.
+     *
+     * > **Note:** When no `logScrubbingRule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `logScrubbingRule` blocks are present, log scrubbing will be `enabled`.
+     */
+    logScrubbingRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorProfileLogScrubbingRule>[]>;
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
      */

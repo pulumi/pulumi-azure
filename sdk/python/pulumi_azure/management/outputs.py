@@ -205,9 +205,6 @@ class GroupPolicyAssignmentOverrideSelector(dict):
                  ins: Optional[Sequence[_builtins.str]] = None,
                  kind: Optional[_builtins.str] = None,
                  not_ins: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-        """
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
         if kind is not None:
@@ -223,9 +220,6 @@ class GroupPolicyAssignmentOverrideSelector(dict):
     @_builtins.property
     @pulumi.getter
     def kind(self) -> Optional[_builtins.str]:
-        """
-        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-        """
         return pulumi.get(self, "kind")
 
     @_builtins.property
@@ -287,9 +281,6 @@ class GroupPolicyAssignmentResourceSelectorSelector(dict):
                  kind: _builtins.str,
                  ins: Optional[Sequence[_builtins.str]] = None,
                  not_ins: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-        """
         pulumi.set(__self__, "kind", kind)
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
@@ -299,9 +290,6 @@ class GroupPolicyAssignmentResourceSelectorSelector(dict):
     @_builtins.property
     @pulumi.getter
     def kind(self) -> _builtins.str:
-        """
-        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-        """
         return pulumi.get(self, "kind")
 
     @_builtins.property

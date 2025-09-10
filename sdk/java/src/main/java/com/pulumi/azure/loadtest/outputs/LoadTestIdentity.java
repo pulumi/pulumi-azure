@@ -20,7 +20,6 @@ public final class LoadTestIdentity {
     private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-     * *
      * 
      */
     private @Nullable String principalId;
@@ -45,7 +44,6 @@ public final class LoadTestIdentity {
     }
     /**
      * @return The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-     * *
      * 
      */
     public Optional<String> principalId() {

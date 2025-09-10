@@ -109,6 +109,12 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<string>> PrivateIpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of a Public IP Address which is associated with this Load Balancer.
+        /// </summary>
+        [Output("publicIpAddressId")]
+        public Output<string> PublicIpAddressId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -127,6 +133,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Subnet which is associated with the IP Configuration.
+        /// </summary>
+        [Output("subnetId")]
+        public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -211,6 +223,12 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The ID of a Public IP Address which is associated with this Load Balancer.
+        /// </summary>
+        [Input("publicIpAddressId")]
+        public Input<string>? PublicIpAddressId { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -229,6 +247,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
+
+        /// <summary>
+        /// The ID of the Subnet which is associated with the IP Configuration.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -299,6 +323,12 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
+        /// The ID of a Public IP Address which is associated with this Load Balancer.
+        /// </summary>
+        [Input("publicIpAddressId")]
+        public Input<string>? PublicIpAddressId { get; set; }
+
+        /// <summary>
         /// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
@@ -317,6 +347,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
+
+        /// <summary>
+        /// The ID of the Subnet which is associated with the IP Configuration.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

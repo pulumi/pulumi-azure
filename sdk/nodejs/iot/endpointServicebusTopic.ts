@@ -126,6 +126,12 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
      * The name of the resource group under which the Service Bus Topic has been created. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
+    /**
+     * The subscription ID for the endpoint.
+     *
+     * > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+     */
+    declare public readonly subscriptionId: pulumi.Output<string>;
 
     /**
      * Create a EndpointServicebusTopic resource with the given unique name, arguments, and options.
@@ -148,6 +154,7 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
             resourceInputs["iothubId"] = state?.iothubId;
             resourceInputs["name"] = state?.name;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["subscriptionId"] = state?.subscriptionId;
         } else {
             const args = argsOrState as EndpointServicebusTopicArgs | undefined;
             if (args?.iothubId === undefined && !opts.urn) {
@@ -164,6 +171,7 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
             resourceInputs["iothubId"] = args?.iothubId;
             resourceInputs["name"] = args?.name;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString"] };
@@ -210,6 +218,12 @@ export interface EndpointServicebusTopicState {
      * The name of the resource group under which the Service Bus Topic has been created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The subscription ID for the endpoint.
+     *
+     * > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }
 
 /**
@@ -250,4 +264,10 @@ export interface EndpointServicebusTopicArgs {
      * The name of the resource group under which the Service Bus Topic has been created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The subscription ID for the endpoint.
+     *
+     * > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }

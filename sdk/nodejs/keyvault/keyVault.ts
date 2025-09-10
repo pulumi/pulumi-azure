@@ -88,15 +88,13 @@ export class KeyVault extends pulumi.CustomResource {
      */
     declare public readonly accessPolicies: pulumi.Output<outputs.keyvault.KeyVaultAccessPolicy[]>;
     /**
-     * @deprecated As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
+     * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      */
     declare public readonly contacts: pulumi.Output<outputs.keyvault.KeyVaultContact[]>;
     /**
-     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-     *
-     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      */
-    declare public readonly enableRbacAuthorization: pulumi.Output<boolean | undefined>;
+    declare public readonly enableRbacAuthorization: pulumi.Output<boolean>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      */
@@ -131,6 +129,12 @@ export class KeyVault extends pulumi.CustomResource {
      * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      */
     declare public readonly purgeProtectionEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+     *
+     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     */
+    declare public readonly rbacAuthorizationEnabled: pulumi.Output<boolean>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
@@ -182,6 +186,7 @@ export class KeyVault extends pulumi.CustomResource {
             resourceInputs["networkAcls"] = state?.networkAcls;
             resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
             resourceInputs["purgeProtectionEnabled"] = state?.purgeProtectionEnabled;
+            resourceInputs["rbacAuthorizationEnabled"] = state?.rbacAuthorizationEnabled;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["skuName"] = state?.skuName;
             resourceInputs["softDeleteRetentionDays"] = state?.softDeleteRetentionDays;
@@ -210,6 +215,7 @@ export class KeyVault extends pulumi.CustomResource {
             resourceInputs["networkAcls"] = args?.networkAcls;
             resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
             resourceInputs["purgeProtectionEnabled"] = args?.purgeProtectionEnabled;
+            resourceInputs["rbacAuthorizationEnabled"] = args?.rbacAuthorizationEnabled;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["skuName"] = args?.skuName;
             resourceInputs["softDeleteRetentionDays"] = args?.softDeleteRetentionDays;
@@ -233,13 +239,11 @@ export interface KeyVaultState {
      */
     accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**
-     * @deprecated As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
+     * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
-     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-     *
-     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      */
     enableRbacAuthorization?: pulumi.Input<boolean>;
     /**
@@ -276,6 +280,12 @@ export interface KeyVaultState {
      * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+     *
+     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     */
+    rbacAuthorizationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
@@ -315,13 +325,11 @@ export interface KeyVaultArgs {
      */
     accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**
-     * @deprecated As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
+     * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      */
     contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[]>;
     /**
-     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-     *
-     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
      */
     enableRbacAuthorization?: pulumi.Input<boolean>;
     /**
@@ -358,6 +366,12 @@ export interface KeyVaultArgs {
      * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+     *
+     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     */
+    rbacAuthorizationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */

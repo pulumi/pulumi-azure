@@ -2200,17 +2200,11 @@ class KeyVaultAccessPolicyArgs:
 if not MYPY:
     class KeyVaultContactArgsDict(TypedDict):
         email: pulumi.Input[_builtins.str]
-        """
-        E-mail address of the contact.
-        """
         name: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Name of the contact.
+        Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         """
         phone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Phone number of the contact.
-        """
 elif False:
     KeyVaultContactArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2221,9 +2215,7 @@ class KeyVaultContactArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  phone: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] email: E-mail address of the contact.
-        :param pulumi.Input[_builtins.str] name: Name of the contact.
-        :param pulumi.Input[_builtins.str] phone: Phone number of the contact.
+        :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         """
         pulumi.set(__self__, "email", email)
         if name is not None:
@@ -2234,9 +2226,6 @@ class KeyVaultContactArgs:
     @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Input[_builtins.str]:
-        """
-        E-mail address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -2247,7 +2236,7 @@ class KeyVaultContactArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the contact.
+        Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         """
         return pulumi.get(self, "name")
 
@@ -2258,9 +2247,6 @@ class KeyVaultContactArgs:
     @_builtins.property
     @pulumi.getter
     def phone(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Phone number of the contact.
-        """
         return pulumi.get(self, "phone")
 
     @phone.setter

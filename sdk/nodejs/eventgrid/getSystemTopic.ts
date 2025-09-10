@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.EventGrid` - 2022-06-15
+ * * `Microsoft.EventGrid` - 2025-02-15
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,16 +63,18 @@ export interface GetSystemTopicResult {
      */
     readonly identities: outputs.eventgrid.GetSystemTopicIdentity[];
     readonly location: string;
-    /**
-     * The Metric ARM Resource ID of the Event Grid System Topic.
-     */
     readonly metricArmResourceId: string;
+    /**
+     * The Metric Resource ID of the Event Grid System Topic.
+     */
+    readonly metricResourceId: string;
     readonly name: string;
     readonly resourceGroupName: string;
+    readonly sourceArmResourceId: string;
     /**
      * The ID of the Event Grid System Topic ARM Source.
      */
-    readonly sourceArmResourceId: string;
+    readonly sourceResourceId: string;
     /**
      * A mapping of tags which are assigned to the Event Grid System Topic.
      */
@@ -102,7 +104,7 @@ export interface GetSystemTopicResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.EventGrid` - 2022-06-15
+ * * `Microsoft.EventGrid` - 2025-02-15
  */
 export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

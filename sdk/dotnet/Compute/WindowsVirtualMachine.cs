@@ -141,21 +141,28 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
         [Output("adminPassword")]
-        public Output<string> AdminPassword { get; private set; } = null!;
+        public Output<string?> AdminPassword { get; private set; } = null!;
 
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
         [Output("adminUsername")]
-        public Output<string> AdminUsername { get; private set; } = null!;
+        public Output<string?> AdminUsername { get; private set; } = null!;
 
         /// <summary>
         /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         /// </summary>
         [Output("allowExtensionOperations")]
-        public Output<bool?> AllowExtensionOperations { get; private set; } = null!;
+        public Output<bool> AllowExtensionOperations { get; private set; } = null!;
+
+        [Output("automaticUpdatesEnabled")]
+        public Output<bool> AutomaticUpdatesEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -225,7 +232,7 @@ namespace Pulumi.Azure.Compute
         /// Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
         /// </summary>
         [Output("enableAutomaticUpdates")]
-        public Output<bool?> EnableAutomaticUpdates { get; private set; } = null!;
+        public Output<bool> EnableAutomaticUpdates { get; private set; } = null!;
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -261,7 +268,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
         /// </summary>
         [Output("hotpatchingEnabled")]
-        public Output<bool?> HotpatchingEnabled { get; private set; } = null!;
+        public Output<bool> HotpatchingEnabled { get; private set; } = null!;
 
         /// <summary>
         /// An `identity` block as defined below.
@@ -314,12 +321,20 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineOsImageNotification?> OsImageNotification { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+        /// 
+        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        /// </summary>
+        [Output("osManagedDiskId")]
+        public Output<string> OsManagedDiskId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
         /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Output("patchAssessmentMode")]
-        public Output<string?> PatchAssessmentMode { get; private set; } = null!;
+        public Output<string> PatchAssessmentMode { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -327,7 +342,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
         /// </summary>
         [Output("patchMode")]
-        public Output<string?> PatchMode { get; private set; } = null!;
+        public Output<string> PatchMode { get; private set; } = null!;
 
         /// <summary>
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -365,7 +380,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         /// </summary>
         [Output("provisionVmAgent")]
-        public Output<bool?> ProvisionVmAgent { get; private set; } = null!;
+        public Output<bool> ProvisionVmAgent { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
@@ -568,11 +583,13 @@ namespace Pulumi.Azure.Compute
             set => _additionalUnattendContents = value;
         }
 
-        [Input("adminPassword", required: true)]
+        [Input("adminPassword")]
         private Input<string>? _adminPassword;
 
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -586,15 +603,20 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
-        [Input("adminUsername", required: true)]
-        public Input<string> AdminUsername { get; set; } = null!;
+        [Input("adminUsername")]
+        public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
         /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         /// </summary>
         [Input("allowExtensionOperations")]
         public Input<bool>? AllowExtensionOperations { get; set; }
+
+        [Input("automaticUpdatesEnabled")]
+        public Input<bool>? AutomaticUpdatesEnabled { get; set; }
 
         /// <summary>
         /// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -773,6 +795,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osImageNotification")]
         public Input<Inputs.WindowsVirtualMachineOsImageNotificationArgs>? OsImageNotification { get; set; }
+
+        /// <summary>
+        /// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+        /// 
+        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        /// </summary>
+        [Input("osManagedDiskId")]
+        public Input<string>? OsManagedDiskId { get; set; }
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -979,6 +1009,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -992,6 +1024,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
         [Input("adminUsername")]
         public Input<string>? AdminUsername { get; set; }
@@ -1001,6 +1035,9 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("allowExtensionOperations")]
         public Input<bool>? AllowExtensionOperations { get; set; }
+
+        [Input("automaticUpdatesEnabled")]
+        public Input<bool>? AutomaticUpdatesEnabled { get; set; }
 
         /// <summary>
         /// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -1179,6 +1216,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osImageNotification")]
         public Input<Inputs.WindowsVirtualMachineOsImageNotificationGetArgs>? OsImageNotification { get; set; }
+
+        /// <summary>
+        /// The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+        /// 
+        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        /// </summary>
+        [Input("osManagedDiskId")]
+        public Input<string>? OsManagedDiskId { get; set; }
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.

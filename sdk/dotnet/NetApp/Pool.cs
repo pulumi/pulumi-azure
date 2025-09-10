@@ -48,12 +48,50 @@ namespace Pulumi.Azure.NetApp
     /// });
     /// ```
     /// 
+    /// ## NetApp Pool with Flexible Service Level Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
+    ///     {
+    ///         Name = "example-netappaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var examplePool = new Azure.NetApp.Pool("example", new()
+    ///     {
+    ///         Name = "example-netapppool",
+    ///         AccountName = exampleAccount.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ServiceLevel = "Flexible",
+    ///         SizeInTb = 4,
+    ///         QosType = "Manual",
+    ///         CustomThroughputMibps = 256,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## API Providers
     /// 
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.NetApp` - 2025-01-01
+    /// * `Microsoft.NetApp` - 2025-06-01
     /// 
     /// ## Import
     /// 
@@ -79,6 +117,12 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         [Output("coolAccessEnabled")]
         public Output<bool?> CoolAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+        /// </summary>
+        [Output("customThroughputMibps")]
+        public Output<int?> CustomThroughputMibps { get; private set; } = null!;
 
         /// <summary>
         /// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
@@ -111,7 +155,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        /// The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("serviceLevel")]
         public Output<string> ServiceLevel { get; private set; } = null!;
@@ -193,6 +237,12 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? CoolAccessEnabled { get; set; }
 
         /// <summary>
+        /// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+        /// </summary>
+        [Input("customThroughputMibps")]
+        public Input<int>? CustomThroughputMibps { get; set; }
+
+        /// <summary>
         /// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionType")]
@@ -223,7 +273,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        /// The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceLevel", required: true)]
         public Input<string> ServiceLevel { get; set; } = null!;
@@ -273,6 +323,12 @@ namespace Pulumi.Azure.NetApp
         public Input<bool>? CoolAccessEnabled { get; set; }
 
         /// <summary>
+        /// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+        /// </summary>
+        [Input("customThroughputMibps")]
+        public Input<int>? CustomThroughputMibps { get; set; }
+
+        /// <summary>
         /// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("encryptionType")]
@@ -303,7 +359,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+        /// The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceLevel")]
         public Input<string>? ServiceLevel { get; set; }

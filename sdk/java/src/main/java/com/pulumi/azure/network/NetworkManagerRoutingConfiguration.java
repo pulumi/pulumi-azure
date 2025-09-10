@@ -98,14 +98,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/networkManagerRoutingConfiguration:NetworkManagerRoutingConfiguration")
 public class NetworkManagerRoutingConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The description of the Network Manager.
+     * The description of the Network Manager Routing Configuration.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the Network Manager.
+     * @return The description of the Network Manager Routing Configuration.
      * 
      */
     public Output<Optional<String>> description() {

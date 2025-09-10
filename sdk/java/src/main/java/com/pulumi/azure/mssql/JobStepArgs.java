@@ -167,14 +167,14 @@ public final class JobStepArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The multiplier for time between retries. Defaults to `2`.
+     * The multiplier for time between retries. Defaults to `2.0`.
      * 
      */
     @Import(name="retryIntervalBackoffMultiplier")
     private @Nullable Output<Double> retryIntervalBackoffMultiplier;
 
     /**
-     * @return The multiplier for time between retries. Defaults to `2`.
+     * @return The multiplier for time between retries. Defaults to `2.0`.
      * 
      */
     public Optional<Output<Double>> retryIntervalBackoffMultiplier() {
@@ -452,7 +452,7 @@ public final class JobStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryIntervalBackoffMultiplier The multiplier for time between retries. Defaults to `2`.
+         * @param retryIntervalBackoffMultiplier The multiplier for time between retries. Defaults to `2.0`.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class JobStepArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retryIntervalBackoffMultiplier The multiplier for time between retries. Defaults to `2`.
+         * @param retryIntervalBackoffMultiplier The multiplier for time between retries. Defaults to `2.0`.
          * 
          * @return builder
          * 

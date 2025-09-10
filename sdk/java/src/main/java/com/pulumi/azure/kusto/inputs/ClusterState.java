@@ -24,14 +24,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     public static final ClusterState Empty = new ClusterState();
 
     /**
-     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
      * 
      */
     @Import(name="allowedFqdns")
     private @Nullable Output<List<String>> allowedFqdns;
 
     /**
-     * @return List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * @return List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
      * 
      */
     public Optional<Output<List<String>>> allowedFqdns() {
@@ -84,14 +84,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if the cluster&#39;s disks are encrypted.
+     * Specifies if the cluster&#39;s disks are encrypted. Defaults to `false`.
      * 
      */
     @Import(name="diskEncryptionEnabled")
     private @Nullable Output<Boolean> diskEncryptionEnabled;
 
     /**
-     * @return Specifies if the cluster&#39;s disks are encrypted.
+     * @return Specifies if the cluster&#39;s disks are encrypted. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> diskEncryptionEnabled() {
@@ -129,18 +129,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-     * 
-     * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+     * A `language_extensions` block as defined below.
      * 
      */
     @Import(name="languageExtensions")
     private @Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions;
 
     /**
-     * @return An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-     * 
-     * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+     * @return A `language_extensions` block as defined below.
      * 
      */
     public Optional<Output<List<ClusterLanguageExtensionArgs>>> languageExtensions() {
@@ -193,14 +189,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * Whether to restrict outbound network access. Defaults to `false`.
      * 
      */
     @Import(name="outboundNetworkAccessRestricted")
     private @Nullable Output<Boolean> outboundNetworkAccessRestricted;
 
     /**
-     * @return Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * @return Whether to restrict outbound network access. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> outboundNetworkAccessRestricted() {
@@ -238,14 +234,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if the purge operations are enabled.
+     * Specifies if the purge operations are enabled. Defaults to `false`.
      * 
      */
     @Import(name="purgeEnabled")
     private @Nullable Output<Boolean> purgeEnabled;
 
     /**
-     * @return Specifies if the purge operations are enabled.
+     * @return Specifies if the purge operations are enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> purgeEnabled() {
@@ -283,14 +279,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if the streaming ingest is enabled.
+     * Specifies if the streaming ingest is enabled. Defaults to `false`.
      * 
      */
     @Import(name="streamingIngestionEnabled")
     private @Nullable Output<Boolean> streamingIngestionEnabled;
 
     /**
-     * @return Specifies if the streaming ingest is enabled.
+     * @return Specifies if the streaming ingest is enabled. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> streamingIngestionEnabled() {
@@ -427,7 +423,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedFqdns List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+         * @param allowedFqdns List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
          * 
          * @return builder
          * 
@@ -438,7 +434,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedFqdns List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+         * @param allowedFqdns List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
          * 
          * @return builder
          * 
@@ -448,7 +444,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedFqdns List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+         * @param allowedFqdns List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
          * 
          * @return builder
          * 
@@ -531,7 +527,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptionEnabled Specifies if the cluster&#39;s disks are encrypted.
+         * @param diskEncryptionEnabled Specifies if the cluster&#39;s disks are encrypted. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -542,7 +538,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptionEnabled Specifies if the cluster&#39;s disks are encrypted.
+         * @param diskEncryptionEnabled Specifies if the cluster&#39;s disks are encrypted. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -594,9 +590,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param languageExtensions An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-         * 
-         * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+         * @param languageExtensions A `language_extensions` block as defined below.
          * 
          * @return builder
          * 
@@ -607,9 +601,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param languageExtensions An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-         * 
-         * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+         * @param languageExtensions A `language_extensions` block as defined below.
          * 
          * @return builder
          * 
@@ -619,9 +611,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param languageExtensions An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-         * 
-         * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+         * @param languageExtensions A `language_extensions` block as defined below.
          * 
          * @return builder
          * 
@@ -694,7 +684,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outboundNetworkAccessRestricted Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+         * @param outboundNetworkAccessRestricted Whether to restrict outbound network access. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -705,7 +695,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outboundNetworkAccessRestricted Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+         * @param outboundNetworkAccessRestricted Whether to restrict outbound network access. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -757,7 +747,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param purgeEnabled Specifies if the purge operations are enabled.
+         * @param purgeEnabled Specifies if the purge operations are enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -768,7 +758,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param purgeEnabled Specifies if the purge operations are enabled.
+         * @param purgeEnabled Specifies if the purge operations are enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -820,7 +810,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamingIngestionEnabled Specifies if the streaming ingest is enabled.
+         * @param streamingIngestionEnabled Specifies if the streaming ingest is enabled. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -831,7 +821,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamingIngestionEnabled Specifies if the streaming ingest is enabled.
+         * @param streamingIngestionEnabled Specifies if the streaming ingest is enabled. Defaults to `false`.
          * 
          * @return builder
          * 

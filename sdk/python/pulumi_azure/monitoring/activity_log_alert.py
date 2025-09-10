@@ -38,7 +38,7 @@ class ActivityLogAlertArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionArgs']]] actions: One or more `action` blocks as defined below.
         :param pulumi.Input[_builtins.str] description: The description of this activity log alert.
         :param pulumi.Input[_builtins.bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -134,7 +134,7 @@ class ActivityLogAlertArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+        The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -185,7 +185,7 @@ class _ActivityLogAlertState:
         :param pulumi.Input['ActivityLogAlertCriteriaArgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of this activity log alert.
         :param pulumi.Input[_builtins.bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
@@ -262,7 +262,7 @@ class _ActivityLogAlertState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+        The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -401,7 +401,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of this activity log alert.
         :param pulumi.Input[_builtins.bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
@@ -551,7 +551,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of this activity log alert.
         :param pulumi.Input[_builtins.bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the activity log alert. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account).
@@ -608,7 +608,7 @@ class ActivityLogAlert(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+        The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 

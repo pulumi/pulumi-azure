@@ -53,7 +53,7 @@ class JobStepArgs:
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
         :param pulumi.Input['JobStepOutputTargetArgs'] output_target: An `output_target` block as defined below.
         :param pulumi.Input[_builtins.int] retry_attempts: The number of retry attempts. Defaults to `10`.
-        :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2`.
+        :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2.0`.
         :param pulumi.Input[_builtins.int] timeout_seconds: The execution timeout in seconds for this Elastic Job Step. Defaults to `43200`.
         """
         pulumi.set(__self__, "job_id", job_id)
@@ -209,7 +209,7 @@ class JobStepArgs:
     @pulumi.getter(name="retryIntervalBackoffMultiplier")
     def retry_interval_backoff_multiplier(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        The multiplier for time between retries. Defaults to `2`.
+        The multiplier for time between retries. Defaults to `2.0`.
         """
         return pulumi.get(self, "retry_interval_backoff_multiplier")
 
@@ -262,7 +262,7 @@ class _JobStepState:
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
         :param pulumi.Input['JobStepOutputTargetArgs'] output_target: An `output_target` block as defined below.
         :param pulumi.Input[_builtins.int] retry_attempts: The number of retry attempts. Defaults to `10`.
-        :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2`.
+        :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2.0`.
         :param pulumi.Input[_builtins.str] sql_script: The T-SQL script to be executed by this Elastic Job Step.
                
                > **Note:** While Azure places no restrictions on the script provided here, it is recommended to ensure the script is idempotent.
@@ -411,7 +411,7 @@ class _JobStepState:
     @pulumi.getter(name="retryIntervalBackoffMultiplier")
     def retry_interval_backoff_multiplier(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
-        The multiplier for time between retries. Defaults to `2`.
+        The multiplier for time between retries. Defaults to `2.0`.
         """
         return pulumi.get(self, "retry_interval_backoff_multiplier")
 
@@ -496,8 +496,8 @@ class JobStep(pulumi.CustomResource):
         example_job_credential = azure.mssql.JobCredential("example",
             name="example-job-credential",
             job_agent_id=example_job_agent.id,
-            username="testusername",
-            password="testpassword")
+            username="exampleusername",
+            password="examplepassword")
         example_job_target_group = azure.mssql.JobTargetGroup("example",
             name="example-target-group",
             job_agent_id=example_job_agent.id,
@@ -556,7 +556,7 @@ class JobStep(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
         :param pulumi.Input[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']] output_target: An `output_target` block as defined below.
         :param pulumi.Input[_builtins.int] retry_attempts: The number of retry attempts. Defaults to `10`.
-        :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2`.
+        :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2.0`.
         :param pulumi.Input[_builtins.str] sql_script: The T-SQL script to be executed by this Elastic Job Step.
                
                > **Note:** While Azure places no restrictions on the script provided here, it is recommended to ensure the script is idempotent.
@@ -599,8 +599,8 @@ class JobStep(pulumi.CustomResource):
         example_job_credential = azure.mssql.JobCredential("example",
             name="example-job-credential",
             job_agent_id=example_job_agent.id,
-            username="testusername",
-            password="testpassword")
+            username="exampleusername",
+            password="examplepassword")
         example_job_target_group = azure.mssql.JobTargetGroup("example",
             name="example-target-group",
             job_agent_id=example_job_agent.id,
@@ -742,7 +742,7 @@ class JobStep(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
         :param pulumi.Input[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']] output_target: An `output_target` block as defined below.
         :param pulumi.Input[_builtins.int] retry_attempts: The number of retry attempts. Defaults to `10`.
-        :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2`.
+        :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2.0`.
         :param pulumi.Input[_builtins.str] sql_script: The T-SQL script to be executed by this Elastic Job Step.
                
                > **Note:** While Azure places no restrictions on the script provided here, it is recommended to ensure the script is idempotent.
@@ -848,7 +848,7 @@ class JobStep(pulumi.CustomResource):
     @pulumi.getter(name="retryIntervalBackoffMultiplier")
     def retry_interval_backoff_multiplier(self) -> pulumi.Output[Optional[_builtins.float]]:
         """
-        The multiplier for time between retries. Defaults to `2`.
+        The multiplier for time between retries. Defaults to `2.0`.
         """
         return pulumi.get(self, "retry_interval_backoff_multiplier")
 

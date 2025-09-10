@@ -21,6 +21,8 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
     /**
      * @return The content hash for the Guest Configuration package.
      * 
+     * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
+     * 
      */
     private @Nullable String contentHash;
     /**
@@ -51,6 +53,8 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
     }
     /**
      * @return The content hash for the Guest Configuration package.
+     * 
+     * &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
      * 
      */
     public Optional<String> contentHash() {

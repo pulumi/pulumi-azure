@@ -80,6 +80,8 @@ if not MYPY:
         identity_id: pulumi.Input[_builtins.str]
         """
         The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+
+        > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
         """
         type: pulumi.Input[_builtins.str]
         """
@@ -95,6 +97,8 @@ class LoadTestEncryptionIdentityArgs:
                  type: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] identity_id: The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+               
+               > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
         """
         pulumi.set(__self__, "identity_id", identity_id)
@@ -105,6 +109,8 @@ class LoadTestEncryptionIdentityArgs:
     def identity_id(self) -> pulumi.Input[_builtins.str]:
         """
         The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+
+        > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
         """
         return pulumi.get(self, "identity_id")
 
@@ -138,7 +144,6 @@ if not MYPY:
         principal_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-        *
         """
         tenant_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -158,7 +163,6 @@ class LoadTestIdentityArgs:
         :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: A list of the User Assigned Identity IDs that should be assigned to this Load Test.
         :param pulumi.Input[_builtins.str] principal_id: The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-               *
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
         """
         pulumi.set(__self__, "type", type)
@@ -198,7 +202,6 @@ class LoadTestIdentityArgs:
     def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-        *
         """
         return pulumi.get(self, "principal_id")
 

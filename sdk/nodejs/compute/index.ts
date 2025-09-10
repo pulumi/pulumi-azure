@@ -75,6 +75,11 @@ export type GalleryApplicationVersion = import("./galleryApplicationVersion").Ga
 export const GalleryApplicationVersion: typeof import("./galleryApplicationVersion").GalleryApplicationVersion = null as any;
 utilities.lazyLoad(exports, ["GalleryApplicationVersion"], () => require("./galleryApplicationVersion"));
 
+export { GetArgs, GetResult, GetOutputArgs } from "./get";
+export const get: typeof import("./get").get = null as any;
+export const getOutput: typeof import("./get").getOutput = null as any;
+utilities.lazyLoad(exports, ["get","getOutput"], () => require("./get"));
+
 export { GetAvailabilitySetArgs, GetAvailabilitySetResult, GetAvailabilitySetOutputArgs } from "./getAvailabilitySet";
 export const getAvailabilitySet: typeof import("./getAvailabilitySet").getAvailabilitySet = null as any;
 export const getAvailabilitySetOutput: typeof import("./getAvailabilitySet").getAvailabilitySetOutput = null as any;

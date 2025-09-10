@@ -36,15 +36,17 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? OperationName;
         /// <summary>
-        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
         /// </summary>
         public readonly string? RecommendationCategory;
         /// <summary>
-        /// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+        /// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+        /// 
+        /// &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
         /// </summary>
         public readonly string? RecommendationImpact;
         /// <summary>
-        /// The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+        /// The recommendation type of the event.
         /// </summary>
         public readonly string? RecommendationType;
         /// <summary>

@@ -44,38 +44,38 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
+     * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      * 
      */
-    @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. */
+    @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
     @Import(name="contacts")
     private @Nullable Output<List<KeyVaultContactArgs>> contacts;
 
     /**
      * @deprecated
-     * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
+     * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
      * 
      */
-    @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. */
+    @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
     public Optional<Output<List<KeyVaultContactArgs>>> contacts() {
         return Optional.ofNullable(this.contacts);
     }
 
     /**
-     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-     * 
-     * &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     * @deprecated
+     * This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider
      * 
      */
+    @Deprecated /* This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider */
     @Import(name="enableRbacAuthorization")
     private @Nullable Output<Boolean> enableRbacAuthorization;
 
     /**
-     * @return Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-     * 
-     * &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     * @deprecated
+     * This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider
      * 
      */
+    @Deprecated /* This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider */
     public Optional<Output<Boolean>> enableRbacAuthorization() {
         return Optional.ofNullable(this.enableRbacAuthorization);
     }
@@ -205,6 +205,25 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+     * 
+     * &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     * 
+     */
+    @Import(name="rbacAuthorizationEnabled")
+    private @Nullable Output<Boolean> rbacAuthorizationEnabled;
+
+    /**
+     * @return Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+     * 
+     * &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+     * 
+     */
+    public Optional<Output<Boolean>> rbacAuthorizationEnabled() {
+        return Optional.ofNullable(this.rbacAuthorizationEnabled);
+    }
+
+    /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      * 
      */
@@ -297,6 +316,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         this.networkAcls = $.networkAcls;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.purgeProtectionEnabled = $.purgeProtectionEnabled;
+        this.rbacAuthorizationEnabled = $.rbacAuthorizationEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
         this.softDeleteRetentionDays = $.softDeleteRetentionDays;
@@ -363,10 +383,10 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
+         * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
          * 
          */
-        @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. */
+        @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
         public Builder contacts(@Nullable Output<List<KeyVaultContactArgs>> contacts) {
             $.contacts = contacts;
             return this;
@@ -376,10 +396,10 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
+         * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
          * 
          */
-        @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. */
+        @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
         public Builder contacts(List<KeyVaultContactArgs> contacts) {
             return contacts(Output.of(contacts));
         }
@@ -388,35 +408,35 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
+         * As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
          * 
          */
-        @Deprecated /* As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. */
+        @Deprecated /* As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider. */
         public Builder contacts(KeyVaultContactArgs... contacts) {
             return contacts(List.of(contacts));
         }
 
         /**
-         * @param enableRbacAuthorization Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-         * 
-         * &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider
+         * 
          */
+        @Deprecated /* This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider */
         public Builder enableRbacAuthorization(@Nullable Output<Boolean> enableRbacAuthorization) {
             $.enableRbacAuthorization = enableRbacAuthorization;
             return this;
         }
 
         /**
-         * @param enableRbacAuthorization Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-         * 
-         * &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider
+         * 
          */
+        @Deprecated /* This property has been renamed to `rbac_authorization_enabled` and will be removed in v5.0 of the provider */
         public Builder enableRbacAuthorization(Boolean enableRbacAuthorization) {
             return enableRbacAuthorization(Output.of(enableRbacAuthorization));
         }
@@ -591,6 +611,31 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
             return purgeProtectionEnabled(Output.of(purgeProtectionEnabled));
+        }
+
+        /**
+         * @param rbacAuthorizationEnabled Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+         * 
+         * &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rbacAuthorizationEnabled(@Nullable Output<Boolean> rbacAuthorizationEnabled) {
+            $.rbacAuthorizationEnabled = rbacAuthorizationEnabled;
+            return this;
+        }
+
+        /**
+         * @param rbacAuthorizationEnabled Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
+         * 
+         * &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rbacAuthorizationEnabled(Boolean rbacAuthorizationEnabled) {
+            return rbacAuthorizationEnabled(Output.of(rbacAuthorizationEnabled));
         }
 
         /**

@@ -256,6 +256,20 @@ public class ProjectPool extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+     * 
+     */
+    @Export(name="singleSignOnEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> singleSignOnEnabled;
+
+    /**
+     * @return Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> singleSignOnEnabled() {
+        return Codegen.optional(this.singleSignOnEnabled);
+    }
+    /**
      * The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
      * 
      */

@@ -20,6 +20,8 @@ namespace Pulumi.Azure.Policy.Inputs
 
         /// <summary>
         /// The content hash for the Guest Configuration package.
+        /// 
+        /// &gt; **Note:** The value for `content_hash` should be the SH256SUM for the zip file in the `content_uri` and must be in upper case.
         /// </summary>
         [Input("contentHash")]
         public Input<string>? ContentHash { get; set; }

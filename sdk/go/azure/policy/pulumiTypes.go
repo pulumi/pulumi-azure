@@ -283,6 +283,8 @@ type VirtualMachineConfigurationAssignmentConfiguration struct {
 	// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
 	AssignmentType *string `pulumi:"assignmentType"`
 	// The content hash for the Guest Configuration package.
+	//
+	// > **Note:** The value for `contentHash` should be the SH256SUM for the zip file in the `contentUri` and must be in upper case.
 	ContentHash *string `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	//
@@ -309,6 +311,8 @@ type VirtualMachineConfigurationAssignmentConfigurationArgs struct {
 	// The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
 	AssignmentType pulumi.StringPtrInput `pulumi:"assignmentType"`
 	// The content hash for the Guest Configuration package.
+	//
+	// > **Note:** The value for `contentHash` should be the SH256SUM for the zip file in the `contentUri` and must be in upper case.
 	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	//
@@ -403,6 +407,8 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) AssignmentType
 }
 
 // The content hash for the Guest Configuration package.
+//
+// > **Note:** The value for `contentHash` should be the SH256SUM for the zip file in the `contentUri` and must be in upper case.
 func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.ContentHash }).(pulumi.StringPtrOutput)
 }
@@ -461,6 +467,8 @@ func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) AssignmentT
 }
 
 // The content hash for the Guest Configuration package.
+//
+// > **Note:** The value for `contentHash` should be the SH256SUM for the zip file in the `contentUri` and must be in upper case.
 func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentHash() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
 		if v == nil {

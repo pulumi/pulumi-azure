@@ -16,47 +16,31 @@ public final class KeyVaultContactArgs extends com.pulumi.resources.ResourceArgs
 
     public static final KeyVaultContactArgs Empty = new KeyVaultContactArgs();
 
-    /**
-     * E-mail address of the contact.
-     * 
-     */
     @Import(name="email", required=true)
     private Output<String> email;
 
-    /**
-     * @return E-mail address of the contact.
-     * 
-     */
     public Output<String> email() {
         return this.email;
     }
 
     /**
-     * Name of the contact.
+     * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the contact.
+     * @return Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      * 
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Phone number of the contact.
-     * 
-     */
     @Import(name="phone")
     private @Nullable Output<String> phone;
 
-    /**
-     * @return Phone number of the contact.
-     * 
-     */
     public Optional<Output<String>> phone() {
         return Optional.ofNullable(this.phone);
     }
@@ -87,29 +71,17 @@ public final class KeyVaultContactArgs extends com.pulumi.resources.ResourceArgs
             $ = new KeyVaultContactArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param email E-mail address of the contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(Output<String> email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param email E-mail address of the contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
         /**
-         * @param name Name of the contact.
+         * @param name Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
          * 
          * @return builder
          * 
@@ -120,7 +92,7 @@ public final class KeyVaultContactArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Name of the contact.
+         * @param name Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
          * 
          * @return builder
          * 
@@ -129,23 +101,11 @@ public final class KeyVaultContactArgs extends com.pulumi.resources.ResourceArgs
             return name(Output.of(name));
         }
 
-        /**
-         * @param phone Phone number of the contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phone(@Nullable Output<String> phone) {
             $.phone = phone;
             return this;
         }
 
-        /**
-         * @param phone Phone number of the contact.
-         * 
-         * @return builder
-         * 
-         */
         public Builder phone(String phone) {
             return phone(Output.of(phone));
         }

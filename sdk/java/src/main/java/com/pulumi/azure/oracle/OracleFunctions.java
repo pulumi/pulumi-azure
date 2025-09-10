@@ -9,6 +9,10 @@ import com.pulumi.azure.oracle.inputs.GetAdbsCharacterSetsPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetAdbsNationalCharacterSetsArgs;
 import com.pulumi.azure.oracle.inputs.GetAdbsNationalCharacterSetsPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupPlainArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
+import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsPlainArgs;
 import com.pulumi.azure.oracle.inputs.GetAutonomousDatabasePlainArgs;
 import com.pulumi.azure.oracle.inputs.GetCloudVmClusterArgs;
 import com.pulumi.azure.oracle.inputs.GetCloudVmClusterPlainArgs;
@@ -24,6 +28,8 @@ import com.pulumi.azure.oracle.inputs.GetGiVersionsArgs;
 import com.pulumi.azure.oracle.inputs.GetGiVersionsPlainArgs;
 import com.pulumi.azure.oracle.outputs.GetAdbsCharacterSetsResult;
 import com.pulumi.azure.oracle.outputs.GetAdbsNationalCharacterSetsResult;
+import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseBackupResult;
+import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseBackupsResult;
 import com.pulumi.azure.oracle.outputs.GetAutonomousDatabaseResult;
 import com.pulumi.azure.oracle.outputs.GetCloudVmClusterResult;
 import com.pulumi.azure.oracle.outputs.GetDbNodesResult;
@@ -793,6 +799,496 @@ public final class OracleFunctions {
      */
     public static CompletableFuture<GetAutonomousDatabaseResult> getAutonomousDatabasePlain(GetAutonomousDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", TypeShape.of(GetAutonomousDatabaseResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs args) {
+        return getAutonomousDatabaseBackup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackupPlain(GetAutonomousDatabaseBackupPlainArgs args) {
+        return getAutonomousDatabaseBackupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseBackup:getAutonomousDatabaseBackup", TypeShape.of(GetAutonomousDatabaseBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseBackup:getAutonomousDatabaseBackup", TypeShape.of(GetAutonomousDatabaseBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseBackupResult> getAutonomousDatabaseBackupPlain(GetAutonomousDatabaseBackupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:oracle/getAutonomousDatabaseBackup:getAutonomousDatabaseBackup", TypeShape.of(GetAutonomousDatabaseBackupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs args) {
+        return getAutonomousDatabaseBackups(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackupsPlain(GetAutonomousDatabaseBackupsPlainArgs args) {
+        return getAutonomousDatabaseBackupsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseBackups:getAutonomousDatabaseBackups", TypeShape.of(GetAutonomousDatabaseBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static Output<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabaseBackups:getAutonomousDatabaseBackups", TypeShape.of(GetAutonomousDatabaseBackupsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Autonomous Database Backups.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.oracle.OracleFunctions;
+     * import com.pulumi.azure.oracle.inputs.GetAutonomousDatabaseBackupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database` - 2025-03-01
+     * 
+     */
+    public static CompletableFuture<GetAutonomousDatabaseBackupsResult> getAutonomousDatabaseBackupsPlain(GetAutonomousDatabaseBackupsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:oracle/getAutonomousDatabaseBackups:getAutonomousDatabaseBackups", TypeShape.of(GetAutonomousDatabaseBackupsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Cloud VM Cluster.

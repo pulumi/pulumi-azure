@@ -95,6 +95,7 @@ namespace Pulumi.Azure.Lb
         /// If TCP Reset is enabled for this Load Balancer Rule.
         /// </summary>
         public readonly bool EnableTcpReset;
+        public readonly bool FloatingIpEnabled;
         /// <summary>
         /// The name of the frontend IP configuration to which the rule is associated.
         /// </summary>
@@ -125,6 +126,7 @@ namespace Pulumi.Azure.Lb
         /// The transport protocol for the external endpoint.
         /// </summary>
         public readonly string Protocol;
+        public readonly bool TcpResetEnabled;
 
         [OutputConstructor]
         private GetLBRuleResult(
@@ -137,6 +139,8 @@ namespace Pulumi.Azure.Lb
             bool enableFloatingIp,
 
             bool enableTcpReset,
+
+            bool floatingIpEnabled,
 
             string frontendIpConfigurationName,
 
@@ -154,13 +158,16 @@ namespace Pulumi.Azure.Lb
 
             string probeId,
 
-            string protocol)
+            string protocol,
+
+            bool tcpResetEnabled)
         {
             BackendAddressPoolId = backendAddressPoolId;
             BackendPort = backendPort;
             DisableOutboundSnat = disableOutboundSnat;
             EnableFloatingIp = enableFloatingIp;
             EnableTcpReset = enableTcpReset;
+            FloatingIpEnabled = floatingIpEnabled;
             FrontendIpConfigurationName = frontendIpConfigurationName;
             FrontendPort = frontendPort;
             Id = id;
@@ -170,6 +177,7 @@ namespace Pulumi.Azure.Lb
             Name = name;
             ProbeId = probeId;
             Protocol = protocol;
+            TcpResetEnabled = tcpResetEnabled;
         }
     }
 }

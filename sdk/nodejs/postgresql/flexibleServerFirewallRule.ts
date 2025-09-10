@@ -79,7 +79,7 @@ export class FlexibleServerFirewallRule extends pulumi.CustomResource {
     }
 
     /**
-     * The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      */
     declare public readonly endIpAddress: pulumi.Output<string>;
     /**
@@ -91,7 +91,7 @@ export class FlexibleServerFirewallRule extends pulumi.CustomResource {
      */
     declare public readonly serverId: pulumi.Output<string>;
     /**
-     * The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      */
     declare public readonly startIpAddress: pulumi.Output<string>;
 
@@ -138,7 +138,7 @@ export class FlexibleServerFirewallRule extends pulumi.CustomResource {
  */
 export interface FlexibleServerFirewallRuleState {
     /**
-     * The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      */
     endIpAddress?: pulumi.Input<string>;
     /**
@@ -150,7 +150,7 @@ export interface FlexibleServerFirewallRuleState {
      */
     serverId?: pulumi.Input<string>;
     /**
-     * The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      */
     startIpAddress?: pulumi.Input<string>;
 }
@@ -160,7 +160,7 @@ export interface FlexibleServerFirewallRuleState {
  */
 export interface FlexibleServerFirewallRuleArgs {
     /**
-     * The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      */
     endIpAddress: pulumi.Input<string>;
     /**
@@ -172,7 +172,7 @@ export interface FlexibleServerFirewallRuleArgs {
      */
     serverId: pulumi.Input<string>;
     /**
-     * The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      */
     startIpAddress: pulumi.Input<string>;
 }

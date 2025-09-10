@@ -3824,6 +3824,121 @@ func (o AuthomationRuleActionIncidentArrayOutput) Index(i pulumi.IntInput) Autho
 	}).(AuthomationRuleActionIncidentOutput)
 }
 
+type AuthomationRuleActionIncidentTask struct {
+	// The description of the incident task.
+	Description *string `pulumi:"description"`
+	// The execution order of this action.
+	Order int `pulumi:"order"`
+	// The title of the incident task.
+	Title string `pulumi:"title"`
+}
+
+// AuthomationRuleActionIncidentTaskInput is an input type that accepts AuthomationRuleActionIncidentTaskArgs and AuthomationRuleActionIncidentTaskOutput values.
+// You can construct a concrete instance of `AuthomationRuleActionIncidentTaskInput` via:
+//
+//	AuthomationRuleActionIncidentTaskArgs{...}
+type AuthomationRuleActionIncidentTaskInput interface {
+	pulumi.Input
+
+	ToAuthomationRuleActionIncidentTaskOutput() AuthomationRuleActionIncidentTaskOutput
+	ToAuthomationRuleActionIncidentTaskOutputWithContext(context.Context) AuthomationRuleActionIncidentTaskOutput
+}
+
+type AuthomationRuleActionIncidentTaskArgs struct {
+	// The description of the incident task.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The execution order of this action.
+	Order pulumi.IntInput `pulumi:"order"`
+	// The title of the incident task.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (AuthomationRuleActionIncidentTaskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthomationRuleActionIncidentTask)(nil)).Elem()
+}
+
+func (i AuthomationRuleActionIncidentTaskArgs) ToAuthomationRuleActionIncidentTaskOutput() AuthomationRuleActionIncidentTaskOutput {
+	return i.ToAuthomationRuleActionIncidentTaskOutputWithContext(context.Background())
+}
+
+func (i AuthomationRuleActionIncidentTaskArgs) ToAuthomationRuleActionIncidentTaskOutputWithContext(ctx context.Context) AuthomationRuleActionIncidentTaskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionIncidentTaskOutput)
+}
+
+// AuthomationRuleActionIncidentTaskArrayInput is an input type that accepts AuthomationRuleActionIncidentTaskArray and AuthomationRuleActionIncidentTaskArrayOutput values.
+// You can construct a concrete instance of `AuthomationRuleActionIncidentTaskArrayInput` via:
+//
+//	AuthomationRuleActionIncidentTaskArray{ AuthomationRuleActionIncidentTaskArgs{...} }
+type AuthomationRuleActionIncidentTaskArrayInput interface {
+	pulumi.Input
+
+	ToAuthomationRuleActionIncidentTaskArrayOutput() AuthomationRuleActionIncidentTaskArrayOutput
+	ToAuthomationRuleActionIncidentTaskArrayOutputWithContext(context.Context) AuthomationRuleActionIncidentTaskArrayOutput
+}
+
+type AuthomationRuleActionIncidentTaskArray []AuthomationRuleActionIncidentTaskInput
+
+func (AuthomationRuleActionIncidentTaskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthomationRuleActionIncidentTask)(nil)).Elem()
+}
+
+func (i AuthomationRuleActionIncidentTaskArray) ToAuthomationRuleActionIncidentTaskArrayOutput() AuthomationRuleActionIncidentTaskArrayOutput {
+	return i.ToAuthomationRuleActionIncidentTaskArrayOutputWithContext(context.Background())
+}
+
+func (i AuthomationRuleActionIncidentTaskArray) ToAuthomationRuleActionIncidentTaskArrayOutputWithContext(ctx context.Context) AuthomationRuleActionIncidentTaskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthomationRuleActionIncidentTaskArrayOutput)
+}
+
+type AuthomationRuleActionIncidentTaskOutput struct{ *pulumi.OutputState }
+
+func (AuthomationRuleActionIncidentTaskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthomationRuleActionIncidentTask)(nil)).Elem()
+}
+
+func (o AuthomationRuleActionIncidentTaskOutput) ToAuthomationRuleActionIncidentTaskOutput() AuthomationRuleActionIncidentTaskOutput {
+	return o
+}
+
+func (o AuthomationRuleActionIncidentTaskOutput) ToAuthomationRuleActionIncidentTaskOutputWithContext(ctx context.Context) AuthomationRuleActionIncidentTaskOutput {
+	return o
+}
+
+// The description of the incident task.
+func (o AuthomationRuleActionIncidentTaskOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncidentTask) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The execution order of this action.
+func (o AuthomationRuleActionIncidentTaskOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncidentTask) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The title of the incident task.
+func (o AuthomationRuleActionIncidentTaskOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthomationRuleActionIncidentTask) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type AuthomationRuleActionIncidentTaskArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthomationRuleActionIncidentTaskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthomationRuleActionIncidentTask)(nil)).Elem()
+}
+
+func (o AuthomationRuleActionIncidentTaskArrayOutput) ToAuthomationRuleActionIncidentTaskArrayOutput() AuthomationRuleActionIncidentTaskArrayOutput {
+	return o
+}
+
+func (o AuthomationRuleActionIncidentTaskArrayOutput) ToAuthomationRuleActionIncidentTaskArrayOutputWithContext(ctx context.Context) AuthomationRuleActionIncidentTaskArrayOutput {
+	return o
+}
+
+func (o AuthomationRuleActionIncidentTaskArrayOutput) Index(i pulumi.IntInput) AuthomationRuleActionIncidentTaskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthomationRuleActionIncidentTask {
+		return vs[0].([]AuthomationRuleActionIncidentTask)[vs[1].(int)]
+	}).(AuthomationRuleActionIncidentTaskOutput)
+}
+
 type AuthomationRuleActionPlaybook struct {
 	// The ID of the Logic App that defines the playbook's logic.
 	LogicAppId string `pulumi:"logicAppId"`
@@ -4106,6 +4221,121 @@ func (o AutomationRuleActionIncidentArrayOutput) Index(i pulumi.IntInput) Automa
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleActionIncident {
 		return vs[0].([]AutomationRuleActionIncident)[vs[1].(int)]
 	}).(AutomationRuleActionIncidentOutput)
+}
+
+type AutomationRuleActionIncidentTask struct {
+	// The description of the incident task.
+	Description *string `pulumi:"description"`
+	// The execution order of this action.
+	Order int `pulumi:"order"`
+	// The title of the incident task.
+	Title string `pulumi:"title"`
+}
+
+// AutomationRuleActionIncidentTaskInput is an input type that accepts AutomationRuleActionIncidentTaskArgs and AutomationRuleActionIncidentTaskOutput values.
+// You can construct a concrete instance of `AutomationRuleActionIncidentTaskInput` via:
+//
+//	AutomationRuleActionIncidentTaskArgs{...}
+type AutomationRuleActionIncidentTaskInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionIncidentTaskOutput() AutomationRuleActionIncidentTaskOutput
+	ToAutomationRuleActionIncidentTaskOutputWithContext(context.Context) AutomationRuleActionIncidentTaskOutput
+}
+
+type AutomationRuleActionIncidentTaskArgs struct {
+	// The description of the incident task.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The execution order of this action.
+	Order pulumi.IntInput `pulumi:"order"`
+	// The title of the incident task.
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (AutomationRuleActionIncidentTaskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionIncidentTask)(nil)).Elem()
+}
+
+func (i AutomationRuleActionIncidentTaskArgs) ToAutomationRuleActionIncidentTaskOutput() AutomationRuleActionIncidentTaskOutput {
+	return i.ToAutomationRuleActionIncidentTaskOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionIncidentTaskArgs) ToAutomationRuleActionIncidentTaskOutputWithContext(ctx context.Context) AutomationRuleActionIncidentTaskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionIncidentTaskOutput)
+}
+
+// AutomationRuleActionIncidentTaskArrayInput is an input type that accepts AutomationRuleActionIncidentTaskArray and AutomationRuleActionIncidentTaskArrayOutput values.
+// You can construct a concrete instance of `AutomationRuleActionIncidentTaskArrayInput` via:
+//
+//	AutomationRuleActionIncidentTaskArray{ AutomationRuleActionIncidentTaskArgs{...} }
+type AutomationRuleActionIncidentTaskArrayInput interface {
+	pulumi.Input
+
+	ToAutomationRuleActionIncidentTaskArrayOutput() AutomationRuleActionIncidentTaskArrayOutput
+	ToAutomationRuleActionIncidentTaskArrayOutputWithContext(context.Context) AutomationRuleActionIncidentTaskArrayOutput
+}
+
+type AutomationRuleActionIncidentTaskArray []AutomationRuleActionIncidentTaskInput
+
+func (AutomationRuleActionIncidentTaskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleActionIncidentTask)(nil)).Elem()
+}
+
+func (i AutomationRuleActionIncidentTaskArray) ToAutomationRuleActionIncidentTaskArrayOutput() AutomationRuleActionIncidentTaskArrayOutput {
+	return i.ToAutomationRuleActionIncidentTaskArrayOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleActionIncidentTaskArray) ToAutomationRuleActionIncidentTaskArrayOutputWithContext(ctx context.Context) AutomationRuleActionIncidentTaskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleActionIncidentTaskArrayOutput)
+}
+
+type AutomationRuleActionIncidentTaskOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionIncidentTaskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleActionIncidentTask)(nil)).Elem()
+}
+
+func (o AutomationRuleActionIncidentTaskOutput) ToAutomationRuleActionIncidentTaskOutput() AutomationRuleActionIncidentTaskOutput {
+	return o
+}
+
+func (o AutomationRuleActionIncidentTaskOutput) ToAutomationRuleActionIncidentTaskOutputWithContext(ctx context.Context) AutomationRuleActionIncidentTaskOutput {
+	return o
+}
+
+// The description of the incident task.
+func (o AutomationRuleActionIncidentTaskOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleActionIncidentTask) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The execution order of this action.
+func (o AutomationRuleActionIncidentTaskOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v AutomationRuleActionIncidentTask) int { return v.Order }).(pulumi.IntOutput)
+}
+
+// The title of the incident task.
+func (o AutomationRuleActionIncidentTaskOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleActionIncidentTask) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type AutomationRuleActionIncidentTaskArrayOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleActionIncidentTaskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutomationRuleActionIncidentTask)(nil)).Elem()
+}
+
+func (o AutomationRuleActionIncidentTaskArrayOutput) ToAutomationRuleActionIncidentTaskArrayOutput() AutomationRuleActionIncidentTaskArrayOutput {
+	return o
+}
+
+func (o AutomationRuleActionIncidentTaskArrayOutput) ToAutomationRuleActionIncidentTaskArrayOutputWithContext(ctx context.Context) AutomationRuleActionIncidentTaskArrayOutput {
+	return o
+}
+
+func (o AutomationRuleActionIncidentTaskArrayOutput) Index(i pulumi.IntInput) AutomationRuleActionIncidentTaskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutomationRuleActionIncidentTask {
+		return vs[0].([]AutomationRuleActionIncidentTask)[vs[1].(int)]
+	}).(AutomationRuleActionIncidentTaskOutput)
 }
 
 type AutomationRuleActionPlaybook struct {
@@ -6542,10 +6772,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledSentinelEntityMappingArrayInput)(nil)).Elem(), AlertRuleScheduledSentinelEntityMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionIncidentInput)(nil)).Elem(), AuthomationRuleActionIncidentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionIncidentArrayInput)(nil)).Elem(), AuthomationRuleActionIncidentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionIncidentTaskInput)(nil)).Elem(), AuthomationRuleActionIncidentTaskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionIncidentTaskArrayInput)(nil)).Elem(), AuthomationRuleActionIncidentTaskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionPlaybookInput)(nil)).Elem(), AuthomationRuleActionPlaybookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionPlaybookArrayInput)(nil)).Elem(), AuthomationRuleActionPlaybookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionIncidentInput)(nil)).Elem(), AutomationRuleActionIncidentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionIncidentArrayInput)(nil)).Elem(), AutomationRuleActionIncidentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionIncidentTaskInput)(nil)).Elem(), AutomationRuleActionIncidentTaskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionIncidentTaskArrayInput)(nil)).Elem(), AutomationRuleActionIncidentTaskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionPlaybookInput)(nil)).Elem(), AutomationRuleActionPlaybookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionPlaybookArrayInput)(nil)).Elem(), AutomationRuleActionPlaybookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetadataAuthorInput)(nil)).Elem(), MetadataAuthorArgs{})
@@ -6640,10 +6874,14 @@ func init() {
 	pulumi.RegisterOutputType(AlertRuleScheduledSentinelEntityMappingArrayOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleActionIncidentOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleActionIncidentArrayOutput{})
+	pulumi.RegisterOutputType(AuthomationRuleActionIncidentTaskOutput{})
+	pulumi.RegisterOutputType(AuthomationRuleActionIncidentTaskArrayOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleActionPlaybookOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleActionPlaybookArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRuleActionIncidentOutput{})
 	pulumi.RegisterOutputType(AutomationRuleActionIncidentArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionIncidentTaskOutput{})
+	pulumi.RegisterOutputType(AutomationRuleActionIncidentTaskArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRuleActionPlaybookOutput{})
 	pulumi.RegisterOutputType(AutomationRuleActionPlaybookArrayOutput{})
 	pulumi.RegisterOutputType(MetadataAuthorOutput{})

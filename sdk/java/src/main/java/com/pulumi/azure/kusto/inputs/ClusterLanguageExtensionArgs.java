@@ -14,22 +14,30 @@ public final class ClusterLanguageExtensionArgs extends com.pulumi.resources.Res
 
     public static final ClusterLanguageExtensionArgs Empty = new ClusterLanguageExtensionArgs();
 
+    /**
+     * The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+     * 
+     */
     @Import(name="image", required=true)
     private Output<String> image;
 
+    /**
+     * @return The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+     * 
+     */
     public Output<String> image() {
         return this.image;
     }
 
     /**
-     * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+     * The name of the language extension. Possible values are `PYTHON` and `R`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+     * @return The name of the language extension. Possible values are `PYTHON` and `R`.
      * 
      */
     public Output<String> name() {
@@ -61,17 +69,29 @@ public final class ClusterLanguageExtensionArgs extends com.pulumi.resources.Res
             $ = new ClusterLanguageExtensionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param image The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(Output<String> image) {
             $.image = image;
             return this;
         }
 
+        /**
+         * @param image The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder image(String image) {
             return image(Output.of(image));
         }
 
         /**
-         * @param name The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+         * @param name The name of the language extension. Possible values are `PYTHON` and `R`.
          * 
          * @return builder
          * 
@@ -82,7 +102,7 @@ public final class ClusterLanguageExtensionArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+         * @param name The name of the language extension. Possible values are `PYTHON` and `R`.
          * 
          * @return builder
          * 

@@ -10,6 +10,11 @@ export type AutonomousDatabase = import("./autonomousDatabase").AutonomousDataba
 export const AutonomousDatabase: typeof import("./autonomousDatabase").AutonomousDatabase = null as any;
 utilities.lazyLoad(exports, ["AutonomousDatabase"], () => require("./autonomousDatabase"));
 
+export { AutonomousDatabaseBackupArgs, AutonomousDatabaseBackupState } from "./autonomousDatabaseBackup";
+export type AutonomousDatabaseBackup = import("./autonomousDatabaseBackup").AutonomousDatabaseBackup;
+export const AutonomousDatabaseBackup: typeof import("./autonomousDatabaseBackup").AutonomousDatabaseBackup = null as any;
+utilities.lazyLoad(exports, ["AutonomousDatabaseBackup"], () => require("./autonomousDatabaseBackup"));
+
 export { CloudVmClusterArgs, CloudVmClusterState } from "./cloudVmCluster";
 export type CloudVmCluster = import("./cloudVmCluster").CloudVmCluster;
 export const CloudVmCluster: typeof import("./cloudVmCluster").CloudVmCluster = null as any;
@@ -34,6 +39,16 @@ export { GetAutonomousDatabaseArgs, GetAutonomousDatabaseResult, GetAutonomousDa
 export const getAutonomousDatabase: typeof import("./getAutonomousDatabase").getAutonomousDatabase = null as any;
 export const getAutonomousDatabaseOutput: typeof import("./getAutonomousDatabase").getAutonomousDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getAutonomousDatabase","getAutonomousDatabaseOutput"], () => require("./getAutonomousDatabase"));
+
+export { GetAutonomousDatabaseBackupArgs, GetAutonomousDatabaseBackupResult, GetAutonomousDatabaseBackupOutputArgs } from "./getAutonomousDatabaseBackup";
+export const getAutonomousDatabaseBackup: typeof import("./getAutonomousDatabaseBackup").getAutonomousDatabaseBackup = null as any;
+export const getAutonomousDatabaseBackupOutput: typeof import("./getAutonomousDatabaseBackup").getAutonomousDatabaseBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getAutonomousDatabaseBackup","getAutonomousDatabaseBackupOutput"], () => require("./getAutonomousDatabaseBackup"));
+
+export { GetAutonomousDatabaseBackupsArgs, GetAutonomousDatabaseBackupsResult, GetAutonomousDatabaseBackupsOutputArgs } from "./getAutonomousDatabaseBackups";
+export const getAutonomousDatabaseBackups: typeof import("./getAutonomousDatabaseBackups").getAutonomousDatabaseBackups = null as any;
+export const getAutonomousDatabaseBackupsOutput: typeof import("./getAutonomousDatabaseBackups").getAutonomousDatabaseBackupsOutput = null as any;
+utilities.lazyLoad(exports, ["getAutonomousDatabaseBackups","getAutonomousDatabaseBackupsOutput"], () => require("./getAutonomousDatabaseBackups"));
 
 export { GetCloudVmClusterArgs, GetCloudVmClusterResult, GetCloudVmClusterOutputArgs } from "./getCloudVmCluster";
 export const getCloudVmCluster: typeof import("./getCloudVmCluster").getCloudVmCluster = null as any;
@@ -72,6 +87,8 @@ const _module = {
         switch (type) {
             case "azure:oracle/autonomousDatabase:AutonomousDatabase":
                 return new AutonomousDatabase(name, <any>undefined, { urn })
+            case "azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup":
+                return new AutonomousDatabaseBackup(name, <any>undefined, { urn })
             case "azure:oracle/cloudVmCluster:CloudVmCluster":
                 return new CloudVmCluster(name, <any>undefined, { urn })
             case "azure:oracle/exadataInfrastructure:ExadataInfrastructure":
@@ -82,5 +99,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabase", _module)
+pulumi.runtime.registerResourceModule("azure", "oracle/autonomousDatabaseBackup", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/cloudVmCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "oracle/exadataInfrastructure", _module)

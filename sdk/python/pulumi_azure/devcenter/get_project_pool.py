@@ -26,7 +26,7 @@ class GetProjectPoolResult:
     """
     A collection of values returned by getProjectPool.
     """
-    def __init__(__self__, dev_box_definition_name=None, dev_center_attached_network_name=None, dev_center_project_id=None, id=None, local_administrator_enabled=None, location=None, name=None, stop_on_disconnect_grace_period_minutes=None, tags=None):
+    def __init__(__self__, dev_box_definition_name=None, dev_center_attached_network_name=None, dev_center_project_id=None, id=None, local_administrator_enabled=None, location=None, name=None, single_sign_on_enabled=None, stop_on_disconnect_grace_period_minutes=None, tags=None):
         if dev_box_definition_name and not isinstance(dev_box_definition_name, str):
             raise TypeError("Expected argument 'dev_box_definition_name' to be a str")
         pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
@@ -48,6 +48,9 @@ class GetProjectPoolResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if single_sign_on_enabled and not isinstance(single_sign_on_enabled, bool):
+            raise TypeError("Expected argument 'single_sign_on_enabled' to be a bool")
+        pulumi.set(__self__, "single_sign_on_enabled", single_sign_on_enabled)
         if stop_on_disconnect_grace_period_minutes and not isinstance(stop_on_disconnect_grace_period_minutes, int):
             raise TypeError("Expected argument 'stop_on_disconnect_grace_period_minutes' to be a int")
         pulumi.set(__self__, "stop_on_disconnect_grace_period_minutes", stop_on_disconnect_grace_period_minutes)
@@ -106,6 +109,14 @@ class GetProjectPoolResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="singleSignOnEnabled")
+    def single_sign_on_enabled(self) -> _builtins.bool:
+        """
+        Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled.
+        """
+        return pulumi.get(self, "single_sign_on_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="stopOnDisconnectGracePeriodMinutes")
     def stop_on_disconnect_grace_period_minutes(self) -> _builtins.int:
         """
@@ -135,6 +146,7 @@ class AwaitableGetProjectPoolResult(GetProjectPoolResult):
             local_administrator_enabled=self.local_administrator_enabled,
             location=self.location,
             name=self.name,
+            single_sign_on_enabled=self.single_sign_on_enabled,
             stop_on_disconnect_grace_period_minutes=self.stop_on_disconnect_grace_period_minutes,
             tags=self.tags)
 
@@ -181,6 +193,7 @@ def get_project_pool(dev_center_project_id: Optional[_builtins.str] = None,
         local_administrator_enabled=pulumi.get(__ret__, 'local_administrator_enabled'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        single_sign_on_enabled=pulumi.get(__ret__, 'single_sign_on_enabled'),
         stop_on_disconnect_grace_period_minutes=pulumi.get(__ret__, 'stop_on_disconnect_grace_period_minutes'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_project_pool_output(dev_center_project_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -224,5 +237,6 @@ def get_project_pool_output(dev_center_project_id: Optional[pulumi.Input[_builti
         local_administrator_enabled=pulumi.get(__response__, 'local_administrator_enabled'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        single_sign_on_enabled=pulumi.get(__response__, 'single_sign_on_enabled'),
         stop_on_disconnect_grace_period_minutes=pulumi.get(__response__, 'stop_on_disconnect_grace_period_minutes'),
         tags=pulumi.get(__response__, 'tags')))

@@ -144,12 +144,14 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     declare public readonly adminSshKeys: pulumi.Output<outputs.compute.LinuxVirtualMachineAdminSshKey[] | undefined>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
-    declare public readonly adminUsername: pulumi.Output<string>;
+    declare public readonly adminUsername: pulumi.Output<string | undefined>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
-    declare public readonly allowExtensionOperations: pulumi.Output<boolean | undefined>;
+    declare public readonly allowExtensionOperations: pulumi.Output<boolean>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
@@ -193,7 +195,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
-    declare public readonly disablePasswordAuthentication: pulumi.Output<boolean | undefined>;
+    declare public readonly disablePasswordAuthentication: pulumi.Output<boolean>;
     /**
      * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
      */
@@ -257,17 +259,23 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly osImageNotification: pulumi.Output<outputs.compute.LinuxVirtualMachineOsImageNotification | undefined>;
     /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+     *
+     * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+     */
+    declare public readonly osManagedDiskId: pulumi.Output<string>;
+    /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
      * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
-    declare public readonly patchAssessmentMode: pulumi.Output<string | undefined>;
+    declare public readonly patchAssessmentMode: pulumi.Output<string>;
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      *
      * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
      */
-    declare public readonly patchMode: pulumi.Output<string | undefined>;
+    declare public readonly patchMode: pulumi.Output<string>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
@@ -293,7 +301,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      *
      * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
-    declare public readonly provisionVmAgent: pulumi.Output<boolean | undefined>;
+    declare public readonly provisionVmAgent: pulumi.Output<boolean>;
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
@@ -422,6 +430,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
             resourceInputs["osDisk"] = state?.osDisk;
             resourceInputs["osImageNotification"] = state?.osImageNotification;
+            resourceInputs["osManagedDiskId"] = state?.osManagedDiskId;
             resourceInputs["patchAssessmentMode"] = state?.patchAssessmentMode;
             resourceInputs["patchMode"] = state?.patchMode;
             resourceInputs["plan"] = state?.plan;
@@ -450,9 +459,6 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as LinuxVirtualMachineArgs | undefined;
-            if (args?.adminUsername === undefined && !opts.urn) {
-                throw new Error("Missing required property 'adminUsername'");
-            }
             if (args?.networkInterfaceIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceIds'");
             }
@@ -493,6 +499,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = args?.networkInterfaceIds;
             resourceInputs["osDisk"] = args?.osDisk;
             resourceInputs["osImageNotification"] = args?.osImageNotification;
+            resourceInputs["osManagedDiskId"] = args?.osManagedDiskId;
             resourceInputs["patchAssessmentMode"] = args?.patchAssessmentMode;
             resourceInputs["patchMode"] = args?.patchMode;
             resourceInputs["plan"] = args?.plan;
@@ -550,6 +557,8 @@ export interface LinuxVirtualMachineState {
     adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[]>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
     adminUsername?: pulumi.Input<string>;
     /**
@@ -662,6 +671,12 @@ export interface LinuxVirtualMachineState {
      * A `osImageNotification` block as defined below.
      */
     osImageNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsImageNotification>;
+    /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+     *
+     * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+     */
+    osManagedDiskId?: pulumi.Input<string>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
@@ -811,8 +826,10 @@ export interface LinuxVirtualMachineArgs {
     adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineAdminSshKey>[]>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
-    adminUsername: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
@@ -923,6 +940,12 @@ export interface LinuxVirtualMachineArgs {
      * A `osImageNotification` block as defined below.
      */
     osImageNotification?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsImageNotification>;
+    /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+     *
+     * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+     */
+    osManagedDiskId?: pulumi.Input<string>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *

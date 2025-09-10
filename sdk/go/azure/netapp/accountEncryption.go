@@ -125,6 +125,39 @@ import (
 //				NetappAccountId:        exampleAccount.ID(),
 //				UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
 //				EncryptionKey:          exampleKey.VersionlessId,
+//				FederatedClientId:      exampleUserAssignedIdentity.ClientId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Cross-Tenant Usage
+//
+// For scenarios where the key vault is in a different Entra ID tenant:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := netapp.NewAccountEncryption(ctx, "cross_tenant", &netapp.AccountEncryptionArgs{
+//				NetappAccountId:               pulumi.Any(example.Id),
+//				UserAssignedIdentityId:        pulumi.Any(exampleAzurermUserAssignedIdentity.Id),
+//				EncryptionKey:                 pulumi.String("https://keyvault-in-other-tenant.vault.azure.net/keys/encryption-key"),
+//				FederatedClientId:             pulumi.String("12345678-1234-1234-1234-123456789012"),
+//				CrossTenantKeyVaultResourceId: pulumi.String("/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/remote-rg/providers/Microsoft.KeyVault/vaults/keyvault-in-other-tenant"),
 //			})
 //			if err != nil {
 //				return err
@@ -140,7 +173,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2025-01-01
+// * `Microsoft.NetApp` - 2025-06-01
 //
 // ## Import
 //
@@ -152,8 +185,12 @@ import (
 type AccountEncryption struct {
 	pulumi.CustomResourceState
 
+	// The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+	CrossTenantKeyVaultResourceId pulumi.StringPtrOutput `pulumi:"crossTenantKeyVaultResourceId"`
 	// Specify the versionless ID of the encryption key.
 	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
+	// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+	FederatedClientId pulumi.StringPtrOutput `pulumi:"federatedClientId"`
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId pulumi.StringOutput `pulumi:"netappAccountId"`
 	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
@@ -198,8 +235,12 @@ func GetAccountEncryption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountEncryption resources.
 type accountEncryptionState struct {
+	// The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+	CrossTenantKeyVaultResourceId *string `pulumi:"crossTenantKeyVaultResourceId"`
 	// Specify the versionless ID of the encryption key.
 	EncryptionKey *string `pulumi:"encryptionKey"`
+	// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+	FederatedClientId *string `pulumi:"federatedClientId"`
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId *string `pulumi:"netappAccountId"`
 	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
@@ -209,8 +250,12 @@ type accountEncryptionState struct {
 }
 
 type AccountEncryptionState struct {
+	// The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+	CrossTenantKeyVaultResourceId pulumi.StringPtrInput
 	// Specify the versionless ID of the encryption key.
 	EncryptionKey pulumi.StringPtrInput
+	// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+	FederatedClientId pulumi.StringPtrInput
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId pulumi.StringPtrInput
 	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
@@ -224,8 +269,12 @@ func (AccountEncryptionState) ElementType() reflect.Type {
 }
 
 type accountEncryptionArgs struct {
+	// The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+	CrossTenantKeyVaultResourceId *string `pulumi:"crossTenantKeyVaultResourceId"`
 	// Specify the versionless ID of the encryption key.
 	EncryptionKey string `pulumi:"encryptionKey"`
+	// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+	FederatedClientId *string `pulumi:"federatedClientId"`
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId string `pulumi:"netappAccountId"`
 	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
@@ -236,8 +285,12 @@ type accountEncryptionArgs struct {
 
 // The set of arguments for constructing a AccountEncryption resource.
 type AccountEncryptionArgs struct {
+	// The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+	CrossTenantKeyVaultResourceId pulumi.StringPtrInput
 	// Specify the versionless ID of the encryption key.
 	EncryptionKey pulumi.StringInput
+	// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+	FederatedClientId pulumi.StringPtrInput
 	// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
 	NetappAccountId pulumi.StringInput
 	// The ID of the System Assigned Manged Identity. Conflicts with `userAssignedIdentityId`.
@@ -333,9 +386,19 @@ func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx contex
 	return o
 }
 
+// The full resource ID of the cross-tenant key vault. This is recommended when using `federatedClientId` for cross-tenant scenarios to ensure proper validation by Azure APIs.
+func (o AccountEncryptionOutput) CrossTenantKeyVaultResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) pulumi.StringPtrOutput { return v.CrossTenantKeyVaultResourceId }).(pulumi.StringPtrOutput)
+}
+
 // Specify the versionless ID of the encryption key.
 func (o AccountEncryptionOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountEncryption) pulumi.StringOutput { return v.EncryptionKey }).(pulumi.StringOutput)
+}
+
+// The Client ID of the multi-tenant Entra ID application used to access cross-tenant key vaults. This is only required when accessing a key vault in a different tenant than the NetApp account.
+func (o AccountEncryptionOutput) FederatedClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) pulumi.StringPtrOutput { return v.FederatedClientId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.

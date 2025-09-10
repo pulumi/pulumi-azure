@@ -51,19 +51,21 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string>? OperationName { get; set; }
 
         /// <summary>
-        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
         /// </summary>
         [Input("recommendationCategory")]
         public Input<string>? RecommendationCategory { get; set; }
 
         /// <summary>
-        /// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+        /// The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+        /// 
+        /// &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
         /// </summary>
         [Input("recommendationImpact")]
         public Input<string>? RecommendationImpact { get; set; }
 
         /// <summary>
-        /// The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+        /// The recommendation type of the event.
         /// </summary>
         [Input("recommendationType")]
         public Input<string>? RecommendationType { get; set; }

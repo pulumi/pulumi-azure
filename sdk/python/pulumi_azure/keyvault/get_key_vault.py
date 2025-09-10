@@ -27,7 +27,7 @@ class GetKeyVaultResult:
     """
     A collection of values returned by getKeyVault.
     """
-    def __init__(__self__, access_policies=None, enable_rbac_authorization=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, public_network_access_enabled=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, tags=None, tenant_id=None, vault_uri=None):
+    def __init__(__self__, access_policies=None, enable_rbac_authorization=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, public_network_access_enabled=None, purge_protection_enabled=None, rbac_authorization_enabled=None, resource_group_name=None, sku_name=None, tags=None, tenant_id=None, vault_uri=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError("Expected argument 'access_policies' to be a list")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -61,6 +61,9 @@ class GetKeyVaultResult:
         if purge_protection_enabled and not isinstance(purge_protection_enabled, bool):
             raise TypeError("Expected argument 'purge_protection_enabled' to be a bool")
         pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
+        if rbac_authorization_enabled and not isinstance(rbac_authorization_enabled, bool):
+            raise TypeError("Expected argument 'rbac_authorization_enabled' to be a bool")
+        pulumi.set(__self__, "rbac_authorization_enabled", rbac_authorization_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -87,6 +90,7 @@ class GetKeyVaultResult:
 
     @_builtins.property
     @pulumi.getter(name="enableRbacAuthorization")
+    @_utilities.deprecated("""the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider.""")
     def enable_rbac_authorization(self) -> _builtins.bool:
         """
         Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
@@ -160,6 +164,11 @@ class GetKeyVaultResult:
         return pulumi.get(self, "purge_protection_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="rbacAuthorizationEnabled")
+    def rbac_authorization_enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "rbac_authorization_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> _builtins.str:
         return pulumi.get(self, "resource_group_name")
@@ -214,6 +223,7 @@ class AwaitableGetKeyVaultResult(GetKeyVaultResult):
             network_acls=self.network_acls,
             public_network_access_enabled=self.public_network_access_enabled,
             purge_protection_enabled=self.purge_protection_enabled,
+            rbac_authorization_enabled=self.rbac_authorization_enabled,
             resource_group_name=self.resource_group_name,
             sku_name=self.sku_name,
             tags=self.tags,
@@ -260,6 +270,7 @@ def get_key_vault(name: Optional[_builtins.str] = None,
         network_acls=pulumi.get(__ret__, 'network_acls'),
         public_network_access_enabled=pulumi.get(__ret__, 'public_network_access_enabled'),
         purge_protection_enabled=pulumi.get(__ret__, 'purge_protection_enabled'),
+        rbac_authorization_enabled=pulumi.get(__ret__, 'rbac_authorization_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -303,6 +314,7 @@ def get_key_vault_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         network_acls=pulumi.get(__response__, 'network_acls'),
         public_network_access_enabled=pulumi.get(__response__, 'public_network_access_enabled'),
         purge_protection_enabled=pulumi.get(__response__, 'purge_protection_enabled'),
+        rbac_authorization_enabled=pulumi.get(__response__, 'rbac_authorization_enabled'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         sku_name=pulumi.get(__response__, 'sku_name'),
         tags=pulumi.get(__response__, 'tags'),

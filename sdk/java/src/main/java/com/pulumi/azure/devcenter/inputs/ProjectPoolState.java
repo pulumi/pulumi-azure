@@ -128,6 +128,21 @@ public final class ProjectPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="singleSignOnEnabled")
+    private @Nullable Output<Boolean> singleSignOnEnabled;
+
+    /**
+     * @return Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> singleSignOnEnabled() {
+        return Optional.ofNullable(this.singleSignOnEnabled);
+    }
+
+    /**
      * The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
      * 
      */
@@ -167,6 +182,7 @@ public final class ProjectPoolState extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.managedVirtualNetworkRegions = $.managedVirtualNetworkRegions;
         this.name = $.name;
+        this.singleSignOnEnabled = $.singleSignOnEnabled;
         this.stopOnDisconnectGracePeriodMinutes = $.stopOnDisconnectGracePeriodMinutes;
         this.tags = $.tags;
     }
@@ -338,6 +354,27 @@ public final class ProjectPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param singleSignOnEnabled Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder singleSignOnEnabled(@Nullable Output<Boolean> singleSignOnEnabled) {
+            $.singleSignOnEnabled = singleSignOnEnabled;
+            return this;
+        }
+
+        /**
+         * @param singleSignOnEnabled Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder singleSignOnEnabled(Boolean singleSignOnEnabled) {
+            return singleSignOnEnabled(Output.of(singleSignOnEnabled));
         }
 
         /**

@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.sentinel.AuthomationRuleArgs;
 import com.pulumi.azure.sentinel.inputs.AuthomationRuleState;
 import com.pulumi.azure.sentinel.outputs.AuthomationRuleActionIncident;
+import com.pulumi.azure.sentinel.outputs.AuthomationRuleActionIncidentTask;
 import com.pulumi.azure.sentinel.outputs.AuthomationRuleActionPlaybook;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -109,6 +110,20 @@ import javax.annotation.Nullable;
 @Deprecated /* azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule */
 @ResourceType(type="azure:sentinel/authomationRule:AuthomationRule")
 public class AuthomationRule extends com.pulumi.resources.CustomResource {
+    /**
+     * One or more `action_incident_task` blocks as defined below.
+     * 
+     */
+    @Export(name="actionIncidentTasks", refs={List.class,AuthomationRuleActionIncidentTask.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AuthomationRuleActionIncidentTask>> actionIncidentTasks;
+
+    /**
+     * @return One or more `action_incident_task` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<AuthomationRuleActionIncidentTask>>> actionIncidentTasks() {
+        return Codegen.optional(this.actionIncidentTasks);
+    }
     /**
      * One or more `action_incident` blocks as defined below.
      * 

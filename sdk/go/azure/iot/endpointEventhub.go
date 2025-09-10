@@ -128,6 +128,10 @@ type EndpointEventhub struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 }
 
 // NewEndpointEventhub registers a new resource with the given unique name, arguments, and options.
@@ -191,6 +195,10 @@ type endpointEventhubState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 type EndpointEventhubState struct {
@@ -212,6 +220,10 @@ type EndpointEventhubState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (EndpointEventhubState) ElementType() reflect.Type {
@@ -237,6 +249,10 @@ type endpointEventhubArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a EndpointEventhub resource.
@@ -259,6 +275,10 @@ type EndpointEventhubArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (EndpointEventhubArgs) ElementType() reflect.Type {
@@ -388,6 +408,13 @@ func (o EndpointEventhubOutput) Name() pulumi.StringOutput {
 // The name of the resource group under which the Event Hub has been created. Changing this forces a new resource to be created.
 func (o EndpointEventhubOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointEventhub) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The subscription ID for the endpoint.
+//
+// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+func (o EndpointEventhubOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointEventhub) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 type EndpointEventhubArrayOutput struct{ *pulumi.OutputState }

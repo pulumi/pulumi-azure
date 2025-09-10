@@ -56,6 +56,10 @@ type EndpointCosmosdbAccount struct {
 	//
 	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey pulumi.StringPtrOutput `pulumi:"secondaryKey"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 }
 
 // NewEndpointCosmosdbAccount registers a new resource with the given unique name, arguments, and options.
@@ -144,6 +148,10 @@ type endpointCosmosdbAccountState struct {
 	//
 	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey *string `pulumi:"secondaryKey"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 type EndpointCosmosdbAccountState struct {
@@ -177,6 +185,10 @@ type EndpointCosmosdbAccountState struct {
 	//
 	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey pulumi.StringPtrInput
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (EndpointCosmosdbAccountState) ElementType() reflect.Type {
@@ -214,6 +226,10 @@ type endpointCosmosdbAccountArgs struct {
 	//
 	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey *string `pulumi:"secondaryKey"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a EndpointCosmosdbAccount resource.
@@ -248,6 +264,10 @@ type EndpointCosmosdbAccountArgs struct {
 	//
 	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey pulumi.StringPtrInput
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (EndpointCosmosdbAccountArgs) ElementType() reflect.Type {
@@ -401,6 +421,13 @@ func (o EndpointCosmosdbAccountOutput) ResourceGroupName() pulumi.StringOutput {
 // > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 func (o EndpointCosmosdbAccountOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCosmosdbAccount) pulumi.StringPtrOutput { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+// The subscription ID for the endpoint.
+//
+// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+func (o EndpointCosmosdbAccountOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointCosmosdbAccount) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 type EndpointCosmosdbAccountArrayOutput struct{ *pulumi.OutputState }

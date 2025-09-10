@@ -2348,7 +2348,7 @@ type LinuxVirtualMachineOsDisk struct {
 	Caching string `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+	// > **Note:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
 	DiffDiskSettings *LinuxVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	//
@@ -2361,6 +2361,8 @@ type LinuxVirtualMachineOsDisk struct {
 	// The ID of the OS disk.
 	Id *string `pulumi:"id"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+	//
+	// > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
 	Name *string `pulumi:"name"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	//
@@ -2373,7 +2375,9 @@ type LinuxVirtualMachineOsDisk struct {
 	// > **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-	StorageAccountType string `pulumi:"storageAccountType"`
+	//
+	// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	//
 	// > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -2396,7 +2400,7 @@ type LinuxVirtualMachineOsDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+	// > **Note:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
 	DiffDiskSettings LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	//
@@ -2409,6 +2413,8 @@ type LinuxVirtualMachineOsDiskArgs struct {
 	// The ID of the OS disk.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+	//
+	// > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	//
@@ -2421,7 +2427,9 @@ type LinuxVirtualMachineOsDiskArgs struct {
 	// > **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	//
+	// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	//
 	// > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -2512,7 +2520,7 @@ func (o LinuxVirtualMachineOsDiskOutput) Caching() pulumi.StringOutput {
 
 // A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+// > **Note:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
 func (o LinuxVirtualMachineOsDiskOutput) DiffDiskSettings() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings {
 		return v.DiffDiskSettings
@@ -2539,6 +2547,8 @@ func (o LinuxVirtualMachineOsDiskOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+//
+// > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
 func (o LinuxVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2560,8 +2570,10 @@ func (o LinuxVirtualMachineOsDiskOutput) SecurityEncryptionType() pulumi.StringP
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+//
+// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+func (o LinuxVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineOsDisk) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
 
 // Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -2607,7 +2619,7 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
 
 // A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+// > **Note:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
 func (o LinuxVirtualMachineOsDiskPtrOutput) DiffDiskSettings() LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *LinuxVirtualMachineOsDiskDiffDiskSettings {
 		if v == nil {
@@ -2652,6 +2664,8 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+//
+// > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
 func (o LinuxVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
 		if v == nil {
@@ -2688,12 +2702,14 @@ func (o LinuxVirtualMachineOsDiskPtrOutput) SecurityEncryptionType() pulumi.Stri
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+//
+// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
 func (o LinuxVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineOsDisk) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageAccountType
+		return v.StorageAccountType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -23720,7 +23736,7 @@ type WindowsVirtualMachineOsDisk struct {
 	Caching string `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+	// > **Note:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
 	DiffDiskSettings *WindowsVirtualMachineOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	//
@@ -23733,6 +23749,8 @@ type WindowsVirtualMachineOsDisk struct {
 	// The ID of the OS disk.
 	Id *string `pulumi:"id"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+	//
+	// > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
 	Name *string `pulumi:"name"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	//
@@ -23745,7 +23763,9 @@ type WindowsVirtualMachineOsDisk struct {
 	// > **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 	SecurityEncryptionType *string `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-	StorageAccountType string `pulumi:"storageAccountType"`
+	//
+	// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+	StorageAccountType *string `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	//
 	// > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -23768,7 +23788,7 @@ type WindowsVirtualMachineOsDiskArgs struct {
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+	// > **Note:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
 	DiffDiskSettings WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secureVmDiskEncryptionSetId`.
 	//
@@ -23781,6 +23801,8 @@ type WindowsVirtualMachineOsDiskArgs struct {
 	// The ID of the OS disk.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+	//
+	// > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `diskEncryptionSetId`. Changing this forces a new resource to be created.
 	//
@@ -23793,7 +23815,9 @@ type WindowsVirtualMachineOsDiskArgs struct {
 	// > **NOTE:** `encryptionAtHostEnabled` cannot be set to `true` when `securityEncryptionType` is set to `DiskWithVMGuestState`.
 	SecurityEncryptionType pulumi.StringPtrInput `pulumi:"securityEncryptionType"`
 	// The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	//
+	// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 	// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 	//
 	// > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -23884,7 +23908,7 @@ func (o WindowsVirtualMachineOsDiskOutput) Caching() pulumi.StringOutput {
 
 // A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+// > **Note:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
 func (o WindowsVirtualMachineOsDiskOutput) DiffDiskSettings() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings {
 		return v.DiffDiskSettings
@@ -23911,6 +23935,8 @@ func (o WindowsVirtualMachineOsDiskOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+//
+// > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
 func (o WindowsVirtualMachineOsDiskOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -23932,8 +23958,10 @@ func (o WindowsVirtualMachineOsDiskOutput) SecurityEncryptionType() pulumi.Strin
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-func (o WindowsVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringOutput {
-	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+//
+// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+func (o WindowsVirtualMachineOsDiskOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineOsDisk) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
 
 // Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
@@ -23979,7 +24007,7 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
 
 // A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+// > **Note:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
 func (o WindowsVirtualMachineOsDiskPtrOutput) DiffDiskSettings() WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *WindowsVirtualMachineOsDiskDiffDiskSettings {
 		if v == nil {
@@ -24024,6 +24052,8 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+//
+// > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
 func (o WindowsVirtualMachineOsDiskPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
 		if v == nil {
@@ -24060,12 +24090,14 @@ func (o WindowsVirtualMachineOsDiskPtrOutput) SecurityEncryptionType() pulumi.St
 }
 
 // The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+//
+// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
 func (o WindowsVirtualMachineOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineOsDisk) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageAccountType
+		return v.StorageAccountType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -29811,6 +29843,259 @@ func (o GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput) Index
 	}).(GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput)
 }
 
+type GetDisk struct {
+	CreateOption string `pulumi:"createOption"`
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId string `pulumi:"diskAccessId"`
+	// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
+	// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+	DiskIopsReadWrite int `pulumi:"diskIopsReadWrite"`
+	// The bandwidth allowed for this disk.
+	DiskMbpsReadWrite int `pulumi:"diskMbpsReadWrite"`
+	// The size of the Managed Disk in gigabytes.
+	DiskSizeInGb int `pulumi:"diskSizeInGb"`
+	// An `encryptionSettings` block as defined below.
+	EncryptionSettings []GetDiskEncryptionSetting `pulumi:"encryptionSettings"`
+	Id                 string                     `pulumi:"id"`
+	// The ID of the source image used for creating this Managed Disk.
+	ImageReferenceId string `pulumi:"imageReferenceId"`
+	// The Azure location of the Managed Disk.
+	Location string `pulumi:"location"`
+	// The name of the Managed Disk.
+	Name string `pulumi:"name"`
+	// Policy for accessing the disk via network.
+	NetworkAccessPolicy string `pulumi:"networkAccessPolicy"`
+	// The operating system used for this Managed Disk.
+	OsType string `pulumi:"osType"`
+	// The ID of an existing Managed Disk which this Disk was created from.
+	SourceResourceId string `pulumi:"sourceResourceId"`
+	// The Source URI for this Managed Disk.
+	SourceUri string `pulumi:"sourceUri"`
+	// The ID of the Storage Account where the `sourceUri` is located.
+	StorageAccountId string `pulumi:"storageAccountId"`
+	// The storage account type for the Managed Disk.
+	StorageAccountType string `pulumi:"storageAccountType"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// A list of Availability Zones where the Managed Disk exists.
+	Zones []string `pulumi:"zones"`
+}
+
+// GetDiskInput is an input type that accepts GetDiskArgs and GetDiskOutput values.
+// You can construct a concrete instance of `GetDiskInput` via:
+//
+//	GetDiskArgs{...}
+type GetDiskInput interface {
+	pulumi.Input
+
+	ToGetDiskOutput() GetDiskOutput
+	ToGetDiskOutputWithContext(context.Context) GetDiskOutput
+}
+
+type GetDiskArgs struct {
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId pulumi.StringInput `pulumi:"diskAccessId"`
+	// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+	DiskEncryptionSetId pulumi.StringInput `pulumi:"diskEncryptionSetId"`
+	// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+	DiskIopsReadWrite pulumi.IntInput `pulumi:"diskIopsReadWrite"`
+	// The bandwidth allowed for this disk.
+	DiskMbpsReadWrite pulumi.IntInput `pulumi:"diskMbpsReadWrite"`
+	// The size of the Managed Disk in gigabytes.
+	DiskSizeInGb pulumi.IntInput `pulumi:"diskSizeInGb"`
+	// An `encryptionSettings` block as defined below.
+	EncryptionSettings GetDiskEncryptionSettingArrayInput `pulumi:"encryptionSettings"`
+	Id                 pulumi.StringInput                 `pulumi:"id"`
+	// The ID of the source image used for creating this Managed Disk.
+	ImageReferenceId pulumi.StringInput `pulumi:"imageReferenceId"`
+	// The Azure location of the Managed Disk.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the Managed Disk.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Policy for accessing the disk via network.
+	NetworkAccessPolicy pulumi.StringInput `pulumi:"networkAccessPolicy"`
+	// The operating system used for this Managed Disk.
+	OsType pulumi.StringInput `pulumi:"osType"`
+	// The ID of an existing Managed Disk which this Disk was created from.
+	SourceResourceId pulumi.StringInput `pulumi:"sourceResourceId"`
+	// The Source URI for this Managed Disk.
+	SourceUri pulumi.StringInput `pulumi:"sourceUri"`
+	// The ID of the Storage Account where the `sourceUri` is located.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// The storage account type for the Managed Disk.
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// A list of Availability Zones where the Managed Disk exists.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (GetDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDisk)(nil)).Elem()
+}
+
+func (i GetDiskArgs) ToGetDiskOutput() GetDiskOutput {
+	return i.ToGetDiskOutputWithContext(context.Background())
+}
+
+func (i GetDiskArgs) ToGetDiskOutputWithContext(ctx context.Context) GetDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskOutput)
+}
+
+// GetDiskArrayInput is an input type that accepts GetDiskArray and GetDiskArrayOutput values.
+// You can construct a concrete instance of `GetDiskArrayInput` via:
+//
+//	GetDiskArray{ GetDiskArgs{...} }
+type GetDiskArrayInput interface {
+	pulumi.Input
+
+	ToGetDiskArrayOutput() GetDiskArrayOutput
+	ToGetDiskArrayOutputWithContext(context.Context) GetDiskArrayOutput
+}
+
+type GetDiskArray []GetDiskInput
+
+func (GetDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDisk)(nil)).Elem()
+}
+
+func (i GetDiskArray) ToGetDiskArrayOutput() GetDiskArrayOutput {
+	return i.ToGetDiskArrayOutputWithContext(context.Background())
+}
+
+func (i GetDiskArray) ToGetDiskArrayOutputWithContext(ctx context.Context) GetDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskArrayOutput)
+}
+
+type GetDiskOutput struct{ *pulumi.OutputState }
+
+func (GetDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDisk)(nil)).Elem()
+}
+
+func (o GetDiskOutput) ToGetDiskOutput() GetDiskOutput {
+	return o
+}
+
+func (o GetDiskOutput) ToGetDiskOutputWithContext(ctx context.Context) GetDiskOutput {
+	return o
+}
+
+func (o GetDiskOutput) CreateOption() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+}
+
+// The ID of the disk access resource for using private endpoints on disks.
+func (o GetDiskOutput) DiskAccessId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.DiskAccessId }).(pulumi.StringOutput)
+}
+
+// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+func (o GetDiskOutput) DiskEncryptionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
+}
+
+// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+func (o GetDiskOutput) DiskIopsReadWrite() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDisk) int { return v.DiskIopsReadWrite }).(pulumi.IntOutput)
+}
+
+// The bandwidth allowed for this disk.
+func (o GetDiskOutput) DiskMbpsReadWrite() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDisk) int { return v.DiskMbpsReadWrite }).(pulumi.IntOutput)
+}
+
+// The size of the Managed Disk in gigabytes.
+func (o GetDiskOutput) DiskSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDisk) int { return v.DiskSizeInGb }).(pulumi.IntOutput)
+}
+
+// An `encryptionSettings` block as defined below.
+func (o GetDiskOutput) EncryptionSettings() GetDiskEncryptionSettingArrayOutput {
+	return o.ApplyT(func(v GetDisk) []GetDiskEncryptionSetting { return v.EncryptionSettings }).(GetDiskEncryptionSettingArrayOutput)
+}
+
+func (o GetDiskOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ID of the source image used for creating this Managed Disk.
+func (o GetDiskOutput) ImageReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.ImageReferenceId }).(pulumi.StringOutput)
+}
+
+// The Azure location of the Managed Disk.
+func (o GetDiskOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the Managed Disk.
+func (o GetDiskOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Policy for accessing the disk via network.
+func (o GetDiskOutput) NetworkAccessPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.NetworkAccessPolicy }).(pulumi.StringOutput)
+}
+
+// The operating system used for this Managed Disk.
+func (o GetDiskOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The ID of an existing Managed Disk which this Disk was created from.
+func (o GetDiskOutput) SourceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.SourceResourceId }).(pulumi.StringOutput)
+}
+
+// The Source URI for this Managed Disk.
+func (o GetDiskOutput) SourceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.SourceUri }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account where the `sourceUri` is located.
+func (o GetDiskOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+// The storage account type for the Managed Disk.
+func (o GetDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o GetDiskOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetDisk) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A list of Availability Zones where the Managed Disk exists.
+func (o GetDiskOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDisk) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type GetDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDisk)(nil)).Elem()
+}
+
+func (o GetDiskArrayOutput) ToGetDiskArrayOutput() GetDiskArrayOutput {
+	return o
+}
+
+func (o GetDiskArrayOutput) ToGetDiskArrayOutputWithContext(ctx context.Context) GetDiskArrayOutput {
+	return o
+}
+
+func (o GetDiskArrayOutput) Index(i pulumi.IntInput) GetDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDisk {
+		return vs[0].([]GetDisk)[vs[1].(int)]
+	}).(GetDiskOutput)
+}
+
 type GetDiskEncryptionSetIdentity struct {
 	// A list of User Assigned Managed Identity IDs assigned to this Disk Encryption Set.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -29933,6 +30218,334 @@ func (o GetDiskEncryptionSetIdentityArrayOutput) Index(i pulumi.IntInput) GetDis
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDiskEncryptionSetIdentity {
 		return vs[0].([]GetDiskEncryptionSetIdentity)[vs[1].(int)]
 	}).(GetDiskEncryptionSetIdentityOutput)
+}
+
+type GetDiskEncryptionSetting struct {
+	// A `diskEncryptionKey` block as defined above.
+	DiskEncryptionKeys []GetDiskEncryptionSettingDiskEncryptionKey `pulumi:"diskEncryptionKeys"`
+	Enabled            bool                                        `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKeys []GetDiskEncryptionSettingKeyEncryptionKey `pulumi:"keyEncryptionKeys"`
+}
+
+// GetDiskEncryptionSettingInput is an input type that accepts GetDiskEncryptionSettingArgs and GetDiskEncryptionSettingOutput values.
+// You can construct a concrete instance of `GetDiskEncryptionSettingInput` via:
+//
+//	GetDiskEncryptionSettingArgs{...}
+type GetDiskEncryptionSettingInput interface {
+	pulumi.Input
+
+	ToGetDiskEncryptionSettingOutput() GetDiskEncryptionSettingOutput
+	ToGetDiskEncryptionSettingOutputWithContext(context.Context) GetDiskEncryptionSettingOutput
+}
+
+type GetDiskEncryptionSettingArgs struct {
+	// A `diskEncryptionKey` block as defined above.
+	DiskEncryptionKeys GetDiskEncryptionSettingDiskEncryptionKeyArrayInput `pulumi:"diskEncryptionKeys"`
+	Enabled            pulumi.BoolInput                                    `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKeys GetDiskEncryptionSettingKeyEncryptionKeyArrayInput `pulumi:"keyEncryptionKeys"`
+}
+
+func (GetDiskEncryptionSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (i GetDiskEncryptionSettingArgs) ToGetDiskEncryptionSettingOutput() GetDiskEncryptionSettingOutput {
+	return i.ToGetDiskEncryptionSettingOutputWithContext(context.Background())
+}
+
+func (i GetDiskEncryptionSettingArgs) ToGetDiskEncryptionSettingOutputWithContext(ctx context.Context) GetDiskEncryptionSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskEncryptionSettingOutput)
+}
+
+// GetDiskEncryptionSettingArrayInput is an input type that accepts GetDiskEncryptionSettingArray and GetDiskEncryptionSettingArrayOutput values.
+// You can construct a concrete instance of `GetDiskEncryptionSettingArrayInput` via:
+//
+//	GetDiskEncryptionSettingArray{ GetDiskEncryptionSettingArgs{...} }
+type GetDiskEncryptionSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetDiskEncryptionSettingArrayOutput() GetDiskEncryptionSettingArrayOutput
+	ToGetDiskEncryptionSettingArrayOutputWithContext(context.Context) GetDiskEncryptionSettingArrayOutput
+}
+
+type GetDiskEncryptionSettingArray []GetDiskEncryptionSettingInput
+
+func (GetDiskEncryptionSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (i GetDiskEncryptionSettingArray) ToGetDiskEncryptionSettingArrayOutput() GetDiskEncryptionSettingArrayOutput {
+	return i.ToGetDiskEncryptionSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetDiskEncryptionSettingArray) ToGetDiskEncryptionSettingArrayOutputWithContext(ctx context.Context) GetDiskEncryptionSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskEncryptionSettingArrayOutput)
+}
+
+type GetDiskEncryptionSettingOutput struct{ *pulumi.OutputState }
+
+func (GetDiskEncryptionSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (o GetDiskEncryptionSettingOutput) ToGetDiskEncryptionSettingOutput() GetDiskEncryptionSettingOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSettingOutput) ToGetDiskEncryptionSettingOutputWithContext(ctx context.Context) GetDiskEncryptionSettingOutput {
+	return o
+}
+
+// A `diskEncryptionKey` block as defined above.
+func (o GetDiskEncryptionSettingOutput) DiskEncryptionKeys() GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSetting) []GetDiskEncryptionSettingDiskEncryptionKey {
+		return v.DiskEncryptionKeys
+	}).(GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput)
+}
+
+func (o GetDiskEncryptionSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A `keyEncryptionKey` block as defined below.
+func (o GetDiskEncryptionSettingOutput) KeyEncryptionKeys() GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSetting) []GetDiskEncryptionSettingKeyEncryptionKey {
+		return v.KeyEncryptionKeys
+	}).(GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput)
+}
+
+type GetDiskEncryptionSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDiskEncryptionSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (o GetDiskEncryptionSettingArrayOutput) ToGetDiskEncryptionSettingArrayOutput() GetDiskEncryptionSettingArrayOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSettingArrayOutput) ToGetDiskEncryptionSettingArrayOutputWithContext(ctx context.Context) GetDiskEncryptionSettingArrayOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSettingArrayOutput) Index(i pulumi.IntInput) GetDiskEncryptionSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDiskEncryptionSetting {
+		return vs[0].([]GetDiskEncryptionSetting)[vs[1].(int)]
+	}).(GetDiskEncryptionSettingOutput)
+}
+
+type GetDiskEncryptionSettingDiskEncryptionKey struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// GetDiskEncryptionSettingDiskEncryptionKeyInput is an input type that accepts GetDiskEncryptionSettingDiskEncryptionKeyArgs and GetDiskEncryptionSettingDiskEncryptionKeyOutput values.
+// You can construct a concrete instance of `GetDiskEncryptionSettingDiskEncryptionKeyInput` via:
+//
+//	GetDiskEncryptionSettingDiskEncryptionKeyArgs{...}
+type GetDiskEncryptionSettingDiskEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToGetDiskEncryptionSettingDiskEncryptionKeyOutput() GetDiskEncryptionSettingDiskEncryptionKeyOutput
+	ToGetDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(context.Context) GetDiskEncryptionSettingDiskEncryptionKeyOutput
+}
+
+type GetDiskEncryptionSettingDiskEncryptionKeyArgs struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (GetDiskEncryptionSettingDiskEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (i GetDiskEncryptionSettingDiskEncryptionKeyArgs) ToGetDiskEncryptionSettingDiskEncryptionKeyOutput() GetDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return i.ToGetDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i GetDiskEncryptionSettingDiskEncryptionKeyArgs) ToGetDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(ctx context.Context) GetDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskEncryptionSettingDiskEncryptionKeyOutput)
+}
+
+// GetDiskEncryptionSettingDiskEncryptionKeyArrayInput is an input type that accepts GetDiskEncryptionSettingDiskEncryptionKeyArray and GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput values.
+// You can construct a concrete instance of `GetDiskEncryptionSettingDiskEncryptionKeyArrayInput` via:
+//
+//	GetDiskEncryptionSettingDiskEncryptionKeyArray{ GetDiskEncryptionSettingDiskEncryptionKeyArgs{...} }
+type GetDiskEncryptionSettingDiskEncryptionKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetDiskEncryptionSettingDiskEncryptionKeyArrayOutput() GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput
+	ToGetDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(context.Context) GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput
+}
+
+type GetDiskEncryptionSettingDiskEncryptionKeyArray []GetDiskEncryptionSettingDiskEncryptionKeyInput
+
+func (GetDiskEncryptionSettingDiskEncryptionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (i GetDiskEncryptionSettingDiskEncryptionKeyArray) ToGetDiskEncryptionSettingDiskEncryptionKeyArrayOutput() GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return i.ToGetDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDiskEncryptionSettingDiskEncryptionKeyArray) ToGetDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(ctx context.Context) GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput)
+}
+
+type GetDiskEncryptionSettingDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (GetDiskEncryptionSettingDiskEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (o GetDiskEncryptionSettingDiskEncryptionKeyOutput) ToGetDiskEncryptionSettingDiskEncryptionKeyOutput() GetDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSettingDiskEncryptionKeyOutput) ToGetDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(ctx context.Context) GetDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return o
+}
+
+// The URL to the Key Vault Secret used as the Disk Encryption Key.
+func (o GetDiskEncryptionSettingDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSettingDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o GetDiskEncryptionSettingDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSettingDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+}
+
+type GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (o GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput) ToGetDiskEncryptionSettingDiskEncryptionKeyArrayOutput() GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput) ToGetDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(ctx context.Context) GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDiskEncryptionSettingDiskEncryptionKey {
+		return vs[0].([]GetDiskEncryptionSettingDiskEncryptionKey)[vs[1].(int)]
+	}).(GetDiskEncryptionSettingDiskEncryptionKeyOutput)
+}
+
+type GetDiskEncryptionSettingKeyEncryptionKey struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key.
+	KeyUrl string `pulumi:"keyUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// GetDiskEncryptionSettingKeyEncryptionKeyInput is an input type that accepts GetDiskEncryptionSettingKeyEncryptionKeyArgs and GetDiskEncryptionSettingKeyEncryptionKeyOutput values.
+// You can construct a concrete instance of `GetDiskEncryptionSettingKeyEncryptionKeyInput` via:
+//
+//	GetDiskEncryptionSettingKeyEncryptionKeyArgs{...}
+type GetDiskEncryptionSettingKeyEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToGetDiskEncryptionSettingKeyEncryptionKeyOutput() GetDiskEncryptionSettingKeyEncryptionKeyOutput
+	ToGetDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(context.Context) GetDiskEncryptionSettingKeyEncryptionKeyOutput
+}
+
+type GetDiskEncryptionSettingKeyEncryptionKeyArgs struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (GetDiskEncryptionSettingKeyEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (i GetDiskEncryptionSettingKeyEncryptionKeyArgs) ToGetDiskEncryptionSettingKeyEncryptionKeyOutput() GetDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return i.ToGetDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i GetDiskEncryptionSettingKeyEncryptionKeyArgs) ToGetDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(ctx context.Context) GetDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskEncryptionSettingKeyEncryptionKeyOutput)
+}
+
+// GetDiskEncryptionSettingKeyEncryptionKeyArrayInput is an input type that accepts GetDiskEncryptionSettingKeyEncryptionKeyArray and GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput values.
+// You can construct a concrete instance of `GetDiskEncryptionSettingKeyEncryptionKeyArrayInput` via:
+//
+//	GetDiskEncryptionSettingKeyEncryptionKeyArray{ GetDiskEncryptionSettingKeyEncryptionKeyArgs{...} }
+type GetDiskEncryptionSettingKeyEncryptionKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetDiskEncryptionSettingKeyEncryptionKeyArrayOutput() GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput
+	ToGetDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(context.Context) GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput
+}
+
+type GetDiskEncryptionSettingKeyEncryptionKeyArray []GetDiskEncryptionSettingKeyEncryptionKeyInput
+
+func (GetDiskEncryptionSettingKeyEncryptionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (i GetDiskEncryptionSettingKeyEncryptionKeyArray) ToGetDiskEncryptionSettingKeyEncryptionKeyArrayOutput() GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return i.ToGetDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDiskEncryptionSettingKeyEncryptionKeyArray) ToGetDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(ctx context.Context) GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput)
+}
+
+type GetDiskEncryptionSettingKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (GetDiskEncryptionSettingKeyEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (o GetDiskEncryptionSettingKeyEncryptionKeyOutput) ToGetDiskEncryptionSettingKeyEncryptionKeyOutput() GetDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSettingKeyEncryptionKeyOutput) ToGetDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(ctx context.Context) GetDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return o
+}
+
+// The URL to the Key Vault Key used as the Key Encryption Key.
+func (o GetDiskEncryptionSettingKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSettingKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o GetDiskEncryptionSettingKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDiskEncryptionSettingKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+}
+
+type GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (o GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput) ToGetDiskEncryptionSettingKeyEncryptionKeyArrayOutput() GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput) ToGetDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(ctx context.Context) GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDiskEncryptionSettingKeyEncryptionKey {
+		return vs[0].([]GetDiskEncryptionSettingKeyEncryptionKey)[vs[1].(int)]
+	}).(GetDiskEncryptionSettingKeyEncryptionKeyOutput)
 }
 
 type GetImageDataDisk struct {
@@ -34023,8 +34636,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerAzureadBasedServicePrincipalArrayInput)(nil)).Elem(), GetConfidentialLedgerAzureadBasedServicePrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerCertificateBasedSecurityPrincipalInput)(nil)).Elem(), GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayInput)(nil)).Elem(), GetConfidentialLedgerCertificateBasedSecurityPrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskInput)(nil)).Elem(), GetDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskArrayInput)(nil)).Elem(), GetDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSetIdentityInput)(nil)).Elem(), GetDiskEncryptionSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSetIdentityArrayInput)(nil)).Elem(), GetDiskEncryptionSetIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSettingInput)(nil)).Elem(), GetDiskEncryptionSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSettingArrayInput)(nil)).Elem(), GetDiskEncryptionSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSettingDiskEncryptionKeyInput)(nil)).Elem(), GetDiskEncryptionSettingDiskEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSettingDiskEncryptionKeyArrayInput)(nil)).Elem(), GetDiskEncryptionSettingDiskEncryptionKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSettingKeyEncryptionKeyInput)(nil)).Elem(), GetDiskEncryptionSettingKeyEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDiskEncryptionSettingKeyEncryptionKeyArrayInput)(nil)).Elem(), GetDiskEncryptionSettingKeyEncryptionKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageDataDiskInput)(nil)).Elem(), GetImageDataDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageDataDiskArrayInput)(nil)).Elem(), GetImageDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOsDiskInput)(nil)).Elem(), GetImageOsDiskArgs{})
@@ -34437,8 +35058,16 @@ func init() {
 	pulumi.RegisterOutputType(GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput{})
 	pulumi.RegisterOutputType(GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput{})
 	pulumi.RegisterOutputType(GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput{})
+	pulumi.RegisterOutputType(GetDiskOutput{})
+	pulumi.RegisterOutputType(GetDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetDiskEncryptionSetIdentityOutput{})
 	pulumi.RegisterOutputType(GetDiskEncryptionSetIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetDiskEncryptionSettingOutput{})
+	pulumi.RegisterOutputType(GetDiskEncryptionSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetDiskEncryptionSettingDiskEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(GetDiskEncryptionSettingDiskEncryptionKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetDiskEncryptionSettingKeyEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(GetDiskEncryptionSettingKeyEncryptionKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetImageDataDiskOutput{})
 	pulumi.RegisterOutputType(GetImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetImageOsDiskOutput{})

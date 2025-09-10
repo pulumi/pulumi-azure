@@ -134,7 +134,7 @@ def get_snapshot(account_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str account_name: The name of the NetApp Account where the NetApp Pool exists.
@@ -188,7 +188,7 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[_builtins.str]] = No
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str account_name: The name of the NetApp Account where the NetApp Pool exists.

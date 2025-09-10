@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.core.ResourceGroup("example", {
- *     name: "my-kusto-cluster-rg",
+ *     name: "example",
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "kustocluster",
+ *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: {
@@ -77,7 +77,7 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
      */
     declare public readonly allowedFqdns: pulumi.Output<string[] | undefined>;
     /**
@@ -93,7 +93,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dataIngestionUri: pulumi.Output<string>;
     /**
-     * Specifies if the cluster's disks are encrypted.
+     * Specifies if the cluster's disks are encrypted. Defaults to `false`.
      */
     declare public readonly diskEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -105,9 +105,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly identity: pulumi.Output<outputs.kusto.ClusterIdentity | undefined>;
     /**
-     * An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-     *
-     * > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+     * A `languageExtensions` block as defined below.
      */
     declare public readonly languageExtensions: pulumi.Output<outputs.kusto.ClusterLanguageExtension[] | undefined>;
     /**
@@ -123,7 +121,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly optimizedAutoScale: pulumi.Output<outputs.kusto.ClusterOptimizedAutoScale | undefined>;
     /**
-     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * Whether to restrict outbound network access. Defaults to `false`.
      */
     declare public readonly outboundNetworkAccessRestricted: pulumi.Output<boolean | undefined>;
     /**
@@ -135,7 +133,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly publicNetworkAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies if the purge operations are enabled.
+     * Specifies if the purge operations are enabled. Defaults to `false`.
      */
     declare public readonly purgeEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -147,7 +145,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly sku: pulumi.Output<outputs.kusto.ClusterSku>;
     /**
-     * Specifies if the streaming ingest is enabled.
+     * Specifies if the streaming ingest is enabled. Defaults to `false`.
      */
     declare public readonly streamingIngestionEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -251,7 +249,7 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
      */
     allowedFqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -267,7 +265,7 @@ export interface ClusterState {
      */
     dataIngestionUri?: pulumi.Input<string>;
     /**
-     * Specifies if the cluster's disks are encrypted.
+     * Specifies if the cluster's disks are encrypted. Defaults to `false`.
      */
     diskEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -279,9 +277,7 @@ export interface ClusterState {
      */
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
-     * An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-     *
-     * > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+     * A `languageExtensions` block as defined below.
      */
     languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[]>;
     /**
@@ -297,7 +293,7 @@ export interface ClusterState {
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
     /**
-     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * Whether to restrict outbound network access. Defaults to `false`.
      */
     outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
     /**
@@ -309,7 +305,7 @@ export interface ClusterState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies if the purge operations are enabled.
+     * Specifies if the purge operations are enabled. Defaults to `false`.
      */
     purgeEnabled?: pulumi.Input<boolean>;
     /**
@@ -321,7 +317,7 @@ export interface ClusterState {
      */
     sku?: pulumi.Input<inputs.kusto.ClusterSku>;
     /**
-     * Specifies if the streaming ingest is enabled.
+     * Specifies if the streaming ingest is enabled. Defaults to `false`.
      */
     streamingIngestionEnabled?: pulumi.Input<boolean>;
     /**
@@ -353,7 +349,7 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
      */
     allowedFqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -365,7 +361,7 @@ export interface ClusterArgs {
      */
     autoStopEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies if the cluster's disks are encrypted.
+     * Specifies if the cluster's disks are encrypted. Defaults to `false`.
      */
     diskEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -377,9 +373,7 @@ export interface ClusterArgs {
      */
     identity?: pulumi.Input<inputs.kusto.ClusterIdentity>;
     /**
-     * An list of `languageExtensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-     *
-     * > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `languageExtensions` will be changed to a list of `languageExtension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+     * A `languageExtensions` block as defined below.
      */
     languageExtensions?: pulumi.Input<pulumi.Input<inputs.kusto.ClusterLanguageExtension>[]>;
     /**
@@ -395,7 +389,7 @@ export interface ClusterArgs {
      */
     optimizedAutoScale?: pulumi.Input<inputs.kusto.ClusterOptimizedAutoScale>;
     /**
-     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * Whether to restrict outbound network access. Defaults to `false`.
      */
     outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
     /**
@@ -407,7 +401,7 @@ export interface ClusterArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies if the purge operations are enabled.
+     * Specifies if the purge operations are enabled. Defaults to `false`.
      */
     purgeEnabled?: pulumi.Input<boolean>;
     /**
@@ -419,7 +413,7 @@ export interface ClusterArgs {
      */
     sku: pulumi.Input<inputs.kusto.ClusterSku>;
     /**
-     * Specifies if the streaming ingest is enabled.
+     * Specifies if the streaming ingest is enabled. Defaults to `false`.
      */
     streamingIngestionEnabled?: pulumi.Input<boolean>;
     /**

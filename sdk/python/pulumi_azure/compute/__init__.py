@@ -20,6 +20,7 @@ from .extension import *
 from .gallery_application import *
 from .gallery_application_assignment import *
 from .gallery_application_version import *
+from .get import *
 from .get_availability_set import *
 from .get_bastion_host import *
 from .get_confidential_ledger import *

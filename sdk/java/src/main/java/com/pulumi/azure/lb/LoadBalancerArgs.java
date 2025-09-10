@@ -80,6 +80,21 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of a Public IP Address which is associated with this Load Balancer.
+     * 
+     */
+    @Import(name="publicIpAddressId")
+    private @Nullable Output<String> publicIpAddressId;
+
+    /**
+     * @return The ID of a Public IP Address which is associated with this Load Balancer.
+     * 
+     */
+    public Optional<Output<String>> publicIpAddressId() {
+        return Optional.ofNullable(this.publicIpAddressId);
+    }
+
+    /**
      * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
@@ -129,6 +144,21 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ID of the Subnet which is associated with the IP Configuration.
+     * 
+     */
+    @Import(name="subnetId")
+    private @Nullable Output<String> subnetId;
+
+    /**
+     * @return The ID of the Subnet which is associated with the IP Configuration.
+     * 
+     */
+    public Optional<Output<String>> subnetId() {
+        return Optional.ofNullable(this.subnetId);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -150,9 +180,11 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         this.frontendIpConfigurations = $.frontendIpConfigurations;
         this.location = $.location;
         this.name = $.name;
+        this.publicIpAddressId = $.publicIpAddressId;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
         this.skuTier = $.skuTier;
+        this.subnetId = $.subnetId;
         this.tags = $.tags;
     }
 
@@ -269,6 +301,27 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param publicIpAddressId The ID of a Public IP Address which is associated with this Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicIpAddressId(@Nullable Output<String> publicIpAddressId) {
+            $.publicIpAddressId = publicIpAddressId;
+            return this;
+        }
+
+        /**
+         * @param publicIpAddressId The ID of a Public IP Address which is associated with this Load Balancer.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicIpAddressId(String publicIpAddressId) {
+            return publicIpAddressId(Output.of(publicIpAddressId));
+        }
+
+        /**
          * @param resourceGroupName The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -333,6 +386,27 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder skuTier(String skuTier) {
             return skuTier(Output.of(skuTier));
+        }
+
+        /**
+         * @param subnetId The ID of the Subnet which is associated with the IP Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetId(@Nullable Output<String> subnetId) {
+            $.subnetId = subnetId;
+            return this;
+        }
+
+        /**
+         * @param subnetId The ID of the Subnet which is associated with the IP Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetId(String subnetId) {
+            return subnetId(Output.of(subnetId));
         }
 
         /**

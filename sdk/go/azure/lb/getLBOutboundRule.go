@@ -71,6 +71,7 @@ type GetLBOutboundRuleResult struct {
 	AllocatedOutboundPorts int `pulumi:"allocatedOutboundPorts"`
 	// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`
+	EnableTcpReset       bool   `pulumi:"enableTcpReset"`
 	// A `frontendIpConfiguration` block as defined below.
 	FrontendIpConfigurations []GetLBOutboundRuleFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
@@ -130,6 +131,10 @@ func (o GetLBOutboundRuleResultOutput) AllocatedOutboundPorts() pulumi.IntOutput
 // The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
 func (o GetLBOutboundRuleResultOutput) BackendAddressPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLBOutboundRuleResult) string { return v.BackendAddressPoolId }).(pulumi.StringOutput)
+}
+
+func (o GetLBOutboundRuleResultOutput) EnableTcpReset() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLBOutboundRuleResult) bool { return v.EnableTcpReset }).(pulumi.BoolOutput)
 }
 
 // A `frontendIpConfiguration` block as defined below.

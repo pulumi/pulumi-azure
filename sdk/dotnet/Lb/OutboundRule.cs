@@ -107,11 +107,8 @@ namespace Pulumi.Azure.Lb
         [Output("backendAddressPoolId")]
         public Output<string> BackendAddressPoolId { get; private set; } = null!;
 
-        /// <summary>
-        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        /// </summary>
         [Output("enableTcpReset")]
-        public Output<bool?> EnableTcpReset { get; private set; } = null!;
+        public Output<bool> EnableTcpReset { get; private set; } = null!;
 
         /// <summary>
         /// One or more `frontend_ip_configuration` blocks as defined below.
@@ -142,6 +139,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        /// </summary>
+        [Output("tcpResetEnabled")]
+        public Output<bool> TcpResetEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -201,9 +204,6 @@ namespace Pulumi.Azure.Lb
         [Input("backendAddressPoolId", required: true)]
         public Input<string> BackendAddressPoolId { get; set; } = null!;
 
-        /// <summary>
-        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        /// </summary>
         [Input("enableTcpReset")]
         public Input<bool>? EnableTcpReset { get; set; }
 
@@ -243,6 +243,12 @@ namespace Pulumi.Azure.Lb
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
+        /// <summary>
+        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        /// </summary>
+        [Input("tcpResetEnabled")]
+        public Input<bool>? TcpResetEnabled { get; set; }
+
         public OutboundRuleArgs()
         {
         }
@@ -263,9 +269,6 @@ namespace Pulumi.Azure.Lb
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }
 
-        /// <summary>
-        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        /// </summary>
         [Input("enableTcpReset")]
         public Input<bool>? EnableTcpReset { get; set; }
 
@@ -304,6 +307,12 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        /// </summary>
+        [Input("tcpResetEnabled")]
+        public Input<bool>? TcpResetEnabled { get; set; }
 
         public OutboundRuleState()
         {

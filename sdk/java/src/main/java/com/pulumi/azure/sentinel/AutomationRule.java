@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.sentinel.AutomationRuleArgs;
 import com.pulumi.azure.sentinel.inputs.AutomationRuleState;
 import com.pulumi.azure.sentinel.outputs.AutomationRuleActionIncident;
+import com.pulumi.azure.sentinel.outputs.AutomationRuleActionIncidentTask;
 import com.pulumi.azure.sentinel.outputs.AutomationRuleActionPlaybook;
 import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
@@ -106,6 +107,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:sentinel/automationRule:AutomationRule")
 public class AutomationRule extends com.pulumi.resources.CustomResource {
+    /**
+     * One or more `action_incident_task` blocks as defined below.
+     * 
+     */
+    @Export(name="actionIncidentTasks", refs={List.class,AutomationRuleActionIncidentTask.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AutomationRuleActionIncidentTask>> actionIncidentTasks;
+
+    /**
+     * @return One or more `action_incident_task` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<AutomationRuleActionIncidentTask>>> actionIncidentTasks() {
+        return Codegen.optional(this.actionIncidentTasks);
+    }
     /**
      * One or more `action_incident` blocks as defined below.
      * 

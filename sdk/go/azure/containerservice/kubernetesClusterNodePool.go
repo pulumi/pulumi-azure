@@ -83,7 +83,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.ContainerService` - 2025-02-01
+// * `Microsoft.ContainerService` - 2025-05-01
 //
 // ## Import
 //
@@ -107,6 +107,8 @@ type KubernetesClusterNodePool struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
+	// Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+	GpuDriver pulumi.StringPtrOutput `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrOutput `pulumi:"gpuInstance"`
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
@@ -245,6 +247,8 @@ type kubernetesClusterNodePoolState struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	// Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+	GpuDriver *string `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
@@ -351,6 +355,8 @@ type KubernetesClusterNodePoolState struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled pulumi.BoolPtrInput
+	// Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+	GpuDriver pulumi.StringPtrInput
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
@@ -461,6 +467,8 @@ type kubernetesClusterNodePoolArgs struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	// Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+	GpuDriver *string `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
@@ -568,6 +576,8 @@ type KubernetesClusterNodePoolArgs struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled pulumi.BoolPtrInput
+	// Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+	GpuDriver pulumi.StringPtrInput
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
@@ -770,6 +780,11 @@ func (o KubernetesClusterNodePoolOutput) EvictionPolicy() pulumi.StringPtrOutput
 // > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 func (o KubernetesClusterNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolOutput) GpuDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.GpuDriver }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.

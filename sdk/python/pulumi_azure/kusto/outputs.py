@@ -215,7 +215,8 @@ class ClusterLanguageExtension(dict):
                  image: _builtins.str,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        :param _builtins.str image: The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+        :param _builtins.str name: The name of the language extension. Possible values are `PYTHON` and `R`.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -223,13 +224,16 @@ class ClusterLanguageExtension(dict):
     @_builtins.property
     @pulumi.getter
     def image(self) -> _builtins.str:
+        """
+        The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+        """
         return pulumi.get(self, "image")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        The name of the language extension. Possible values are `PYTHON` and `R`.
         """
         return pulumi.get(self, "name")
 
@@ -259,8 +263,8 @@ class ClusterOptimizedAutoScale(dict):
                  maximum_instances: _builtins.int,
                  minimum_instances: _builtins.int):
         """
-        :param _builtins.int maximum_instances: The maximum number of allowed instances. Must between `0` and `1000`.
-        :param _builtins.int minimum_instances: The minimum number of allowed instances. Must between `0` and `1000`.
+        :param _builtins.int maximum_instances: The maximum number of allowed instances. Possible values range between `0` and `1000`.
+        :param _builtins.int minimum_instances: The minimum number of allowed instances. Possible values range between `0` and `1000`.
         """
         pulumi.set(__self__, "maximum_instances", maximum_instances)
         pulumi.set(__self__, "minimum_instances", minimum_instances)
@@ -269,7 +273,7 @@ class ClusterOptimizedAutoScale(dict):
     @pulumi.getter(name="maximumInstances")
     def maximum_instances(self) -> _builtins.int:
         """
-        The maximum number of allowed instances. Must between `0` and `1000`.
+        The maximum number of allowed instances. Possible values range between `0` and `1000`.
         """
         return pulumi.get(self, "maximum_instances")
 
@@ -277,7 +281,7 @@ class ClusterOptimizedAutoScale(dict):
     @pulumi.getter(name="minimumInstances")
     def minimum_instances(self) -> _builtins.int:
         """
-        The minimum number of allowed instances. Must between `0` and `1000`.
+        The minimum number of allowed instances. Possible values range between `0` and `1000`.
         """
         return pulumi.get(self, "minimum_instances")
 
@@ -292,6 +296,7 @@ class ClusterSku(dict):
         :param _builtins.int capacity: Specifies the node count for the cluster. Boundaries depend on the SKU name.
                
                > **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+               
                > **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
         """
         pulumi.set(__self__, "name", name)
@@ -313,6 +318,7 @@ class ClusterSku(dict):
         Specifies the node count for the cluster. Boundaries depend on the SKU name.
 
         > **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+
         > **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
         """
         return pulumi.get(self, "capacity")

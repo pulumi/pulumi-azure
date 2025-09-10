@@ -1494,15 +1494,17 @@ if not MYPY:
         """
         recommendation_category: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
         """
         recommendation_impact: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+        The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+
+        > **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
         """
         recommendation_type: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+        The recommendation type of the event.
         """
         resource_group: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -1608,9 +1610,11 @@ class ActivityLogAlertCriteriaArgs:
                
                > **Note:** `level` and `levels` are mutually exclusive.
         :param pulumi.Input[_builtins.str] operation_name: The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
-        :param pulumi.Input[_builtins.str] recommendation_category: The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
-        :param pulumi.Input[_builtins.str] recommendation_impact: The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
-        :param pulumi.Input[_builtins.str] recommendation_type: The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+        :param pulumi.Input[_builtins.str] recommendation_category: The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
+        :param pulumi.Input[_builtins.str] recommendation_impact: The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+               
+               > **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
+        :param pulumi.Input[_builtins.str] recommendation_type: The recommendation type of the event.
         :param pulumi.Input[_builtins.str] resource_group: The name of resource group monitored by the activity log alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_groups: A list of names of resource groups monitored by the activity log alert.
                
@@ -1748,7 +1752,7 @@ class ActivityLogAlertCriteriaArgs:
     @pulumi.getter(name="recommendationCategory")
     def recommendation_category(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
         """
         return pulumi.get(self, "recommendation_category")
 
@@ -1760,7 +1764,9 @@ class ActivityLogAlertCriteriaArgs:
     @pulumi.getter(name="recommendationImpact")
     def recommendation_impact(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+        The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+
+        > **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
         """
         return pulumi.get(self, "recommendation_impact")
 
@@ -1772,7 +1778,7 @@ class ActivityLogAlertCriteriaArgs:
     @pulumi.getter(name="recommendationType")
     def recommendation_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+        The recommendation type of the event.
         """
         return pulumi.get(self, "recommendation_type")
 

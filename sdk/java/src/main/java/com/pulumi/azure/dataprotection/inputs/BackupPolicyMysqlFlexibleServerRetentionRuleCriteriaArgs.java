@@ -79,12 +79,16 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs exte
     /**
      * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** When not using `absolute_criteria`, you must use exactly one of `days_of_month` or `days_of_week`. Regarding the remaining two properties, `weeks_of_month` and `months_of_year`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retention_rule` blocks.
+     * 
      */
     @Import(name="weeksOfMonths")
     private @Nullable Output<List<String>> weeksOfMonths;
 
     /**
      * @return Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When not using `absolute_criteria`, you must use exactly one of `days_of_month` or `days_of_week`. Regarding the remaining two properties, `weeks_of_month` and `months_of_year`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retention_rule` blocks.
      * 
      */
     public Optional<Output<List<String>>> weeksOfMonths() {
@@ -236,6 +240,8 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs exte
         /**
          * @param weeksOfMonths Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** When not using `absolute_criteria`, you must use exactly one of `days_of_month` or `days_of_week`. Regarding the remaining two properties, `weeks_of_month` and `months_of_year`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retention_rule` blocks.
+         * 
          * @return builder
          * 
          */
@@ -247,6 +253,8 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs exte
         /**
          * @param weeksOfMonths Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** When not using `absolute_criteria`, you must use exactly one of `days_of_month` or `days_of_week`. Regarding the remaining two properties, `weeks_of_month` and `months_of_year`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retention_rule` blocks.
+         * 
          * @return builder
          * 
          */
@@ -256,6 +264,8 @@ public final class BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs exte
 
         /**
          * @param weeksOfMonths Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When not using `absolute_criteria`, you must use exactly one of `days_of_month` or `days_of_week`. Regarding the remaining two properties, `weeks_of_month` and `months_of_year`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retention_rule` blocks.
          * 
          * @return builder
          * 

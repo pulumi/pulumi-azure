@@ -41,8 +41,8 @@ import * as utilities from "../utilities";
  * const exampleJobCredential = new azure.mssql.JobCredential("example", {
  *     name: "example-job-credential",
  *     jobAgentId: exampleJobAgent.id,
- *     username: "testusername",
- *     password: "testpassword",
+ *     username: "exampleusername",
+ *     password: "examplepassword",
  * });
  * const exampleJobTargetGroup = new azure.mssql.JobTargetGroup("example", {
  *     name: "example-target-group",
@@ -159,7 +159,7 @@ export class JobStep extends pulumi.CustomResource {
      */
     declare public readonly retryAttempts: pulumi.Output<number | undefined>;
     /**
-     * The multiplier for time between retries. Defaults to `2`.
+     * The multiplier for time between retries. Defaults to `2.0`.
      */
     declare public readonly retryIntervalBackoffMultiplier: pulumi.Output<number | undefined>;
     /**
@@ -277,7 +277,7 @@ export interface JobStepState {
      */
     retryAttempts?: pulumi.Input<number>;
     /**
-     * The multiplier for time between retries. Defaults to `2`.
+     * The multiplier for time between retries. Defaults to `2.0`.
      */
     retryIntervalBackoffMultiplier?: pulumi.Input<number>;
     /**
@@ -339,7 +339,7 @@ export interface JobStepArgs {
      */
     retryAttempts?: pulumi.Input<number>;
     /**
-     * The multiplier for time between retries. Defaults to `2`.
+     * The multiplier for time between retries. Defaults to `2.0`.
      */
     retryIntervalBackoffMultiplier?: pulumi.Input<number>;
     /**

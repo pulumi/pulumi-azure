@@ -42,7 +42,7 @@ namespace Pulumi.Azure.EventGrid
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.EventGrid` - 2022-06-15
+        /// * `Microsoft.EventGrid` - 2025-02-15
         /// </summary>
         public static Task<GetPartnerRegistrationResult> InvokeAsync(GetPartnerRegistrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure:eventgrid/getPartnerRegistration:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.EventGrid
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.EventGrid` - 2022-06-15
+        /// * `Microsoft.EventGrid` - 2025-02-15
         /// </summary>
         public static Output<GetPartnerRegistrationResult> Invoke(GetPartnerRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerRegistrationResult>("azure:eventgrid/getPartnerRegistration:getPartnerRegistration", args ?? new GetPartnerRegistrationInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.EventGrid
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.EventGrid` - 2022-06-15
+        /// * `Microsoft.EventGrid` - 2025-02-15
         /// </summary>
         public static Output<GetPartnerRegistrationResult> Invoke(GetPartnerRegistrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerRegistrationResult>("azure:eventgrid/getPartnerRegistration:getPartnerRegistration", args ?? new GetPartnerRegistrationInvokeArgs(), options.WithDefaults());

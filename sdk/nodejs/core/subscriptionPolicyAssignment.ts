@@ -123,7 +123,7 @@ export class SubscriptionPolicyAssignment extends pulumi.CustomResource {
      */
     declare public readonly notScopes: pulumi.Output<string[] | undefined>;
     /**
-     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      */
     declare public readonly overrides: pulumi.Output<outputs.core.SubscriptionPolicyAssignmentOverride[] | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface SubscriptionPolicyAssignmentState {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      */
     overrides?: pulumi.Input<pulumi.Input<inputs.core.SubscriptionPolicyAssignmentOverride>[]>;
     /**
@@ -305,7 +305,7 @@ export interface SubscriptionPolicyAssignmentArgs {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+     * One or more `overrides` blocks as defined below. More detail about `overrides` and `resourceSelectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
      */
     overrides?: pulumi.Input<pulumi.Input<inputs.core.SubscriptionPolicyAssignmentOverride>[]>;
     /**

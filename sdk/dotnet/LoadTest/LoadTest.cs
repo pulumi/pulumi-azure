@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LoadTest
 {
     /// <summary>
-    /// &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
-    /// 
     /// Manages a Load Test Service.
     /// 
     /// ## Example Usage

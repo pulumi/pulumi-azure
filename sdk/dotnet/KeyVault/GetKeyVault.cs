@@ -182,6 +182,7 @@ namespace Pulumi.Azure.KeyVault
         /// Is purge protection enabled on this Key Vault?
         /// </summary>
         public readonly bool PurgeProtectionEnabled;
+        public readonly bool RbacAuthorizationEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The Name of the SKU used for this Key Vault.
@@ -224,6 +225,8 @@ namespace Pulumi.Azure.KeyVault
 
             bool purgeProtectionEnabled,
 
+            bool rbacAuthorizationEnabled,
+
             string resourceGroupName,
 
             string skuName,
@@ -245,6 +248,7 @@ namespace Pulumi.Azure.KeyVault
             NetworkAcls = networkAcls;
             PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             PurgeProtectionEnabled = purgeProtectionEnabled;
+            RbacAuthorizationEnabled = rbacAuthorizationEnabled;
             ResourceGroupName = resourceGroupName;
             SkuName = skuName;
             Tags = tags;
