@@ -45,7 +45,7 @@ index f6b9bbf0b5..b8753db13f 100644
  ## Example Usage
  
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index 0843291912..b372d00d98 100644
+index 427951e2e4..d03a2fd1bd 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -66,7 +66,7 @@ index 0843291912..b372d00d98 100644
  
  * `identity_ids` - (Optional) Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
  
-@@ -193,11 +193,11 @@ A `site_config` block supports the following:
+@@ -195,11 +195,11 @@ A `site_config` block supports the following:
  
  * `acr_user_managed_identity_client_id` - (Optional) If using User Managed Identity, the User Managed Identity Client Id
  
@@ -80,7 +80,7 @@ index 0843291912..b372d00d98 100644
  
  * `app_command_line` - (Optional) App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
  
-@@ -219,15 +219,15 @@ A `site_config` block supports the following:
+@@ -221,15 +221,15 @@ A `site_config` block supports the following:
  
  * `ip_restriction` - (Optional) A list of `ip_restriction` objects representing IP restrictions as defined below.
  
@@ -99,7 +99,7 @@ index 0843291912..b372d00d98 100644
  
  * `java_version` - (Optional) The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
  
-@@ -237,11 +237,11 @@ A `site_config` block supports the following:
+@@ -239,11 +239,11 @@ A `site_config` block supports the following:
  
  * `local_mysql_enabled` - (Optional) Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
  
@@ -113,7 +113,7 @@ index 0843291912..b372d00d98 100644
  
  * `windows_fx_version` - (Optional) The Windows Docker container image (`DOCKER|<user/image:tag>`)
  
-@@ -263,11 +263,11 @@ Additional examples of how to run Containers via the `azurerm_app_service` resou
+@@ -265,11 +265,11 @@ Additional examples of how to run Containers via the `azurerm_app_service` resou
  
  * `use_32_bit_worker_process` - (Optional) Should the App Service run in 32 bit mode, rather than 64 bit mode?
  
@@ -127,7 +127,7 @@ index 0843291912..b372d00d98 100644
  
  * `websockets_enabled` - (Optional) Should WebSockets be enabled?
  
-@@ -293,7 +293,7 @@ A `auth_settings` block supports the following:
+@@ -295,7 +295,7 @@ A `auth_settings` block supports the following:
  
  * `default_provider` - (Optional) The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
  
@@ -136,7 +136,7 @@ index 0843291912..b372d00d98 100644
  
  * `facebook` - (Optional) A `facebook` block as defined below.
  
-@@ -361,7 +361,7 @@ A `ip_restriction` block supports the following:
+@@ -363,7 +363,7 @@ A `ip_restriction` block supports the following:
  
  * `virtual_network_subnet_id` - (Optional) The Virtual Network Subnet ID used for this IP Restriction.
  
@@ -145,7 +145,7 @@ index 0843291912..b372d00d98 100644
  
  * `name` - (Optional) The name for this IP Restriction.
  
-@@ -381,7 +381,7 @@ A `scm_ip_restriction` block supports the following:
+@@ -383,7 +383,7 @@ A `scm_ip_restriction` block supports the following:
  
  * `virtual_network_subnet_id` - (Optional) The Virtual Network Subnet ID used for this IP Restriction.
  
@@ -154,7 +154,7 @@ index 0843291912..b372d00d98 100644
  
  * `name` - (Optional) The name for this IP Restriction.
  
-@@ -485,7 +485,7 @@ A `identity` block exports the following:
+@@ -487,7 +487,7 @@ A `identity` block exports the following:
  
  * `tenant_id` - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
  
@@ -163,7 +163,7 @@ index 0843291912..b372d00d98 100644
  
  ---
  
-@@ -495,7 +495,7 @@ A `site_credential` block exports the following:
+@@ -497,7 +497,7 @@ A `site_credential` block exports the following:
  
  * `password` - The password associated with the username, which can be used to publish to this App Service.
  
@@ -172,7 +172,7 @@ index 0843291912..b372d00d98 100644
  
  ---
  
-@@ -509,8 +509,8 @@ A `source_control` block exports the following:
+@@ -511,8 +511,8 @@ A `source_control` block exports the following:
  The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the App Service.
@@ -281,7 +281,7 @@ index a77fd8d9f9..a0c2593b2e 100644
  ## Import
  
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 9d01090ed2..92f5dd4131 100644
+index 8449c6f0a2..339aa60b57 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -390,7 +390,7 @@ index 9d01090ed2..92f5dd4131 100644
  
  * `identity_ids` - (Optional) Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
  
-@@ -507,7 +507,7 @@ A `identity` block exports the following:
+@@ -509,7 +509,7 @@ A `identity` block exports the following:
  
  * `tenant_id` - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
  
@@ -399,7 +399,7 @@ index 9d01090ed2..92f5dd4131 100644
  
  ---
  
-@@ -521,8 +521,8 @@ The `site_credential` block exports the following:
+@@ -523,8 +523,8 @@ The `site_credential` block exports the following:
  The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the App Service Slot.
