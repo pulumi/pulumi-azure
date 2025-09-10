@@ -207,6 +207,10 @@ __all__ = [
     'GetManagedDiskEncryptionSettingResult',
     'GetManagedDiskEncryptionSettingDiskEncryptionKeyResult',
     'GetManagedDiskEncryptionSettingKeyEncryptionKeyResult',
+    'GetManagedDisksDiskResult',
+    'GetManagedDisksDiskEncryptionSettingResult',
+    'GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyResult',
+    'GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyResult',
     'GetOrchestratedVirtualMachineScaleSetIdentityResult',
     'GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult',
     'GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult',
@@ -13214,6 +13218,308 @@ class GetManagedDiskEncryptionSettingDiskEncryptionKeyResult(dict):
 
 @pulumi.output_type
 class GetManagedDiskEncryptionSettingKeyEncryptionKeyResult(dict):
+    def __init__(__self__, *,
+                 key_url: _builtins.str,
+                 source_vault_id: _builtins.str):
+        """
+        :param _builtins.str key_url: The URL to the Key Vault Key used as the Key Encryption Key.
+        :param _builtins.str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "key_url", key_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> _builtins.str:
+        """
+        The URL to the Key Vault Key used as the Key Encryption Key.
+        """
+        return pulumi.get(self, "key_url")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> _builtins.str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+
+@pulumi.output_type
+class GetManagedDisksDiskResult(dict):
+    def __init__(__self__, *,
+                 create_option: _builtins.str,
+                 disk_access_id: _builtins.str,
+                 disk_encryption_set_id: _builtins.str,
+                 disk_iops_read_write: _builtins.int,
+                 disk_mbps_read_write: _builtins.int,
+                 disk_size_in_gb: _builtins.int,
+                 encryption_settings: Sequence['outputs.GetManagedDisksDiskEncryptionSettingResult'],
+                 id: _builtins.str,
+                 image_reference_id: _builtins.str,
+                 location: _builtins.str,
+                 name: _builtins.str,
+                 network_access_policy: _builtins.str,
+                 os_type: _builtins.str,
+                 source_resource_id: _builtins.str,
+                 source_uri: _builtins.str,
+                 storage_account_id: _builtins.str,
+                 storage_account_type: _builtins.str,
+                 tags: Mapping[str, _builtins.str],
+                 zones: Sequence[_builtins.str]):
+        """
+        :param _builtins.str disk_access_id: The ID of the disk access resource for using private endpoints on disks.
+        :param _builtins.str disk_encryption_set_id: The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+        :param _builtins.int disk_iops_read_write: The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+        :param _builtins.int disk_mbps_read_write: The bandwidth allowed for this disk.
+        :param _builtins.int disk_size_in_gb: The size of the Managed Disk in gigabytes.
+        :param Sequence['GetManagedDisksDiskEncryptionSettingArgs'] encryption_settings: An `encryption_settings` block as defined below.
+        :param _builtins.str image_reference_id: The ID of the source image used for creating this Managed Disk.
+        :param _builtins.str location: The Azure location of the Managed Disk.
+        :param _builtins.str name: The name of the Managed Disk.
+        :param _builtins.str network_access_policy: Policy for accessing the disk via network.
+        :param _builtins.str os_type: The operating system used for this Managed Disk.
+        :param _builtins.str source_resource_id: The ID of an existing Managed Disk which this Disk was created from.
+        :param _builtins.str source_uri: The Source URI for this Managed Disk.
+        :param _builtins.str storage_account_id: The ID of the Storage Account where the `source_uri` is located.
+        :param _builtins.str storage_account_type: The storage account type for the Managed Disk.
+        :param Mapping[str, _builtins.str] tags: A mapping of tags assigned to the resource.
+        :param Sequence[_builtins.str] zones: A list of Availability Zones where the Managed Disk exists.
+        """
+        pulumi.set(__self__, "create_option", create_option)
+        pulumi.set(__self__, "disk_access_id", disk_access_id)
+        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
+        pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
+        pulumi.set(__self__, "encryption_settings", encryption_settings)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "image_reference_id", image_reference_id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_access_policy", network_access_policy)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
+        pulumi.set(__self__, "source_uri", source_uri)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "storage_account_type", storage_account_type)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "zones", zones)
+
+    @_builtins.property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> _builtins.str:
+        return pulumi.get(self, "create_option")
+
+    @_builtins.property
+    @pulumi.getter(name="diskAccessId")
+    def disk_access_id(self) -> _builtins.str:
+        """
+        The ID of the disk access resource for using private endpoints on disks.
+        """
+        return pulumi.get(self, "disk_access_id")
+
+    @_builtins.property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> _builtins.str:
+        """
+        The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @_builtins.property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> _builtins.int:
+        """
+        The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @_builtins.property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> _builtins.int:
+        """
+        The bandwidth allowed for this disk.
+        """
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @_builtins.property
+    @pulumi.getter(name="diskSizeInGb")
+    def disk_size_in_gb(self) -> _builtins.int:
+        """
+        The size of the Managed Disk in gigabytes.
+        """
+        return pulumi.get(self, "disk_size_in_gb")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> Sequence['outputs.GetManagedDisksDiskEncryptionSettingResult']:
+        """
+        An `encryption_settings` block as defined below.
+        """
+        return pulumi.get(self, "encryption_settings")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="imageReferenceId")
+    def image_reference_id(self) -> _builtins.str:
+        """
+        The ID of the source image used for creating this Managed Disk.
+        """
+        return pulumi.get(self, "image_reference_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> _builtins.str:
+        """
+        The Azure location of the Managed Disk.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the Managed Disk.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkAccessPolicy")
+    def network_access_policy(self) -> _builtins.str:
+        """
+        Policy for accessing the disk via network.
+        """
+        return pulumi.get(self, "network_access_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> _builtins.str:
+        """
+        The operating system used for this Managed Disk.
+        """
+        return pulumi.get(self, "os_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> _builtins.str:
+        """
+        The ID of an existing Managed Disk which this Disk was created from.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceUri")
+    def source_uri(self) -> _builtins.str:
+        """
+        The Source URI for this Managed Disk.
+        """
+        return pulumi.get(self, "source_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> _builtins.str:
+        """
+        The ID of the Storage Account where the `source_uri` is located.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> _builtins.str:
+        """
+        The storage account type for the Managed Disk.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        A mapping of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
+    def zones(self) -> Sequence[_builtins.str]:
+        """
+        A list of Availability Zones where the Managed Disk exists.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class GetManagedDisksDiskEncryptionSettingResult(dict):
+    def __init__(__self__, *,
+                 disk_encryption_keys: Sequence['outputs.GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyResult'],
+                 enabled: _builtins.bool,
+                 key_encryption_keys: Sequence['outputs.GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyResult']):
+        """
+        :param Sequence['GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs'] disk_encryption_keys: A `disk_encryption_key` block as defined above.
+        :param Sequence['GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs'] key_encryption_keys: A `key_encryption_key` block as defined below.
+        """
+        pulumi.set(__self__, "disk_encryption_keys", disk_encryption_keys)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "key_encryption_keys", key_encryption_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="diskEncryptionKeys")
+    def disk_encryption_keys(self) -> Sequence['outputs.GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyResult']:
+        """
+        A `disk_encryption_key` block as defined above.
+        """
+        return pulumi.get(self, "disk_encryption_keys")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="keyEncryptionKeys")
+    def key_encryption_keys(self) -> Sequence['outputs.GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyResult']:
+        """
+        A `key_encryption_key` block as defined below.
+        """
+        return pulumi.get(self, "key_encryption_keys")
+
+
+@pulumi.output_type
+class GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyResult(dict):
+    def __init__(__self__, *,
+                 secret_url: _builtins.str,
+                 source_vault_id: _builtins.str):
+        """
+        :param _builtins.str secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key.
+        :param _builtins.str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @_builtins.property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> _builtins.str:
+        """
+        The URL to the Key Vault Secret used as the Disk Encryption Key.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> _builtins.str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+
+@pulumi.output_type
+class GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyResult(dict):
     def __init__(__self__, *,
                  key_url: _builtins.str,
                  source_vault_id: _builtins.str):

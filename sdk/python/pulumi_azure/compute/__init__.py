@@ -31,6 +31,7 @@ from .get_disk_encryption_set import *
 from .get_image import *
 from .get_images import *
 from .get_managed_disk import *
+from .get_managed_disks import *
 from .get_orchestrated_virtual_machine_scale_set import *
 from .get_platform_image import *
 from .get_shared_image import *

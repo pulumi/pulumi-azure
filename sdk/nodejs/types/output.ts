@@ -26129,6 +26129,113 @@ export namespace compute {
         sourceVaultId: string;
     }
 
+    export interface GetManagedDisksDisk {
+        createOption: string;
+        /**
+         * The ID of the disk access resource for using private endpoints on disks.
+         */
+        diskAccessId: string;
+        /**
+         * The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+         */
+        diskEncryptionSetId: string;
+        /**
+         * The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+         */
+        diskIopsReadWrite: number;
+        /**
+         * The bandwidth allowed for this disk.
+         */
+        diskMbpsReadWrite: number;
+        /**
+         * The size of the Managed Disk in gigabytes.
+         */
+        diskSizeInGb: number;
+        /**
+         * An `encryptionSettings` block as defined below.
+         */
+        encryptionSettings: outputs.compute.GetManagedDisksDiskEncryptionSetting[];
+        id: string;
+        /**
+         * The ID of the source image used for creating this Managed Disk.
+         */
+        imageReferenceId: string;
+        /**
+         * The Azure location of the Managed Disk.
+         */
+        location: string;
+        /**
+         * The name of the Managed Disk.
+         */
+        name: string;
+        /**
+         * Policy for accessing the disk via network.
+         */
+        networkAccessPolicy: string;
+        /**
+         * The operating system used for this Managed Disk.
+         */
+        osType: string;
+        /**
+         * The ID of an existing Managed Disk which this Disk was created from.
+         */
+        sourceResourceId: string;
+        /**
+         * The Source URI for this Managed Disk.
+         */
+        sourceUri: string;
+        /**
+         * The ID of the Storage Account where the `sourceUri` is located.
+         */
+        storageAccountId: string;
+        /**
+         * The storage account type for the Managed Disk.
+         */
+        storageAccountType: string;
+        /**
+         * A mapping of tags assigned to the resource.
+         */
+        tags: {[key: string]: string};
+        /**
+         * A list of Availability Zones where the Managed Disk exists.
+         */
+        zones: string[];
+    }
+
+    export interface GetManagedDisksDiskEncryptionSetting {
+        /**
+         * A `diskEncryptionKey` block as defined above.
+         */
+        diskEncryptionKeys: outputs.compute.GetManagedDisksDiskEncryptionSettingDiskEncryptionKey[];
+        enabled: boolean;
+        /**
+         * A `keyEncryptionKey` block as defined below.
+         */
+        keyEncryptionKeys: outputs.compute.GetManagedDisksDiskEncryptionSettingKeyEncryptionKey[];
+    }
+
+    export interface GetManagedDisksDiskEncryptionSettingDiskEncryptionKey {
+        /**
+         * The URL to the Key Vault Secret used as the Disk Encryption Key.
+         */
+        secretUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
+    }
+
+    export interface GetManagedDisksDiskEncryptionSettingKeyEncryptionKey {
+        /**
+         * The URL to the Key Vault Key used as the Key Encryption Key.
+         */
+        keyUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
+    }
+
     export interface GetOrchestratedVirtualMachineScaleSetIdentity {
         /**
          * The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.

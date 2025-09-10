@@ -31577,6 +31577,587 @@ func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulu
 	}).(GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput)
 }
 
+type GetManagedDisksDisk struct {
+	CreateOption string `pulumi:"createOption"`
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId string `pulumi:"diskAccessId"`
+	// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+	DiskEncryptionSetId string `pulumi:"diskEncryptionSetId"`
+	// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+	DiskIopsReadWrite int `pulumi:"diskIopsReadWrite"`
+	// The bandwidth allowed for this disk.
+	DiskMbpsReadWrite int `pulumi:"diskMbpsReadWrite"`
+	// The size of the Managed Disk in gigabytes.
+	DiskSizeInGb int `pulumi:"diskSizeInGb"`
+	// An `encryptionSettings` block as defined below.
+	EncryptionSettings []GetManagedDisksDiskEncryptionSetting `pulumi:"encryptionSettings"`
+	Id                 string                                 `pulumi:"id"`
+	// The ID of the source image used for creating this Managed Disk.
+	ImageReferenceId string `pulumi:"imageReferenceId"`
+	// The Azure location of the Managed Disk.
+	Location string `pulumi:"location"`
+	// The name of the Managed Disk.
+	Name string `pulumi:"name"`
+	// Policy for accessing the disk via network.
+	NetworkAccessPolicy string `pulumi:"networkAccessPolicy"`
+	// The operating system used for this Managed Disk.
+	OsType string `pulumi:"osType"`
+	// The ID of an existing Managed Disk which this Disk was created from.
+	SourceResourceId string `pulumi:"sourceResourceId"`
+	// The Source URI for this Managed Disk.
+	SourceUri string `pulumi:"sourceUri"`
+	// The ID of the Storage Account where the `sourceUri` is located.
+	StorageAccountId string `pulumi:"storageAccountId"`
+	// The storage account type for the Managed Disk.
+	StorageAccountType string `pulumi:"storageAccountType"`
+	// A mapping of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// A list of Availability Zones where the Managed Disk exists.
+	Zones []string `pulumi:"zones"`
+}
+
+// GetManagedDisksDiskInput is an input type that accepts GetManagedDisksDiskArgs and GetManagedDisksDiskOutput values.
+// You can construct a concrete instance of `GetManagedDisksDiskInput` via:
+//
+//	GetManagedDisksDiskArgs{...}
+type GetManagedDisksDiskInput interface {
+	pulumi.Input
+
+	ToGetManagedDisksDiskOutput() GetManagedDisksDiskOutput
+	ToGetManagedDisksDiskOutputWithContext(context.Context) GetManagedDisksDiskOutput
+}
+
+type GetManagedDisksDiskArgs struct {
+	CreateOption pulumi.StringInput `pulumi:"createOption"`
+	// The ID of the disk access resource for using private endpoints on disks.
+	DiskAccessId pulumi.StringInput `pulumi:"diskAccessId"`
+	// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+	DiskEncryptionSetId pulumi.StringInput `pulumi:"diskEncryptionSetId"`
+	// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+	DiskIopsReadWrite pulumi.IntInput `pulumi:"diskIopsReadWrite"`
+	// The bandwidth allowed for this disk.
+	DiskMbpsReadWrite pulumi.IntInput `pulumi:"diskMbpsReadWrite"`
+	// The size of the Managed Disk in gigabytes.
+	DiskSizeInGb pulumi.IntInput `pulumi:"diskSizeInGb"`
+	// An `encryptionSettings` block as defined below.
+	EncryptionSettings GetManagedDisksDiskEncryptionSettingArrayInput `pulumi:"encryptionSettings"`
+	Id                 pulumi.StringInput                             `pulumi:"id"`
+	// The ID of the source image used for creating this Managed Disk.
+	ImageReferenceId pulumi.StringInput `pulumi:"imageReferenceId"`
+	// The Azure location of the Managed Disk.
+	Location pulumi.StringInput `pulumi:"location"`
+	// The name of the Managed Disk.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Policy for accessing the disk via network.
+	NetworkAccessPolicy pulumi.StringInput `pulumi:"networkAccessPolicy"`
+	// The operating system used for this Managed Disk.
+	OsType pulumi.StringInput `pulumi:"osType"`
+	// The ID of an existing Managed Disk which this Disk was created from.
+	SourceResourceId pulumi.StringInput `pulumi:"sourceResourceId"`
+	// The Source URI for this Managed Disk.
+	SourceUri pulumi.StringInput `pulumi:"sourceUri"`
+	// The ID of the Storage Account where the `sourceUri` is located.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// The storage account type for the Managed Disk.
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// A mapping of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// A list of Availability Zones where the Managed Disk exists.
+	Zones pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (GetManagedDisksDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDisksDisk)(nil)).Elem()
+}
+
+func (i GetManagedDisksDiskArgs) ToGetManagedDisksDiskOutput() GetManagedDisksDiskOutput {
+	return i.ToGetManagedDisksDiskOutputWithContext(context.Background())
+}
+
+func (i GetManagedDisksDiskArgs) ToGetManagedDisksDiskOutputWithContext(ctx context.Context) GetManagedDisksDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDisksDiskOutput)
+}
+
+// GetManagedDisksDiskArrayInput is an input type that accepts GetManagedDisksDiskArray and GetManagedDisksDiskArrayOutput values.
+// You can construct a concrete instance of `GetManagedDisksDiskArrayInput` via:
+//
+//	GetManagedDisksDiskArray{ GetManagedDisksDiskArgs{...} }
+type GetManagedDisksDiskArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDisksDiskArrayOutput() GetManagedDisksDiskArrayOutput
+	ToGetManagedDisksDiskArrayOutputWithContext(context.Context) GetManagedDisksDiskArrayOutput
+}
+
+type GetManagedDisksDiskArray []GetManagedDisksDiskInput
+
+func (GetManagedDisksDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDisksDisk)(nil)).Elem()
+}
+
+func (i GetManagedDisksDiskArray) ToGetManagedDisksDiskArrayOutput() GetManagedDisksDiskArrayOutput {
+	return i.ToGetManagedDisksDiskArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDisksDiskArray) ToGetManagedDisksDiskArrayOutputWithContext(ctx context.Context) GetManagedDisksDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDisksDiskArrayOutput)
+}
+
+type GetManagedDisksDiskOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDisksDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDisksDisk)(nil)).Elem()
+}
+
+func (o GetManagedDisksDiskOutput) ToGetManagedDisksDiskOutput() GetManagedDisksDiskOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskOutput) ToGetManagedDisksDiskOutputWithContext(ctx context.Context) GetManagedDisksDiskOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskOutput) CreateOption() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+}
+
+// The ID of the disk access resource for using private endpoints on disks.
+func (o GetManagedDisksDiskOutput) DiskAccessId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.DiskAccessId }).(pulumi.StringOutput)
+}
+
+// The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+func (o GetManagedDisksDiskOutput) DiskEncryptionSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.DiskEncryptionSetId }).(pulumi.StringOutput)
+}
+
+// The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+func (o GetManagedDisksDiskOutput) DiskIopsReadWrite() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) int { return v.DiskIopsReadWrite }).(pulumi.IntOutput)
+}
+
+// The bandwidth allowed for this disk.
+func (o GetManagedDisksDiskOutput) DiskMbpsReadWrite() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) int { return v.DiskMbpsReadWrite }).(pulumi.IntOutput)
+}
+
+// The size of the Managed Disk in gigabytes.
+func (o GetManagedDisksDiskOutput) DiskSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) int { return v.DiskSizeInGb }).(pulumi.IntOutput)
+}
+
+// An `encryptionSettings` block as defined below.
+func (o GetManagedDisksDiskOutput) EncryptionSettings() GetManagedDisksDiskEncryptionSettingArrayOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) []GetManagedDisksDiskEncryptionSetting { return v.EncryptionSettings }).(GetManagedDisksDiskEncryptionSettingArrayOutput)
+}
+
+func (o GetManagedDisksDiskOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ID of the source image used for creating this Managed Disk.
+func (o GetManagedDisksDiskOutput) ImageReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.ImageReferenceId }).(pulumi.StringOutput)
+}
+
+// The Azure location of the Managed Disk.
+func (o GetManagedDisksDiskOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the Managed Disk.
+func (o GetManagedDisksDiskOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Policy for accessing the disk via network.
+func (o GetManagedDisksDiskOutput) NetworkAccessPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.NetworkAccessPolicy }).(pulumi.StringOutput)
+}
+
+// The operating system used for this Managed Disk.
+func (o GetManagedDisksDiskOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The ID of an existing Managed Disk which this Disk was created from.
+func (o GetManagedDisksDiskOutput) SourceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.SourceResourceId }).(pulumi.StringOutput)
+}
+
+// The Source URI for this Managed Disk.
+func (o GetManagedDisksDiskOutput) SourceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.SourceUri }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account where the `sourceUri` is located.
+func (o GetManagedDisksDiskOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.StorageAccountId }).(pulumi.StringOutput)
+}
+
+// The storage account type for the Managed Disk.
+func (o GetManagedDisksDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+// A mapping of tags assigned to the resource.
+func (o GetManagedDisksDiskOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A list of Availability Zones where the Managed Disk exists.
+func (o GetManagedDisksDiskOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetManagedDisksDisk) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type GetManagedDisksDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDisksDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDisksDisk)(nil)).Elem()
+}
+
+func (o GetManagedDisksDiskArrayOutput) ToGetManagedDisksDiskArrayOutput() GetManagedDisksDiskArrayOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskArrayOutput) ToGetManagedDisksDiskArrayOutputWithContext(ctx context.Context) GetManagedDisksDiskArrayOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskArrayOutput) Index(i pulumi.IntInput) GetManagedDisksDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDisksDisk {
+		return vs[0].([]GetManagedDisksDisk)[vs[1].(int)]
+	}).(GetManagedDisksDiskOutput)
+}
+
+type GetManagedDisksDiskEncryptionSetting struct {
+	// A `diskEncryptionKey` block as defined above.
+	DiskEncryptionKeys []GetManagedDisksDiskEncryptionSettingDiskEncryptionKey `pulumi:"diskEncryptionKeys"`
+	Enabled            bool                                                    `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKeys []GetManagedDisksDiskEncryptionSettingKeyEncryptionKey `pulumi:"keyEncryptionKeys"`
+}
+
+// GetManagedDisksDiskEncryptionSettingInput is an input type that accepts GetManagedDisksDiskEncryptionSettingArgs and GetManagedDisksDiskEncryptionSettingOutput values.
+// You can construct a concrete instance of `GetManagedDisksDiskEncryptionSettingInput` via:
+//
+//	GetManagedDisksDiskEncryptionSettingArgs{...}
+type GetManagedDisksDiskEncryptionSettingInput interface {
+	pulumi.Input
+
+	ToGetManagedDisksDiskEncryptionSettingOutput() GetManagedDisksDiskEncryptionSettingOutput
+	ToGetManagedDisksDiskEncryptionSettingOutputWithContext(context.Context) GetManagedDisksDiskEncryptionSettingOutput
+}
+
+type GetManagedDisksDiskEncryptionSettingArgs struct {
+	// A `diskEncryptionKey` block as defined above.
+	DiskEncryptionKeys GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayInput `pulumi:"diskEncryptionKeys"`
+	Enabled            pulumi.BoolInput                                                `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKeys GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayInput `pulumi:"keyEncryptionKeys"`
+}
+
+func (GetManagedDisksDiskEncryptionSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDisksDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (i GetManagedDisksDiskEncryptionSettingArgs) ToGetManagedDisksDiskEncryptionSettingOutput() GetManagedDisksDiskEncryptionSettingOutput {
+	return i.ToGetManagedDisksDiskEncryptionSettingOutputWithContext(context.Background())
+}
+
+func (i GetManagedDisksDiskEncryptionSettingArgs) ToGetManagedDisksDiskEncryptionSettingOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDisksDiskEncryptionSettingOutput)
+}
+
+// GetManagedDisksDiskEncryptionSettingArrayInput is an input type that accepts GetManagedDisksDiskEncryptionSettingArray and GetManagedDisksDiskEncryptionSettingArrayOutput values.
+// You can construct a concrete instance of `GetManagedDisksDiskEncryptionSettingArrayInput` via:
+//
+//	GetManagedDisksDiskEncryptionSettingArray{ GetManagedDisksDiskEncryptionSettingArgs{...} }
+type GetManagedDisksDiskEncryptionSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDisksDiskEncryptionSettingArrayOutput() GetManagedDisksDiskEncryptionSettingArrayOutput
+	ToGetManagedDisksDiskEncryptionSettingArrayOutputWithContext(context.Context) GetManagedDisksDiskEncryptionSettingArrayOutput
+}
+
+type GetManagedDisksDiskEncryptionSettingArray []GetManagedDisksDiskEncryptionSettingInput
+
+func (GetManagedDisksDiskEncryptionSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDisksDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (i GetManagedDisksDiskEncryptionSettingArray) ToGetManagedDisksDiskEncryptionSettingArrayOutput() GetManagedDisksDiskEncryptionSettingArrayOutput {
+	return i.ToGetManagedDisksDiskEncryptionSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDisksDiskEncryptionSettingArray) ToGetManagedDisksDiskEncryptionSettingArrayOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDisksDiskEncryptionSettingArrayOutput)
+}
+
+type GetManagedDisksDiskEncryptionSettingOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDisksDiskEncryptionSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDisksDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (o GetManagedDisksDiskEncryptionSettingOutput) ToGetManagedDisksDiskEncryptionSettingOutput() GetManagedDisksDiskEncryptionSettingOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskEncryptionSettingOutput) ToGetManagedDisksDiskEncryptionSettingOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingOutput {
+	return o
+}
+
+// A `diskEncryptionKey` block as defined above.
+func (o GetManagedDisksDiskEncryptionSettingOutput) DiskEncryptionKeys() GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return o.ApplyT(func(v GetManagedDisksDiskEncryptionSetting) []GetManagedDisksDiskEncryptionSettingDiskEncryptionKey {
+		return v.DiskEncryptionKeys
+	}).(GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput)
+}
+
+func (o GetManagedDisksDiskEncryptionSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetManagedDisksDiskEncryptionSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A `keyEncryptionKey` block as defined below.
+func (o GetManagedDisksDiskEncryptionSettingOutput) KeyEncryptionKeys() GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return o.ApplyT(func(v GetManagedDisksDiskEncryptionSetting) []GetManagedDisksDiskEncryptionSettingKeyEncryptionKey {
+		return v.KeyEncryptionKeys
+	}).(GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput)
+}
+
+type GetManagedDisksDiskEncryptionSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDisksDiskEncryptionSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDisksDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (o GetManagedDisksDiskEncryptionSettingArrayOutput) ToGetManagedDisksDiskEncryptionSettingArrayOutput() GetManagedDisksDiskEncryptionSettingArrayOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskEncryptionSettingArrayOutput) ToGetManagedDisksDiskEncryptionSettingArrayOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingArrayOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskEncryptionSettingArrayOutput) Index(i pulumi.IntInput) GetManagedDisksDiskEncryptionSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDisksDiskEncryptionSetting {
+		return vs[0].([]GetManagedDisksDiskEncryptionSetting)[vs[1].(int)]
+	}).(GetManagedDisksDiskEncryptionSettingOutput)
+}
+
+type GetManagedDisksDiskEncryptionSettingDiskEncryptionKey struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyInput is an input type that accepts GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs and GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput values.
+// You can construct a concrete instance of `GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyInput` via:
+//
+//	GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs{...}
+type GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput() GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput
+	ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(context.Context) GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput
+}
+
+type GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (i GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs) ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput() GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return i.ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs) ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput)
+}
+
+// GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayInput is an input type that accepts GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArray and GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput values.
+// You can construct a concrete instance of `GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayInput` via:
+//
+//	GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArray{ GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs{...} }
+type GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput() GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput
+	ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(context.Context) GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput
+}
+
+type GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArray []GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyInput
+
+func (GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDisksDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (i GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArray) ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput() GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return i.ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArray) ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput)
+}
+
+type GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (o GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput) ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput() GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput) ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return o
+}
+
+// The URL to the Key Vault Secret used as the Disk Encryption Key.
+func (o GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDiskEncryptionSettingDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDiskEncryptionSettingDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+}
+
+type GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDisksDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (o GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput) ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput() GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput) ToGetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDisksDiskEncryptionSettingDiskEncryptionKey {
+		return vs[0].([]GetManagedDisksDiskEncryptionSettingDiskEncryptionKey)[vs[1].(int)]
+	}).(GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput)
+}
+
+type GetManagedDisksDiskEncryptionSettingKeyEncryptionKey struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key.
+	KeyUrl string `pulumi:"keyUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyInput is an input type that accepts GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs and GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput values.
+// You can construct a concrete instance of `GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyInput` via:
+//
+//	GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs{...}
+type GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput() GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput
+	ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(context.Context) GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput
+}
+
+type GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (i GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs) ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput() GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return i.ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs) ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput)
+}
+
+// GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayInput is an input type that accepts GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArray and GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput values.
+// You can construct a concrete instance of `GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayInput` via:
+//
+//	GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArray{ GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs{...} }
+type GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput() GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput
+	ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(context.Context) GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput
+}
+
+type GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArray []GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyInput
+
+func (GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDisksDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (i GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArray) ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput() GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return i.ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArray) ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput)
+}
+
+type GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (o GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput) ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput() GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput) ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return o
+}
+
+// The URL to the Key Vault Key used as the Key Encryption Key.
+func (o GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDiskEncryptionSettingKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDisksDiskEncryptionSettingKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+}
+
+type GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDisksDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (o GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput) ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput() GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput) ToGetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(ctx context.Context) GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDisksDiskEncryptionSettingKeyEncryptionKey {
+		return vs[0].([]GetManagedDisksDiskEncryptionSettingKeyEncryptionKey)[vs[1].(int)]
+	}).(GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput)
+}
+
 type GetOrchestratedVirtualMachineScaleSetIdentity struct {
 	// The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -34662,6 +35243,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayInput)(nil)).Elem(), GetManagedDiskEncryptionSettingDiskEncryptionKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingKeyEncryptionKeyInput)(nil)).Elem(), GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayInput)(nil)).Elem(), GetManagedDiskEncryptionSettingKeyEncryptionKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDisksDiskInput)(nil)).Elem(), GetManagedDisksDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDisksDiskArrayInput)(nil)).Elem(), GetManagedDisksDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingInput)(nil)).Elem(), GetManagedDisksDiskEncryptionSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingArrayInput)(nil)).Elem(), GetManagedDisksDiskEncryptionSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyInput)(nil)).Elem(), GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayInput)(nil)).Elem(), GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyInput)(nil)).Elem(), GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayInput)(nil)).Elem(), GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetIdentityInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetIdentityArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{})
@@ -35084,6 +35673,14 @@ func init() {
 	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDisksDiskOutput{})
+	pulumi.RegisterOutputType(GetManagedDisksDiskArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDisksDiskEncryptionSettingOutput{})
+	pulumi.RegisterOutputType(GetManagedDisksDiskEncryptionSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(GetManagedDisksDiskEncryptionSettingDiskEncryptionKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(GetManagedDisksDiskEncryptionSettingKeyEncryptionKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceOutput{})

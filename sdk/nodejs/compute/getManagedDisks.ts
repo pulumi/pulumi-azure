@@ -28,19 +28,17 @@ import * as utilities from "../utilities";
  *
  * * `Microsoft.Compute` - 2023-04-02
  */
-/** @deprecated azure.compute/get.get has been deprecated in favor of azure.compute/getmanageddisks.getManagedDisks */
-export function get(args: GetArgs, opts?: pulumi.InvokeOptions): Promise<GetResult> {
-    pulumi.log.warn("get is deprecated: azure.compute/get.get has been deprecated in favor of azure.compute/getmanageddisks.getManagedDisks")
+export function getManagedDisks(args: GetManagedDisksArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDisksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure:compute/get:get", {
+    return pulumi.runtime.invoke("azure:compute/getManagedDisks:getManagedDisks", {
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 /**
- * A collection of arguments for invoking get.
+ * A collection of arguments for invoking getManagedDisks.
  */
-export interface GetArgs {
+export interface GetManagedDisksArgs {
     /**
      * Specifies the name of the Resource Group where this Managed Disk exists.
      */
@@ -48,13 +46,13 @@ export interface GetArgs {
 }
 
 /**
- * A collection of values returned by get.
+ * A collection of values returned by getManagedDisks.
  */
-export interface GetResult {
+export interface GetManagedDisksResult {
     /**
      * a `disk` block as detailed below.
      */
-    readonly disks: outputs.compute.GetDisk[];
+    readonly disks: outputs.compute.GetManagedDisksDisk[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -83,19 +81,17 @@ export interface GetResult {
  *
  * * `Microsoft.Compute` - 2023-04-02
  */
-/** @deprecated azure.compute/get.get has been deprecated in favor of azure.compute/getmanageddisks.getManagedDisks */
-export function getOutput(args: GetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResult> {
-    pulumi.log.warn("get is deprecated: azure.compute/get.get has been deprecated in favor of azure.compute/getmanageddisks.getManagedDisks")
+export function getManagedDisksOutput(args: GetManagedDisksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedDisksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure:compute/get:get", {
+    return pulumi.runtime.invokeOutput("azure:compute/getManagedDisks:getManagedDisks", {
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 /**
- * A collection of arguments for invoking get.
+ * A collection of arguments for invoking getManagedDisks.
  */
-export interface GetOutputArgs {
+export interface GetManagedDisksOutputArgs {
     /**
      * Specifies the name of the Resource Group where this Managed Disk exists.
      */

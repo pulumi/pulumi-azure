@@ -130,6 +130,11 @@ export const getManagedDisk: typeof import("./getManagedDisk").getManagedDisk = 
 export const getManagedDiskOutput: typeof import("./getManagedDisk").getManagedDiskOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedDisk","getManagedDiskOutput"], () => require("./getManagedDisk"));
 
+export { GetManagedDisksArgs, GetManagedDisksResult, GetManagedDisksOutputArgs } from "./getManagedDisks";
+export const getManagedDisks: typeof import("./getManagedDisks").getManagedDisks = null as any;
+export const getManagedDisksOutput: typeof import("./getManagedDisks").getManagedDisksOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedDisks","getManagedDisksOutput"], () => require("./getManagedDisks"));
+
 export { GetOrchestratedVirtualMachineScaleSetArgs, GetOrchestratedVirtualMachineScaleSetResult, GetOrchestratedVirtualMachineScaleSetOutputArgs } from "./getOrchestratedVirtualMachineScaleSet";
 export const getOrchestratedVirtualMachineScaleSet: typeof import("./getOrchestratedVirtualMachineScaleSet").getOrchestratedVirtualMachineScaleSet = null as any;
 export const getOrchestratedVirtualMachineScaleSetOutput: typeof import("./getOrchestratedVirtualMachineScaleSet").getOrchestratedVirtualMachineScaleSetOutput = null as any;

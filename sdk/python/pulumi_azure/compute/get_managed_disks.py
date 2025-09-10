@@ -16,18 +16,16 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetResult',
-    'AwaitableGetResult',
-    'get',
-    'get_output',
+    'GetManagedDisksResult',
+    'AwaitableGetManagedDisksResult',
+    'get_managed_disks',
+    'get_managed_disks_output',
 ]
 
-warnings.warn("""azure.compute/get.get has been deprecated in favor of azure.compute/getmanageddisks.getManagedDisks""", DeprecationWarning)
-
 @pulumi.output_type
-class GetResult:
+class GetManagedDisksResult:
     """
-    A collection of values returned by get.
+    A collection of values returned by getManagedDisks.
     """
     def __init__(__self__, disks=None, id=None, resource_group_name=None):
         if disks and not isinstance(disks, list):
@@ -42,7 +40,7 @@ class GetResult:
 
     @_builtins.property
     @pulumi.getter
-    def disks(self) -> Sequence['outputs.GetDiskResult']:
+    def disks(self) -> Sequence['outputs.GetManagedDisksDiskResult']:
         """
         a `disk` block as detailed below.
         """
@@ -62,19 +60,19 @@ class GetResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetResult(GetResult):
+class AwaitableGetManagedDisksResult(GetManagedDisksResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetResult(
+        return GetManagedDisksResult(
             disks=self.disks,
             id=self.id,
             resource_group_name=self.resource_group_name)
 
 
-def get(resource_group_name: Optional[_builtins.str] = None,
-        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResult:
+def get_managed_disks(resource_group_name: Optional[_builtins.str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedDisksResult:
     """
     Use this data source to access information about an existing Managed Disk.
 
@@ -98,18 +96,17 @@ def get(resource_group_name: Optional[_builtins.str] = None,
 
     :param _builtins.str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
     """
-    pulumi.log.warn("""get is deprecated: azure.compute/get.get has been deprecated in favor of azure.compute/getmanageddisks.getManagedDisks""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('azure:compute/get:get', __args__, opts=opts, typ=GetResult).value
+    __ret__ = pulumi.runtime.invoke('azure:compute/getManagedDisks:getManagedDisks', __args__, opts=opts, typ=GetManagedDisksResult).value
 
-    return AwaitableGetResult(
+    return AwaitableGetManagedDisksResult(
         disks=pulumi.get(__ret__, 'disks'),
         id=pulumi.get(__ret__, 'id'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
-def get_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResult]:
+def get_managed_disks_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedDisksResult]:
     """
     Use this data source to access information about an existing Managed Disk.
 
@@ -133,12 +130,11 @@ def get_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None
 
     :param _builtins.str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
     """
-    pulumi.log.warn("""get is deprecated: azure.compute/get.get has been deprecated in favor of azure.compute/getmanageddisks.getManagedDisks""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure:compute/get:get', __args__, opts=opts, typ=GetResult)
-    return __ret__.apply(lambda __response__: GetResult(
+    __ret__ = pulumi.runtime.invoke_output('azure:compute/getManagedDisks:getManagedDisks', __args__, opts=opts, typ=GetManagedDisksResult)
+    return __ret__.apply(lambda __response__: GetManagedDisksResult(
         disks=pulumi.get(__response__, 'disks'),
         id=pulumi.get(__response__, 'id'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name')))

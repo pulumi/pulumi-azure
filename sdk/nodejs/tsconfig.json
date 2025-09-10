@@ -381,6 +381,7 @@
         "compute/getImage.ts",
         "compute/getImages.ts",
         "compute/getManagedDisk.ts",
+        "compute/getManagedDisks.ts",
         "compute/getOrchestratedVirtualMachineScaleSet.ts",
         "compute/getPlatformImage.ts",
         "compute/getSharedImage.ts",

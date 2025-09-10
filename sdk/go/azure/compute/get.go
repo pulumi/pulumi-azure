@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := compute.Get(ctx, &compute.GetArgs{
+//			_, err := compute.GetManagedDisks(ctx, &compute.GetManagedDisksArgs{
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
@@ -46,6 +46,8 @@ import (
 // This data source uses the following Azure API Providers:
 //
 // * `Microsoft.Compute` - 2023-04-02
+//
+// Deprecated: azure.compute/get.get has been deprecated in favor of azure.compute/getmanageddisks.getManagedDisks
 func Get(ctx *pulumi.Context, args *GetArgs, opts ...pulumi.InvokeOption) (*GetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResult

@@ -9,8 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.Compute
 {
-    [Obsolete(@"azure.compute/get.get has been deprecated in favor of azure.compute/getmanageddisks.getManagedDisks")]
-    public static class Get
+    public static class GetManagedDisks
     {
         /// <summary>
         /// Use this data source to access information about an existing Managed Disk.
@@ -44,8 +43,8 @@ namespace Pulumi.Azure.Compute
         /// 
         /// * `Microsoft.Compute` - 2023-04-02
         /// </summary>
-        public static Task<GetResult> InvokeAsync(GetArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResult>("azure:compute/get:get", args ?? new GetArgs(), options.WithDefaults());
+        public static Task<GetManagedDisksResult> InvokeAsync(GetManagedDisksArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDisksResult>("azure:compute/getManagedDisks:getManagedDisks", args ?? new GetManagedDisksArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Managed Disk.
@@ -79,8 +78,8 @@ namespace Pulumi.Azure.Compute
         /// 
         /// * `Microsoft.Compute` - 2023-04-02
         /// </summary>
-        public static Output<GetResult> Invoke(GetInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetResult>("azure:compute/get:get", args ?? new GetInvokeArgs(), options.WithDefaults());
+        public static Output<GetManagedDisksResult> Invoke(GetManagedDisksInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedDisksResult>("azure:compute/getManagedDisks:getManagedDisks", args ?? new GetManagedDisksInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Managed Disk.
@@ -114,12 +113,12 @@ namespace Pulumi.Azure.Compute
         /// 
         /// * `Microsoft.Compute` - 2023-04-02
         /// </summary>
-        public static Output<GetResult> Invoke(GetInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetResult>("azure:compute/get:get", args ?? new GetInvokeArgs(), options.WithDefaults());
+        public static Output<GetManagedDisksResult> Invoke(GetManagedDisksInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedDisksResult>("azure:compute/getManagedDisks:getManagedDisks", args ?? new GetManagedDisksInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedDisksArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Resource Group where this Managed Disk exists.
@@ -127,13 +126,13 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetArgs()
+        public GetManagedDisksArgs()
         {
         }
-        public static new GetArgs Empty => new GetArgs();
+        public static new GetManagedDisksArgs Empty => new GetManagedDisksArgs();
     }
 
-    public sealed class GetInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetManagedDisksInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Resource Group where this Managed Disk exists.
@@ -141,20 +140,20 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetInvokeArgs()
+        public GetManagedDisksInvokeArgs()
         {
         }
-        public static new GetInvokeArgs Empty => new GetInvokeArgs();
+        public static new GetManagedDisksInvokeArgs Empty => new GetManagedDisksInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetResult
+    public sealed class GetManagedDisksResult
     {
         /// <summary>
         /// a `disk` block as detailed below.
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetDiskResult> Disks;
+        public readonly ImmutableArray<Outputs.GetManagedDisksDiskResult> Disks;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -162,8 +161,8 @@ namespace Pulumi.Azure.Compute
         public readonly string ResourceGroupName;
 
         [OutputConstructor]
-        private GetResult(
-            ImmutableArray<Outputs.GetDiskResult> disks,
+        private GetManagedDisksResult(
+            ImmutableArray<Outputs.GetManagedDisksDiskResult> disks,
 
             string id,
 
