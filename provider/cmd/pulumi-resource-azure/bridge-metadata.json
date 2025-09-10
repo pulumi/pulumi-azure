@@ -28432,7 +28432,14 @@
                 }
             },
             "azurerm_managed_disks": {
-                "current": "azure:compute/get:get",
+                "current": "azure:compute/getManagedDisks:getManagedDisks",
+                "past": [
+                    {
+                        "name": "azure:compute/get:get",
+                        "inCodegen": true,
+                        "majorVersion": 6
+                    }
+                ],
                 "majorVersion": 6,
                 "fields": {
                     "disk": {
@@ -32200,6 +32207,11 @@
                     "site_config": true,
                     "site_config.$.cors": true
                 }
+            },
+            "azurerm_managed_disks": {
+                "renames": [
+                    "azure:compute/get:get"
+                ]
             },
             "azurerm_portal_dashboard": {
                 "renames": [
