@@ -84,6 +84,11 @@ jobs:
           providerVersion: ${{ inputs.providerVersion }}
         env:
           NODE_AUTH_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN }}
+          ARM_CLIENT_ID: ${{ steps.esc-secrets.outputs.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ steps.esc-secrets.outputs.ARM_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ steps.esc-secrets.outputs.ARM_TENANT_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify dotnet release
         uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         with:
@@ -91,6 +96,12 @@ jobs:
           directory: examples/appservice-cs
           provider: azure
           providerVersion: ${{ inputs.providerVersion }}
+        env:
+          ARM_CLIENT_ID: ${{ steps.esc-secrets.outputs.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ steps.esc-secrets.outputs.ARM_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ steps.esc-secrets.outputs.ARM_TENANT_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify go release
         uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
         if: inputs.skipGoSdk == false
@@ -99,3 +110,9 @@ jobs:
           directory: examples/network-go
           provider: azure
           providerVersion: ${{ inputs.providerVersion }}
+        env:
+          ARM_CLIENT_ID: ${{ steps.esc-secrets.outputs.ARM_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
+          ARM_SUBSCRIPTION_ID: ${{ steps.esc-secrets.outputs.ARM_SUBSCRIPTION_ID }}
+          ARM_TENANT_ID: ${{ steps.esc-secrets.outputs.ARM_TENANT_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
