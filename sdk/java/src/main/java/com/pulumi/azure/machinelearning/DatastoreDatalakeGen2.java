@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *         var exampleDatastoreDatalakeGen2 = new DatastoreDatalakeGen2("exampleDatastoreDatalakeGen2", DatastoreDatalakeGen2Args.builder()
  *             .name("example-datastore")
  *             .workspaceId(exampleWorkspace.id())
- *             .storageContainerId(exampleContainer.resourceManagerId())
+ *             .storageContainerId(exampleContainer.id())
  *             .build());
  * 
  *     }

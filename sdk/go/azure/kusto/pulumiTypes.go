@@ -448,6 +448,7 @@ func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ClusterLanguageExtension struct {
+	// The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
 	Image string `pulumi:"image"`
 	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -465,6 +466,7 @@ type ClusterLanguageExtensionInput interface {
 }
 
 type ClusterLanguageExtensionArgs struct {
+	// The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
 	Image pulumi.StringInput `pulumi:"image"`
 	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -521,6 +523,7 @@ func (o ClusterLanguageExtensionOutput) ToClusterLanguageExtensionOutputWithCont
 	return o
 }
 
+// The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
 func (o ClusterLanguageExtensionOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLanguageExtension) string { return v.Image }).(pulumi.StringOutput)
 }
@@ -551,9 +554,9 @@ func (o ClusterLanguageExtensionArrayOutput) Index(i pulumi.IntInput) ClusterLan
 }
 
 type ClusterOptimizedAutoScale struct {
-	// The maximum number of allowed instances. Must between `0` and `1000`.
+	// The maximum number of allowed instances. Possible values range between `0` and `1000`.
 	MaximumInstances int `pulumi:"maximumInstances"`
-	// The minimum number of allowed instances. Must between `0` and `1000`.
+	// The minimum number of allowed instances. Possible values range between `0` and `1000`.
 	MinimumInstances int `pulumi:"minimumInstances"`
 }
 
@@ -569,9 +572,9 @@ type ClusterOptimizedAutoScaleInput interface {
 }
 
 type ClusterOptimizedAutoScaleArgs struct {
-	// The maximum number of allowed instances. Must between `0` and `1000`.
+	// The maximum number of allowed instances. Possible values range between `0` and `1000`.
 	MaximumInstances pulumi.IntInput `pulumi:"maximumInstances"`
-	// The minimum number of allowed instances. Must between `0` and `1000`.
+	// The minimum number of allowed instances. Possible values range between `0` and `1000`.
 	MinimumInstances pulumi.IntInput `pulumi:"minimumInstances"`
 }
 
@@ -652,12 +655,12 @@ func (o ClusterOptimizedAutoScaleOutput) ToClusterOptimizedAutoScalePtrOutputWit
 	}).(ClusterOptimizedAutoScalePtrOutput)
 }
 
-// The maximum number of allowed instances. Must between `0` and `1000`.
+// The maximum number of allowed instances. Possible values range between `0` and `1000`.
 func (o ClusterOptimizedAutoScaleOutput) MaximumInstances() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterOptimizedAutoScale) int { return v.MaximumInstances }).(pulumi.IntOutput)
 }
 
-// The minimum number of allowed instances. Must between `0` and `1000`.
+// The minimum number of allowed instances. Possible values range between `0` and `1000`.
 func (o ClusterOptimizedAutoScaleOutput) MinimumInstances() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterOptimizedAutoScale) int { return v.MinimumInstances }).(pulumi.IntOutput)
 }
@@ -686,7 +689,7 @@ func (o ClusterOptimizedAutoScalePtrOutput) Elem() ClusterOptimizedAutoScaleOutp
 	}).(ClusterOptimizedAutoScaleOutput)
 }
 
-// The maximum number of allowed instances. Must between `0` and `1000`.
+// The maximum number of allowed instances. Possible values range between `0` and `1000`.
 func (o ClusterOptimizedAutoScalePtrOutput) MaximumInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterOptimizedAutoScale) *int {
 		if v == nil {
@@ -696,7 +699,7 @@ func (o ClusterOptimizedAutoScalePtrOutput) MaximumInstances() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of allowed instances. Must between `0` and `1000`.
+// The minimum number of allowed instances. Possible values range between `0` and `1000`.
 func (o ClusterOptimizedAutoScalePtrOutput) MinimumInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterOptimizedAutoScale) *int {
 		if v == nil {
@@ -710,7 +713,8 @@ type ClusterSku struct {
 	// Specifies the node count for the cluster. Boundaries depend on the SKU name.
 	//
 	// > **Note:** If no `optimizedAutoScale` block is defined, then the capacity is required.
-	// **Note:** If an `optimizedAutoScale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimumInstances`.
+	//
+	// > **Note:** If an `optimizedAutoScale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimumInstances`.
 	Capacity *int `pulumi:"capacity"`
 	// The name of the SKU. Possible values are `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D14_v2`, `Standard_D11_v2`, `Standard_D16d_v5`, `Standard_D13_v2`, `Standard_D12_v2`, `Standard_DS14_v2+4TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_D32d_v5`, `Standard_D32d_v4`, `Standard_EC8ads_v5`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16ads_v5`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8d_v5`, `Standard_E8d_v4`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E4d_v5`, `Standard_E4d_v4`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v5+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16d_v5`, `Standard_E16d_v4`, `Standard_E16s_v5+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E64i_v3`, `Standard_E2a_v4`, `Standard_E2ads_v5`, `Standard_E2d_v5`, `Standard_E2d_v4`, `Standard_L8as_v3`, `Standard_L8s`, `Standard_L8s_v3`, `Standard_L8s_v2`, `Standard_L4s`, `Standard_L16as_v3`, `Standard_L16s`, `Standard_L16s_v3`, `Standard_L16s_v2`, `Standard_L32as_v3` and `Standard_L32s_v3`.
 	Name string `pulumi:"name"`
@@ -731,7 +735,8 @@ type ClusterSkuArgs struct {
 	// Specifies the node count for the cluster. Boundaries depend on the SKU name.
 	//
 	// > **Note:** If no `optimizedAutoScale` block is defined, then the capacity is required.
-	// **Note:** If an `optimizedAutoScale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimumInstances`.
+	//
+	// > **Note:** If an `optimizedAutoScale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimumInstances`.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// The name of the SKU. Possible values are `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D14_v2`, `Standard_D11_v2`, `Standard_D16d_v5`, `Standard_D13_v2`, `Standard_D12_v2`, `Standard_DS14_v2+4TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_D32d_v5`, `Standard_D32d_v4`, `Standard_EC8ads_v5`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16ads_v5`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8d_v5`, `Standard_E8d_v4`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E4d_v5`, `Standard_E4d_v4`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v5+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16d_v5`, `Standard_E16d_v4`, `Standard_E16s_v5+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E64i_v3`, `Standard_E2a_v4`, `Standard_E2ads_v5`, `Standard_E2d_v5`, `Standard_E2d_v4`, `Standard_L8as_v3`, `Standard_L8s`, `Standard_L8s_v3`, `Standard_L8s_v2`, `Standard_L4s`, `Standard_L16as_v3`, `Standard_L16s`, `Standard_L16s_v3`, `Standard_L16s_v2`, `Standard_L32as_v3` and `Standard_L32s_v3`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -817,7 +822,8 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) 
 // Specifies the node count for the cluster. Boundaries depend on the SKU name.
 //
 // > **Note:** If no `optimizedAutoScale` block is defined, then the capacity is required.
-// **Note:** If an `optimizedAutoScale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimumInstances`.
+//
+// > **Note:** If an `optimizedAutoScale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimumInstances`.
 func (o ClusterSkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -854,7 +860,8 @@ func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
 // Specifies the node count for the cluster. Boundaries depend on the SKU name.
 //
 // > **Note:** If no `optimizedAutoScale` block is defined, then the capacity is required.
-// **Note:** If an `optimizedAutoScale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimumInstances`.
+//
+// > **Note:** If an `optimizedAutoScale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimumInstances`.
 func (o ClusterSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterSku) *int {
 		if v == nil {

@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ContainerService
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.ContainerService` - 2025-02-01
+    /// * `Microsoft.ContainerService` - 2025-05-01
     /// 
     /// ## Import
     /// 
@@ -113,6 +113,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("fipsEnabled")]
         public Output<bool?> FipsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("gpuDriver")]
+        public Output<string?> GpuDriver { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -426,6 +432,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? FipsEnabled { get; set; }
 
         /// <summary>
+        /// Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("gpuDriver")]
+        public Input<string>? GpuDriver { get; set; }
+
+        /// <summary>
         /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("gpuInstance")]
@@ -721,6 +733,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies whether to install the GPU Driver for the nodes. Possible values are `Install` and `None`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("gpuDriver")]
+        public Input<string>? GpuDriver { get; set; }
 
         /// <summary>
         /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.

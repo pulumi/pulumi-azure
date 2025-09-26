@@ -19,7 +19,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
      */
     private @Nullable Boolean active;
     /**
-     * @return The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+     * @return The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
      * 
      */
     private String cdnFrontdoorDomainId;
@@ -33,7 +33,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
         return Optional.ofNullable(this.active);
     }
     /**
-     * @return The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+     * @return The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
      * 
      */
     public String cdnFrontdoorDomainId() {

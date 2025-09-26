@@ -65,6 +65,21 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
     }
 
     /**
+     * The ID of the Managed HSM Key.
+     * 
+     */
+    @Import(name="managedHsmKeyId")
+    private @Nullable Output<String> managedHsmKeyId;
+
+    /**
+     * @return The ID of the Managed HSM Key.
+     * 
+     */
+    public Optional<Output<String>> managedHsmKeyId() {
+        return Optional.ofNullable(this.managedHsmKeyId);
+    }
+
+    /**
      * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
      * 
      */
@@ -85,6 +100,7 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
         this.geoBackupKeyVaultKeyId = $.geoBackupKeyVaultKeyId;
         this.geoBackupUserAssignedIdentityId = $.geoBackupUserAssignedIdentityId;
         this.keyVaultKeyId = $.keyVaultKeyId;
+        this.managedHsmKeyId = $.managedHsmKeyId;
         this.primaryUserAssignedIdentityId = $.primaryUserAssignedIdentityId;
     }
 
@@ -171,6 +187,27 @@ public final class FlexibleServerCustomerManagedKeyArgs extends com.pulumi.resou
          */
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             return keyVaultKeyId(Output.of(keyVaultKeyId));
+        }
+
+        /**
+         * @param managedHsmKeyId The ID of the Managed HSM Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
+            $.managedHsmKeyId = managedHsmKeyId;
+            return this;
+        }
+
+        /**
+         * @param managedHsmKeyId The ID of the Managed HSM Key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(String managedHsmKeyId) {
+            return managedHsmKeyId(Output.of(managedHsmKeyId));
         }
 
         /**

@@ -95,6 +95,8 @@ type LoadBalancer struct {
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
+	// The ID of a Public IP Address which is associated with this Load Balancer.
+	PublicIpAddressId pulumi.StringOutput `pulumi:"publicIpAddressId"`
 	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -103,6 +105,8 @@ type LoadBalancer struct {
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrOutput `pulumi:"skuTier"`
+	// The ID of the Subnet which is associated with the IP Configuration.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -152,6 +156,8 @@ type loadBalancerState struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
+	// The ID of a Public IP Address which is associated with this Load Balancer.
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -160,6 +166,8 @@ type loadBalancerState struct {
 	Sku *string `pulumi:"sku"`
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier *string `pulumi:"skuTier"`
+	// The ID of the Subnet which is associated with the IP Configuration.
+	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -177,6 +185,8 @@ type LoadBalancerState struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses pulumi.StringArrayInput
+	// The ID of a Public IP Address which is associated with this Load Balancer.
+	PublicIpAddressId pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -185,6 +195,8 @@ type LoadBalancerState struct {
 	Sku pulumi.StringPtrInput
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrInput
+	// The ID of the Subnet which is associated with the IP Configuration.
+	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -202,6 +214,8 @@ type loadBalancerArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The ID of a Public IP Address which is associated with this Load Balancer.
+	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -210,6 +224,8 @@ type loadBalancerArgs struct {
 	Sku *string `pulumi:"sku"`
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier *string `pulumi:"skuTier"`
+	// The ID of the Subnet which is associated with the IP Configuration.
+	SubnetId *string `pulumi:"subnetId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -224,6 +240,8 @@ type LoadBalancerArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The ID of a Public IP Address which is associated with this Load Balancer.
+	PublicIpAddressId pulumi.StringPtrInput
 	// The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -232,6 +250,8 @@ type LoadBalancerArgs struct {
 	Sku pulumi.StringPtrInput
 	// `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 	SkuTier pulumi.StringPtrInput
+	// The ID of the Subnet which is associated with the IP Configuration.
+	SubnetId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -355,6 +375,11 @@ func (o LoadBalancerOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
+// The ID of a Public IP Address which is associated with this Load Balancer.
+func (o LoadBalancerOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.PublicIpAddressId }).(pulumi.StringOutput)
+}
+
 // The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
 func (o LoadBalancerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
@@ -370,6 +395,11 @@ func (o LoadBalancerOutput) Sku() pulumi.StringPtrOutput {
 // `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
 func (o LoadBalancerOutput) SkuTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.SkuTier }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Subnet which is associated with the IP Configuration.
+func (o LoadBalancerOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.

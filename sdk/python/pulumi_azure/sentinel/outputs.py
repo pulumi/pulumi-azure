@@ -45,8 +45,10 @@ __all__ = [
     'AlertRuleScheduledIncidentGrouping',
     'AlertRuleScheduledSentinelEntityMapping',
     'AuthomationRuleActionIncident',
+    'AuthomationRuleActionIncidentTask',
     'AuthomationRuleActionPlaybook',
     'AutomationRuleActionIncident',
+    'AutomationRuleActionIncidentTask',
     'AutomationRuleActionPlaybook',
     'MetadataAuthor',
     'MetadataCategory',
@@ -1829,6 +1831,47 @@ class AuthomationRuleActionIncident(dict):
 
 
 @pulumi.output_type
+class AuthomationRuleActionIncidentTask(dict):
+    def __init__(__self__, *,
+                 order: _builtins.int,
+                 title: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int order: The execution order of this action.
+        :param _builtins.str title: The title of the incident task.
+        :param _builtins.str description: The description of the incident task.
+        """
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "title", title)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def order(self) -> _builtins.int:
+        """
+        The execution order of this action.
+        """
+        return pulumi.get(self, "order")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> _builtins.str:
+        """
+        The title of the incident task.
+        """
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the incident task.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class AuthomationRuleActionPlaybook(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2007,6 +2050,47 @@ class AutomationRuleActionIncident(dict):
         The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class AutomationRuleActionIncidentTask(dict):
+    def __init__(__self__, *,
+                 order: _builtins.int,
+                 title: _builtins.str,
+                 description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int order: The execution order of this action.
+        :param _builtins.str title: The title of the incident task.
+        :param _builtins.str description: The description of the incident task.
+        """
+        pulumi.set(__self__, "order", order)
+        pulumi.set(__self__, "title", title)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def order(self) -> _builtins.int:
+        """
+        The execution order of this action.
+        """
+        return pulumi.get(self, "order")
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> _builtins.str:
+        """
+        The title of the incident task.
+        """
+        return pulumi.get(self, "title")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the incident task.
+        """
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type

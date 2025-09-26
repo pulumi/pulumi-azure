@@ -211,6 +211,24 @@ public class EndpointCosmosdbAccount extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> secondaryKey() {
         return Codegen.optional(this.secondaryKey);
     }
+    /**
+     * The subscription ID for the endpoint.
+     * 
+     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * 
+     */
+    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    private Output<String> subscriptionId;
+
+    /**
+     * @return The subscription ID for the endpoint.
+     * 
+     * &gt; **Note:** When `subscription_id` isn&#39;t specified it will be set to the subscription ID of the IoT Hub resource.
+     * 
+     */
+    public Output<String> subscriptionId() {
+        return this.subscriptionId;
+    }
 
     /**
      *

@@ -73,12 +73,67 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## NetApp Pool with Flexible Service Level Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.netapp.Account;
+ * import com.pulumi.azure.netapp.AccountArgs;
+ * import com.pulumi.azure.netapp.Pool;
+ * import com.pulumi.azure.netapp.PoolArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .name("example-netappaccount")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var examplePool = new Pool("examplePool", PoolArgs.builder()
+ *             .name("example-netapppool")
+ *             .accountName(exampleAccount.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .serviceLevel("Flexible")
+ *             .sizeInTb(4)
+ *             .qosType("Manual")
+ *             .customThroughputMibps(256)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.NetApp` - 2025-01-01
+ * * `Microsoft.NetApp` - 2025-06-01
  * 
  * ## Import
  * 
@@ -122,6 +177,20 @@ public class Pool extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> coolAccessEnabled() {
         return Codegen.optional(this.coolAccessEnabled);
+    }
+    /**
+     * The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+     * 
+     */
+    @Export(name="customThroughputMibps", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> customThroughputMibps;
+
+    /**
+     * @return The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `service_level` is set to `Flexible` and `qos_type` is set to `Manual`.
+     * 
+     */
+    public Output<Optional<Integer>> customThroughputMibps() {
+        return Codegen.optional(this.customThroughputMibps);
     }
     /**
      * The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
@@ -194,14 +263,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+     * The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="serviceLevel", refs={String.class}, tree="[0]")
     private Output<String> serviceLevel;
 
     /**
-     * @return The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+     * @return The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> serviceLevel() {

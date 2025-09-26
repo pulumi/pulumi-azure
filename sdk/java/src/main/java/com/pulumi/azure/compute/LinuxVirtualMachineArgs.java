@@ -90,16 +90,20 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    @Import(name="adminUsername", required=true)
-    private Output<String> adminUsername;
+    @Import(name="adminUsername")
+    private @Nullable Output<String> adminUsername;
 
     /**
      * @return The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    public Output<String> adminUsername() {
-        return this.adminUsername;
+    public Optional<Output<String>> adminUsername() {
+        return Optional.ofNullable(this.adminUsername);
     }
 
     /**
@@ -488,6 +492,25 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
      */
     public Optional<Output<LinuxVirtualMachineOsImageNotificationArgs>> osImageNotification() {
         return Optional.ofNullable(this.osImageNotification);
+    }
+
+    /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+     * 
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * 
+     */
+    @Import(name="osManagedDiskId")
+    private @Nullable Output<String> osManagedDiskId;
+
+    /**
+     * @return The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+     * 
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * 
+     */
+    public Optional<Output<String>> osManagedDiskId() {
+        return Optional.ofNullable(this.osManagedDiskId);
     }
 
     /**
@@ -880,6 +903,7 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         this.networkInterfaceIds = $.networkInterfaceIds;
         this.osDisk = $.osDisk;
         this.osImageNotification = $.osImageNotification;
+        this.osManagedDiskId = $.osManagedDiskId;
         this.patchAssessmentMode = $.patchAssessmentMode;
         this.patchMode = $.patchMode;
         this.plan = $.plan;
@@ -1009,16 +1033,20 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         /**
          * @param adminUsername The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+         * 
          * @return builder
          * 
          */
-        public Builder adminUsername(Output<String> adminUsername) {
+        public Builder adminUsername(@Nullable Output<String> adminUsername) {
             $.adminUsername = adminUsername;
             return this;
         }
 
         /**
          * @param adminUsername The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
          * 
          * @return builder
          * 
@@ -1582,6 +1610,31 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+         * 
+         * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osManagedDiskId(@Nullable Output<String> osManagedDiskId) {
+            $.osManagedDiskId = osManagedDiskId;
+            return this;
+        }
+
+        /**
+         * @param osManagedDiskId The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+         * 
+         * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osManagedDiskId(String osManagedDiskId) {
+            return osManagedDiskId(Output.of(osManagedDiskId));
+        }
+
+        /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
          * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -2077,9 +2130,6 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         }
 
         public LinuxVirtualMachineArgs build() {
-            if ($.adminUsername == null) {
-                throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "adminUsername");
-            }
             if ($.networkInterfaceIds == null) {
                 throw new MissingRequiredPropertyException("LinuxVirtualMachineArgs", "networkInterfaceIds");
             }

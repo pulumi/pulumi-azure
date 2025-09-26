@@ -1734,9 +1734,7 @@ class KeyVaultContact(dict):
                  name: Optional[_builtins.str] = None,
                  phone: Optional[_builtins.str] = None):
         """
-        :param _builtins.str email: E-mail address of the contact.
-        :param _builtins.str name: Name of the contact.
-        :param _builtins.str phone: Phone number of the contact.
+        :param _builtins.str name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         """
         pulumi.set(__self__, "email", email)
         if name is not None:
@@ -1747,25 +1745,19 @@ class KeyVaultContact(dict):
     @_builtins.property
     @pulumi.getter
     def email(self) -> _builtins.str:
-        """
-        E-mail address of the contact.
-        """
         return pulumi.get(self, "email")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        Name of the contact.
+        Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def phone(self) -> Optional[_builtins.str]:
-        """
-        Phone number of the contact.
-        """
         return pulumi.get(self, "phone")
 
 

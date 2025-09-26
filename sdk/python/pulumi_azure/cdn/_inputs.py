@@ -109,6 +109,8 @@ __all__ = [
     'FrontdoorOriginPrivateLinkArgsDict',
     'FrontdoorProfileIdentityArgs',
     'FrontdoorProfileIdentityArgsDict',
+    'FrontdoorProfileLogScrubbingRuleArgs',
+    'FrontdoorProfileLogScrubbingRuleArgsDict',
     'FrontdoorRouteCacheArgs',
     'FrontdoorRouteCacheArgsDict',
     'FrontdoorRuleActionsArgs',
@@ -175,8 +177,6 @@ __all__ = [
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgsDict',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgsDict',
-    'GetFrontdoorProfileIdentityArgs',
-    'GetFrontdoorProfileIdentityArgsDict',
 ]
 
 MYPY = False
@@ -3264,9 +3264,9 @@ if not MYPY:
     class FrontdoorFirewallPolicyCustomRuleArgsDict(TypedDict):
         action: pulumi.Input[_builtins.str]
         """
-        The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+        The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
 
-        !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        !> **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         """
         name: pulumi.Input[_builtins.str]
         """
@@ -3311,9 +3311,9 @@ class FrontdoorFirewallPolicyCustomRuleArgs:
                  rate_limit_duration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  rate_limit_threshold: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] action: The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+        :param pulumi.Input[_builtins.str] action: The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
                
-               !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+               !> **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[_builtins.str] name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param pulumi.Input[_builtins.str] type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param pulumi.Input[_builtins.bool] enabled: Is the rule is enabled or disabled? Defaults to `true`.
@@ -3340,9 +3340,9 @@ class FrontdoorFirewallPolicyCustomRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[_builtins.str]:
         """
-        The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+        The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
 
-        !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        !> **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         """
         return pulumi.get(self, "action")
 
@@ -4594,6 +4594,43 @@ class FrontdoorProfileIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class FrontdoorProfileLogScrubbingRuleArgsDict(TypedDict):
+        match_variable: pulumi.Input[_builtins.str]
+        """
+        The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+
+        > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+        """
+elif False:
+    FrontdoorProfileLogScrubbingRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FrontdoorProfileLogScrubbingRuleArgs:
+    def __init__(__self__, *,
+                 match_variable: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] match_variable: The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+               
+               > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+
+    @_builtins.property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> pulumi.Input[_builtins.str]:
+        """
+        The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+
+        > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @match_variable.setter
+    def match_variable(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "match_variable", value)
 
 
 if not MYPY:
@@ -7461,7 +7498,7 @@ if not MYPY:
     class FrontdoorSecurityPolicySecurityPoliciesArgsDict(TypedDict):
         firewall: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgsDict']
         """
-        An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        An `firewall` block as defined below.
         """
 elif False:
     FrontdoorSecurityPolicySecurityPoliciesArgsDict: TypeAlias = Mapping[str, Any]
@@ -7471,7 +7508,7 @@ class FrontdoorSecurityPolicySecurityPoliciesArgs:
     def __init__(__self__, *,
                  firewall: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs']):
         """
-        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs'] firewall: An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs'] firewall: An `firewall` block as defined below.
         """
         pulumi.set(__self__, "firewall", firewall)
 
@@ -7479,7 +7516,7 @@ class FrontdoorSecurityPolicySecurityPoliciesArgs:
     @pulumi.getter
     def firewall(self) -> pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs']:
         """
-        An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        An `firewall` block as defined below.
         """
         return pulumi.get(self, "firewall")
 
@@ -7492,7 +7529,7 @@ if not MYPY:
     class FrontdoorSecurityPolicySecurityPoliciesFirewallArgsDict(TypedDict):
         association: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgsDict']
         """
-        An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        An `association` block as defined below.
         """
         cdn_frontdoor_firewall_policy_id: pulumi.Input[_builtins.str]
         """
@@ -7507,7 +7544,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs:
                  association: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs'],
                  cdn_frontdoor_firewall_policy_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs'] association: An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs'] association: An `association` block as defined below.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_firewall_policy_id: The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "association", association)
@@ -7517,7 +7554,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs:
     @pulumi.getter
     def association(self) -> pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs']:
         """
-        An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        An `association` block as defined below.
         """
         return pulumi.get(self, "association")
 
@@ -7542,7 +7579,7 @@ if not MYPY:
     class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgsDict(TypedDict):
         domains: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgsDict']]]
         """
-        One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+        One or more `domain` blocks as defined below.
         """
         patterns_to_match: pulumi.Input[_builtins.str]
         """
@@ -7557,7 +7594,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs:
                  domains: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]],
                  patterns_to_match: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]] domains: One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]] domains: One or more `domain` blocks as defined below.
         :param pulumi.Input[_builtins.str] patterns_to_match: The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "domains", domains)
@@ -7567,7 +7604,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs:
     @pulumi.getter
     def domains(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs']]]:
         """
-        One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+        One or more `domain` blocks as defined below.
         """
         return pulumi.get(self, "domains")
 
@@ -7592,7 +7629,7 @@ if not MYPY:
     class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgsDict(TypedDict):
         cdn_frontdoor_domain_id: pulumi.Input[_builtins.str]
         """
-        The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
         """
         active: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -7607,7 +7644,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs:
                  cdn_frontdoor_domain_id: pulumi.Input[_builtins.str],
                  active: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] cdn_frontdoor_domain_id: The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_domain_id: The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
         :param pulumi.Input[_builtins.bool] active: Is the Front Door Custom Domain/Endpoint activated?
         """
         pulumi.set(__self__, "cdn_frontdoor_domain_id", cdn_frontdoor_domain_id)
@@ -7618,7 +7655,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs:
     @pulumi.getter(name="cdnFrontdoorDomainId")
     def cdn_frontdoor_domain_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
         """
         return pulumi.get(self, "cdn_frontdoor_domain_id")
 
@@ -7637,80 +7674,5 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs:
     @active.setter
     def active(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "active", value)
-
-
-if not MYPY:
-    class GetFrontdoorProfileIdentityArgsDict(TypedDict):
-        principal_id: _builtins.str
-        tenant_id: _builtins.str
-        type: _builtins.str
-        """
-        The type of Managed Service Identity that is configured on this Front Door Profile.
-        """
-        identity_ids: NotRequired[Sequence[_builtins.str]]
-        """
-        The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
-        """
-elif False:
-    GetFrontdoorProfileIdentityArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetFrontdoorProfileIdentityArgs:
-    def __init__(__self__, *,
-                 principal_id: _builtins.str,
-                 tenant_id: _builtins.str,
-                 type: _builtins.str,
-                 identity_ids: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str type: The type of Managed Service Identity that is configured on this Front Door Profile.
-        :param Sequence[_builtins.str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
-        """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
-        if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> _builtins.str:
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: _builtins.str):
-        pulumi.set(self, "principal_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> _builtins.str:
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: _builtins.str):
-        pulumi.set(self, "tenant_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> _builtins.str:
-        """
-        The type of Managed Service Identity that is configured on this Front Door Profile.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: _builtins.str):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
-        """
-        return pulumi.get(self, "identity_ids")
-
-    @identity_ids.setter
-    def identity_ids(self, value: Optional[Sequence[_builtins.str]]):
-        pulumi.set(self, "identity_ids", value)
 
 

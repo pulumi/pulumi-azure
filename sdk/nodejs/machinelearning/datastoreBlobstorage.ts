@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  * const exampleDatastoreBlobstorage = new azure.machinelearning.DatastoreBlobstorage("example", {
  *     name: "example-datastore",
  *     workspaceId: exampleWorkspace.id,
- *     storageContainerId: exampleContainer.resourceManagerId,
+ *     storageContainerId: exampleContainer.id,
  *     accountKey: exampleAccount.primaryAccessKey,
  * });
  * ```

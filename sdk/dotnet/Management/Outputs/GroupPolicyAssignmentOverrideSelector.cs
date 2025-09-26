@@ -14,9 +14,6 @@ namespace Pulumi.Azure.Management.Outputs
     public sealed class GroupPolicyAssignmentOverrideSelector
     {
         public readonly ImmutableArray<string> Ins;
-        /// <summary>
-        /// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-        /// </summary>
         public readonly string? Kind;
         public readonly ImmutableArray<string> NotIns;
 

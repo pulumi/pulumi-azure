@@ -399,7 +399,7 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         example_datastore_blobstorage = azure.machinelearning.DatastoreBlobstorage("example",
             name="example-datastore",
             workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id,
+            storage_container_id=example_container.id,
             account_key=example_account.primary_access_key)
         ```
 
@@ -489,7 +489,7 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         example_datastore_blobstorage = azure.machinelearning.DatastoreBlobstorage("example",
             name="example-datastore",
             workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id,
+            storage_container_id=example_container.id,
             account_key=example_account.primary_access_key)
         ```
 

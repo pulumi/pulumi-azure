@@ -47,14 +47,14 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * An `security_policies` block as defined below.
      * 
      */
     @Import(name="securityPolicies")
     private @Nullable Output<FrontdoorSecurityPolicySecurityPoliciesArgs> securityPolicies;
 
     /**
-     * @return An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return An `security_policies` block as defined below.
      * 
      */
     public Optional<Output<FrontdoorSecurityPolicySecurityPoliciesArgs>> securityPolicies() {
@@ -130,7 +130,7 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param securityPolicies An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * @param securityPolicies An `security_policies` block as defined below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FrontdoorSecurityPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param securityPolicies An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * @param securityPolicies An `security_policies` block as defined below.
          * 
          * @return builder
          * 

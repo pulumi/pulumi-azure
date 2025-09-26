@@ -15,14 +15,14 @@ public final class ClusterOptimizedAutoScaleArgs extends com.pulumi.resources.Re
     public static final ClusterOptimizedAutoScaleArgs Empty = new ClusterOptimizedAutoScaleArgs();
 
     /**
-     * The maximum number of allowed instances. Must between `0` and `1000`.
+     * The maximum number of allowed instances. Possible values range between `0` and `1000`.
      * 
      */
     @Import(name="maximumInstances", required=true)
     private Output<Integer> maximumInstances;
 
     /**
-     * @return The maximum number of allowed instances. Must between `0` and `1000`.
+     * @return The maximum number of allowed instances. Possible values range between `0` and `1000`.
      * 
      */
     public Output<Integer> maximumInstances() {
@@ -30,14 +30,14 @@ public final class ClusterOptimizedAutoScaleArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The minimum number of allowed instances. Must between `0` and `1000`.
+     * The minimum number of allowed instances. Possible values range between `0` and `1000`.
      * 
      */
     @Import(name="minimumInstances", required=true)
     private Output<Integer> minimumInstances;
 
     /**
-     * @return The minimum number of allowed instances. Must between `0` and `1000`.
+     * @return The minimum number of allowed instances. Possible values range between `0` and `1000`.
      * 
      */
     public Output<Integer> minimumInstances() {
@@ -70,7 +70,7 @@ public final class ClusterOptimizedAutoScaleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maximumInstances The maximum number of allowed instances. Must between `0` and `1000`.
+         * @param maximumInstances The maximum number of allowed instances. Possible values range between `0` and `1000`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ClusterOptimizedAutoScaleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param maximumInstances The maximum number of allowed instances. Must between `0` and `1000`.
+         * @param maximumInstances The maximum number of allowed instances. Possible values range between `0` and `1000`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ClusterOptimizedAutoScaleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param minimumInstances The minimum number of allowed instances. Must between `0` and `1000`.
+         * @param minimumInstances The minimum number of allowed instances. Possible values range between `0` and `1000`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ClusterOptimizedAutoScaleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param minimumInstances The minimum number of allowed instances. Must between `0` and `1000`.
+         * @param minimumInstances The minimum number of allowed instances. Possible values range between `0` and `1000`.
          * 
          * @return builder
          * 

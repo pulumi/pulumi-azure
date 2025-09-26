@@ -7,12 +7,14 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.cdn.FrontdoorProfileArgs;
 import com.pulumi.azure.cdn.inputs.FrontdoorProfileState;
 import com.pulumi.azure.cdn.outputs.FrontdoorProfileIdentity;
+import com.pulumi.azure.cdn.outputs.FrontdoorProfileLogScrubbingRule;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -31,8 +33,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
  * import com.pulumi.azure.cdn.FrontdoorProfile;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorProfileIdentityArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorProfileLogScrubbingRuleArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -51,10 +57,24 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
+ *             .location(example.location())
+ *             .name("example-identity")
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
  *             .name("example-cdn-profile")
  *             .resourceGroupName(example.name())
- *             .skuName("Standard_AzureFrontDoor")
+ *             .skuName("Premium_AzureFrontDoor")
+ *             .responseTimeoutSeconds(120)
+ *             .identity(FrontdoorProfileIdentityArgs.builder()
+ *                 .type("SystemAssigned, UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
+ *             .logScrubbingRules(FrontdoorProfileLogScrubbingRuleArgs.builder()
+ *                 .matchVariable("RequestIPAddress")
+ *                 .build())
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
@@ -94,6 +114,24 @@ public class FrontdoorProfile extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<FrontdoorProfileIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * One or more `log_scrubbing_rule` blocks as defined below.
+     * 
+     * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+     * 
+     */
+    @Export(name="logScrubbingRules", refs={List.class,FrontdoorProfileLogScrubbingRule.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<FrontdoorProfileLogScrubbingRule>> logScrubbingRules;
+
+    /**
+     * @return One or more `log_scrubbing_rule` blocks as defined below.
+     * 
+     * &gt; **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
+     * 
+     */
+    public Output<Optional<List<FrontdoorProfileLogScrubbingRule>>> logScrubbingRules() {
+        return Codegen.optional(this.logScrubbingRules);
     }
     /**
      * Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.

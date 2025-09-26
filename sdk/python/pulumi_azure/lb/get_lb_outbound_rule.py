@@ -27,13 +27,16 @@ class GetLBOutboundRuleResult:
     """
     A collection of values returned by getLBOutboundRule.
     """
-    def __init__(__self__, allocated_outbound_ports=None, backend_address_pool_id=None, frontend_ip_configurations=None, id=None, idle_timeout_in_minutes=None, loadbalancer_id=None, name=None, protocol=None, tcp_reset_enabled=None):
+    def __init__(__self__, allocated_outbound_ports=None, backend_address_pool_id=None, enable_tcp_reset=None, frontend_ip_configurations=None, id=None, idle_timeout_in_minutes=None, loadbalancer_id=None, name=None, protocol=None, tcp_reset_enabled=None):
         if allocated_outbound_ports and not isinstance(allocated_outbound_ports, int):
             raise TypeError("Expected argument 'allocated_outbound_ports' to be a int")
         pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
         if backend_address_pool_id and not isinstance(backend_address_pool_id, str):
             raise TypeError("Expected argument 'backend_address_pool_id' to be a str")
         pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
+        if enable_tcp_reset and not isinstance(enable_tcp_reset, bool):
+            raise TypeError("Expected argument 'enable_tcp_reset' to be a bool")
+        pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
         if frontend_ip_configurations and not isinstance(frontend_ip_configurations, list):
             raise TypeError("Expected argument 'frontend_ip_configurations' to be a list")
         pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
@@ -71,6 +74,11 @@ class GetLBOutboundRuleResult:
         The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         """
         return pulumi.get(self, "backend_address_pool_id")
+
+    @_builtins.property
+    @pulumi.getter(name="enableTcpReset")
+    def enable_tcp_reset(self) -> _builtins.bool:
+        return pulumi.get(self, "enable_tcp_reset")
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurations")
@@ -134,6 +142,7 @@ class AwaitableGetLBOutboundRuleResult(GetLBOutboundRuleResult):
         return GetLBOutboundRuleResult(
             allocated_outbound_ports=self.allocated_outbound_ports,
             backend_address_pool_id=self.backend_address_pool_id,
+            enable_tcp_reset=self.enable_tcp_reset,
             frontend_ip_configurations=self.frontend_ip_configurations,
             id=self.id,
             idle_timeout_in_minutes=self.idle_timeout_in_minutes,
@@ -180,6 +189,7 @@ def get_lb_outbound_rule(loadbalancer_id: Optional[_builtins.str] = None,
     return AwaitableGetLBOutboundRuleResult(
         allocated_outbound_ports=pulumi.get(__ret__, 'allocated_outbound_ports'),
         backend_address_pool_id=pulumi.get(__ret__, 'backend_address_pool_id'),
+        enable_tcp_reset=pulumi.get(__ret__, 'enable_tcp_reset'),
         frontend_ip_configurations=pulumi.get(__ret__, 'frontend_ip_configurations'),
         id=pulumi.get(__ret__, 'id'),
         idle_timeout_in_minutes=pulumi.get(__ret__, 'idle_timeout_in_minutes'),
@@ -223,6 +233,7 @@ def get_lb_outbound_rule_output(loadbalancer_id: Optional[pulumi.Input[_builtins
     return __ret__.apply(lambda __response__: GetLBOutboundRuleResult(
         allocated_outbound_ports=pulumi.get(__response__, 'allocated_outbound_ports'),
         backend_address_pool_id=pulumi.get(__response__, 'backend_address_pool_id'),
+        enable_tcp_reset=pulumi.get(__response__, 'enable_tcp_reset'),
         frontend_ip_configurations=pulumi.get(__response__, 'frontend_ip_configurations'),
         id=pulumi.get(__response__, 'id'),
         idle_timeout_in_minutes=pulumi.get(__response__, 'idle_timeout_in_minutes'),

@@ -528,6 +528,14 @@ namespace Pulumi.Azure.MachineLearning
         public Output<Outputs.WorkspaceServerlessCompute?> ServerlessCompute { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        /// </summary>
+        [Output("serviceSideEncryptionEnabled")]
+        public Output<bool?> ServiceSideEncryptionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// </summary>
         [Output("skuName")]
@@ -718,6 +726,14 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.WorkspaceServerlessComputeArgs>? ServerlessCompute { get; set; }
 
         /// <summary>
+        /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        /// </summary>
+        [Input("serviceSideEncryptionEnabled")]
+        public Input<bool>? ServiceSideEncryptionEnabled { get; set; }
+
+        /// <summary>
         /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// </summary>
         [Input("skuName")]
@@ -874,6 +890,14 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("serverlessCompute")]
         public Input<Inputs.WorkspaceServerlessComputeGetArgs>? ServerlessCompute { get; set; }
+
+        /// <summary>
+        /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+        /// 
+        /// !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        /// </summary>
+        [Input("serviceSideEncryptionEnabled")]
+        public Input<bool>? ServiceSideEncryptionEnabled { get; set; }
 
         /// <summary>
         /// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.

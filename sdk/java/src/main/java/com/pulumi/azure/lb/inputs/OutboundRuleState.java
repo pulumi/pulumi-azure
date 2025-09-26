@@ -50,16 +50,20 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * @deprecated
+     * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
      * 
      */
+    @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
     @Import(name="enableTcpReset")
     private @Nullable Output<Boolean> enableTcpReset;
 
     /**
-     * @return Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * @deprecated
+     * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
      * 
      */
+    @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
     public Optional<Output<Boolean>> enableTcpReset() {
         return Optional.ofNullable(this.enableTcpReset);
     }
@@ -139,6 +143,21 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.protocol);
     }
 
+    /**
+     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * 
+     */
+    @Import(name="tcpResetEnabled")
+    private @Nullable Output<Boolean> tcpResetEnabled;
+
+    /**
+     * @return Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     * 
+     */
+    public Optional<Output<Boolean>> tcpResetEnabled() {
+        return Optional.ofNullable(this.tcpResetEnabled);
+    }
+
     private OutboundRuleState() {}
 
     private OutboundRuleState(OutboundRuleState $) {
@@ -150,6 +169,7 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
         this.loadbalancerId = $.loadbalancerId;
         this.name = $.name;
         this.protocol = $.protocol;
+        this.tcpResetEnabled = $.tcpResetEnabled;
     }
 
     public static Builder builder() {
@@ -213,22 +233,26 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableTcpReset Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * 
          */
+        @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
         public Builder enableTcpReset(@Nullable Output<Boolean> enableTcpReset) {
             $.enableTcpReset = enableTcpReset;
             return this;
         }
 
         /**
-         * @param enableTcpReset Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.
+         * 
          */
+        @Deprecated /* This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider. */
         public Builder enableTcpReset(Boolean enableTcpReset) {
             return enableTcpReset(Output.of(enableTcpReset));
         }
@@ -346,6 +370,27 @@ public final class OutboundRuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param tcpResetEnabled Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpResetEnabled(@Nullable Output<Boolean> tcpResetEnabled) {
+            $.tcpResetEnabled = tcpResetEnabled;
+            return this;
+        }
+
+        /**
+         * @param tcpResetEnabled Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpResetEnabled(Boolean tcpResetEnabled) {
+            return tcpResetEnabled(Output.of(tcpResetEnabled));
         }
 
         public OutboundRuleState build() {

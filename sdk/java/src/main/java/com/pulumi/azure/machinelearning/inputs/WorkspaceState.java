@@ -316,6 +316,25 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * 
+     */
+    @Import(name="serviceSideEncryptionEnabled")
+    private @Nullable Output<Boolean> serviceSideEncryptionEnabled;
+
+    /**
+     * @return Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+     * 
+     * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * 
+     */
+    public Optional<Output<Boolean>> serviceSideEncryptionEnabled() {
+        return Optional.ofNullable(this.serviceSideEncryptionEnabled);
+    }
+
+    /**
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      * 
      */
@@ -416,6 +435,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.serverlessCompute = $.serverlessCompute;
+        this.serviceSideEncryptionEnabled = $.serviceSideEncryptionEnabled;
         this.skuName = $.skuName;
         this.storageAccountId = $.storageAccountId;
         this.tags = $.tags;
@@ -846,6 +866,31 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder serverlessCompute(WorkspaceServerlessComputeArgs serverlessCompute) {
             return serverlessCompute(Output.of(serverlessCompute));
+        }
+
+        /**
+         * @param serviceSideEncryptionEnabled Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+         * 
+         * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceSideEncryptionEnabled(@Nullable Output<Boolean> serviceSideEncryptionEnabled) {
+            $.serviceSideEncryptionEnabled = serviceSideEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param serviceSideEncryptionEnabled Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
+         * 
+         * !&gt; **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceSideEncryptionEnabled(Boolean serviceSideEncryptionEnabled) {
+            return serviceSideEncryptionEnabled(Output.of(serviceSideEncryptionEnabled));
         }
 
         /**

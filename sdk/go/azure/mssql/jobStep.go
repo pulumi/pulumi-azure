@@ -67,8 +67,8 @@ import (
 //			exampleJobCredential, err := mssql.NewJobCredential(ctx, "example", &mssql.JobCredentialArgs{
 //				Name:       pulumi.String("example-job-credential"),
 //				JobAgentId: exampleJobAgent.ID(),
-//				Username:   pulumi.String("testusername"),
-//				Password:   pulumi.String("testpassword"),
+//				Username:   pulumi.String("exampleusername"),
+//				Password:   pulumi.String("examplepassword"),
 //			})
 //			if err != nil {
 //				return err
@@ -160,7 +160,7 @@ type JobStep struct {
 	OutputTarget JobStepOutputTargetPtrOutput `pulumi:"outputTarget"`
 	// The number of retry attempts. Defaults to `10`.
 	RetryAttempts pulumi.IntPtrOutput `pulumi:"retryAttempts"`
-	// The multiplier for time between retries. Defaults to `2`.
+	// The multiplier for time between retries. Defaults to `2.0`.
 	RetryIntervalBackoffMultiplier pulumi.Float64PtrOutput `pulumi:"retryIntervalBackoffMultiplier"`
 	// The T-SQL script to be executed by this Elastic Job Step.
 	//
@@ -236,7 +236,7 @@ type jobStepState struct {
 	OutputTarget *JobStepOutputTarget `pulumi:"outputTarget"`
 	// The number of retry attempts. Defaults to `10`.
 	RetryAttempts *int `pulumi:"retryAttempts"`
-	// The multiplier for time between retries. Defaults to `2`.
+	// The multiplier for time between retries. Defaults to `2.0`.
 	RetryIntervalBackoffMultiplier *float64 `pulumi:"retryIntervalBackoffMultiplier"`
 	// The T-SQL script to be executed by this Elastic Job Step.
 	//
@@ -271,7 +271,7 @@ type JobStepState struct {
 	OutputTarget JobStepOutputTargetPtrInput
 	// The number of retry attempts. Defaults to `10`.
 	RetryAttempts pulumi.IntPtrInput
-	// The multiplier for time between retries. Defaults to `2`.
+	// The multiplier for time between retries. Defaults to `2.0`.
 	RetryIntervalBackoffMultiplier pulumi.Float64PtrInput
 	// The T-SQL script to be executed by this Elastic Job Step.
 	//
@@ -310,7 +310,7 @@ type jobStepArgs struct {
 	OutputTarget *JobStepOutputTarget `pulumi:"outputTarget"`
 	// The number of retry attempts. Defaults to `10`.
 	RetryAttempts *int `pulumi:"retryAttempts"`
-	// The multiplier for time between retries. Defaults to `2`.
+	// The multiplier for time between retries. Defaults to `2.0`.
 	RetryIntervalBackoffMultiplier *float64 `pulumi:"retryIntervalBackoffMultiplier"`
 	// The T-SQL script to be executed by this Elastic Job Step.
 	//
@@ -346,7 +346,7 @@ type JobStepArgs struct {
 	OutputTarget JobStepOutputTargetPtrInput
 	// The number of retry attempts. Defaults to `10`.
 	RetryAttempts pulumi.IntPtrInput
-	// The multiplier for time between retries. Defaults to `2`.
+	// The multiplier for time between retries. Defaults to `2.0`.
 	RetryIntervalBackoffMultiplier pulumi.Float64PtrInput
 	// The T-SQL script to be executed by this Elastic Job Step.
 	//
@@ -494,7 +494,7 @@ func (o JobStepOutput) RetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobStep) pulumi.IntPtrOutput { return v.RetryAttempts }).(pulumi.IntPtrOutput)
 }
 
-// The multiplier for time between retries. Defaults to `2`.
+// The multiplier for time between retries. Defaults to `2.0`.
 func (o JobStepOutput) RetryIntervalBackoffMultiplier() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *JobStep) pulumi.Float64PtrOutput { return v.RetryIntervalBackoffMultiplier }).(pulumi.Float64PtrOutput)
 }

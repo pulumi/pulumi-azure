@@ -115,7 +115,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+     * The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
      */
     declare public readonly location: pulumi.Output<string>;
     /**
@@ -204,7 +204,7 @@ export interface ActivityLogAlertState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+     * The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -246,7 +246,7 @@ export interface ActivityLogAlertArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+     * The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**

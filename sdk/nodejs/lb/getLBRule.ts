@@ -47,12 +47,17 @@ export interface GetLBRuleResult {
     readonly disableOutboundSnat: boolean;
     /**
      * If Floating IPs are enabled for this Load Balancer Rule
+     *
+     * @deprecated The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
      */
     readonly enableFloatingIp: boolean;
     /**
      * If TCP Reset is enabled for this Load Balancer Rule.
+     *
+     * @deprecated The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
      */
     readonly enableTcpReset: boolean;
+    readonly floatingIpEnabled: boolean;
     /**
      * The name of the frontend IP configuration to which the rule is associated.
      */
@@ -83,6 +88,7 @@ export interface GetLBRuleResult {
      * The transport protocol for the external endpoint.
      */
     readonly protocol: string;
+    readonly tcpResetEnabled: boolean;
 }
 /**
  * Use this data source to access information about an existing Load Balancer Rule.

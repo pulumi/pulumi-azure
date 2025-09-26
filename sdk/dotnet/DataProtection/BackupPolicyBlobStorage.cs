@@ -42,6 +42,65 @@ namespace Pulumi.Azure.DataProtection
     ///         Name = "example-backup-policy",
     ///         VaultId = exampleBackupVault.Id,
     ///         OperationalDefaultRetentionDuration = "P30D",
+    ///         VaultDefaultRetentionDuration = "P7D",
+    ///         RetentionRules = new[]
+    ///         {
+    ///             new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleArgs
+    ///             {
+    ///                 Name = "Weekly",
+    ///                 Priority = 20,
+    ///                 LifeCycle = new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs
+    ///                 {
+    ///                     Duration = "P90D",
+    ///                     DataStoreType = "VaultStore",
+    ///                 },
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     DaysOfWeeks = new[]
+    ///                     {
+    ///                         "Monday",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleArgs
+    ///             {
+    ///                 Name = "Monthly",
+    ///                 Priority = 10,
+    ///                 LifeCycle = new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs
+    ///                 {
+    ///                     Duration = "P180D",
+    ///                     DataStoreType = "VaultStore",
+    ///                 },
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     DaysOfMonths = new[]
+    ///                     {
+    ///                         1,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleArgs
+    ///             {
+    ///                 Name = "Yearly",
+    ///                 Priority = 5,
+    ///                 LifeCycle = new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs
+    ///                 {
+    ///                     Duration = "P365D",
+    ///                     DataStoreType = "VaultStore",
+    ///                 },
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     MonthsOfYears = new[]
+    ///                     {
+    ///                         "January",
+    ///                     },
+    ///                     DaysOfMonths = new[]
+    ///                     {
+    ///                         1,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });

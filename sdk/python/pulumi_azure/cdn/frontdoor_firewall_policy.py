@@ -24,6 +24,7 @@ class FrontdoorFirewallPolicyArgs:
                  mode: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku_name: pulumi.Input[_builtins.str],
+                 captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
@@ -46,11 +47,6 @@ class FrontdoorFirewallPolicyArgs:
         :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-               
-               > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-               
-               !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs'] log_scrubbing: A `log_scrubbing` block as defined below.
                
                !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -65,6 +61,8 @@ class FrontdoorFirewallPolicyArgs:
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
+        if captcha_cookie_expiration_in_minutes is not None:
+            pulumi.set(__self__, "captcha_cookie_expiration_in_minutes", captcha_cookie_expiration_in_minutes)
         if custom_block_response_body is not None:
             pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
@@ -127,6 +125,15 @@ class FrontdoorFirewallPolicyArgs:
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="captchaCookieExpirationInMinutes")
+    def captcha_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "captcha_cookie_expiration_in_minutes")
+
+    @captcha_cookie_expiration_in_minutes.setter
+    def captcha_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "captcha_cookie_expiration_in_minutes", value)
+
+    @_builtins.property
     @pulumi.getter(name="customBlockResponseBody")
     def custom_block_response_body(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -177,13 +184,6 @@ class FrontdoorFirewallPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
     def js_challenge_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-
-        > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-
-        !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-        """
         return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
 
     @js_challenge_cookie_expiration_in_minutes.setter
@@ -270,6 +270,7 @@ class FrontdoorFirewallPolicyArgs:
 @pulumi.input_type
 class _FrontdoorFirewallPolicyState:
     def __init__(__self__, *,
+                 captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
@@ -292,11 +293,6 @@ class _FrontdoorFirewallPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
-        :param pulumi.Input[_builtins.int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-               
-               > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-               
-               !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input['FrontdoorFirewallPolicyLogScrubbingArgs'] log_scrubbing: A `log_scrubbing` block as defined below.
                
                !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -313,6 +309,8 @@ class _FrontdoorFirewallPolicyState:
                > **Note:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy sku's may contain both `custom` and `managed` rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
+        if captcha_cookie_expiration_in_minutes is not None:
+            pulumi.set(__self__, "captcha_cookie_expiration_in_minutes", captcha_cookie_expiration_in_minutes)
         if custom_block_response_body is not None:
             pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
@@ -343,6 +341,15 @@ class _FrontdoorFirewallPolicyState:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="captchaCookieExpirationInMinutes")
+    def captcha_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "captcha_cookie_expiration_in_minutes")
+
+    @captcha_cookie_expiration_in_minutes.setter
+    def captcha_cookie_expiration_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "captcha_cookie_expiration_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="customBlockResponseBody")
@@ -407,13 +414,6 @@ class _FrontdoorFirewallPolicyState:
     @_builtins.property
     @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
     def js_challenge_cookie_expiration_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-
-        > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-
-        !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-        """
         return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
 
     @js_challenge_cookie_expiration_in_minutes.setter
@@ -541,6 +541,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
@@ -581,16 +582,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             redirect_url="https://www.contoso.com",
             custom_block_response_status_code=403,
             custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
-            js_challenge_cookie_expiration_in_minutes=45,
-            log_scrubbing={
-                "enabled": True,
-                "scrubbing_rules": [{
-                    "enabled": True,
-                    "match_variable": "RequestCookieNames",
-                    "operator": "Equals",
-                    "selector": "ChocolateChip",
-                }],
-            },
             custom_rules=[
                 {
                     "name": "Rule1",
@@ -638,21 +629,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                         },
                     ],
                 },
-                {
-                    "name": "CustomJSChallenge",
-                    "enabled": True,
-                    "priority": 100,
-                    "rate_limit_duration_in_minutes": 1,
-                    "rate_limit_threshold": 10,
-                    "type": "MatchRule",
-                    "action": "JSChallenge",
-                    "match_conditions": [{
-                        "match_variable": "RemoteAddr",
-                        "operator": "IPMatch",
-                        "negation_condition": False,
-                        "match_values": ["192.168.1.0/24"],
-                    }],
-                },
             ],
             managed_rules=[
                 {
@@ -696,14 +672,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "type": "Microsoft_BotManagerRuleSet",
                     "version": "1.1",
                     "action": "Log",
-                    "overrides": [{
-                        "rule_group_name": "BadBots",
-                        "rules": [{
-                            "action": "JSChallenge",
-                            "enabled": True,
-                            "rule_id": "Bot100200",
-                        }],
-                    }],
                 },
             ])
         ```
@@ -738,11 +706,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-               
-               > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-               
-               !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']] log_scrubbing: A `log_scrubbing` block as defined below.
                
                !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -790,16 +753,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             redirect_url="https://www.contoso.com",
             custom_block_response_status_code=403,
             custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
-            js_challenge_cookie_expiration_in_minutes=45,
-            log_scrubbing={
-                "enabled": True,
-                "scrubbing_rules": [{
-                    "enabled": True,
-                    "match_variable": "RequestCookieNames",
-                    "operator": "Equals",
-                    "selector": "ChocolateChip",
-                }],
-            },
             custom_rules=[
                 {
                     "name": "Rule1",
@@ -847,21 +800,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                         },
                     ],
                 },
-                {
-                    "name": "CustomJSChallenge",
-                    "enabled": True,
-                    "priority": 100,
-                    "rate_limit_duration_in_minutes": 1,
-                    "rate_limit_threshold": 10,
-                    "type": "MatchRule",
-                    "action": "JSChallenge",
-                    "match_conditions": [{
-                        "match_variable": "RemoteAddr",
-                        "operator": "IPMatch",
-                        "negation_condition": False,
-                        "match_values": ["192.168.1.0/24"],
-                    }],
-                },
             ],
             managed_rules=[
                 {
@@ -905,14 +843,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "type": "Microsoft_BotManagerRuleSet",
                     "version": "1.1",
                     "action": "Log",
-                    "overrides": [{
-                        "rule_group_name": "BadBots",
-                        "rules": [{
-                            "action": "JSChallenge",
-                            "enabled": True,
-                            "rule_id": "Bot100200",
-                        }],
-                    }],
                 },
             ])
         ```
@@ -956,6 +886,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
                  custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
@@ -979,6 +910,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FrontdoorFirewallPolicyArgs.__new__(FrontdoorFirewallPolicyArgs)
 
+            __props__.__dict__["captcha_cookie_expiration_in_minutes"] = captcha_cookie_expiration_in_minutes
             __props__.__dict__["custom_block_response_body"] = custom_block_response_body
             __props__.__dict__["custom_block_response_status_code"] = custom_block_response_status_code
             __props__.__dict__["custom_rules"] = custom_rules
@@ -1010,6 +942,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            captcha_cookie_expiration_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
             custom_block_response_body: Optional[pulumi.Input[_builtins.str]] = None,
             custom_block_response_status_code: Optional[pulumi.Input[_builtins.int]] = None,
             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
@@ -1037,11 +970,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
-        :param pulumi.Input[_builtins.int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-               
-               > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-               
-               !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         :param pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']] log_scrubbing: A `log_scrubbing` block as defined below.
                
                !> **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -1062,6 +990,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
 
         __props__ = _FrontdoorFirewallPolicyState.__new__(_FrontdoorFirewallPolicyState)
 
+        __props__.__dict__["captcha_cookie_expiration_in_minutes"] = captcha_cookie_expiration_in_minutes
         __props__.__dict__["custom_block_response_body"] = custom_block_response_body
         __props__.__dict__["custom_block_response_status_code"] = custom_block_response_status_code
         __props__.__dict__["custom_rules"] = custom_rules
@@ -1078,6 +1007,11 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["tags"] = tags
         return FrontdoorFirewallPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="captchaCookieExpirationInMinutes")
+    def captcha_cookie_expiration_in_minutes(self) -> pulumi.Output[_builtins.int]:
+        return pulumi.get(self, "captcha_cookie_expiration_in_minutes")
 
     @_builtins.property
     @pulumi.getter(name="customBlockResponseBody")
@@ -1122,13 +1056,6 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="jsChallengeCookieExpirationInMinutes")
     def js_challenge_cookie_expiration_in_minutes(self) -> pulumi.Output[_builtins.int]:
-        """
-        Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-
-        > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-
-        !> **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-        """
         return pulumi.get(self, "js_challenge_cookie_expiration_in_minutes")
 
     @_builtins.property

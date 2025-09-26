@@ -5,7 +5,6 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -48,18 +47,45 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
-    @Import(name="storageAccountName", required=true)
-    private Output<String> storageAccountName;
+    @Import(name="storageAccountId")
+    private @Nullable Output<String> storageAccountId;
 
     /**
-     * @return Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+     * @return The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
      * 
      */
-    public Output<String> storageAccountName() {
-        return this.storageAccountName;
+    public Optional<Output<String>> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+
+    /**
+     * The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * 
+     * @deprecated
+     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+    @Import(name="storageAccountName")
+    private @Nullable Output<String> storageAccountName;
+
+    /**
+     * @return The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+     * 
+     * @deprecated
+     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+    public Optional<Output<String>> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
     private QueueArgs() {}
@@ -67,6 +93,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     private QueueArgs(QueueArgs $) {
         this.metadata = $.metadata;
         this.name = $.name;
+        this.storageAccountId = $.storageAccountId;
         this.storageAccountName = $.storageAccountName;
     }
 
@@ -131,30 +158,60 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+         * @param storageAccountId The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountName(Output<String> storageAccountName) {
+        public Builder storageAccountId(@Nullable Output<String> storageAccountId) {
+            $.storageAccountId = storageAccountId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountId The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountId(String storageAccountId) {
+            return storageAccountId(Output.of(storageAccountId));
+        }
+
+        /**
+         * @param storageAccountName The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+         * 
+         */
+        @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
 
         /**
-         * @param storageAccountName Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
+         * @param storageAccountName The name of the Storage Account where the Storage Queue should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
          * 
          * @return builder
          * 
+         * @deprecated
+         * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+         * 
          */
+        @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
         }
 
         public QueueArgs build() {
-            if ($.storageAccountName == null) {
-                throw new MissingRequiredPropertyException("QueueArgs", "storageAccountName");
-            }
             return $;
         }
     }

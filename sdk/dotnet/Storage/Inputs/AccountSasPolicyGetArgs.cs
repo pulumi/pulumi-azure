@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Storage.Inputs
     public sealed class AccountSasPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        /// The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
         /// </summary>
         [Input("expirationAction")]
         public Input<string>? ExpirationAction { get; set; }

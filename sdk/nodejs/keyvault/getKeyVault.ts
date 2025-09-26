@@ -54,6 +54,8 @@ export interface GetKeyVaultResult {
     readonly accessPolicies: outputs.keyvault.GetKeyVaultAccessPolicy[];
     /**
      * Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+     *
+     * @deprecated the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
      */
     readonly enableRbacAuthorization: boolean;
     /**
@@ -86,6 +88,7 @@ export interface GetKeyVaultResult {
      * Is purge protection enabled on this Key Vault?
      */
     readonly purgeProtectionEnabled: boolean;
+    readonly rbacAuthorizationEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * The Name of the SKU used for this Key Vault.

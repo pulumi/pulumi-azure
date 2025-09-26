@@ -186,7 +186,7 @@ def get_partner_namespace(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventGrid` - 2022-06-15
+    * `Microsoft.EventGrid` - 2025-02-15
 
 
     :param _builtins.str name: The name of the Event Grid Partner Namespace resource.
@@ -232,7 +232,7 @@ def get_partner_namespace_output(name: Optional[pulumi.Input[_builtins.str]] = N
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.EventGrid` - 2022-06-15
+    * `Microsoft.EventGrid` - 2025-02-15
 
 
     :param _builtins.str name: The name of the Event Grid Partner Namespace resource.

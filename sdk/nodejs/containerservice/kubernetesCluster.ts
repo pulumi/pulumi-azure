@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.ContainerService` - 2025-02-01
+ * * `Microsoft.ContainerService` - 2025-05-01
  *
  * ## Import
  *
@@ -115,6 +115,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
     declare public readonly azurePolicyEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * A `bootstrapProfile` block as defined below.
+     */
+    declare public readonly bootstrapProfile: pulumi.Output<outputs.containerservice.KubernetesClusterBootstrapProfile>;
     /**
      * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      */
@@ -445,6 +449,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["automaticUpgradeChannel"] = state?.automaticUpgradeChannel;
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = state?.azureActiveDirectoryRoleBasedAccessControl;
             resourceInputs["azurePolicyEnabled"] = state?.azurePolicyEnabled;
+            resourceInputs["bootstrapProfile"] = state?.bootstrapProfile;
             resourceInputs["confidentialComputing"] = state?.confidentialComputing;
             resourceInputs["costAnalysisEnabled"] = state?.costAnalysisEnabled;
             resourceInputs["currentKubernetesVersion"] = state?.currentKubernetesVersion;
@@ -520,6 +525,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["automaticUpgradeChannel"] = args?.automaticUpgradeChannel;
             resourceInputs["azureActiveDirectoryRoleBasedAccessControl"] = args?.azureActiveDirectoryRoleBasedAccessControl;
             resourceInputs["azurePolicyEnabled"] = args?.azurePolicyEnabled;
+            resourceInputs["bootstrapProfile"] = args?.bootstrapProfile;
             resourceInputs["confidentialComputing"] = args?.confidentialComputing;
             resourceInputs["costAnalysisEnabled"] = args?.costAnalysisEnabled;
             resourceInputs["customCaTrustCertificatesBase64s"] = args?.customCaTrustCertificatesBase64s;
@@ -621,6 +627,10 @@ export interface KubernetesClusterState {
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
     azurePolicyEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `bootstrapProfile` block as defined below.
+     */
+    bootstrapProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterBootstrapProfile>;
     /**
      * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      */
@@ -965,6 +975,10 @@ export interface KubernetesClusterArgs {
      * Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
      */
     azurePolicyEnabled?: pulumi.Input<boolean>;
+    /**
+     * A `bootstrapProfile` block as defined below.
+     */
+    bootstrapProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterBootstrapProfile>;
     /**
      * A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
      */

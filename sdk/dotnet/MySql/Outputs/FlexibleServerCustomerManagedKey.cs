@@ -28,6 +28,10 @@ namespace Pulumi.Azure.MySql.Outputs
         /// </summary>
         public readonly string? KeyVaultKeyId;
         /// <summary>
+        /// The ID of the Managed HSM Key.
+        /// </summary>
+        public readonly string? ManagedHsmKeyId;
+        /// <summary>
         /// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         /// </summary>
         public readonly string? PrimaryUserAssignedIdentityId;
@@ -40,11 +44,14 @@ namespace Pulumi.Azure.MySql.Outputs
 
             string? keyVaultKeyId,
 
+            string? managedHsmKeyId,
+
             string? primaryUserAssignedIdentityId)
         {
             GeoBackupKeyVaultKeyId = geoBackupKeyVaultKeyId;
             GeoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
             KeyVaultKeyId = keyVaultKeyId;
+            ManagedHsmKeyId = managedHsmKeyId;
             PrimaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
         }
     }

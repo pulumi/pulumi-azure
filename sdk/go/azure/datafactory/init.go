@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CredentialUserManagedIdentity{}
 	case "azure:datafactory/customDataset:CustomDataset":
 		r = &CustomDataset{}
+	case "azure:datafactory/customerManagedKey:CustomerManagedKey":
+		r = &CustomerManagedKey{}
 	case "azure:datafactory/dataFlow:DataFlow":
 		r = &DataFlow{}
 	case "azure:datafactory/datasetAzureBlob:DatasetAzureBlob":
@@ -145,6 +147,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/customDataset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/customerManagedKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -129,16 +129,21 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     declare public readonly additionalUnattendContents: pulumi.Output<outputs.compute.WindowsVirtualMachineAdditionalUnattendContent[] | undefined>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
-    declare public readonly adminPassword: pulumi.Output<string>;
+    declare public readonly adminPassword: pulumi.Output<string | undefined>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
-    declare public readonly adminUsername: pulumi.Output<string>;
+    declare public readonly adminUsername: pulumi.Output<string | undefined>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
-    declare public readonly allowExtensionOperations: pulumi.Output<boolean | undefined>;
+    declare public readonly allowExtensionOperations: pulumi.Output<boolean>;
+    declare public readonly automaticUpdatesEnabled: pulumi.Output<boolean>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
@@ -185,8 +190,10 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     *
+     * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      */
-    declare public readonly enableAutomaticUpdates: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAutomaticUpdates: pulumi.Output<boolean>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
@@ -212,7 +219,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      *
      * > **NOTE:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatchingEnabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
      */
-    declare public readonly hotpatchingEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly hotpatchingEnabled: pulumi.Output<boolean>;
     /**
      * An `identity` block as defined below.
      */
@@ -248,17 +255,23 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly osImageNotification: pulumi.Output<outputs.compute.WindowsVirtualMachineOsImageNotification | undefined>;
     /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     *
+     * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+     */
+    declare public readonly osManagedDiskId: pulumi.Output<string>;
+    /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
      * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
      */
-    declare public readonly patchAssessmentMode: pulumi.Output<string | undefined>;
+    declare public readonly patchAssessmentMode: pulumi.Output<string>;
     /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      *
      * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patchMode` must always be set to `AutomaticByPlatform`.
      */
-    declare public readonly patchMode: pulumi.Output<string | undefined>;
+    declare public readonly patchMode: pulumi.Output<string>;
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
@@ -284,7 +297,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      *
      * > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
      */
-    declare public readonly provisionVmAgent: pulumi.Output<boolean | undefined>;
+    declare public readonly provisionVmAgent: pulumi.Output<boolean>;
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
      */
@@ -398,6 +411,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["adminPassword"] = state?.adminPassword;
             resourceInputs["adminUsername"] = state?.adminUsername;
             resourceInputs["allowExtensionOperations"] = state?.allowExtensionOperations;
+            resourceInputs["automaticUpdatesEnabled"] = state?.automaticUpdatesEnabled;
             resourceInputs["availabilitySetId"] = state?.availabilitySetId;
             resourceInputs["bootDiagnostics"] = state?.bootDiagnostics;
             resourceInputs["bypassPlatformSafetyChecksOnUserScheduleEnabled"] = state?.bypassPlatformSafetyChecksOnUserScheduleEnabled;
@@ -422,6 +436,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = state?.networkInterfaceIds;
             resourceInputs["osDisk"] = state?.osDisk;
             resourceInputs["osImageNotification"] = state?.osImageNotification;
+            resourceInputs["osManagedDiskId"] = state?.osManagedDiskId;
             resourceInputs["patchAssessmentMode"] = state?.patchAssessmentMode;
             resourceInputs["patchMode"] = state?.patchMode;
             resourceInputs["plan"] = state?.plan;
@@ -452,12 +467,6 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["zone"] = state?.zone;
         } else {
             const args = argsOrState as WindowsVirtualMachineArgs | undefined;
-            if (args?.adminPassword === undefined && !opts.urn) {
-                throw new Error("Missing required property 'adminPassword'");
-            }
-            if (args?.adminUsername === undefined && !opts.urn) {
-                throw new Error("Missing required property 'adminUsername'");
-            }
             if (args?.networkInterfaceIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceIds'");
             }
@@ -475,6 +484,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
             resourceInputs["adminUsername"] = args?.adminUsername;
             resourceInputs["allowExtensionOperations"] = args?.allowExtensionOperations;
+            resourceInputs["automaticUpdatesEnabled"] = args?.automaticUpdatesEnabled;
             resourceInputs["availabilitySetId"] = args?.availabilitySetId;
             resourceInputs["bootDiagnostics"] = args?.bootDiagnostics;
             resourceInputs["bypassPlatformSafetyChecksOnUserScheduleEnabled"] = args?.bypassPlatformSafetyChecksOnUserScheduleEnabled;
@@ -499,6 +509,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = args?.networkInterfaceIds;
             resourceInputs["osDisk"] = args?.osDisk;
             resourceInputs["osImageNotification"] = args?.osImageNotification;
+            resourceInputs["osManagedDiskId"] = args?.osManagedDiskId;
             resourceInputs["patchAssessmentMode"] = args?.patchAssessmentMode;
             resourceInputs["patchMode"] = args?.patchMode;
             resourceInputs["plan"] = args?.plan;
@@ -549,16 +560,21 @@ export interface WindowsVirtualMachineState {
     additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalUnattendContent>[]>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
     adminPassword?: pulumi.Input<string>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
     adminUsername?: pulumi.Input<string>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     allowExtensionOperations?: pulumi.Input<boolean>;
+    automaticUpdatesEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
@@ -605,6 +621,8 @@ export interface WindowsVirtualMachineState {
     edgeZone?: pulumi.Input<string>;
     /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     *
+     * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      */
     enableAutomaticUpdates?: pulumi.Input<boolean>;
     /**
@@ -667,6 +685,12 @@ export interface WindowsVirtualMachineState {
      * A `osImageNotification` block as defined below.
      */
     osImageNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsImageNotification>;
+    /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     *
+     * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+     */
+    osManagedDiskId?: pulumi.Input<string>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *
@@ -815,16 +839,21 @@ export interface WindowsVirtualMachineArgs {
     additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.WindowsVirtualMachineAdditionalUnattendContent>[]>;
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
-    adminPassword: pulumi.Input<string>;
+    adminPassword?: pulumi.Input<string>;
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
      */
-    adminUsername: pulumi.Input<string>;
+    adminUsername?: pulumi.Input<string>;
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      */
     allowExtensionOperations?: pulumi.Input<boolean>;
+    automaticUpdatesEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
@@ -871,6 +900,8 @@ export interface WindowsVirtualMachineArgs {
     edgeZone?: pulumi.Input<string>;
     /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
+     *
+     * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
      */
     enableAutomaticUpdates?: pulumi.Input<boolean>;
     /**
@@ -933,6 +964,12 @@ export interface WindowsVirtualMachineArgs {
      * A `osImageNotification` block as defined below.
      */
     osImageNotification?: pulumi.Input<inputs.compute.WindowsVirtualMachineOsImageNotification>;
+    /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     *
+     * > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+     */
+    osManagedDiskId?: pulumi.Input<string>;
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      *

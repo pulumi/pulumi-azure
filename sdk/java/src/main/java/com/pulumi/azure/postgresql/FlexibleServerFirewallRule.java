@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule")
 public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResource {
     /**
-     * The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      * 
      */
     @Export(name="endIpAddress", refs={String.class}, tree="[0]")
     private Output<String> endIpAddress;
 
     /**
-     * @return The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * @return The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      * 
      */
     public Output<String> endIpAddress() {
@@ -133,14 +133,14 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
         return this.serverId;
     }
     /**
-     * The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      * 
      */
     @Export(name="startIpAddress", refs={String.class}, tree="[0]")
     private Output<String> startIpAddress;
 
     /**
-     * @return The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+     * @return The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
      * 
      */
     public Output<String> startIpAddress() {

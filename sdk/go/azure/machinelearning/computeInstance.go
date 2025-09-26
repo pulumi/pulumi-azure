@@ -173,11 +173,15 @@ type ComputeInstance struct {
 	MachineLearningWorkspaceId pulumi.StringOutput `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Whether the compute instance will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	//
+	// > **Note:** The property `subnetResourceId` becomes required if `nodePublicIpEnabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
 	NodePublicIpEnabled pulumi.BoolPtrOutput `pulumi:"nodePublicIpEnabled"`
 	// A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
 	Ssh ComputeInstanceSshPtrOutput `pulumi:"ssh"`
 	// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+	//
+	// > **Note:** The property `subnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
 	SubnetResourceId pulumi.StringPtrOutput `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -235,11 +239,15 @@ type computeInstanceState struct {
 	MachineLearningWorkspaceId *string `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Name *string `pulumi:"name"`
-	// Whether the compute instance will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	//
+	// > **Note:** The property `subnetResourceId` becomes required if `nodePublicIpEnabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
 	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
 	// A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
 	Ssh *ComputeInstanceSsh `pulumi:"ssh"`
 	// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+	//
+	// > **Note:** The property `subnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Tags map[string]string `pulumi:"tags"`
@@ -262,11 +270,15 @@ type ComputeInstanceState struct {
 	MachineLearningWorkspaceId pulumi.StringPtrInput
 	// The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Name pulumi.StringPtrInput
-	// Whether the compute instance will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	//
+	// > **Note:** The property `subnetResourceId` becomes required if `nodePublicIpEnabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
 	NodePublicIpEnabled pulumi.BoolPtrInput
 	// A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
 	Ssh ComputeInstanceSshPtrInput
 	// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+	//
+	// > **Note:** The property `subnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
 	SubnetResourceId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Tags pulumi.StringMapInput
@@ -293,11 +305,15 @@ type computeInstanceArgs struct {
 	MachineLearningWorkspaceId string `pulumi:"machineLearningWorkspaceId"`
 	// The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Name *string `pulumi:"name"`
-	// Whether the compute instance will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	//
+	// > **Note:** The property `subnetResourceId` becomes required if `nodePublicIpEnabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
 	NodePublicIpEnabled *bool `pulumi:"nodePublicIpEnabled"`
 	// A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
 	Ssh *ComputeInstanceSsh `pulumi:"ssh"`
 	// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+	//
+	// > **Note:** The property `subnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
 	SubnetResourceId *string `pulumi:"subnetResourceId"`
 	// A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Tags map[string]string `pulumi:"tags"`
@@ -321,11 +337,15 @@ type ComputeInstanceArgs struct {
 	MachineLearningWorkspaceId pulumi.StringInput
 	// The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Name pulumi.StringPtrInput
-	// Whether the compute instance will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+	//
+	// > **Note:** The property `subnetResourceId` becomes required if `nodePublicIpEnabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
 	NodePublicIpEnabled pulumi.BoolPtrInput
 	// A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
 	Ssh ComputeInstanceSshPtrInput
 	// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+	//
+	// > **Note:** The property `subnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
 	SubnetResourceId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
 	Tags pulumi.StringMapInput
@@ -455,7 +475,9 @@ func (o ComputeInstanceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComputeInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether the compute instance will have a public ip. To set this to false a `subnetResourceId` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+// Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
+//
+// > **Note:** The property `subnetResourceId` becomes required if `nodePublicIpEnabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
 func (o ComputeInstanceOutput) NodePublicIpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComputeInstance) pulumi.BoolPtrOutput { return v.NodePublicIpEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -466,6 +488,8 @@ func (o ComputeInstanceOutput) Ssh() ComputeInstanceSshPtrOutput {
 }
 
 // Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
+//
+// > **Note:** The property `subnetResourceId` can be set only if the instance's workspace is not using Azure-managed networking.
 func (o ComputeInstanceOutput) SubnetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeInstance) pulumi.StringPtrOutput { return v.SubnetResourceId }).(pulumi.StringPtrOutput)
 }

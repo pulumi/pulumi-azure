@@ -181,7 +181,7 @@ type Standard struct {
 	BundleVersion pulumi.StringPtrOutput `pulumi:"bundleVersion"`
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
-	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings StandardConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -294,7 +294,7 @@ type standardState struct {
 	BundleVersion *string `pulumi:"bundleVersion"`
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
-	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings []StandardConnectionString `pulumi:"connectionStrings"`
@@ -359,7 +359,7 @@ type StandardState struct {
 	BundleVersion pulumi.StringPtrInput
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolPtrInput
-	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// A `connectionString` block as defined below.
 	ConnectionStrings StandardConnectionStringArrayInput
@@ -428,7 +428,7 @@ type standardArgs struct {
 	BundleVersion *string `pulumi:"bundleVersion"`
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
-	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// A `connectionString` block as defined below.
 	ConnectionStrings []StandardConnectionString `pulumi:"connectionStrings"`
@@ -482,7 +482,7 @@ type StandardArgs struct {
 	BundleVersion pulumi.StringPtrInput
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolPtrInput
-	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+	// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// A `connectionString` block as defined below.
 	ConnectionStrings StandardConnectionStringArrayInput
@@ -633,7 +633,7 @@ func (o StandardOutput) ClientAffinityEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Standard) pulumi.BoolOutput { return v.ClientAffinityEnabled }).(pulumi.BoolOutput)
 }
 
-// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
 func (o StandardOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }

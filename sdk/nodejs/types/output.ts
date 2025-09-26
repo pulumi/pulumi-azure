@@ -4806,6 +4806,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * The URL to the storage container with a shared access signature token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -4828,6 +4830,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * The URL to the storage container with a shared access signature token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -13551,6 +13555,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -13573,6 +13579,8 @@ export namespace appservice {
         retentionInDays?: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -14702,6 +14710,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * SAS URL to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -14724,6 +14734,8 @@ export namespace appservice {
         retentionInDays?: number;
         /**
          * SAS URL to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -15468,7 +15480,9 @@ export namespace appservice {
          */
         retentionInDays: number;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container, with a Service SAS token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -15490,7 +15504,9 @@ export namespace appservice {
          */
         retentionInDays: number;
         /**
-         * The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+         * The URL to the storage container, with a Service SAS token appended.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -18603,6 +18619,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -18625,6 +18643,8 @@ export namespace appservice {
         retentionInDays?: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -19847,6 +19867,8 @@ export namespace appservice {
         retentionInDays: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -19869,6 +19891,8 @@ export namespace appservice {
         retentionInDays?: number;
         /**
          * SAS url to an Azure blob container with read/write/list/delete permissions.
+         *
+         * > **Note:** There isn't enough information to for the provider to generate the `sasUrl` from `data.azurerm_storage_account_sas` and it should be built by hand (i.e. `https://${azurerm_storage_account.example.name}.blob.core.windows.net/${azurerm_storage_container.example.name}${data.azurerm_storage_account_sas.example.sas}&sr=b`).
          */
         sasUrl: string;
     }
@@ -24192,9 +24216,9 @@ export namespace cdn {
 
     export interface FrontdoorFirewallPolicyCustomRule {
         /**
-         * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+         * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
          *
-         * !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * !> **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          */
         action: string;
         /**
@@ -24478,6 +24502,15 @@ export namespace cdn {
          * The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         type: string;
+    }
+
+    export interface FrontdoorProfileLogScrubbingRule {
+        /**
+         * The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+         *
+         * > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+         */
+        matchVariable: string;
     }
 
     export interface FrontdoorRouteCache {
@@ -25089,14 +25122,14 @@ export namespace cdn {
 
     export interface FrontdoorSecurityPolicySecurityPolicies {
         /**
-         * An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * An `firewall` block as defined below.
          */
         firewall: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewall;
     }
 
     export interface FrontdoorSecurityPolicySecurityPoliciesFirewall {
         /**
-         * An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * An `association` block as defined below.
          */
         association: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation;
         /**
@@ -25107,7 +25140,7 @@ export namespace cdn {
 
     export interface FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
         /**
-         * One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * One or more `domain` blocks as defined below.
          */
         domains: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain[];
         /**
@@ -25122,7 +25155,7 @@ export namespace cdn {
          */
         active: boolean;
         /**
-         * The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+         * The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
          */
         cdnFrontdoorDomainId: string;
     }
@@ -25180,13 +25213,20 @@ export namespace cdn {
         /**
          * The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
          */
-        identityIds?: string[];
+        identityIds: string[];
         principalId: string;
         tenantId: string;
         /**
          * The type of Managed Service Identity that is configured on this Front Door Profile.
          */
         type: string;
+    }
+
+    export interface GetFrontdoorProfileLogScrubbingRule {
+        /**
+         * The variable that is scrubbed from the logs.
+         */
+        matchVariable: string;
     }
 
     export interface GetFrontdoorSecretSecret {
@@ -25982,6 +26022,113 @@ export namespace compute {
         sourceVaultId: string;
     }
 
+    export interface GetManagedDisksDisk {
+        createOption: string;
+        /**
+         * The ID of the disk access resource for using private endpoints on disks.
+         */
+        diskAccessId: string;
+        /**
+         * The ID of the Disk Encryption Set used to encrypt this Managed Disk.
+         */
+        diskEncryptionSetId: string;
+        /**
+         * The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
+         */
+        diskIopsReadWrite: number;
+        /**
+         * The bandwidth allowed for this disk.
+         */
+        diskMbpsReadWrite: number;
+        /**
+         * The size of the Managed Disk in gigabytes.
+         */
+        diskSizeInGb: number;
+        /**
+         * An `encryptionSettings` block as defined below.
+         */
+        encryptionSettings: outputs.compute.GetManagedDisksDiskEncryptionSetting[];
+        id: string;
+        /**
+         * The ID of the source image used for creating this Managed Disk.
+         */
+        imageReferenceId: string;
+        /**
+         * The Azure location of the Managed Disk.
+         */
+        location: string;
+        /**
+         * The name of the Managed Disk.
+         */
+        name: string;
+        /**
+         * Policy for accessing the disk via network.
+         */
+        networkAccessPolicy: string;
+        /**
+         * The operating system used for this Managed Disk.
+         */
+        osType: string;
+        /**
+         * The ID of an existing Managed Disk which this Disk was created from.
+         */
+        sourceResourceId: string;
+        /**
+         * The Source URI for this Managed Disk.
+         */
+        sourceUri: string;
+        /**
+         * The ID of the Storage Account where the `sourceUri` is located.
+         */
+        storageAccountId: string;
+        /**
+         * The storage account type for the Managed Disk.
+         */
+        storageAccountType: string;
+        /**
+         * A mapping of tags assigned to the resource.
+         */
+        tags: {[key: string]: string};
+        /**
+         * A list of Availability Zones where the Managed Disk exists.
+         */
+        zones: string[];
+    }
+
+    export interface GetManagedDisksDiskEncryptionSetting {
+        /**
+         * A `diskEncryptionKey` block as defined above.
+         */
+        diskEncryptionKeys: outputs.compute.GetManagedDisksDiskEncryptionSettingDiskEncryptionKey[];
+        enabled: boolean;
+        /**
+         * A `keyEncryptionKey` block as defined below.
+         */
+        keyEncryptionKeys: outputs.compute.GetManagedDisksDiskEncryptionSettingKeyEncryptionKey[];
+    }
+
+    export interface GetManagedDisksDiskEncryptionSettingDiskEncryptionKey {
+        /**
+         * The URL to the Key Vault Secret used as the Disk Encryption Key.
+         */
+        secretUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
+    }
+
+    export interface GetManagedDisksDiskEncryptionSettingKeyEncryptionKey {
+        /**
+         * The URL to the Key Vault Key used as the Key Encryption Key.
+         */
+        keyUrl: string;
+        /**
+         * The ID of the source Key Vault.
+         */
+        sourceVaultId: string;
+    }
+
     export interface GetOrchestratedVirtualMachineScaleSetIdentity {
         /**
          * The list of User Assigned Managed Identity IDs assigned to this Orchestrated Virtual Machine Scale Set.
@@ -26576,7 +26723,7 @@ export namespace compute {
         /**
          * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+         * > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
          */
         diffDiskSettings?: outputs.compute.LinuxVirtualMachineOsDiskDiffDiskSettings;
         /**
@@ -26597,6 +26744,8 @@ export namespace compute {
         id: string;
         /**
          * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+         *
+         * > **Note:** a value for `name` cannot be specified if/when the Virtual Machine is/has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
          */
         name: string;
         /**
@@ -26615,6 +26764,8 @@ export namespace compute {
         securityEncryptionType?: string;
         /**
          * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
          */
         storageAccountType: string;
         /**
@@ -26631,7 +26782,9 @@ export namespace compute {
          */
         option: string;
         /**
-         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         * Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk`, `ResourceDisk` and `NvmeDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** `NvmeDisk` can only be used for v6 VMs in combination with a supported `sourceImageReference`. More information can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ephemeral-os-disks)
          */
         placement?: string;
     }
@@ -29035,7 +29188,7 @@ export namespace compute {
         /**
          * A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+         * > **NOTE:** `diffDiskSettings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment). Additionally, this property cannot be set when an existing Managed Disk is used to create the Virtual Machine by setting `osManagedDiskId`.
          */
         diffDiskSettings?: outputs.compute.WindowsVirtualMachineOsDiskDiffDiskSettings;
         /**
@@ -29056,6 +29209,8 @@ export namespace compute {
         id: string;
         /**
          * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+         *
+         * > **Note:** a value for `name` cannot be specified if/when the Virtual Machine has been created using an existing Managed Disk for the OS by setting `osManagedDiskId`.
          */
         name: string;
         /**
@@ -29074,6 +29229,8 @@ export namespace compute {
         securityEncryptionType?: string;
         /**
          * The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
          */
         storageAccountType: string;
         /**
@@ -33643,6 +33800,14 @@ export namespace containerservice {
          * Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
          */
         authorizedIpRanges?: string[];
+        /**
+         * The ID of the Subnet where the API server endpoint is delegated to.
+         */
+        subnetId?: string;
+        /**
+         * Whether to enable virtual network integration for the API Server. Defaults to `false`.
+         */
+        virtualNetworkIntegrationEnabled?: boolean;
     }
 
     export interface KubernetesClusterAutoScalerProfile {
@@ -33718,12 +33883,9 @@ export namespace containerservice {
          * How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
          */
         scanInterval: string;
-        /**
-         * If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-         */
         skipNodesWithLocalStorage?: boolean;
         /**
-         * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+         * If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
          */
         skipNodesWithSystemPods?: boolean;
     }
@@ -33741,6 +33903,21 @@ export namespace containerservice {
          * The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
          */
         tenantId: string;
+    }
+
+    export interface KubernetesClusterBootstrapProfile {
+        /**
+         * The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
+         *
+         * > **Note:** If the `artifactSource` is set to `Cache` and the `outboundType` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+         */
+        artifactSource?: string;
+        /**
+         * The resource Id of Azure Container Registry.
+         *
+         * > **Note:** The `containerRegistryId` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+         */
+        containerRegistryId?: string;
     }
 
     export interface KubernetesClusterConfidentialComputing {
@@ -33767,6 +33944,7 @@ export namespace containerservice {
          * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
          */
         fipsEnabled?: boolean;
+        gpuDriver?: string;
         /**
          * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
          */
@@ -34553,6 +34731,10 @@ export namespace containerservice {
 
     export interface KubernetesClusterNetworkProfile {
         /**
+         * An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+         */
+        advancedNetworking?: outputs.containerservice.KubernetesClusterNetworkProfileAdvancedNetworking;
+        /**
          * IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
          */
         dnsServiceIp: string;
@@ -34613,7 +34795,9 @@ export namespace containerservice {
          */
         networkPolicy: string;
         /**
-         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+         * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+         *
+         * > **Note:** For more information on supported `outboundType` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
          */
         outboundType?: string;
         /**
@@ -34634,6 +34818,17 @@ export namespace containerservice {
          * > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `dockerBridgeCidr`, `dnsServiceIp` and `serviceCidr` should all be empty or all should be set.
          */
         serviceCidrs: string[];
+    }
+
+    export interface KubernetesClusterNetworkProfileAdvancedNetworking {
+        /**
+         * Is observability enabled? Defaults to `false`.
+         */
+        observabilityEnabled?: boolean;
+        /**
+         * Is security enabled? Defaults to `false`.
+         */
+        securityEnabled?: boolean;
     }
 
     export interface KubernetesClusterNetworkProfileLoadBalancerProfile {
@@ -34983,7 +35178,7 @@ export namespace containerservice {
          */
         mode: string;
         /**
-         * Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+         * Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
          *
          * > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
          */
@@ -35873,10 +36068,7 @@ export namespace core {
 
     export interface ResourceGroupPolicyAssignmentOverrideSelector {
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
-        kind: string;
+        kind?: string;
         notIns?: string[];
     }
 
@@ -35893,9 +36085,6 @@ export namespace core {
 
     export interface ResourceGroupPolicyAssignmentResourceSelectorSelector {
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
         notIns?: string[];
     }
@@ -35945,10 +36134,7 @@ export namespace core {
 
     export interface ResourcePolicyAssignmentOverrideSelector {
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
-        kind: string;
+        kind?: string;
         notIns?: string[];
     }
 
@@ -35965,9 +36151,6 @@ export namespace core {
 
     export interface ResourcePolicyAssignmentResourceSelectorSelector {
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
         notIns?: string[];
     }
@@ -36119,10 +36302,7 @@ export namespace core {
 
     export interface SubscriptionPolicyAssignmentOverrideSelector {
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
-        kind: string;
+        kind?: string;
         notIns?: string[];
     }
 
@@ -36139,9 +36319,6 @@ export namespace core {
 
     export interface SubscriptionPolicyAssignmentResourceSelectorSelector {
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
         notIns?: string[];
     }
@@ -39176,7 +39353,7 @@ export namespace dataprotection {
          */
         daysOfWeeks?: string[];
         /**
-         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
          */
         monthsOfYears?: string[];
         /**
@@ -39184,7 +39361,9 @@ export namespace dataprotection {
          */
         scheduledBackupTimes?: string[];
         /**
-         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created. When this property is specified, exactly one of the following must also be set: `daysOfMonth`, `daysOfWeek`
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -39282,6 +39461,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: string[];
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         * *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -39353,6 +39534,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: string[];
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -39424,6 +39607,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: string[];
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -39477,6 +39662,8 @@ export namespace dataprotection {
         scheduledBackupTimes?: string[];
         /**
          * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+         *
+         * > **Note:** When not using `absoluteCriteria`, you must use exactly one of `daysOfMonth` or `daysOfWeek`. Regarding the remaining two properties, `weeksOfMonth` and `monthsOfYear`, you may use either, both, or neither. If you would like to set multiple intervals, you may do so by using multiple `retentionRule` blocks.
          */
         weeksOfMonths?: string[];
     }
@@ -46877,6 +47064,12 @@ export namespace iot {
          */
         resourceGroupName?: string;
         /**
+         * The subscription ID for the endpoint.
+         *
+         * > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+         */
+        subscriptionId: string;
+        /**
          * The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
          */
         type: string;
@@ -48002,17 +48195,11 @@ export namespace keyvault {
     }
 
     export interface KeyVaultContact {
-        /**
-         * E-mail address of the contact.
-         */
         email: string;
         /**
-         * Name of the contact.
+         * Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
          */
         name?: string;
-        /**
-         * Phone number of the contact.
-         */
         phone?: string;
     }
 
@@ -48117,6 +48304,9 @@ export namespace kusto {
     }
 
     export interface ClusterLanguageExtension {
+        /**
+         * The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+         */
         image: string;
         /**
          * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
@@ -48126,11 +48316,11 @@ export namespace kusto {
 
     export interface ClusterOptimizedAutoScale {
         /**
-         * The maximum number of allowed instances. Must between `0` and `1000`.
+         * The maximum number of allowed instances. Possible values range between `0` and `1000`.
          */
         maximumInstances: number;
         /**
-         * The minimum number of allowed instances. Must between `0` and `1000`.
+         * The minimum number of allowed instances. Possible values range between `0` and `1000`.
          */
         minimumInstances: number;
     }
@@ -48140,6 +48330,7 @@ export namespace kusto {
          * Specifies the node count for the cluster. Boundaries depend on the SKU name.
          *
          * > **Note:** If no `optimizedAutoScale` block is defined, then the capacity is required.
+         *
          * > **Note:** If an `optimizedAutoScale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimumInstances`.
          */
         capacity: number;
@@ -48338,7 +48529,7 @@ export namespace lb {
         /**
          * The ID of a Public IP Address which should be associated with the Load Balancer.
          */
-        publicIpAddressId: string;
+        publicIpAddressId?: string;
         /**
          * The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
          */
@@ -48346,7 +48537,7 @@ export namespace lb {
         /**
          * The ID of the Subnet which should be associated with the IP Configuration.
          */
-        subnetId: string;
+        subnetId?: string;
         /**
          * Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
          *
@@ -48512,6 +48703,8 @@ export namespace loadtest {
     export interface LoadTestEncryptionIdentity {
         /**
          * The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+         *
+         * > **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
          */
         identityId: string;
         /**
@@ -48527,7 +48720,6 @@ export namespace loadtest {
         identityIds?: string[];
         /**
          * The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-         * *
          */
         principalId: string;
         /**
@@ -48612,7 +48804,7 @@ export namespace logicapps {
         /**
          * Should the Logic App be loaded at all times?
          */
-        alwaysOn?: boolean;
+        alwaysOn: boolean;
         /**
          * The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
          */
@@ -48644,7 +48836,7 @@ export namespace logicapps {
         /**
          * Specifies whether the HTTP2 protocol should be enabled.
          */
-        http2Enabled?: boolean;
+        http2Enabled: boolean;
         /**
          * A list of `ipRestriction` objects representing IP restrictions as defined below.
          */
@@ -48707,7 +48899,7 @@ export namespace logicapps {
         /**
          * Are credentials supported?
          */
-        supportCredentials?: boolean;
+        supportCredentials: boolean;
     }
 
     export interface GetStandardSiteConfigIpRestriction {
@@ -48722,7 +48914,7 @@ export namespace logicapps {
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
-        ipAddress?: string;
+        ipAddress: string;
         /**
          * The name of the Logic App.
          */
@@ -48734,11 +48926,11 @@ export namespace logicapps {
         /**
          * The Service Tag used for this IP Restriction.
          */
-        serviceTag?: string;
+        serviceTag: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId?: string;
+        virtualNetworkSubnetId: string;
     }
 
     export interface GetStandardSiteConfigIpRestrictionHeaders {
@@ -48772,7 +48964,7 @@ export namespace logicapps {
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
-        ipAddress?: string;
+        ipAddress: string;
         /**
          * The name of the Logic App.
          */
@@ -48784,11 +48976,11 @@ export namespace logicapps {
         /**
          * The Service Tag used for this IP Restriction.
          */
-        serviceTag?: string;
+        serviceTag: string;
         /**
          * The Virtual Network Subnet ID used for this IP Restriction.
          */
-        virtualNetworkSubnetId?: string;
+        virtualNetworkSubnetId: string;
     }
 
     export interface GetStandardSiteConfigScmIpRestrictionHeaders {
@@ -49018,7 +49210,7 @@ export namespace logicapps {
         /**
          * A `cors` block as defined below.
          */
-        cors: outputs.logicapps.StandardSiteConfigCors;
+        cors?: outputs.logicapps.StandardSiteConfigCors;
         /**
          * The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0`, `v6.0` and `v8.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
          */
@@ -49044,7 +49236,7 @@ export namespace logicapps {
          *
          * > **Note:** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
          */
-        ipRestrictions: outputs.logicapps.StandardSiteConfigIpRestriction[];
+        ipRestrictions?: outputs.logicapps.StandardSiteConfigIpRestriction[];
         /**
          * Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
          *
@@ -49074,7 +49266,7 @@ export namespace logicapps {
          *
          * > **Note:** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
          */
-        scmIpRestrictions: outputs.logicapps.StandardSiteConfigScmIpRestriction[];
+        scmIpRestrictions?: outputs.logicapps.StandardSiteConfigScmIpRestriction[];
         /**
          * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
          *
@@ -49109,7 +49301,7 @@ export namespace logicapps {
         /**
          * A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
          */
-        allowedOrigins: string[];
+        allowedOrigins?: string[];
         /**
          * Are credentials supported?
          */
@@ -49122,9 +49314,13 @@ export namespace logicapps {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * The `headers` block for this specific as a `ipRestriction` block as defined below.
          */
-        headers: outputs.logicapps.StandardSiteConfigIpRestrictionHeaders;
+        headers?: outputs.logicapps.StandardSiteConfigIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -49174,9 +49370,13 @@ export namespace logicapps {
          */
         action?: string;
         /**
+         * The Description of this IP Restriction.
+         */
+        description?: string;
+        /**
          * The `headers` block for this specific `ipRestriction` as defined below.
          */
-        headers: outputs.logicapps.StandardSiteConfigScmIpRestrictionHeaders;
+        headers?: outputs.logicapps.StandardSiteConfigScmIpRestrictionHeaders;
         /**
          * The IP Address used for this IP Restriction in CIDR notation.
          */
@@ -49584,9 +49784,13 @@ export namespace machinelearning {
 
     export interface WorkspaceManagedNetwork {
         /**
-         * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+         * The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`.
          */
         isolationMode: string;
+        /**
+         * Set to trigger the provisioning of the managed VNet with the default options when creating a Machine Learning Workspace with the managed VNet enabled. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        provisionOnCreationEnabled?: boolean;
     }
 
     export interface WorkspaceServerlessCompute {
@@ -49973,10 +50177,7 @@ export namespace management {
 
     export interface GroupPolicyAssignmentOverrideSelector {
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
-        kind: string;
+        kind?: string;
         notIns?: string[];
     }
 
@@ -49993,9 +50194,6 @@ export namespace management {
 
     export interface GroupPolicyAssignmentResourceSelectorSelector {
         ins?: string[];
-        /**
-         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         */
         kind: string;
         notIns?: string[];
     }
@@ -50737,11 +50935,15 @@ export namespace mobile {
 
     export interface NetworkSliceSingleNetworkSliceSelectionAssistanceInformation {
         /**
-         * Slice differentiator (SD). Must be a 6 digit hex string.
+         * Slice differentiator (SD). Must be a 6 digit hex string. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+         *
+         * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
          */
         sliceDifferentiator?: string;
         /**
-         * Slice/service type (SST). Must be between `0` and `255`.
+         * Slice/service type (SST). Must be between `0` and `255`. For single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network.
+         *
+         * @deprecated `singleNetworkSliceSelectionAssistanceInformation` has been deprecated and its properties, `sliceDifferentiator` and `sliceServiceType` have been moved to the top level. The `singleNetworkSliceSelectionAssistanceInformation` block will be removed in v5.0 of the AzureRM Provider.
          */
         sliceServiceType: number;
     }
@@ -51032,15 +51234,17 @@ export namespace monitoring {
          */
         operationName?: string;
         /**
-         * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+         * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
          */
         recommendationCategory?: string;
         /**
-         * The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+         * The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+         *
+         * > **Note:** The `recommendationType`, `recommendationCategory`, and `recommendationImpact` fields can only be defined if the `category` field has been set to `Recommendation`.
          */
         recommendationImpact?: string;
         /**
-         * The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+         * The recommendation type of the event.
          */
         recommendationType?: string;
         /**
@@ -54355,6 +54559,10 @@ export namespace mysql {
          */
         keyVaultKeyId?: string;
         /**
+         * The ID of the Managed HSM Key.
+         */
+        managedHsmKeyId?: string;
+        /**
          * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
          */
         primaryUserAssignedIdentityId?: string;
@@ -55143,7 +55351,9 @@ export namespace netapp {
          */
         networkFeatures: string;
         /**
-         * The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`.
+         * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`.
+         *
+         * > **Note:** When converting protocols between NFSv3 and NFSv4.1, ensure that export policy rules are updated accordingly to avoid configuration drift. Update the `nfsv3Enabled` and `nfsv41Enabled` flags to match the new protocol.
          */
         protocols: string;
         /**
@@ -55278,7 +55488,9 @@ export namespace netapp {
          */
         name: string;
         /**
-         * The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+         * The target volume protocol expressed as a list. Protocol conversion between `NFSv3` and `NFSv4.1` and vice-versa is supported without recreating the volume group, however export policy rules must be updated accordingly to avoid configuration drift (e.g., when converting from `NFSv3` to `NFSv4.1`, set `nfsv3Enabled = false` and `nfsv41Enabled = true` in export policy rules). Supported values include `NFSv3` or `NFSv4.1`, multi-protocol is not supported. Please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+         *
+         * > **Note:** NFSv3 protocol is only supported for backup volumes (`data-backup`, `log-backup`) in SAP HANA volume groups. Critical volumes (`data`, `log`, `shared`) must use NFSv4.1. When converting protocols on backup volumes, ensure export policy rules are updated accordingly to avoid configuration drift.
          */
         protocols: string;
         /**
@@ -61321,6 +61533,74 @@ export namespace oracle {
         characterSet: string;
     }
 
+    export interface GetAutonomousDatabaseBackupsAutonomousDatabaseBackup {
+        /**
+         * Indicates whether the backup is user-initiated or automatic.
+         */
+        automatic: boolean;
+        /**
+         * The backup OCID.
+         */
+        autonomousDatabaseBackupOcid: string;
+        /**
+         * The OCID of the Autonomous Database OCID.
+         */
+        autonomousDatabaseOcid: string;
+        databaseBackupSizeInTbs: number;
+        /**
+         * The Oracle Database version of the Autonomous Database at the time the backup was taken.
+         */
+        databaseVersion: string;
+        /**
+         * The user-friendly name of the backup.
+         */
+        displayName: string;
+        /**
+         * The ID of the Autonomous Database Backup.
+         */
+        id: string;
+        /**
+         * Information about the current lifecycle state of the backup.
+         */
+        lifecycleDetails: string;
+        /**
+         * The current state of the backup.
+         */
+        lifecycleState: string;
+        /**
+         * `- The Azure Region where the Autonomous Database Backup exists.
+         */
+        location: string;
+        /**
+         * The current provisioning state of the Autonomous Database Backup.
+         */
+        provisioningState: string;
+        /**
+         * Indicates whether the backup can be used to restore the Autonomous Database.
+         */
+        restorable: boolean;
+        /**
+         * The retention period in days for the Autonomous Database Backup.
+         */
+        retentionPeriodInDays: number;
+        /**
+         * The date and time the backup will become unusable.
+         */
+        timeAvailableTil: string;
+        /**
+         * The date and time the backup was completed.
+         */
+        timeEnded: string;
+        /**
+         * The date and time the backup started.
+         */
+        timeStarted: string;
+        /**
+         * The type of backup.
+         */
+        type: string;
+    }
+
     export interface GetAutonomousDatabaseLongTermBackupSchedule {
         /**
          * A boolean value that indicates if long term backup is enabled/disabled.
@@ -63099,6 +63379,8 @@ export namespace policy {
         assignmentType?: string;
         /**
          * The content hash for the Guest Configuration package.
+         *
+         * > **Note:** The value for `contentHash` should be the SH256SUM for the zip file in the `contentUri` and must be in upper case.
          */
         contentHash: string;
         /**
@@ -64847,6 +65129,21 @@ export namespace sentinel {
         status?: string;
     }
 
+    export interface AuthomationRuleActionIncidentTask {
+        /**
+         * The description of the incident task.
+         */
+        description?: string;
+        /**
+         * The execution order of this action.
+         */
+        order: number;
+        /**
+         * The title of the incident task.
+         */
+        title: string;
+    }
+
     export interface AuthomationRuleActionPlaybook {
         /**
          * The ID of the Logic App that defines the playbook's logic.
@@ -64897,6 +65194,21 @@ export namespace sentinel {
          * The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
          */
         status?: string;
+    }
+
+    export interface AutomationRuleActionIncidentTask {
+        /**
+         * The description of the incident task.
+         */
+        description?: string;
+        /**
+         * The execution order of this action.
+         */
+        order: number;
+        /**
+         * The title of the incident task.
+         */
+        title: string;
     }
 
     export interface AutomationRuleActionPlaybook {
@@ -67312,7 +67624,7 @@ export namespace storage {
 
     export interface AccountSasPolicy {
         /**
-         * The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+         * The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
          */
         expirationAction?: string;
         /**

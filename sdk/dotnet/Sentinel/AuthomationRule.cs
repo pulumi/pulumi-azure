@@ -80,6 +80,12 @@ namespace Pulumi.Azure.Sentinel
     public partial class AuthomationRule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// One or more `action_incident_task` blocks as defined below.
+        /// </summary>
+        [Output("actionIncidentTasks")]
+        public Output<ImmutableArray<Outputs.AuthomationRuleActionIncidentTask>> ActionIncidentTasks { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `action_incident` blocks as defined below.
         /// </summary>
         [Output("actionIncidents")]
@@ -193,6 +199,18 @@ namespace Pulumi.Azure.Sentinel
 
     public sealed class AuthomationRuleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("actionIncidentTasks")]
+        private InputList<Inputs.AuthomationRuleActionIncidentTaskArgs>? _actionIncidentTasks;
+
+        /// <summary>
+        /// One or more `action_incident_task` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AuthomationRuleActionIncidentTaskArgs> ActionIncidentTasks
+        {
+            get => _actionIncidentTasks ?? (_actionIncidentTasks = new InputList<Inputs.AuthomationRuleActionIncidentTaskArgs>());
+            set => _actionIncidentTasks = value;
+        }
+
         [Input("actionIncidents")]
         private InputList<Inputs.AuthomationRuleActionIncidentArgs>? _actionIncidents;
 
@@ -281,6 +299,18 @@ namespace Pulumi.Azure.Sentinel
 
     public sealed class AuthomationRuleState : global::Pulumi.ResourceArgs
     {
+        [Input("actionIncidentTasks")]
+        private InputList<Inputs.AuthomationRuleActionIncidentTaskGetArgs>? _actionIncidentTasks;
+
+        /// <summary>
+        /// One or more `action_incident_task` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.AuthomationRuleActionIncidentTaskGetArgs> ActionIncidentTasks
+        {
+            get => _actionIncidentTasks ?? (_actionIncidentTasks = new InputList<Inputs.AuthomationRuleActionIncidentTaskGetArgs>());
+            set => _actionIncidentTasks = value;
+        }
+
         [Input("actionIncidents")]
         private InputList<Inputs.AuthomationRuleActionIncidentGetArgs>? _actionIncidents;
 

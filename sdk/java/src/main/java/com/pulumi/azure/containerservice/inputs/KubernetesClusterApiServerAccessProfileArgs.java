@@ -5,6 +5,7 @@ package com.pulumi.azure.containerservice.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -31,10 +32,42 @@ public final class KubernetesClusterApiServerAccessProfileArgs extends com.pulum
         return Optional.ofNullable(this.authorizedIpRanges);
     }
 
+    /**
+     * The ID of the Subnet where the API server endpoint is delegated to.
+     * 
+     */
+    @Import(name="subnetId")
+    private @Nullable Output<String> subnetId;
+
+    /**
+     * @return The ID of the Subnet where the API server endpoint is delegated to.
+     * 
+     */
+    public Optional<Output<String>> subnetId() {
+        return Optional.ofNullable(this.subnetId);
+    }
+
+    /**
+     * Whether to enable virtual network integration for the API Server. Defaults to `false`.
+     * 
+     */
+    @Import(name="virtualNetworkIntegrationEnabled")
+    private @Nullable Output<Boolean> virtualNetworkIntegrationEnabled;
+
+    /**
+     * @return Whether to enable virtual network integration for the API Server. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> virtualNetworkIntegrationEnabled() {
+        return Optional.ofNullable(this.virtualNetworkIntegrationEnabled);
+    }
+
     private KubernetesClusterApiServerAccessProfileArgs() {}
 
     private KubernetesClusterApiServerAccessProfileArgs(KubernetesClusterApiServerAccessProfileArgs $) {
         this.authorizedIpRanges = $.authorizedIpRanges;
+        this.subnetId = $.subnetId;
+        this.virtualNetworkIntegrationEnabled = $.virtualNetworkIntegrationEnabled;
     }
 
     public static Builder builder() {
@@ -84,6 +117,48 @@ public final class KubernetesClusterApiServerAccessProfileArgs extends com.pulum
          */
         public Builder authorizedIpRanges(String... authorizedIpRanges) {
             return authorizedIpRanges(List.of(authorizedIpRanges));
+        }
+
+        /**
+         * @param subnetId The ID of the Subnet where the API server endpoint is delegated to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetId(@Nullable Output<String> subnetId) {
+            $.subnetId = subnetId;
+            return this;
+        }
+
+        /**
+         * @param subnetId The ID of the Subnet where the API server endpoint is delegated to.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetId(String subnetId) {
+            return subnetId(Output.of(subnetId));
+        }
+
+        /**
+         * @param virtualNetworkIntegrationEnabled Whether to enable virtual network integration for the API Server. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkIntegrationEnabled(@Nullable Output<Boolean> virtualNetworkIntegrationEnabled) {
+            $.virtualNetworkIntegrationEnabled = virtualNetworkIntegrationEnabled;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkIntegrationEnabled Whether to enable virtual network integration for the API Server. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkIntegrationEnabled(Boolean virtualNetworkIntegrationEnabled) {
+            return virtualNetworkIntegrationEnabled(Output.of(virtualNetworkIntegrationEnabled));
         }
 
         public KubernetesClusterApiServerAccessProfileArgs build() {

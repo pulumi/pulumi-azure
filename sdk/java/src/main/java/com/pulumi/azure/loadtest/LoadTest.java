@@ -18,8 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
- * 
  * Manages a Load Test Service.
  * 
  * ## Example Usage

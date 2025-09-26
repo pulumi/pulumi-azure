@@ -99,14 +99,14 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+     * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
      * 
      */
     @Import(name="recommendationCategory")
     private @Nullable Output<String> recommendationCategory;
 
     /**
-     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
      * 
      */
     public Optional<Output<String>> recommendationCategory() {
@@ -114,14 +114,18 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+     * The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+     * 
+     * &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
      * 
      */
     @Import(name="recommendationImpact")
     private @Nullable Output<String> recommendationImpact;
 
     /**
-     * @return The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+     * 
+     * &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
      * 
      */
     public Optional<Output<String>> recommendationImpact() {
@@ -129,14 +133,14 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+     * The recommendation type of the event.
      * 
      */
     @Import(name="recommendationType")
     private @Nullable Output<String> recommendationType;
 
     /**
-     * @return The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation type of the event.
      * 
      */
     public Optional<Output<String>> recommendationType() {
@@ -544,7 +548,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recommendationCategory The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+         * @param recommendationCategory The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
          * 
          * @return builder
          * 
@@ -555,7 +559,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recommendationCategory The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+         * @param recommendationCategory The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability`, `Performance` and `Security`.
          * 
          * @return builder
          * 
@@ -565,7 +569,9 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recommendationImpact The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+         * @param recommendationImpact The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+         * 
+         * &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
          * 
          * @return builder
          * 
@@ -576,7 +582,9 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recommendationImpact The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+         * @param recommendationImpact The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`.
+         * 
+         * &gt; **Note:** The `recommendation_type`, `recommendation_category`, and `recommendation_impact` fields can only be defined if the `category` field has been set to `Recommendation`.
          * 
          * @return builder
          * 
@@ -586,7 +594,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recommendationType The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+         * @param recommendationType The recommendation type of the event.
          * 
          * @return builder
          * 
@@ -597,7 +605,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recommendationType The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+         * @param recommendationType The recommendation type of the event.
          * 
          * @return builder
          * 

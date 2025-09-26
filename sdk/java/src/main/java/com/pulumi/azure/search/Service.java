@@ -314,14 +314,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     * Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
      * 
      */
     @Export(name="networkRuleBypassOption", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkRuleBypassOption;
 
     /**
-     * @return Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+     * @return Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
      * 
      */
     public Output<Optional<String>> networkRuleBypassOption() {

@@ -27,13 +27,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cdn.LookupFrontdoorProfile(ctx, &cdn.LookupFrontdoorProfileArgs{
+//			example, err := cdn.LookupFrontdoorProfile(ctx, &cdn.LookupFrontdoorProfileArgs{
 //				Name:              "existing-cdn-profile",
 //				ResourceGroupName: "existing-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			ctx.Export("frontDoorId", example.Id)
+//			ctx.Export("logScrubbingMatchVariable", example.LogScrubbingRules[0].MatchVariable)
 //			return nil
 //		})
 //	}
@@ -58,8 +60,6 @@ func LookupFrontdoorProfile(ctx *pulumi.Context, args *LookupFrontdoorProfileArg
 
 // A collection of arguments for invoking getFrontdoorProfile.
 type LookupFrontdoorProfileArgs struct {
-	// An `identity` block as defined below.
-	Identity *GetFrontdoorProfileIdentity `pulumi:"identity"`
 	// Specifies the name of the Front Door Profile.
 	Name string `pulumi:"name"`
 	// The name of the Resource Group where this Front Door Profile exists.
@@ -69,10 +69,13 @@ type LookupFrontdoorProfileArgs struct {
 // A collection of values returned by getFrontdoorProfile.
 type LookupFrontdoorProfileResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id                string                       `pulumi:"id"`
-	Identity          *GetFrontdoorProfileIdentity `pulumi:"identity"`
-	Name              string                       `pulumi:"name"`
-	ResourceGroupName string                       `pulumi:"resourceGroupName"`
+	Id string `pulumi:"id"`
+	// An `identity` block as defined below.
+	Identity GetFrontdoorProfileIdentity `pulumi:"identity"`
+	// One or more `logScrubbingRule` blocks as defined below.
+	LogScrubbingRules []GetFrontdoorProfileLogScrubbingRule `pulumi:"logScrubbingRules"`
+	Name              string                                `pulumi:"name"`
+	ResourceGroupName string                                `pulumi:"resourceGroupName"`
 	// The UUID of the Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
 	ResourceGuid string `pulumi:"resourceGuid"`
 	// Specifies the maximum response timeout in seconds.
@@ -94,8 +97,6 @@ func LookupFrontdoorProfileOutput(ctx *pulumi.Context, args LookupFrontdoorProfi
 
 // A collection of arguments for invoking getFrontdoorProfile.
 type LookupFrontdoorProfileOutputArgs struct {
-	// An `identity` block as defined below.
-	Identity GetFrontdoorProfileIdentityPtrInput `pulumi:"identity"`
 	// Specifies the name of the Front Door Profile.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Resource Group where this Front Door Profile exists.
@@ -126,8 +127,14 @@ func (o LookupFrontdoorProfileResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorProfileResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o LookupFrontdoorProfileResultOutput) Identity() GetFrontdoorProfileIdentityPtrOutput {
-	return o.ApplyT(func(v LookupFrontdoorProfileResult) *GetFrontdoorProfileIdentity { return v.Identity }).(GetFrontdoorProfileIdentityPtrOutput)
+// An `identity` block as defined below.
+func (o LookupFrontdoorProfileResultOutput) Identity() GetFrontdoorProfileIdentityOutput {
+	return o.ApplyT(func(v LookupFrontdoorProfileResult) GetFrontdoorProfileIdentity { return v.Identity }).(GetFrontdoorProfileIdentityOutput)
+}
+
+// One or more `logScrubbingRule` blocks as defined below.
+func (o LookupFrontdoorProfileResultOutput) LogScrubbingRules() GetFrontdoorProfileLogScrubbingRuleArrayOutput {
+	return o.ApplyT(func(v LookupFrontdoorProfileResult) []GetFrontdoorProfileLogScrubbingRule { return v.LogScrubbingRules }).(GetFrontdoorProfileLogScrubbingRuleArrayOutput)
 }
 
 func (o LookupFrontdoorProfileResultOutput) Name() pulumi.StringOutput {

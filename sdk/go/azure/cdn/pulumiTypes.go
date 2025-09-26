@@ -5151,9 +5151,9 @@ func (o FrontdoorCustomDomainTlsPtrOutput) MinimumTlsVersion() pulumi.StringPtrO
 }
 
 type FrontdoorFirewallPolicyCustomRule struct {
-	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
 	//
-	// !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// !> **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	Action string `pulumi:"action"`
 	// Is the rule is enabled or disabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -5183,9 +5183,9 @@ type FrontdoorFirewallPolicyCustomRuleInput interface {
 }
 
 type FrontdoorFirewallPolicyCustomRuleArgs struct {
-	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
 	//
-	// !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// !> **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	Action pulumi.StringInput `pulumi:"action"`
 	// Is the rule is enabled or disabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -5254,9 +5254,9 @@ func (o FrontdoorFirewallPolicyCustomRuleOutput) ToFrontdoorFirewallPolicyCustom
 	return o
 }
 
-// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, or `JSChallenge`.
+// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
 //
-// !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+// !> **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 func (o FrontdoorFirewallPolicyCustomRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -7308,6 +7308,109 @@ func (o FrontdoorProfileIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorProfileLogScrubbingRule struct {
+	// The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+	//
+	// > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+	MatchVariable string `pulumi:"matchVariable"`
+}
+
+// FrontdoorProfileLogScrubbingRuleInput is an input type that accepts FrontdoorProfileLogScrubbingRuleArgs and FrontdoorProfileLogScrubbingRuleOutput values.
+// You can construct a concrete instance of `FrontdoorProfileLogScrubbingRuleInput` via:
+//
+//	FrontdoorProfileLogScrubbingRuleArgs{...}
+type FrontdoorProfileLogScrubbingRuleInput interface {
+	pulumi.Input
+
+	ToFrontdoorProfileLogScrubbingRuleOutput() FrontdoorProfileLogScrubbingRuleOutput
+	ToFrontdoorProfileLogScrubbingRuleOutputWithContext(context.Context) FrontdoorProfileLogScrubbingRuleOutput
+}
+
+type FrontdoorProfileLogScrubbingRuleArgs struct {
+	// The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+	//
+	// > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+}
+
+func (FrontdoorProfileLogScrubbingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorProfileLogScrubbingRule)(nil)).Elem()
+}
+
+func (i FrontdoorProfileLogScrubbingRuleArgs) ToFrontdoorProfileLogScrubbingRuleOutput() FrontdoorProfileLogScrubbingRuleOutput {
+	return i.ToFrontdoorProfileLogScrubbingRuleOutputWithContext(context.Background())
+}
+
+func (i FrontdoorProfileLogScrubbingRuleArgs) ToFrontdoorProfileLogScrubbingRuleOutputWithContext(ctx context.Context) FrontdoorProfileLogScrubbingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorProfileLogScrubbingRuleOutput)
+}
+
+// FrontdoorProfileLogScrubbingRuleArrayInput is an input type that accepts FrontdoorProfileLogScrubbingRuleArray and FrontdoorProfileLogScrubbingRuleArrayOutput values.
+// You can construct a concrete instance of `FrontdoorProfileLogScrubbingRuleArrayInput` via:
+//
+//	FrontdoorProfileLogScrubbingRuleArray{ FrontdoorProfileLogScrubbingRuleArgs{...} }
+type FrontdoorProfileLogScrubbingRuleArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorProfileLogScrubbingRuleArrayOutput() FrontdoorProfileLogScrubbingRuleArrayOutput
+	ToFrontdoorProfileLogScrubbingRuleArrayOutputWithContext(context.Context) FrontdoorProfileLogScrubbingRuleArrayOutput
+}
+
+type FrontdoorProfileLogScrubbingRuleArray []FrontdoorProfileLogScrubbingRuleInput
+
+func (FrontdoorProfileLogScrubbingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorProfileLogScrubbingRule)(nil)).Elem()
+}
+
+func (i FrontdoorProfileLogScrubbingRuleArray) ToFrontdoorProfileLogScrubbingRuleArrayOutput() FrontdoorProfileLogScrubbingRuleArrayOutput {
+	return i.ToFrontdoorProfileLogScrubbingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorProfileLogScrubbingRuleArray) ToFrontdoorProfileLogScrubbingRuleArrayOutputWithContext(ctx context.Context) FrontdoorProfileLogScrubbingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorProfileLogScrubbingRuleArrayOutput)
+}
+
+type FrontdoorProfileLogScrubbingRuleOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorProfileLogScrubbingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorProfileLogScrubbingRule)(nil)).Elem()
+}
+
+func (o FrontdoorProfileLogScrubbingRuleOutput) ToFrontdoorProfileLogScrubbingRuleOutput() FrontdoorProfileLogScrubbingRuleOutput {
+	return o
+}
+
+func (o FrontdoorProfileLogScrubbingRuleOutput) ToFrontdoorProfileLogScrubbingRuleOutputWithContext(ctx context.Context) FrontdoorProfileLogScrubbingRuleOutput {
+	return o
+}
+
+// The variable to be scrubbed from the logs. Possible values are `QueryStringArgNames`, `RequestIPAddress`, and `RequestUri`.
+//
+// > **Note:** The `operator` field is implicitly set to `EqualsAny`, as it is the sole supported value, and is therefore not exposed as a configurable option in the provider schema.
+func (o FrontdoorProfileLogScrubbingRuleOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorProfileLogScrubbingRule) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+type FrontdoorProfileLogScrubbingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorProfileLogScrubbingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorProfileLogScrubbingRule)(nil)).Elem()
+}
+
+func (o FrontdoorProfileLogScrubbingRuleArrayOutput) ToFrontdoorProfileLogScrubbingRuleArrayOutput() FrontdoorProfileLogScrubbingRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorProfileLogScrubbingRuleArrayOutput) ToFrontdoorProfileLogScrubbingRuleArrayOutputWithContext(ctx context.Context) FrontdoorProfileLogScrubbingRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorProfileLogScrubbingRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorProfileLogScrubbingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorProfileLogScrubbingRule {
+		return vs[0].([]FrontdoorProfileLogScrubbingRule)[vs[1].(int)]
+	}).(FrontdoorProfileLogScrubbingRuleOutput)
 }
 
 type FrontdoorRouteCache struct {
@@ -11768,7 +11871,7 @@ func (o FrontdoorSecretSecretCustomerCertificateArrayOutput) Index(i pulumi.IntI
 }
 
 type FrontdoorSecurityPolicySecurityPolicies struct {
-	// An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// An `firewall` block as defined below.
 	Firewall FrontdoorSecurityPolicySecurityPoliciesFirewall `pulumi:"firewall"`
 }
 
@@ -11784,7 +11887,7 @@ type FrontdoorSecurityPolicySecurityPoliciesInput interface {
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesArgs struct {
-	// An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// An `firewall` block as defined below.
 	Firewall FrontdoorSecurityPolicySecurityPoliciesFirewallInput `pulumi:"firewall"`
 }
 
@@ -11865,7 +11968,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesOutput) ToFrontdoorSecurityPolicy
 	}).(FrontdoorSecurityPolicySecurityPoliciesPtrOutput)
 }
 
-// An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+// An `firewall` block as defined below.
 func (o FrontdoorSecurityPolicySecurityPoliciesOutput) Firewall() FrontdoorSecurityPolicySecurityPoliciesFirewallOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPolicies) FrontdoorSecurityPolicySecurityPoliciesFirewall {
 		return v.Firewall
@@ -11896,7 +11999,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Elem() FrontdoorSecuri
 	}).(FrontdoorSecurityPolicySecurityPoliciesOutput)
 }
 
-// An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+// An `firewall` block as defined below.
 func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Firewall() FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPolicies) *FrontdoorSecurityPolicySecurityPoliciesFirewall {
 		if v == nil {
@@ -11907,7 +12010,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Firewall() FrontdoorSe
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewall struct {
-	// An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// An `association` block as defined below.
 	Association FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation `pulumi:"association"`
 	// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorFirewallPolicyId string `pulumi:"cdnFrontdoorFirewallPolicyId"`
@@ -11925,7 +12028,7 @@ type FrontdoorSecurityPolicySecurityPoliciesFirewallInput interface {
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallArgs struct {
-	// An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// An `association` block as defined below.
 	Association FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput `pulumi:"association"`
 	// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
 	CdnFrontdoorFirewallPolicyId pulumi.StringInput `pulumi:"cdnFrontdoorFirewallPolicyId"`
@@ -12008,7 +12111,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) ToFrontdoorSecuri
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput)
 }
 
-// An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+// An `association` block as defined below.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) Association() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewall) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
 		return v.Association
@@ -12044,7 +12147,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) Elem() Frontdo
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallOutput)
 }
 
-// An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+// An `association` block as defined below.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) Association() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewall) *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
 		if v == nil {
@@ -12065,7 +12168,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) CdnFrontdoorFi
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation struct {
-	// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// One or more `domain` blocks as defined below.
 	Domains []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain `pulumi:"domains"`
 	// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
 	PatternsToMatch string `pulumi:"patternsToMatch"`
@@ -12083,7 +12186,7 @@ type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput interface {
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs struct {
-	// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+	// One or more `domain` blocks as defined below.
 	Domains FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput `pulumi:"domains"`
 	// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
 	PatternsToMatch pulumi.StringInput `pulumi:"patternsToMatch"`
@@ -12166,7 +12269,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) ToFron
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput)
 }
 
-// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+// One or more `domain` blocks as defined below.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) Domains() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
 		return v.Domains
@@ -12202,7 +12305,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Ele
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput)
 }
 
-// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+// One or more `domain` blocks as defined below.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Domains() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
 		if v == nil {
@@ -12225,7 +12328,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Pat
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain struct {
 	// Is the Front Door Custom Domain/Endpoint activated?
 	Active *bool `pulumi:"active"`
-	// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+	// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
 	CdnFrontdoorDomainId string `pulumi:"cdnFrontdoorDomainId"`
 }
 
@@ -12243,7 +12346,7 @@ type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainInput inter
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs struct {
 	// Is the Front Door Custom Domain/Endpoint activated?
 	Active pulumi.BoolPtrInput `pulumi:"active"`
-	// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+	// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
 	CdnFrontdoorDomainId pulumi.StringInput `pulumi:"cdnFrontdoorDomainId"`
 }
 
@@ -12303,7 +12406,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) 
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain) *bool { return v.Active }).(pulumi.BoolPtrOutput)
 }
 
-// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) CdnFrontdoorDomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain) string {
 		return v.CdnFrontdoorDomainId
@@ -12725,47 +12828,6 @@ func (i GetFrontdoorProfileIdentityArgs) ToGetFrontdoorProfileIdentityOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorProfileIdentityOutput)
 }
 
-func (i GetFrontdoorProfileIdentityArgs) ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput {
-	return i.ToGetFrontdoorProfileIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i GetFrontdoorProfileIdentityArgs) ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorProfileIdentityOutput).ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx)
-}
-
-// GetFrontdoorProfileIdentityPtrInput is an input type that accepts GetFrontdoorProfileIdentityArgs, GetFrontdoorProfileIdentityPtr and GetFrontdoorProfileIdentityPtrOutput values.
-// You can construct a concrete instance of `GetFrontdoorProfileIdentityPtrInput` via:
-//
-//	        GetFrontdoorProfileIdentityArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetFrontdoorProfileIdentityPtrInput interface {
-	pulumi.Input
-
-	ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput
-	ToGetFrontdoorProfileIdentityPtrOutputWithContext(context.Context) GetFrontdoorProfileIdentityPtrOutput
-}
-
-type getFrontdoorProfileIdentityPtrType GetFrontdoorProfileIdentityArgs
-
-func GetFrontdoorProfileIdentityPtr(v *GetFrontdoorProfileIdentityArgs) GetFrontdoorProfileIdentityPtrInput {
-	return (*getFrontdoorProfileIdentityPtrType)(v)
-}
-
-func (*getFrontdoorProfileIdentityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetFrontdoorProfileIdentity)(nil)).Elem()
-}
-
-func (i *getFrontdoorProfileIdentityPtrType) ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput {
-	return i.ToGetFrontdoorProfileIdentityPtrOutputWithContext(context.Background())
-}
-
-func (i *getFrontdoorProfileIdentityPtrType) ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorProfileIdentityPtrOutput)
-}
-
 type GetFrontdoorProfileIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetFrontdoorProfileIdentityOutput) ElementType() reflect.Type {
@@ -12778,16 +12840,6 @@ func (o GetFrontdoorProfileIdentityOutput) ToGetFrontdoorProfileIdentityOutput()
 
 func (o GetFrontdoorProfileIdentityOutput) ToGetFrontdoorProfileIdentityOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityOutput {
 	return o
-}
-
-func (o GetFrontdoorProfileIdentityOutput) ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput {
-	return o.ToGetFrontdoorProfileIdentityPtrOutputWithContext(context.Background())
-}
-
-func (o GetFrontdoorProfileIdentityOutput) ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetFrontdoorProfileIdentity) *GetFrontdoorProfileIdentity {
-		return &v
-	}).(GetFrontdoorProfileIdentityPtrOutput)
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
@@ -12808,66 +12860,101 @@ func (o GetFrontdoorProfileIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontdoorProfileIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type GetFrontdoorProfileIdentityPtrOutput struct{ *pulumi.OutputState }
-
-func (GetFrontdoorProfileIdentityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetFrontdoorProfileIdentity)(nil)).Elem()
+type GetFrontdoorProfileLogScrubbingRule struct {
+	// The variable that is scrubbed from the logs.
+	MatchVariable string `pulumi:"matchVariable"`
 }
 
-func (o GetFrontdoorProfileIdentityPtrOutput) ToGetFrontdoorProfileIdentityPtrOutput() GetFrontdoorProfileIdentityPtrOutput {
+// GetFrontdoorProfileLogScrubbingRuleInput is an input type that accepts GetFrontdoorProfileLogScrubbingRuleArgs and GetFrontdoorProfileLogScrubbingRuleOutput values.
+// You can construct a concrete instance of `GetFrontdoorProfileLogScrubbingRuleInput` via:
+//
+//	GetFrontdoorProfileLogScrubbingRuleArgs{...}
+type GetFrontdoorProfileLogScrubbingRuleInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorProfileLogScrubbingRuleOutput() GetFrontdoorProfileLogScrubbingRuleOutput
+	ToGetFrontdoorProfileLogScrubbingRuleOutputWithContext(context.Context) GetFrontdoorProfileLogScrubbingRuleOutput
+}
+
+type GetFrontdoorProfileLogScrubbingRuleArgs struct {
+	// The variable that is scrubbed from the logs.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+}
+
+func (GetFrontdoorProfileLogScrubbingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorProfileLogScrubbingRule)(nil)).Elem()
+}
+
+func (i GetFrontdoorProfileLogScrubbingRuleArgs) ToGetFrontdoorProfileLogScrubbingRuleOutput() GetFrontdoorProfileLogScrubbingRuleOutput {
+	return i.ToGetFrontdoorProfileLogScrubbingRuleOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorProfileLogScrubbingRuleArgs) ToGetFrontdoorProfileLogScrubbingRuleOutputWithContext(ctx context.Context) GetFrontdoorProfileLogScrubbingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorProfileLogScrubbingRuleOutput)
+}
+
+// GetFrontdoorProfileLogScrubbingRuleArrayInput is an input type that accepts GetFrontdoorProfileLogScrubbingRuleArray and GetFrontdoorProfileLogScrubbingRuleArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorProfileLogScrubbingRuleArrayInput` via:
+//
+//	GetFrontdoorProfileLogScrubbingRuleArray{ GetFrontdoorProfileLogScrubbingRuleArgs{...} }
+type GetFrontdoorProfileLogScrubbingRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorProfileLogScrubbingRuleArrayOutput() GetFrontdoorProfileLogScrubbingRuleArrayOutput
+	ToGetFrontdoorProfileLogScrubbingRuleArrayOutputWithContext(context.Context) GetFrontdoorProfileLogScrubbingRuleArrayOutput
+}
+
+type GetFrontdoorProfileLogScrubbingRuleArray []GetFrontdoorProfileLogScrubbingRuleInput
+
+func (GetFrontdoorProfileLogScrubbingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorProfileLogScrubbingRule)(nil)).Elem()
+}
+
+func (i GetFrontdoorProfileLogScrubbingRuleArray) ToGetFrontdoorProfileLogScrubbingRuleArrayOutput() GetFrontdoorProfileLogScrubbingRuleArrayOutput {
+	return i.ToGetFrontdoorProfileLogScrubbingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorProfileLogScrubbingRuleArray) ToGetFrontdoorProfileLogScrubbingRuleArrayOutputWithContext(ctx context.Context) GetFrontdoorProfileLogScrubbingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorProfileLogScrubbingRuleArrayOutput)
+}
+
+type GetFrontdoorProfileLogScrubbingRuleOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorProfileLogScrubbingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorProfileLogScrubbingRule)(nil)).Elem()
+}
+
+func (o GetFrontdoorProfileLogScrubbingRuleOutput) ToGetFrontdoorProfileLogScrubbingRuleOutput() GetFrontdoorProfileLogScrubbingRuleOutput {
 	return o
 }
 
-func (o GetFrontdoorProfileIdentityPtrOutput) ToGetFrontdoorProfileIdentityPtrOutputWithContext(ctx context.Context) GetFrontdoorProfileIdentityPtrOutput {
+func (o GetFrontdoorProfileLogScrubbingRuleOutput) ToGetFrontdoorProfileLogScrubbingRuleOutputWithContext(ctx context.Context) GetFrontdoorProfileLogScrubbingRuleOutput {
 	return o
 }
 
-func (o GetFrontdoorProfileIdentityPtrOutput) Elem() GetFrontdoorProfileIdentityOutput {
-	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) GetFrontdoorProfileIdentity {
-		if v != nil {
-			return *v
-		}
-		var ret GetFrontdoorProfileIdentity
-		return ret
-	}).(GetFrontdoorProfileIdentityOutput)
+// The variable that is scrubbed from the logs.
+func (o GetFrontdoorProfileLogScrubbingRuleOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorProfileLogScrubbingRule) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
-// The list of User Assigned Managed Identity IDs assigned to this Front Door Profile.
-func (o GetFrontdoorProfileIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) []string {
-		if v == nil {
-			return nil
-		}
-		return v.IdentityIds
-	}).(pulumi.StringArrayOutput)
+type GetFrontdoorProfileLogScrubbingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorProfileLogScrubbingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorProfileLogScrubbingRule)(nil)).Elem()
 }
 
-func (o GetFrontdoorProfileIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
+func (o GetFrontdoorProfileLogScrubbingRuleArrayOutput) ToGetFrontdoorProfileLogScrubbingRuleArrayOutput() GetFrontdoorProfileLogScrubbingRuleArrayOutput {
+	return o
 }
 
-func (o GetFrontdoorProfileIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
+func (o GetFrontdoorProfileLogScrubbingRuleArrayOutput) ToGetFrontdoorProfileLogScrubbingRuleArrayOutputWithContext(ctx context.Context) GetFrontdoorProfileLogScrubbingRuleArrayOutput {
+	return o
 }
 
-// The type of Managed Service Identity that is configured on this Front Door Profile.
-func (o GetFrontdoorProfileIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetFrontdoorProfileIdentity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
+func (o GetFrontdoorProfileLogScrubbingRuleArrayOutput) Index(i pulumi.IntInput) GetFrontdoorProfileLogScrubbingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorProfileLogScrubbingRule {
+		return vs[0].([]GetFrontdoorProfileLogScrubbingRule)[vs[1].(int)]
+	}).(GetFrontdoorProfileLogScrubbingRuleOutput)
 }
 
 type GetFrontdoorSecretSecret struct {
@@ -13179,6 +13266,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkPtrInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorProfileIdentityInput)(nil)).Elem(), FrontdoorProfileIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorProfileIdentityPtrInput)(nil)).Elem(), FrontdoorProfileIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorProfileLogScrubbingRuleInput)(nil)).Elem(), FrontdoorProfileLogScrubbingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorProfileLogScrubbingRuleArrayInput)(nil)).Elem(), FrontdoorProfileLogScrubbingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRouteCacheInput)(nil)).Elem(), FrontdoorRouteCacheArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRouteCachePtrInput)(nil)).Elem(), FrontdoorRouteCacheArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsInput)(nil)).Elem(), FrontdoorRuleActionsArgs{})
@@ -13252,7 +13341,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorProfileIdentityInput)(nil)).Elem(), GetFrontdoorProfileIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorProfileIdentityPtrInput)(nil)).Elem(), GetFrontdoorProfileIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorProfileLogScrubbingRuleInput)(nil)).Elem(), GetFrontdoorProfileLogScrubbingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorProfileLogScrubbingRuleArrayInput)(nil)).Elem(), GetFrontdoorProfileLogScrubbingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretInput)(nil)).Elem(), GetFrontdoorSecretSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretArrayInput)(nil)).Elem(), GetFrontdoorSecretSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretCustomerCertificateInput)(nil)).Elem(), GetFrontdoorSecretSecretCustomerCertificateArgs{})
@@ -13351,6 +13441,8 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorProfileIdentityOutput{})
 	pulumi.RegisterOutputType(FrontdoorProfileIdentityPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorProfileLogScrubbingRuleOutput{})
+	pulumi.RegisterOutputType(FrontdoorProfileLogScrubbingRuleArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorRouteCacheOutput{})
 	pulumi.RegisterOutputType(FrontdoorRouteCachePtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorRuleActionsOutput{})
@@ -13424,7 +13516,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorProfileIdentityOutput{})
-	pulumi.RegisterOutputType(GetFrontdoorProfileIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorProfileLogScrubbingRuleOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorProfileLogScrubbingRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorSecretSecretOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorSecretSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorSecretSecretCustomerCertificateOutput{})

@@ -61,12 +61,61 @@ import (
 //
 // ```
 //
+// ## NetApp Pool with Flexible Service Level Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
+//				Name:              pulumi.String("example-netappaccount"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = netapp.NewPool(ctx, "example", &netapp.PoolArgs{
+//				Name:                  pulumi.String("example-netapppool"),
+//				AccountName:           exampleAccount.Name,
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
+//				ServiceLevel:          pulumi.String("Flexible"),
+//				SizeInTb:              pulumi.Int(4),
+//				QosType:               pulumi.String("Manual"),
+//				CustomThroughputMibps: pulumi.Int(256),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## API Providers
 //
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2025-01-01
+// * `Microsoft.NetApp` - 2025-06-01
 //
 // ## Import
 //
@@ -84,6 +133,8 @@ type Pool struct {
 	//
 	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
 	CoolAccessEnabled pulumi.BoolPtrOutput `pulumi:"coolAccessEnabled"`
+	// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
+	CustomThroughputMibps pulumi.IntPtrOutput `pulumi:"customThroughputMibps"`
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -94,7 +145,7 @@ type Pool struct {
 	QosType pulumi.StringPtrOutput `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringOutput `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
@@ -154,6 +205,8 @@ type poolState struct {
 	//
 	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
 	CoolAccessEnabled *bool `pulumi:"coolAccessEnabled"`
+	// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
+	CustomThroughputMibps *int `pulumi:"customThroughputMibps"`
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -164,7 +217,7 @@ type poolState struct {
 	QosType *string `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
 	ServiceLevel *string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
@@ -183,6 +236,8 @@ type PoolState struct {
 	//
 	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
 	CoolAccessEnabled pulumi.BoolPtrInput
+	// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
+	CustomThroughputMibps pulumi.IntPtrInput
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -193,7 +248,7 @@ type PoolState struct {
 	QosType pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringPtrInput
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
@@ -216,6 +271,8 @@ type poolArgs struct {
 	//
 	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
 	CoolAccessEnabled *bool `pulumi:"coolAccessEnabled"`
+	// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
+	CustomThroughputMibps *int `pulumi:"customThroughputMibps"`
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType *string `pulumi:"encryptionType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -226,7 +283,7 @@ type poolArgs struct {
 	QosType *string `pulumi:"qosType"`
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
@@ -246,6 +303,8 @@ type PoolArgs struct {
 	//
 	// > **Note:** Disabling `coolAccessEnabled` is not allowed and forces a new resource to be created.
 	CoolAccessEnabled pulumi.BoolPtrInput
+	// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
+	CustomThroughputMibps pulumi.IntPtrInput
 	// The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 	EncryptionType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -256,7 +315,7 @@ type PoolArgs struct {
 	QosType pulumi.StringPtrInput
 	// The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+	// The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
 	ServiceLevel pulumi.StringInput
 	// Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 	//
@@ -367,6 +426,11 @@ func (o PoolOutput) CoolAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.BoolPtrOutput { return v.CoolAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The custom throughput for the pool in MiB/s. Minimum value is `128`. This field can only be set when `serviceLevel` is set to `Flexible` and `qosType` is set to `Manual`.
+func (o PoolOutput) CustomThroughputMibps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.IntPtrOutput { return v.CustomThroughputMibps }).(pulumi.IntPtrOutput)
+}
+
 // The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
 func (o PoolOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.EncryptionType }).(pulumi.StringPtrOutput)
@@ -392,7 +456,7 @@ func (o PoolOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
+// The service level of the file system. Valid values include `Premium`, `Standard`, `Ultra`, and `Flexible`. Changing this forces a new resource to be created.
 func (o PoolOutput) ServiceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
 }

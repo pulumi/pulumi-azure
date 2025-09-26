@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  *         var exampleDatastoreBlobstorage = new DatastoreBlobstorage("exampleDatastoreBlobstorage", DatastoreBlobstorageArgs.builder()
  *             .name("example-datastore")
  *             .workspaceId(exampleWorkspace.id())
- *             .storageContainerId(exampleContainer.resourceManagerId())
+ *             .storageContainerId(exampleContainer.id())
  *             .accountKey(exampleAccount.primaryAccessKey())
  *             .build());
  * 

@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetStandardResult',
@@ -398,7 +397,6 @@ class AwaitableGetStandardResult(GetStandardResult):
 
 def get_standard(name: Optional[_builtins.str] = None,
                  resource_group_name: Optional[_builtins.str] = None,
-                 site_config: Optional[Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict']] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardResult:
     """
     Use this data source to access information about an existing Logic App Standard instance.
@@ -424,12 +422,10 @@ def get_standard(name: Optional[_builtins.str] = None,
 
     :param _builtins.str name: The name of the Logic App.
     :param _builtins.str resource_group_name: The name of the Resource Group where the Logic App exists.
-    :param Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict'] site_config: A `site_config` object as defined below.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['siteConfig'] = site_config
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:logicapps/getStandard:getStandard', __args__, opts=opts, typ=GetStandardResult).value
 
@@ -466,7 +462,6 @@ def get_standard(name: Optional[_builtins.str] = None,
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
 def get_standard_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        site_config: Optional[pulumi.Input[Optional[Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict']]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardResult]:
     """
     Use this data source to access information about an existing Logic App Standard instance.
@@ -492,12 +487,10 @@ def get_standard_output(name: Optional[pulumi.Input[_builtins.str]] = None,
 
     :param _builtins.str name: The name of the Logic App.
     :param _builtins.str resource_group_name: The name of the Resource Group where the Logic App exists.
-    :param Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict'] site_config: A `site_config` object as defined below.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['siteConfig'] = site_config
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:logicapps/getStandard:getStandard', __args__, opts=opts, typ=GetStandardResult)
     return __ret__.apply(lambda __response__: GetStandardResult(

@@ -2520,6 +2520,8 @@ func (o StandardSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutp
 type StandardSiteConfigIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
+	// The Description of this IP Restriction.
+	Description *string `pulumi:"description"`
 	// The `headers` block for this specific as a `ipRestriction` block as defined below.
 	Headers *StandardSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
@@ -2550,6 +2552,8 @@ type StandardSiteConfigIpRestrictionInput interface {
 type StandardSiteConfigIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The Description of this IP Restriction.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The `headers` block for this specific as a `ipRestriction` block as defined below.
 	Headers StandardSiteConfigIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
@@ -2620,6 +2624,11 @@ func (o StandardSiteConfigIpRestrictionOutput) ToStandardSiteConfigIpRestriction
 // Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 func (o StandardSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The Description of this IP Restriction.
+func (o StandardSiteConfigIpRestrictionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The `headers` block for this specific as a `ipRestriction` block as defined below.
@@ -2871,6 +2880,8 @@ func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) XForwardedHosts() pulum
 type StandardSiteConfigScmIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
+	// The Description of this IP Restriction.
+	Description *string `pulumi:"description"`
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers *StandardSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
@@ -2901,6 +2912,8 @@ type StandardSiteConfigScmIpRestrictionInput interface {
 type StandardSiteConfigScmIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
+	// The Description of this IP Restriction.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers StandardSiteConfigScmIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
@@ -2971,6 +2984,11 @@ func (o StandardSiteConfigScmIpRestrictionOutput) ToStandardSiteConfigScmIpRestr
 // Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 func (o StandardSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// The Description of this IP Restriction.
+func (o StandardSiteConfigScmIpRestrictionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The `headers` block for this specific `ipRestriction` as defined below.
@@ -4916,7 +4934,7 @@ func (o GetStandardIdentityArrayOutput) Index(i pulumi.IntInput) GetStandardIden
 
 type GetStandardSiteConfig struct {
 	// Should the Logic App be loaded at all times?
-	AlwaysOn *bool `pulumi:"alwaysOn"`
+	AlwaysOn bool `pulumi:"alwaysOn"`
 	// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
 	AppScaleLimit int `pulumi:"appScaleLimit"`
 	// The Auto-swap slot name.
@@ -4932,7 +4950,7 @@ type GetStandardSiteConfig struct {
 	// Path which will be checked for this Logic App health.
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// Specifies whether the HTTP2 protocol should be enabled.
-	Http2Enabled *bool `pulumi:"http2Enabled"`
+	Http2Enabled bool `pulumi:"http2Enabled"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	IpRestrictions []GetStandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the Logic App.
@@ -4974,7 +4992,7 @@ type GetStandardSiteConfigInput interface {
 
 type GetStandardSiteConfigArgs struct {
 	// Should the Logic App be loaded at all times?
-	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
+	AlwaysOn pulumi.BoolInput `pulumi:"alwaysOn"`
 	// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
 	AppScaleLimit pulumi.IntInput `pulumi:"appScaleLimit"`
 	// The Auto-swap slot name.
@@ -4990,7 +5008,7 @@ type GetStandardSiteConfigArgs struct {
 	// Path which will be checked for this Logic App health.
 	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
 	// Specifies whether the HTTP2 protocol should be enabled.
-	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
+	Http2Enabled pulumi.BoolInput `pulumi:"http2Enabled"`
 	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	IpRestrictions GetStandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
 	// Linux App Framework and version for the Logic App.
@@ -5031,47 +5049,6 @@ func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigOutput)
 }
 
-func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput {
-	return i.ToGetStandardSiteConfigPtrOutputWithContext(context.Background())
-}
-
-func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigOutput).ToGetStandardSiteConfigPtrOutputWithContext(ctx)
-}
-
-// GetStandardSiteConfigPtrInput is an input type that accepts GetStandardSiteConfigArgs, GetStandardSiteConfigPtr and GetStandardSiteConfigPtrOutput values.
-// You can construct a concrete instance of `GetStandardSiteConfigPtrInput` via:
-//
-//	        GetStandardSiteConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetStandardSiteConfigPtrInput interface {
-	pulumi.Input
-
-	ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput
-	ToGetStandardSiteConfigPtrOutputWithContext(context.Context) GetStandardSiteConfigPtrOutput
-}
-
-type getStandardSiteConfigPtrType GetStandardSiteConfigArgs
-
-func GetStandardSiteConfigPtr(v *GetStandardSiteConfigArgs) GetStandardSiteConfigPtrInput {
-	return (*getStandardSiteConfigPtrType)(v)
-}
-
-func (*getStandardSiteConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetStandardSiteConfig)(nil)).Elem()
-}
-
-func (i *getStandardSiteConfigPtrType) ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput {
-	return i.ToGetStandardSiteConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *getStandardSiteConfigPtrType) ToGetStandardSiteConfigPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigPtrOutput)
-}
-
 type GetStandardSiteConfigOutput struct{ *pulumi.OutputState }
 
 func (GetStandardSiteConfigOutput) ElementType() reflect.Type {
@@ -5086,19 +5063,9 @@ func (o GetStandardSiteConfigOutput) ToGetStandardSiteConfigOutputWithContext(ct
 	return o
 }
 
-func (o GetStandardSiteConfigOutput) ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput {
-	return o.ToGetStandardSiteConfigPtrOutputWithContext(context.Background())
-}
-
-func (o GetStandardSiteConfigOutput) ToGetStandardSiteConfigPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetStandardSiteConfig) *GetStandardSiteConfig {
-		return &v
-	}).(GetStandardSiteConfigPtrOutput)
-}
-
 // Should the Logic App be loaded at all times?
-func (o GetStandardSiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
+func (o GetStandardSiteConfigOutput) AlwaysOn() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) bool { return v.AlwaysOn }).(pulumi.BoolOutput)
 }
 
 // The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
@@ -5137,8 +5104,8 @@ func (o GetStandardSiteConfigOutput) HealthCheckPath() pulumi.StringPtrOutput {
 }
 
 // Specifies whether the HTTP2 protocol should be enabled.
-func (o GetStandardSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
+func (o GetStandardSiteConfigOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardSiteConfig) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
 }
 
 // A list of `ipRestriction` objects representing IP restrictions as defined below.
@@ -5206,255 +5173,11 @@ func (o GetStandardSiteConfigOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetStandardSiteConfig) *bool { return v.WebsocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type GetStandardSiteConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (GetStandardSiteConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetStandardSiteConfig)(nil)).Elem()
-}
-
-func (o GetStandardSiteConfigPtrOutput) ToGetStandardSiteConfigPtrOutput() GetStandardSiteConfigPtrOutput {
-	return o
-}
-
-func (o GetStandardSiteConfigPtrOutput) ToGetStandardSiteConfigPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigPtrOutput {
-	return o
-}
-
-func (o GetStandardSiteConfigPtrOutput) Elem() GetStandardSiteConfigOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) GetStandardSiteConfig {
-		if v != nil {
-			return *v
-		}
-		var ret GetStandardSiteConfig
-		return ret
-	}).(GetStandardSiteConfigOutput)
-}
-
-// Should the Logic App be loaded at all times?
-func (o GetStandardSiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AlwaysOn
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
-func (o GetStandardSiteConfigPtrOutput) AppScaleLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.AppScaleLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-// The Auto-swap slot name.
-func (o GetStandardSiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AutoSwapSlotName
-	}).(pulumi.StringPtrOutput)
-}
-
-// A `cors` block as defined below.
-func (o GetStandardSiteConfigPtrOutput) Cors() GetStandardSiteConfigCorsPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *GetStandardSiteConfigCors {
-		if v == nil {
-			return nil
-		}
-		return &v.Cors
-	}).(GetStandardSiteConfigCorsPtrOutput)
-}
-
-// The version of the .NET framework's CLR used in this Logic App.
-func (o GetStandardSiteConfigPtrOutput) DotnetFrameworkVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DotnetFrameworkVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of minimum instances for this Logic App Only affects apps on the Premium plan.
-func (o GetStandardSiteConfigPtrOutput) ElasticInstanceMinimum() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.ElasticInstanceMinimum
-	}).(pulumi.IntPtrOutput)
-}
-
-// The state of FTP / FTPS service for this Logic App.
-func (o GetStandardSiteConfigPtrOutput) FtpsState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FtpsState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path which will be checked for this Logic App health.
-func (o GetStandardSiteConfigPtrOutput) HealthCheckPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HealthCheckPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the HTTP2 protocol should be enabled.
-func (o GetStandardSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Http2Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A list of `ipRestriction` objects representing IP restrictions as defined below.
-func (o GetStandardSiteConfigPtrOutput) IpRestrictions() GetStandardSiteConfigIpRestrictionArrayOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) []GetStandardSiteConfigIpRestriction {
-		if v == nil {
-			return nil
-		}
-		return v.IpRestrictions
-	}).(GetStandardSiteConfigIpRestrictionArrayOutput)
-}
-
-// Linux App Framework and version for the Logic App.
-func (o GetStandardSiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LinuxFxVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The minimum supported TLS version for the Logic App.
-func (o GetStandardSiteConfigPtrOutput) MinTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MinTlsVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
-func (o GetStandardSiteConfigPtrOutput) PreWarmedInstanceCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.PreWarmedInstanceCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-func (o GetStandardSiteConfigPtrOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.PublicNetworkAccessEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
-func (o GetStandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RuntimeScaleMonitoringEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
-func (o GetStandardSiteConfigPtrOutput) ScmIpRestrictions() GetStandardSiteConfigScmIpRestrictionArrayOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) []GetStandardSiteConfigScmIpRestriction {
-		if v == nil {
-			return nil
-		}
-		return v.ScmIpRestrictions
-	}).(GetStandardSiteConfigScmIpRestrictionArrayOutput)
-}
-
-// The minimum version of TLS required for SSL requests to the SCM site.
-func (o GetStandardSiteConfigPtrOutput) ScmMinTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ScmMinTlsVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of Source Control used by the Logic App in use by the Windows Function App.
-func (o GetStandardSiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ScmType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Should the Logic App `ipRestriction` configuration be used for the SCM too.
-func (o GetStandardSiteConfigPtrOutput) ScmUseMainIpRestriction() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ScmUseMainIpRestriction
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Should the Logic App run in 32 bit mode, rather than 64 bit mode?
-func (o GetStandardSiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Use32BitWorkerProcess
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
-func (o GetStandardSiteConfigPtrOutput) VnetRouteAllEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.VnetRouteAllEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Should WebSockets be enabled?
-func (o GetStandardSiteConfigPtrOutput) WebsocketsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.WebsocketsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
 type GetStandardSiteConfigCors struct {
 	// A list of origins which should be able to make cross-origin calls.
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 	// Are credentials supported?
-	SupportCredentials *bool `pulumi:"supportCredentials"`
+	SupportCredentials bool `pulumi:"supportCredentials"`
 }
 
 // GetStandardSiteConfigCorsInput is an input type that accepts GetStandardSiteConfigCorsArgs and GetStandardSiteConfigCorsOutput values.
@@ -5472,7 +5195,7 @@ type GetStandardSiteConfigCorsArgs struct {
 	// A list of origins which should be able to make cross-origin calls.
 	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
 	// Are credentials supported?
-	SupportCredentials pulumi.BoolPtrInput `pulumi:"supportCredentials"`
+	SupportCredentials pulumi.BoolInput `pulumi:"supportCredentials"`
 }
 
 func (GetStandardSiteConfigCorsArgs) ElementType() reflect.Type {
@@ -5485,47 +5208,6 @@ func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsOutput() GetSt
 
 func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigCorsOutput)
-}
-
-func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput {
-	return i.ToGetStandardSiteConfigCorsPtrOutputWithContext(context.Background())
-}
-
-func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigCorsOutput).ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx)
-}
-
-// GetStandardSiteConfigCorsPtrInput is an input type that accepts GetStandardSiteConfigCorsArgs, GetStandardSiteConfigCorsPtr and GetStandardSiteConfigCorsPtrOutput values.
-// You can construct a concrete instance of `GetStandardSiteConfigCorsPtrInput` via:
-//
-//	        GetStandardSiteConfigCorsArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetStandardSiteConfigCorsPtrInput interface {
-	pulumi.Input
-
-	ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput
-	ToGetStandardSiteConfigCorsPtrOutputWithContext(context.Context) GetStandardSiteConfigCorsPtrOutput
-}
-
-type getStandardSiteConfigCorsPtrType GetStandardSiteConfigCorsArgs
-
-func GetStandardSiteConfigCorsPtr(v *GetStandardSiteConfigCorsArgs) GetStandardSiteConfigCorsPtrInput {
-	return (*getStandardSiteConfigCorsPtrType)(v)
-}
-
-func (*getStandardSiteConfigCorsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetStandardSiteConfigCors)(nil)).Elem()
-}
-
-func (i *getStandardSiteConfigCorsPtrType) ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput {
-	return i.ToGetStandardSiteConfigCorsPtrOutputWithContext(context.Background())
-}
-
-func (i *getStandardSiteConfigCorsPtrType) ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetStandardSiteConfigCorsPtrOutput)
 }
 
 type GetStandardSiteConfigCorsOutput struct{ *pulumi.OutputState }
@@ -5542,68 +5224,14 @@ func (o GetStandardSiteConfigCorsOutput) ToGetStandardSiteConfigCorsOutputWithCo
 	return o
 }
 
-func (o GetStandardSiteConfigCorsOutput) ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput {
-	return o.ToGetStandardSiteConfigCorsPtrOutputWithContext(context.Background())
-}
-
-func (o GetStandardSiteConfigCorsOutput) ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetStandardSiteConfigCors) *GetStandardSiteConfigCors {
-		return &v
-	}).(GetStandardSiteConfigCorsPtrOutput)
-}
-
 // A list of origins which should be able to make cross-origin calls.
 func (o GetStandardSiteConfigCorsOutput) AllowedOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetStandardSiteConfigCors) []string { return v.AllowedOrigins }).(pulumi.StringArrayOutput)
 }
 
 // Are credentials supported?
-func (o GetStandardSiteConfigCorsOutput) SupportCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigCors) *bool { return v.SupportCredentials }).(pulumi.BoolPtrOutput)
-}
-
-type GetStandardSiteConfigCorsPtrOutput struct{ *pulumi.OutputState }
-
-func (GetStandardSiteConfigCorsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetStandardSiteConfigCors)(nil)).Elem()
-}
-
-func (o GetStandardSiteConfigCorsPtrOutput) ToGetStandardSiteConfigCorsPtrOutput() GetStandardSiteConfigCorsPtrOutput {
-	return o
-}
-
-func (o GetStandardSiteConfigCorsPtrOutput) ToGetStandardSiteConfigCorsPtrOutputWithContext(ctx context.Context) GetStandardSiteConfigCorsPtrOutput {
-	return o
-}
-
-func (o GetStandardSiteConfigCorsPtrOutput) Elem() GetStandardSiteConfigCorsOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfigCors) GetStandardSiteConfigCors {
-		if v != nil {
-			return *v
-		}
-		var ret GetStandardSiteConfigCors
-		return ret
-	}).(GetStandardSiteConfigCorsOutput)
-}
-
-// A list of origins which should be able to make cross-origin calls.
-func (o GetStandardSiteConfigCorsPtrOutput) AllowedOrigins() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfigCors) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedOrigins
-	}).(pulumi.StringArrayOutput)
-}
-
-// Are credentials supported?
-func (o GetStandardSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetStandardSiteConfigCors) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SupportCredentials
-	}).(pulumi.BoolPtrOutput)
+func (o GetStandardSiteConfigCorsOutput) SupportCredentials() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigCors) bool { return v.SupportCredentials }).(pulumi.BoolOutput)
 }
 
 type GetStandardSiteConfigIpRestriction struct {
@@ -5612,15 +5240,15 @@ type GetStandardSiteConfigIpRestriction struct {
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers GetStandardSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
-	IpAddress *string `pulumi:"ipAddress"`
+	IpAddress string `pulumi:"ipAddress"`
 	// The name of the Logic App.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
-	ServiceTag *string `pulumi:"serviceTag"`
+	ServiceTag string `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // GetStandardSiteConfigIpRestrictionInput is an input type that accepts GetStandardSiteConfigIpRestrictionArgs and GetStandardSiteConfigIpRestrictionOutput values.
@@ -5640,15 +5268,15 @@ type GetStandardSiteConfigIpRestrictionArgs struct {
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers GetStandardSiteConfigIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of the Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
-	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
-	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
 
 func (GetStandardSiteConfigIpRestrictionArgs) ElementType() reflect.Type {
@@ -5713,8 +5341,8 @@ func (o GetStandardSiteConfigIpRestrictionOutput) Headers() GetStandardSiteConfi
 }
 
 // The IP Address used for this IP Restriction in CIDR notation.
-func (o GetStandardSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigIpRestrictionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
 // The name of the Logic App.
@@ -5728,13 +5356,13 @@ func (o GetStandardSiteConfigIpRestrictionOutput) Priority() pulumi.IntPtrOutput
 }
 
 // The Service Tag used for this IP Restriction.
-func (o GetStandardSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
-func (o GetStandardSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }
 
 type GetStandardSiteConfigIpRestrictionArrayOutput struct{ *pulumi.OutputState }
@@ -5842,15 +5470,15 @@ type GetStandardSiteConfigScmIpRestriction struct {
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers GetStandardSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
-	IpAddress *string `pulumi:"ipAddress"`
+	IpAddress string `pulumi:"ipAddress"`
 	// The name of the Logic App.
 	Name string `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
 	Priority *int `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
-	ServiceTag *string `pulumi:"serviceTag"`
+	ServiceTag string `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // GetStandardSiteConfigScmIpRestrictionInput is an input type that accepts GetStandardSiteConfigScmIpRestrictionArgs and GetStandardSiteConfigScmIpRestrictionOutput values.
@@ -5870,15 +5498,15 @@ type GetStandardSiteConfigScmIpRestrictionArgs struct {
 	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers GetStandardSiteConfigScmIpRestrictionHeadersInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
 	// The name of the Logic App.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority for this IP Restriction. Restrictions are enforced in priority order.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The Service Tag used for this IP Restriction.
-	ServiceTag pulumi.StringPtrInput `pulumi:"serviceTag"`
+	ServiceTag pulumi.StringInput `pulumi:"serviceTag"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
-	VirtualNetworkSubnetId pulumi.StringPtrInput `pulumi:"virtualNetworkSubnetId"`
+	VirtualNetworkSubnetId pulumi.StringInput `pulumi:"virtualNetworkSubnetId"`
 }
 
 func (GetStandardSiteConfigScmIpRestrictionArgs) ElementType() reflect.Type {
@@ -5945,8 +5573,8 @@ func (o GetStandardSiteConfigScmIpRestrictionOutput) Headers() GetStandardSiteCo
 }
 
 // The IP Address used for this IP Restriction in CIDR notation.
-func (o GetStandardSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigScmIpRestrictionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
 // The name of the Logic App.
@@ -5960,13 +5588,13 @@ func (o GetStandardSiteConfigScmIpRestrictionOutput) Priority() pulumi.IntPtrOut
 }
 
 // The Service Tag used for this IP Restriction.
-func (o GetStandardSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *string { return v.ServiceTag }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigScmIpRestrictionOutput) ServiceTag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) string { return v.ServiceTag }).(pulumi.StringOutput)
 }
 
 // The Virtual Network Subnet ID used for this IP Restriction.
-func (o GetStandardSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) *string { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+func (o GetStandardSiteConfigScmIpRestrictionOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStandardSiteConfigScmIpRestriction) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }
 
 type GetStandardSiteConfigScmIpRestrictionArrayOutput struct{ *pulumi.OutputState }
@@ -6358,9 +5986,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardIdentityInput)(nil)).Elem(), GetStandardIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardIdentityArrayInput)(nil)).Elem(), GetStandardIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigInput)(nil)).Elem(), GetStandardSiteConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigPtrInput)(nil)).Elem(), GetStandardSiteConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigCorsInput)(nil)).Elem(), GetStandardSiteConfigCorsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigCorsPtrInput)(nil)).Elem(), GetStandardSiteConfigCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigIpRestrictionInput)(nil)).Elem(), GetStandardSiteConfigIpRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigIpRestrictionArrayInput)(nil)).Elem(), GetStandardSiteConfigIpRestrictionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStandardSiteConfigIpRestrictionHeadersInput)(nil)).Elem(), GetStandardSiteConfigIpRestrictionHeadersArgs{})
@@ -6430,9 +6056,7 @@ func init() {
 	pulumi.RegisterOutputType(GetStandardIdentityOutput{})
 	pulumi.RegisterOutputType(GetStandardIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigOutput{})
-	pulumi.RegisterOutputType(GetStandardSiteConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigCorsOutput{})
-	pulumi.RegisterOutputType(GetStandardSiteConfigCorsPtrOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigIpRestrictionOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigIpRestrictionArrayOutput{})
 	pulumi.RegisterOutputType(GetStandardSiteConfigIpRestrictionHeadersOutput{})

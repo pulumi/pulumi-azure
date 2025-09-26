@@ -430,7 +430,7 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         example_datastore_datalake_gen2 = azure.machinelearning.DatastoreDatalakeGen2("example",
             name="example-datastore",
             workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id)
+            storage_container_id=example_container.id)
         ```
 
         ## API Providers
@@ -514,7 +514,7 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         example_datastore_datalake_gen2 = azure.machinelearning.DatastoreDatalakeGen2("example",
             name="example-datastore",
             workspace_id=example_workspace.id,
-            storage_container_id=example_container.resource_manager_id)
+            storage_container_id=example_container.id)
         ```
 
         ## API Providers

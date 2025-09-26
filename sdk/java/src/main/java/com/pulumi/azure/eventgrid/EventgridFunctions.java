@@ -73,7 +73,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args) {
@@ -122,7 +122,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args) {
@@ -171,7 +171,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
@@ -220,7 +220,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOutputOptions options) {
@@ -269,7 +269,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {
@@ -317,7 +317,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args) {
@@ -365,7 +365,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetDomainTopicResult> getDomainTopicPlain(GetDomainTopicPlainArgs args) {
@@ -413,7 +413,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args, InvokeOptions options) {
@@ -461,7 +461,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetDomainTopicResult> getDomainTopic(GetDomainTopicArgs args, InvokeOutputOptions options) {
@@ -509,7 +509,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetDomainTopicResult> getDomainTopicPlain(GetDomainTopicPlainArgs args, InvokeOptions options) {
@@ -558,7 +558,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetPartnerNamespaceResult> getPartnerNamespace(GetPartnerNamespaceArgs args) {
@@ -607,7 +607,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetPartnerNamespaceResult> getPartnerNamespacePlain(GetPartnerNamespacePlainArgs args) {
@@ -656,7 +656,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetPartnerNamespaceResult> getPartnerNamespace(GetPartnerNamespaceArgs args, InvokeOptions options) {
@@ -705,7 +705,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetPartnerNamespaceResult> getPartnerNamespace(GetPartnerNamespaceArgs args, InvokeOutputOptions options) {
@@ -754,7 +754,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetPartnerNamespaceResult> getPartnerNamespacePlain(GetPartnerNamespacePlainArgs args, InvokeOptions options) {
@@ -803,7 +803,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetPartnerRegistrationResult> getPartnerRegistration(GetPartnerRegistrationArgs args) {
@@ -852,7 +852,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetPartnerRegistrationResult> getPartnerRegistrationPlain(GetPartnerRegistrationPlainArgs args) {
@@ -901,7 +901,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetPartnerRegistrationResult> getPartnerRegistration(GetPartnerRegistrationArgs args, InvokeOptions options) {
@@ -950,7 +950,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetPartnerRegistrationResult> getPartnerRegistration(GetPartnerRegistrationArgs args, InvokeOutputOptions options) {
@@ -999,7 +999,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetPartnerRegistrationResult> getPartnerRegistrationPlain(GetPartnerRegistrationPlainArgs args, InvokeOptions options) {
@@ -1047,7 +1047,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args) {
@@ -1095,7 +1095,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetSystemTopicResult> getSystemTopicPlain(GetSystemTopicPlainArgs args) {
@@ -1143,7 +1143,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args, InvokeOptions options) {
@@ -1191,7 +1191,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetSystemTopicResult> getSystemTopic(GetSystemTopicArgs args, InvokeOutputOptions options) {
@@ -1239,7 +1239,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetSystemTopicResult> getSystemTopicPlain(GetSystemTopicPlainArgs args, InvokeOptions options) {
@@ -1287,7 +1287,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args) {
@@ -1335,7 +1335,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args) {
@@ -1383,7 +1383,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOptions options) {
@@ -1431,7 +1431,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOutputOptions options) {
@@ -1479,7 +1479,7 @@ public final class EventgridFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.EventGrid` - 2022-06-15
+     * * `Microsoft.EventGrid` - 2025-02-15
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args, InvokeOptions options) {

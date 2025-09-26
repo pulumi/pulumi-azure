@@ -30,7 +30,8 @@ class EndpointStorageContainerArgs:
                  file_name_format: Optional[pulumi.Input[_builtins.str]] = None,
                  identity_id: Optional[pulumi.Input[_builtins.str]] = None,
                  max_chunk_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointStorageContainer resource.
         :param pulumi.Input[_builtins.str] container_name: The name of storage container in the storage account.
@@ -47,6 +48,9 @@ class EndpointStorageContainerArgs:
                > **Note:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         :param pulumi.Input[_builtins.int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription ID for the endpoint.
+               
+               > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "iothub_id", iothub_id)
@@ -69,6 +73,8 @@ class EndpointStorageContainerArgs:
             pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @_builtins.property
     @pulumi.getter(name="containerName")
@@ -216,6 +222,20 @@ class EndpointStorageContainerArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subscription ID for the endpoint.
+
+        > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subscription_id", value)
+
 
 @pulumi.input_type
 class _EndpointStorageContainerState:
@@ -231,7 +251,8 @@ class _EndpointStorageContainerState:
                  iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
                  max_chunk_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EndpointStorageContainer resources.
         :param pulumi.Input[_builtins.str] authentication_type: Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -248,6 +269,9 @@ class _EndpointStorageContainerState:
         :param pulumi.Input[_builtins.int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription ID for the endpoint.
+               
+               > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         """
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
@@ -273,6 +297,8 @@ class _EndpointStorageContainerState:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
@@ -420,6 +446,20 @@ class _EndpointStorageContainerState:
     def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subscription ID for the endpoint.
+
+        > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subscription_id", value)
+
 
 @pulumi.type_token("azure:iot/endpointStorageContainer:EndpointStorageContainer")
 class EndpointStorageContainer(pulumi.CustomResource):
@@ -439,6 +479,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
                  max_chunk_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Manages an IotHub Storage Container Endpoint
@@ -508,6 +549,9 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription ID for the endpoint.
+               
+               > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         """
         ...
     @overload
@@ -594,6 +638,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
                  max_chunk_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -621,6 +666,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["subscription_id"] = subscription_id
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["connectionString"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(EndpointStorageContainer, __self__).__init__(
@@ -644,7 +690,8 @@ class EndpointStorageContainer(pulumi.CustomResource):
             iothub_id: Optional[pulumi.Input[_builtins.str]] = None,
             max_chunk_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
-            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'EndpointStorageContainer':
+            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+            subscription_id: Optional[pulumi.Input[_builtins.str]] = None) -> 'EndpointStorageContainer':
         """
         Get an existing EndpointStorageContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -666,6 +713,9 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription ID for the endpoint.
+               
+               > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -683,6 +733,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         __props__.__dict__["max_chunk_size_in_bytes"] = max_chunk_size_in_bytes
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["subscription_id"] = subscription_id
         return EndpointStorageContainer(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -782,4 +833,14 @@ class EndpointStorageContainer(pulumi.CustomResource):
         The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The subscription ID for the endpoint.
+
+        > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        """
+        return pulumi.get(self, "subscription_id")
 

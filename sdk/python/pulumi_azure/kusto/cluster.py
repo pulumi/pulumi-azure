@@ -29,6 +29,7 @@ class ClusterArgs:
                  disk_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
+                 language_extension: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -46,23 +47,21 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterSkuArgs'] sku: A `sku` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_fqdns: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_fqdns: List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[_builtins.bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
+        :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-               
-               > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extension: A `language_extension` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
-        :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether to restrict outbound network access. Defaults to `false`.
         :param pulumi.Input[_builtins.str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] purge_enabled: Specifies if the purge operations are enabled.
-        :param pulumi.Input[_builtins.bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
+        :param pulumi.Input[_builtins.bool] purge_enabled: Specifies if the purge operations are enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
@@ -83,6 +82,11 @@ class ClusterArgs:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if language_extension is not None:
+            pulumi.set(__self__, "language_extension", language_extension)
+        if language_extensions is not None:
+            warnings.warn("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""language_extensions is deprecated: `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
         if language_extensions is not None:
             pulumi.set(__self__, "language_extensions", language_extensions)
         if location is not None:
@@ -141,7 +145,7 @@ class ClusterArgs:
     @pulumi.getter(name="allowedFqdns")
     def allowed_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         """
         return pulumi.get(self, "allowed_fqdns")
 
@@ -177,7 +181,7 @@ class ClusterArgs:
     @pulumi.getter(name="diskEncryptionEnabled")
     def disk_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies if the cluster's disks are encrypted.
+        Specifies if the cluster's disks are encrypted. Defaults to `false`.
         """
         return pulumi.get(self, "disk_encryption_enabled")
 
@@ -210,13 +214,21 @@ class ClusterArgs:
         pulumi.set(self, "identity", value)
 
     @_builtins.property
-    @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
+    @pulumi.getter(name="languageExtension")
+    def language_extension(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         """
-        An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+        A `language_extension` block as defined below.
+        """
+        return pulumi.get(self, "language_extension")
 
-        > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
-        """
+    @language_extension.setter
+    def language_extension(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]):
+        pulumi.set(self, "language_extension", value)
+
+    @_builtins.property
+    @pulumi.getter(name="languageExtensions")
+    @_utilities.deprecated("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
+    def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         return pulumi.get(self, "language_extensions")
 
     @language_extensions.setter
@@ -263,7 +275,7 @@ class ClusterArgs:
     @pulumi.getter(name="outboundNetworkAccessRestricted")
     def outbound_network_access_restricted(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        Whether to restrict outbound network access. Defaults to `false`.
         """
         return pulumi.get(self, "outbound_network_access_restricted")
 
@@ -299,7 +311,7 @@ class ClusterArgs:
     @pulumi.getter(name="purgeEnabled")
     def purge_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies if the purge operations are enabled.
+        Specifies if the purge operations are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "purge_enabled")
 
@@ -311,7 +323,7 @@ class ClusterArgs:
     @pulumi.getter(name="streamingIngestionEnabled")
     def streaming_ingestion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies if the streaming ingest is enabled.
+        Specifies if the streaming ingest is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "streaming_ingestion_enabled")
 
@@ -378,6 +390,7 @@ class _ClusterState:
                  disk_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
+                 language_extension: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -396,26 +409,24 @@ class _ClusterState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_fqdns: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_fqdns: List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[_builtins.bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[_builtins.str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
-        :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
+        :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-               
-               > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extension: A `language_extension` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
-        :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether to restrict outbound network access. Defaults to `false`.
         :param pulumi.Input[_builtins.str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] purge_enabled: Specifies if the purge operations are enabled.
+        :param pulumi.Input[_builtins.bool] purge_enabled: Specifies if the purge operations are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterSkuArgs'] sku: A `sku` block as defined below.
-        :param pulumi.Input[_builtins.bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
+        :param pulumi.Input[_builtins.bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
@@ -437,6 +448,11 @@ class _ClusterState:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if language_extension is not None:
+            pulumi.set(__self__, "language_extension", language_extension)
+        if language_extensions is not None:
+            warnings.warn("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""language_extensions is deprecated: `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
         if language_extensions is not None:
             pulumi.set(__self__, "language_extensions", language_extensions)
         if location is not None:
@@ -477,7 +493,7 @@ class _ClusterState:
     @pulumi.getter(name="allowedFqdns")
     def allowed_fqdns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         """
         return pulumi.get(self, "allowed_fqdns")
 
@@ -525,7 +541,7 @@ class _ClusterState:
     @pulumi.getter(name="diskEncryptionEnabled")
     def disk_encryption_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies if the cluster's disks are encrypted.
+        Specifies if the cluster's disks are encrypted. Defaults to `false`.
         """
         return pulumi.get(self, "disk_encryption_enabled")
 
@@ -558,13 +574,21 @@ class _ClusterState:
         pulumi.set(self, "identity", value)
 
     @_builtins.property
-    @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
+    @pulumi.getter(name="languageExtension")
+    def language_extension(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         """
-        An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+        A `language_extension` block as defined below.
+        """
+        return pulumi.get(self, "language_extension")
 
-        > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
-        """
+    @language_extension.setter
+    def language_extension(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]):
+        pulumi.set(self, "language_extension", value)
+
+    @_builtins.property
+    @pulumi.getter(name="languageExtensions")
+    @_utilities.deprecated("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
+    def language_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         return pulumi.get(self, "language_extensions")
 
     @language_extensions.setter
@@ -611,7 +635,7 @@ class _ClusterState:
     @pulumi.getter(name="outboundNetworkAccessRestricted")
     def outbound_network_access_restricted(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        Whether to restrict outbound network access. Defaults to `false`.
         """
         return pulumi.get(self, "outbound_network_access_restricted")
 
@@ -647,7 +671,7 @@ class _ClusterState:
     @pulumi.getter(name="purgeEnabled")
     def purge_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies if the purge operations are enabled.
+        Specifies if the purge operations are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "purge_enabled")
 
@@ -683,7 +707,7 @@ class _ClusterState:
     @pulumi.getter(name="streamingIngestionEnabled")
     def streaming_ingestion_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specifies if the streaming ingest is enabled.
+        Specifies if the streaming ingest is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "streaming_ingestion_enabled")
 
@@ -764,6 +788,7 @@ class Cluster(pulumi.CustomResource):
                  disk_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
+                 language_extension: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -790,10 +815,10 @@ class Cluster(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="my-kusto-cluster-rg",
+            name="example",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
+            name="example",
             location=example.location,
             resource_group_name=example.name,
             sku={
@@ -822,25 +847,23 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_fqdns: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_fqdns: List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[_builtins.bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
+        :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-               
-               > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extension: A `language_extension` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
-        :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether to restrict outbound network access. Defaults to `false`.
         :param pulumi.Input[_builtins.str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] purge_enabled: Specifies if the purge operations are enabled.
+        :param pulumi.Input[_builtins.bool] purge_enabled: Specifies if the purge operations are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']] sku: A `sku` block as defined below.
-        :param pulumi.Input[_builtins.bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
+        :param pulumi.Input[_builtins.bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
@@ -863,10 +886,10 @@ class Cluster(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="my-kusto-cluster-rg",
+            name="example",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
+            name="example",
             location=example.location,
             resource_group_name=example.name,
             sku={
@@ -914,6 +937,7 @@ class Cluster(pulumi.CustomResource):
                  disk_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
+                 language_extension: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -944,6 +968,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
             __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["language_extension"] = language_extension
             __props__.__dict__["language_extensions"] = language_extensions
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -982,6 +1007,7 @@ class Cluster(pulumi.CustomResource):
             disk_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             double_encryption_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
+            language_extension: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
             language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
             location: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1005,26 +1031,24 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_fqdns: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_fqdns: List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ip_ranges: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[_builtins.bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[_builtins.str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
-        :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
+        :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-               
-               > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extension: A `language_extension` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
-        :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether to restrict outbound network access. Defaults to `false`.
         :param pulumi.Input[_builtins.str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] purge_enabled: Specifies if the purge operations are enabled.
+        :param pulumi.Input[_builtins.bool] purge_enabled: Specifies if the purge operations are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']] sku: A `sku` block as defined below.
-        :param pulumi.Input[_builtins.bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
+        :param pulumi.Input[_builtins.bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
@@ -1043,6 +1067,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
         __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["language_extension"] = language_extension
         __props__.__dict__["language_extensions"] = language_extensions
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -1065,7 +1090,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="allowedFqdns")
     def allowed_fqdns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
         """
         return pulumi.get(self, "allowed_fqdns")
 
@@ -1097,7 +1122,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="diskEncryptionEnabled")
     def disk_encryption_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies if the cluster's disks are encrypted.
+        Specifies if the cluster's disks are encrypted. Defaults to `false`.
         """
         return pulumi.get(self, "disk_encryption_enabled")
 
@@ -1118,13 +1143,17 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @_builtins.property
-    @pulumi.getter(name="languageExtensions")
-    def language_extensions(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterLanguageExtension']]]:
+    @pulumi.getter(name="languageExtension")
+    def language_extension(self) -> pulumi.Output[Sequence['outputs.ClusterLanguageExtension']]:
         """
-        An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
+        A `language_extension` block as defined below.
+        """
+        return pulumi.get(self, "language_extension")
 
-        > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
-        """
+    @_builtins.property
+    @pulumi.getter(name="languageExtensions")
+    @_utilities.deprecated("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
+    def language_extensions(self) -> pulumi.Output[Sequence['outputs.ClusterLanguageExtension']]:
         return pulumi.get(self, "language_extensions")
 
     @_builtins.property
@@ -1155,7 +1184,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="outboundNetworkAccessRestricted")
     def outbound_network_access_restricted(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+        Whether to restrict outbound network access. Defaults to `false`.
         """
         return pulumi.get(self, "outbound_network_access_restricted")
 
@@ -1179,7 +1208,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="purgeEnabled")
     def purge_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies if the purge operations are enabled.
+        Specifies if the purge operations are enabled. Defaults to `false`.
         """
         return pulumi.get(self, "purge_enabled")
 
@@ -1203,7 +1232,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="streamingIngestionEnabled")
     def streaming_ingestion_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies if the streaming ingest is enabled.
+        Specifies if the streaming ingest is enabled. Defaults to `false`.
         """
         return pulumi.get(self, "streaming_ingestion_enabled")
 

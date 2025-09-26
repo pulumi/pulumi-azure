@@ -46,6 +46,10 @@ export interface GetFrontdoorFirewallPolicyArgs {
  */
 export interface GetFrontdoorFirewallPolicyResult {
     /**
+     * The Front Door Firewall Policy Captcha cookie lifetime in minutes.
+     */
+    readonly captchaCookieExpirationInMinutes: number;
+    /**
      * The enabled state of the Front Door Firewall Policy.
      */
     readonly enabled: boolean;

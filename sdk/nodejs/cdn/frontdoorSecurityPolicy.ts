@@ -135,7 +135,7 @@ export class FrontdoorSecurityPolicy extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * An `securityPolicies` block as defined below.
      */
     declare public readonly securityPolicies: pulumi.Output<outputs.cdn.FrontdoorSecurityPolicySecurityPolicies>;
 
@@ -185,7 +185,7 @@ export interface FrontdoorSecurityPolicyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * An `securityPolicies` block as defined below.
      */
     securityPolicies?: pulumi.Input<inputs.cdn.FrontdoorSecurityPolicySecurityPolicies>;
 }
@@ -203,7 +203,7 @@ export interface FrontdoorSecurityPolicyArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * An `securityPolicies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * An `securityPolicies` block as defined below.
      */
     securityPolicies: pulumi.Input<inputs.cdn.FrontdoorSecurityPolicySecurityPolicies>;
 }

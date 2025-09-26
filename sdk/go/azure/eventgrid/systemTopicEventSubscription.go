@@ -58,11 +58,11 @@ import (
 //				return err
 //			}
 //			exampleSystemTopic, err := eventgrid.NewSystemTopic(ctx, "example", &eventgrid.SystemTopicArgs{
-//				Name:                pulumi.String("example-system-topic"),
-//				Location:            pulumi.String("Global"),
-//				ResourceGroupName:   example.Name,
-//				SourceArmResourceId: example.ID(),
-//				TopicType:           pulumi.String("Microsoft.Resources.ResourceGroups"),
+//				Name:              pulumi.String("example-system-topic"),
+//				Location:          pulumi.String("Global"),
+//				ResourceGroupName: example.Name,
+//				SourceResourceId:  example.ID(),
+//				TopicType:         pulumi.String("Microsoft.Resources.ResourceGroups"),
 //			})
 //			if err != nil {
 //				return err
@@ -90,7 +90,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.EventGrid` - 2022-06-15
+// * `Microsoft.EventGrid` - 2025-02-15
 //
 // ## Import
 //

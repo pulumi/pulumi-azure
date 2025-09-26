@@ -7,6 +7,7 @@ import com.pulumi.azure.containerservice.inputs.KubernetesClusterAciConnectorLin
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterApiServerAccessProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterAutoScalerProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs;
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterBootstrapProfileArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterConfidentialComputingArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
 import com.pulumi.azure.containerservice.inputs.KubernetesClusterHttpProxyConfigArgs;
@@ -144,6 +145,21 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<Boolean>> azurePolicyEnabled() {
         return Optional.ofNullable(this.azurePolicyEnabled);
+    }
+
+    /**
+     * A `bootstrap_profile` block as defined below.
+     * 
+     */
+    @Import(name="bootstrapProfile")
+    private @Nullable Output<KubernetesClusterBootstrapProfileArgs> bootstrapProfile;
+
+    /**
+     * @return A `bootstrap_profile` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterBootstrapProfileArgs>> bootstrapProfile() {
+        return Optional.ofNullable(this.bootstrapProfile);
     }
 
     /**
@@ -1272,6 +1288,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         this.automaticUpgradeChannel = $.automaticUpgradeChannel;
         this.azureActiveDirectoryRoleBasedAccessControl = $.azureActiveDirectoryRoleBasedAccessControl;
         this.azurePolicyEnabled = $.azurePolicyEnabled;
+        this.bootstrapProfile = $.bootstrapProfile;
         this.confidentialComputing = $.confidentialComputing;
         this.costAnalysisEnabled = $.costAnalysisEnabled;
         this.currentKubernetesVersion = $.currentKubernetesVersion;
@@ -1485,6 +1502,27 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          */
         public Builder azurePolicyEnabled(Boolean azurePolicyEnabled) {
             return azurePolicyEnabled(Output.of(azurePolicyEnabled));
+        }
+
+        /**
+         * @param bootstrapProfile A `bootstrap_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapProfile(@Nullable Output<KubernetesClusterBootstrapProfileArgs> bootstrapProfile) {
+            $.bootstrapProfile = bootstrapProfile;
+            return this;
+        }
+
+        /**
+         * @param bootstrapProfile A `bootstrap_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapProfile(KubernetesClusterBootstrapProfileArgs bootstrapProfile) {
+            return bootstrapProfile(Output.of(bootstrapProfile));
         }
 
         /**

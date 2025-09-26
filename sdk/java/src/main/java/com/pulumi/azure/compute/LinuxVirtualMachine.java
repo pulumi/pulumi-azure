@@ -218,30 +218,34 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
     @Export(name="adminUsername", refs={String.class}, tree="[0]")
-    private Output<String> adminUsername;
+    private Output</* @Nullable */ String> adminUsername;
 
     /**
      * @return The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    public Output<String> adminUsername() {
-        return this.adminUsername;
+    public Output<Optional<String>> adminUsername() {
+        return Codegen.optional(this.adminUsername);
     }
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     @Export(name="allowExtensionOperations", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> allowExtensionOperations;
+    private Output<Boolean> allowExtensionOperations;
 
     /**
      * @return Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> allowExtensionOperations() {
-        return Codegen.optional(this.allowExtensionOperations);
+    public Output<Boolean> allowExtensionOperations() {
+        return this.allowExtensionOperations;
     }
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -372,7 +376,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="disablePasswordAuthentication", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> disablePasswordAuthentication;
+    private Output<Boolean> disablePasswordAuthentication;
 
     /**
      * @return Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
@@ -382,8 +386,8 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
      */
-    public Output<Optional<Boolean>> disablePasswordAuthentication() {
-        return Codegen.optional(this.disablePasswordAuthentication);
+    public Output<Boolean> disablePasswordAuthentication() {
+        return this.disablePasswordAuthentication;
     }
     /**
      * Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
@@ -594,13 +598,31 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.osImageNotification);
     }
     /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+     * 
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * 
+     */
+    @Export(name="osManagedDiskId", refs={String.class}, tree="[0]")
+    private Output<String> osManagedDiskId;
+
+    /**
+     * @return The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+     * 
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * 
+     */
+    public Output<String> osManagedDiskId() {
+        return this.osManagedDiskId;
+    }
+    /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     @Export(name="patchAssessmentMode", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> patchAssessmentMode;
+    private Output<String> patchAssessmentMode;
 
     /**
      * @return Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -608,8 +630,8 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
-    public Output<Optional<String>> patchAssessmentMode() {
-        return Codegen.optional(this.patchAssessmentMode);
+    public Output<String> patchAssessmentMode() {
+        return this.patchAssessmentMode;
     }
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -618,7 +640,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="patchMode", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> patchMode;
+    private Output<String> patchMode;
 
     /**
      * @return Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -626,8 +648,8 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
      * 
      */
-    public Output<Optional<String>> patchMode() {
-        return Codegen.optional(this.patchMode);
+    public Output<String> patchMode() {
+        return this.patchMode;
     }
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -706,7 +728,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="provisionVmAgent", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> provisionVmAgent;
+    private Output<Boolean> provisionVmAgent;
 
     /**
      * @return Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
@@ -714,8 +736,8 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
      * 
      */
-    public Output<Optional<Boolean>> provisionVmAgent() {
-        return Codegen.optional(this.provisionVmAgent);
+    public Output<Boolean> provisionVmAgent() {
+        return this.provisionVmAgent;
     }
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.

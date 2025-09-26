@@ -13,6 +13,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterNetworkProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+        /// </summary>
+        [Input("advancedNetworking")]
+        public Input<Inputs.KubernetesClusterNetworkProfileAdvancedNetworkingGetArgs>? AdvancedNetworking { get; set; }
+
+        /// <summary>
         /// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsServiceIp")]
@@ -99,7 +105,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+        /// 
+        /// &gt; **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         /// </summary>
         [Input("outboundType")]
         public Input<string>? OutboundType { get; set; }

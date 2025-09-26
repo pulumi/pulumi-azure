@@ -26,6 +26,7 @@ public final class GetClusterNodePoolResult {
      * 
      */
     private String evictionPolicy;
+    private String gpuDriver;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -154,6 +155,9 @@ public final class GetClusterNodePoolResult {
      */
     public String evictionPolicy() {
         return this.evictionPolicy;
+    }
+    public String gpuDriver() {
+        return this.gpuDriver;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -330,6 +334,7 @@ public final class GetClusterNodePoolResult {
     public static final class Builder {
         private Boolean autoScalingEnabled;
         private String evictionPolicy;
+        private String gpuDriver;
         private String id;
         private String kubernetesClusterName;
         private Integer maxCount;
@@ -360,6 +365,7 @@ public final class GetClusterNodePoolResult {
     	      Objects.requireNonNull(defaults);
     	      this.autoScalingEnabled = defaults.autoScalingEnabled;
     	      this.evictionPolicy = defaults.evictionPolicy;
+    	      this.gpuDriver = defaults.gpuDriver;
     	      this.id = defaults.id;
     	      this.kubernetesClusterName = defaults.kubernetesClusterName;
     	      this.maxCount = defaults.maxCount;
@@ -401,6 +407,14 @@ public final class GetClusterNodePoolResult {
               throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "evictionPolicy");
             }
             this.evictionPolicy = evictionPolicy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder gpuDriver(String gpuDriver) {
+            if (gpuDriver == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "gpuDriver");
+            }
+            this.gpuDriver = gpuDriver;
             return this;
         }
         @CustomType.Setter
@@ -616,6 +630,7 @@ public final class GetClusterNodePoolResult {
             final var _resultValue = new GetClusterNodePoolResult();
             _resultValue.autoScalingEnabled = autoScalingEnabled;
             _resultValue.evictionPolicy = evictionPolicy;
+            _resultValue.gpuDriver = gpuDriver;
             _resultValue.id = id;
             _resultValue.kubernetesClusterName = kubernetesClusterName;
             _resultValue.maxCount = maxCount;

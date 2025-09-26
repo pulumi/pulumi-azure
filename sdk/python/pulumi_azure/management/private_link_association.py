@@ -31,16 +31,6 @@ class PrivateLinkAssociationArgs:
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[_builtins.str] resource_management_private_link_id: The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-               
-               ```python
-               import pulumi
-               import pulumi_azure as azure
-               
-               example = azure.management.PrivateLinkAssociation("example",
-                   management_group_id=example_azurerm_management_group["id"],
-                   resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
-                   public_network_access_enabled=True)
-               ```
         """
         pulumi.set(__self__, "management_group_id", management_group_id)
         pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
@@ -91,16 +81,6 @@ class PrivateLinkAssociationArgs:
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.management.PrivateLinkAssociation("example",
-            management_group_id=example_azurerm_management_group["id"],
-            resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
-            public_network_access_enabled=True)
-        ```
         """
         return pulumi.get(self, "name")
 
@@ -123,16 +103,6 @@ class _PrivateLinkAssociationState:
                
                > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-               
-               ```python
-               import pulumi
-               import pulumi_azure as azure
-               
-               example = azure.management.PrivateLinkAssociation("example",
-                   management_group_id=example_azurerm_management_group["id"],
-                   resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
-                   public_network_access_enabled=True)
-               ```
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[_builtins.str] resource_management_private_link_id: The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID.
@@ -167,16 +137,6 @@ class _PrivateLinkAssociationState:
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.management.PrivateLinkAssociation("example",
-            management_group_id=example_azurerm_management_group["id"],
-            resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
-            public_network_access_enabled=True)
-        ```
         """
         return pulumi.get(self, "name")
 
@@ -280,16 +240,6 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                
                > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-               
-               ```python
-               import pulumi
-               import pulumi_azure as azure
-               
-               example = azure.management.PrivateLinkAssociation("example",
-                   management_group_id=example_azurerm_management_group["id"],
-                   resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
-                   public_network_access_enabled=True)
-               ```
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[_builtins.str] resource_management_private_link_id: The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
         """
@@ -406,16 +356,6 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                
                > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-               
-               ```python
-               import pulumi
-               import pulumi_azure as azure
-               
-               example = azure.management.PrivateLinkAssociation("example",
-                   management_group_id=example_azurerm_management_group["id"],
-                   resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
-                   public_network_access_enabled=True)
-               ```
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[_builtins.str] resource_management_private_link_id: The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID.
@@ -446,16 +386,6 @@ class PrivateLinkAssociation(pulumi.CustomResource):
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example = azure.management.PrivateLinkAssociation("example",
-            management_group_id=example_azurerm_management_group["id"],
-            resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
-            public_network_access_enabled=True)
-        ```
         """
         return pulumi.get(self, "name")
 

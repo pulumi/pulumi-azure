@@ -17,14 +17,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
     public static final FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs Empty = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs();
 
     /**
-     * One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * One or more `domain` blocks as defined below.
      * 
      */
     @Import(name="domains", required=true)
     private Output<List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs>> domains;
 
     /**
-     * @return One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return One or more `domain` blocks as defined below.
      * 
      */
     public Output<List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs>> domains() {
@@ -72,7 +72,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param domains One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * @param domains One or more `domain` blocks as defined below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param domains One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * @param domains One or more `domain` blocks as defined below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param domains One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+         * @param domains One or more `domain` blocks as defined below.
          * 
          * @return builder
          * 

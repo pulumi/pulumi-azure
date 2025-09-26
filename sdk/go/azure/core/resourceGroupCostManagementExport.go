@@ -61,7 +61,7 @@ import (
 //				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
 //				FileFormat:                pulumi.String("Csv"),
 //				ExportDataStorageLocation: &core.ResourceGroupCostManagementExportExportDataStorageLocationArgs{
-//					ContainerId:    exampleContainer.ResourceManagerId,
+//					ContainerId:    exampleContainer.ID(),
 //					RootFolderPath: pulumi.String("/root/updated"),
 //				},
 //				ExportDataOptions: &core.ResourceGroupCostManagementExportExportDataOptionsArgs{

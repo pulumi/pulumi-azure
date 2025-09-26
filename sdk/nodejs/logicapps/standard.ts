@@ -157,7 +157,7 @@ export class Standard extends pulumi.CustomResource {
      */
     declare public readonly clientAffinityEnabled: pulumi.Output<boolean>;
     /**
-     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      */
     declare public readonly clientCertificateMode: pulumi.Output<string | undefined>;
     /**
@@ -375,7 +375,7 @@ export interface StandardState {
      */
     clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
-     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
@@ -499,7 +499,7 @@ export interface StandardArgs {
      */
     clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
-     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
+     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**

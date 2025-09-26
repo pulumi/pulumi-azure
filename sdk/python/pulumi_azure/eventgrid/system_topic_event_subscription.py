@@ -809,7 +809,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             name="example-system-topic",
             location="Global",
             resource_group_name=example.name,
-            source_arm_resource_id=example.id,
+            source_resource_id=example.id,
             topic_type="Microsoft.Resources.ResourceGroups")
         example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("example",
             name="example-event-subscription",
@@ -826,7 +826,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventGrid` - 2022-06-15
+        * `Microsoft.EventGrid` - 2025-02-15
 
         ## Import
 
@@ -899,7 +899,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             name="example-system-topic",
             location="Global",
             resource_group_name=example.name,
-            source_arm_resource_id=example.id,
+            source_resource_id=example.id,
             topic_type="Microsoft.Resources.ResourceGroups")
         example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("example",
             name="example-event-subscription",
@@ -916,7 +916,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventGrid` - 2022-06-15
+        * `Microsoft.EventGrid` - 2025-02-15
 
         ## Import
 

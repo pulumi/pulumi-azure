@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountSasPolicy {
     /**
-     * @return The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+     * @return The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
      * 
      */
     private @Nullable String expirationAction;
@@ -25,7 +25,7 @@ public final class AccountSasPolicy {
 
     private AccountSasPolicy() {}
     /**
-     * @return The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+     * @return The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
      * 
      */
     public Optional<String> expirationAction() {

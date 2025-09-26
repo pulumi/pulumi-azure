@@ -139,7 +139,7 @@ namespace Pulumi.Azure.Management
         public Output<ImmutableArray<string>> NotScopes { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         /// </summary>
         [Output("overrides")]
         public Output<ImmutableArray<Outputs.GroupPolicyAssignmentOverride>> Overrides { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Management
         private InputList<Inputs.GroupPolicyAssignmentOverrideArgs>? _overrides;
 
         /// <summary>
-        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         /// </summary>
         public InputList<Inputs.GroupPolicyAssignmentOverrideArgs> Overrides
         {
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.Management
         private InputList<Inputs.GroupPolicyAssignmentOverrideGetArgs>? _overrides;
 
         /// <summary>
-        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
+        /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         /// </summary>
         public InputList<Inputs.GroupPolicyAssignmentOverrideGetArgs> Overrides
         {

@@ -147,6 +147,10 @@ export class ProjectPool extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+     */
+    declare public readonly singleSignOnEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
      */
     declare public readonly stopOnDisconnectGracePeriodMinutes: pulumi.Output<number | undefined>;
@@ -175,6 +179,7 @@ export class ProjectPool extends pulumi.CustomResource {
             resourceInputs["location"] = state?.location;
             resourceInputs["managedVirtualNetworkRegions"] = state?.managedVirtualNetworkRegions;
             resourceInputs["name"] = state?.name;
+            resourceInputs["singleSignOnEnabled"] = state?.singleSignOnEnabled;
             resourceInputs["stopOnDisconnectGracePeriodMinutes"] = state?.stopOnDisconnectGracePeriodMinutes;
             resourceInputs["tags"] = state?.tags;
         } else {
@@ -198,6 +203,7 @@ export class ProjectPool extends pulumi.CustomResource {
             resourceInputs["location"] = args?.location;
             resourceInputs["managedVirtualNetworkRegions"] = args?.managedVirtualNetworkRegions;
             resourceInputs["name"] = args?.name;
+            resourceInputs["singleSignOnEnabled"] = args?.singleSignOnEnabled;
             resourceInputs["stopOnDisconnectGracePeriodMinutes"] = args?.stopOnDisconnectGracePeriodMinutes;
             resourceInputs["tags"] = args?.tags;
         }
@@ -240,6 +246,10 @@ export interface ProjectPoolState {
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+     */
+    singleSignOnEnabled?: pulumi.Input<boolean>;
     /**
      * The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
      */
@@ -284,6 +294,10 @@ export interface ProjectPoolArgs {
      * Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether Dev Boxes in the Pool will have SSO enabled or disabled. Defaults to `false`.
+     */
+    singleSignOnEnabled?: pulumi.Input<boolean>;
     /**
      * The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
      */

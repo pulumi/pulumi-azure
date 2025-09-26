@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("my-kusto-cluster-rg")
+ *             .name("example")
  *             .location("West Europe")
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("kustocluster")
+ *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:kusto/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
-     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
      * 
      */
     @Export(name="allowedFqdns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedFqdns;
 
     /**
-     * @return List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     * @return List of allowed FQDNs (Fully Qualified Domain Name) for egress from Cluster.
      * 
      */
     public Output<Optional<List<String>>> allowedFqdns() {
@@ -148,14 +148,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.dataIngestionUri;
     }
     /**
-     * Specifies if the cluster&#39;s disks are encrypted.
+     * Specifies if the cluster&#39;s disks are encrypted. Defaults to `false`.
      * 
      */
     @Export(name="diskEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> diskEncryptionEnabled;
 
     /**
-     * @return Specifies if the cluster&#39;s disks are encrypted.
+     * @return Specifies if the cluster&#39;s disks are encrypted. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> diskEncryptionEnabled() {
@@ -190,22 +190,30 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-     * 
-     * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+     * A `language_extension` block as defined below.
      * 
      */
-    @Export(name="languageExtensions", refs={List.class,ClusterLanguageExtension.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ClusterLanguageExtension>> languageExtensions;
+    @Export(name="languageExtension", refs={List.class,ClusterLanguageExtension.class}, tree="[0,1]")
+    private Output<List<ClusterLanguageExtension>> languageExtension;
 
     /**
-     * @return An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
-     * 
-     * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+     * @return A `language_extension` block as defined below.
      * 
      */
-    public Output<Optional<List<ClusterLanguageExtension>>> languageExtensions() {
-        return Codegen.optional(this.languageExtensions);
+    public Output<List<ClusterLanguageExtension>> languageExtension() {
+        return this.languageExtension;
+    }
+    /**
+     * @deprecated
+     * `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider */
+    @Export(name="languageExtensions", refs={List.class,ClusterLanguageExtension.class}, tree="[0,1]")
+    private Output<List<ClusterLanguageExtension>> languageExtensions;
+
+    public Output<List<ClusterLanguageExtension>> languageExtensions() {
+        return this.languageExtensions;
     }
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -250,14 +258,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.optimizedAutoScale);
     }
     /**
-     * Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * Whether to restrict outbound network access. Defaults to `false`.
      * 
      */
     @Export(name="outboundNetworkAccessRestricted", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> outboundNetworkAccessRestricted;
 
     /**
-     * @return Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
+     * @return Whether to restrict outbound network access. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> outboundNetworkAccessRestricted() {
@@ -292,14 +300,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * Specifies if the purge operations are enabled.
+     * Specifies if the purge operations are enabled. Defaults to `false`.
      * 
      */
     @Export(name="purgeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> purgeEnabled;
 
     /**
-     * @return Specifies if the purge operations are enabled.
+     * @return Specifies if the purge operations are enabled. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> purgeEnabled() {
@@ -334,14 +342,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.sku;
     }
     /**
-     * Specifies if the streaming ingest is enabled.
+     * Specifies if the streaming ingest is enabled. Defaults to `false`.
      * 
      */
     @Export(name="streamingIngestionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> streamingIngestionEnabled;
 
     /**
-     * @return Specifies if the streaming ingest is enabled.
+     * @return Specifies if the streaming ingest is enabled. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> streamingIngestionEnabled() {

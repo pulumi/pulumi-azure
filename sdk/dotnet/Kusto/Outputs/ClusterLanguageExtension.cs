@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Kusto.Outputs
     [OutputType]
     public sealed class ClusterLanguageExtension
     {
+        /// <summary>
+        /// The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
+        /// </summary>
         public readonly string Image;
         /// <summary>
         /// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.

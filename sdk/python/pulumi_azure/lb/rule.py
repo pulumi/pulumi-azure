@@ -28,10 +28,12 @@ class RuleArgs:
                  disable_outbound_snat: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_floating_ip: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
+                 floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  load_distribution: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 probe_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 probe_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input[_builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
@@ -43,12 +45,12 @@ class RuleArgs:
                
                > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         :param pulumi.Input[_builtins.bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
-        :param pulumi.Input[_builtins.bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule?
+        :param pulumi.Input[_builtins.bool] floating_ip_enabled: Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
         :param pulumi.Input[_builtins.str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_id: A reference to a Probe used by this Load Balancing Rule.
+        :param pulumi.Input[_builtins.bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule?
         """
         pulumi.set(__self__, "backend_port", backend_port)
         pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
@@ -60,9 +62,17 @@ class RuleArgs:
         if disable_outbound_snat is not None:
             pulumi.set(__self__, "disable_outbound_snat", disable_outbound_snat)
         if enable_floating_ip is not None:
+            warnings.warn("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_floating_ip is deprecated: This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
+        if enable_floating_ip is not None:
             pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
         if enable_tcp_reset is not None:
+            warnings.warn("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_tcp_reset is deprecated: This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
+        if enable_tcp_reset is not None:
             pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
+        if floating_ip_enabled is not None:
+            pulumi.set(__self__, "floating_ip_enabled", floating_ip_enabled)
         if idle_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if load_distribution is not None:
@@ -71,6 +81,8 @@ class RuleArgs:
             pulumi.set(__self__, "name", name)
         if probe_id is not None:
             pulumi.set(__self__, "probe_id", probe_id)
+        if tcp_reset_enabled is not None:
+            pulumi.set(__self__, "tcp_reset_enabled", tcp_reset_enabled)
 
     @_builtins.property
     @pulumi.getter(name="backendPort")
@@ -160,10 +172,8 @@ class RuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableFloatingIp")
+    @_utilities.deprecated("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
     def enable_floating_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_floating_ip")
 
     @enable_floating_ip.setter
@@ -172,15 +182,25 @@ class RuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableTcpReset")
+    @_utilities.deprecated("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
     def enable_tcp_reset(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Is TCP Reset enabled for this Load Balancer Rule?
-        """
         return pulumi.get(self, "enable_tcp_reset")
 
     @enable_tcp_reset.setter
     def enable_tcp_reset(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_tcp_reset", value)
+
+    @_builtins.property
+    @pulumi.getter(name="floatingIpEnabled")
+    def floating_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        """
+        return pulumi.get(self, "floating_ip_enabled")
+
+    @floating_ip_enabled.setter
+    def floating_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "floating_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="idleTimeoutInMinutes")
@@ -230,6 +250,18 @@ class RuleArgs:
     def probe_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "probe_id", value)
 
+    @_builtins.property
+    @pulumi.getter(name="tcpResetEnabled")
+    def tcp_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Is TCP Reset enabled for this Load Balancer Rule?
+        """
+        return pulumi.get(self, "tcp_reset_enabled")
+
+    @tcp_reset_enabled.setter
+    def tcp_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "tcp_reset_enabled", value)
+
 
 @pulumi.input_type
 class _RuleState:
@@ -239,6 +271,7 @@ class _RuleState:
                  disable_outbound_snat: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_floating_ip: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
+                 floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  frontend_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
                  frontend_ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  frontend_port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -247,7 +280,8 @@ class _RuleState:
                  loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
@@ -255,8 +289,7 @@ class _RuleState:
                > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         :param pulumi.Input[_builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
-        :param pulumi.Input[_builtins.bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule?
+        :param pulumi.Input[_builtins.bool] floating_ip_enabled: Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[_builtins.int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
@@ -265,6 +298,7 @@ class _RuleState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[_builtins.str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
+        :param pulumi.Input[_builtins.bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule?
         """
         if backend_address_pool_ids is not None:
             pulumi.set(__self__, "backend_address_pool_ids", backend_address_pool_ids)
@@ -273,9 +307,17 @@ class _RuleState:
         if disable_outbound_snat is not None:
             pulumi.set(__self__, "disable_outbound_snat", disable_outbound_snat)
         if enable_floating_ip is not None:
+            warnings.warn("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_floating_ip is deprecated: This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
+        if enable_floating_ip is not None:
             pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
         if enable_tcp_reset is not None:
+            warnings.warn("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_tcp_reset is deprecated: This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
+        if enable_tcp_reset is not None:
             pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
+        if floating_ip_enabled is not None:
+            pulumi.set(__self__, "floating_ip_enabled", floating_ip_enabled)
         if frontend_ip_configuration_id is not None:
             pulumi.set(__self__, "frontend_ip_configuration_id", frontend_ip_configuration_id)
         if frontend_ip_configuration_name is not None:
@@ -294,6 +336,8 @@ class _RuleState:
             pulumi.set(__self__, "probe_id", probe_id)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if tcp_reset_enabled is not None:
+            pulumi.set(__self__, "tcp_reset_enabled", tcp_reset_enabled)
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolIds")
@@ -335,10 +379,8 @@ class _RuleState:
 
     @_builtins.property
     @pulumi.getter(name="enableFloatingIp")
+    @_utilities.deprecated("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
     def enable_floating_ip(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_floating_ip")
 
     @enable_floating_ip.setter
@@ -347,15 +389,25 @@ class _RuleState:
 
     @_builtins.property
     @pulumi.getter(name="enableTcpReset")
+    @_utilities.deprecated("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
     def enable_tcp_reset(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Is TCP Reset enabled for this Load Balancer Rule?
-        """
         return pulumi.get(self, "enable_tcp_reset")
 
     @enable_tcp_reset.setter
     def enable_tcp_reset(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_tcp_reset", value)
+
+    @_builtins.property
+    @pulumi.getter(name="floatingIpEnabled")
+    def floating_ip_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        """
+        return pulumi.get(self, "floating_ip_enabled")
+
+    @floating_ip_enabled.setter
+    def floating_ip_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "floating_ip_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurationId")
@@ -462,6 +514,18 @@ class _RuleState:
     def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
+    @_builtins.property
+    @pulumi.getter(name="tcpResetEnabled")
+    def tcp_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Is TCP Reset enabled for this Load Balancer Rule?
+        """
+        return pulumi.get(self, "tcp_reset_enabled")
+
+    @tcp_reset_enabled.setter
+    def tcp_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "tcp_reset_enabled", value)
+
 
 @pulumi.type_token("azure:lb/rule:Rule")
 class Rule(pulumi.CustomResource):
@@ -474,6 +538,7 @@ class Rule(pulumi.CustomResource):
                  disable_outbound_snat: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_floating_ip: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
+                 floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  frontend_ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  frontend_port: Optional[pulumi.Input[_builtins.int]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
@@ -482,6 +547,7 @@ class Rule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  probe_id: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Load Balancer Rule.
@@ -541,8 +607,7 @@ class Rule(pulumi.CustomResource):
                > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         :param pulumi.Input[_builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
-        :param pulumi.Input[_builtins.bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule?
+        :param pulumi.Input[_builtins.bool] floating_ip_enabled: Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[_builtins.int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
@@ -551,6 +616,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[_builtins.str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
+        :param pulumi.Input[_builtins.bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule?
         """
         ...
     @overload
@@ -629,6 +695,7 @@ class Rule(pulumi.CustomResource):
                  disable_outbound_snat: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_floating_ip: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
+                 floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  frontend_ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  frontend_port: Optional[pulumi.Input[_builtins.int]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
@@ -637,6 +704,7 @@ class Rule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  probe_id: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -653,6 +721,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["disable_outbound_snat"] = disable_outbound_snat
             __props__.__dict__["enable_floating_ip"] = enable_floating_ip
             __props__.__dict__["enable_tcp_reset"] = enable_tcp_reset
+            __props__.__dict__["floating_ip_enabled"] = floating_ip_enabled
             if frontend_ip_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_ip_configuration_name'")
             __props__.__dict__["frontend_ip_configuration_name"] = frontend_ip_configuration_name
@@ -669,6 +738,7 @@ class Rule(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["tcp_reset_enabled"] = tcp_reset_enabled
             __props__.__dict__["frontend_ip_configuration_id"] = None
         super(Rule, __self__).__init__(
             'azure:lb/rule:Rule',
@@ -685,6 +755,7 @@ class Rule(pulumi.CustomResource):
             disable_outbound_snat: Optional[pulumi.Input[_builtins.bool]] = None,
             enable_floating_ip: Optional[pulumi.Input[_builtins.bool]] = None,
             enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
+            floating_ip_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             frontend_ip_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
             frontend_ip_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
             frontend_port: Optional[pulumi.Input[_builtins.int]] = None,
@@ -693,7 +764,8 @@ class Rule(pulumi.CustomResource):
             loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
             probe_id: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None) -> 'Rule':
+            protocol: Optional[pulumi.Input[_builtins.str]] = None,
+            tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'Rule':
         """
         Get an existing Rule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -706,8 +778,7 @@ class Rule(pulumi.CustomResource):
                > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         :param pulumi.Input[_builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
-        :param pulumi.Input[_builtins.bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule?
+        :param pulumi.Input[_builtins.bool] floating_ip_enabled: Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[_builtins.str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[_builtins.int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
@@ -716,6 +787,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the LB Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[_builtins.str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
+        :param pulumi.Input[_builtins.bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule?
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -726,6 +798,7 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["disable_outbound_snat"] = disable_outbound_snat
         __props__.__dict__["enable_floating_ip"] = enable_floating_ip
         __props__.__dict__["enable_tcp_reset"] = enable_tcp_reset
+        __props__.__dict__["floating_ip_enabled"] = floating_ip_enabled
         __props__.__dict__["frontend_ip_configuration_id"] = frontend_ip_configuration_id
         __props__.__dict__["frontend_ip_configuration_name"] = frontend_ip_configuration_name
         __props__.__dict__["frontend_port"] = frontend_port
@@ -735,6 +808,7 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["probe_id"] = probe_id
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["tcp_reset_enabled"] = tcp_reset_enabled
         return Rule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -765,19 +839,23 @@ class Rule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="enableFloatingIp")
-    def enable_floating_ip(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
-        """
+    @_utilities.deprecated("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
+    def enable_floating_ip(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "enable_floating_ip")
 
     @_builtins.property
     @pulumi.getter(name="enableTcpReset")
-    def enable_tcp_reset(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Is TCP Reset enabled for this Load Balancer Rule?
-        """
+    @_utilities.deprecated("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
+    def enable_tcp_reset(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "enable_tcp_reset")
+
+    @_builtins.property
+    @pulumi.getter(name="floatingIpEnabled")
+    def floating_ip_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        """
+        return pulumi.get(self, "floating_ip_enabled")
 
     @_builtins.property
     @pulumi.getter(name="frontendIpConfigurationId")
@@ -847,4 +925,12 @@ class Rule(pulumi.CustomResource):
         The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         """
         return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="tcpResetEnabled")
+    def tcp_reset_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Is TCP Reset enabled for this Load Balancer Rule?
+        """
+        return pulumi.get(self, "tcp_reset_enabled")
 

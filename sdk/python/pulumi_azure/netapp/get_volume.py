@@ -27,7 +27,10 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, account_name=None, data_protection_backup_policies=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, large_volume_enabled=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
+    def __init__(__self__, accept_grow_capacity_pool_for_short_term_clone_split=None, account_name=None, data_protection_backup_policies=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, large_volume_enabled=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
+        if accept_grow_capacity_pool_for_short_term_clone_split and not isinstance(accept_grow_capacity_pool_for_short_term_clone_split, str):
+            raise TypeError("Expected argument 'accept_grow_capacity_pool_for_short_term_clone_split' to be a str")
+        pulumi.set(__self__, "accept_grow_capacity_pool_for_short_term_clone_split", accept_grow_capacity_pool_for_short_term_clone_split)
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -94,6 +97,14 @@ class GetVolumeResult:
         if zone and not isinstance(zone, str):
             raise TypeError("Expected argument 'zone' to be a str")
         pulumi.set(__self__, "zone", zone)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptGrowCapacityPoolForShortTermCloneSplit")
+    def accept_grow_capacity_pool_for_short_term_clone_split(self) -> _builtins.str:
+        """
+        The accept grow capacity pool for short term clone split property.
+        """
+        return pulumi.get(self, "accept_grow_capacity_pool_for_short_term_clone_split")
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -260,6 +271,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
+            accept_grow_capacity_pool_for_short_term_clone_split=self.accept_grow_capacity_pool_for_short_term_clone_split,
             account_name=self.account_name,
             data_protection_backup_policies=self.data_protection_backup_policies,
             data_protection_replications=self.data_protection_replications,
@@ -311,7 +323,7 @@ def get_volume(account_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str account_name: The name of the NetApp account where the NetApp pool exists.
@@ -330,6 +342,7 @@ def get_volume(account_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure:netapp/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
+        accept_grow_capacity_pool_for_short_term_clone_split=pulumi.get(__ret__, 'accept_grow_capacity_pool_for_short_term_clone_split'),
         account_name=pulumi.get(__ret__, 'account_name'),
         data_protection_backup_policies=pulumi.get(__ret__, 'data_protection_backup_policies'),
         data_protection_replications=pulumi.get(__ret__, 'data_protection_replications'),
@@ -379,7 +392,7 @@ def get_volume_output(account_name: Optional[pulumi.Input[_builtins.str]] = None
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-01-01
+    * `Microsoft.NetApp` - 2025-06-01
 
 
     :param _builtins.str account_name: The name of the NetApp account where the NetApp pool exists.
@@ -397,6 +410,7 @@ def get_volume_output(account_name: Optional[pulumi.Input[_builtins.str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:netapp/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
+        accept_grow_capacity_pool_for_short_term_clone_split=pulumi.get(__response__, 'accept_grow_capacity_pool_for_short_term_clone_split'),
         account_name=pulumi.get(__response__, 'account_name'),
         data_protection_backup_policies=pulumi.get(__response__, 'data_protection_backup_policies'),
         data_protection_replications=pulumi.get(__response__, 'data_protection_replications'),

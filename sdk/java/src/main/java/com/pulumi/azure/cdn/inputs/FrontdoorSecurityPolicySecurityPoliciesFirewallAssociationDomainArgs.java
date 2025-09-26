@@ -33,14 +33,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
     }
 
     /**
-     * The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+     * The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
      * 
      */
     @Import(name="cdnFrontdoorDomainId", required=true)
     private Output<String> cdnFrontdoorDomainId;
 
     /**
-     * @return The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+     * @return The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
      * 
      */
     public Output<String> cdnFrontdoorDomainId() {
@@ -94,7 +94,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
         }
 
         /**
-         * @param cdnFrontdoorDomainId The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+         * @param cdnFrontdoorDomainId The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
         }
 
         /**
-         * @param cdnFrontdoorDomainId The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+         * @param cdnFrontdoorDomainId The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
          * 
          * @return builder
          * 

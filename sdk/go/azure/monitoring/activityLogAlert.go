@@ -117,7 +117,7 @@ type ActivityLogAlert struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+	// The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -176,7 +176,7 @@ type activityLogAlertState struct {
 	Description *string `pulumi:"description"`
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+	// The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -197,7 +197,7 @@ type ActivityLogAlertState struct {
 	Description pulumi.StringPtrInput
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+	// The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -222,7 +222,7 @@ type activityLogAlertArgs struct {
 	Description *string `pulumi:"description"`
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+	// The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -244,7 +244,7 @@ type ActivityLogAlertArgs struct {
 	Description pulumi.StringPtrInput
 	// Should this Activity Log Alert be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+	// The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the activity log alert. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -363,7 +363,7 @@ func (o ActivityLogAlertOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ActivityLogAlert) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Azure Region where the activity log alert rule should exist. Changing this forces a new resource to be created.
+// The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
 func (o ActivityLogAlertOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

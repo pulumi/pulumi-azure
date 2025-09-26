@@ -84,7 +84,7 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
     }
 
     /**
-     * Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+     * Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-25&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-25&#34;, &#34;asm-1-26&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-25&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-26&#34;]`.
      * 
      * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
      * 
@@ -93,7 +93,7 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
     private Output<List<String>> revisions;
 
     /**
-     * @return Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+     * @return Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-25&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-25&#34;, &#34;asm-1-26&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-25&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-26&#34;]`.
      * 
      * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
      * 
@@ -219,7 +219,7 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
         }
 
         /**
-         * @param revisions Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+         * @param revisions Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-25&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-25&#34;, &#34;asm-1-26&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-25&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-26&#34;]`.
          * 
          * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
          * 
@@ -232,7 +232,7 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
         }
 
         /**
-         * @param revisions Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+         * @param revisions Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-25&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-25&#34;, &#34;asm-1-26&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-25&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-26&#34;]`.
          * 
          * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
          * 
@@ -244,7 +244,7 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
         }
 
         /**
-         * @param revisions Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
+         * @param revisions Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-25&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-25&#34;, &#34;asm-1-26&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-25&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-26&#34;]`.
          * 
          * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
          * 

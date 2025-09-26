@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage.Outputs
     public sealed class AccountSasPolicy
     {
         /// <summary>
-        /// The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        /// The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
         /// </summary>
         public readonly string? ExpirationAction;
         /// <summary>

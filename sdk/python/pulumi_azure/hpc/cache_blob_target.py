@@ -297,7 +297,7 @@ class CacheBlobTarget(pulumi.CustomResource):
             name="examplehpccblobtarget",
             resource_group_name=example_resource_group.name,
             cache_name=example_cache.name,
-            storage_container_id=example_container.resource_manager_id,
+            storage_container_id=example_container.id,
             namespace_path="/blob_storage")
         ```
 
@@ -389,7 +389,7 @@ class CacheBlobTarget(pulumi.CustomResource):
             name="examplehpccblobtarget",
             resource_group_name=example_resource_group.name,
             cache_name=example_cache.name,
-            storage_container_id=example_container.resource_manager_id,
+            storage_container_id=example_container.id,
             namespace_path="/blob_storage")
         ```
 

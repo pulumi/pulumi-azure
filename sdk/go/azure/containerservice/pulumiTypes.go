@@ -6267,6 +6267,10 @@ func (o KubernetesClusterAciConnectorLinuxConnectorIdentityArrayOutput) Index(i 
 type KubernetesClusterApiServerAccessProfile struct {
 	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	AuthorizedIpRanges []string `pulumi:"authorizedIpRanges"`
+	// The ID of the Subnet where the API server endpoint is delegated to.
+	SubnetId *string `pulumi:"subnetId"`
+	// Whether to enable virtual network integration for the API Server. Defaults to `false`.
+	VirtualNetworkIntegrationEnabled *bool `pulumi:"virtualNetworkIntegrationEnabled"`
 }
 
 // KubernetesClusterApiServerAccessProfileInput is an input type that accepts KubernetesClusterApiServerAccessProfileArgs and KubernetesClusterApiServerAccessProfileOutput values.
@@ -6283,6 +6287,10 @@ type KubernetesClusterApiServerAccessProfileInput interface {
 type KubernetesClusterApiServerAccessProfileArgs struct {
 	// Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
 	AuthorizedIpRanges pulumi.StringArrayInput `pulumi:"authorizedIpRanges"`
+	// The ID of the Subnet where the API server endpoint is delegated to.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+	// Whether to enable virtual network integration for the API Server. Defaults to `false`.
+	VirtualNetworkIntegrationEnabled pulumi.BoolPtrInput `pulumi:"virtualNetworkIntegrationEnabled"`
 }
 
 func (KubernetesClusterApiServerAccessProfileArgs) ElementType() reflect.Type {
@@ -6367,6 +6375,16 @@ func (o KubernetesClusterApiServerAccessProfileOutput) AuthorizedIpRanges() pulu
 	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) []string { return v.AuthorizedIpRanges }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the Subnet where the API server endpoint is delegated to.
+func (o KubernetesClusterApiServerAccessProfileOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable virtual network integration for the API Server. Defaults to `false`.
+func (o KubernetesClusterApiServerAccessProfileOutput) VirtualNetworkIntegrationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterApiServerAccessProfile) *bool { return v.VirtualNetworkIntegrationEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type KubernetesClusterApiServerAccessProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterApiServerAccessProfilePtrOutput) ElementType() reflect.Type {
@@ -6399,6 +6417,26 @@ func (o KubernetesClusterApiServerAccessProfilePtrOutput) AuthorizedIpRanges() p
 		}
 		return v.AuthorizedIpRanges
 	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Subnet where the API server endpoint is delegated to.
+func (o KubernetesClusterApiServerAccessProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable virtual network integration for the API Server. Defaults to `false`.
+func (o KubernetesClusterApiServerAccessProfilePtrOutput) VirtualNetworkIntegrationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterApiServerAccessProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualNetworkIntegrationEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterAutoScalerProfile struct {
@@ -6437,10 +6475,9 @@ type KubernetesClusterAutoScalerProfile struct {
 	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
 	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
 	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
-	ScanInterval *string `pulumi:"scanInterval"`
-	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-	SkipNodesWithLocalStorage *bool `pulumi:"skipNodesWithLocalStorage"`
-	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+	ScanInterval              *string `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage *bool   `pulumi:"skipNodesWithLocalStorage"`
+	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 	SkipNodesWithSystemPods *bool `pulumi:"skipNodesWithSystemPods"`
 }
 
@@ -6491,10 +6528,9 @@ type KubernetesClusterAutoScalerProfileArgs struct {
 	// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to `0.5`.
 	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
 	// How often the AKS Cluster should be re-evaluated for scale up/down. Defaults to `10s`.
-	ScanInterval pulumi.StringPtrInput `pulumi:"scanInterval"`
-	// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
-	SkipNodesWithLocalStorage pulumi.BoolPtrInput `pulumi:"skipNodesWithLocalStorage"`
-	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+	ScanInterval              pulumi.StringPtrInput `pulumi:"scanInterval"`
+	SkipNodesWithLocalStorage pulumi.BoolPtrInput   `pulumi:"skipNodesWithLocalStorage"`
+	// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 	SkipNodesWithSystemPods pulumi.BoolPtrInput `pulumi:"skipNodesWithSystemPods"`
 }
 
@@ -6665,12 +6701,11 @@ func (o KubernetesClusterAutoScalerProfileOutput) ScanInterval() pulumi.StringPt
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
 func (o KubernetesClusterAutoScalerProfileOutput) SkipNodesWithLocalStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.SkipNodesWithLocalStorage }).(pulumi.BoolPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 func (o KubernetesClusterAutoScalerProfileOutput) SkipNodesWithSystemPods() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterAutoScalerProfile) *bool { return v.SkipNodesWithSystemPods }).(pulumi.BoolPtrOutput)
 }
@@ -6879,7 +6914,6 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) ScanInterval() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to `true`.
 func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
 		if v == nil {
@@ -6889,7 +6923,7 @@ func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithLocalStorage()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `false`. <!-- defaults to `false` in code, not in Schema -->
+// If `true` cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to `true`.
 func (o KubernetesClusterAutoScalerProfilePtrOutput) SkipNodesWithSystemPods() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterAutoScalerProfile) *bool {
 		if v == nil {
@@ -7076,6 +7110,178 @@ func (o KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput) Te
 	}).(pulumi.StringPtrOutput)
 }
 
+type KubernetesClusterBootstrapProfile struct {
+	// The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
+	//
+	// > **Note:** If the `artifactSource` is set to `Cache` and the `outboundType` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+	ArtifactSource *string `pulumi:"artifactSource"`
+	// The resource Id of Azure Container Registry.
+	//
+	// > **Note:** The `containerRegistryId` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+	ContainerRegistryId *string `pulumi:"containerRegistryId"`
+}
+
+// KubernetesClusterBootstrapProfileInput is an input type that accepts KubernetesClusterBootstrapProfileArgs and KubernetesClusterBootstrapProfileOutput values.
+// You can construct a concrete instance of `KubernetesClusterBootstrapProfileInput` via:
+//
+//	KubernetesClusterBootstrapProfileArgs{...}
+type KubernetesClusterBootstrapProfileInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterBootstrapProfileOutput() KubernetesClusterBootstrapProfileOutput
+	ToKubernetesClusterBootstrapProfileOutputWithContext(context.Context) KubernetesClusterBootstrapProfileOutput
+}
+
+type KubernetesClusterBootstrapProfileArgs struct {
+	// The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
+	//
+	// > **Note:** If the `artifactSource` is set to `Cache` and the `outboundType` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+	ArtifactSource pulumi.StringPtrInput `pulumi:"artifactSource"`
+	// The resource Id of Azure Container Registry.
+	//
+	// > **Note:** The `containerRegistryId` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+	ContainerRegistryId pulumi.StringPtrInput `pulumi:"containerRegistryId"`
+}
+
+func (KubernetesClusterBootstrapProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterBootstrapProfile)(nil)).Elem()
+}
+
+func (i KubernetesClusterBootstrapProfileArgs) ToKubernetesClusterBootstrapProfileOutput() KubernetesClusterBootstrapProfileOutput {
+	return i.ToKubernetesClusterBootstrapProfileOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterBootstrapProfileArgs) ToKubernetesClusterBootstrapProfileOutputWithContext(ctx context.Context) KubernetesClusterBootstrapProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterBootstrapProfileOutput)
+}
+
+func (i KubernetesClusterBootstrapProfileArgs) ToKubernetesClusterBootstrapProfilePtrOutput() KubernetesClusterBootstrapProfilePtrOutput {
+	return i.ToKubernetesClusterBootstrapProfilePtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterBootstrapProfileArgs) ToKubernetesClusterBootstrapProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterBootstrapProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterBootstrapProfileOutput).ToKubernetesClusterBootstrapProfilePtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterBootstrapProfilePtrInput is an input type that accepts KubernetesClusterBootstrapProfileArgs, KubernetesClusterBootstrapProfilePtr and KubernetesClusterBootstrapProfilePtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterBootstrapProfilePtrInput` via:
+//
+//	        KubernetesClusterBootstrapProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterBootstrapProfilePtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterBootstrapProfilePtrOutput() KubernetesClusterBootstrapProfilePtrOutput
+	ToKubernetesClusterBootstrapProfilePtrOutputWithContext(context.Context) KubernetesClusterBootstrapProfilePtrOutput
+}
+
+type kubernetesClusterBootstrapProfilePtrType KubernetesClusterBootstrapProfileArgs
+
+func KubernetesClusterBootstrapProfilePtr(v *KubernetesClusterBootstrapProfileArgs) KubernetesClusterBootstrapProfilePtrInput {
+	return (*kubernetesClusterBootstrapProfilePtrType)(v)
+}
+
+func (*kubernetesClusterBootstrapProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterBootstrapProfile)(nil)).Elem()
+}
+
+func (i *kubernetesClusterBootstrapProfilePtrType) ToKubernetesClusterBootstrapProfilePtrOutput() KubernetesClusterBootstrapProfilePtrOutput {
+	return i.ToKubernetesClusterBootstrapProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterBootstrapProfilePtrType) ToKubernetesClusterBootstrapProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterBootstrapProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterBootstrapProfilePtrOutput)
+}
+
+type KubernetesClusterBootstrapProfileOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterBootstrapProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterBootstrapProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterBootstrapProfileOutput) ToKubernetesClusterBootstrapProfileOutput() KubernetesClusterBootstrapProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterBootstrapProfileOutput) ToKubernetesClusterBootstrapProfileOutputWithContext(ctx context.Context) KubernetesClusterBootstrapProfileOutput {
+	return o
+}
+
+func (o KubernetesClusterBootstrapProfileOutput) ToKubernetesClusterBootstrapProfilePtrOutput() KubernetesClusterBootstrapProfilePtrOutput {
+	return o.ToKubernetesClusterBootstrapProfilePtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterBootstrapProfileOutput) ToKubernetesClusterBootstrapProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterBootstrapProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterBootstrapProfile) *KubernetesClusterBootstrapProfile {
+		return &v
+	}).(KubernetesClusterBootstrapProfilePtrOutput)
+}
+
+// The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
+//
+// > **Note:** If the `artifactSource` is set to `Cache` and the `outboundType` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+func (o KubernetesClusterBootstrapProfileOutput) ArtifactSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterBootstrapProfile) *string { return v.ArtifactSource }).(pulumi.StringPtrOutput)
+}
+
+// The resource Id of Azure Container Registry.
+//
+// > **Note:** The `containerRegistryId` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+func (o KubernetesClusterBootstrapProfileOutput) ContainerRegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterBootstrapProfile) *string { return v.ContainerRegistryId }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterBootstrapProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterBootstrapProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterBootstrapProfile)(nil)).Elem()
+}
+
+func (o KubernetesClusterBootstrapProfilePtrOutput) ToKubernetesClusterBootstrapProfilePtrOutput() KubernetesClusterBootstrapProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterBootstrapProfilePtrOutput) ToKubernetesClusterBootstrapProfilePtrOutputWithContext(ctx context.Context) KubernetesClusterBootstrapProfilePtrOutput {
+	return o
+}
+
+func (o KubernetesClusterBootstrapProfilePtrOutput) Elem() KubernetesClusterBootstrapProfileOutput {
+	return o.ApplyT(func(v *KubernetesClusterBootstrapProfile) KubernetesClusterBootstrapProfile {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterBootstrapProfile
+		return ret
+	}).(KubernetesClusterBootstrapProfileOutput)
+}
+
+// The artifact source. The source where the artifacts are downloaded from. Possible values are `Cache` and `Direct`. Defaults to `Direct`.
+//
+// > **Note:** If the `artifactSource` is set to `Cache` and the `outboundType` has been specified, the managed ACR and related resources will **not** be automatically deleted and must be removed manually. Please see the product [documentation](https://learn.microsoft.com/azure/aks/concepts-network-isolated#how-a-network-isolated-cluster-works) for more information.
+func (o KubernetesClusterBootstrapProfilePtrOutput) ArtifactSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterBootstrapProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource Id of Azure Container Registry.
+//
+// > **Note:** The `containerRegistryId` requires an ACR with a private link to the cluster. You must manage permissions, cache rules, the associated private link and the private endpoint. Please see the product [documentation](https://learn.microsoft.com/azure/container-registry/container-registry-private-link) for more information on configuring an ACR with a private endpoint.
+func (o KubernetesClusterBootstrapProfilePtrOutput) ContainerRegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterBootstrapProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerRegistryId
+	}).(pulumi.StringPtrOutput)
+}
+
 type KubernetesClusterConfidentialComputing struct {
 	// Should the SGX quote helper be enabled?
 	SgxQuoteHelperEnabled bool `pulumi:"sgxQuoteHelperEnabled"`
@@ -7223,7 +7429,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
-	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	FipsEnabled *bool   `pulumi:"fipsEnabled"`
+	GpuDriver   *string `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance *string `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
@@ -7322,7 +7529,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
-	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
+	FipsEnabled pulumi.BoolPtrInput   `pulumi:"fipsEnabled"`
+	GpuDriver   pulumi.StringPtrInput `pulumi:"gpuDriver"`
 	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
 	GpuInstance pulumi.StringPtrInput `pulumi:"gpuInstance"`
 	// Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
@@ -7494,6 +7702,10 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 // Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolOutput) GpuDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.GpuDriver }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -7734,6 +7946,15 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrO
 		}
 		return v.FipsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o KubernetesClusterDefaultNodePoolPtrOutput) GpuDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GpuDriver
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -13593,6 +13814,8 @@ func (o KubernetesClusterMonitorMetricsPtrOutput) LabelsAllowed() pulumi.StringP
 }
 
 type KubernetesClusterNetworkProfile struct {
+	// An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+	AdvancedNetworking *KubernetesClusterNetworkProfileAdvancedNetworking `pulumi:"advancedNetworking"`
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -13633,7 +13856,9 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+	//
+	// > **Note:** For more information on supported `outboundType` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
 	PodCidr *string `pulumi:"podCidr"`
@@ -13659,6 +13884,8 @@ type KubernetesClusterNetworkProfileInput interface {
 }
 
 type KubernetesClusterNetworkProfileArgs struct {
+	// An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+	AdvancedNetworking KubernetesClusterNetworkProfileAdvancedNetworkingPtrInput `pulumi:"advancedNetworking"`
 	// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -13699,7 +13926,9 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
-	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+	//
+	// > **Note:** For more information on supported `outboundType` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
@@ -13790,6 +14019,13 @@ func (o KubernetesClusterNetworkProfileOutput) ToKubernetesClusterNetworkProfile
 	}).(KubernetesClusterNetworkProfilePtrOutput)
 }
 
+// An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+func (o KubernetesClusterNetworkProfileOutput) AdvancedNetworking() KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileAdvancedNetworking {
+		return v.AdvancedNetworking
+	}).(KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput)
+}
+
 // IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
@@ -13864,7 +14100,9 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrO
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+//
+// > **Note:** For more information on supported `outboundType` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 func (o KubernetesClusterNetworkProfileOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
 }
@@ -13913,6 +14151,16 @@ func (o KubernetesClusterNetworkProfilePtrOutput) Elem() KubernetesClusterNetwor
 		var ret KubernetesClusterNetworkProfile
 		return ret
 	}).(KubernetesClusterNetworkProfileOutput)
+}
+
+// An `advancedNetworking` block as defined below. This can only be specified when `networkPlugin` is set to `azure` and `networkDataPlane` is set to `cilium`.
+func (o KubernetesClusterNetworkProfilePtrOutput) AdvancedNetworking() KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *KubernetesClusterNetworkProfileAdvancedNetworking {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedNetworking
+	}).(KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput)
 }
 
 // IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -14035,7 +14283,9 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+//
+// > **Note:** For more information on supported `outboundType` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 func (o KubernetesClusterNetworkProfilePtrOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -14085,6 +14335,162 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidrs() pulumi.StringAr
 		}
 		return v.ServiceCidrs
 	}).(pulumi.StringArrayOutput)
+}
+
+type KubernetesClusterNetworkProfileAdvancedNetworking struct {
+	// Is observability enabled? Defaults to `false`.
+	ObservabilityEnabled *bool `pulumi:"observabilityEnabled"`
+	// Is security enabled? Defaults to `false`.
+	SecurityEnabled *bool `pulumi:"securityEnabled"`
+}
+
+// KubernetesClusterNetworkProfileAdvancedNetworkingInput is an input type that accepts KubernetesClusterNetworkProfileAdvancedNetworkingArgs and KubernetesClusterNetworkProfileAdvancedNetworkingOutput values.
+// You can construct a concrete instance of `KubernetesClusterNetworkProfileAdvancedNetworkingInput` via:
+//
+//	KubernetesClusterNetworkProfileAdvancedNetworkingArgs{...}
+type KubernetesClusterNetworkProfileAdvancedNetworkingInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNetworkProfileAdvancedNetworkingOutput() KubernetesClusterNetworkProfileAdvancedNetworkingOutput
+	ToKubernetesClusterNetworkProfileAdvancedNetworkingOutputWithContext(context.Context) KubernetesClusterNetworkProfileAdvancedNetworkingOutput
+}
+
+type KubernetesClusterNetworkProfileAdvancedNetworkingArgs struct {
+	// Is observability enabled? Defaults to `false`.
+	ObservabilityEnabled pulumi.BoolPtrInput `pulumi:"observabilityEnabled"`
+	// Is security enabled? Defaults to `false`.
+	SecurityEnabled pulumi.BoolPtrInput `pulumi:"securityEnabled"`
+}
+
+func (KubernetesClusterNetworkProfileAdvancedNetworkingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNetworkProfileAdvancedNetworking)(nil)).Elem()
+}
+
+func (i KubernetesClusterNetworkProfileAdvancedNetworkingArgs) ToKubernetesClusterNetworkProfileAdvancedNetworkingOutput() KubernetesClusterNetworkProfileAdvancedNetworkingOutput {
+	return i.ToKubernetesClusterNetworkProfileAdvancedNetworkingOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNetworkProfileAdvancedNetworkingArgs) ToKubernetesClusterNetworkProfileAdvancedNetworkingOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileAdvancedNetworkingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileAdvancedNetworkingOutput)
+}
+
+func (i KubernetesClusterNetworkProfileAdvancedNetworkingArgs) ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput() KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return i.ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNetworkProfileAdvancedNetworkingArgs) ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileAdvancedNetworkingOutput).ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterNetworkProfileAdvancedNetworkingPtrInput is an input type that accepts KubernetesClusterNetworkProfileAdvancedNetworkingArgs, KubernetesClusterNetworkProfileAdvancedNetworkingPtr and KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterNetworkProfileAdvancedNetworkingPtrInput` via:
+//
+//	        KubernetesClusterNetworkProfileAdvancedNetworkingArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterNetworkProfileAdvancedNetworkingPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput() KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput
+	ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutputWithContext(context.Context) KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput
+}
+
+type kubernetesClusterNetworkProfileAdvancedNetworkingPtrType KubernetesClusterNetworkProfileAdvancedNetworkingArgs
+
+func KubernetesClusterNetworkProfileAdvancedNetworkingPtr(v *KubernetesClusterNetworkProfileAdvancedNetworkingArgs) KubernetesClusterNetworkProfileAdvancedNetworkingPtrInput {
+	return (*kubernetesClusterNetworkProfileAdvancedNetworkingPtrType)(v)
+}
+
+func (*kubernetesClusterNetworkProfileAdvancedNetworkingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNetworkProfileAdvancedNetworking)(nil)).Elem()
+}
+
+func (i *kubernetesClusterNetworkProfileAdvancedNetworkingPtrType) ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput() KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return i.ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterNetworkProfileAdvancedNetworkingPtrType) ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput)
+}
+
+type KubernetesClusterNetworkProfileAdvancedNetworkingOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNetworkProfileAdvancedNetworkingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNetworkProfileAdvancedNetworking)(nil)).Elem()
+}
+
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingOutput) ToKubernetesClusterNetworkProfileAdvancedNetworkingOutput() KubernetesClusterNetworkProfileAdvancedNetworkingOutput {
+	return o
+}
+
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingOutput) ToKubernetesClusterNetworkProfileAdvancedNetworkingOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileAdvancedNetworkingOutput {
+	return o
+}
+
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingOutput) ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput() KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return o.ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingOutput) ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterNetworkProfileAdvancedNetworking) *KubernetesClusterNetworkProfileAdvancedNetworking {
+		return &v
+	}).(KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput)
+}
+
+// Is observability enabled? Defaults to `false`.
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingOutput) ObservabilityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileAdvancedNetworking) *bool { return v.ObservabilityEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Is security enabled? Defaults to `false`.
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingOutput) SecurityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileAdvancedNetworking) *bool { return v.SecurityEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterNetworkProfileAdvancedNetworking)(nil)).Elem()
+}
+
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput) ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput() KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput) ToKubernetesClusterNetworkProfileAdvancedNetworkingPtrOutputWithContext(ctx context.Context) KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput) Elem() KubernetesClusterNetworkProfileAdvancedNetworkingOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileAdvancedNetworking) KubernetesClusterNetworkProfileAdvancedNetworking {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterNetworkProfileAdvancedNetworking
+		return ret
+	}).(KubernetesClusterNetworkProfileAdvancedNetworkingOutput)
+}
+
+// Is observability enabled? Defaults to `false`.
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput) ObservabilityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileAdvancedNetworking) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ObservabilityEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is security enabled? Defaults to `false`.
+func (o KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput) SecurityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileAdvancedNetworking) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
@@ -16673,7 +17079,7 @@ type KubernetesClusterServiceMeshProfile struct {
 	InternalIngressGatewayEnabled *bool `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode string `pulumi:"mode"`
-	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
 	//
 	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 	Revisions []string `pulumi:"revisions"`
@@ -16701,7 +17107,7 @@ type KubernetesClusterServiceMeshProfileArgs struct {
 	InternalIngressGatewayEnabled pulumi.BoolPtrInput `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
 	//
 	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 	Revisions pulumi.StringArrayInput `pulumi:"revisions"`
@@ -16808,7 +17214,7 @@ func (o KubernetesClusterServiceMeshProfileOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
 //
 // > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 func (o KubernetesClusterServiceMeshProfileOutput) Revisions() pulumi.StringArrayOutput {
@@ -16881,7 +17287,7 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) Mode() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
+// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
 //
 // > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 func (o KubernetesClusterServiceMeshProfilePtrOutput) Revisions() pulumi.StringArrayOutput {
@@ -25695,6 +26101,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAutoScalerProfilePtrInput)(nil)).Elem(), KubernetesClusterAutoScalerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlInput)(nil)).Elem(), KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrInput)(nil)).Elem(), KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterBootstrapProfileInput)(nil)).Elem(), KubernetesClusterBootstrapProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterBootstrapProfilePtrInput)(nil)).Elem(), KubernetesClusterBootstrapProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterConfidentialComputingInput)(nil)).Elem(), KubernetesClusterConfidentialComputingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterConfidentialComputingPtrInput)(nil)).Elem(), KubernetesClusterConfidentialComputingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolArgs{})
@@ -25759,6 +26167,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterMonitorMetricsPtrInput)(nil)).Elem(), KubernetesClusterMonitorMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileInput)(nil)).Elem(), KubernetesClusterNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileAdvancedNetworkingInput)(nil)).Elem(), KubernetesClusterNetworkProfileAdvancedNetworkingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileAdvancedNetworkingPtrInput)(nil)).Elem(), KubernetesClusterNetworkProfileAdvancedNetworkingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileLoadBalancerProfileInput)(nil)).Elem(), KubernetesClusterNetworkProfileLoadBalancerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput)(nil)).Elem(), KubernetesClusterNetworkProfileLoadBalancerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNetworkProfileNatGatewayProfileInput)(nil)).Elem(), KubernetesClusterNetworkProfileNatGatewayProfileArgs{})
@@ -25979,6 +26389,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterBootstrapProfileOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterBootstrapProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterConfidentialComputingOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterConfidentialComputingPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolOutput{})
@@ -26043,6 +26455,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterMonitorMetricsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileAdvancedNetworkingOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileAdvancedNetworkingPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNetworkProfileNatGatewayProfileOutput{})

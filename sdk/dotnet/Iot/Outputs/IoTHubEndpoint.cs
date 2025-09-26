@@ -66,6 +66,12 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string? ResourceGroupName;
         /// <summary>
+        /// The subscription ID for the endpoint.
+        /// 
+        /// &gt; **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        /// </summary>
+        public readonly string? SubscriptionId;
+        /// <summary>
         /// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         /// </summary>
         public readonly string Type;
@@ -96,6 +102,8 @@ namespace Pulumi.Azure.Iot.Outputs
 
             string? resourceGroupName,
 
+            string? subscriptionId,
+
             string type)
         {
             AuthenticationType = authenticationType;
@@ -110,6 +118,7 @@ namespace Pulumi.Azure.Iot.Outputs
             MaxChunkSizeInBytes = maxChunkSizeInBytes;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            SubscriptionId = subscriptionId;
             Type = type;
         }
     }

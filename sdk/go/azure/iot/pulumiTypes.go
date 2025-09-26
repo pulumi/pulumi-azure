@@ -332,6 +332,10 @@ type IoTHubEndpoint struct {
 	Name string `pulumi:"name"`
 	// The resource group in which the endpoint will be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type string `pulumi:"type"`
 }
@@ -376,6 +380,10 @@ type IoTHubEndpointArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The resource group in which the endpoint will be created.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// The subscription ID for the endpoint.
+	//
+	// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
 	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -493,6 +501,13 @@ func (o IoTHubEndpointOutput) Name() pulumi.StringOutput {
 // The resource group in which the endpoint will be created.
 func (o IoTHubEndpointOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The subscription ID for the endpoint.
+//
+// > **Note:** When `subscriptionId` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+func (o IoTHubEndpointOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
 // The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.

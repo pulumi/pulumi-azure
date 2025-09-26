@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * const exampleDatastoreDatalakeGen2 = new azure.machinelearning.DatastoreDatalakeGen2("example", {
  *     name: "example-datastore",
  *     workspaceId: exampleWorkspace.id,
- *     storageContainerId: exampleContainer.resourceManagerId,
+ *     storageContainerId: exampleContainer.id,
  * });
  * ```
  *

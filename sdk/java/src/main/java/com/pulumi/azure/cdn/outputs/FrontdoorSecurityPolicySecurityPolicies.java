@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class FrontdoorSecurityPolicySecurityPolicies {
     /**
-     * @return An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return An `firewall` block as defined below.
      * 
      */
     private FrontdoorSecurityPolicySecurityPoliciesFirewall firewall;
 
     private FrontdoorSecurityPolicySecurityPolicies() {}
     /**
-     * @return An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+     * @return An `firewall` block as defined below.
      * 
      */
     public FrontdoorSecurityPolicySecurityPoliciesFirewall firewall() {

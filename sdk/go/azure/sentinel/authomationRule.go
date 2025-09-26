@@ -92,6 +92,8 @@ import (
 type AuthomationRule struct {
 	pulumi.CustomResourceState
 
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks AuthomationRuleActionIncidentTaskArrayOutput `pulumi:"actionIncidentTasks"`
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents AuthomationRuleActionIncidentArrayOutput `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
@@ -157,6 +159,8 @@ func GetAuthomationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AuthomationRule resources.
 type authomationRuleState struct {
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks []AuthomationRuleActionIncidentTask `pulumi:"actionIncidentTasks"`
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents []AuthomationRuleActionIncident `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
@@ -184,6 +188,8 @@ type authomationRuleState struct {
 }
 
 type AuthomationRuleState struct {
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks AuthomationRuleActionIncidentTaskArrayInput
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents AuthomationRuleActionIncidentArrayInput
 	// One or more `actionPlaybook` blocks as defined below.
@@ -215,6 +221,8 @@ func (AuthomationRuleState) ElementType() reflect.Type {
 }
 
 type authomationRuleArgs struct {
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks []AuthomationRuleActionIncidentTask `pulumi:"actionIncidentTasks"`
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents []AuthomationRuleActionIncident `pulumi:"actionIncidents"`
 	// One or more `actionPlaybook` blocks as defined below.
@@ -243,6 +251,8 @@ type authomationRuleArgs struct {
 
 // The set of arguments for constructing a AuthomationRule resource.
 type AuthomationRuleArgs struct {
+	// One or more `actionIncidentTask` blocks as defined below.
+	ActionIncidentTasks AuthomationRuleActionIncidentTaskArrayInput
 	// One or more `actionIncident` blocks as defined below.
 	ActionIncidents AuthomationRuleActionIncidentArrayInput
 	// One or more `actionPlaybook` blocks as defined below.
@@ -354,6 +364,11 @@ func (o AuthomationRuleOutput) ToAuthomationRuleOutput() AuthomationRuleOutput {
 
 func (o AuthomationRuleOutput) ToAuthomationRuleOutputWithContext(ctx context.Context) AuthomationRuleOutput {
 	return o
+}
+
+// One or more `actionIncidentTask` blocks as defined below.
+func (o AuthomationRuleOutput) ActionIncidentTasks() AuthomationRuleActionIncidentTaskArrayOutput {
+	return o.ApplyT(func(v *AuthomationRule) AuthomationRuleActionIncidentTaskArrayOutput { return v.ActionIncidentTasks }).(AuthomationRuleActionIncidentTaskArrayOutput)
 }
 
 // One or more `actionIncident` blocks as defined below.

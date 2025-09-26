@@ -279,6 +279,28 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serviceEndpoints);
     }
     /**
+     * The sharing scope of the subnet. Possible value is `Tenant`.
+     * 
+     * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+     * 
+     * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * 
+     */
+    @Export(name="sharingScope", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sharingScope;
+
+    /**
+     * @return The sharing scope of the subnet. Possible value is `Tenant`.
+     * 
+     * &gt; **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
+     * 
+     * !&gt; **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * 
+     */
+    public Output<Optional<String>> sharingScope() {
+        return Codegen.optional(this.sharingScope);
+    }
+    /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      * 
      */

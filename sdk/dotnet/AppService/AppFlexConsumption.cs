@@ -169,6 +169,14 @@ namespace Pulumi.Azure.AppService
         public Output<string> HostingEnvironmentId { get; private set; } = null!;
 
         /// <summary>
+        /// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+        /// 
+        /// &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+        /// </summary>
+        [Output("httpConcurrency")]
+        public Output<int?> HttpConcurrency { get; private set; } = null!;
+
+        /// <summary>
         /// Is Https Connection enforced to the function app. Defaults to `false`
         /// </summary>
         [Output("httpsOnly")]
@@ -465,6 +473,14 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+        /// 
+        /// &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+        /// </summary>
+        [Input("httpConcurrency")]
+        public Input<int>? HttpConcurrency { get; set; }
+
+        /// <summary>
         /// Is Https Connection enforced to the function app. Defaults to `false`
         /// </summary>
         [Input("httpsOnly")]
@@ -714,6 +730,14 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("hostingEnvironmentId")]
         public Input<string>? HostingEnvironmentId { get; set; }
+
+        /// <summary>
+        /// The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+        /// 
+        /// &gt; **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+        /// </summary>
+        [Input("httpConcurrency")]
+        public Input<int>? HttpConcurrency { get; set; }
 
         /// <summary>
         /// Is Https Connection enforced to the function app. Defaults to `false`

@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetQueueResult {
@@ -25,9 +27,25 @@ public final class GetQueueResult {
     /**
      * @return The Resource Manager ID of this Storage Queue.
      * 
+     * @deprecated
+     * the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * 
      */
+    @Deprecated /* the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     private String resourceManagerId;
-    private String storageAccountName;
+    private @Nullable String storageAccountId;
+    /**
+     * @deprecated
+     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+    private @Nullable String storageAccountName;
+    /**
+     * @return The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.
+     * 
+     */
+    private String url;
 
     private GetQueueResult() {}
     /**
@@ -50,12 +68,32 @@ public final class GetQueueResult {
     /**
      * @return The Resource Manager ID of this Storage Queue.
      * 
+     * @deprecated
+     * the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
+     * 
      */
+    @Deprecated /* the `resource_manager_id` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
     public String resourceManagerId() {
         return this.resourceManagerId;
     }
-    public String storageAccountName() {
-        return this.storageAccountName;
+    public Optional<String> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+    /**
+     * @deprecated
+     * the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider. */
+    public Optional<String> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
+    }
+    /**
+     * @return The data plane URL of the Storage Queue in the format of `&lt;storage queue endpoint&gt;/&lt;queue name&gt;`. E.g. `https://example.queue.core.windows.net/queue1`.
+     * 
+     */
+    public String url() {
+        return this.url;
     }
 
     public static Builder builder() {
@@ -71,7 +109,9 @@ public final class GetQueueResult {
         private Map<String,String> metadata;
         private String name;
         private String resourceManagerId;
-        private String storageAccountName;
+        private @Nullable String storageAccountId;
+        private @Nullable String storageAccountName;
+        private String url;
         public Builder() {}
         public Builder(GetQueueResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,7 +119,9 @@ public final class GetQueueResult {
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
     	      this.resourceManagerId = defaults.resourceManagerId;
+    	      this.storageAccountId = defaults.storageAccountId;
     	      this.storageAccountName = defaults.storageAccountName;
+    	      this.url = defaults.url;
         }
 
         @CustomType.Setter
@@ -115,11 +157,23 @@ public final class GetQueueResult {
             return this;
         }
         @CustomType.Setter
-        public Builder storageAccountName(String storageAccountName) {
-            if (storageAccountName == null) {
-              throw new MissingRequiredPropertyException("GetQueueResult", "storageAccountName");
-            }
+        public Builder storageAccountId(@Nullable String storageAccountId) {
+
+            this.storageAccountId = storageAccountId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder storageAccountName(@Nullable String storageAccountName) {
+
             this.storageAccountName = storageAccountName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder url(String url) {
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetQueueResult build() {
@@ -128,7 +182,9 @@ public final class GetQueueResult {
             _resultValue.metadata = metadata;
             _resultValue.name = name;
             _resultValue.resourceManagerId = resourceManagerId;
+            _resultValue.storageAccountId = storageAccountId;
             _resultValue.storageAccountName = storageAccountName;
+            _resultValue.url = url;
             return _resultValue;
         }
     }

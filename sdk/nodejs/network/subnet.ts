@@ -147,6 +147,14 @@ export class Subnet extends pulumi.CustomResource {
      */
     declare public readonly serviceEndpoints: pulumi.Output<string[] | undefined>;
     /**
+     * The sharing scope of the subnet. Possible value is `Tenant`.
+     *
+     * > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
+     *
+     * !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     */
+    declare public readonly sharingScope: pulumi.Output<string | undefined>;
+    /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      */
     declare public readonly virtualNetworkName: pulumi.Output<string>;
@@ -174,6 +182,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["serviceEndpointPolicyIds"] = state?.serviceEndpointPolicyIds;
             resourceInputs["serviceEndpoints"] = state?.serviceEndpoints;
+            resourceInputs["sharingScope"] = state?.sharingScope;
             resourceInputs["virtualNetworkName"] = state?.virtualNetworkName;
         } else {
             const args = argsOrState as SubnetArgs | undefined;
@@ -193,6 +202,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceEndpointPolicyIds"] = args?.serviceEndpointPolicyIds;
             resourceInputs["serviceEndpoints"] = args?.serviceEndpoints;
+            resourceInputs["sharingScope"] = args?.sharingScope;
             resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -261,6 +271,14 @@ export interface SubnetState {
      */
     serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The sharing scope of the subnet. Possible value is `Tenant`.
+     *
+     * > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
+     *
+     * !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     */
+    sharingScope?: pulumi.Input<string>;
+    /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      */
     virtualNetworkName?: pulumi.Input<string>;
@@ -326,6 +344,14 @@ export interface SubnetArgs {
      * > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
      */
     serviceEndpoints?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The sharing scope of the subnet. Possible value is `Tenant`.
+     *
+     * > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
+     *
+     * !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     */
+    sharingScope?: pulumi.Input<string>;
     /**
      * The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
      */

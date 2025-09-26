@@ -16,6 +16,7 @@ namespace Pulumi.Azure.Kusto.Inputs
         /// Specifies the node count for the cluster. Boundaries depend on the SKU name.
         /// 
         /// &gt; **Note:** If no `optimized_auto_scale` block is defined, then the capacity is required.
+        /// 
         /// &gt; **Note:** If an `optimized_auto_scale` block is defined and no capacity is set, then the capacity is initially set to the value of `minimum_instances`.
         /// </summary>
         [Input("capacity")]

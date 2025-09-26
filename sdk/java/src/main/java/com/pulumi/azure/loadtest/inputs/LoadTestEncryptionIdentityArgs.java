@@ -17,12 +17,16 @@ public final class LoadTestEncryptionIdentityArgs extends com.pulumi.resources.R
     /**
      * The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
      * 
+     * &gt; **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
+     * 
      */
     @Import(name="identityId", required=true)
     private Output<String> identityId;
 
     /**
      * @return The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+     * 
+     * &gt; **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
      * 
      */
     public Output<String> identityId() {
@@ -72,6 +76,8 @@ public final class LoadTestEncryptionIdentityArgs extends com.pulumi.resources.R
         /**
          * @param identityId The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
          * 
+         * &gt; **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
+         * 
          * @return builder
          * 
          */
@@ -82,6 +88,8 @@ public final class LoadTestEncryptionIdentityArgs extends com.pulumi.resources.R
 
         /**
          * @param identityId The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+         * 
+         * &gt; **Note:** The User Assigned Identity ID specified here must also exist in `identity.identity_ids`.
          * 
          * @return builder
          * 

@@ -48,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2025-01-01
+// * `Microsoft.NetApp` - 2025-06-01
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeResult
@@ -75,7 +75,9 @@ type LookupVolumeArgs struct {
 
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
-	AccountName string `pulumi:"accountName"`
+	// The accept grow capacity pool for short term clone split property.
+	AcceptGrowCapacityPoolForShortTermCloneSplit string `pulumi:"acceptGrowCapacityPoolForShortTermCloneSplit"`
+	AccountName                                  string `pulumi:"accountName"`
 	// A data protecion backup policy block
 	DataProtectionBackupPolicies []GetVolumeDataProtectionBackupPolicy `pulumi:"dataProtectionBackupPolicies"`
 	// Volume data protection replication block
@@ -155,6 +157,11 @@ func (o LookupVolumeResultOutput) ToLookupVolumeResultOutput() LookupVolumeResul
 
 func (o LookupVolumeResultOutput) ToLookupVolumeResultOutputWithContext(ctx context.Context) LookupVolumeResultOutput {
 	return o
+}
+
+// The accept grow capacity pool for short term clone split property.
+func (o LookupVolumeResultOutput) AcceptGrowCapacityPoolForShortTermCloneSplit() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.AcceptGrowCapacityPoolForShortTermCloneSplit }).(pulumi.StringOutput)
 }
 
 func (o LookupVolumeResultOutput) AccountName() pulumi.StringOutput {

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.NetApp
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.NetApp` - 2025-01-01
+        /// * `Microsoft.NetApp` - 2025-06-01
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -186,6 +186,10 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public readonly bool CoolAccessEnabled;
         /// <summary>
+        /// The custom throughput for the pool in MiB/s.
+        /// </summary>
+        public readonly int CustomThroughputMibps;
+        /// <summary>
         /// The encryption type of the pool.
         /// </summary>
         public readonly string EncryptionType;
@@ -214,6 +218,8 @@ namespace Pulumi.Azure.NetApp
 
             bool coolAccessEnabled,
 
+            int customThroughputMibps,
+
             string encryptionType,
 
             string id,
@@ -230,6 +236,7 @@ namespace Pulumi.Azure.NetApp
         {
             AccountName = accountName;
             CoolAccessEnabled = coolAccessEnabled;
+            CustomThroughputMibps = customThroughputMibps;
             EncryptionType = encryptionType;
             Id = id;
             Location = location;

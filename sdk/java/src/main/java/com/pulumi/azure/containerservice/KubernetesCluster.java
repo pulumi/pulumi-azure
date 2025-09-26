@@ -10,6 +10,7 @@ import com.pulumi.azure.containerservice.outputs.KubernetesClusterAciConnectorLi
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterApiServerAccessProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterAutoScalerProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl;
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterBootstrapProfile;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterConfidentialComputing;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterDefaultNodePool;
 import com.pulumi.azure.containerservice.outputs.KubernetesClusterHttpProxyConfig;
@@ -115,7 +116,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.ContainerService` - 2025-02-01
+ * * `Microsoft.ContainerService` - 2025-05-01
  * 
  * ## Import
  * 
@@ -219,6 +220,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> azurePolicyEnabled() {
         return Codegen.optional(this.azurePolicyEnabled);
+    }
+    /**
+     * A `bootstrap_profile` block as defined below.
+     * 
+     */
+    @Export(name="bootstrapProfile", refs={KubernetesClusterBootstrapProfile.class}, tree="[0]")
+    private Output<KubernetesClusterBootstrapProfile> bootstrapProfile;
+
+    /**
+     * @return A `bootstrap_profile` block as defined below.
+     * 
+     */
+    public Output<KubernetesClusterBootstrapProfile> bootstrapProfile() {
+        return this.bootstrapProfile;
     }
     /**
      * A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)

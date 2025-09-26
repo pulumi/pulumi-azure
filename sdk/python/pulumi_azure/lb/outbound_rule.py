@@ -28,23 +28,27 @@ class OutboundRuleArgs:
                  enable_tcp_reset: Optional[pulumi.Input[_builtins.bool]] = None,
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a OutboundRule resource.
         :param pulumi.Input[_builtins.str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         :param pulumi.Input[_builtins.int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
-        :param pulumi.Input[_builtins.bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The timeout for the TCP idle connection Defaults to `4`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] tcp_reset_enabled: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         """
         pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
         pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
         pulumi.set(__self__, "protocol", protocol)
         if allocated_outbound_ports is not None:
             pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
+        if enable_tcp_reset is not None:
+            warnings.warn("""This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_tcp_reset is deprecated: This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
         if enable_tcp_reset is not None:
             pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
         if frontend_ip_configurations is not None:
@@ -53,6 +57,8 @@ class OutboundRuleArgs:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tcp_reset_enabled is not None:
+            pulumi.set(__self__, "tcp_reset_enabled", tcp_reset_enabled)
 
     @_builtins.property
     @pulumi.getter(name="backendAddressPoolId")
@@ -104,10 +110,8 @@ class OutboundRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableTcpReset")
+    @_utilities.deprecated("""This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
     def enable_tcp_reset(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        """
         return pulumi.get(self, "enable_tcp_reset")
 
     @enable_tcp_reset.setter
@@ -150,6 +154,18 @@ class OutboundRuleArgs:
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="tcpResetEnabled")
+    def tcp_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        """
+        return pulumi.get(self, "tcp_reset_enabled")
+
+    @tcp_reset_enabled.setter
+    def tcp_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "tcp_reset_enabled", value)
+
 
 @pulumi.input_type
 class _OutboundRuleState:
@@ -161,22 +177,26 @@ class _OutboundRuleState:
                  idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
                  loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering OutboundRule resources.
         :param pulumi.Input[_builtins.int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
         :param pulumi.Input[_builtins.str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-        :param pulumi.Input[_builtins.bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[Sequence[pulumi.Input['OutboundRuleFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The timeout for the TCP idle connection Defaults to `4`.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
+        :param pulumi.Input[_builtins.bool] tcp_reset_enabled: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         """
         if allocated_outbound_ports is not None:
             pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
         if backend_address_pool_id is not None:
             pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
+        if enable_tcp_reset is not None:
+            warnings.warn("""This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_tcp_reset is deprecated: This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
         if enable_tcp_reset is not None:
             pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
         if frontend_ip_configurations is not None:
@@ -189,6 +209,8 @@ class _OutboundRuleState:
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if tcp_reset_enabled is not None:
+            pulumi.set(__self__, "tcp_reset_enabled", tcp_reset_enabled)
 
     @_builtins.property
     @pulumi.getter(name="allocatedOutboundPorts")
@@ -216,10 +238,8 @@ class _OutboundRuleState:
 
     @_builtins.property
     @pulumi.getter(name="enableTcpReset")
+    @_utilities.deprecated("""This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
     def enable_tcp_reset(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        """
         return pulumi.get(self, "enable_tcp_reset")
 
     @enable_tcp_reset.setter
@@ -286,6 +306,18 @@ class _OutboundRuleState:
     def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
+    @_builtins.property
+    @pulumi.getter(name="tcpResetEnabled")
+    def tcp_reset_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        """
+        return pulumi.get(self, "tcp_reset_enabled")
+
+    @tcp_reset_enabled.setter
+    def tcp_reset_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "tcp_reset_enabled", value)
+
 
 @pulumi.type_token("azure:lb/outboundRule:OutboundRule")
 class OutboundRule(pulumi.CustomResource):
@@ -301,6 +333,7 @@ class OutboundRule(pulumi.CustomResource):
                  loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages a Load Balancer Outbound Rule.
@@ -361,12 +394,12 @@ class OutboundRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
         :param pulumi.Input[_builtins.str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-        :param pulumi.Input[_builtins.bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OutboundRuleFrontendIpConfigurationArgs', 'OutboundRuleFrontendIpConfigurationArgsDict']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The timeout for the TCP idle connection Defaults to `4`.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
+        :param pulumi.Input[_builtins.bool] tcp_reset_enabled: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         """
         ...
     @overload
@@ -452,6 +485,7 @@ class OutboundRule(pulumi.CustomResource):
                  loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
+                 tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -475,6 +509,7 @@ class OutboundRule(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["tcp_reset_enabled"] = tcp_reset_enabled
         super(OutboundRule, __self__).__init__(
             'azure:lb/outboundRule:OutboundRule',
             resource_name,
@@ -492,7 +527,8 @@ class OutboundRule(pulumi.CustomResource):
             idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
             loadbalancer_id: Optional[pulumi.Input[_builtins.str]] = None,
             name: Optional[pulumi.Input[_builtins.str]] = None,
-            protocol: Optional[pulumi.Input[_builtins.str]] = None) -> 'OutboundRule':
+            protocol: Optional[pulumi.Input[_builtins.str]] = None,
+            tcp_reset_enabled: Optional[pulumi.Input[_builtins.bool]] = None) -> 'OutboundRule':
         """
         Get an existing OutboundRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -502,12 +538,12 @@ class OutboundRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] allocated_outbound_ports: The number of outbound ports to be used for NAT. Defaults to `1024`.
         :param pulumi.Input[_builtins.str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
-        :param pulumi.Input[_builtins.bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OutboundRuleFrontendIpConfigurationArgs', 'OutboundRuleFrontendIpConfigurationArgsDict']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The timeout for the TCP idle connection Defaults to `4`.
         :param pulumi.Input[_builtins.str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
+        :param pulumi.Input[_builtins.bool] tcp_reset_enabled: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -521,6 +557,7 @@ class OutboundRule(pulumi.CustomResource):
         __props__.__dict__["loadbalancer_id"] = loadbalancer_id
         __props__.__dict__["name"] = name
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["tcp_reset_enabled"] = tcp_reset_enabled
         return OutboundRule(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -541,10 +578,8 @@ class OutboundRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="enableTcpReset")
-    def enable_tcp_reset(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-        """
+    @_utilities.deprecated("""This property is being deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
+    def enable_tcp_reset(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "enable_tcp_reset")
 
     @_builtins.property
@@ -586,4 +621,12 @@ class OutboundRule(pulumi.CustomResource):
         The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         """
         return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="tcpResetEnabled")
+    def tcp_reset_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        """
+        return pulumi.get(self, "tcp_reset_enabled")
 

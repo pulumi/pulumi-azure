@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2025-02-01
+        /// * `Microsoft.ContainerService` - 2025-05-01
         /// </summary>
         public static Task<GetClusterNodePoolResult> InvokeAsync(GetClusterNodePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2025-02-01
+        /// * `Microsoft.ContainerService` - 2025-05-01
         /// </summary>
         public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.ContainerService
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.ContainerService` - 2025-02-01
+        /// * `Microsoft.ContainerService` - 2025-05-01
         /// </summary>
         public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithDefaults());
@@ -188,6 +188,7 @@ namespace Pulumi.Azure.ContainerService
         /// The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
         /// </summary>
         public readonly string EvictionPolicy;
+        public readonly string GpuDriver;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -286,6 +287,8 @@ namespace Pulumi.Azure.ContainerService
 
             string evictionPolicy,
 
+            string gpuDriver,
+
             string id,
 
             string kubernetesClusterName,
@@ -338,6 +341,7 @@ namespace Pulumi.Azure.ContainerService
         {
             AutoScalingEnabled = autoScalingEnabled;
             EvictionPolicy = evictionPolicy;
+            GpuDriver = gpuDriver;
             Id = id;
             KubernetesClusterName = kubernetesClusterName;
             MaxCount = maxCount;

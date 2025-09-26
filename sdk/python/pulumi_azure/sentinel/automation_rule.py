@@ -24,6 +24,7 @@ class AutomationRuleArgs:
                  display_name: pulumi.Input[_builtins.str],
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
+                 action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentTaskArgs']]]] = None,
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentArgs']]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionPlaybookArgs']]]] = None,
                  condition_json: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class AutomationRuleArgs:
         :param pulumi.Input[_builtins.str] display_name: The display name which should be used for this Sentinel Automation Rule.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         :param pulumi.Input[_builtins.int] order: The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentTaskArgs']]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentArgs']]] action_incidents: One or more `action_incident` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionPlaybookArgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
@@ -51,6 +53,8 @@ class AutomationRuleArgs:
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         pulumi.set(__self__, "order", order)
+        if action_incident_tasks is not None:
+            pulumi.set(__self__, "action_incident_tasks", action_incident_tasks)
         if action_incidents is not None:
             pulumi.set(__self__, "action_incidents", action_incidents)
         if action_playbooks is not None:
@@ -103,6 +107,18 @@ class AutomationRuleArgs:
     @order.setter
     def order(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "order", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionIncidentTasks")
+    def action_incident_tasks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentTaskArgs']]]]:
+        """
+        One or more `action_incident_task` blocks as defined below.
+        """
+        return pulumi.get(self, "action_incident_tasks")
+
+    @action_incident_tasks.setter
+    def action_incident_tasks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentTaskArgs']]]]):
+        pulumi.set(self, "action_incident_tasks", value)
 
     @_builtins.property
     @pulumi.getter(name="actionIncidents")
@@ -206,6 +222,7 @@ class AutomationRuleArgs:
 @pulumi.input_type
 class _AutomationRuleState:
     def __init__(__self__, *,
+                 action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentTaskArgs']]]] = None,
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentArgs']]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionPlaybookArgs']]]] = None,
                  condition_json: Optional[pulumi.Input[_builtins.str]] = None,
@@ -219,6 +236,7 @@ class _AutomationRuleState:
                  triggers_when: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AutomationRule resources.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentTaskArgs']]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentArgs']]] action_incidents: One or more `action_incident` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionPlaybookArgs']]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
@@ -233,6 +251,8 @@ class _AutomationRuleState:
         :param pulumi.Input[_builtins.str] triggers_on: Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
         :param pulumi.Input[_builtins.str] triggers_when: Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         """
+        if action_incident_tasks is not None:
+            pulumi.set(__self__, "action_incident_tasks", action_incident_tasks)
         if action_incidents is not None:
             pulumi.set(__self__, "action_incidents", action_incidents)
         if action_playbooks is not None:
@@ -255,6 +275,18 @@ class _AutomationRuleState:
             pulumi.set(__self__, "triggers_on", triggers_on)
         if triggers_when is not None:
             pulumi.set(__self__, "triggers_when", triggers_when)
+
+    @_builtins.property
+    @pulumi.getter(name="actionIncidentTasks")
+    def action_incident_tasks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentTaskArgs']]]]:
+        """
+        One or more `action_incident_task` blocks as defined below.
+        """
+        return pulumi.get(self, "action_incident_tasks")
+
+    @action_incident_tasks.setter
+    def action_incident_tasks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentTaskArgs']]]]):
+        pulumi.set(self, "action_incident_tasks", value)
 
     @_builtins.property
     @pulumi.getter(name="actionIncidents")
@@ -397,6 +429,7 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]]] = None,
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]]] = None,
                  condition_json: Optional[pulumi.Input[_builtins.str]] = None,
@@ -455,6 +488,7 @@ class AutomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]] action_incidents: One or more `action_incident` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
@@ -534,6 +568,7 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]]] = None,
                  action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]]] = None,
                  action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]]] = None,
                  condition_json: Optional[pulumi.Input[_builtins.str]] = None,
@@ -554,6 +589,7 @@ class AutomationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AutomationRuleArgs.__new__(AutomationRuleArgs)
 
+            __props__.__dict__["action_incident_tasks"] = action_incident_tasks
             __props__.__dict__["action_incidents"] = action_incidents
             __props__.__dict__["action_playbooks"] = action_playbooks
             __props__.__dict__["condition_json"] = condition_json
@@ -583,6 +619,7 @@ class AutomationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            action_incident_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]]] = None,
             action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]]] = None,
             action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]]] = None,
             condition_json: Optional[pulumi.Input[_builtins.str]] = None,
@@ -601,6 +638,7 @@ class AutomationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]] action_incidents: One or more `action_incident` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
@@ -619,6 +657,7 @@ class AutomationRule(pulumi.CustomResource):
 
         __props__ = _AutomationRuleState.__new__(_AutomationRuleState)
 
+        __props__.__dict__["action_incident_tasks"] = action_incident_tasks
         __props__.__dict__["action_incidents"] = action_incidents
         __props__.__dict__["action_playbooks"] = action_playbooks
         __props__.__dict__["condition_json"] = condition_json
@@ -631,6 +670,14 @@ class AutomationRule(pulumi.CustomResource):
         __props__.__dict__["triggers_on"] = triggers_on
         __props__.__dict__["triggers_when"] = triggers_when
         return AutomationRule(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="actionIncidentTasks")
+    def action_incident_tasks(self) -> pulumi.Output[Optional[Sequence['outputs.AutomationRuleActionIncidentTask']]]:
+        """
+        One or more `action_incident_task` blocks as defined below.
+        """
+        return pulumi.get(self, "action_incident_tasks")
 
     @_builtins.property
     @pulumi.getter(name="actionIncidents")

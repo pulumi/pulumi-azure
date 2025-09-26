@@ -175,7 +175,7 @@ class PartnerRegistration(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventGrid` - 2022-06-15
+        * `Microsoft.EventGrid` - 2025-02-15
 
         ## Import
 
@@ -219,7 +219,7 @@ class PartnerRegistration(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.EventGrid` - 2022-06-15
+        * `Microsoft.EventGrid` - 2025-02-15
 
         ## Import
 

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:oracle/autonomousDatabase:AutonomousDatabase":
 		r = &AutonomousDatabase{}
+	case "azure:oracle/autonomousDatabaseBackup:AutonomousDatabaseBackup":
+		r = &AutonomousDatabaseBackup{}
 	case "azure:oracle/cloudVmCluster:CloudVmCluster":
 		r = &CloudVmCluster{}
 	case "azure:oracle/exadataInfrastructure:ExadataInfrastructure":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"oracle/autonomousDatabase",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"oracle/autonomousDatabaseBackup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

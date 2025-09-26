@@ -159,9 +159,11 @@ type LinuxVirtualMachine struct {
 	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayOutput `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
+	//
+	// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+	AdminUsername pulumi.StringPtrOutput `pulumi:"adminUsername"`
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
-	AllowExtensionOperations pulumi.BoolPtrOutput `pulumi:"allowExtensionOperations"`
+	AllowExtensionOperations pulumi.BoolOutput `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrOutput `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
@@ -187,7 +189,7 @@ type LinuxVirtualMachine struct {
 	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 	//
 	// > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
-	DisablePasswordAuthentication pulumi.BoolPtrOutput `pulumi:"disablePasswordAuthentication"`
+	DisablePasswordAuthentication pulumi.BoolOutput `pulumi:"disablePasswordAuthentication"`
 	// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
 	DiskControllerType pulumi.StringOutput `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
@@ -222,14 +224,18 @@ type LinuxVirtualMachine struct {
 	OsDisk LinuxVirtualMachineOsDiskOutput `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification LinuxVirtualMachineOsImageNotificationPtrOutput `pulumi:"osImageNotification"`
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	//
+	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+	OsManagedDiskId pulumi.StringOutput `pulumi:"osManagedDiskId"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
-	PatchAssessmentMode pulumi.StringPtrOutput `pulumi:"patchAssessmentMode"`
+	PatchAssessmentMode pulumi.StringOutput `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	//
 	// > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
-	PatchMode pulumi.StringPtrOutput `pulumi:"patchMode"`
+	PatchMode pulumi.StringOutput `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan LinuxVirtualMachinePlanPtrOutput `pulumi:"plan"`
 	// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
@@ -243,7 +249,7 @@ type LinuxVirtualMachine struct {
 	// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
-	ProvisionVmAgent pulumi.BoolPtrOutput `pulumi:"provisionVmAgent"`
+	ProvisionVmAgent pulumi.BoolOutput `pulumi:"provisionVmAgent"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The Primary Public IP Address assigned to this Virtual Machine.
@@ -303,9 +309,6 @@ func NewLinuxVirtualMachine(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AdminUsername == nil {
-		return nil, errors.New("invalid value for required argument 'AdminUsername'")
-	}
 	if args.NetworkInterfaceIds == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInterfaceIds'")
 	}
@@ -364,6 +367,8 @@ type linuxVirtualMachineState struct {
 	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys []LinuxVirtualMachineAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
 	AdminUsername *string `pulumi:"adminUsername"`
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
@@ -427,6 +432,10 @@ type linuxVirtualMachineState struct {
 	OsDisk *LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification *LinuxVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	//
+	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+	OsManagedDiskId *string `pulumi:"osManagedDiskId"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
@@ -514,6 +523,8 @@ type LinuxVirtualMachineState struct {
 	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
 	AdminUsername pulumi.StringPtrInput
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations pulumi.BoolPtrInput
@@ -577,6 +588,10 @@ type LinuxVirtualMachineState struct {
 	OsDisk LinuxVirtualMachineOsDiskPtrInput
 	// A `osImageNotification` block as defined below.
 	OsImageNotification LinuxVirtualMachineOsImageNotificationPtrInput
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	//
+	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+	OsManagedDiskId pulumi.StringPtrInput
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
@@ -668,7 +683,9 @@ type linuxVirtualMachineArgs struct {
 	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys []LinuxVirtualMachineAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-	AdminUsername string `pulumi:"adminUsername"`
+	//
+	// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+	AdminUsername *string `pulumi:"adminUsername"`
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations *bool `pulumi:"allowExtensionOperations"`
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -731,6 +748,10 @@ type linuxVirtualMachineArgs struct {
 	OsDisk LinuxVirtualMachineOsDisk `pulumi:"osDisk"`
 	// A `osImageNotification` block as defined below.
 	OsImageNotification *LinuxVirtualMachineOsImageNotification `pulumi:"osImageNotification"`
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	//
+	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+	OsManagedDiskId *string `pulumi:"osManagedDiskId"`
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
@@ -809,7 +830,9 @@ type LinuxVirtualMachineArgs struct {
 	// > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
 	AdminSshKeys LinuxVirtualMachineAdminSshKeyArrayInput
 	// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-	AdminUsername pulumi.StringInput
+	//
+	// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+	AdminUsername pulumi.StringPtrInput
 	// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
 	AllowExtensionOperations pulumi.BoolPtrInput
 	// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -872,6 +895,10 @@ type LinuxVirtualMachineArgs struct {
 	OsDisk LinuxVirtualMachineOsDiskInput
 	// A `osImageNotification` block as defined below.
 	OsImageNotification LinuxVirtualMachineOsImageNotificationPtrInput
+	// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+	//
+	// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+	OsManagedDiskId pulumi.StringPtrInput
 	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
 	// > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
@@ -1046,13 +1073,15 @@ func (o LinuxVirtualMachineOutput) AdminSshKeys() LinuxVirtualMachineAdminSshKey
 }
 
 // The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-func (o LinuxVirtualMachineOutput) AdminUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
+//
+// > **Note:** This is required unless using an existing OS Managed Disk by specifying `osManagedDiskId`.
+func (o LinuxVirtualMachineOutput) AdminUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.AdminUsername }).(pulumi.StringPtrOutput)
 }
 
 // Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
-func (o LinuxVirtualMachineOutput) AllowExtensionOperations() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolPtrOutput { return v.AllowExtensionOperations }).(pulumi.BoolPtrOutput)
+func (o LinuxVirtualMachineOutput) AllowExtensionOperations() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolOutput { return v.AllowExtensionOperations }).(pulumi.BoolOutput)
 }
 
 // Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -1106,8 +1135,8 @@ func (o LinuxVirtualMachineOutput) DedicatedHostId() pulumi.StringPtrOutput {
 // > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 //
 // > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
-func (o LinuxVirtualMachineOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolPtrOutput { return v.DisablePasswordAuthentication }).(pulumi.BoolPtrOutput)
+func (o LinuxVirtualMachineOutput) DisablePasswordAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolOutput { return v.DisablePasswordAuthentication }).(pulumi.BoolOutput)
 }
 
 // Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
@@ -1190,18 +1219,25 @@ func (o LinuxVirtualMachineOutput) OsImageNotification() LinuxVirtualMachineOsIm
 	}).(LinuxVirtualMachineOsImageNotificationPtrOutput)
 }
 
+// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine.
+//
+// > **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `adminUsername`, `adminPassword`, `bypassPlatformSafetyChecksOnUserScheduleEnabled`, `computerName`, `customData`, `provisionVmAgent`, `patchMode`, `patchAssessmentMode`, or `rebootSetting`.
+func (o LinuxVirtualMachineOutput) OsManagedDiskId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.OsManagedDiskId }).(pulumi.StringOutput)
+}
+
 // Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 //
 // > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
-func (o LinuxVirtualMachineOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.PatchAssessmentMode }).(pulumi.StringPtrOutput)
+func (o LinuxVirtualMachineOutput) PatchAssessmentMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.PatchAssessmentMode }).(pulumi.StringOutput)
 }
 
 // Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 //
 // > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` then `provisionVmAgent` must also be set to `true`.
-func (o LinuxVirtualMachineOutput) PatchMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.PatchMode }).(pulumi.StringPtrOutput)
+func (o LinuxVirtualMachineOutput) PatchMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.PatchMode }).(pulumi.StringOutput)
 }
 
 // A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -1232,8 +1268,8 @@ func (o LinuxVirtualMachineOutput) PrivateIpAddresses() pulumi.StringArrayOutput
 // Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 //
 // > **NOTE:** If `provisionVmAgent` is set to `false` then `allowExtensionOperations` must also be set to `false`.
-func (o LinuxVirtualMachineOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolPtrOutput { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
+func (o LinuxVirtualMachineOutput) ProvisionVmAgent() pulumi.BoolOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolOutput { return v.ProvisionVmAgent }).(pulumi.BoolOutput)
 }
 
 // The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.

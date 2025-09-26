@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Billing
     ///         FileFormat = "Csv",
     ///         ExportDataStorageLocation = new Azure.Billing.Inputs.AccountCostManagementExportExportDataStorageLocationArgs
     ///         {
-    ///             ContainerId = exampleContainer.ResourceManagerId,
+    ///             ContainerId = exampleContainer.Id,
     ///             RootFolderPath = "/root/updated",
     ///         },
     ///         ExportDataOptions = new Azure.Billing.Inputs.AccountCostManagementExportExportDataOptionsArgs

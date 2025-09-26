@@ -177,7 +177,7 @@ namespace Pulumi.Azure.Search
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+        /// Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
         /// </summary>
         [Output("networkRuleBypassOption")]
         public Output<string?> NetworkRuleBypassOption { get; private set; } = null!;
@@ -362,7 +362,7 @@ namespace Pulumi.Azure.Search
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+        /// Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
         /// </summary>
         [Input("networkRuleBypassOption")]
         public Input<string>? NetworkRuleBypassOption { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Azure.Search
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `None`.
+        /// Whether to allow trusted Azure services to access a network restricted Search Service? Possible values are `None` and `AzureServices`. Defaults to `None`.
         /// </summary>
         [Input("networkRuleBypassOption")]
         public Input<string>? NetworkRuleBypassOption { get; set; }

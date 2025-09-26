@@ -163,15 +163,17 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
         [Output("adminUsername")]
-        public Output<string> AdminUsername { get; private set; } = null!;
+        public Output<string?> AdminUsername { get; private set; } = null!;
 
         /// <summary>
         /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         /// </summary>
         [Output("allowExtensionOperations")]
-        public Output<bool?> AllowExtensionOperations { get; private set; } = null!;
+        public Output<bool> AllowExtensionOperations { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -233,7 +235,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         /// </summary>
         [Output("disablePasswordAuthentication")]
-        public Output<bool?> DisablePasswordAuthentication { get; private set; } = null!;
+        public Output<bool> DisablePasswordAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
@@ -326,12 +328,20 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.LinuxVirtualMachineOsImageNotification?> OsImageNotification { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        /// 
+        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        /// </summary>
+        [Output("osManagedDiskId")]
+        public Output<string> OsManagedDiskId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
         /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Output("patchAssessmentMode")]
-        public Output<string?> PatchAssessmentMode { get; private set; } = null!;
+        public Output<string> PatchAssessmentMode { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -339,7 +349,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         /// </summary>
         [Output("patchMode")]
-        public Output<string?> PatchMode { get; private set; } = null!;
+        public Output<string> PatchMode { get; private set; } = null!;
 
         /// <summary>
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -377,7 +387,7 @@ namespace Pulumi.Azure.Compute
         /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         /// </summary>
         [Output("provisionVmAgent")]
-        public Output<bool?> ProvisionVmAgent { get; private set; } = null!;
+        public Output<bool> ProvisionVmAgent { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
@@ -591,9 +601,11 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
-        [Input("adminUsername", required: true)]
-        public Input<string> AdminUsername { get; set; } = null!;
+        [Input("adminUsername")]
+        public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
         /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
@@ -774,6 +786,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osImageNotification")]
         public Input<Inputs.LinuxVirtualMachineOsImageNotificationArgs>? OsImageNotification { get; set; }
+
+        /// <summary>
+        /// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        /// 
+        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        /// </summary>
+        [Input("osManagedDiskId")]
+        public Input<string>? OsManagedDiskId { get; set; }
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -980,6 +1000,8 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
         /// </summary>
         [Input("adminUsername")]
         public Input<string>? AdminUsername { get; set; }
@@ -1163,6 +1185,14 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("osImageNotification")]
         public Input<Inputs.LinuxVirtualMachineOsImageNotificationGetArgs>? OsImageNotification { get; set; }
+
+        /// <summary>
+        /// The ID of an existing Managed Disk to use as the OS Disk for this Linux Virtual Machine. 
+        /// 
+        /// &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+        /// </summary>
+        [Input("osManagedDiskId")]
+        public Input<string>? OsManagedDiskId { get; set; }
 
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.

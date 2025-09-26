@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleContainerImmutabilityPolicy = new azure.storage.ContainerImmutabilityPolicy("example", {
- *     storageContainerResourceManagerId: exampleContainer.resourceManagerId,
+ *     storageContainerResourceManagerId: exampleContainer.id,
  *     immutabilityPeriodInDays: 14,
  *     protectedAppendWritesAllEnabled: false,
  *     protectedAppendWritesEnabled: true,

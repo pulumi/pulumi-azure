@@ -263,6 +263,12 @@ if not MYPY:
         """
         The resource group in which the endpoint will be created.
         """
+        subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The subscription ID for the endpoint.
+
+        > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        """
 elif False:
     IoTHubEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -281,7 +287,8 @@ class IoTHubEndpointArgs:
                  file_name_format: Optional[pulumi.Input[_builtins.str]] = None,
                  identity_id: Optional[pulumi.Input[_builtins.str]] = None,
                  max_chunk_size_in_bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
         :param pulumi.Input[_builtins.str] type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
@@ -300,6 +307,9 @@ class IoTHubEndpointArgs:
                > **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
         :param pulumi.Input[_builtins.int] max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group in which the endpoint will be created.
+        :param pulumi.Input[_builtins.str] subscription_id: The subscription ID for the endpoint.
+               
+               > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -325,6 +335,8 @@ class IoTHubEndpointArgs:
             pulumi.set(__self__, "max_chunk_size_in_bytes", max_chunk_size_in_bytes)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @_builtins.property
     @pulumi.getter
@@ -485,6 +497,20 @@ class IoTHubEndpointArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The subscription ID for the endpoint.
+
+        > **Note:** When `subscription_id` isn't specified it will be set to the subscription ID of the IoT Hub resource.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subscription_id", value)
 
 
 if not MYPY:

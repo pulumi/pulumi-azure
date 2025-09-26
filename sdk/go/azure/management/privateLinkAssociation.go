@@ -96,29 +96,6 @@ type PrivateLinkAssociation struct {
 	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId pulumi.StringOutput `pulumi:"managementGroupId"`
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -172,29 +149,6 @@ type privateLinkAssociationState struct {
 	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId *string `pulumi:"managementGroupId"`
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name *string `pulumi:"name"`
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -210,29 +164,6 @@ type PrivateLinkAssociationState struct {
 	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId pulumi.StringPtrInput
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name pulumi.StringPtrInput
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -252,29 +183,6 @@ type privateLinkAssociationArgs struct {
 	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId string `pulumi:"managementGroupId"`
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name *string `pulumi:"name"`
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
@@ -289,29 +197,6 @@ type PrivateLinkAssociationArgs struct {
 	// > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
 	ManagementGroupId pulumi.StringInput
 	// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-	// 			ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-	// 			ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-	// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-	// 		})
-	// 		if err != nil {
-	// 			return err
-	// 		}
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Name pulumi.StringPtrInput
 	// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
 	PublicNetworkAccessEnabled pulumi.BoolInput
@@ -414,32 +299,6 @@ func (o PrivateLinkAssociationOutput) ManagementGroupId() pulumi.StringOutput {
 }
 
 // Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignoreChanges` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := management.NewPrivateLinkAssociation(ctx, "example", &management.PrivateLinkAssociationArgs{
-//				ManagementGroupId:               pulumi.Any(exampleAzurermManagementGroup.Id),
-//				ResourceManagementPrivateLinkId: pulumi.Any(exampleAzurermResourceManagementPrivateLink.Id),
-//				PublicNetworkAccessEnabled:      pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o PrivateLinkAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLinkAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

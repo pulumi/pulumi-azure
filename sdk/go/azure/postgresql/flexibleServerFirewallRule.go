@@ -81,13 +81,13 @@ import (
 type FlexibleServerFirewallRule struct {
 	pulumi.CustomResourceState
 
-	// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
 	// The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
-	// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
 }
 
@@ -130,24 +130,24 @@ func GetFlexibleServerFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FlexibleServerFirewallRule resources.
 type flexibleServerFirewallRuleState struct {
-	// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	EndIpAddress *string `pulumi:"endIpAddress"`
 	// The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	ServerId *string `pulumi:"serverId"`
-	// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	StartIpAddress *string `pulumi:"startIpAddress"`
 }
 
 type FlexibleServerFirewallRuleState struct {
-	// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	EndIpAddress pulumi.StringPtrInput
 	// The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	ServerId pulumi.StringPtrInput
-	// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	StartIpAddress pulumi.StringPtrInput
 }
 
@@ -156,25 +156,25 @@ func (FlexibleServerFirewallRuleState) ElementType() reflect.Type {
 }
 
 type flexibleServerFirewallRuleArgs struct {
-	// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	EndIpAddress string `pulumi:"endIpAddress"`
 	// The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	ServerId string `pulumi:"serverId"`
-	// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	StartIpAddress string `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a FlexibleServerFirewallRule resource.
 type FlexibleServerFirewallRuleArgs struct {
-	// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	EndIpAddress pulumi.StringInput
 	// The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
 	ServerId pulumi.StringInput
-	// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+	// The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 	StartIpAddress pulumi.StringInput
 }
 
@@ -265,7 +265,7 @@ func (o FlexibleServerFirewallRuleOutput) ToFlexibleServerFirewallRuleOutputWith
 	return o
 }
 
-// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+// The IPv4 Address defining the end of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 func (o FlexibleServerFirewallRuleOutput) EndIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerFirewallRule) pulumi.StringOutput { return v.EndIpAddress }).(pulumi.StringOutput)
 }
@@ -280,7 +280,7 @@ func (o FlexibleServerFirewallRuleOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerFirewallRule) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
 }
 
-// The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
+// The IPv4 Address defining the start of the range of addresses associated with this PostgreSQL Flexible Server Firewall Rule.
 func (o FlexibleServerFirewallRuleOutput) StartIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServerFirewallRule) pulumi.StringOutput { return v.StartIpAddress }).(pulumi.StringOutput)
 }

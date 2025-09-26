@@ -18,12 +18,20 @@ import * as utilities from "../utilities";
  *     storageAccountName: "example-storage-account-name",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Storage` - 2023-05-01
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getQueue:getQueue", {
         "metadata": args.metadata,
         "name": args.name,
+        "storageAccountId": args.storageAccountId,
         "storageAccountName": args.storageAccountName,
     }, opts);
 }
@@ -41,9 +49,17 @@ export interface GetQueueArgs {
      */
     name: string;
     /**
-     * The name of the Storage Account where the Queue exists.
+     * The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
+     *
+     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountName: string;
+    storageAccountId?: string;
+    /**
+     * The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storageAccountId`.
+     *
+     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+     */
+    storageAccountName?: string;
 }
 
 /**
@@ -61,9 +77,19 @@ export interface GetQueueResult {
     readonly name: string;
     /**
      * The Resource Manager ID of this Storage Queue.
+     *
+     * @deprecated the `resourceManagerId` property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
      */
     readonly resourceManagerId: string;
-    readonly storageAccountName: string;
+    readonly storageAccountId?: string;
+    /**
+     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+     */
+    readonly storageAccountName?: string;
+    /**
+     * The data plane URL of the Storage Queue in the format of `<storage queue endpoint>/<queue name>`. E.g. `https://example.queue.core.windows.net/queue1`.
+     */
+    readonly url: string;
 }
 /**
  * Use this data source to access information about an existing Storage Queue.
@@ -79,12 +105,20 @@ export interface GetQueueResult {
  *     storageAccountName: "example-storage-account-name",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Storage` - 2023-05-01
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getQueue:getQueue", {
         "metadata": args.metadata,
         "name": args.name,
+        "storageAccountId": args.storageAccountId,
         "storageAccountName": args.storageAccountName,
     }, opts);
 }
@@ -102,7 +136,15 @@ export interface GetQueueOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Queue exists.
+     * The name of the Storage Account where the Queue exists. This property will become Required in version 5.0 of the Provider.
+     *
+     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the Storage Account where the Queue exists. This property is deprecated in favour of `storageAccountId`.
+     *
+     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+     */
+    storageAccountName?: pulumi.Input<string>;
 }

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterNetworkProfile
     {
         /// <summary>
+        /// An `advanced_networking` block as defined below. This can only be specified when `network_plugin` is set to `azure` and `network_data_plane` is set to `cilium`.
+        /// </summary>
+        public readonly Outputs.KubernetesClusterNetworkProfileAdvancedNetworking? AdvancedNetworking;
+        /// <summary>
         /// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? DnsServiceIp;
@@ -74,7 +78,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? NetworkPolicy;
         /// <summary>
-        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
+        /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway`, `userAssignedNATGateway` and `none`. Defaults to `loadBalancer`.
+        /// 
+        /// &gt; **Note:** For more information on supported `outbound_type` migration paths please see the product [documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         /// </summary>
         public readonly string? OutboundType;
         /// <summary>
@@ -98,6 +104,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private KubernetesClusterNetworkProfile(
+            Outputs.KubernetesClusterNetworkProfileAdvancedNetworking? advancedNetworking,
+
             string? dnsServiceIp,
 
             ImmutableArray<string> ipVersions,
@@ -128,6 +136,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<string> serviceCidrs)
         {
+            AdvancedNetworking = advancedNetworking;
             DnsServiceIp = dnsServiceIp;
             IpVersions = ipVersions;
             LoadBalancerProfile = loadBalancerProfile;

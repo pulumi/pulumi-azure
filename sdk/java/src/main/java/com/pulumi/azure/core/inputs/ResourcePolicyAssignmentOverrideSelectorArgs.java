@@ -23,17 +23,9 @@ public final class ResourcePolicyAssignmentOverrideSelectorArgs extends com.pulu
         return Optional.ofNullable(this.ins);
     }
 
-    /**
-     * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     @Import(name="kind")
     private @Nullable Output<String> kind;
 
-    /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-     * 
-     */
     public Optional<Output<String>> kind() {
         return Optional.ofNullable(this.kind);
     }
@@ -84,23 +76,11 @@ public final class ResourcePolicyAssignmentOverrideSelectorArgs extends com.pulu
             return ins(List.of(ins));
         }
 
-        /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kind(@Nullable Output<String> kind) {
             $.kind = kind;
             return this;
         }
 
-        /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kind(String kind) {
             return kind(Output.of(kind));
         }

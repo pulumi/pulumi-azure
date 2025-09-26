@@ -26,7 +26,6 @@ namespace Pulumi.Azure.LoadTest.Inputs
 
         /// <summary>
         /// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-        /// *
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }

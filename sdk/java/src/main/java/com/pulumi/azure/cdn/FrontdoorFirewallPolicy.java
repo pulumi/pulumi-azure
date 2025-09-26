@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyLogScrubbingArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyManagedRuleArgs;
  * import java.util.List;
@@ -75,16 +74,6 @@ import javax.annotation.Nullable;
  *             .redirectUrl("https://www.contoso.com")
  *             .customBlockResponseStatusCode(403)
  *             .customBlockResponseBody("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
- *             .jsChallengeCookieExpirationInMinutes(45)
- *             .logScrubbing(FrontdoorFirewallPolicyLogScrubbingArgs.builder()
- *                 .enabled(true)
- *                 .scrubbingRules(FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs.builder()
- *                     .enabled(true)
- *                     .matchVariable("RequestCookieNames")
- *                     .operator("Equals")
- *                     .selector("ChocolateChip")
- *                     .build())
- *                 .build())
  *             .customRules(            
  *                 FrontdoorFirewallPolicyCustomRuleArgs.builder()
  *                     .name("Rule1")
@@ -128,21 +117,6 @@ import javax.annotation.Nullable;
  *                                 "Lowercase",
  *                                 "Trim")
  *                             .build())
- *                     .build(),
- *                 FrontdoorFirewallPolicyCustomRuleArgs.builder()
- *                     .name("CustomJSChallenge")
- *                     .enabled(true)
- *                     .priority(100)
- *                     .rateLimitDurationInMinutes(1)
- *                     .rateLimitThreshold(10)
- *                     .type("MatchRule")
- *                     .action("JSChallenge")
- *                     .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                         .matchVariable("RemoteAddr")
- *                         .operator("IPMatch")
- *                         .negationCondition(false)
- *                         .matchValues("192.168.1.0/24")
- *                         .build())
  *                     .build())
  *             .managedRules(            
  *                 FrontdoorFirewallPolicyManagedRuleArgs.builder()
@@ -185,14 +159,6 @@ import javax.annotation.Nullable;
  *                     .type("Microsoft_BotManagerRuleSet")
  *                     .version("1.1")
  *                     .action("Log")
- *                     .overrides(FrontdoorFirewallPolicyManagedRuleOverrideArgs.builder()
- *                         .ruleGroupName("BadBots")
- *                         .rules(FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs.builder()
- *                             .action("JSChallenge")
- *                             .enabled(true)
- *                             .ruleId("Bot100200")
- *                             .build())
- *                         .build())
  *                     .build())
  *             .build());
  * 
@@ -228,6 +194,12 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy")
 public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource {
+    @Export(name="captchaCookieExpirationInMinutes", refs={Integer.class}, tree="[0]")
+    private Output<Integer> captchaCookieExpirationInMinutes;
+
+    public Output<Integer> captchaCookieExpirationInMinutes() {
+        return this.captchaCookieExpirationInMinutes;
+    }
     /**
      * If a `custom_rule` block&#39;s action type is `block`, this is the response body. The body must be specified in base64 encoding.
      * 
@@ -298,25 +270,9 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
     public Output<List<String>> frontendEndpointIds() {
         return this.frontendEndpointIds;
     }
-    /**
-     * Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-     * 
-     * &gt; **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-     * 
-     * !&gt; **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-     * 
-     */
     @Export(name="jsChallengeCookieExpirationInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> jsChallengeCookieExpirationInMinutes;
 
-    /**
-     * @return Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
-     * 
-     * &gt; **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku&#39;s. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
-     * 
-     * !&gt; **Note:** Setting the`js_challenge_cookie_expiration_in_minutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-     * 
-     */
     public Output<Integer> jsChallengeCookieExpirationInMinutes() {
         return this.jsChallengeCookieExpirationInMinutes;
     }

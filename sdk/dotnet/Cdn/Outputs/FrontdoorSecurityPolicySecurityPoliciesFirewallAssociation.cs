@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation
     {
         /// <summary>
-        /// One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+        /// One or more `domain` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> Domains;
         /// <summary>

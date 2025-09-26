@@ -38,6 +38,7 @@ class AppFlexConsumptionArgs:
                  client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
                  https_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']] = None,
                  instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
@@ -71,6 +72,9 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.int] http_concurrency: The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+               
+               > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
@@ -119,6 +123,8 @@ class AppFlexConsumptionArgs:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if http_concurrency is not None:
+            pulumi.set(__self__, "http_concurrency", http_concurrency)
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
@@ -353,6 +359,20 @@ class AppFlexConsumptionArgs:
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="httpConcurrency")
+    def http_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+
+        > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+        """
+        return pulumi.get(self, "http_concurrency")
+
+    @http_concurrency.setter
+    def http_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "http_concurrency", value)
+
+    @_builtins.property
     @pulumi.getter(name="httpsOnly")
     def https_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -541,6 +561,7 @@ class _AppFlexConsumptionState:
                  default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  hosting_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
                  https_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input['AppFlexConsumptionIdentityArgs']] = None,
                  instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
@@ -583,6 +604,9 @@ class _AppFlexConsumptionState:
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Linux Function App.
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by Function App.
+        :param pulumi.Input[_builtins.int] http_concurrency: The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+               
+               > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
@@ -643,6 +667,8 @@ class _AppFlexConsumptionState:
             pulumi.set(__self__, "enabled", enabled)
         if hosting_environment_id is not None:
             pulumi.set(__self__, "hosting_environment_id", hosting_environment_id)
+        if http_concurrency is not None:
+            pulumi.set(__self__, "http_concurrency", http_concurrency)
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
@@ -843,6 +869,20 @@ class _AppFlexConsumptionState:
     @hosting_environment_id.setter
     def hosting_environment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "hosting_environment_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="httpConcurrency")
+    def http_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+
+        > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+        """
+        return pulumi.get(self, "http_concurrency")
+
+    @http_concurrency.setter
+    def http_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "http_concurrency", value)
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")
@@ -1201,6 +1241,7 @@ class AppFlexConsumption(pulumi.CustomResource):
                  client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
                  https_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
                  instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1298,6 +1339,9 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
+        :param pulumi.Input[_builtins.int] http_concurrency: The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+               
+               > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
@@ -1421,6 +1465,7 @@ class AppFlexConsumption(pulumi.CustomResource):
                  client_certificate_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
                  https_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  identity: Optional[pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
                  instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1461,6 +1506,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             __props__.__dict__["client_certificate_mode"] = client_certificate_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["http_concurrency"] = http_concurrency
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
             __props__.__dict__["instance_memory_in_mb"] = instance_memory_in_mb
@@ -1532,6 +1578,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             default_hostname: Optional[pulumi.Input[_builtins.str]] = None,
             enabled: Optional[pulumi.Input[_builtins.bool]] = None,
             hosting_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+            http_concurrency: Optional[pulumi.Input[_builtins.int]] = None,
             https_only: Optional[pulumi.Input[_builtins.bool]] = None,
             identity: Optional[pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
             instance_memory_in_mb: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1579,6 +1626,9 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Linux Function App.
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by Function App.
+        :param pulumi.Input[_builtins.int] http_concurrency: The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+               
+               > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
@@ -1631,6 +1681,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         __props__.__dict__["default_hostname"] = default_hostname
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["hosting_environment_id"] = hosting_environment_id
+        __props__.__dict__["http_concurrency"] = http_concurrency
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
         __props__.__dict__["instance_memory_in_mb"] = instance_memory_in_mb
@@ -1756,6 +1807,16 @@ class AppFlexConsumption(pulumi.CustomResource):
         The ID of the App Service Environment used by Function App.
         """
         return pulumi.get(self, "hosting_environment_id")
+
+    @_builtins.property
+    @pulumi.getter(name="httpConcurrency")
+    def http_concurrency(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
+
+        > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
+        """
+        return pulumi.get(self, "http_concurrency")
 
     @_builtins.property
     @pulumi.getter(name="httpsOnly")

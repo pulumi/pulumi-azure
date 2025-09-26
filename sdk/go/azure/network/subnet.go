@@ -133,6 +133,12 @@ type Subnet struct {
 	//
 	// > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
 	ServiceEndpoints pulumi.StringArrayOutput `pulumi:"serviceEndpoints"`
+	// The sharing scope of the subnet. Possible value is `Tenant`.
+	//
+	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
+	//
+	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	SharingScope pulumi.StringPtrOutput `pulumi:"sharingScope"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringOutput `pulumi:"virtualNetworkName"`
 }
@@ -209,6 +215,12 @@ type subnetState struct {
 	//
 	// > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
 	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
+	// The sharing scope of the subnet. Possible value is `Tenant`.
+	//
+	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
+	//
+	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	SharingScope *string `pulumi:"sharingScope"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
 }
@@ -250,6 +262,12 @@ type SubnetState struct {
 	//
 	// > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
 	ServiceEndpoints pulumi.StringArrayInput
+	// The sharing scope of the subnet. Possible value is `Tenant`.
+	//
+	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
+	//
+	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	SharingScope pulumi.StringPtrInput
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringPtrInput
 }
@@ -295,6 +313,12 @@ type subnetArgs struct {
 	//
 	// > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
 	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
+	// The sharing scope of the subnet. Possible value is `Tenant`.
+	//
+	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
+	//
+	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	SharingScope *string `pulumi:"sharingScope"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
@@ -337,6 +361,12 @@ type SubnetArgs struct {
 	//
 	// > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
 	ServiceEndpoints pulumi.StringArrayInput
+	// The sharing scope of the subnet. Possible value is `Tenant`.
+	//
+	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
+	//
+	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	SharingScope pulumi.StringPtrInput
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringInput
 }
@@ -492,6 +522,15 @@ func (o SubnetOutput) ServiceEndpointPolicyIds() pulumi.StringArrayOutput {
 // > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
 func (o SubnetOutput) ServiceEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringArrayOutput { return v.ServiceEndpoints }).(pulumi.StringArrayOutput)
+}
+
+// The sharing scope of the subnet. Possible value is `Tenant`.
+//
+// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
+//
+// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+func (o SubnetOutput) SharingScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.SharingScope }).(pulumi.StringPtrOutput)
 }
 
 // The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.

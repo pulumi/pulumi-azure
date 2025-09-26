@@ -187,44 +187,58 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
     @Export(name="adminPassword", refs={String.class}, tree="[0]")
-    private Output<String> adminPassword;
+    private Output</* @Nullable */ String> adminPassword;
 
     /**
      * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    public Output<String> adminPassword() {
-        return this.adminPassword;
+    public Output<Optional<String>> adminPassword() {
+        return Codegen.optional(this.adminPassword);
     }
     /**
      * The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
     @Export(name="adminUsername", refs={String.class}, tree="[0]")
-    private Output<String> adminUsername;
+    private Output</* @Nullable */ String> adminUsername;
 
     /**
      * @return The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This is required unless using an existing OS Managed Disk by specifying `os_managed_disk_id`.
+     * 
      */
-    public Output<String> adminUsername() {
-        return this.adminUsername;
+    public Output<Optional<String>> adminUsername() {
+        return Codegen.optional(this.adminUsername);
     }
     /**
      * Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
     @Export(name="allowExtensionOperations", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> allowExtensionOperations;
+    private Output<Boolean> allowExtensionOperations;
 
     /**
      * @return Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> allowExtensionOperations() {
-        return Codegen.optional(this.allowExtensionOperations);
+    public Output<Boolean> allowExtensionOperations() {
+        return this.allowExtensionOperations;
+    }
+    @Export(name="automaticUpdatesEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> automaticUpdatesEnabled;
+
+    public Output<Boolean> automaticUpdatesEnabled() {
+        return this.automaticUpdatesEnabled;
     }
     /**
      * Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -377,16 +391,20 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
+     * @deprecated
+     * this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.
+     * 
      */
+    @Deprecated /* this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider. */
     @Export(name="enableAutomaticUpdates", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableAutomaticUpdates;
+    private Output<Boolean> enableAutomaticUpdates;
 
     /**
      * @return Specifies if Automatic Updates are Enabled for the Windows Virtual Machine. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> enableAutomaticUpdates() {
-        return Codegen.optional(this.enableAutomaticUpdates);
+    public Output<Boolean> enableAutomaticUpdates() {
+        return this.enableAutomaticUpdates;
     }
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -459,7 +477,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hotpatchingEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> hotpatchingEnabled;
+    private Output<Boolean> hotpatchingEnabled;
 
     /**
      * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
@@ -467,8 +485,8 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
      * 
      */
-    public Output<Optional<Boolean>> hotpatchingEnabled() {
-        return Codegen.optional(this.hotpatchingEnabled);
+    public Output<Boolean> hotpatchingEnabled() {
+        return this.hotpatchingEnabled;
     }
     /**
      * An `identity` block as defined below.
@@ -587,13 +605,31 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.osImageNotification);
     }
     /**
+     * The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     * 
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * 
+     */
+    @Export(name="osManagedDiskId", refs={String.class}, tree="[0]")
+    private Output<String> osManagedDiskId;
+
+    /**
+     * @return The ID of an existing Managed Disk to use as the OS Disk for this Windows Virtual Machine.
+     * 
+     * &gt; **Note:** When specifying an existing Managed Disk it is not currently possible to subsequently manage the Operating System Profile properties: `admin_username`, `admin_password`, `bypass_platform_safety_checks_on_user_schedule_enabled`, `computer_name`, `custom_data`, `provision_vm_agent`, `patch_mode`, `patch_assessment_mode`, or `reboot_setting`.
+     * 
+     */
+    public Output<String> osManagedDiskId() {
+        return this.osManagedDiskId;
+    }
+    /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     @Export(name="patchAssessmentMode", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> patchAssessmentMode;
+    private Output<String> patchAssessmentMode;
 
     /**
      * @return Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -601,8 +637,8 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
-    public Output<Optional<String>> patchAssessmentMode() {
-        return Codegen.optional(this.patchAssessmentMode);
+    public Output<String> patchAssessmentMode() {
+        return this.patchAssessmentMode;
     }
     /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -611,7 +647,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="patchMode", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> patchMode;
+    private Output<String> patchMode;
 
     /**
      * @return Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -619,8 +655,8 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
      * 
      */
-    public Output<Optional<String>> patchMode() {
-        return Codegen.optional(this.patchMode);
+    public Output<String> patchMode() {
+        return this.patchMode;
     }
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -699,7 +735,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="provisionVmAgent", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> provisionVmAgent;
+    private Output<Boolean> provisionVmAgent;
 
     /**
      * @return Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
@@ -707,8 +743,8 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
      * 
      */
-    public Output<Optional<Boolean>> provisionVmAgent() {
-        return Codegen.optional(this.provisionVmAgent);
+    public Output<Boolean> provisionVmAgent() {
+        return this.provisionVmAgent;
     }
     /**
      * The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.

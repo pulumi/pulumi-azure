@@ -12,41 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KeyVaultContact {
-    /**
-     * @return E-mail address of the contact.
-     * 
-     */
     private String email;
     /**
-     * @return Name of the contact.
+     * @return Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      * 
      */
     private @Nullable String name;
-    /**
-     * @return Phone number of the contact.
-     * 
-     */
     private @Nullable String phone;
 
     private KeyVaultContact() {}
-    /**
-     * @return E-mail address of the contact.
-     * 
-     */
     public String email() {
         return this.email;
     }
     /**
-     * @return Name of the contact.
+     * @return Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Phone number of the contact.
-     * 
-     */
     public Optional<String> phone() {
         return Optional.ofNullable(this.phone);
     }

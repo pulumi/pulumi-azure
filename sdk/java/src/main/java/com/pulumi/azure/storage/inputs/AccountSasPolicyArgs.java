@@ -17,14 +17,14 @@ public final class AccountSasPolicyArgs extends com.pulumi.resources.ResourceArg
     public static final AccountSasPolicyArgs Empty = new AccountSasPolicyArgs();
 
     /**
-     * The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+     * The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
      * 
      */
     @Import(name="expirationAction")
     private @Nullable Output<String> expirationAction;
 
     /**
-     * @return The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+     * @return The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
      * 
      */
     public Optional<Output<String>> expirationAction() {
@@ -72,7 +72,7 @@ public final class AccountSasPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param expirationAction The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+         * @param expirationAction The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class AccountSasPolicyArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param expirationAction The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+         * @param expirationAction The SAS expiration action. Possible values are `Log` and `Block`. Defaults to `Log`.
          * 
          * @return builder
          * 

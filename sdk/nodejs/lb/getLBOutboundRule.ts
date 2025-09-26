@@ -63,6 +63,7 @@ export interface GetLBOutboundRuleResult {
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
     readonly backendAddressPoolId: string;
+    readonly enableTcpReset: boolean;
     /**
      * A `frontendIpConfiguration` block as defined below.
      */
